@@ -43,11 +43,11 @@ nav {
 
 
 				<li id="place"><a href="no-sidebar.do">전국 편의점 검색</a></li>
-				<li id="login"><a href="login.do">공지사항</a></li>
+				<li id="notice"><a href="#">공지사항</a></li>
 				<li id="service"><a href="#">고객센터</a>
 					<ul>
 						<li><a href="#">Q&A</a></li>
-						<li><a href="#">Veroeros feugiat</a></li>
+						<li><a href="#">1:1 문의</a></li>
 					</ul></li>
 			</ul>
 		</nav>

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <html>
 <head>
 <title>편의점 작업 중</title>
@@ -25,15 +25,17 @@
 	$(function() {
 		$("#welcome").attr("class", "current");
 	});
-	
-	function scroll_follow(id)	{
-	  $(window).scroll(function( )  //스크롤이 움직일때마다 이벤트 발생
-	  { 
-	      var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-	      $(id).stop().animate({top:position+"px"}, 1); //해당 오브젝트 위치값 재설정
-	   });
+
+	function scroll_follow(id) {
+		$(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
+		{
+			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+			$(id).stop().animate({
+				top : position + "px"
+			}, 1); //해당 오브젝트 위치값 재설정
+		});
 	}
-	 scroll_follow("#scroll");	 
+	scroll_follow("#scroll");
 </script>
 
 <style type="text/css">
@@ -41,8 +43,9 @@ body {
 	font-family: 'Mali', cursive;
 	font-family: '나눔고딕코딩', cursive
 }
-#scroll{
-z-index :5;
+
+#scroll {
+	z-index: 5;
 }
 </style>
 
@@ -204,12 +207,13 @@ z-index :5;
 		<div class="container">
 			<h2>개발중이니 관리자 페이지 링크 활성화.</h2>
 			<a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
+			<h4>로그인 한 이메일 : <%=session.getAttribute("EMAIL") %></h4>
+			<h4>로그인 한 회원 이름 : <%=session.getAttribute("NAME") %></h4>
 		</div>
 		<!-- Footer 인클루드. -->
 		<%@ include file="general/MainFooter.jsp"%>
 
 	</div>
-
 
 	<!-- Scripts -->
 
