@@ -74,11 +74,21 @@ public class AdminController {
 		return "admin/pages/tables/placeManagement";
 	}
 	
-	//게시판관리 페이지
+	//공지사항관리 페이지
 	@RequestMapping("/admin/pages/tables/boardManagement.do")
 	public String boardManagement() {
 		return "admin/pages/tables/boardManagement";
 	}
+	//이벤트 게시판 관리 페이지
+	@RequestMapping("/admin/pages/tables/EventManagement.do")
+	public String eventManagement() {
+		return "admin/pages/tables/EventManagement";
+	}
+	//레시피 게시판 관리 페이지
+		@RequestMapping("/admin/pages/tables/RecipeManagement.do")
+		public String RecipeManagement() {
+			return "admin/pages/tables/RecipeManagement";
+		}
 	
 	
 	@RequestMapping("/admin/pages/ui-features/buttons.do")

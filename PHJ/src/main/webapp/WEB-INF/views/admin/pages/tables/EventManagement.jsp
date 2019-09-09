@@ -11,7 +11,7 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-  
+   
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
@@ -67,13 +67,13 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-               <li class="nav-item">
+                 <li class="nav-item">
               <a class="nav-link" href="../../index.do">
                 <span class="menu-title">메인</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
-           
+         
             <li class="nav-item">
               <a class="nav-link" href="./memberManagement.do">
                 <span class="menu-title">고객관리</span>
@@ -97,7 +97,7 @@
             
             <li class="nav-item"> 
               <a class="nav-link" data-toggle="collapse" href="#board-pages" aria-expanded="false" aria-controls="board-pages">
-                <span class="menu-title">게시판관리</span>
+                <span class="menu-title">게시판 관리</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
@@ -105,7 +105,7 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="./boardManagement.do">공지사항</a></li>
                   <li class="nav-item"> <a class="nav-link" href="./RecipeManagement.do">레시피 게시판</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./placeManagement.do">이벤트 게시판</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./EventManagement.do">이벤트 게시판</a></li>
                 </ul>
               </div>
             </li> 
@@ -116,15 +116,15 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> 상품관리 </h3>
+              <h3 class="page-title"> 이벤트게시판 </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">상품관리</li>
+                  <li class="breadcrumb-item active" aria-current="page">이벤트게시판</li>
                 </ol>
               </nav>
             </div>
-          
+        
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
