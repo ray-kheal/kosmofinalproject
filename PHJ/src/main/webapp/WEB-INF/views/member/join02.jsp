@@ -9,15 +9,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <script>
 	function choiceInput(f, elem) {
@@ -130,7 +125,6 @@
 		location.href = "http://localhost:8080/phj/";
 	}
 </script>
-
 <style type="text/css">
 body {
 	font-family: 'Mali', cursive;
@@ -149,12 +143,10 @@ body {
 	background-attachment: fixed;
 	background-size: cover;
 }
-
 label {
 	font-size: 15px;
 }
 </style>
-<meta charset="UTF-8">
 <body>
 	<!-- 헤더 인클루드 -->
 	<%@ include file="../general/MainHeader.jsp"%>
@@ -164,20 +156,18 @@ label {
 		<div class="container" id="wrap">
 			<div>
 				<div>
-
+					<h3>편히점 회원가입</h3>
 					<form action="대충 가입완료됬다는 말" method="post"
 						onsubmit="return sendIt();" class="form" name="f">
-						<legend>편히점 회원가입</legend>
+						
 						<h4>가입정보</h4>
 						<br /> <br /> <br />
 						<div class="row" style="margin-left: 220px;">
 
 							<input type="text" name="email1" value=""
 								class="form-control input-lg" placeholder="이메일(아이디)"
-								style="width: 150px;" /> <span
-								style="font-size: 25px; padding-top: 3px">@ &nbsp; </span> <input
-								type="text" class="form-control input-lg" name="email3" id=""
-								style="width: 150px; padding-right: 30px;" />
+								style="width: 150px;" /> <span style="font-size: 25px; padding-top: 3px">@&nbsp;</span> 
+								<input type="text" class="form-control input-lg" name="email3" id="" style="width: 150px; padding-right: 30px;" />
 
 							<!--  <div class="col-xs-6 col-md-6">  -->
 							<!-- <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="도메인"  />  -->
@@ -191,35 +181,34 @@ label {
 								<option value="yahoo.co.kr">yahoo.co.kr</option>
 								<option value="">직접 입력</option>
 							</select> <br />
-
-
-
 						</div>
-						<label style="font-size: 10px;"> <input type="radio"
-							name="email" value="" id="email_alert" />메일 수신동의
-						</label> <label style="font-size: 10px;"> <input type="radio"
-							name="email" value="" id="email_Noalert" />메일 수신거부
-						</label> <span class="help-block" style="font-size: 10px;">메일 수신동의를
-							체크하시면 행사 및 공지사항을 메일로 보내드립니다. </span> <br /> <input type="password"
-							style="width: 400px; margin-left: 260px;" name="pass" value=""
-							class="form-control input-lg" placeholder="비밀번호" /><br /> <input
-							type="password" style="width: 400px; margin-left: 260px;"
-							name="confirm_password" value="" class="form-control input-lg"
-							placeholder="비밀번호 확인" /><br /> <input type="text"
-							style="width: 400px; margin-left: 260px;" name="name" value=""
-							class="form-control input-lg" placeholder="닉네임" /> <br /> <label
-							style="font-size: 10px;">전화번호</label> <br /> <br /> <br />
+						<label style="font-size: 10px;"> <input type="radio" name="email" value="" id="email_alert" />
+							메일 수신동의
+						</label> 
+						<label style="font-size: 10px;"> <input type="radio" name="email" value="" id="email_Noalert" />
+							메일 수신거부
+						</label>
+						<span class="help-block" style="font-size: 10px;">
+							메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다. 
+						</span> 
+						<br /> 
+						<input type="password" style="width: 400px; margin-left: 260px;" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
+						<br /> 
+						<input type="password" style="width: 400px; margin-left: 260px;" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
+						<br /> 
+						<input type="text" style="width: 400px; margin-left: 260px;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> 
+						<br /> 
+						<label style="font-size: 10px;">
+							전화번호
+						</label>
+						<br /> <br /> <br />
 						<div class="row"
 							style="font-size: 1.5em; text-align: center; margin-left: 250px;">
-
-
-							<input type="text" name="mobile1" class="form-control input-lg"
-								style="width: 120px;" /><span style="height: 45px;">ㅡ</span>
-							&nbsp;&nbsp; <input type="text" name="mobile2"
-								class="form-control input-lg" style="width: 120px;" /><span
-								style="height: 45px;">ㅡ</span> &nbsp;&nbsp; <input type="text"
-								name="mobile3" class="form-control input-lg"
-								style="width: 120px;" />
+							<input type="text" name="mobile1" class="form-control input-lg" style="width: 120px;" />
+								<span style="height: 45px;">ㅡ</span> &nbsp;&nbsp; 
+							<input type="text" name="mobile2" class="form-control input-lg" style="width: 120px;" />
+								<span style="height: 45px;">ㅡ</span> &nbsp;&nbsp; 
+							<input type="text" name="mobile3" class="form-control input-lg" style="width: 120px;" />
 
 						</div>
 						<span style="font-size: 10px;" class="help-block">휴대폰 메일
@@ -243,6 +232,8 @@ label {
 			</div>
 		</div>
 	</div>
+	<!-- Footer -->
+	<%@ include file="../general/LoginFooter.jsp"%>
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
