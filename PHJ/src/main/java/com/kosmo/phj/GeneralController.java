@@ -23,5 +23,16 @@ public class GeneralController {
 	public String no_sidebar() {
 		return "general/no-sidebar";
 	}
+	//공지사항게시판
+	@RequestMapping("notice.do")
+	public String notice() {
+		return "general/notice";
+	}
+	//리스트게시판
+	@RequestMapping("recipe.do")
+	public String recipe() {
+		return "general/recipe";
+	}
 
+	
 }
