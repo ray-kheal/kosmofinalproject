@@ -39,11 +39,11 @@ nav {
 						<li><a href="#">편의점별</a></li>
 					</ul>
 				</li>
-				<li id="recipe" class=""><a href="left-sidebar.do" id="link2">레시피</a></li>
+				<li id="recipe" class=""><a href="recipe.do" id="link2">레시피</a></li>
 
 
 				<li id="place"><a href="no-sidebar.do">전국 편의점 검색</a></li>
-				<li id="notice"><a href="#">공지사항</a></li>
+				<li id="notice"><a href="notice.do">공지사항</a></li>
 				<li id="service"><a href="#">고객센터</a>
 					<ul>
 						<li><a href="#">Q&A</a></li>
