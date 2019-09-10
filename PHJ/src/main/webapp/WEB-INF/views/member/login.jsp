@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype HTML>
 <html>
 <head>
@@ -78,21 +78,19 @@ body {
 					<div class="account-box">
 						<form class="loginForm" action="loginAction.do">
 							<div class="form-group">
-								<input type="text" class="form-control" name="email" placeholder="이메일"
-									required autofocus />
+								<input type="text" class="form-control" name="email"
+									placeholder="이메일" required autofocus />
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" name="pass" placeholder="암호"
-									required />
+								<input type="password" class="form-control" name="pass"
+									placeholder="암호" required />
 							</div>
 							<div class="custom-control custom-checkbox" style="color: white;">
 								<input type="checkbox" value="remember-me"
 									class="custom-control-input" /> 아이디를 저장합니다.
 							</div>
-							<span style="color:red;font-size:1em;">
-								${loginError }
-							</span>
-							<br />
+							<span style="color: red; font-size: 1em;"> ${loginError }
+							</span> <br />
 							<button class="btn btn-lg btn-block purple-bg" type="submit">
 								로그인</button>
 						</form>
@@ -118,11 +116,13 @@ body {
 						</div>
 						<div class="or-box row-block">
 							<a class="forgotLnk" href="http://www.jquery2dotnet.com"
-								style="color: blue;">로그인이 되지 않으시나요?</a><br /> <span
-								style="color: white;">아직 계정이 없으신가요?</span> <a
-								href="http://www.jquery2dotnet.com"
-								class="btn btn-primary btn-block" style="color: blue;">회원가입
-								하기</a>
+								style="color: blue;">로그인이 되지 않으시나요?</a>
+								<br /> 
+								<span style="color: white;">아직 계정이 없으신가요?</span> 
+								
+								<a href="join1.do" class="btn btn-primary btn-block" style="color: blue;">
+									회원가입 하기
+								</a>
 						</div>
 					</div>
 				</div>

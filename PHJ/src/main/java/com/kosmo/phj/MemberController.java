@@ -49,7 +49,7 @@ public class MemberController {
 		
 		return page;
 	}
-	
+	//로그아웃 처리
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest req, HttpSession session) {
 		
@@ -59,4 +59,16 @@ public class MemberController {
 		
 		return "redirect:../phj";
 	}
+	
+	//회원가입페이지 진입(약관)
+	@RequestMapping("/join1.do")
+	public String join1() {
+		return "member/join01";
+	}
+	
+	//회원가입페이지 진입(약관)
+		@RequestMapping("/join2.do")
+		public String join2() {
+			return "member/join02";
+		}
 }
