@@ -8,9 +8,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap"
-	rel="stylesheet">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -23,13 +21,6 @@
 		$("#recipe").attr("class", "current");
 	});
 </script>
-
-<style type="text/css">
-body {
-	font-family: 'Mali', cursive;
-	font-family: 'Gamja Flower', cursive
-}
-</style>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
 		<!-- 헤더파일 인클루드 -->
