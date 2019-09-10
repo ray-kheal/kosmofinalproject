@@ -70,7 +70,7 @@ body {
 			<%if(session.getAttribute("EMAIL")==null) { %>
 				<a href="login.do"><img src="images/scoll_login.png" alt="로그인" /></a>
 			<%}else{ %>
-				<a href="logout.do"><img src="images/scoll_login.png" alt="로그아웃" /></a>
+				<a href="logout.do"><img src="images/scoll_logout.png" alt="로그아웃" /></a>
 			<%} %>
 		</div>
 		
