@@ -1,26 +1,14 @@
 .account-box
 {
-    border: 2px solid rgba(153, 153, 153, 0.75);
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     -khtml-border-radius: 2px;
-    -o-border-radius: 2px;
+    -o-border-radius: 2px; 
     z-index: 3;
     font-size: 13px !important;
     font-family: "Helvetica Neue" ,Helvetica,Arial,sans-serif;
-    background-color: #ffffff;
     padding: 20px;
-}
-
-#logo
-{
-    width: 138px;
-    height: 30px;
-    text-align: center;
-    margin: 10px 0px 27px 40px;
-    background-position: 0px -4px;
-    position: relative;
 }
 
 .forgotLnk
@@ -29,41 +17,63 @@
     display: block;
 }
 
-.purple-bg
-{
-    background-color: #6E329D;
-    color: #fff;
-}
 .or-box
 {
-    position: relative;
     border-top: 1px solid #dfdfdf;
     padding-top: 20px;
     margin-top:20px;
 }
-.or
-{
-    color: #666666;
-    background-color: #ffffff;
-    position: absolute;
-    text-align: center;
-    top: -8px;
-    width: 40px;
-    left: 90px;
+
+#OtherLogin {
+	padding:15px;
 }
-.account-box .btn:hover
-{
-    color: #fff;
+
+.btn-google {
+	background-image:url("images/btn_google_signin_light_normal_web@2x.png");
+	background-repeat:no-repeat;
+	border:none;
+    width:200px;
+    height:48px;
+    cursor:pointer;
+    overflow:hidden; 
+    background-size:200px;
 }
-.btn-facebook
-{
-    background-color: #3F639E;
-    color: #fff;
-    font-weight:bold;
+
+.btn-google.btn-light:hover {
+	background-image:url("images/btn_google_signin_light_normal_web@2x.png");
+	background-repeat:no-repeat;
+	border:none;
+    width:200px;
+    height:48px;
+    cursor:pointer;
+    overflow:hidden; 
+    background-size:200px;
+	opacity: 0.7;
+	filter: alpha(opacity=40);
+	outline:none;
 }
-.btn-google
-{
-    background-color: #454545;
-    color: #fff;
-    font-weight:bold;
+
+.btn-kakao {
+	background-image:url("images/kakao_account_login_btn_large_narrow.png");
+	background-repeat:no-repeat;
+	border:none;
+    width:200px;
+    height:43px;
+    cursor:pointer;
+    overflow:hidden; 
+    background-size:200px;
+}
+
+.btn-kakao.btn-warning:hover {
+	background-image:url("images/kakao_account_login_btn_large_narrow.png");
+	background-repeat:no-repeat;
+	border:none;
+    width:200px;
+    height:43px;
+    cursor:pointer;
+    overflow:hidden; 
+    background-size:200px;
+	opacity: 0.7;
+	filter: alpha(opacity=40);
+	outline:none;
 }

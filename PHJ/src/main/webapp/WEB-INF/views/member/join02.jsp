@@ -148,17 +148,17 @@ label {
 }
 </style>
 <body>
+
+<div id="page-wrapper">
 	<!-- 헤더 인클루드 -->
 	<%@ include file="../general/MainHeader.jsp"%>
 
-	<div id="content">
-
+	
+	<div id="main-wrapper">
 		<div class="container" id="wrap">
-			<div>
-				<div>
-					<h3>편히점 회원가입</h3>
-					<form action="대충 가입완료됬다는 말" method="post"
-						onsubmit="return sendIt();" class="form" name="f">
+			<div id="content">
+				<h3>편히점 회원가입</h3>
+				<form action="대충 가입완료됬다는 말" method="post" onsubmit="return sendIt();" class="form" name="f">
 						
 						<h4>가입정보</h4>
 						<br /> <br /> <br />
@@ -223,18 +223,19 @@ label {
 							style="width: 200px; margin-left: 340px;"submit">가입완료하기
 						</button>
 						<br /> <br />
-					</form>
+					
 					<button class="btn btn-lg btn-primary btn-block signup-btn"
 						style="width: 200px; margin-left: 340px;" nochk();" type="submit">
 						돌아가기</button>
-
-				</div>
+					</form>
+						
+						
 			</div>
 		</div>
 	</div>
 	<!-- Footer -->
 	<%@ include file="../general/LoginFooter.jsp"%>
-
+</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
