@@ -77,13 +77,13 @@ body {
 		<!-- 메인 헤더 인클루드 -->
 		<%@ include file="general/MainHeader.jsp"%>
 
-		<!-- 배너 -->
+		<!-- 배너 -->  
 		<div id="banner-wrapper">
 			<div id="banner" class="box container">
 				<div class="row">
 					<div class="col-7 col-12-medium">
-						<h2>편의점 프론트엔드 작업중.</h2>
-						<p>작업 중임.</p>
+						<h2>편의점을 편하게 :)</h2>
+						<p></p>
 					</div>
 					<div class="col-5 col-12-medium">
 						<ul>
