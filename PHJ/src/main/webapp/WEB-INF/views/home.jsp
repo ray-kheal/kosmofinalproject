@@ -177,7 +177,7 @@ body {
 
 									</div>
 								</div>
-								<a href="menu2.jsp" class="button icon fa-file-alt">More</a>
+								<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
 					</div>
 					<div class="col-8 col-12-medium imp-medium">
@@ -187,7 +187,7 @@ body {
 							<section class="last">
 								<h2>공지사항</h2>
 								<h3>이부분에 공지사항 미리보기 게시판 신설</h3>
-								<a href="menu3.jsp"
+								<a href="notice.do"
 									class="button icon solid fa-arrow-circle-right">더보기</a>
 							</section>
 						</div>

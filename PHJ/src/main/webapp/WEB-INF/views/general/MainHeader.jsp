@@ -6,7 +6,14 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap"
 	rel="stylesheet">
-<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style type="text/css">
 nav {
 	font-family: 'Mali', cursive;
@@ -32,22 +39,20 @@ nav {
 		<nav id="nav" style="font-size: 20px;">
 			<ul>
 				<li id="welcome" class=""><a href="/phj">Home</a></li>
-				<li id="stock">
-					<a href="right-sidebar.do">편의점 상품 조회</a>
+				<li id="stock"><a href="right-sidebar.do">편의점 상품 조회</a>
 					<ul>
 						<li><a href="#">상품별</a></li>
 						<li><a href="#">편의점별</a></li>
-					</ul>
-				</li>
+					</ul></li>
 				<li id="recipe" class=""><a href="recipe.do" id="link2">레시피</a></li>
 
 
-				<li id="place"><a href="no-sidebar.do">전국 편의점 검색</a></li>
+				<li id="place"><a href="placemap.do">전국 편의점 검색</a></li>
 				<li id="notice"><a href="notice.do">공지사항</a></li>
 				<li id="service"><a href="#">고객센터</a>
 					<ul>
 						<li><a href="#">Q&A</a></li>
-						<li><a href="#">1:1 문의</a></li>
+						<li><a href="mail.do">1:1 문의</a></li>
 					</ul></li>
 			</ul>
 		</nav>

@@ -23,6 +23,7 @@ public class GeneralController {
 	public String no_sidebar() {
 		return "general/no-sidebar";
 	}
+	
 	//공지사항게시판
 	@RequestMapping("notice.do")
 	public String notice() {
@@ -32,6 +33,15 @@ public class GeneralController {
 	@RequestMapping("recipe.do")
 	public String recipe() {
 		return "general/recipe";
+	}
+	@RequestMapping("placemap.do")
+	public String placemap() {
+		return "general/placemap";
+	}
+	
+	@RequestMapping("mail.do")
+	public String mailing() {
+		return "general/mail";
 	}
 
 	
