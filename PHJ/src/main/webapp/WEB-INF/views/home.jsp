@@ -57,7 +57,11 @@ body {
 			<li><a href="#main-wrapper">편의점 레시피</a></li>
 			<li><a href="#notify">공지사항</a></li>
 			<li><a href="#info">고객센터</a></li>
-			<li><a href="login.do">로그인</a></li>
+			<%if(session.getAttribute("EMAIL")==null) { %>
+				<li><a href="login.do">로그인</a></li>
+			<%}else{ %>
+				<li><a href="logout.do">로그아웃</a></li>
+			<%} %>
 		</ul>
 	</div>
 

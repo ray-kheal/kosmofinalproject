@@ -49,4 +49,14 @@ public class MemberController {
 		
 		return page;
 	}
+	
+	@RequestMapping("/logout.do")
+	public String logout(HttpServletRequest req, HttpSession session) {
+		
+		session = req.getSession();
+
+		session.invalidate();
+		
+		return "redirect:../phj";
+	}
 }
