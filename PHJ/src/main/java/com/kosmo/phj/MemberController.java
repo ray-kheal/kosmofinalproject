@@ -19,7 +19,7 @@ public class MemberController {
 	
 	@RequestMapping("/login.do")
 	public String login() {
-		return "member/loginbutton";
+		return "member/login";
 	}
 	
 	//로그인 처리
@@ -37,7 +37,7 @@ public class MemberController {
 		if(dto.getEmail() == null) {
 			System.out.println("로그인재시도 로그");
 			model.addAttribute("loginError","일치하는 회원정보가 없습니다.");
-			page = "member/loginbutton";		
+			page = "member/login";		
 		} else {
 			model.addAttribute("req",req);
 			model.addAttribute("dto",dto);
@@ -49,7 +49,7 @@ public class MemberController {
 		
 		return page;
 	}
-	
+	//로그아웃 처리
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest req, HttpSession session) {
 		
@@ -59,4 +59,16 @@ public class MemberController {
 		
 		return "redirect:../phj";
 	}
+	
+	//회원가입페이지 진입(약관)
+	@RequestMapping("/join1.do")
+	public String join1() {
+		return "member/join01";
+	}
+	
+	//회원가입페이지 진입(약관)
+		@RequestMapping("/join2.do")
+		public String join2() {
+			return "member/join02";
+		}
 }

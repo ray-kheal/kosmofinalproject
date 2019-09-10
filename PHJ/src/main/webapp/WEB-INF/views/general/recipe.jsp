@@ -8,14 +8,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bs05Table</title>
 
-<link rel="stylesheet"
+<ink rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/main.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -30,47 +32,67 @@ body {
 	overflow: hidden; /* 불필요한 부분 가리기 */
 	padding: 1px 0 0 -10px;
 }
+
 .effect:after {
 	content: "";
 	position: absolute;
-	z-index: 5; 
+	z-index: 5;
 	width: 150px;
 	height: auto;
 	background: #ffa126;
 	content: "BEST RECIPE"; /* 보여주는 텍스트 */
 	text-align: center;
-	color: #fff; 
+	color: #fff;
 	font-family: 'Arial';
 	font-weight: bold;
 	padding: 5px 10px;
-	left: 25px; 
-	top: 10px; 
+	left: 25px;
+	top: 10px;
 	transform: rotate(0deg);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-} 
+}
 </style>
 <style>
-.pattern { 
-  background-color: #ffffff;
-  background-image: linear-gradient(90deg, rgba(0,0,0,.5) 50%, transparent 50%), linear-gradient(rgba(0,0,0,.5) 50%, transparent 50%);
-  background-size: 50px 50px;
+.pattern {
+	background-color: #ffffff;
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, .5) 50%,
+		transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
+		50%);
+	background-size: 50px 50px;
 }
 </style>
 
 
 <style>/**** 마우스오버 js *****/
 /* Demo purposes only */
-$(".hover").mouseleave( 
-	function(){
-	$(this).removeClass("hover");
-	}
+$("
+.hover
+ 
+")
+.mouseleave
+ 
+(
+function
+ 
+(){
+$(
+this
+ 
+)
+.removeClass
+("hover");
+
+	
+
+}
 );
 </style>
 <style>/**** 마우스오버 css *****/
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
 @import
-	url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+	url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css)
+	;
 
 figure.recipePhoto {
 	font-family: 'Raleway', Arial, sans-serif;
@@ -84,9 +106,9 @@ figure.recipePhoto {
 	text-align: left;
 	font-size: 16px;
 	background-color: #000000;
-	 border-radius: 10px;
+	border-radius: 10px;
 }
- 
+
 figure.recipePhoto * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -189,7 +211,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	opacity: 1;
 }
 </style>
+<script>
+	$(function() {
+		$("#recipe").attr("class", "current");
+	});
+</script>
 </head>
+
 <body>
 	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #ffd74d; display:table;"> 
 		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
@@ -201,21 +229,25 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	<br /><br />
 		<img src="./images/fork.png" alt="포크" style=" width:100px; height: 100px;"/>
 	</div> -->
-	
-	<div style="width:100%; height:200px; text-align: center; background-color: #ffd74d; display:table; "> 
-		 <br /><br /><br />
-		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
-		 <img src="images/fork_round.png" alt="포크" style=" width:50px; height: 50px;"/>
-		 RECIPE    
-		 <br />     
-		 </p> 
+
+	<!-- 메인헤더 인클루드 -->
+	<%@ include file="MainHeader.jsp"%>
+
+	<div
+		style="width: 100%; height: 200px; text-align: center; background-color: #ffd74d; display: table;">
+		<br /> <br /> <br />
+		<p
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
+			<img src="images/fork_round.png" alt="포크"
+				style="width: 50px; height: 50px;" /> RECIPE <br />
+		</p>
 	</div>
 	<div class="container">
 		<!-- Page Content -->
 		<div class="container">
 			<hr class="mt-2 mb-5 ">
 			<div class="row text-center text-lg-left">
-   
+
 				<!-- 이미지 시작 -->
 				<!-- 베스트게시물 s-->
 				<div class="col-lg-3 col-md-4 col-6 effect ">
@@ -232,7 +264,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</figure>
 				</div>
 				<!-- 베스트게시물 e-->
-				
+
 				<!-- 베스트게시물 s-->
 				<div class="col-lg-3 col-md-4 col-6 effect ">
 					<figure class="recipePhoto">
@@ -399,9 +431,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 				</div>
 				<!-- 일반게시물 e-->
 
-				
-				
-				
+
+
+
 			</div>
 		</div>
 		<!-- /.container -->
@@ -417,5 +449,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 				href="javascript:void(0);">→</a></li>
 		</ul>
 	</div>
+	
+	<!-- Scripts -->
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
