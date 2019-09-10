@@ -85,16 +85,16 @@ body {
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
 			</div>
 			<br /> <br />
-			<div>
-				<table class="table table-hover" style="text-align: center;">
+			<div>    
+				<table class="table table-hover" style="text-align: center; ">
 					<colgroup>
 						<col width="80px" />
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
 						<col width="80px" />
-					</colgroup>
-					<thead>
+					</colgroup>  
+					<thead>  
 						<tr class="table-primary" style="color: white;">
 							<th>번호</th>
 							<th>제목</th>
@@ -135,8 +135,8 @@ body {
 					</tbody>
 				</table>
 			</div>
-			<div class="row text-right" style="float: right;">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+			<div class="row text-right" style="float: right; padding-top: 40px;">
+				<button type="submit" class="btn btn-dark btn-sm" >글쓰기</button>
 			</div>
 
 

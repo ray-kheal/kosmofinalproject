@@ -42,7 +42,7 @@ body {
 	font-weight: bold;
 	padding: 5px 10px;
 	left: 25px;
-	top: 10px;
+	top: 35px; 
 	transform: rotate(0deg);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
