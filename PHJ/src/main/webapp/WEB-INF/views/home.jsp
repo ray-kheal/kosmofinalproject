@@ -4,22 +4,16 @@
 <%@ page session="true"%>
 <html>
 <head>
-<title>편의점 작업 중</title>
+<title>편히점 작업 중</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-
 <script>
 	//인클루드 헤더 항목 선택구분.
 	$(function() {
@@ -37,7 +31,6 @@
 	}
 	scroll_follow("#scroll");
 </script>
-
 <style type="text/css">
 body {
 	font-family: 'Mali', cursive;
@@ -50,21 +43,24 @@ body {
 </style>
     
 <body class="is-preload homepage">
-	<div id="scroll" style="position: absolute; right: 30; top: 30; ">
-		<%-- <ul style=" list-style:none; ">
-			<li style="background:url(images/scoll_welcome.png);"><a href="#">welcome</a></li>
-			<li style="background:url(images/scoll_product.png);"><a href="#features-wrapper">편의점 상품조회</a></li>
-			<li style="background:url(images/scoll_recipe.png);"><a href="#main-wrapper">편의점 레시피</a></li>
-			<li style="background:url(images/scoll_notice.png);"><a href="#notify">공지사항</a></li>
-			<li style="background:url(images/scoll_cs.png);"><a href="#info">고객센터</a></li>
-			<%if(session.getAttribute("EMAIL")==null) { %>
-				<li style="background:url(images/scoll_login.png);"><a href="login.do">로그인</a></li>
-			<%}else{ %>
-				<li><a href="logout.do">로그아웃</a></li>
-			<%} %>
+	<div id="page-wrapper">
+	
+		<!-- 메인페이지 우측 스크롤메뉴 -->
+		<div id="scroll" style="position: absolute; right: 30; top: 30;">
+			<%-- <ul>
+				<li><a href="#header">Welcome</a></li>
+				<li><a href="#features-wrapper">편의점 상품조회</a></li>
+				<li><a href="#main-wrapper">편의점 레시피</a></li>
+				<li><a href="#notify">공지사항</a></li>
+				<li><a href="#info">고객센터</a></li>
+				<%if(session.getAttribute("EMAIL")==null) { %>
+					<li><a href="login.do">로그인</a></li>
+				<%}else{ %>
+					<li><a href="logout.do">로그아웃</a></li>
+				<%} %>
+			</ul> --%>
 			
-		</ul> --%>
-		      
+			<!-- 이미지로 스크롤 메뉴 변경함 -->
 			<a href="#"><img src="images/scoll_welcome.png" alt="welcome" style="right: 30; top: 30;"/></a><br />
 			<a href="#features-wrapper"><img src="images/scoll_product.png" alt="편의점 상품조회" /></a><br />
 			<a href="#main-wrapper"><img src="images/scoll_recipe.png" alt="편의점 레시피" /></a><br />
@@ -76,16 +72,12 @@ body {
 			<%}else{ %>
 				<a href="logout.do"><img src="images/scoll_login.png" alt="로그아웃" /></a>
 			<%} %>
-			
+		</div>
 		
-	</div>
-
-
-	<div id="page-wrapper">
-
+		<!-- 메인 헤더 인클루드 -->
 		<%@ include file="general/MainHeader.jsp"%>
 
-		<!-- Banner -->
+		<!-- 배너 -->
 		<div id="banner-wrapper">
 			<div id="banner" class="box container">
 				<div class="row">
@@ -107,16 +99,11 @@ body {
 		</div>
 
 		<!-- Features -->
-
 		<div id="features-wrapper">
-
 			<div class="container">
-
 				<div class="row">
-
 					<div class="col-6 col-12-medium">
 						<!-- Box -->
-
 						<section class="box feature">
 							<a href="menu1.jsp" class="image featured"><img
 								src="images/pic01.jpg" alt="" /></a>
@@ -152,47 +139,44 @@ body {
 					<!-- Sidebar -->
 					<div id="recipe">
 						<section class="widget thumbnails">
-							<h2>
-								레시피
-								</h3>
-								<div class="grid">
-									<div class="row gtr-50">
-										<h3>요기에 레시피 게시판 미리보기</h3>
-										<br />
-										<table>
-											<tr>
-												<td>
-													<div>
-														<a href="#" class="image fit"><img
-															src="images/pic04.jpg" alt="" />레시피</a>
-													</div>
-												</td>
-												<td>
-													<div>
-														<a href="#" class="image fit"><img
-															src="images/pic05.jpg" alt="" />레시피2</a>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div>
-														<a href="#" class="image fit"><img
-															src="images/pic06.jpg" alt="" />레시피3</a>
-													</div>
-												</td>
-												<td>
-													<div>
-														<a href="#" class="image fit"><img
-															src="images/pic07.jpg" alt="" />레시피4</a>
-													</div>
-												</td>
-											</tr>
-										</table>
-
-									</div>
+							<h2>레시피</h2>
+							<div class="grid">
+								<div class="row gtr-50">
+									<h3>요기에 레시피 게시판 미리보기</h3>
+									<br />
+									<table>
+										<tr>
+											<td>
+												<div>
+													<a href="#" class="image fit"><img
+														src="images/pic04.jpg" alt="" />레시피</a>
+												</div>
+											</td>
+											<td>
+												<div>
+													<a href="#" class="image fit"><img
+														src="images/pic05.jpg" alt="" />레시피2</a>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div>
+													<a href="#" class="image fit"><img
+														src="images/pic06.jpg" alt="" />레시피3</a>
+												</div>
+											</td>
+											<td>
+												<div>
+													<a href="#" class="image fit"><img
+														src="images/pic07.jpg" alt="" />레시피4</a>
+												</div>
+											</td>
+										</tr>
+									</table>
 								</div>
-								<a href="recipe.do" class="button icon fa-file-alt">More</a>
+							</div>
+							<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
 					</div>
 					<div class="col-8 col-12-medium imp-medium">
@@ -208,7 +192,6 @@ body {
 						</div>
 					</div>
 					<div class="col-8 col-12-medium imp-medium">
-
 						<!-- Content -->
 						<div id="info">
 							<section class="last">
@@ -219,7 +202,6 @@ body {
 							</section>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
