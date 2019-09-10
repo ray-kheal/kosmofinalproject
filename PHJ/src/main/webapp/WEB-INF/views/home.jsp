@@ -48,11 +48,11 @@ body {
 	z-index: 5;
 }
 </style>
-
+    
 <body class="is-preload homepage">
-	<div id="scroll" style="position: absolute; right: 30; top: 30;">
-		<ul>
-			<li><a href="#header">Welcome</a></li>
+	<div id="scroll" style="position: absolute; right: 30; top: 30; ">
+		<ul style=" list-style:none; ">
+			<li style="background:url(images/scoll_welcome.png);"><a href="#"></a></li>
 			<li><a href="#features-wrapper">편의점 상품조회</a></li>
 			<li><a href="#main-wrapper">편의점 레시피</a></li>
 			<li><a href="#notify">공지사항</a></li>
