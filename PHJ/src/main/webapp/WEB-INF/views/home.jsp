@@ -51,18 +51,33 @@ body {
     
 <body class="is-preload homepage">
 	<div id="scroll" style="position: absolute; right: 30; top: 30; ">
-		<ul style=" list-style:none; ">
-			<li style="background:url(images/scoll_welcome.png);"><a href="#"></a></li>
-			<li><a href="#features-wrapper">편의점 상품조회</a></li>
-			<li><a href="#main-wrapper">편의점 레시피</a></li>
-			<li><a href="#notify">공지사항</a></li>
-			<li><a href="#info">고객센터</a></li>
+		<%-- <ul style=" list-style:none; ">
+			<li style="background:url(images/scoll_welcome.png);"><a href="#">welcome</a></li>
+			<li style="background:url(images/scoll_product.png);"><a href="#features-wrapper">편의점 상품조회</a></li>
+			<li style="background:url(images/scoll_recipe.png);"><a href="#main-wrapper">편의점 레시피</a></li>
+			<li style="background:url(images/scoll_notice.png);"><a href="#notify">공지사항</a></li>
+			<li style="background:url(images/scoll_cs.png);"><a href="#info">고객센터</a></li>
 			<%if(session.getAttribute("EMAIL")==null) { %>
-				<li><a href="login.do">로그인</a></li>
+				<li style="background:url(images/scoll_login.png);"><a href="login.do">로그인</a></li>
 			<%}else{ %>
 				<li><a href="logout.do">로그아웃</a></li>
 			<%} %>
-		</ul>
+			
+		</ul> --%>
+		      
+			<a href="#"><img src="images/scoll_welcome.png" alt="welcome" style="right: 30; top: 30;"/></a><br />
+			<a href="#features-wrapper"><img src="images/scoll_product.png" alt="편의점 상품조회" /></a><br />
+			<a href="#main-wrapper"><img src="images/scoll_recipe.png" alt="편의점 레시피" /></a><br />
+			<a href="#notify"><img src="images/scoll_notice.png" alt="공지사항" /></a><br />
+			<a href="#info"><img src="images/scoll_cs.png" alt="고객센터" /></a><br />
+			
+			<%if(session.getAttribute("EMAIL")==null) { %>
+				<a href="login.do"><img src="images/scoll_login.png" alt="로그인" /></a>
+			<%}else{ %>
+				<a href="logout.do"><img src="images/scoll_login.png" alt="로그아웃" /></a>
+			<%} %>
+			
+		
 	</div>
 
 
