@@ -106,7 +106,7 @@ body {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="menu1.jsp" class="image featured"><img
-								src="images/pic01.jpg" alt="" /></a>
+								src="images/store_shadow.png" alt="" /></a>
 							<div class="inner">
 								<header>
 									<h2>편의점 찾기</h2>
@@ -119,7 +119,7 @@ body {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="menu1.jsp" class="image featured"><img
-								src="images/pic02.jpg" alt="" /></a>
+								src="images/product_shadow.png" alt="" /></a>
 							<div class="inner">
 								<header>
 									<h2>상품 찾기</h2>
@@ -141,15 +141,15 @@ body {
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
 							<div class="grid">
-								<div class="row gtr-50">
+								<div class="row gtr-50" style="position: relative; display: inline-block; *display: inline;">
 									<h3>요기에 레시피 게시판 미리보기</h3>
 									<br />
 									<table>
 										<tr>
-											<td>
+											<td style="width: 50%;">
 												<div>
 													<a href="#" class="image fit"><img
-														src="images/pic04.jpg" alt="" />레시피</a>
+														src="images/pic04.jpg" alt=""  style="display: block;"/>레시피</a>
 												</div>
 											</td>
 											<td>
