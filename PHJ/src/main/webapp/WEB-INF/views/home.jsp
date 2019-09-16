@@ -9,7 +9,6 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -105,7 +104,7 @@ body {
 					<div class="col-6 col-12-medium">
 						<!-- Box -->
 						<section class="box feature">
-							<a href="menu1.jsp" class="image featured"><img
+							<a href="right-sidebar.do" class="image featured"><img
 								src="images/store_shadow.png" alt="" /></a>
 							<div class="inner">
 								<header>
@@ -118,7 +117,7 @@ body {
 					<div class="col-6 col-12-medium">
 						<!-- Box -->
 						<section class="box feature">
-							<a href="menu1.jsp" class="image featured"><img
+							<a href="placemap.do" class="image featured"><img
 								src="images/product_shadow.png" alt="" /></a>
 							<div class="inner">
 								<header>
@@ -184,11 +183,19 @@ body {
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
-								<h2>공지사항</h2>
-								<h3>이부분에 공지사항 미리보기 게시판 신설</h3>
-								<a href="notice.do"
-									class="button icon solid fa-arrow-circle-right">더보기</a>
+							<table>
+								<td>
+									<h2>공지사항</h2>
+									<h3>이부분에 공지사항 미리보기 게시판 신설</h3>
+									<a href="notice.do"
+										class="button icon solid fa-arrow-circle-right">더보기</a> </td> 
+								<td>
+									<h2>이벤트</h2>
+									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
+									<a href="qna.do"
+										class="button icon solid fa-arrow-circle-right">더보기</a></td>
 							</section>
+								</table>
 						</div>
 					</div>
 					<div class="col-8 col-12-medium imp-medium">
@@ -197,7 +204,7 @@ body {
 							<section class="last">
 								<h2>고객센터</h2>
 								<h3>이부분에 고객센터 페이지 소개</h3>
-								<a href="menu4.jsp"
+								<a href="qna.do"
 									class="button icon solid fa-arrow-circle-right">더보기</a>
 							</section>
 						</div>

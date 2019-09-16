@@ -10,12 +10,11 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="resources/newlogo.css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap"
-	rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/api:client.js"></script>
 </head>
 <style type="text/css">
 	body {
@@ -63,6 +62,30 @@
 		width:400px;
 	}
 </style>
+<script type="text/javascript">
+	var googleUser = {};
+	var startApp = function() {
+	gapi.load('auth2', function(){
+		auth2 = gapi.auth2.init({
+			client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
+			cookiepolicy: 'single_host_origin',
+			});
+		attachSignin(document.getElementById('customBtn'));
+		});
+	};
+	
+	function attachSignin(element) {
+		console.log(element.id);
+		auth2.attachClickHandler(element, {}, function(googleUser) {
+			document.getElementById('name').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
+			document.getElementById('email').innerText = "Signed in: " + googleUser.getBasicProfile().getEmail();
+			
+			
+		}, function(error) {
+			  alert(JSON.stringify(error, undefined, 2));
+			});
+		}
+</script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
 		<!-- 헤더 -->
@@ -104,7 +127,7 @@
 									</a>
 								</div>
 								<div class="google" style="margin-top:10px;">
-									<a href="#"> 
+									<a href="javascript:attachSignin();"> 
 										<button type="button" class="btn btn-google btn-light"></button>
 									</a>
 								</div>
