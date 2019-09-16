@@ -23,7 +23,7 @@ body {
 </style>
 <script>
 	$(function() {
-		$("#notice").attr("class", "current");
+		$("#service").attr("class", "current");
 	});
 </script>
 <body>

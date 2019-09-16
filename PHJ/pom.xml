@@ -139,7 +139,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.1.4.RELEASE</version>
-		</dependency>     
+		</dependency>    
+		<!-- 메일  -->
+			<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency> 
 	</dependencies>
     <build>
         <plugins>
