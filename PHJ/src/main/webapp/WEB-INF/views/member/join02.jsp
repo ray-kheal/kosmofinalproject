@@ -9,16 +9,19 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/join02.css" />
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <script>
-	function choiceInput(f, elem) {
+	function choiceInput(frm, elem) {
 		for (var i = 0; i < elem.length; i++) {
 			if (elem.options[i].selected) {
 				if (elem.options[elem.selectedIndex].value != "direct_input") {
-					f.email2.value = elem.options[elem.selectedIndex].value
+					frm  .email2.value = elem.options[elem.selectedIndex].value
 				} else {
 					f.email2.value = "";
 					f.email2.focus();
@@ -31,12 +34,6 @@
 		if (f.email1.value == "") {
 			alert("이메일을 입력해주세요.");
 			f.email1.focus();
-			return false;
-		}
-
-		if (f.email2.value == "") {
-			alert("이메일을 입력해주세요.");
-			f.email.focus();
 			return false;
 		}
 
@@ -71,6 +68,13 @@
 			document.f.pass1.select();
 			return false;
 		}
+		//비밀번호확인 공백체크
+		if (f.pass2.value == "") {
+			alert("비밀번호를 입력해주세요.")
+			document.f.pass2.focus();
+			document.f.pass2.select();
+			return false;
+		}
 		//비밀번호와 비밀번호 확인 일치여부 체크
 		if (f.pass1.value != f.pass2.value) {
 			alert("비밀번호가 일치하지 않습니다")
@@ -79,17 +83,11 @@
 			return false;
 		}
 
-		if (f.mobile1.value == "") {
-			alert("핸드폰번호를 입력해주세요.")
-			document.f.mobile1.focus();
-		}
-		if (f.mobile2.value == "") {
-			alert("핸드폰번호를 입력해주세요.")
-			document.f.mobile2.focus();
-		}
-		if (f.mobile3.value == "") {
-			alert("핸드폰번호를 입력해주세요.")
-			document.f.mobile3.focus();
+		if (f.mobile1.value == "" || f.mobile2.value == "" || f.mobile3.value == "") {
+			alert("휴대전화번호를 입력해주세요.")
+			document.f.mobile1.focus(); 
+			return false;
+		
 		}
 		for (var i = 0; i < f.mobile1.value.length; i++) {
 			chm = f.mobile1.value.charAt(i)
@@ -118,7 +116,24 @@
 				return false;
 			}
 		}
+		
+		location.href = "./members.do";
+		
 	}
+	function choiceInput(f, elem) { 
+		for(var i=0; i<elem.length;i++) { 
+			if (elem.options[i].selected) {
+				if(elem.options[elem.selectedIndex].value!="direct_input"){
+					f.email2.value = elem.options[elem.selectedIndex].value	
+				}
+				else{
+					frm.email2.value = "";
+					frm.email2.focus();
+				}
+			} 
+		}
+	} 
+	
 	function nochk() {
 		alert("메인으로 돌아갑니다.");
 		location.href = "http://localhost:8080/phj/";
@@ -150,25 +165,30 @@ label {
 <div id="page-wrapper">
 	<!-- 헤더 인클루드 -->
 	<%@ include file="../general/MainHeader.jsp"%>
+	<table>
+	<div id="content">
 
-	
-	<div id="main-wrapper">
-		<div class="container" id="wrap">
-			<div id="content">
-				<h3>편히점 회원가입</h3>
-				<form action="대충 가입완료됬다는 말" method="post" onsubmit="return sendIt();" class="form" name="f">
+		<div class="container" id="wrap"  style="width:920px; height:1024px; text-align:center;">
+			<div>
+				<div>
+					<h2>편히점 회원가입</h2>
+					<form method="post"
+						onsubmit="return sendIt();" class="form" name="f">
+
 						
+						<br />
 						<h4>가입정보</h4>
-						<br /> <br /> <br />
+						<br /> <br />
 						<div class="row" style="margin-left: 220px;">
 
-							<input type="text" name="email1" value=""
+							<input type="text" name="email1" id="email1" value=""
 								class="form-control input-lg" placeholder="이메일(아이디)"
-								style="width: 150px;" /> <span style="font-size: 25px; padding-top: 3px">@&nbsp;</span> 
-								<input type="text" class="form-control input-lg" name="email3" id="" style="width: 150px; padding-right: 30px;" />
+			  					style="width: 150px;" /> <span style="font-size: 25px; padding-top: 2px">@&nbsp;</span> 
+							<input type="text" class="form-control input-lg" name="email2" id="email2" style="width: 150px; padding-right: 30px;" />
 
 							<!--  <div class="col-xs-6 col-md-6">  -->
 							<!-- <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="도메인"  />  -->
+							<br />
 							<select name="email2" onchange="choiceInput(this.form, this)"
 								style="padding-top: 3px; width: 150px;"
 								class="form-control input-lg">
@@ -180,60 +200,74 @@ label {
 								<option value="">직접 입력</option>
 							</select> <br />
 						</div>
-						<label style="font-size: 10px;"> <input type="radio" name="email" value="" id="email_alert" />
+						
+						
+						
+						<label style="font-size: 13px;"> <input type="radio" name="email" value="" id="email_alert" />
 							메일 수신동의
 						</label> 
-						<label style="font-size: 10px;"> <input type="radio" name="email" value="" id="email_Noalert" />
+						<label style="font-size: 13px;"> <input type="radio" name="email" value="" id="email_Noalert" checked/>
 							메일 수신거부
 						</label>
-						<span class="help-block" style="font-size: 10px;">
+						<br />
+						<span class="help-block" style="font-size: 13px;">
 							메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다. 
 						</span> 
+						<br /> <br />  
+						<input type="password" style="width: 600px; margin-left: 180px;" id="pass1" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
 						<br /> 
-						<input type="password" style="width: 400px; margin-left: 260px;" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
+						<input type="password" style="width: 600px; margin-left: 180px;" id="pass2" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
 						<br /> 
-						<input type="password" style="width: 400px; margin-left: 260px;" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
+						<input type="text" style="width: 600px; margin-left: 180px;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> 
 						<br /> 
-						<input type="text" style="width: 400px; margin-left: 260px;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> 
-						<br /> 
-						<label style="font-size: 10px;">
-							전화번호
+						<label style="font-size: 17px;">
+							휴대폰 번호  
+						<br /> <br />  
+						</label>  
+						<br /> <br />
+						<div class="row"  
+							style="font-size: 1.5em; text-align:center; margin-left: 180px;">
+							<input type="text" name="mobile1" class="form-control input-lg" style="width: 100px;" />
+								&nbsp; - &nbsp; 
+							<input type="text" name="mobile2" class="form-control input-lg" style="width: 100px;" />
+								&nbsp; - &nbsp;
+							<input type="text" name="mobile3" class="form-control input-lg" style="width: 100px;" />
+   
+						</div> 
+						
+						<br />
+						
+						<label style="font-size: 13px;" class="radio-inline"> <input
+							type="radio" name="sms" value="" id=""mobile_alert />SMS수신동의
+						</label> <label style="font-size: 13px;" class="radio-inline">
+							<input type="radio" name="sms" value="" id="mobile_Noalert" checked/>SMS수신거부
 						</label>
-						<br /> <br /> <br />
-						<div class="row"
-							style="font-size: 1.5em; text-align: center; margin-left: 250px;">
-							<input type="text" name="mobile1" class="form-control input-lg" style="width: 120px;" />
-								<span style="height: 45px;">ㅡ</span> &nbsp;&nbsp; 
-							<input type="text" name="mobile2" class="form-control input-lg" style="width: 120px;" />
-								<span style="height: 45px;">ㅡ</span> &nbsp;&nbsp; 
-							<input type="text" name="mobile3" class="form-control input-lg" style="width: 120px;" />
-
-						</div>
-						<span style="font-size: 10px;" class="help-block">휴대폰 메일
+						<br />
+						<span style="font-size: 13px;" class="help-block">휴대폰 메일
 							수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다. </span> <span class="help-block"></span>
-
-						<label style="font-size: 10px;" class="radio-inline"> <input
-							type="radio" name="mobile_alert" value="" id="" />SMS수신동의
-						</label> <br /> <label style="font-size: 10px;" class="radio-inline">
-							<input type="radio" name="mobile_Noalert" value="" id="" />SMS수신거부
-						</label> <br /> <br />
+    
+						 <br /> <br />
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
 							style="width: 200px; margin-left: 340px;"submit">가입완료하기
 						</button>
-						<br /> <br />
-					
-					<button class="btn btn-lg btn-primary btn-block signup-btn"
-						style="width: 200px; margin-left: 340px;" nochk();" type="submit">
-						돌아가기</button>
+						<br />
 					</form>
-						
-						
+						<button class="btn btn-lg btn-primary btn-block signup-btn"
+							style="width: 200px; margin-left: 340px;" nochk();" type="submit">돌아가기
+												
+						</button>
+
+					
+				</div>
+
 			</div>
 		</div>
 	</div>
+	</table> 
 	<!-- Footer -->
 	<%@ include file="../general/LoginFooter.jsp"%>
 </div>
+
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>

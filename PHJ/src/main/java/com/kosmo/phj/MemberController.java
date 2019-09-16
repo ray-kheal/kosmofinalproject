@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import command.LoginActionCommand;
@@ -66,9 +67,20 @@ public class MemberController {
 		return "member/join01";
 	}
 	
-	//회원가입페이지 진입(약관)
-		@RequestMapping("/join2.do")
-		public String join2() {
-			return "member/join02";
-		}
+	//회원가입페이지 진입(가입폼)
+	@RequestMapping("/join2.do")
+	public String join2() {
+		return "member/join02";
+	}
+	
+	//카카오로그인 매핑
+	@RequestMapping(value="/kakaologin.do",method=RequestMethod.GET)
+	public String kakaologin(HttpServletRequest req, HttpSession session) {
+		System.out.println("카카오로그인 이메일 : "+ req.getParameter("email"));
+		
+		session.setAttribute("EMAIL", req.getParameter("email"));
+		session.setAttribute("PASS", req.getParameter("pass"));
+		session.setAttribute("NAME", req.getParameter("name"));
+		return "redirect:../phj";
+	}
 }
