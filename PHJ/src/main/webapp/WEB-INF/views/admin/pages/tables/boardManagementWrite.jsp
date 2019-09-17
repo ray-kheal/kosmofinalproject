@@ -49,42 +49,6 @@
  
 			<br />  
 
-			<%-- <div> 
-				<form name="writeFrm" method="post" action="./writeAction.do" 
-					onsubmit="return checkValidate(this);">
-				<table class="table" style="text-align: center; border: 1px; ">
-				<colgroup>
-					<col width="25%"/>
-					<col width="*"/>
-				</colgroup>
-					<tr> 
-						<td class="table-primary" style="color: white;">작성자</td>
-						<td style="background-color: white;">
-							<input type="text" name="name" style ="width:100%; height: 100%; border:none;" />
-						</td>
-					</tr>
-					<tr>
-						<td class="table-primary" style="color: white;">패스워드</td>
-						<td style="background-color: white;">
-							<input type="password" name="pass" style ="width:100%; height: 100%; border:none;" />
-						</td>
-					</tr>
-					<tr>
-						<td class="table-primary" style="color: white;">제목</td>
-						<td style="background-color: white;">
-							<input type="text" name="title" style ="width:100%; height: 100%; border:none;" />
-						</td>
-					</tr>
-					<tr>  
-						<td class="table-primary" style="color: white;">내용</td>
-						<td style="background-color: white;"> 
-							<textarea name="contents" style="width:100%;height:200px; border:none;"></textarea>
-						</td>
-					</tr>
-				
-				</table>
-				</form>
-			</div> --%>
 			    
 			<div class="card">
                   <div class="card-body">
@@ -92,7 +56,7 @@
                     <form class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputName1">이름</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="관리자">
+                        <input type="text" class="form-control" id="exampleInputName1" value="관리자">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">비밀번호</label>
