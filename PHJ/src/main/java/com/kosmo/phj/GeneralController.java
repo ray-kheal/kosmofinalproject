@@ -23,12 +23,6 @@ public class GeneralController {
 	public String no_sidebar() {
 		return "general/no-sidebar";
 	}
-	
-	//홈 이동
-			@RequestMapping("home.do")
-			public String home() {
-				return "home";
-			}
 			
 	
 	//공지사항게시판
@@ -57,10 +51,10 @@ public class GeneralController {
 	}
 	
 	//이벤트 게시판
-		@RequestMapping("event.do")
-		public String event() {
-			return "general/event";
-		}
+	@RequestMapping("event.do")
+	public String event() {
+		return "general/event";
+	}
 		
 	
 	

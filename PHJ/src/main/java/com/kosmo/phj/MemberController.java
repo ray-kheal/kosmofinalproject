@@ -83,4 +83,15 @@ public class MemberController {
 		session.setAttribute("NAME", req.getParameter("name"));
 		return "redirect:../phj";
 	}
+	
+	//구글로그인 매핑
+	@RequestMapping(value="/googlelogin.do",method=RequestMethod.GET)
+	public String googlelogin(HttpServletRequest req, HttpSession session) {
+		System.out.println("구글로그인 이메일 : "+ req.getParameter("email"));
+		
+		session.setAttribute("EMAIL", req.getParameter("email"));
+		session.setAttribute("PASS", req.getParameter("pass")); 
+		session.setAttribute("NAME", req.getParameter("name"));
+		return "redirect:../phj";
+	}
 }
