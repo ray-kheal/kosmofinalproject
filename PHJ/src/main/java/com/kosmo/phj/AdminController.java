@@ -68,6 +68,11 @@ public class AdminController {
 	public String productManagement() {
 		return "admin/pages/tables/productManagement";
 	}
+	//상품글쓰기 페이지
+	@RequestMapping("/admin/pages/tables/productManagementWrite.do")
+	public String productManagementWrite() {
+		return "admin/pages/tables/productManagementWrite";
+	}
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagement.do")
 	public String placeManagement() {
@@ -104,6 +109,8 @@ public class AdminController {
 	public String typography() {
 		return "admin/pages/ui-features/typography";
 	}
+	
+	
 	
 	
 

@@ -49,30 +49,30 @@
 			return false;
 		}
 		//비밀번호 입력여부 체크
-		if (f.pass1.value == "") {
+		if (f.pass.value == "") {
 			alert("비밀번호를 입력하지 않았습니다.")
-			document.f.pass1.focus();
+			document.f.pass.focus();
 			return false;
 		}
 		//비밀번호 길이 체크(4~12자 까지 허용)
-		if (f.pass1.value.length<4 || f.pass1.value.length>12) {
+		if (f.pass.value.length<4 || f.pass.value.length>12) {
 			alert("비밀번호를 4~12자까지 입력해주세요.")
-			document.f.pass1.focus();
-			document.f.pass1.select();
+			document.f.pass.focus();
+			document.f.pass.select();
 			return false;
 		}
 		//비밀번호확인 공백체크
-		if (f.pass2.value == "") {
-			alert("비밀번호를 입력해주세요.")
-			document.f.pass2.focus();
-			document.f.pass2.select();
+		if (f.confirm_password.value == "") {
+			alert("비밀번호확인을 입력해주세요.")
+			document.f.confirm_password.focus();
+			document.f.confirm_password.select();
 			return false;
 		}
 		//비밀번호와 비밀번호 확인 일치여부 체크
-		if (f.pass1.value != f.pass2.value) {
+		if (f.pass.value != f.confirm_password.value) {
 			alert("비밀번호가 일치하지 않습니다")
-			document.f.user_pw2.value = ""
-			document.f.user_pw2.focus();
+			document.f.confirm_password.value = ""
+			document.f.confirm_password.focus();
 			return false;
 		}
 
@@ -110,7 +110,7 @@
 			}
 		}
 		
-		f.action ="./join3.do";
+		f.action ="./regist.do";
 		
 
 
@@ -199,10 +199,10 @@ label {
 						
 						
 						
-						<label style="font-size: 13px;"> <input type="radio" name="email" value="" id="email_alert" />
+						<label style="font-size: 13px;"> <input type="radio" name="email_alert" value="Y" id="" />
 							메일 수신동의
 						</label> 
-						<label style="font-size: 13px;"> <input type="radio" name="email" value="" id="email_Noalert" checked/>
+						<label style="font-size: 13px;"> <input type="radio" name="email_alert" value="N" id="" checked/>
 							메일 수신거부
 						</label>
 						<br />
@@ -210,9 +210,9 @@ label {
 							메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다. 
 						</span> 
 						<br /> <br />  
-						<input type="password" style="width: 600px; margin-left: 180px;" id="pass1" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
+						<input type="password" style="width: 600px; margin-left: 180px;" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
 						<br /> 
-						<input type="password" style="width: 600px; margin-left: 180px;" id="pass2" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
+						<input type="password" style="width: 600px; margin-left: 180px;" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
 						<br /> 
 						<input type="text" style="width: 600px; margin-left: 180px;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> 
 						<br /> 
@@ -233,14 +233,14 @@ label {
 						
 						<br />
 						
-						<label style="font-size: 13px;" class="radio-inline"> <input
-							type="radio" name="sms" value="" id="mobile_alert" />SMS수신동의
+						<label style="font-size: 13px;" class="radio-inline">
+						 <input type="radio" name="sms" value="" id="mobile_alert" />SMS수신동의
+						 <input type="radio" name="mobile_alert" value="Y"  />모바일알림허용
 						</label> <label style="font-size: 13px;" class="radio-inline">
-							<input type="radio" name="sms" value="" id="mobile_Noalert" checked/>SMS수신거부
+							<input type="radio" name="mobile_alert" value="N" checked/>모바일알림거부
 						</label>
 						<br />
-						<span style="font-size: 13px;" class="help-block">휴대폰 메일
-							수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다. </span> <span class="help-block"></span>
+						<span style="font-size: 13px;" class="help-block"> 모바일 알림을 허용하시면 어플리케이션 설치 후 실시간 알림서비스를 받으실 수 있습니다. </span> <span class="help-block"></span>
     
 						 <br /> <br />
 						<button class="btn btn-lg btn-primary btn-block signup-btn"

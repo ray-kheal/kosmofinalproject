@@ -36,7 +36,7 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">공지사항</h3>
+             <h3 class="page-title" style="font-weight: bold;">상품관리</h3>
                 
              <br /><br />
        <!--        <nav aria-label="breadcrumb">
@@ -51,18 +51,26 @@
 		
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
+                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;상품게시판 글쓰기</h4>
                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="exampleInputName1">이름</label>
-                        <input type="text" class="form-control" id="exampleInputName1" value="관리자">
+                        <label for="productName">상품명</label>
+                        <input type="text" class="form-control" id="productName" >
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">비밀번호</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                        <label for="producPrice">가격</label>
+                        <input type="text" class="form-control" id="producPrice" >
                       </div>
                       <div class="form-group">
-                        <label>파일업로드</label>
+                        <label for="password">비밀번호</label>
+                        <input type="password" class="form-control" id="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="productStock">재고</label>
+                        <input type="password" class="form-control" id="productStock">
+                      </div>
+                      <div class="form-group">
+                        <label>상품이미지</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
@@ -72,7 +80,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleTextarea1">내용</label>
+                        <label for="exampleTextarea1">상품설명</label>
                         <textarea class="form-control" id="exampleTextarea1" rows="10"></textarea>
                       </div>
                      
@@ -84,7 +92,7 @@
 				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
                  <button class="btn btn-light btn-rounded">Reset</button>
                  <button class="btn btn-dark btn-rounded"
-                 	onclick="location.href='./boardManagement.do';">List</button>
+                 		onclick="location.href='./productManagement.do';">List</button>
 			</div>	
             </div>
       </div>
