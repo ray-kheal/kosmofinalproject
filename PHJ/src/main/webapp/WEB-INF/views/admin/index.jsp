@@ -111,8 +111,8 @@
                 </ul>
               </div>
             </li> 
-            
-            
+             
+           
       
           </ul>   
         </nav>
@@ -121,22 +121,21 @@
           <div class="content-wrapper">
             <div class="row" id="proBanner">
               <div class="col-12">
-             
-                  <i class="mdi mdi-close" id="bannerClose"></i> 
+                 <i class="mdi mdi-close" id="bannerClose"></i> 
               </div>
             </div>
             <div class="page-header">
               <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <span class="page-title-icon bg-gradient-info text-white mr-2">
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
-              <nav aria-label="breadcrumb">
+              <!-- <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
                     <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                   </li>
                 </ul>
-              </nav> 
+              </nav>  -->
             </div>
             <div class="row">
               <div class="col-md-4 stretch-card grid-margin">
@@ -156,7 +155,7 @@
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Weekly New Recipe <i class="mdi mdi-food-fork-drink mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">45,6334</h2>
+                    <h2 class="mb-5">10,000</h2>
                     <h6 class="card-text">Increased by 10%</h6>
                   </div>
                 </div>
@@ -178,7 +177,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">Visit And Sales Statistics</h4>
+                      <h4 class="card-title float-left">Board Statistics</h4>
                       <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
                     </div>
                     <canvas id="visit-sale-chart" class="mt-4"></canvas>
@@ -194,11 +193,11 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>    
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
-                  <div class="card-body">
+                  <!-- <div class="card-body">
                     <h4 class="card-title">Recent Tickets</h4>
                     <div class="table-responsive">
                       <table class="table">
@@ -255,7 +254,7 @@
                         </tbody>
                       </table>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -264,16 +263,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Recent Updates</h4>
-                    <div class="d-flex">
-                      <div class="d-flex align-items-center mr-4 text-muted font-weight-light">
-                        <i class="mdi mdi-account-outline icon-sm mr-2"></i>
-                        <span>jack Menqu</span>
-                      </div>
-                      <div class="d-flex align-items-center text-muted font-weight-light">
-                        <i class="mdi mdi-clock icon-sm mr-2"></i>
-                        <span>October 3rd, 2018</span>
-                      </div>
-                    </div>
+                    
                     <div class="row mt-3">
                       <div class="col-6 pr-1">
                         <img src="assets/images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">

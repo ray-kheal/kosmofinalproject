@@ -46,7 +46,12 @@ body {
 	<div id="page-wrapper">
 	
 		<!-- 메인페이지 우측 스크롤메뉴 -->
-		<div id="scroll" style="position: absolute; right: 30; top: 30;">
+		<!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
+		<div id="scroll" style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align:center; width: 120px;"> 
+		
+		    
+
+
 			<%-- <ul>
 				<li><a href="#header">Welcome</a></li>
 				<li><a href="#features-wrapper">편의점 상품조회</a></li>
