@@ -59,13 +59,13 @@ to {
    <br /><br />
       <img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
    </div> -->
-	<%@ include file="MainHeader.jsp"%>
+
 	<div
 		style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
 		<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
 			<img src="./images/memo_w.png" alt="메모"
-				style="width: 50px; height: 50px;" /> 상품조회..
+				style="width: 50px; height: 50px;" /> BOARD
 		</p>
 	</div>
 	<div style="width: 100%; text-align: center;">
@@ -138,51 +138,51 @@ to {
 					<col width="100px" />
 					<col width="*" />
 					<col width="120px" />
-					<col width="80px" />
-					<col width="50px" />
+					<col width="105px" />
+					<col width="60px" />
 				</colgroup>
 				<thead>
 					<tr class="table-primary" style="color: white;">
 						<th>번호</th>
-						<th>사진</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>날짜</th>
-						<th>조회</th>
+						<th></th>
+						<th>상품</th>
+						<th>가격</th>
+						<th>편의점</th>
+						<th>조회수</th> 
 					</tr>
 				</thead>
 				<tbody>
 
 					<tr>
-						<td>1</td>
+						<td style="padding:50px;">1</td>
 						<td><img style="width: 100px;" alt="핫독"
 							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
 						</td>
-						<td style="text-align: left;">제목1</td>
-						<td>john@example.com</td>
-						<td>2019-09-07</td>
-						<td>0</td>
+						<td style="text-align: left; padding:50px;">제목1</td>
+						<td style="padding:50px;">john@example.com</td>
+						<td style="padding:50px;">지예쓰</td>
+						<td style="padding:50px;">0</td>
 					</tr>
 					<tr>
-						<td>2</td>
+						<td style="padding:50px;">2</td>
 						<td><img style="width: 100px;" alt="핫독"
 							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
 						</td>
-						<td style="text-align: left;">제목2</td>
-						<td>mary@example.com</td>
-						<td>2019-09-07</td>
-						<td>0</td>
+						<td style="text-align: left; padding:50px;">제목2</td>
+						<td style="padding:50px;">mary@example.com</td>
+						<td style="padding:50px;">응잘가</td>
+						<td style="padding:50px;">0</td>
 					</tr>
 					<tr>
-						<td>3</td>
+						<td style="padding:50px;">3</td>
 						<td><img style="width: 100px;" alt="핫독"
 							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
 						</td>
 
-						<td style="text-align: left;">제목3</td>
-						<td>july@example.com</td>
-						<td>2019-09-07</td>
-						<td>0</td>
+						<td style="text-align: left; padding:50px;">제목3</td>
+						<td style="padding:50px;">july@example.com</td>
+						<td style="padding:50px;">7777777</td>
+						<td style="padding:50px;">0</td>
 					</tr>
 				</tbody>
 			</table>
