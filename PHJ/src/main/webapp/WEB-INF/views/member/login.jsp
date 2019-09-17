@@ -13,6 +13,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/api:client.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <style type="text/css">
@@ -61,6 +63,30 @@
 		width:400px;
 	}
 </style>
+<script type="text/javascript">
+	var googleUser = {};
+	var startApp = function() {
+	gapi.load('auth2', function(){
+		auth2 = gapi.auth2.init({
+			client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
+			cookiepolicy: 'single_host_origin',
+			});
+		attachSignin(document.getElementById('customBtn'));
+		});
+	};
+	
+	function attachSignin(element) {
+		console.log(element.id);
+		auth2.attachClickHandler(element, {}, function(googleUser) {
+			document.getElementById('name').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
+			document.getElementById('email').innerText = "Signed in: " + googleUser.getBasicProfile().getEmail();
+			
+			
+		}, function(error) {
+			  alert(JSON.stringify(error, undefined, 2));
+			});
+		}
+</script>
 <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -132,7 +158,7 @@
 									</a>
 								</div>
 								<div class="google" style="margin-top:10px;">
-									<a href="#"> 
+									<a href="javascript:attachSignin();"> 
 										<button type="button" class="btn btn-google btn-light"></button>
 									</a>
 								</div>

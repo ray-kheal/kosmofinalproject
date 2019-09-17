@@ -16,19 +16,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<script>
-	function choiceInput(frm, elem) {
-		for (var i = 0; i < elem.length; i++) {
-			if (elem.options[i].selected) {
-				if (elem.options[elem.selectedIndex].value != "direct_input") {
-					frm  .email2.value = elem.options[elem.selectedIndex].value
-				} else {
-					f.email2.value = "";
-					f.email2.focus();
-				}
-			}
-		}
-	}
+<script type = "text/javascript">
+
 	function sendIt() {
 
 		if (f.email1.value == "") {
@@ -120,19 +109,18 @@
 		location.href = "./members.do";
 		
 	}
-	function choiceInput(f, elem) { 
-		for(var i=0; i<elem.length;i++) { 
+	function choiceInput(frm, elem) {
+		for (var i = 0; i < elem.length; i++) {
 			if (elem.options[i].selected) {
-				if(elem.options[elem.selectedIndex].value!="direct_input"){
-					f.email2.value = elem.options[elem.selectedIndex].value	
-				}
-				else{
-					frm.email2.value = "";
+				if (elem.options[elem.selectedIndex].value!="direct_input") {
+					frm.email2.value = elem.options[elem.selectedIndex].value
+				} else {
+					frm.email2.value="";
 					frm.email2.focus();
 				}
-			} 
+			}
 		}
-	} 
+	}
 	
 	function nochk() {
 		alert("메인으로 돌아갑니다.");
@@ -189,16 +177,17 @@ label {
 							<!--  <div class="col-xs-6 col-md-6">  -->
 							<!-- <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="도메인"  />  -->
 							<br />
-							<select name="email2" onchange="choiceInput(this.form, this)"
+							<select name="email_choice" onChange="choiceInput(this.form, this);"
 								style="padding-top: 3px; width: 150px;"
-								class="form-control input-lg">
+							class="form-control input-lg">
 								<option selected="" value="">선택해주세요</option>
 								<option value="naver.com">naver.com</option>
 								<option value="daum.net">daum.net</option>
 								<option value="google.com">google.com</option>
 								<option value="yahoo.co.kr">yahoo.co.kr</option>
-								<option value="">직접 입력</option>
-							</select> <br />
+								<option value="direct_input">직접 입력</option>
+							</select> 
+							<br />
 						</div>
 						
 						
@@ -248,13 +237,12 @@ label {
     
 						 <br /> <br />
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
-							style="width: 200px; margin-left: 340px;"submit">가입완료하기
+							style="width: 200px; margin-left: 340px;">가입완료하기
 						</button>
 						<br />
 					</form>
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
-							style="width: 200px; margin-left: 340px;" nochk();" type="submit">돌아가기
-												
+							style="width: 200px; margin-left: 340px;" nochk();" onclick="location.href='/phj' ">돌아가기
 						</button>
 
 					

@@ -116,15 +116,113 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title">공지사항 </h3>
-              <nav aria-label="breadcrumb">
+              <div class="container">
+             <h3 class="page-title">공지사항 </h3> 
+             
+             <br /><br />
+       <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
                   <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
               </nav>
+        -->     
+              	<form class="form-inline">
+				 <div class="form-group ">
+					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
+						<option value="">제목</option>
+						<option value="">작성자</option>
+						<option value="">내용</option>
+					</select>
+		</div> 
+				<div class="input-group">
+
+					<input type="text" name="keyString" class="form-control"
+						style="width: 120px; height : 30px" />
+
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-outline-secondary btn-sm">
+							검색 <i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<!-- 검색기능 끝 -->
+
+			<br />
+
+			<div>
+				<table class="table table-hover" style="text-align: center;">
+					<colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="80px" />
+					</colgroup>
+					<thead>
+						<tr class="table-primary" style="color: white;">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>날짜</th>
+							<th>조회</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>공지</th>
+							<td style="text-align: left; font-weight: bold;">최근공지</td>
+							<td>관리자</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td style="text-align: left;">제목1</td>
+							<td>john@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td style="text-align: left;">제목2</td>
+							<td>mary@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td style="text-align: left;">제목3</td>
+							<td>july@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br /><br />
+			<div class="row text-right" style="float: right;">
+				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+				<button class = "btn btn-danger btn-sm">삭제</button>
+			</div>
+
+
+			<br /> <br />
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">←</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">1</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">2</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">→</a></li>
+			</ul>
             </div>
+      </div>
       
+      <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->

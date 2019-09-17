@@ -92,7 +92,7 @@ body {
 						<article>
 
 							<h2>1:1 문의하기</h2>
-							<form action="mail.jsp" method="post" name="emailFrm"
+							<form action="mail_send.jsp" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
 								<div class="pw_box">
 									<table border="1">

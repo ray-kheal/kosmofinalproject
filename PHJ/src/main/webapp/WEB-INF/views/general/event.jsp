@@ -46,7 +46,7 @@ body {
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
 				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 공 지 사 항!
+					style="width: 50px; height: 50px;" /> 이벤트 게시판
 			</p>
 		</div>
 		<div style="width: 100%; text-align: center;">
@@ -83,19 +83,18 @@ body {
 		<!-- 	<div class="row text-right"
 				style="float: right; padding-bottom: 20px;">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-			</div> -->		 	
-		 <br /> <br />
+			</div>
+		 -->	<br /> <br />
 			<div>
 				<table class="table table-hover" style="text-align: center;">
-
 					<colgroup>
 						<col width="80px" />
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
 						<col width="80px" />
-					</colgroup>  
-					<thead>  
+					</colgroup>
+					<thead>
 						<tr class="table-primary" style="color: white;">
 							<th>번호</th>
 							<th>제목</th>
@@ -105,13 +104,6 @@ body {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th>공지</th>
-							<td style="text-align: left; font-weight: bold;">최근공지</td>
-							<td>관리자</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
 						<tr>
 							<td>1</td>
 							<td style="text-align: left;">제목1</td>
@@ -138,10 +130,8 @@ body {
 			</div>
 			<!-- <div class="row text-right" style="float: right;">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
- -->
-
 			</div>
-
+ -->
 
 			<br /> <br />
 			<ul class="pagination justify-content-center">
