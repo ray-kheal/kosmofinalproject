@@ -134,7 +134,8 @@
 </script>
 <style type="text/css">
 body {
-	font-family: 'Mali', cursive;
+	font-family: 'Mali', cursive; 
+	
 }
 
 .Terms {
@@ -142,6 +143,7 @@ body {
 }
 
 #content {
+	
 	margin: 0 auto;
 	text-align: center;
 	background-repeat: no-repeat;
@@ -173,21 +175,21 @@ label {
 						<br />
 						<h4>가입정보</h4>
 						<br /> <br />
-						<div class="row" style="margin-left: 220px;">
+						<div class="row" >
 
 							<input type="text" name="email1" id="email1" value=""
 								class="form-control input-lg" placeholder="이메일(아이디)"
-			  					style="width: 150px;" /> <span style="font-size: 25px; padding-top: 2px">@&nbsp;</span> 
-							<input type="text" class="form-control input-lg" name="email2" id="email2" style="width: 150px; padding-right: 30px;" />
+			  					style="width: 20%; margin-left:20%" /> <span style="font-size: 25px; padding-top: 2px">@&nbsp;</span> 
+							<input type="text" class="form-control input-lg" name="email2" id="email2" style="width: 20%; " />
 
 							<!--  <div class="col-xs-6 col-md-6">  -->
 							<!-- <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="도메인"  />  -->
 							<br />
 
 							<select name="email_choice" onChange="choiceInput(this.form, this);"
-								style="padding-top: 3px; width: 150px;"
+								style="padding-top: 3px; width: 20%;"
 							class="form-control input-lg">
-								<option selected="" value="">선택해주세요</option>
+								<option selected="" value="">선택</option>
 								<option value="naver.com">naver.com</option>
 								<option value="daum.net">daum.net</option>
 								<option value="google.com">google.com</option>
@@ -199,44 +201,46 @@ label {
 						
 						
 						
-						<label style="font-size: 13px;"> <input type="radio" name="email" value="" id="email_alert" />
+						<label style="font-size: 13px;"> <input type="radio" name="email" value="y" id="email_alert" />
 							메일 수신동의
 						</label> 
-						<label style="font-size: 13px;"> <input type="radio" name="email" value="" id="email_Noalert" checked/>
+						<label style="font-size: 13px;"> <input type="radio" name="email" value="n" id="email_Noalert" checked/>
 							메일 수신거부
 						</label>
 						<br />
 						<span class="help-block" style="font-size: 13px;">
 							메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다. 
 						</span> 
-						<br /> <br />  
-						<input type="password" style="width: 600px; margin-left: 180px;" id="pass1" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
+						<br /> <br />
+						<div>  
+						<input type="password" style="width: 60%; margin-left: 20%;" id="pass1" name="pass" value="" class="form-control input-lg" placeholder="비밀번호" />
 						<br /> 
-						<input type="password" style="width: 600px; margin-left: 180px;" id="pass2" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
+						<input type="password" style="width: 60%; margin-left: 20%;" id="pass2" name="confirm_password" value="" class="form-control input-lg" placeholder="비밀번호 확인" />
 						<br /> 
-						<input type="text" style="width: 600px; margin-left: 180px;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> 
-						<br /> 
+						<input type="text" style="width: 60%; margin-left: 20%;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> 
+						<br />
+						</div>  
 						<label style="font-size: 17px;">
 							휴대폰 번호  
-						<br /> <br />  
+						<br /> <br />   
 						</label>  
 						<br /> <br />
 						<div class="row"  
-							style="font-size: 1.5em; text-align:center; margin-left: 180px;">
-							<input type="text" name="mobile1" class="form-control input-lg" style="width: 100px;" />
+							style="font-size: 1.5em; text-align:center;">
+							<input type="text" name="mobile1" class="form-control input-lg" style="width: 15%; margin-left:15%" />
 								&nbsp; - &nbsp; 
-							<input type="text" name="mobile2" class="form-control input-lg" style="width: 100px;" />
+							<input type="text" name="mobile2" class="form-control input-lg" style="width: 15%;" />
 								&nbsp; - &nbsp;
-							<input type="text" name="mobile3" class="form-control input-lg" style="width: 100px;" />
+							<input type="text" name="mobile3" class="form-control input-lg" style="width: 15%;  margin-right:15%" />
    
-						</div> 
+						</div>   
 						
-						<br />
+						<br />  
 						
 						<label style="font-size: 13px;" class="radio-inline"> <input
-							type="radio" name="sms" value="" id=""mobile_alert />SMS수신동의
+							type="radio" name="sms" value="y" id=""mobile_alert />SMS수신동의
 						</label> <label style="font-size: 13px;" class="radio-inline">
-							<input type="radio" name="sms" value="" id="mobile_Noalert" checked/>SMS수신거부
+							<input type="radio" name="sms" value="n" id="mobile_Noalert" checked/>SMS수신거부
 						</label>
 						<br />
 						<span style="font-size: 13px;" class="help-block">휴대폰 메일
@@ -245,13 +249,13 @@ label {
 						 <br /> <br />
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
 
-							style="width: 200px; margin-left: 340px;">가입완료하기
+							style="width: 40%; margin-left: 30%;">가입완료하기
 						</button>
 						<br />
 					</form>
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
 
-							style="width: 200px; margin-left: 340px;" onclick="location.href='home.do' ">돌아가기
+							style="width: 40%; margin-left: 30%;" onclick="location.href='home.do' ">돌아가기
 						</button>
 
 					

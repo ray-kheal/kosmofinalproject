@@ -72,13 +72,23 @@ public class MemberController {
 	public String join2() {
 		return "member/join02";
 	}
+	//회원가입완료페이지 진입(가입완료폼)
+	@RequestMapping("/join3.do")
+	public String join3() {
+		return "member/join03";
+	}
+	//회원정보수정페이지 진입(수정폼)
+	@RequestMapping("/memberEdit.do")
+	public String memberEdit() {
+		return "member/memberEdit";
+	}
 	
 	//카카오로그인 매핑
 	@RequestMapping(value="/kakaologin.do",method=RequestMethod.GET)
 	public String kakaologin(HttpServletRequest req, HttpSession session) {
 		System.out.println("카카오로그인 이메일 : "+ req.getParameter("email"));
 		
-		session.setAttribute("EMAIL", req.getParameter("email"));
+		session.setAttribute("EMAIL", req.getParameter("email"));  
 		session.setAttribute("PASS", req.getParameter("pass"));
 		session.setAttribute("NAME", req.getParameter("name"));
 		return "redirect:../phj";
