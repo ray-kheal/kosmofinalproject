@@ -242,7 +242,7 @@ label {
 						<br />
 					</form>
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
-							style="width: 200px; margin-left: 340px;" nochk();" onclick="location.href='home.do' ">돌아가기
+							style="width: 200px; margin-left: 340px;" nochk();" onclick="location.href='/phj' ">돌아가기
 						</button>
 
 					

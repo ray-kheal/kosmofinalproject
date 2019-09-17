@@ -19,99 +19,18 @@
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="../../index.do"><img src="../../../resources/images/logo.png" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="../../index.do"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button>
-       
-          <!----- 상단 오른쪽의 프로필 , 메세지, 알림 아이콘  ----->
-           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-            <!-- 상단 프로필 -->
-              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="nav-profile-img">
-                  <img src="../../assets/images/faces/login.png" alt="image">
-                  <span class="availability-status online"></span>
-                </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">PHJ Admin</p>
-                </div>
-              </a>
-           
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-      <!-- partial -->  <!-- 사이드바 시작 -->
+    
+      <!-- admin 메인헤더 인클루드 -->
+      <%@ include file="../admin_general/AdminMainHeader.jsp"%> 
+      
+      <!-- 사이드바 시작 -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.do -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-profile">
-              <a href="#" class="nav-link">
-                <div class="nav-profile-image">
-                  <img src="../../assets/images/faces/login.png" alt="profile">
-                  <span class="login-status online"></span>
-                  <!--change to offline or busy as needed-->
-                </div>
-                <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">PHJ Admin</span> 
-                  <span class="text-secondary text-small">Project Manager</span>
-                </div>
-                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-              </a>
-            </li>
-                 <li class="nav-item">
-              <a class="nav-link" href="../../index.do">
-                <span class="menu-title">메인</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-         
-            <li class="nav-item">
-              <a class="nav-link" href="./memberManagement.do">
-                <span class="menu-title">고객관리</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li> 
-            <li class="nav-item"> 
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">편의점관리</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="./productManagement.do">상품관리</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./placeManagement.do">점포관리</a></li>
-                </ul>
-              </div>
-            </li> 
-             
-            
-            <li class="nav-item"> 
-              <a class="nav-link" data-toggle="collapse" href="#board-pages" aria-expanded="false" aria-controls="board-pages">
-                <span class="menu-title">게시판관리</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-              <div class="collapse" id="board-pages">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="./boardManagement.do">공지사항</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./RecipeManagement.do">레시피 게시판</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./EventManagement.do">이벤트 게시판</a></li>
-                </ul>
-              </div>
-            </li> 
-          </ul>   
-        </nav>
-        <!-- partial --> <!-- 사이드바 끝 -->
+      
+      <!-- admin 사이드바 인클루드 -->
+      <%@ include file="../admin_general/AdminSidebar.jsp"%>
+        
+      <!-- 사이드바 끝 -->
+        
         <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -203,7 +122,7 @@
 			</div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+				<button type="button" class="btn btn-dark btn-sm">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
 
