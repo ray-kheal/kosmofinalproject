@@ -8,15 +8,19 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/join02.css" />
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 <script type = "text/javascript">
+
 
 	function sendIt() {
 
@@ -106,9 +110,13 @@
 			}
 		}
 		
-		location.href = "./members.do";
+		f.action ="./join3.do";
+		
+
+
 		
 	}
+
 	function choiceInput(frm, elem) {
 		for (var i = 0; i < elem.length; i++) {
 			if (elem.options[i].selected) {
@@ -122,10 +130,7 @@
 		}
 	}
 	
-	function nochk() {
-		alert("메인으로 돌아갑니다.");
-		location.href = "http://localhost:8080/phj/";
-	}
+
 </script>
 <style type="text/css">
 body {
@@ -152,7 +157,9 @@ label {
 
 <div id="page-wrapper">
 	<!-- 헤더 인클루드 -->
+
 	<%@ include file="../general/MainHeader.jsp"%>
+
 	<table>
 	<div id="content">
 
@@ -162,7 +169,6 @@ label {
 					<h2>편히점 회원가입</h2>
 					<form method="post"
 						onsubmit="return sendIt();" class="form" name="f">
-
 						
 						<br />
 						<h4>가입정보</h4>
@@ -171,12 +177,13 @@ label {
 
 							<input type="text" name="email1" id="email1" value=""
 								class="form-control input-lg" placeholder="이메일(아이디)"
-			  					style="width: 150px;" /> <span style="font-size: 25px; padding-top: 2px">@&nbsp;</span> 
+			  					style="width: 150px;" /> <span style="font-size: 25px; padding-top: 2px">&nbsp;@&nbsp;</span> 
 							<input type="text" class="form-control input-lg" name="email2" id="email2" style="width: 150px; padding-right: 30px;" />
 
 							<!--  <div class="col-xs-6 col-md-6">  -->
 							<!-- <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="도메인"  />  -->
 							<br />
+
 							<select name="email_choice" onChange="choiceInput(this.form, this);"
 								style="padding-top: 3px; width: 150px;"
 							class="form-control input-lg">
@@ -215,7 +222,7 @@ label {
 						</label>  
 						<br /> <br />
 						<div class="row"  
-							style="font-size: 1.5em; text-align:center; margin-left: 180px;">
+							style="font-size: 1.5em; text-align:center; margin-left: 200px;">
 							<input type="text" name="mobile1" class="form-control input-lg" style="width: 100px;" />
 								&nbsp; - &nbsp; 
 							<input type="text" name="mobile2" class="form-control input-lg" style="width: 100px;" />
@@ -227,7 +234,7 @@ label {
 						<br />
 						
 						<label style="font-size: 13px;" class="radio-inline"> <input
-							type="radio" name="sms" value="" id=""mobile_alert />SMS수신동의
+							type="radio" name="sms" value="" id="mobile_alert" />SMS수신동의
 						</label> <label style="font-size: 13px;" class="radio-inline">
 							<input type="radio" name="sms" value="" id="mobile_Noalert" checked/>SMS수신거부
 						</label>
@@ -237,16 +244,19 @@ label {
     
 						 <br /> <br />
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
+
 							style="width: 200px; margin-left: 340px;">가입완료하기
 						</button>
 						<br />
 					</form>
 						<button class="btn btn-lg btn-primary btn-block signup-btn"
-							style="width: 200px; margin-left: 340px;" nochk();" onclick="location.href='/phj' ">돌아가기
+
+							style="width: 200px; margin-left: 340px;" onclick="location.href='home.do' ">돌아가기
 						</button>
 
 					
 				</div>
+
 
 			</div>
 		</div>
