@@ -73,10 +73,17 @@ public class AdminController {
 	public String productManagementWrite() {
 		return "admin/pages/tables/productManagementWrite";
 	}
+	
+	
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagement.do")
 	public String placeManagement() {
 		return "admin/pages/tables/placeManagement";
+	}
+	//점포관리 페이지
+	@RequestMapping("/admin/pages/tables/placeManagementWrite.do")
+	public String placeManagementWrite() {
+		return "admin/pages/tables/placeManagementWrite";
 	}
 	
 	//공지사항관리 페이지
@@ -89,21 +96,31 @@ public class AdminController {
 	public String boardManagementWrite() {
 		return "admin/pages/tables/boardManagementWrite";
 	}
+	
+	
 	//이벤트 게시판 관리 페이지
-	@RequestMapping("/admin/pages/tables/EventManagement.do")
+	@RequestMapping("/admin/pages/tables/eventManagement.do")
 	public String eventManagement() {
-		return "admin/pages/tables/EventManagement";
+		return "admin/pages/tables/eventManagement";
 	}
+	//이벤트 게시판 관리 페이지
+	@RequestMapping("/admin/pages/tables/eventManagementWrite.do")
+	public String eventManagementWrite() {
+		return "admin/pages/tables/eventManagementWrite";
+	}
+	
+	
 	//레시피 게시판 관리 페이지
-	@RequestMapping("/admin/pages/tables/RecipeManagement.do")
-	public String RecipeManagement() {
-		return "admin/pages/tables/RecipeManagement";
+	@RequestMapping("/admin/pages/tables/recipeManagement.do")
+	public String recipeManagement() {
+		return "admin/pages/tables/recipeManagement";
 	}
 	
 	@RequestMapping("/admin/pages/ui-features/buttons.do")
 	public String buttons() {
 		return "admin/pages/ui-features/buttons";
 	}
+	
 	
 	@RequestMapping("/admin/pages/ui-features/typography.do")
 	public String typography() {
