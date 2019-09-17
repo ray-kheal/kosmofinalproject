@@ -29,20 +29,117 @@
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
         
       <!-- 사이드바 끝 -->
-      
-        <!-- 페이지 시작 -->
+      <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> 상품관리 </h3>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">상품관리</li>
+              <div class="container">
+             	<h3 class="page-title" style="font-weight: bold;">상품관리</h3> 
+             	<br /><br />
+            <!-- 
+            	<nav aria-label="breadcrumb">
+               	 <ol class="breadcrumb">
+                  	<li class="breadcrumb-item"><a href="#">상품관리</a></li>
+                  	<li class="breadcrumb-item active" aria-current="page">편의점관리</li>
                 </ol>
-              </nav>
+            	</nav> -->
+         
+              	<form class="form-inline">
+				 <div class="form-group ">
+					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
+						<option value="">제목</option>
+						<option value="">작성자</option>
+						<option value="">내용</option>
+					</select>
+				</div> 
+				<div class="input-group">
+
+					<input type="text" name="keyString" class="form-control"
+						style="width: 120px; height : 30px" />
+
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-outline-secondary btn-sm">
+							검색 <i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<!-- 검색기능 끝 -->
+			<br />  
+			<!-- 내용시작 -->
+			<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-basket"></i>&nbsp;상품조회</h4>
+                    <table class="table table-hover" style="text-align: center;">
+                      <colgroup>
+						<col width="20px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="80px" />
+					</colgroup>  
+                        
+                      <thead>
+                        <tr class="table-info" style="color: white;">
+                          <th>번호</th>
+                          <th>상품명</th>
+                          <th>가격</th>
+                          <th>재고?</th>
+                          <th>작성일</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       <!--  <tr>
+                          <td>Jacob</td>
+                          <td>Photoshop</td>
+                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          <td><label class="badge badge-danger">2019-09-17</label></td>
+                        </tr> -->
+                        <tr>
+                          <td>1</td>  
+                          <td><a href="">계란샌드위치</a></td>
+                          <td class="text-danger">2000원</td>
+                          <td>100</td>
+                          <td>2019-09-17</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td><a href="">갈아만든배</a></td>
+                          <td class="text-danger">1100원</td>
+                          <td>100</td>
+                          <td>2019-09-17</td>
+                        </tr>
+                        
+           
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              <!-- 내용끝 -->
+			<br /><br />
+			<div class="row text-right" style="float: right;">
+				<button type="button" class="btn btn-dark btn-sm" 
+				onclick="location.href='./productManagementWrite.do';">상품등록</button>
+				<button class = "btn btn-danger btn-sm">삭제</button>
+			</div>
+
+
+			<br /> <br />
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">←</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">1</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">2</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">→</a></li>
+			</ul>
             </div>
-          
+      </div>
+      
+      <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
@@ -58,18 +155,12 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
+  
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
+  
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
+   
   </body>
 </html>
