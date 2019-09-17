@@ -11,7 +11,7 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-   
+
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
@@ -19,7 +19,7 @@
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
-      
+    
       <!-- admin 메인헤더 인클루드 -->
       <%@ include file="../admin_general/AdminMainHeader.jsp"%> 
       
@@ -30,20 +30,66 @@
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
         
       <!-- 사이드바 끝 -->
-      
+        
         <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> 레시피게시판 </h3>
-              <nav aria-label="breadcrumb">
+              <div class="container">
+             <h3 class="page-title" style="font-weight: bold;">공지사항</h3>
+                
+             <br /><br />
+       <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">레시피게시판</li>
+                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
               </nav>
+        -->     
+ 
+			<br />  
+		
+			<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputName1">이름</label>
+                        <input type="text" class="form-control" id="exampleInputName1" value="관리자">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">비밀번호</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label>파일업로드</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">내용</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="10"></textarea>
+                      </div>
+                     
+                    </form>
+                  </div>
+                </div>
+			<br /><br />
+			<div class="row text-right" style="float: right;">
+				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+                 <button class="btn btn-light btn-rounded">Reset</button>
+                 <button class="btn btn-dark btn-rounded"
+                 	onclick="location.href='./boardManagement.do';">List</button>
+			</div>	
             </div>
-       
+      </div>
+      
+      <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
@@ -59,18 +105,12 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
+  
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
+  
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
+   
   </body>
 </html>

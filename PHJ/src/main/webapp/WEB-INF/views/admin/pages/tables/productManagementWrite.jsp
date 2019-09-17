@@ -11,7 +11,7 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-  
+
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
@@ -19,7 +19,7 @@
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
-      
+    
       <!-- admin 메인헤더 인클루드 -->
       <%@ include file="../admin_general/AdminMainHeader.jsp"%> 
       
@@ -28,16 +28,16 @@
       
       <!-- admin 사이드바 인클루드 -->
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
-      
-      <!-- 사이드바 끝 -->
-      <!-- 메인 페이지 시작 -->
         
+      <!-- 사이드바 끝 -->
+        
+        <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title">회원 관리 게시판 </h3> 
-             
+             <h3 class="page-title" style="font-weight: bold;">상품관리</h3>
+                
              <br /><br />
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -46,93 +46,58 @@
                 </ol>
               </nav>
         -->     
-              	<form class="form-inline">
-				 <div class="form-group">
-					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
-						<option value="">이름</option>
-						<option value="">가입일</option>
-						<option value="">편의점 북마크</option>
-						<option value="">상품 북마크</option>
-					</select>
-		</div> 
-				<div class="input-group">
-
-					<input type="text" name="keyString" class="form-control"
-						style="width: 120px; height : 30px" />
-
-					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색 <i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
-			</form>
-			<!-- 검색기능 끝 -->
-
-			<br />
-
-			<div>
-				<table class="table table-hover" style="text-align: center;">
-					<colgroup>
-						<col width="80px" />
-						<col width="*" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-					</colgroup>
-					<thead>
-						<tr class="table-primary" style="color: white;">
-							<th>번호</th>
-							<th>회원 이름</th>
-							<th>이메일</th>
-							<th>핸드폰 번호</th>
-							<th>알림 서비스 </th>
-							<th>가입일 </th>
-							<th>편의점 북마크</th>
-							<th>상품 북마크</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">angelriun</td>
-							<td>john@example.com</td>
-							<td>010-8761-4737</td>
-							<td>0</td>
-							<td>2019-09-07</td>
-							<td>CU 가산디지털단지역점 </td>
-							<td>CU 백종원 도시락 </td>
-						</tr>
-					
-					</tbody>
-				</table>
-			</div>
+ 
+			<br />  
+		
+			<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;상품게시판 글쓰기</h4>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="productName">상품명</label>
+                        <input type="text" class="form-control" id="productName" >
+                      </div>
+                      <div class="form-group">
+                        <label for="producPrice">가격</label>
+                        <input type="text" class="form-control" id="producPrice" >
+                      </div>
+                      <div class="form-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" class="form-control" id="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="productStock">재고</label>
+                        <input type="password" class="form-control" id="productStock">
+                      </div>
+                      <div class="form-group">
+                        <label>상품이미지</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea1">상품설명</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="10"></textarea>
+                      </div>
+                     
+                    </form>
+                  </div>
+                </div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-			
-				<button class = "btn btn-danger btn-sm">삭제</button>
-			</div>
-		
-<!-- 메인 페이지 끝  -->
-
-			<br /> <br />
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">←</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">→</a></li>
-			</ul>
+				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+                 <button class="btn btn-light btn-rounded">Reset</button>
+                 <button class="btn btn-dark btn-rounded"
+                 		onclick="location.href='./productManagement.do';">List</button>
+			</div>	
             </div>
       </div>
       
-      
+      <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
@@ -148,15 +113,12 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
+  
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
- 
+  
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
+   
   </body>
 </html>

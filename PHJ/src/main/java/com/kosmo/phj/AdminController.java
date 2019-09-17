@@ -68,6 +68,11 @@ public class AdminController {
 	public String productManagement() {
 		return "admin/pages/tables/productManagement";
 	}
+	//상품글쓰기 페이지
+	@RequestMapping("/admin/pages/tables/productManagementWrite.do")
+	public String productManagementWrite() {
+		return "admin/pages/tables/productManagementWrite";
+	}
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagement.do")
 	public String placeManagement() {
@@ -79,17 +84,21 @@ public class AdminController {
 	public String boardManagement() {
 		return "admin/pages/tables/boardManagement";
 	}
+	//공지사항글쓰기 페이지
+	@RequestMapping("/admin/pages/tables/boardManagementWrite.do")
+	public String boardManagementWrite() {
+		return "admin/pages/tables/boardManagementWrite";
+	}
 	//이벤트 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/EventManagement.do")
 	public String eventManagement() {
 		return "admin/pages/tables/EventManagement";
 	}
 	//레시피 게시판 관리 페이지
-		@RequestMapping("/admin/pages/tables/RecipeManagement.do")
-		public String RecipeManagement() {
-			return "admin/pages/tables/RecipeManagement";
-		}
-	
+	@RequestMapping("/admin/pages/tables/RecipeManagement.do")
+	public String RecipeManagement() {
+		return "admin/pages/tables/RecipeManagement";
+	}
 	
 	@RequestMapping("/admin/pages/ui-features/buttons.do")
 	public String buttons() {
