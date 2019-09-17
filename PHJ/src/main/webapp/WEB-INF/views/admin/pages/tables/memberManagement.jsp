@@ -1,3 +1,6 @@
+관리자페이지  헤더인클루드로 하기,
+ 관리자페이지 왼쪽 메뉴 인클루드로 하기
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -19,7 +22,6 @@
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
-      
       <!-- admin 메인헤더 인클루드 -->
       <%@ include file="../admin_general/AdminMainHeader.jsp"%> 
       
@@ -28,33 +30,31 @@
       
       <!-- admin 사이드바 인클루드 -->
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
-      
-      <!-- 사이드바 끝 -->
-      <!-- 메인 페이지 시작 -->
         
+      <!-- 사이드바 끝 -->
+      <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title">회원 관리 게시판 </h3> 
-             
-             <br /><br />
-       <!--        <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+             	<h3 class="page-title" style="font-weight: bold;">고객관리</h3> 
+             	<br /><br />
+            <!-- 
+            	<nav aria-label="breadcrumb">
+               	 <ol class="breadcrumb">
+                  	<li class="breadcrumb-item"><a href="#">상품관리</a></li>
+                  	<li class="breadcrumb-item active" aria-current="page">편의점관리</li>
                 </ol>
-              </nav>
-        -->     
+            	</nav> -->
+         	<!-- 검색기능 시작 -->
               	<form class="form-inline">
-				 <div class="form-group">
-					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
-						<option value="">이름</option>
-						<option value="">가입일</option>
-						<option value="">편의점 북마크</option>
-						<option value="">상품 북마크</option>
+				 <div class="form-group ">
+					<select name="keyField" class="form-control" style="width: 100px; height : 30px" >
+						<option value="">회원명</option>
+						<option value="">핸드폰번호</option>
+						<option value="">내용</option>
 					</select>
-		</div> 
+				</div> 
 				<div class="input-group">
 
 					<input type="text" name="keyString" class="form-control"
@@ -65,58 +65,61 @@
 							검색 <i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
-				</div>
-			</form>
+				</div> 
+			</form>   
 			<!-- 검색기능 끝 -->
-
-			<br />
-
-			<div>
-				<table class="table table-hover" style="text-align: center;">
+			<br />  
+			<!-- 내용시작 -->
+			<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-basket"></i>&nbsp;회원조회</h4>
+                    <table class="table table-hover" style="text-align: center;">
 					<colgroup>
-						<col width="80px" />
+						<col width="20px" />
+						<col width="30px" />
 						<col width="*" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
-						<col width="80px" />
+						<col width="50px" />
+						<col width="20px" />
+						<col width="60px" />
+						<col width="50px" />
+						<col width="30px" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: white;">
+						<tr class="table-danger" style="color: white;">
 							<th>번호</th>
-							<th>회원 이름</th>
+							<th>회원명</th>
 							<th>이메일</th>
 							<th>핸드폰 번호</th>
-							<th>알림 서비스 </th>
-							<th>가입일 </th>
+							<th>알림설정</th>
 							<th>편의점 북마크</th>
 							<th>상품 북마크</th>
+							<th>가입일</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody> 
 						<tr>
 							<td>1</td>
 							<td style="text-align: left;">angelriun</td>
 							<td>john@example.com</td>
 							<td>010-8761-4737</td>
 							<td>0</td>
-							<td>2019-09-07</td>
 							<td>CU 가산디지털단지역점 </td>
 							<td>CU 백종원 도시락 </td>
+							<td>2019-09-07</td>
 						</tr>
 					
 					</tbody>
 				</table>
-			</div>
+                  </div>
+                </div>
+              <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-			
+				<!-- <button type="button" class="btn btn-dark btn-sm" 
+				onclick="location.href='./productManagementWrite.do';">회원등록</button> -->
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
-		
-<!-- 메인 페이지 끝  -->
+
 
 			<br /> <br />
 			<ul class="pagination justify-content-center">
@@ -132,7 +135,7 @@
             </div>
       </div>
       
-      
+      <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
@@ -148,15 +151,12 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
+  
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
- 
+  
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
+   
   </body>
 </html>

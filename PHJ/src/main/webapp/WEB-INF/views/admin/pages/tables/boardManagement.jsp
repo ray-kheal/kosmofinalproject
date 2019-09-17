@@ -36,7 +36,7 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title">공지사항 </h3> 
+             <h3 class="page-title" style="font-weight: bold;">공지사항 </h3> 
              
              <br /><br />
        <!--        <nav aria-label="breadcrumb">

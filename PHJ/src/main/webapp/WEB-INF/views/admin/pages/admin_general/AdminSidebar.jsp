@@ -63,8 +63,8 @@
               <div class="collapse" id="board-pages">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="./boardManagement.do">공지사항</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./RecipeManagement.do">레시피 게시판</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="./EventManagement.do">이벤트 게시판</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./recipeManagement.do">레시피 게시판</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./eventManagement.do">이벤트 게시판</a></li>
                 </ul>
               </div>
             </li> 
