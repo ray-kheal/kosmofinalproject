@@ -53,7 +53,7 @@
 						<option value="">작성자</option>
 						<option value="">내용</option>
 					</select>
-		</div> 
+				</div> 
 				<div class="input-group">
 
 					<input type="text" name="keyString" class="form-control"
@@ -122,7 +122,8 @@
 			</div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm">글쓰기</button>
+				<button type="button" class="btn btn-dark btn-sm" 
+				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
 
