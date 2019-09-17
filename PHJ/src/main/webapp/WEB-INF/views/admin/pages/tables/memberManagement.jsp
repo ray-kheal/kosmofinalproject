@@ -112,17 +112,108 @@
           </ul>   
         </nav>
         <!-- partial --> <!-- 사이드바 끝 -->
+        <!-- 메인 페이지 시작 -->
+        
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> 고객관리 </h3>
-              <nav aria-label="breadcrumb">
+              <div class="container">
+             <h3 class="page-title">회원 관리 게시판 </h3> 
+             
+             <br /><br />
+       <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">고객관리</li>
+                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
               </nav>
+        -->     
+              	<form class="form-inline">
+				 <div class="form-group">
+					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
+						<option value="">이름</option>
+						<option value="">가입일</option>
+						<option value="">편의점 북마크</option>
+						<option value="">상품 북마크</option>
+					</select>
+		</div> 
+				<div class="input-group">
+
+					<input type="text" name="keyString" class="form-control"
+						style="width: 120px; height : 30px" />
+
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-outline-secondary btn-sm">
+							검색 <i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<!-- 검색기능 끝 -->
+
+			<br />
+
+			<div>
+				<table class="table table-hover" style="text-align: center;">
+					<colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="80px" />
+						<col width="80px" />
+						<col width="80px" />
+						<col width="80px" />
+						<col width="80px" />
+						<col width="80px" />
+					</colgroup>
+					<thead>
+						<tr class="table-primary" style="color: white;">
+							<th>번호</th>
+							<th>회원 이름</th>
+							<th>이메일</th>
+							<th>핸드폰 번호</th>
+							<th>알림 서비스 </th>
+							<th>가입일 </th>
+							<th>편의점 북마크</th>
+							<th>상품 북마크</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td style="text-align: left;">angelriun</td>
+							<td>john@example.com</td>
+							<td>010-8761-4737</td>
+							<td>0</td>
+							<td>2019-09-07</td>
+							<td>CU 가산디지털단지역점 </td>
+							<td>CU 백종원 도시락 </td>
+						</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			<br /><br />
+			<div class="row text-right" style="float: right;">
+			
+				<button class = "btn btn-danger btn-sm">삭제</button>
+			</div>
+		
+<!-- 메인 페이지 끝  -->
+
+			<br /> <br />
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">←</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">1</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">2</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">→</a></li>
+			</ul>
             </div>
+      </div>
+      
       
           </div>
           <!-- content-wrapper ends -->

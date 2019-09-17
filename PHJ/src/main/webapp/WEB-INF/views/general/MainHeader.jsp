@@ -41,10 +41,15 @@ nav {
 
 
 				<li id="place"><a href="placemap.do">전국 편의점 검색</a></li>
-				<li id="notice"><a href="notice.do">공지사항</a></li>
+				<li id="notice"><a href="#">공지사항</a>
+					<ul>
+						<li><a href="notice.do">공지사항</a></li>
+						<li><a href="event.do">이벤트</a></li>
+					</ul></li>
+					
 				<li id="service"><a href="#">고객센터</a>
 					<ul>
-						<li><a href="#">Q&A</a></li>
+						<li><a href="qna.do">Q&A</a></li>
 						<li><a href="mail.do">1:1 문의</a></li>
 					</ul></li>
 			</ul>

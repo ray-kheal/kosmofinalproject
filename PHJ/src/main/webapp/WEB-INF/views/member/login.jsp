@@ -13,6 +13,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/api:client.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <style type="text/css">
 	body {
@@ -60,6 +63,60 @@
 		width:400px;
 	}
 </style>
+<script type="text/javascript">
+	var googleUser = {};
+	var startApp = function() {
+	gapi.load('auth2', function(){
+		auth2 = gapi.auth2.init({
+			client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
+			cookiepolicy: 'single_host_origin',
+			});
+		attachSignin(document.getElementById('customBtn'));
+		});
+	};
+	
+	function attachSignin(element) {
+		console.log(element.id);
+		auth2.attachClickHandler(element, {}, function(googleUser) {
+			document.getElementById('name').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
+			document.getElementById('email').innerText = "Signed in: " + googleUser.getBasicProfile().getEmail();
+			
+			
+		}, function(error) {
+			  alert(JSON.stringify(error, undefined, 2));
+			});
+		}
+</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('fbc37d1de83e19f124176d0578a0cf59');
+    function loginWithKakao() {
+      // 로그인 창을 띄웁니다.
+      Kakao.Auth.login({
+		success: function(authObj) {
+			Kakao.API.request({
+				url: '/v1/user/me',
+				success:function(res){
+					alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
+					alert(JSON.stringify(authObj)); //<----Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
+					console.log(res.id);//<---- 콘솔 로그에 id 정보 출력(id는 res안에 있기 때문에  res.id 로 불러온다)
+					console.log(res.kaccount_email);//<---- 콘솔 로그에 email 정보 출력 (어딨는지 알겠죠?)
+					console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근. res.properties.nickname으로도 접근 가능 )
+					console.log(authObj.access_token);
+					
+					location.href="kakaologin.do?email="+res.kaccount_email+"&pass="+authObj.access_token+"&name="+res.properties['nickname'];
+				}
+			})
+        },
+        fail: function(err) {
+          alert(JSON.stringify(err));
+        }
+      });
+    };
+  //]]>
+</script>
+
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
 		<!-- 헤더 -->
@@ -96,12 +153,12 @@
 								또는 </span>
 							<div id="OtherLogin">
 								<div class="kakao" style="margin-bottom:15px;">
-									<a href="#">
-										<button type="button"  class="btn btn-kakao btn-warning"></button> 
+									<a href="javascript:loginWithKakao();">
+										<button type="button" class="btn btn-kakao btn-warning"></button> 
 									</a>
 								</div>
 								<div class="google" style="margin-top:10px;">
-									<a href="#"> 
+									<a href="javascript:attachSignin();"> 
 										<button type="button" class="btn btn-google btn-light"></button>
 									</a>
 								</div>
@@ -124,6 +181,8 @@
 		<%@ include file="../general/LoginFooter.jsp"%>
 
 	</div>
+	
+	
 
 
 	<!-- Scripts -->
