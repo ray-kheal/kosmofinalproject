@@ -1,10 +1,14 @@
 package member;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -23,7 +27,7 @@ public class MemberDAO {
 		MemberDTO dto = null;
 		
 		System.out.println("memberinfo 내부의 email, pass값 : " + email +", "+ pass);
-		String sql = "SELECT * FROM cs_member WHERE email = '" + email + "' AND pass= '"+pass+"' ";
+		String sql = "SELECT * FROM phj_member WHERE email = '" + email + "' AND pass= '"+pass+"' ";
 		try {
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
 			
@@ -33,6 +37,28 @@ public class MemberDAO {
 			dto = new MemberDTO();
 		}
 		return dto;
+	}
+	
+	public void regist(final MemberDTO dto) {
+		template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "INSERT INTO phj_member (name, email, email_alert, pass, mobile, mobile_alert) "
+						+ "VALUES(?, ?, ?, ?, ?, ?)";
+				
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, dto.getName());
+				psmt.setString(2, dto.getEmail());
+				psmt.setString(3, dto.getEmail_alert());
+				psmt.setString(4, dto.getPass());
+				psmt.setString(5, dto.getMobile());
+				psmt.setString(6, dto.getMobile_alert());
+				
+				return psmt;
+			}
+		});
+		
 	}
 	
 

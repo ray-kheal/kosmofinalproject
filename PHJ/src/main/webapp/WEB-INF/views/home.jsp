@@ -183,8 +183,8 @@ body {
 							<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
 					</div>
-					<div class="col-8 col-12-medium imp-medium">
-
+					
+					<div class="col-7 col-16-medium imp-medium">
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
@@ -203,7 +203,8 @@ body {
 								</table>
 						</div>
 					</div>
-					<div class="col-8 col-12-medium imp-medium">
+					</div>
+					<div class="col-7 col-16-medium imp-medium">
 						<!-- Content -->
 						<div id="info">
 							<section class="last">
@@ -214,7 +215,7 @@ body {
 							</section>
 						</div>
 					</div>
-				</div>
+				
 			</div>
 		</div>
 		<div class="container">
