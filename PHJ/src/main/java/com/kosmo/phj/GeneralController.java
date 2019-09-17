@@ -56,7 +56,11 @@ public class GeneralController {
 		return "general/event";
 	}
 		
-	
+	//재고 게시판
+	@RequestMapping("findproduct.do")
+	public String findproduct() {
+		return "general/findproduct";
+	}
 	
 
 	
