@@ -83,4 +83,12 @@ public class MemberController {
 		session.setAttribute("NAME", req.getParameter("name"));
 		return "redirect:../phj";
 	}
+	
+	//회원가입
+	@RequestMapping(value="/regist.do",method=RequestMethod.POST)
+	public String regist() {
+		
+		return "member/join03";
+		
+	}
 }
