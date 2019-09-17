@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bs05Table</title>
 
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script
@@ -19,8 +21,8 @@
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
-	font-family: verdana;
-	font-size: 12px;
+	font-family: 'verdana';
+	font-size: 14px;
 }
 
 /* 애니메이션 지점 설정하기 */
@@ -63,9 +65,9 @@ to {
 	<div
 		style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
 		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
 			<img src="./images/memo_w.png" alt="메모"
-				style="width: 50px; height: 50px;" /> BOARD
+				style="width: 50px; height: 50px;" /> 편의점 정보가 여기에!
 		</p>
 	</div>
 	<div style="width: 100%; text-align: center;">
