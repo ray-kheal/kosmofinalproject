@@ -1,6 +1,11 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="board.recipeDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="board.recipeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -212,7 +217,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	});
 </script>
 </head>
-
 <body>
 	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #ffd74d; display:table;"> 
 		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
@@ -290,143 +294,31 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</figure>
 				</div>
 				<!-- 베스트게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-				<!-- 일반게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 일반게시물 e-->
-
-
+				
+				<c:choose>
+					<c:when test="${empty listRows }">
+						<div><span>등록된 게시물이 없습니다.</span></div>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${listRows }" var="row" varStatus="loop">
+							<!-- 일반게시물 s-->
+							<div class="col-lg-3 col-md-4 col-6 ">
+								<figure class="recipePhoto">
+									<img class="img-fluid img-thumbnail effect"
+										src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+										alt="">
+									<figcaption>
+										<h3>샌드위치</h3>
+										<p>계란야채샌드위치</p>
+										<i class="ion-ios-arrow-right"></i>
+									</figcaption>
+									<a href="#" class="d-block mb-4 h-100"></a>
+								</figure>
+							</div>
+							<!-- 일반게시물 e-->
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 
 
 			</div>
@@ -444,6 +336,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 				href="javascript:void(0);">→</a></li>
 		</ul>
 	</div>
+	
+	<!-- Footer -->
+	<%@ include file="../general/LoginFooter.jsp"%>
 	
 	<!-- Scripts -->
 
