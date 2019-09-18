@@ -50,7 +50,7 @@ public class ListCommand implements PHJCommandImpl {
 	      int countNum =0;
 	      for(noticeDTO row : listRows) {
 	        
-	          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++)-1;
+	          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 	          row.setVirtualNum(virtualNum);
 	          
 	          
@@ -64,7 +64,7 @@ public class ListCommand implements PHJCommandImpl {
 		model.addAttribute("nowPage",nowPage);
 		model.addAttribute("listRows",listRows);
 		
-		System.out.println("커멘트 끝" + totalPage + " " + nowPage + " " + listRows);
+		
 		
 		
 	}
