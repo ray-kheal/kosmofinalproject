@@ -1,32 +1,59 @@
 package board;
 
 import java.sql.Connection;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 public class recipeDAO {
 	
-	Connection con;
-	PreparedStatement psmt;
-	ResultSet rs;
-
-	//커넥션풀을 통한 DB연결
+	JdbcTemplate template;
+	
+	//생성자
 	public recipeDAO() {
-		try {
-			Context initCtx = new InitialContext();
-			Context ctx = (Context)initCtx.lookup("java:comp/env");
-			DataSource source = (DataSource)ctx.lookup("jdbc/myoracle");
-			con = source.getConnection();
-			System.out.println("DBCP 연결성공");
-		} catch(Exception e) {
-			System.out.println("DBCP 연결실패");
-			e.printStackTrace();
-		}
+		this.template = JdbcTemplateConst.template;
+		System.out.println("JDBCTemplateDAO() 생성자 호출");
 	}
 	
+	public void close() {}
 	
+	public ArrayList<recipeDTO> list(Map<String, Object> map) {
+		
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		
+		String sql = "SELECT * FROM (SELECT tb.*, rownum rNum FROM (SELECT * FROM phj_board_recipe ";
+		
+		if(map.get("Word")!=null) {
+			sql += "WHERE "+map.get("Column")+" LIKE '%"+map.get("Word")+"%' ";
+		}
+		
+		sql += " ORDER BY bgroup DESC, bstep ASC ) tb) WHERE rNum BETWEEN "+start+" AND "+end;
+		
+		return (ArrayList<recipeDTO>)template.query(sql, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
+	}
+	
+	//게시물 수 카운트
+	public int getTotalCount(Map<String, Object> map) {
+		
+		String sql = "SELECT COUNT(*) FROM phj_board_recipe";
+		
+		if(map.get("Word")!=null) {
+			sql += "WHERE "+map.get("Coulmn")+" LIKE '%"+map.get("Word")+"%' ";
+		}
+		
+		return template.queryForObject(sql, Integer.class);
+	}
 }
