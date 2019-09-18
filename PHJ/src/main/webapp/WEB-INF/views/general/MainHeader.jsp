@@ -31,7 +31,6 @@ nav {
 		<!-- Nav -->
 		<nav id="nav" style="font-size: 20px;">
 			<ul>
-				<li id="welcome" class=""><a href="/phj">Home</a></li>
 				<li id="stock"><a href="findproduct.do">편의점 상품 조회</a>
 				<li id="recipe" class=""><a href="recipe.do" id="link2">레시피</a></li>
 
