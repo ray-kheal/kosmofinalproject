@@ -39,8 +39,8 @@ public class PlaceDAO {
 	//레코드 페이지별로 가져오기
 	public ArrayList<PlaceDTO> list(Map<String, Object> map) {
 		
-		int start = 1;
-		int end = 10;
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
 		
 		String query = " SELECT * FROM( "
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 

@@ -8,10 +8,11 @@ public class PlaceDTO {
 	private String place_road_addr;
 	private String longitude;
 	private String latitude;
+	private int virtualNum; // 가상번호 부여를 위한 멤버변수 추가
 	
 	public PlaceDTO() {}
 	public PlaceDTO(int place_code, String place_name, String place_address, String place_road_addr, String longitude,
-			String latitude) {
+			String latitude,int virtualNum) {
 		super();
 		this.place_code = place_code;
 		this.place_name = place_name;
@@ -19,6 +20,7 @@ public class PlaceDTO {
 		this.place_road_addr = place_road_addr;
 		this.longitude = longitude;
 		this.latitude = latitude;
+		this.virtualNum = virtualNum;
 	}
 
 	public int getPlace_code() {
@@ -68,7 +70,12 @@ public class PlaceDTO {
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
-	
+	public int getVirtualNum() {
+		return virtualNum;
+	}
+	public void setVirtualNum(int virtualNum) {
+		this.virtualNum = virtualNum;
+	}
 	
 	
 }

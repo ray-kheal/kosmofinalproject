@@ -93,6 +93,7 @@ public class AdminController {
 		System.out.println("익스큐트 잘됐고 ^^");
 		return "admin/pages/tables/placeManagement";
 	}
+	
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagementWrite.do")
 	public String placeManagementWrite() {
