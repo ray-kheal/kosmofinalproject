@@ -126,8 +126,9 @@ body {
 		</div>
 	</div>
 
-	<!-- 메인헤더 인클루드 -->
-	<%@ include file="LoginFooter.jsp"%>
+	<!-- Footer -->
+	<%@ include file="../general/simpleFooter.jsp"%>
+
 
 
 	<!-- Scripts -->
