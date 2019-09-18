@@ -3,20 +3,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>편히점 Admin페이지</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>편히점 Admin페이지</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
 
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
-  </head>
-  <body>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+</head>
+
+<body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
     
@@ -54,12 +55,16 @@
                     <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;점포 등록하기</h4>
                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="productName">점포명</label>
-                        <input type="text" class="form-control" id="productName" >
+                        <label for="productName">점포코드</label>
+                        <input type="text" class="form-control" id="place_code" >
                       </div>
                       <div class="form-group">
-                        <label for="producPrice">위치</label>
-                        <input type="text" class="form-control" id="producPrice" >
+                        <label for="productName">점포명</label>
+                        <input type="text" class="form-control" id="place_name" >
+                      </div>
+                      <div class="form-group">
+                        <label for="producPrice">주소</label>
+                        <input type="text" class="form-control" id="place_address" >
                       </div>
                       <div class="form-group">
                         <label for="password">비밀번호</label>

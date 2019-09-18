@@ -2,46 +2,43 @@ package board;
 
 import java.sql.Date;
 
-public class noticeDTO {
-	private int idx;	
+public class recipeDTO {
+
+	private int Idx;
+	private String image_name;
 	private String title;
 	private String content;
+	private String name;
 	private int view_count;
 	private Date postdate;
-	private int board_type;
-	private int virtualNum;
 	
-	public noticeDTO() {}
+	public recipeDTO() {}
 
-	public noticeDTO(int idx, String title, String content, int view_count, Date postdate, int board_type,
-			int virtualNum) {
-		super();
-		this.idx = idx;
+	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
+			Date postdate) {
+		Idx = idx;
+		this.image_name = image_name;
 		this.title = title;
 		this.content = content;
+		this.name = name;
 		this.view_count = view_count;
 		this.postdate = postdate;
-		this.board_type = board_type;
-		this.virtualNum = virtualNum;
 	}
-
-
-
-	public int getVirtualNum() {
-		return virtualNum;
-	}
-
-	public void setVirtualNum(int virtualNum) {
-		this.virtualNum = virtualNum;
-	}
-
 
 	public int getIdx() {
-		return idx;
+		return Idx;
 	}
 
 	public void setIdx(int idx) {
-		this.idx = idx;
+		Idx = idx;
+	}
+
+	public String getImage_name() {
+		return image_name;
+	}
+
+	public void setImage_name(String image_name) {
+		this.image_name = image_name;
 	}
 
 	public String getTitle() {
@@ -60,6 +57,14 @@ public class noticeDTO {
 		this.content = content;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public int getView_count() {
 		return view_count;
 	}
@@ -76,16 +81,4 @@ public class noticeDTO {
 		this.postdate = postdate;
 	}
 
-	public int getBoard_type() {
-		return board_type;
-	}
-
-	public void setBoard_type(int board_type) {
-		this.board_type = board_type;
-	}
-
-	
-	
-	
-	
 }

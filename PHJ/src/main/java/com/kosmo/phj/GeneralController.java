@@ -37,11 +37,26 @@ public class GeneralController {
 	public String notice(Model model, HttpServletRequest req) {
 		//System.out.println("컨트롤러 안 진입 성공");
 		model.addAttribute("req",req);
+		model.addAttribute("board_type",1);
+		
 		command = new ListCommand();
 		command.execute(model);
 		
 		return "general/notice";
 	}
+	//이벤트 게시판
+		@RequestMapping("event.do")
+		public String event(Model model, HttpServletRequest req) {
+			
+			model.addAttribute("req",req);
+			model.addAttribute("board_type",2);
+			command = new ListCommand();
+			command.execute(model);
+			
+			return "general/event";
+		}
+	
+	
 	//리스트게시판
 	@RequestMapping("recipe.do")
 	public String recipe() {
@@ -62,11 +77,7 @@ public class GeneralController {
 		return "general/qna";
 	}
 	
-	//이벤트 게시판
-	@RequestMapping("event.do")
-	public String event() {
-		return "general/event";
-	}
+	
 		
 	//재고 게시판
 	@RequestMapping("findproduct.do")

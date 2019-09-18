@@ -20,8 +20,9 @@ public class ListCommand implements PHJCommandImpl {
 		Map<String, Object> paramMap = model.asMap();
 		
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
-		
+			
 		noticeDAO dao = new noticeDAO();
+		
 		String addQueryString = "";
 		String searchColumn = req.getParameter("searchColumn");
 		String searchWord = req.getParameter("searchWord");
@@ -34,6 +35,7 @@ public class ListCommand implements PHJCommandImpl {
 		
 		int pageSize= 10;
 		int blockPage= 10;
+		System.out.println("확인 :" + totalRecordCount);
 		
 		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
 		
@@ -44,13 +46,25 @@ public class ListCommand implements PHJCommandImpl {
 		paramMap.put("end", end);
 		ArrayList<noticeDTO> listRows = dao.list(paramMap);
 		
+		int virtualNum =0;
+	      int countNum =0;
+	      for(noticeDTO row : listRows) {
+	        
+	          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++)-1;
+	          row.setVirtualNum(virtualNum);
+	          
+	          
+	       }
 		//페이지 처리를 위한 처리부분.
 		//String pagingImg = util.PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath() + "/list.do?"+ addQueryString);
 		
 		//model.addAttribute("pagingImg",pagingImg);
+		
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);
 		model.addAttribute("listRows",listRows);
+		
+		System.out.println("커멘트 끝" + totalPage + " " + nowPage + " " + listRows);
 		
 		
 	}

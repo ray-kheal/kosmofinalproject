@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no">
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -48,7 +49,7 @@ body {
 		<div
 			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
 				<img src="images/memo_w.png" alt="메모"
 					style="width: 50px; height: 50px;" /> 공 지 사 항!
 			</p>
@@ -97,15 +98,15 @@ body {
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
-						<col width="80px" />
+						<col width="120px" />
 					</colgroup>
 					<thead>
 						<tr class="table-primary" style="color: white;">
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
-							<th>조회</th>
+							<th style="text-align: center;">번호</th>
+							<th style="text-align: center;">제목</th>
+							<th style="text-align: center;">작성자</th>
+							<th style="text-align: center;">조회수</th>
+							<th style="text-align: center;">등록날짜</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -129,18 +130,13 @@ body {
 										<td class="text-center">${row.postdate }</td>
 										<!-- <td class="text-center">--</td> -->
 									</tr>
-
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
 					</tbody>
 				</table>
 			</div>
-			<!-- <div class="row text-right" style="float: right;">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
- -->
-
-		</div>
+	</div>
 
 
 		<br /> <br />

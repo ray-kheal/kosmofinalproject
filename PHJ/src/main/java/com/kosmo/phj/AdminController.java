@@ -1,9 +1,15 @@
 package com.kosmo.phj;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import command.PHJCommandImpl;
+import command.PlaceListCommand;
 @Controller
 public class AdminController {
 	
@@ -77,9 +83,17 @@ public class AdminController {
 	
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagement.do")
-	public String placeManagement() {
+	public String placeManagement(Model model, HttpServletRequest req) throws IOException{
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		
+		command = new PlaceListCommand();
+		command.execute(model);
+		
+		System.out.println("익스큐트 잘됐고 ^^");
 		return "admin/pages/tables/placeManagement";
 	}
+	
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagementWrite.do")
 	public String placeManagementWrite() {

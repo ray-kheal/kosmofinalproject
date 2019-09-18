@@ -36,6 +36,7 @@
               <div class="container">
              	<h3 class="page-title" style="font-weight: bold;">점포관리</h3> 
              	<br /><br />
+             	<h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
             <!-- 
             	<nav aria-label="breadcrumb">
                	 <ol class="breadcrumb">
@@ -46,7 +47,7 @@
          	<!-- 검색기능 시작 -->
               	<form class="form-inline">
 				 <div class="form-group ">
-					<select name="keyField" class="form-control" style="width: 100px; height : 30px" >
+					<select name="searchColumn" class="form-control" style="width: 100px; height : 30px" >
 						<option value="">점포명</option>
 						<option value="">작성자</option>
 						<option value="">내용</option>
@@ -54,12 +55,12 @@
 				</div> 
 				<div class="input-group">
 
-					<input type="text" name="keyString" class="form-control"
+					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px; height : 30px" />
 
 					<div class="input-group-btn">
 						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색 <i class="glyphicon glyphicon-search"></i>
+							검색
 						</button>
 					</div>
 				</div>
@@ -73,48 +74,69 @@
                     <table class="table table-hover" style="text-align: center;">
                       <colgroup>
 						<col width="20px" />
-						<col width="*" />
-						<col width="120px" />  
+						<col width="50px" />
+						<col width="100px" />  
 						<col width="120px" />
-						<col width="80px" />
+						<col width="*" />
 					</colgroup>  
                         
                       <thead>
                         <tr class="table-info" style="color: white;">
-                          <th>번호</th>
+                          <th>no</th>
+                          <th>점포코드</th>
                           <th>점포명</th>
-                          <th>위치</th>
-                          <th>전화번호</th>
-                          <th>등록일</th>
+                          <th>주소</th>
+                          <th>도로명주소</th>
+                          
                         </tr>
                       </thead> 
                       <tbody>
-                       <!--  <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
-                          <td><label class="badge badge-danger">2019-09-17</label></td>
-                        </tr> -->
-                        <tr>
-                          <td>1</td>  
-                          <td><a href="">GS25 서울역점</a></td>
-                          <td class="text-danger">서울 용산구 한강대로 401</td>
-                          <td>02-704-5135</td>
-                          <td>2019-09-17</td>
-                        </tr>
-                        <tr>
-                          <td>2</td> 
-                          <td><a href="">GS25 한강반포1호점</a></td>
-                          <td class="text-danger">서울 서초구 잠원동 122-1 한강시민공원 1층</td>
-                          <td>02-533-8266</td>
-                          <td>2019-09-17</td>
-                        </tr>
-                        
+                       
+                        <!-- 편의점 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 점포가 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.virtualNum }</td>
+										<td class="text-center">${row.place_code }</td>
+										<td class="text-left">
+											<a href="./view.do?idx=${row.place_code}
+												&nowPage=${nowPage}">${row.place_name}</a>
+										</td >
+										<td class="text-left">${row.place_address}
+										</td>
+										<td class="text-center">${row.place_road_addr }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
      
                       </tbody>
                     </table>
                   </div>
+                </div>
+                <!-- 내용끝 -->
+                <br /><br />
+                <!-- 페이지번호 -->
+                <div class="container">
+				<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
+                
                 </div>
               <!-- 내용끝 -->
 			<br /><br />
@@ -126,7 +148,7 @@
 
 
 			<br /> <br />
-			<ul class="pagination justify-content-center">
+			<!-- <ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"
 					href="javascript:void(0);">←</a></li>
 				<li class="page-item"><a class="page-link"
@@ -135,7 +157,7 @@
 					href="javascript:void(0);">2</a></li>
 				<li class="page-item"><a class="page-link"
 					href="javascript:void(0);">→</a></li>
-			</ul>
+			</ul> -->
             </div>
       </div>
       
