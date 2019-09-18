@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +10,14 @@
 	content="width=device-width, initial-scale=1, user-scalable=no">
 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
 /* 해당 HTML문서의 기본 폰트 지정하기 */
@@ -81,11 +85,11 @@ body {
 			<!-- 검색기능 끝 -->
 
 			<br />
-		<!-- 	<div class="row text-right"
+			<!-- 	<div class="row text-right"
 				style="float: right; padding-bottom: 20px;">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-			</div> -->		 	
-		 <br /> <br />
+			</div> -->
+			<br /> <br />
 			<div>
 				<table class="table table-hover" style="text-align: center;">
 
@@ -94,73 +98,64 @@ body {
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
-						<col width="80px" />
-					</colgroup>  
-					<thead>  
+						<col width="120px" />
+					</colgroup>
+					<thead>
 						<tr class="table-primary" style="color: white;">
 							<th style="text-align: center;">번호</th>
 							<th style="text-align: center;">제목</th>
 							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">날짜</th>
-							<th style="text-align: center;">조회</th>
+							<th style="text-align: center;">조회수</th>
+							<th style="text-align: center;">등록날짜</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th style="text-align: center;">공지</th>
-							<td style="text-align: center; font-weight: bold; ">필 독 사 항!</td>
-							<td>관리자</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">제목1</td>
-							<td>john@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td style="text-align: left;">제목2</td>
-							<td>mary@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td style="text-align: left;">제목3</td>
-							<td>july@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
+						<c:choose>
+							<c:when test="${empty listRows }">
+								<tr>
+									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										<td class="text-center">${row.virtualNum }</td>
+										<td class="text-left"><a
+											href="./view.do?idx=${row.idx}
+								&nowPage=${nowPage}">${row.title}</a>
+										</td>
+										<td class="text-center">${row.content }</td>
+										<td class="text-center">${row.view_count }</td>
+										<td class="text-center">${row.postdate }</td>
+										<!-- <td class="text-center">--</td> -->
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</tbody>
 				</table>
 			</div>
-			<!-- <div class="row text-right" style="float: right;">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
- -->
-
-			</div>
-
-
-			<br /> <br />
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">←</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">→</a></li>
-			</ul>
-		</div>
 	</div>
-	
+
+
+		<br /> <br />
+		<ul class="pagination justify-content-center">
+			<li class="page-item"><a class="page-link"
+				href="javascript:void(0);">←</a></li>
+			<li class="page-item"><a class="page-link"
+				href="javascript:void(0);">1</a></li>
+			<li class="page-item"><a class="page-link"
+				href="javascript:void(0);">2</a></li>
+			<li class="page-item"><a class="page-link"
+				href="javascript:void(0);">→</a></li>
+		</ul>
+	</div>
+	</div>
+
 	<!-- Footer -->
 	<%@ include file="../general/LoginFooter.jsp"%>
-	
+
 	<!-- Scripts -->
 
 	<script src="assets/js/jquery.min.js"></script>

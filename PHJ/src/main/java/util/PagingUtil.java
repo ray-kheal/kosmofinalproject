@@ -1,6 +1,4 @@
 package util;
-
-
 public class PagingUtil 
 {
 	//페이지번호와 페이지블럭 이미지를 같이 출력
@@ -74,5 +72,4 @@ public class PagingUtil
 		return pagingStr;
 	}
 }
-
 

@@ -36,7 +36,7 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
+             <h3 class="page-title" style="font-weight: bold;">공지사항 </h3> 
              <br /><br />
              <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
        <!--        <nav aria-label="breadcrumb">
@@ -61,7 +61,7 @@
 
 					<div class="input-group-btn">
 						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색 
+							검색
 						</button>
 					</div>
 				</div>
@@ -70,81 +70,78 @@
 
 			<br />
 
-		<!-- 내용시작 -->
+			<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 리스트</h4>
-                    <table class="table table-hover" style="text-align: center;">
-                     <colgroup>
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 리스트</h4>
+                    <table class="table table-bordered" style="margin-bottom: -1px;">
+				<colgroup>
+					<col width="80px" />
+					<col width="*" />
+					<col width="120px" />
+					<col width="120px" />
+					<col width="80px" />
+					<col width="50px" />
+				</colgroup>
+				<!-- <tr > hidden 폼으로 처리 하기   
+						<th>번호</th> 
+						<td>1</td>
+					</tr> -->
+				<tr>
+					<th bgcolor="#f2efef" style="text-align: center;">제목</th>
+					<td>제목자리입니다</td>
+				</tr>
+				<tr>
+					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
+					<td>관리자</td>
+				</tr>
+				<!-- 	<th>작성자</th>
+						<th>날짜</th>
+						<th>조회</th> -->
+				<!-- <tbody>
+				</tbody> -->
+			</table>
+			<div style="border: 1px solid #EDEAEA;">
+				<table class="table table-borderless">
+					<colgroup>
+						<col width="80px" />
+						<col width="100px" />
 						<col width="80px" />
 						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="80px" />
 					</colgroup>
-					<thead>
-						<tr class="table-info" style="color: white;">
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
-							<th>조회</th>
-						</tr>   
-					</thead>
-                      <tbody>
-                       	<!-- 상품 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty viewRow }">
-								<tr>
-									<td colspan="5" class="text-center">
-										등록된 상품이 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${viewRow }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./view.do?idx=${row.idx}
-												&nowPage=${nowPage}">${row.title}</a>
-										</td >
-										<td class="text-center">관리자</td>
-										<td class="text-left">${row.postdate}
-										</td>
-										<td class="text-center">${row.view_count }</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-                       	
-                      </tbody>
-                    </table>
+					<tr>
+						<th style="text-align: center;">DATE</th>
+						<td>2019-09-07</td>
+						<th style="text-align: center;">조회수</th>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td colspan="4">내용내용내용내용내용내용내용내용내용내용<br />
+							내용내용내용내용내용내용내용내용내용내용
+						</td>
+					</tr>
+				</table>
+
+			</div>
                   </div>
                 </div>
               <!-- 내용끝 -->
 			<br /><br />
-			<!-- 페이지번호 -->
-                <div class="container">
-				<table width="100%">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-				</table>
-                
-                </div>
-                <br /><br />
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
 				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
-			
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">←</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">1</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">2</a></li>
+				<li class="page-item"><a class="page-link"
+					href="javascript:void(0);">→</a></li>
+			</ul>
             </div>
       </div>
       

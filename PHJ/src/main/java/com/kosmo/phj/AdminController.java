@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import command.MemberListCommand;
 import command.PHJCommandImpl;
-import command.PlaceListCommand;
-import command.ProductListCommand;
+import command.AdBoardListCommand;
+import command.AdBoardListViewCommand;
+import command.AdEventListCommand;
+import command.AdPlaceListCommand;
+import command.AdProductListCommand;
 @Controller
 public class AdminController {
 	
@@ -86,7 +89,7 @@ public class AdminController {
 		req.setCharacterEncoding("UTF-8");
 		model.addAttribute("req",req);
 		
-		command = new ProductListCommand();
+		command = new AdProductListCommand();
 		command.execute(model);
 		
 		System.out.println("product 익스큐트 실행");
@@ -105,7 +108,7 @@ public class AdminController {
 		req.setCharacterEncoding("UTF-8");
 		model.addAttribute("req",req);
 		
-		command = new PlaceListCommand();
+		command = new AdPlaceListCommand();
 		command.execute(model);
 		
 		System.out.println("place 익스큐트 실행");
@@ -120,8 +123,31 @@ public class AdminController {
 	
 	//공지사항관리 페이지
 	@RequestMapping("/admin/pages/tables/boardManagement.do")
-	public String boardManagement() {
+	public String boardManagement(Model model, HttpServletRequest req) throws IOException{
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",1);
+		
+		command = new AdBoardListCommand();
+		command.execute(model);
+		
+		System.out.println("board 익스큐트 실행");
+		
 		return "admin/pages/tables/boardManagement";
+	}
+	
+	//공지사항상세보기 페이지
+	@RequestMapping("/admin/pages/tables/boardManagementView.do")
+	public String boardManagementView(Model model, HttpServletRequest req) throws IOException{
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		
+		command = new AdBoardListViewCommand();
+		command.execute(model);
+		
+		System.out.println("boardView 익스큐트 실행");
+		
+		return "admin/pages/tables/boardManagementView";
 	}
 	//공지사항글쓰기 페이지
 	@RequestMapping("/admin/pages/tables/boardManagementWrite.do")
@@ -132,13 +158,28 @@ public class AdminController {
 	
 	//이벤트 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/eventManagement.do")
-	public String eventManagement() {
+	public String eventManagement(Model model, HttpServletRequest req) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",2);
+		
+		command = new AdEventListCommand();
+		command.execute(model);
+		
+		System.out.println("event 익스큐트 실행");
 		return "admin/pages/tables/eventManagement";
 	}
-	//이벤트 게시판 관리 페이지
+	//이벤트 게시판 쓰기 페이지
 	@RequestMapping("/admin/pages/tables/eventManagementWrite.do")
 	public String eventManagementWrite() {
 		return "admin/pages/tables/eventManagementWrite";
+	}
+	
+	//이벤트 게시판 상세보기 페이지
+	@RequestMapping("/admin/pages/tables/eventManagementView.do")
+	public String eventManagementWrite(Model model, HttpServletRequest req) throws IOException {
+		
+		return "admin/pages/tables/eventManagementView";
 	}
 	
 	

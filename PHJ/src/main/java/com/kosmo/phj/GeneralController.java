@@ -1,15 +1,21 @@
 package com.kosmo.phj;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import board.command.ListCommand;
 import command.PHJCommandImpl;
 
 @Controller
 public class GeneralController {
 	
 	PHJCommandImpl command = null;
-	
+
 	@RequestMapping("left-sidebar.do")
 	public String left_sidebar() {
 		return "general/left-sidebar";
@@ -26,10 +32,31 @@ public class GeneralController {
 			
 	
 	//공지사항게시판
+
 	@RequestMapping("notice.do")
-	public String notice() {
+	public String notice(Model model, HttpServletRequest req) {
+		//System.out.println("컨트롤러 안 진입 성공");
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",1);
+		
+		command = new ListCommand();
+		command.execute(model);
+		
 		return "general/notice";
 	}
+	//이벤트 게시판
+		@RequestMapping("event.do")
+		public String event(Model model, HttpServletRequest req) {
+			
+			model.addAttribute("req",req);
+			model.addAttribute("board_type",2);
+			command = new ListCommand();
+			command.execute(model);
+			
+			return "general/event";
+		}
+	
+	
 	//리스트게시판
 	@RequestMapping("recipe.do")
 	public String recipe() {
@@ -50,11 +77,7 @@ public class GeneralController {
 		return "general/qna";
 	}
 	
-	//이벤트 게시판
-	@RequestMapping("event.do")
-	public String event() {
-		return "general/event";
-	}
+	
 		
 	//재고 게시판
 	@RequestMapping("findproduct.do")
