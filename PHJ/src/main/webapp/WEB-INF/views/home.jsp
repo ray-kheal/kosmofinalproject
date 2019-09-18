@@ -19,7 +19,7 @@
 		$(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
 		{
 			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-			var stop = 100;
+			var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
 			$(id).stop().animate({
 				top : stop+"px"
 			}, 0); //해당 오브젝트 위치값 재설정
