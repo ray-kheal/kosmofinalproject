@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import command.MemberListCommand;
 import command.PHJCommandImpl;
 import command.PlaceListCommand;
+import command.ProductListCommand;
 @Controller
 public class AdminController {
 	
@@ -65,13 +67,29 @@ public class AdminController {
 	
 	//고객관리 페이지
 	@RequestMapping("/admin/pages/tables/memberManagement.do")
-	public String memberManagement() {
+	public String memberManagement(Model model, HttpServletRequest req) throws IOException {
+		
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		
+		command = new MemberListCommand();
+		command.execute(model);
+		
+		System.out.println("member 익스큐트 실행");
+		
 		return "admin/pages/tables/memberManagement";
 	}
 	
 	//상품관리 페이지
 	@RequestMapping("/admin/pages/tables/productManagement.do")
-	public String productManagement() {
+	public String productManagement(Model model, HttpServletRequest req) throws IOException{
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		
+		command = new ProductListCommand();
+		command.execute(model);
+		
+		System.out.println("product 익스큐트 실행");
 		return "admin/pages/tables/productManagement";
 	}
 	//상품글쓰기 페이지
@@ -90,11 +108,11 @@ public class AdminController {
 		command = new PlaceListCommand();
 		command.execute(model);
 		
-		System.out.println("익스큐트 잘됐고 ^^");
+		System.out.println("place 익스큐트 실행");
 		return "admin/pages/tables/placeManagement";
 	}
 	
-	//점포관리 페이지
+	//점포등록 페이지
 	@RequestMapping("/admin/pages/tables/placeManagementWrite.do")
 	public String placeManagementWrite() {
 		return "admin/pages/tables/placeManagementWrite";
