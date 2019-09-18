@@ -177,7 +177,7 @@ label {
 
 							<input type="text" name="email1" id="email1" value=""
 								class="form-control input-lg" placeholder="이메일(아이디)"
-			  					style="width: 150px;" /> <span style="font-size: 25px; padding-top: 2px">@&nbsp;</span> 
+			  					style="width: 150px;" /> <span style="font-size: 25px; padding-top: 2px">&nbsp;@&nbsp;</span> 
 							<input type="text" class="form-control input-lg" name="email2" id="email2" style="width: 150px; padding-right: 30px;" />
 
 							<!--  <div class="col-xs-6 col-md-6">  -->
@@ -222,7 +222,7 @@ label {
 						</label>  
 						<br /> <br />
 						<div class="row"  
-							style="font-size: 1.5em; text-align:center; margin-left: 180px;">
+							style="font-size: 1.5em; text-align:center; margin-left: 200px;">
 							<input type="text" name="mobile1" class="form-control input-lg" style="width: 100px;" />
 								&nbsp; - &nbsp; 
 							<input type="text" name="mobile2" class="form-control input-lg" style="width: 100px;" />
@@ -233,8 +233,9 @@ label {
 						
 						<br />
 						
-						<label style="font-size: 13px;" class="radio-inline"> <input
-							type="radio" name="mobile_alert" value="Y"  />모바일알림허용
+						<label style="font-size: 13px;" class="radio-inline">
+						 <input type="radio" name="sms" value="" id="mobile_alert" />SMS수신동의
+						 <input type="radio" name="mobile_alert" value="Y"  />모바일알림허용
 						</label> <label style="font-size: 13px;" class="radio-inline">
 							<input type="radio" name="mobile_alert" value="N" checked/>모바일알림거부
 						</label>
