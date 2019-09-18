@@ -11,7 +11,7 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-  
+   
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
@@ -19,6 +19,7 @@
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
+      
       <!-- admin 메인헤더 인클루드 -->
       <%@ include file="../admin_general/AdminMainHeader.jsp"%> 
       
@@ -27,27 +28,26 @@
       
       <!-- admin 사이드바 인클루드 -->
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
-        
-      <!-- 사이드바 끝 -->
-      <!-- 페이지 시작 -->
-        <div class="main-panel">
+      
+       <!-- 사이드바 끝 -->
+         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             	<h3 class="page-title" style="font-weight: bold;">점포관리</h3> 
-             	<br /><br />
-            <!-- 
-            	<nav aria-label="breadcrumb">
-               	 <ol class="breadcrumb">
-                  	<li class="breadcrumb-item"><a href="#">상품관리</a></li>
-                  	<li class="breadcrumb-item active" aria-current="page">편의점관리</li>
+             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3>
+             
+             <br /><br /> 
+       <!--        <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">관리</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
-            	</nav> -->
-         	<!-- 검색기능 시작 -->
-              	<form class="form-inline">
-				 <div class="form-group ">
+              </nav>
+        -->     
+           	<form class="form-inline">
+				 <div class="form-group">
 					<select name="keyField" class="form-control" style="width: 100px; height : 30px" >
-						<option value="">점포명</option>
+						<option value="">제목</option>
 						<option value="">작성자</option>
 						<option value="">내용</option>
 					</select>
@@ -65,62 +65,67 @@
 				</div>
 			</form>
 			<!-- 검색기능 끝 -->
-			<br />  
+
+			<br />
 			<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-map-marker-radius"></i>&nbsp;점포 조회</h4>
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-check-circle-outline"></i>&nbsp;이벤트 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
-                      <colgroup>
-						<col width="20px" />
+                     <colgroup>
+						<col width="80px" />
 						<col width="*" />
-						<col width="120px" />  
+						<col width="120px" />
 						<col width="120px" />
 						<col width="80px" />
-					</colgroup>  
-                        
-                      <thead>
-                        <tr class="table-info" style="color: white;">
-                          <th>번호</th>
-                          <th>점포명</th>
-                          <th>위치</th>
-                          <th>전화번호</th>
-                          <th>등록일</th>
-                        </tr>
-                      </thead> 
+					</colgroup>
+					<thead>
+						<tr class="table-info" style="color: white;">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>날짜</th>
+							<th>조회</th>
+						</tr>   
+					</thead>
                       <tbody>
-                       <!--  <tr>
-                          <td>Jacob</td>
-                          <td>Photoshop</td>
-                          <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
-                          <td><label class="badge badge-danger">Pending</label></td>
-                          <td><label class="badge badge-danger">2019-09-17</label></td>
-                        </tr> -->
-                        <tr>
-                          <td>1</td>  
-                          <td><a href="">GS25 서울역점</a></td>
-                          <td class="text-danger">서울 용산구 한강대로 401</td>
-                          <td>02-704-5135</td>
-                          <td>2019-09-17</td>
-                        </tr>
-                        <tr>
-                          <td>2</td> 
-                          <td><a href="">GS25 한강반포1호점</a></td>
-                          <td class="text-danger">서울 서초구 잠원동 122-1 한강시민공원 1층</td>
-                          <td>02-533-8266</td>
-                          <td>2019-09-17</td>
-                        </tr>
-                        
-     
+                       <tr>
+							<th>공지</th>
+							<td style="text-align: left; font-weight: bold;">중요이벤트</td>
+							<td>관리자</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td style="text-align: left;">제목1</td>
+							<td>john@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td style="text-align: left;">제목2</td>
+							<td>mary@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td style="text-align: left;">제목3</td>
+							<td>july@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-              <!-- 내용끝 -->
+                <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./placeManagementWrite.do';">점포등록</button>
+				<button type="submit" class="btn btn-dark btn-sm"
+				onclick="location.href='./eventManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
 
@@ -139,7 +144,7 @@
             </div>
       </div>
       
-      <!--  공지사항 게시판 끝 -->
+        
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
@@ -155,12 +160,18 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-  
+    <!-- container-scroller -->
+    <!-- plugins:js -->
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
-   
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
   </body>
 </html>

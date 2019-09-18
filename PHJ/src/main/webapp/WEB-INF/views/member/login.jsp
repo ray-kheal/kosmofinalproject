@@ -8,6 +8,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="google-signin-scope" content="profile email">
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="resources/newlogo.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -65,25 +66,32 @@
 </style>
 <script type="text/javascript">
 	var googleUser = {};
-	var startApp = function() {
-	gapi.load('auth2', function(){
-		auth2 = gapi.auth2.init({
-			client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
-			cookiepolicy: 'single_host_origin',
+	
+	//로그인창 띄움
+	var loginWithGoogle = function() {
+		gapi.load('auth2', function(){
+			auth2 = gapi.auth2.init({
+				client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
+				cookiepolicy: 'single_host_origin',
 			});
-		attachSignin(document.getElementById('customBtn'));
+		attachSignin(document.getElementById('loginButton'));
 		});
 	};
 	
+	//사용자 정보 얻기
 	function attachSignin(element) {
-		console.log(element.id);
 		auth2.attachClickHandler(element, {}, function(googleUser) {
-			document.getElementById('name').innerText = "Signed in: " + googleUser.getBasicProfile().getName();
-			document.getElementById('email').innerText = "Signed in: " + googleUser.getBasicProfile().getEmail();
+			alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
+			console.log(googleUser.getBasicProfile().getId());
+			console.log(googleUser.getBasicProfile().getName());
+			console.log(googleUser.getBasicProfile().getEmail());
 			
+			var access_token = googleUser.getAuthResponse().access_token;
+			console.log(access_token);
 			
+			location.href="googlelogin.do?email="+googleUser.getBasicProfile().getEmail()+"&pass="+access_token+"&name="+googleUser.getBasicProfile().getName();
 		}, function(error) {
-			  alert(JSON.stringify(error, undefined, 2));
+			  alert(JSON.stringify(error, undefined, 2)); //로그인 에러
 			});
 		}
 </script>
@@ -105,7 +113,7 @@
 					console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근. res.properties.nickname으로도 접근 가능 )
 					console.log(authObj.access_token);
 					
-					location.href="kakaologin.do?email="+res.kaccount_email+"&pass="+authObj.access_token+"&name="+res.properties['nickname'];
+					location.href="kakaologin.do?email="+res.kaccount_email+"&pass="+authObj.access_token+"&name="+res.properties['nickname']; 
 				}
 			})
         },
@@ -158,8 +166,8 @@
 									</a>
 								</div>
 								<div class="google" style="margin-top:10px;">
-									<a href="javascript:attachSignin();"> 
-										<button type="button" class="btn btn-google btn-light"></button>
+									<a href="javascript:loginWithGoogle();"> 
+										<button type="button" id="loginButton" class="btn btn-google btn-light"></button>
 									</a>
 								</div>
 							</div>

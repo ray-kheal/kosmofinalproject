@@ -43,7 +43,7 @@
                   	<li class="breadcrumb-item active" aria-current="page">편의점관리</li>
                 </ol>
             	</nav> -->
-         
+         	<!-- 검색기능 시작 -->
               	<form class="form-inline">
 				 <div class="form-group ">
 					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
