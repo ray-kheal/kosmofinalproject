@@ -26,8 +26,8 @@ public class noticeDAO {
 	// 게시물 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
-
-		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE ";
+		int board_type = (Integer)map.get("board_type");
+		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
 //	      if (map.get("Word") != null) {
 //	         query += "WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%'";
@@ -51,7 +51,7 @@ public class noticeDAO {
 
 		query += " ) Tb ) WHERE rNum BETWEEN " + start + " AND " + end +" and board_type="+ board_type ;
 		
-	    System.out.println(map);
+	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 	}
 		
