@@ -155,7 +155,7 @@ to {
 				</thead>
 				<tbody>
 
-					<tr>
+					<!-- <tr>
 						<td style="padding:50px;">1</td>
 						<td><img style="width: 100px;" alt="핫독"
 							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
@@ -185,7 +185,37 @@ to {
 						<td style="padding:50px;">july@example.com</td>
 						<td style="padding:50px;">7777777</td>
 						<td style="padding:50px;">0</td>
-					</tr>
+					</tr> -->
+					<!-- 상품 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 상품이 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.virtualNum }</td>
+										<td class="text-center">${row.product_code }</td>
+										<td class="text-left">
+											<a href="./view.do?idx=${row.product_code}
+												&nowPage=${nowPage}">${row.product_name}</a>
+										</td >
+										<td class="text-left">${row.product_price}
+										</td>
+										<td class="text-center">${row.product_value_code }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					
+					
 				</tbody>
 			</table>
 		</div>
