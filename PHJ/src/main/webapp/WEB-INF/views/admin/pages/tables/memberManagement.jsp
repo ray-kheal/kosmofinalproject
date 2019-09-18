@@ -1,6 +1,3 @@
-관리자페이지  헤더인클루드로 하기,
- 관리자페이지 왼쪽 메뉴 인클루드로 하기
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -39,6 +36,7 @@
               <div class="container">
              	<h3 class="page-title" style="font-weight: bold;">고객관리</h3> 
              	<br /><br />
+             	<h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
             <!-- 
             	<nav aria-label="breadcrumb">
                	 <ol class="breadcrumb">
@@ -49,20 +47,20 @@
          	<!-- 검색기능 시작 -->
               	<form class="form-inline">
 				 <div class="form-group ">
-					<select name="keyField" class="form-control" style="width: 100px; height : 30px" >
-						<option value="">회원명</option>
-						<option value="">핸드폰번호</option>
-						<option value="">내용</option>
+					<select name="searchColumn" class="form-control" style="width: 100px; height : 30px" >
+						<option value="member">회원명</option>
+						<option value="mobile">핸드폰번호</option>
+						<option value="regidate">가입일</option>
 					</select>
 				</div> 
 				<div class="input-group">
 
-					<input type="text" name="keyString" class="form-control"
+					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px; height : 30px" />
 
 					<div class="input-group-btn">
 						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색 <i class="glyphicon glyphicon-search"></i>
+							검색
 						</button>
 					</div>
 				</div> 
@@ -97,22 +95,55 @@
 						</tr>
 					</thead>
 					<tbody> 
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">angelriun</td>
-							<td>john@example.com</td>
-							<td>010-8761-4737</td>
-							<td>0</td>
-							<td>CU 가산디지털단지역점 </td>
-							<td>CU 백종원 도시락 </td>
-							<td>2019-09-07</td>
-						</tr>
-					
+						
+                        <!-- 회원 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="8" class="text-center">
+										등록된 회원이 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.virtualNum }</td>
+										<td class="text-left">
+											<a href="./view.do?type=${row.membertype}
+												&nowPage=${nowPage}">${row.name}</a>
+										</td >
+										<td class="text-center">${row.email }</td>
+										<td class="text-center">${row.mobile }</td>
+										<td class="text-center">${row.mobile_alert }</td>
+										<td class="text-center">${row.place_bookmark }</td>
+										<td class="text-center">${row.products_bookmark }</td>
+										<td class="text-center">${row.regidate }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+     
 					</tbody>
 				</table>
                   </div>
                 </div>
               <!-- 내용끝 -->
+			<br /><br />
+			 <!-- 페이지번호 -->
+              <div class="container">
+				<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
+				
+			  </div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				<!-- <button type="button" class="btn btn-dark btn-sm" 
@@ -120,18 +151,8 @@
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
 
-
 			<br /> <br />
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">←</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">→</a></li>
-			</ul>
+			
             </div>
       </div>
       

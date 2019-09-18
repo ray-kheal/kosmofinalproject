@@ -22,15 +22,15 @@ public class PlaceDAO {
 		System.out.println("JDBCTemplateDAO()생성자 호출");
 	}
 	
-	//게시물 수 카운트
+	//전체 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		
 		String query = " SELECT COUNT(*) FROM PHJ_PLACE ";
 
-//		if (map.get("Word") != null) {
-//			query += "WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%'";
-//		}
+		if (map.get("searchWord") != null) {
+			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+		}
 		
 		return template.queryForObject(query, Integer.class);
 		
@@ -46,8 +46,8 @@ public class PlaceDAO {
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
 				+ "      SELECT * FROM PHJ_PLACE ";
 
-		if (map.get("Word") != null) {
-			query += " WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%' ";
+		if (map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end;
 
