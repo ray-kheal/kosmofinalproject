@@ -12,6 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 </head>
 <script>
 	//인클루드 헤더 항목 선택구분.
@@ -111,11 +112,11 @@ body {
 						<section class="box feature">
 							<a href="right-sidebar.do" class="image featured"><img
 								src="images/store_shadow.png" alt="" /></a>
-							<div class="inner">
+							<div class="inner" style="text-align: center; font-family: Jua;">
 								<header>
-									<h2>편의점 찾기</h2>
+									<h2 style="font-family: Jua;">편의점 찾기</h2>
 								</header>
-								<p>원하시는 상품이 있는 편의점을 찾아 드립니다.</p>
+								<p style="font-family: Jua; font-size: 25px;">원하시는 상품이 있는 편의점을 찾아 드립니다.</p>
 							</div>
 						</section>
 					</div>
@@ -124,11 +125,11 @@ body {
 						<section class="box feature">
 							<a href="placemap.do" class="image featured"><img
 								src="images/product_shadow.png" alt="" /></a>
-							<div class="inner">
+							<div class="inner" style="text-align: center; ">
 								<header>
-									<h2>상품 찾기</h2>
+									<h2 style="font-family: Jua;">상품 찾기</h2>
 								</header>
-								<p>주변 편의점에 있는 상품을 알려드립니다</p>
+								<p style="font-family: Jua; font-size: 25px;">주변 편의점에 있는 상품을 알려드립니다</p>
 							</div>
 						</section>
 					</div>
