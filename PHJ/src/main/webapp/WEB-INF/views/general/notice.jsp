@@ -154,7 +154,7 @@ body {
 	</div>
 
 	<!-- Footer -->
-	<%@ include file="../general/LoginFooter.jsp"%>
+	<%@ include file="../general/simpleFooter.jsp"%>
 
 	<!-- Scripts -->
 
