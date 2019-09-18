@@ -15,7 +15,7 @@ public class MemberDTO {
     private java.sql.Date regidate;
     private String place_bookmark;
     private String products_bookmark;
-   
+    private int virtualNum; // 가상번호
 	
     //기본생성자
     public MemberDTO() {
@@ -23,7 +23,7 @@ public class MemberDTO {
 	}
     //인자생성자
 	public MemberDTO(String membertype, String email, String email_alert, String name, String pass, String mobile, String mobile_alert,
-			Date regidate, String place_bookmark, String products_bookmark) {
+			Date regidate, String place_bookmark, String products_bookmark,int virtualNum) {
 		super();
 		this.membertype = membertype;
 		this.email = email;
@@ -35,6 +35,7 @@ public class MemberDTO {
 		this.regidate = regidate;
 		this.place_bookmark = place_bookmark;
 		this.products_bookmark = products_bookmark;
+		this.virtualNum = virtualNum;
 	}
 	
 	//getter, setter
@@ -98,7 +99,12 @@ public class MemberDTO {
 	public void setEmail_alert(String email_alert) {
 		this.email_alert = email_alert;
 	}
-    
+	public int getVirtualNum() {
+		return virtualNum;
+	}
+	public void setVirtualNum(int virtualNum) {
+		this.virtualNum = virtualNum;
+	}
 	
     
 
