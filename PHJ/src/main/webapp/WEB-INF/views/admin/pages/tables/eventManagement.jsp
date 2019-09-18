@@ -11,7 +11,7 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
-  
+
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
@@ -19,6 +19,7 @@
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
+    
       <!-- admin 메인헤더 인클루드 -->
       <%@ include file="../admin_general/AdminMainHeader.jsp"%> 
       
@@ -29,125 +30,165 @@
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
         
       <!-- 사이드바 끝 -->
-      <!-- 페이지 시작 -->
+        
+        <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             	<h3 class="page-title" style="font-weight: bold;">점포관리</h3> 
-             	<br /><br />
-             	<h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
-            <!-- 
-            	<nav aria-label="breadcrumb">
-               	 <ol class="breadcrumb">
-                  	<li class="breadcrumb-item"><a href="#">상품관리</a></li>
-                  	<li class="breadcrumb-item active" aria-current="page">편의점관리</li>
+             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
+             
+             <br /><br />
+       <!--        <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">관리</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
                 </ol>
-            	</nav> -->
-         	<!-- 검색기능 시작 -->
+              </nav>
+        -->     
               	<form class="form-inline">
 				 <div class="form-group ">
-					<select name="searchColumn" class="form-control" style="width: 100px; height : 30px" >
-						<option value="place_code">점포코드</option>
-						<option value="place_name">점포명</option>
-						<option value="place_address">주소</option>
+					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
+						<option value="">제목</option>
+						<option value="">작성자</option>
+						<option value="">내용</option>
 					</select>
 				</div> 
 				<div class="input-group">
 
-					<input type="text" name="searchWord" class="form-control"
+					<input type="text" name="keyString" class="form-control"
 						style="width: 120px; height : 30px" />
 
 					<div class="input-group-btn">
 						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색
+							검색 
 						</button>
 					</div>
 				</div>
 			</form>
 			<!-- 검색기능 끝 -->
-			<br />  
-			<!-- 내용시작 -->
+
+			<br />
+<%-- 
+			<div>
+				<table class="table table-hover" style="text-align: center;">
+					<colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="80px" />
+					</colgroup>
+					<thead>
+						<tr class="table-primary" style="color: white;">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>날짜</th>
+							<th>조회</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>공지</th>
+							<td style="text-align: left; font-weight: bold;">최근공지</td>
+							<td>관리자</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td style="text-align: left;">제목1</td>
+							<td>john@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td style="text-align: left;">제목2</td>
+							<td>mary@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td style="text-align: left;">제목3</td>
+							<td>july@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<br /><br />
+			<div class="row text-right" style="float: right;">
+				<button type="button" class="btn btn-dark btn-sm" 
+				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
+				<button class = "btn btn-danger btn-sm">삭제</button>
+			</div>
+ --%>
+		<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-map-marker-radius"></i>&nbsp;점포 조회</h4>
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
-                      <colgroup>
-						<col width="20px" />
-						<col width="50px" />
-						<col width="100px" />  
-						<col width="120px" />
+                     <colgroup>
+						<col width="80px" />
 						<col width="*" />
-					</colgroup>  
-                        
-                      <thead>
-                        <tr class="table-info" style="color: white;">
-                          <th>no</th>
-                          <th>점포코드</th>
-                          <th>점포명</th>
-                          <th>주소</th>
-                          <th>도로명주소</th>
-                          
-                        </tr>
-                      </thead> 
+						<col width="120px" />
+						<col width="120px" />
+						<col width="80px" />
+					</colgroup>
+					<thead>
+						<tr class="table-info" style="color: white;">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>날짜</th>
+							<th>조회</th>
+						</tr>   
+					</thead>
                       <tbody>
-                       
-                        <!-- 편의점 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty viewRow }">
-								<tr>
-									<td colspan="5" class="text-center">
-										등록된 점포가 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${viewRow }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-center">${row.place_code }</td>
-										<td class="text-left">
-											<a href="./view.do?idx=${row.place_code}
-												&nowPage=${nowPage}">${row.place_name}</a>
-										</td >
-										<td class="text-left">${row.place_address}
-										</td>
-										<td class="text-center">${row.place_road_addr }</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-     
+                       <tr>
+							<th>공지</th>
+							<td style="text-align: left; font-weight: bold;">최근공지</td>
+							<td>관리자</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td style="text-align: left;">제목1</td>
+							<td>john@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td style="text-align: left;">제목2</td>
+							<td>mary@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td style="text-align: left;">제목3</td>
+							<td>july@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <!-- 내용끝 -->
-                <br /><br />
-                <!-- 페이지번호 -->
-                <div class="container">
-				<table width="100%">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-				</table>
-                
-                </div>
+              <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./placeManagementWrite.do';">점포등록</button>
+				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
-
-
-			<br /> <br />
-			<!-- <ul class="pagination justify-content-center">
+			<ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"
 					href="javascript:void(0);">←</a></li>
 				<li class="page-item"><a class="page-link"
@@ -156,7 +197,7 @@
 					href="javascript:void(0);">2</a></li>
 				<li class="page-item"><a class="page-link"
 					href="javascript:void(0);">→</a></li>
-			</ul> -->
+			</ul>
             </div>
       </div>
       
