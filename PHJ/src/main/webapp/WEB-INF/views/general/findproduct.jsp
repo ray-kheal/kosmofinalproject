@@ -18,6 +18,15 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
+</style>
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -49,6 +58,8 @@ to {
       100% {color:red; font-weight: bold;} */
 }
 </style>
+
+
 </head>
 <body>
 
@@ -65,7 +76,8 @@ to {
 	<div
 		style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
 		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+			font-size: 60px; color: white; font-weight: bold;">
 			<img src="./images/memo_w.png" alt="메모"
 				style="width: 50px; height: 50px;" /> 편의점 정보가 여기에!
 		</p>
@@ -118,12 +130,7 @@ to {
 		<!-- 검색기능 끝 -->
 
 		<br />
-		<div class="row text-right"
-			style="float: right; padding-bottom: 20px;">
-			<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-			
-			
-		</div>
+		
 		
 				<button type="submit" onclick="" class="btn btn-info">EVENT</button>
 				&nbsp;
@@ -189,14 +196,7 @@ to {
 				</tbody>
 			</table>
 		</div>
-		<div class="row text-right" style="float: right;">
-			
-				
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-			
-			
-		</div>
-
+	
 
 		<br /> <br />
 		<ul class="pagination justify-content-center">
