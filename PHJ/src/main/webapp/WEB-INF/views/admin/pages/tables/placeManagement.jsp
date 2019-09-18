@@ -72,20 +72,21 @@
                     <h4 class="card-title">&nbsp;<i class="mdi mdi-map-marker-radius"></i>&nbsp;점포 조회</h4>
                     <table class="table table-hover" style="text-align: center;">
                       <colgroup>
-						<col width="20px" />
-						<col width="*" />
-						<col width="120px" />  
+						<%-- <col width="20px" /> --%>
+						<col width="50px" />
+						<col width="100px" />  
 						<col width="120px" />
-						<col width="80px" />
+						<col width="*" />
 					</colgroup>  
                         
                       <thead>
                         <tr class="table-info" style="color: white;">
-                          <th>번호</th>
+                          <!-- <th>번호</th> -->
+                          <th>점포코드</th>
                           <th>점포명</th>
-                          <th>위치</th>
-                          <th>전화번호</th>
-                          <th>등록일</th>
+                          <th>주소</th>
+                          <th>도로명주소</th>
+                          
                         </tr>
                       </thead> 
                       <tbody>
@@ -96,7 +97,7 @@
                           <td><label class="badge badge-danger">Pending</label></td>
                           <td><label class="badge badge-danger">2019-09-17</label></td>
                         </tr> -->
-                        <tr>
+                        <!-- <tr>
                           <td>1</td>  
                           <td><a href="">GS25 서울역점</a></td>
                           <td class="text-danger">서울 용산구 한강대로 401</td>
@@ -109,8 +110,36 @@
                           <td class="text-danger">서울 서초구 잠원동 122-1 한강시민공원 1층</td>
                           <td>02-533-8266</td>
                           <td>2019-09-17</td>
-                        </tr>
+                        </tr> -->
                         
+                        <!-- 편의점 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="4" class="text-center">
+										등록된 점포가 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <%-- <td class="text-center">${viewRow.virtualNum }</td>  --%>
+										<td class="text-center">${row.place_code }</td>
+										<td class="text-left">
+											<a href="./view.do?idx=${row.place_code}
+												&nowPage=${nowPage}">${row.place_name}</a>
+										</td >
+										<td class="text-left">${row.place_address}
+										</td>
+										<td class="text-center">${row.place_road_addr }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
      
                       </tbody>
                     </table>
