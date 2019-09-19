@@ -120,17 +120,17 @@ public class MemberController {
 	}
 	
 	//회원정보수정페이지 진입(수정폼)
-		@RequestMapping("/memberEdit.do")
-		public String memberEdit(Model model, HttpServletRequest req) {
-			model.addAttribute("req",req);
-			command = new MemberEditCommand();
-			command.execute(model);
-			
-			System.out.println("excute 완료");
-			
-			
-			return "member/memberEdit";
-		}
+	@RequestMapping("/memberEdit.do")
+	public String memberEdit(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new MemberEditCommand();
+		command.execute(model);
+		
+		System.out.println("excute 완료");
+		
+		
+		return "member/memberEdit";
+	}
 	
 	//회원정보수정
 	@RequestMapping(value="/modify.do", method=RequestMethod.POST)

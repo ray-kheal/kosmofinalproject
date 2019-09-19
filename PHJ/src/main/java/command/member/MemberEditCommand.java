@@ -31,6 +31,11 @@ public class MemberEditCommand implements PHJCommandImpl {
 		System.out.println("회원이름 : " + dto.getName());
 		System.out.println("회원등급 : " + dto.getMembertype());
 		model.addAttribute("dto",dto);
+		//전화번호는 여기서 3부분으로 쪼개서 model에 넣음.
+		String[] mobileArr = dto.getMobile().split("-");
+		model.addAttribute("mobile1",mobileArr[0]);
+		model.addAttribute("mobile2",mobileArr[1]);
+		model.addAttribute("mobile3",mobileArr[2]);
 		
 	}
 

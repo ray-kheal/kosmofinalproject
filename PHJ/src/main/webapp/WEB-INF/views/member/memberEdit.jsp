@@ -133,13 +133,6 @@
 	
 </script>
 
-<%
-String mobile = request.getParameter("mobile");
-String[] mobileSplit = mobile.split("-");
-
-%>
-
-
 <style type="text/css">
 body {
 	font-family: 'Mali', cursive;
@@ -189,16 +182,13 @@ label {
 					</tr>
 					<tr>
 						<td colspan='4'></td>    
-					</tr>-
+					</tr>
 					<tr>
 						<td>이메일</td>
 						<td>
 							<div class="form-inline" >
-								<input type="text" name="email1" id="email1" value="<%=emailSplit[0] %>"
-								class="form-control" style="width:30%" readonly placeholder="이메일(아이디)"/>@
-							
-								<input type="text" id="email2" name="email2" value="<%=emailSplit[1] %>" 
-								 class="form-control input-lg" style="width:30%" readonly />							
+								<input type="text" name="email1" id="email" value="${dto.email }"
+								class="form-control" style="width:30%" readonly placeholder="이메일(아이디)"/>
 								<select name="email_choice" onChange="choiceInput(this.form, this);"
 									class="custom-select" style="width:30%" readonly>  
 									<option disabled="disabled" selected value="">*변경불가</option>
@@ -219,17 +209,17 @@ label {
 					 
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" style="width: 50%;" id="pass1" name="pass" value=""  class="form-control input-lg" placeholder="비밀번호" /></td>
+						<td><input type="password" style="width: 50%;" id="pass1" name="pass" value="${dto.pass }"  class="form-control input-lg" placeholder="비밀번호" /></td>
 						
 					</tr>
 					<tr>
 						<td>비밀번호확인</td>
-						<td><input type="password" style="width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
+						<td><input type="password" style="width: 50%;" id="pass2" name="confirm_password" value="${dto.pass }"  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
 						
 					</tr>  
 					<tr>
 						<td>이름</td>
-						<td><input type="text" style="width: 50%;" name="name" value="<%=session.getAttribute("NAME") %>" class="form-control input-lg" placeholder="닉네임" /> </td>
+						<td><input type="text" style="width: 50%;" name="name" value="${dto.name }" class="form-control input-lg" placeholder="닉네임" /> </td>
 						 
 					</tr>
 					
@@ -237,9 +227,9 @@ label {
 						<td>휴대전화</td>
 						<td>
 							<div class="form-inline">
-								<input type="text" name="mobile1" class="form-control input-lg" style="width:25%"/>&nbsp;-&nbsp; 
-								<input type="text" name="mobile2" class="form-control input-lg" style="width:25%"/>&nbsp;-&nbsp; 	
-								<input type="text" name="mobile3" class="form-control input-lg" style="width:25%"/>&nbsp;
+								<input type="text" name="mobile1" class="form-control input-lg" style="width:25%" value="${mobile1 }"/>&nbsp;-&nbsp; 
+								<input type="text" name="mobile2" class="form-control input-lg" style="width:25%" value="${mobile2 }"/>&nbsp;-&nbsp; 	
+								<input type="text" name="mobile3" class="form-control input-lg" style="width:25%" value="${mobile3 }"/>&nbsp;
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">	
 								<input type="radio" name="sms" class="custom-control-input" value="y" id="SMSY" />
