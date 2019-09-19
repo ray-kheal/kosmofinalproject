@@ -8,13 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import command.MemberListCommand;
 import command.PHJCommandImpl;
-import command.AdBoardListCommand;
-import command.AdBoardListViewCommand;
-import command.AdEventListCommand;
-import command.AdPlaceListCommand;
-import command.AdProductListCommand;
+import command.admin.AdBoardListCommand;
+import command.admin.AdBoardListViewCommand;
+import command.admin.AdEventListCommand;
+import command.admin.AdPlaceListCommand;
+import command.admin.AdProductListCommand;
+import command.admin.MemberListCommand;
 @Controller
 public class AdminController {
 	

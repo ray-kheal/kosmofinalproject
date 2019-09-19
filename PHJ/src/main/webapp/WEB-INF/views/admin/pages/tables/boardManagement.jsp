@@ -142,9 +142,20 @@
                 </div>
                 <br /><br />
 			<div class="row text-right" style="float: right;">
+			
+			<%-- <% String board_type=request.getParameter("board_type");//게시판 타입 
+              	if(board_type.equals("1")) { %>
+             		<button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./boardManagementWrite.do?&board_type=${row.board_type}';">글쓰기</button>
+			 <%}else if (board_type.equals("2")){ %>
+             		<button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./boardManagementWrite.do?&board_type=${row.board_type}';">글쓰기</button>
+			 <%} %>
+			  --%>
 				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
+						onclick="location.href='./boardManagementWrite.do?&board_type=1';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
+				
 			</div>
             </div>
       </div>
