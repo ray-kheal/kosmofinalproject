@@ -45,7 +45,12 @@ body {
 	<div id="page-wrapper">
 	
 		<!-- 메인페이지 우측 스크롤메뉴 -->
-		<div id="scroll" style="position: absolute; right: 30; top: 30;">
+		<!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
+		<div id="scroll" style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align:center; width: 120px;"> 
+		
+		    
+
+
 			<%-- <ul>
 				<li><a href="#header">Welcome</a></li>
 				<li><a href="#features-wrapper">편의점 상품조회</a></li>
@@ -178,8 +183,8 @@ body {
 							<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
 					</div>
-					<div class="col-8 col-12-medium imp-medium">
-
+					
+					<div class="col-7 col-16-medium imp-medium">
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
@@ -198,7 +203,8 @@ body {
 								</table>
 						</div>
 					</div>
-					<div class="col-8 col-12-medium imp-medium">
+					</div>
+					<div class="col-7 col-16-medium imp-medium">
 						<!-- Content -->
 						<div id="info">
 							<section class="last">
@@ -209,7 +215,7 @@ body {
 							</section>
 						</div>
 					</div>
-				</div>
+				
 			</div>
 		</div>
 		<div class="container">

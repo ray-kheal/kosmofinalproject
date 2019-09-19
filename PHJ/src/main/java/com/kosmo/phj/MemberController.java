@@ -1,5 +1,7 @@
 package com.kosmo.phj;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import command.LoginActionCommand;
 import command.PHJCommandImpl;
+import command.RegistCommand;
 import member.MemberDAO;
 import member.MemberDTO;
 @Controller
@@ -92,5 +95,29 @@ public class MemberController {
 		session.setAttribute("PASS", req.getParameter("pass"));
 		session.setAttribute("NAME", req.getParameter("name"));
 		return "redirect:../phj";
+	}
+	
+	//구글로그인 매핑
+	@RequestMapping(value="/googlelogin.do",method=RequestMethod.GET)
+	public String googlelogin(HttpServletRequest req, HttpSession session) {
+		System.out.println("구글로그인 이메일 : "+ req.getParameter("email"));
+		
+		session.setAttribute("EMAIL", req.getParameter("email"));
+		session.setAttribute("PASS", req.getParameter("pass")); 
+		session.setAttribute("NAME", req.getParameter("name"));
+		return "redirect:../phj";
+	}
+	
+	//회원가입
+	@RequestMapping(value="/regist.do",method=RequestMethod.POST)
+	public String regist(Model model, HttpServletRequest req) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		command = new RegistCommand();
+		command.execute(model);
+		
+		model.addAttribute("name",req.getParameter("name"));
+		
+		return "member/join03";
 	}
 }

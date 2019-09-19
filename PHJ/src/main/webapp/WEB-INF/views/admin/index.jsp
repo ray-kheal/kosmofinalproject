@@ -111,8 +111,8 @@
                 </ul>
               </div>
             </li> 
-            
-            
+             
+           
       
           </ul>   
         </nav>
@@ -121,43 +121,42 @@
           <div class="content-wrapper">
             <div class="row" id="proBanner">
               <div class="col-12">
-             
-                  <i class="mdi mdi-close" id="bannerClose"></i> 
+                 <i class="mdi mdi-close" id="bannerClose"></i> 
               </div>
             </div>
             <div class="page-header">
               <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <span class="page-title-icon bg-gradient-info text-white mr-2">
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
-              <nav aria-label="breadcrumb">
+              <!-- <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
                     <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                   </li>
                 </ul>
-              </nav>
+              </nav>  -->
             </div>
             <div class="row">
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Sales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                    <h4 class=" mb-3">Weekly New Member<i class="mdi mdi-account-plus mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">$ 15,0000</h2>
+                    <h2 class="mb-5">500 People</h2>
                     <h6 class="card-text">Increased by 60%</h6>
-                  </div>
+                  </div>  
                 </div>
               </div>
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Weekly New Recipe <i class="mdi mdi-food-fork-drink mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">45,6334</h2>
-                    <h6 class="card-text">Decreased by 10%</h6>
+                    <h2 class="mb-5">10,000</h2>
+                    <h6 class="card-text">Increased by 10%</h6>
                   </div>
                 </div>
               </div>
@@ -165,9 +164,9 @@
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Weekly New product <i class="mdi mdi-shopping mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">95,5741</h2>
+                    <h2 class="mb-5">100</h2>
                     <h6 class="card-text">Increased by 5%</h6>
                   </div>
                 </div>
@@ -178,7 +177,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">Visit And Sales Statistics</h4>
+                      <h4 class="card-title float-left">Board Statistics</h4>
                       <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
                     </div>
                     <canvas id="visit-sale-chart" class="mt-4"></canvas>
@@ -194,11 +193,11 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>    
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
-                  <div class="card-body">
+                  <!-- <div class="card-body">
                     <h4 class="card-title">Recent Tickets</h4>
                     <div class="table-responsive">
                       <table class="table">
@@ -255,7 +254,7 @@
                         </tbody>
                       </table>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -264,16 +263,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Recent Updates</h4>
-                    <div class="d-flex">
-                      <div class="d-flex align-items-center mr-4 text-muted font-weight-light">
-                        <i class="mdi mdi-account-outline icon-sm mr-2"></i>
-                        <span>jack Menqu</span>
-                      </div>
-                      <div class="d-flex align-items-center text-muted font-weight-light">
-                        <i class="mdi mdi-clock icon-sm mr-2"></i>
-                        <span>October 3rd, 2018</span>
-                      </div>
-                    </div>
+                    
                     <div class="row mt-3">
                       <div class="col-6 pr-1">
                         <img src="assets/images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
@@ -299,7 +289,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
+             <!--  <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Project Status</h4>
@@ -378,8 +368,8 @@
                       </table>
                     </div>
                   </div>
-                </div>
-              </div>
+                </div> -->
+              <!-- </div>
               <div class="col-md-5 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -395,7 +385,6 @@
                             <label class="form-check-label">
                               <input class="checkbox" type="checkbox"> Meeting with Alisa </label>
                           </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
                         </li>
                         <li class="completed">
                           <div class="form-check">
@@ -437,7 +426,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.do -->

@@ -7,6 +7,7 @@ public class MemberDTO {
 	//회원 멤버변수
 	private String membertype;
     private String email;
+    private String email_alert;
     private String name;
     private String pass;
     private String mobile;
@@ -14,17 +15,19 @@ public class MemberDTO {
     private java.sql.Date regidate;
     private String place_bookmark;
     private String products_bookmark;
+   
 	
     //기본생성자
     public MemberDTO() {
 		super();
 	}
     //인자생성자
-	public MemberDTO(String membertype, String email, String name, String pass, String mobile, String mobile_alert,
+	public MemberDTO(String membertype, String email, String email_alert, String name, String pass, String mobile, String mobile_alert,
 			Date regidate, String place_bookmark, String products_bookmark) {
 		super();
 		this.membertype = membertype;
 		this.email = email;
+		this.email_alert = email_alert;
 		this.name = name;
 		this.pass = pass;
 		this.mobile = mobile;
@@ -88,6 +91,12 @@ public class MemberDTO {
 	}
 	public void setProducts_bookmark(String products_bookmark) {
 		this.products_bookmark = products_bookmark;
+	}
+	public String getEmail_alert() {
+		return email_alert;
+	}
+	public void setEmail_alert(String email_alert) {
+		this.email_alert = email_alert;
 	}
     
 	

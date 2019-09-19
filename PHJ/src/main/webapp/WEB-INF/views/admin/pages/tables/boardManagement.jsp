@@ -36,7 +36,7 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title">공지사항 </h3> 
+             <h3 class="page-title" style="font-weight: bold;">공지사항 </h3> 
              
              <br /><br />
        <!--        <nav aria-label="breadcrumb">
@@ -53,7 +53,7 @@
 						<option value="">작성자</option>
 						<option value="">내용</option>
 					</select>
-		</div> 
+				</div> 
 				<div class="input-group">
 
 					<input type="text" name="keyString" class="form-control"
@@ -69,7 +69,7 @@
 			<!-- 검색기능 끝 -->
 
 			<br />
-
+<%-- 
 			<div>
 				<table class="table table-hover" style="text-align: center;">
 					<colgroup>
@@ -122,12 +122,72 @@
 			</div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm">글쓰기</button>
+				<button type="button" class="btn btn-dark btn-sm" 
+				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
-
-
-			<br /> <br />
+ --%>
+		<!-- 내용시작 -->
+			<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 리스트</h4>
+                    <table class="table table-hover" style="text-align: center;">
+                     <colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="80px" />
+					</colgroup>
+					<thead>
+						<tr class="table-info" style="color: white;">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>날짜</th>
+							<th>조회</th>
+						</tr>   
+					</thead>
+                      <tbody>
+                       <tr>
+							<th>공지</th>
+							<td style="text-align: left; font-weight: bold;">최근공지</td>
+							<td>관리자</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td style="text-align: left;">제목1</td>
+							<td>john@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td style="text-align: left;">제목2</td>
+							<td>mary@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td style="text-align: left;">제목3</td>
+							<td>july@example.com</td>
+							<td>2019-09-07</td>
+							<td>0</td>
+						</tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              <!-- 내용끝 -->
+			<br /><br />
+			<div class="row text-right" style="float: right;">
+				<button type="button" class="btn btn-dark btn-sm" 
+				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
+				<button class = "btn btn-danger btn-sm">삭제</button>
+			</div>
 			<ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"
 					href="javascript:void(0);">←</a></li>
