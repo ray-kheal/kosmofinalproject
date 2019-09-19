@@ -59,19 +59,18 @@ public class noticeDAO {
 	}
 	
 	  //답변형 게시판 글쓰기 처리 
-	public void write(final serviceDTO serviceDTO) {
+	public void write(final noticeDTO noticeDTO) {
 
 		template.update(new PreparedStatementCreator() {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, title, contents, name, bgroup, bstep, bindent)"
-						+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, SEQ_PHJ_BOARD_SERVICE.NEXTVAL, 0, 0 )";
+				String sql = "INSERT INTO PHJ_BOARD_NOTICE(idx, title, contents)"
+						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ? )";
 
 				PreparedStatement psmt = con.prepareStatement(sql);
-				psmt.setString(1, serviceDTO.getName());
-				psmt.setString(2, serviceDTO.getTitle());
-				psmt.setString(3, serviceDTO.getContent());	
+				psmt.setString(1, noticeDTO.getTitle());
+				psmt.setString(2, noticeDTO.getContent());	
 
 				return psmt;
 			}

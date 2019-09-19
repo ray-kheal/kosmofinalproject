@@ -135,9 +135,7 @@
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-secondary btn-sm" 
-				onclick="location.href='./boardManagementView.do?idx=${viewRow.idx}
-					&nowPage=${nowPage}&board_type=${viewRow.board_type };">수정하기</button>
+				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementView.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type };">수정하기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 				<% if(board_type.equals("1")) { %>
                     	<button type="button" class="btn btn-dark btn-sm" 
