@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import command.PHJCommandImpl;
 import command.board.ListCommand;
 import command.board.QnAListCommand;
+import command.board.QnAViewCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import command.board.recipeListCommand;
@@ -83,9 +84,12 @@ public class GeneralController {
          return "general/event_view";
       }
    
-	//리스트게시판
+	//레시피 게시판
 	@RequestMapping("recipe.do")
-	public String recipe() {
+	public String recipe(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new recipeListCommand();
+		command.execute(model);
 		return "general/recipe";
 	}
 	@RequestMapping("placemap.do")
@@ -104,7 +108,16 @@ public class GeneralController {
 		command = new QnAListCommand();
 		command.execute(model);
 		return "general/qna";
-	} //QnA게시판 글쓰기
+	} 
+	//QnA 상세보기	
+	@RequestMapping("qna_view.do")
+      public String qna_view(Model model, HttpServletRequest req) {
+         model.addAttribute("req",req);
+         command = new QnAViewCommand();
+         command.execute(model);
+         return "general/qna_view";
+      }
+   	//QnA게시판 글쓰기
 	   @RequestMapping("write.do")
 	   public String write(Model model) {   
 		   System.out.println("write() 메소드 호출됨");

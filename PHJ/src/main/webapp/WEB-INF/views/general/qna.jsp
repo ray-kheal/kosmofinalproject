@@ -61,10 +61,7 @@ nav {
 					style="width: 50px; height: 50px;" />무엇이든 물어보세요 ^ㅅ^
 			</p>
 		</div>
-		<div style="width: 100%; text-align: center;">
-			<br /> <br />
-
-		</div>
+		 
 
 		<div class="container">
 			<br /> <br />
@@ -128,7 +125,7 @@ nav {
 									<tr>
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left"><a
-											href="./view.do?idx=${row.idx}
+											href="./qna_view.do?idx=${row.idx}
 								&nowPage=${nowPage}">${row.title}</a>
 										</td>
 										<td class="text-center">${row.content }</td>
