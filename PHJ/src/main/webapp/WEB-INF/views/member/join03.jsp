@@ -87,7 +87,7 @@
 			</div>
 			<br />
 			<div id="account-box">
-					<a href=./home.do>
+					<a href=./>  
 					<button type="button" class="btn btn-primary">메인으로 돌아가기</button>
 					</a>
 			</div>
