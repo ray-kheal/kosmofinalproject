@@ -38,6 +38,7 @@
 		<td>조회수</td>
 		<td>${viewRow.view_count }</td>
 	</tr>
+	
 	<tr>
 		<td>제목</td>
 		<td colspan =3>${viewRow.title }</td>
