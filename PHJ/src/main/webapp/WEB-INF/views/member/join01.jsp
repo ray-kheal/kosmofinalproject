@@ -264,9 +264,9 @@ body {
 	</div> -->
 
 			<p style="text-align: center; margin-bottom: 20px">
-				<a href="#"><img src="resources/images/btn01.gif" onclick="chk()" /></a>
+				<a href="javascript:chk();"><button type="button" class="btn btn-primary">확인</button></a>
 					&nbsp;&nbsp;
-				<a href="#"><img src="resources/images/btn02.gif" onclick="nochk()" /></a>
+				<a href="javascript:nochk();"><button type="button" class="btn btn-warning">취소</button></a>
 			</p>
 		</form>
 

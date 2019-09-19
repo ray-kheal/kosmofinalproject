@@ -308,8 +308,8 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 										src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
 										alt="">
 									<figcaption>
-										<h3>샌드위치</h3>
-										<p>계란야채샌드위치</p>
+										<h3>${row.title }</h3>
+										<p>${row.content }</p>
 										<i class="ion-ios-arrow-right"></i>
 									</figcaption>
 									<a href="#" class="d-block mb-4 h-100"></a>
