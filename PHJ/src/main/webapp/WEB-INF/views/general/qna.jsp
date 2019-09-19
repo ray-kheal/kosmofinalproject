@@ -51,10 +51,7 @@ body {
 					style="width: 50px; height: 50px;" />무엇이든 물어보세요 ^ㅅ^
 			</p>
 		</div>
-		<div style="width: 100%; text-align: center;">
-			<br /> <br />
-
-		</div>
+		 
 
 		<div class="container">
 			<br /> <br />
