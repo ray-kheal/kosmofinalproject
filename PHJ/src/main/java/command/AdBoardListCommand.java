@@ -7,16 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
+import board.noticeDAO;
+import board.noticeDTO;
 import place.PlaceDAO;
 import place.PlaceDTO;
 
 
-public class PlaceListCommand implements PHJCommandImpl {
+public class AdBoardListCommand implements PHJCommandImpl {
 	
 	@Override
 	public void execute(Model model) {
 		
-		System.out.println("PlaceListCommand > exectue()");
+		System.out.println("BoardListCommand > exectue()");
 		
 		//파라미터 한번에 전달받기
 		Map<String, Object> paramMap = model.asMap();
@@ -25,7 +27,7 @@ public class PlaceListCommand implements PHJCommandImpl {
 		
 		
 		//JDBCTemplate를 통한 DB연결 및 사용
-		PlaceDAO dao = new PlaceDAO();
+		noticeDAO dao = new noticeDAO();
 
 		
 		//검색기능 구현
@@ -61,14 +63,14 @@ public class PlaceListCommand implements PHJCommandImpl {
 		paramMap.put("end", end);		
 		
 		//출력할 리스트 가져오기
-		ArrayList<PlaceDTO> viewRow = dao.list(paramMap);
+		ArrayList<noticeDTO> viewRow = dao.list(paramMap);
 		
 		
 		//가상번호 계산하여 부여하기
 		//가상번호 계산하여 부여하기
 		int virtualNum =0;
 		int countNum =0;
-		for(PlaceDTO row : viewRow) {
+		for(noticeDTO row : viewRow) {
 			//가상번호 연산 후 setter를 통해 값을 저장함
 			virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 			row.setVirtualNum(virtualNum);
@@ -76,14 +78,14 @@ public class PlaceListCommand implements PHJCommandImpl {
 			
 		}
 		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
-				req.getContextPath()+"/admin/pages/tables/placeManagement.do?"+addQueryString);
+				req.getContextPath()+"/admin/pages/tables/boardManagement.do?"+addQueryString);
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);
 				
 		//모델에 저장(뷰로 데이터를 넘겨주기 위해
 		model.addAttribute("viewRow",viewRow);
-		System.out.println("Place리스트커맨드 잘끝냄 ^^");
+		System.out.println("board리스트커맨드 잘끝냄 ^^");
 		System.out.println();		
 
 	}

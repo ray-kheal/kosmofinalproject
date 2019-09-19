@@ -36,8 +36,13 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3>
-                
+              <%
+              String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
+              if(board_type.equals("1")) { %>
+             <h3 class="page-title" style="font-weight: bold;">공지사항 게시판</h3> 
+			<%}else if (board_type.equals("2")){ %>
+             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
+			<%} %>
              <br /><br />
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -46,46 +51,98 @@
                 </ol>
               </nav>
         -->     
- 
-			<br />  
-		
+              	<form class="form-inline">
+				 <div class="form-group ">
+					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
+						<option value="">제목</option>
+						<option value="">작성자</option>
+						<option value="">내용</option>
+					</select>
+				</div> 
+				<div class="input-group">
+
+					<input type="text" name="keyString" class="form-control"
+						style="width: 120px; height : 30px" />
+
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-outline-secondary btn-sm">
+							검색
+						</button>
+					</div>
+				</div>
+				
+			</form>
+			<!-- 검색기능 끝 -->
+
+			<br />
+
+			<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;이벤트 게시판 글쓰기</h4>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">이름</label>
-                        <input type="text" class="form-control" id="exampleInputName1" value="관리자">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">비밀번호</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <label>파일업로드</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">내용</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="10"></textarea>
-                      </div>
-                     
-                    </form>
+                    <h4 class="card-title">&nbsp;
+                    <% if(board_type.equals("1")) { %>
+                    	<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 
+                    <%}else if (board_type.equals("2")){ %>
+                    	<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 
+                    <%} %>
+                    </h4>
+                    <table class="table table-bordered" style="margin-bottom: -1px;">
+				<colgroup>
+					<col width="80px" />
+					<col width="*" />
+					<col width="120px" />
+					<col width="120px" />
+					<col width="80px" />
+					<col width="50px" />
+				</colgroup>
+				<input type="hidden" name="idx" value="${viewRow.idx }" />
+				<tr>
+					<th bgcolor="#f2efef" style="text-align: center;">제목</th>
+					<td>${viewRow.title}</td>
+				</tr>
+				<tr>
+					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
+					<td>관리자</td>
+				</tr>
+				<!-- 	<th>작성자</th>
+						<th>날짜</th>
+						<th>조회</th> -->
+				<!-- <tbody>
+				</tbody> -->
+			</table>
+			<div style="border: 1px solid #EDEAEA;">
+				<table class="table table-borderless">
+					<colgroup>
+						<col width="80px" />
+						<col width="100px" />
+						<col width="80px" />
+						<col width="*" />
+					</colgroup>
+					<tr>
+						<th style="text-align: center;">DATE</th>
+						<td>${viewRow.postdate}</td>
+						<th style="text-align: center;">조회수</th>
+						<td>${viewRow.view_count }</td>
+					</tr>
+					<tr>
+						<td colspan="4">${viewRow.content}
+						</td>
+					</tr>
+				</table>
+
+			</div>
                   </div>
                 </div>
+              <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
-                 <button class="btn btn-light btn-rounded">Reset</button>
-                 <button class="btn btn-dark btn-rounded"
-                 	onclick="location.href='./eventManagement.do';">List</button>
-			</div>	
+				<button type="button" class="btn btn-secondary btn-sm" 
+				onclick="location.href='./boardManagementEdit.do';">수정하기</button>
+				<button class = "btn btn-danger btn-sm">삭제</button>
+				<button type="button" class="btn btn-dark btn-sm" 
+					onclick="location.href='./boardManagement.do';">리스트</button>
+			</div>
+			
             </div>
       </div>
       

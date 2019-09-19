@@ -9,7 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.command.ListCommand;
+
 import board.command.QnAListCommand;
+
+import board.command.recipeListCommand;
+
 import command.PHJCommandImpl;
 
 @Controller
@@ -49,36 +53,32 @@ public class GeneralController {
 	 @RequestMapping("view.do")
 	   public String view(Model model, HttpServletRequest req) {
 		   model.addAttribute("req",req);
-		   command = new board.command.Viewcommand();
+		   command = new board.command.ViewCommand();
 		   command.execute(model);
 		   return "general/view";
 	   }
 	//이벤트 게시판
-		@RequestMapping("event.do")
-		public String event(Model model, HttpServletRequest req) {
-			
-			model.addAttribute("req",req);
-			model.addAttribute("board_type",2);
-			command = new ListCommand();
-			command.execute(model);
-			
-			return "general/event";
-		}
-		//이벤트 게시판 상섹보기
-		 @RequestMapping("Eview.do")
-		   public String event_view(Model model, HttpServletRequest req) {
-			   model.addAttribute("req",req);
-			   command = new board.command.Viewcommand();
-			   command.execute(model);
-			   return "general/event_view";
-		   }
+	@RequestMapping("event.do")
+	public String event(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",2);
+		command = new ListCommand();
+		command.execute(model);
+		
+		return "general/event";
+	}
+
 	
-	
-	//리스트게시판
+	//레시피게시판.
 	@RequestMapping("recipe.do")
-	public String recipe() {
+	public String recipe(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new recipeListCommand();
+		command.execute(model);
 		return "general/recipe";
 	}
+	
+	
 	@RequestMapping("placemap.do")
 	public String placemap() {
 		return "general/placemap";

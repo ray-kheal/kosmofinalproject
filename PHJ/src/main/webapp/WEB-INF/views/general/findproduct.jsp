@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +9,11 @@
 <title>Bs05Table</title>
 
 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/main.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -50,6 +46,11 @@ to {
 }
 </style>
 </head>
+<script>
+	$(function(){
+		$("#stock").attr("class","current");
+	});
+</script>
 <body>
 
 	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #82b9e4; display:table;"> 
@@ -61,6 +62,11 @@ to {
    <br /><br />
       <img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
    </div> -->
+
+   
+   <!-- 헤더파일 인클루드 -->
+	<%@ include file="MainHeader.jsp" %>
+
 
 	<div
 		style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
@@ -155,7 +161,7 @@ to {
 				</thead>
 				<tbody>
 
-					<tr>
+					<!-- <tr>
 						<td style="padding:50px;">1</td>
 						<td><img style="width: 100px;" alt="핫독"
 							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
@@ -185,7 +191,37 @@ to {
 						<td style="padding:50px;">july@example.com</td>
 						<td style="padding:50px;">7777777</td>
 						<td style="padding:50px;">0</td>
-					</tr>
+					</tr> -->
+					<!-- 상품 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 상품이 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.virtualNum }</td>
+										<td class="text-center">${row.product_code }</td>
+										<td class="text-left">
+											<a href="./view.do?idx=${row.product_code}
+												&nowPage=${nowPage}">${row.product_name}</a>
+										</td >
+										<td class="text-left">${row.product_price}
+										</td>
+										<td class="text-center">${row.product_value_code }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					
+					
 				</tbody>
 			</table>
 		</div>
@@ -196,7 +232,8 @@ to {
 			
 			
 		</div>
-
+		
+		
 
 		<br /> <br />
 		<ul class="pagination justify-content-center">
@@ -209,6 +246,18 @@ to {
 			<li class="page-item"><a class="page-link"
 				href="javascript:void(0);">→</a></li>
 		</ul>
+		
+		<!-- Footer -->
+		<%@ include file="../general/simpleFooter.jsp"%>
+		
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		
 	</div>
 </body>
 </html>
