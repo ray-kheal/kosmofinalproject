@@ -6,31 +6,31 @@ public class serviceDTO {
 	private int idx;	
 	private String title;
 	private String content;
+	private String name;
 	private int view_count;
 	private Date postdate;
-	private int board_type;
 	private int virtualNum;
 	private int bgroup;
 	private int bstep;
 	private int bindent;
 	
 	public serviceDTO() {}
-
 	
-	public serviceDTO(int idx, String title, String content, int view_count, Date postdate, int board_type,
-			int virtualNum, int bgroup, int bstep, int bindent) {
+	public serviceDTO(int idx, String title, String content, String name, int view_count, Date postdate, int virtualNum,
+			int bgroup, int bstep, int bindent) {
 		super();
 		this.idx = idx;
 		this.title = title;
 		this.content = content;
+		this.name = name;
 		this.view_count = view_count;
 		this.postdate = postdate;
-		this.board_type = board_type;
 		this.virtualNum = virtualNum;
 		this.bgroup = bgroup;
 		this.bstep = bstep;
 		this.bindent = bindent;
 	}
+
 
 
 
@@ -126,14 +126,21 @@ public class serviceDTO {
 		this.postdate = postdate;
 	}
 
-	public int getBoard_type() {
-		return board_type;
+
+
+
+
+	public String getName() {
+		return name;
 	}
 
-	public void setBoard_type(int board_type) {
-		this.board_type = board_type;
-	}
 
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	
 	
