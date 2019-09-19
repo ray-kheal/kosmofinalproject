@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,8 +15,22 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
-  </head>
-  <body>
+</head>
+<script type = "text/javascript">
+function checkValidate(f){
+   if(f.title.value==""){
+      alert("제목을 입력하세요.");
+      f.title.focus();
+      return false;
+   }
+   if(f.content.value==""){
+      alert("내용을 입력하세요");
+      f.content.focus();
+      return false;
+   }
+}
+</script>
+<body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
     
@@ -54,9 +68,10 @@
 			<br />  
 		
 			<div class="card">
-                  <div class="card-body">
+                <div class="card-body">
                     <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-                    <form class="forms-sample">
+                    <form action="boardManagementWriteAction.do?board_type=1" name="writeFrm" method="post" 
+						onsubmit="return checkValidate(this);">
                       <div class="form-group">
                         <label for="exampleInputName1">이름</label>
                         <input type="text" class="form-control" id="name" value="관리자">
@@ -67,7 +82,7 @@
                       </div> -->
                       <div class="form-group">
                         <label for="exampleInputPassword4">제목</label>
-                        <input type="password" class="form-control" id="title" placeholder="Title">
+                        <input type="text" class="form-control" id="title" placeholder="Title">
                       </div>
                      <!--  <div class="form-group">
                         <label>파일업로드</label>
@@ -85,12 +100,12 @@
                       </div>
                      
                     </form>
-                  </div>
                 </div>
+             </div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
-                 <button class="btn btn-light btn-rounded">Reset</button>
+                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
                  <button class="btn btn-dark btn-rounded"
                  	onclick="location.href='./boardManagement.do';">List</button>
 			</div>	
