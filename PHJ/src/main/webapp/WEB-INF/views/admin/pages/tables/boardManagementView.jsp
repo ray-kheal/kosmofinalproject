@@ -36,9 +36,14 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">공지사항 </h3> 
+              <%
+              String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
+              if(board_type.equals("1")) { %>
+             <h3 class="page-title" style="font-weight: bold;">공지사항 게시판</h3> 
+			<%}else if (board_type.equals("2")){ %>
+             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
+			<%} %>
              <br /><br />
-             <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
@@ -65,6 +70,7 @@
 						</button>
 					</div>
 				</div>
+				
 			</form>
 			<!-- 검색기능 끝 -->
 
@@ -73,7 +79,13 @@
 			<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 리스트</h4>
+                    <h4 class="card-title">&nbsp;
+                    <% if(board_type.equals("1")) { %>
+                    	<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 
+                    <%}else if (board_type.equals("2")){ %>
+                    	<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 
+                    <%} %>
+                    </h4>
                     <table class="table table-bordered" style="margin-bottom: -1px;">
 				<colgroup>
 					<col width="80px" />
@@ -83,13 +95,10 @@
 					<col width="80px" />
 					<col width="50px" />
 				</colgroup>
-				<!-- <tr > hidden 폼으로 처리 하기   
-						<th>번호</th> 
-						<td>1</td>
-					</tr> -->
+				<input type="hidden" name="idx" value="${viewRow.idx }" />
 				<tr>
 					<th bgcolor="#f2efef" style="text-align: center;">제목</th>
-					<td>제목자리입니다</td>
+					<td>${viewRow.title}</td>
 				</tr>
 				<tr>
 					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
@@ -111,13 +120,12 @@
 					</colgroup>
 					<tr>
 						<th style="text-align: center;">DATE</th>
-						<td>2019-09-07</td>
+						<td>${viewRow.postdate}</td>
 						<th style="text-align: center;">조회수</th>
-						<td>1</td>
+						<td>${viewRow.view_count }</td>
 					</tr>
 					<tr>
-						<td colspan="4">내용내용내용내용내용내용내용내용내용내용<br />
-							내용내용내용내용내용내용내용내용내용내용
+						<td colspan="4">${viewRow.content}
 						</td>
 					</tr>
 				</table>
@@ -128,20 +136,13 @@
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
+				<button type="button" class="btn btn-secondary btn-sm" 
+				onclick="location.href='./boardManagementEdit.do';">수정하기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
+				<button type="button" class="btn btn-dark btn-sm" 
+					onclick="location.href='./boardManagement.do';">리스트</button>
 			</div>
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">←</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">→</a></li>
-			</ul>
+			
             </div>
       </div>
       

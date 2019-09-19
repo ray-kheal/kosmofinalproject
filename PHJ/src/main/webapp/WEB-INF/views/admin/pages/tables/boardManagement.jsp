@@ -110,7 +110,7 @@
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
 											<a href="./boardManagementView.do?idx=${row.idx}
-												&nowPage=${nowPage}">${row.title}</a>
+												&nowPage=${nowPage}&board_type=${row.board_type}">${row.title}</a>
 										</td >
 										<td class="text-center">관리자</td>
 										<td class="text-left">${row.postdate}
@@ -146,7 +146,6 @@
 				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
-			
             </div>
       </div>
       
