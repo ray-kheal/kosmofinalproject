@@ -6,7 +6,7 @@ public class ModifyCommand implements PHJCommandImpl{
 	
 	@Override
 	public void execute(Model model) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
