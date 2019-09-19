@@ -3,20 +3,19 @@ package board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
 
 public class noticeDAO {
 
-	Connection con;
-	PreparedStatement psmt;
-	ResultSet rs;
 	JdbcTemplate template;
 
 	public noticeDAO() {
@@ -81,7 +80,7 @@ public class noticeDAO {
 
 		noticeDTO dto = null;
 
-		String sql = "SELECT * FROM noticeDTO WHERE idx="+idx;
+		String sql = "SELECT * FROM PHJ_BOARD_NOTICE WHERE idx="+idx;
 		
 		try {
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
@@ -89,19 +88,23 @@ public class noticeDAO {
 			System.out.println("View()실행시 예외발생");
 			dto = new noticeDTO();
 		}
+		System.out.println("dao,view 에서 찾은 게시물 idx"+idx);
 		return dto;
 	}
 
 	// 조회수증가
-	public void updateHit(String idx) {
+	public void updateHit(final String idx) {
 		String sql = "UPDATE PHJ_BOARD_NOTICE SET VIEW_COUNT = VIEW_COUNT+1 WHERE idx=?";
-		try {
-			psmt = con.prepareStatement(sql);
-			psmt.setString(1, idx);
-			psmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
+		
+		template.update(sql, new PreparedStatementSetter () {
+					
+		@Override
+		public void setValues(PreparedStatement ps) throws SQLException {
+
+			ps.setInt(1, Integer.parseInt(idx));
 		}
+					
+		}) ; 
 	}
 
 	/*
@@ -126,15 +129,6 @@ public class noticeDAO {
 
 	// 삭제하기
 	public void delete(String idx, String pass) {
-		try {
-			String query = "DELETE FROM PHJ_BOARD_NOTICE WHERE idx=?";
-			psmt = con.prepareStatement(query);
-			psmt.setInt(1, Integer.parseInt(idx));
-
-			int rn = psmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("delete중 예외발생");
-			e.printStackTrace();
-		}
+		
 	}
 }
