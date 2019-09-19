@@ -9,10 +9,10 @@ import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
-
 
 public class serviceDAO {
 	Connection con;
@@ -76,5 +76,22 @@ public class serviceDAO {
 			}
 		});
 
+	}
+	public void write(final serviceDTO serviceDTO) {
+
+		template.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, view_count, postdate, bgroup, bstep, bindent)"
+						+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, 0, sysdate, SEQ_PHJ_BOARD_SERVICE.NEXTVAL, 0, 0)";
+
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, serviceDTO.getName());
+				psmt.setString(2, serviceDTO.getTitle());
+				psmt.setString(3, serviceDTO.getContent());
+				return psmt;
+			}
+		});
 	}
 }

@@ -85,31 +85,31 @@
                     	<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 
                     <%} %>
                     </h4>
-                    <table class="table table-bordered" style="margin-bottom: -1px;">
-				<colgroup>
-					<col width="80px" />
-					<col width="*" />
-					<col width="120px" />
-					<col width="120px" />
-					<col width="80px" />
-					<col width="50px" />
-				</colgroup>
-				<input type="hidden" name="idx" value="${viewRow.idx }" />
-				<tr>
-					<th bgcolor="#f2efef" style="text-align: center;">제목</th>
-					<td>${viewRow.title}</td>
-				</tr>
-				<tr>
-					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-					<td>관리자</td>
-				</tr>
-				<!-- 	<th>작성자</th>
-						<th>날짜</th>
-						<th>조회</th> -->
-				<!-- <tbody>
-				</tbody> -->
-			</table>
-			<div style="border: 1px solid #EDEAEA;">
+                  <table class="table table-bordered" style="margin-bottom: -1px;">
+					<colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="80px" />
+						<col width="50px" />
+					</colgroup>
+					<input type="hidden" name="idx" value="${viewRow.idx }" />
+					<tr>
+						<th bgcolor="#f2efef" style="text-align: center;">제목</th>
+						<td>${viewRow.title}</td>
+					</tr>
+					<tr>
+						<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
+						<td>관리자</td>
+					</tr>
+					<!-- 	<th>작성자</th>
+							<th>날짜</th>
+							<th>조회</th> -->
+					<!-- <tbody>
+					</tbody> -->
+				</table>
+				
 				<table class="table table-borderless">
 					<colgroup>
 						<col width="80px" />
@@ -118,18 +118,18 @@
 						<col width="*" />
 					</colgroup>
 					<tr>
-						<th style="text-align: center;">DATE</th>
+						<th style="text-align: center; border-left:1px solid #EDEAEA; ">DATE</th>
 						<td>${viewRow.postdate}</td>
 						<th style="text-align: center;">조회수</th>
-						<td>${viewRow.view_count }</td>
+						<td style="border-right:1px solid #EDEAEA;">${viewRow.view_count }</td>
 					</tr>
 					<tr>
-						<td colspan="4">${viewRow.content}
+						<td colspan="4" style="border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:1px solid #EDEAEA;">${viewRow.content}
 						</td>
 					</tr>
 				</table>
 
-			</div>
+				
                   </div>
                 </div>
               <!-- 내용끝 -->
