@@ -13,9 +13,11 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
-
 public class noticeDAO {
 
+	Connection con;
+	PreparedStatement psmt;
+	ResultSet rs;
 	JdbcTemplate template;
 
 	public noticeDAO() {
@@ -29,31 +31,28 @@ public class noticeDAO {
 		int board_type = (Integer)map.get("board_type");
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
-		if (map.get("searchWord") != null) {
-			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
-		}
-		
-		return template.queryForObject(query, Integer.class);
+//	      if (map.get("Word") != null) {
+//	         query += "WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%'";
+//	      }
 
+		return template.queryForObject(query, Integer.class);
 
 	}
 
 	public ArrayList<noticeDTO> list(Map<String, Object> map) {
-		
 		System.out.println("list()메소드 실행");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
-		
 		int board_type = (Integer)map.get("board_type");
-		
-		String query = " SELECT * FROM( "
-				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
-				+ "      SELECT * FROM PHJ_BOARD_NOTICE ";
+		String query = " SELECT * FROM( " + "    SELECT Tb.*, ROWNUM rNum FROM( " + " SELECT * FROM PHJ_BOARD_NOTICE ";
 
-		if (map.get("searchWord") != null) {
-			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+		if (map.get("Word") != null) {
+
+			query += " WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%' ";
 		}
-		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type;
+
+		query += " ) Tb ) WHERE rNum BETWEEN " + start + " AND " + end +" and board_type="+ board_type ;
+		
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 	}
@@ -79,37 +78,32 @@ public class noticeDAO {
 
 		noticeDTO dto = null;
 
-
-		String sql = "SELECT * FROM PHJ_BOARD_NOTICE WHERE idx="+idx;
-		
-
+		String sql = "select * from PHJ_BOARD_NOTICE where idx= " + idx;
 		try {
+
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
-		}catch (Exception e) {
-			System.out.println("View()실행시 예외발생");
+		} catch (Exception e) {
+			System.out.println("view()실행시 예외발생");
 			dto = new noticeDTO();
 		}
+
 		return dto;
 	}
 	
 
 	// 조회수증가
 	public void updateHit(final String idx) {
-
-		String sql = "UPDATE PHJ_BOARD_NOTICE SET VIEW_COUNT = VIEW_COUNT+1 WHERE idx=?";
+		String sql = "update PHJ_BOARD_NOTICE set view_count = view_count+1 where idx=?";
 		
-		template.update(sql, new PreparedStatementSetter () {
-					
-		@Override
-		public void setValues(PreparedStatement ps) throws SQLException {
+		template.update(sql, new PreparedStatementSetter() {
 
-			ps.setInt(1, Integer.parseInt(idx));
-		}
-					
-		}) ; 
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setInt(1, Integer.parseInt(idx));
+			}
+		});
+
 	}
-
-
 	/*
 	 * public int password(String idx, String pass) { int retNum = 0; try { String
 	 * sql = "SELECT * FROM springboard WHERE pass=? AND idx=?"; psmt =
@@ -132,6 +126,15 @@ public class noticeDAO {
 
 	// 삭제하기
 	public void delete(String idx, String pass) {
-		
+		try {
+			String query = "DELETE FROM PHJ_BOARD_NOTICE WHERE idx=?";
+			psmt = con.prepareStatement(query);
+			psmt.setInt(1, Integer.parseInt(idx));
+
+			int rn = psmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("delete중 예외발생");
+			e.printStackTrace();
+		}
 	}
 }

@@ -9,11 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.command.ListCommand;
-
 import board.command.QnAListCommand;
-
-import board.command.recipeListCommand;
-
+import board.command.ViewCommand;
 import command.PHJCommandImpl;
 
 @Controller
@@ -53,13 +50,14 @@ public class GeneralController {
 	 @RequestMapping("view.do")
 	   public String view(Model model, HttpServletRequest req) {
 		   model.addAttribute("req",req);
-		   command = new board.command.ViewCommand();
+		   command = new ViewCommand();
 		   command.execute(model);
 		   return "general/view";
 	   }
 	//이벤트 게시판
 	@RequestMapping("event.do")
 	public String event(Model model, HttpServletRequest req) {
+		
 		model.addAttribute("req",req);
 		model.addAttribute("board_type",2);
 		command = new ListCommand();
@@ -67,18 +65,21 @@ public class GeneralController {
 		
 		return "general/event";
 	}
-
+	//이벤트 게시판 상세보기
+	 @RequestMapping("Eview.do")
+	   public String event_view(Model model, HttpServletRequest req) {
+		   model.addAttribute("req",req);
+		   command = new ViewCommand();
+		   command.execute(model);
+		   return "general/event_view";
+	   }
 	
-	//레시피게시판.
+	
+	//리스트게시판
 	@RequestMapping("recipe.do")
-	public String recipe(Model model, HttpServletRequest req) {
-		model.addAttribute("req",req);
-		command = new recipeListCommand();
-		command.execute(model);
+	public String recipe() {
 		return "general/recipe";
 	}
-	
-	
 	@RequestMapping("placemap.do")
 	public String placemap() {
 		return "general/placemap";
