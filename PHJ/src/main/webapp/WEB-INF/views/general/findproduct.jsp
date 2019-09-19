@@ -9,32 +9,13 @@
 <title>Bs05Table</title>
 
 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
-<<<<<<< HEAD
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<style type="text/css">
-@font-face { 
-   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
-   font-weight: normal; font-style: normal;
-}
-nav {
-   font-family: 'Goyang', cursive;
-}
-</style>
-=======
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/main.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -244,9 +225,7 @@ to {
 				</tbody>
 			</table>
 		</div>
-<<<<<<< HEAD
-	
-=======
+
 		<div class="row text-right" style="float: right;">
 			
 				
@@ -255,8 +234,6 @@ to {
 			
 		</div>
 		
-		
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 		<br /> <br />
 		<ul class="pagination justify-content-center">
