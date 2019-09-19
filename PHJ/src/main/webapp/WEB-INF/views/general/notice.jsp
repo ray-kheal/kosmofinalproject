@@ -51,7 +51,7 @@ body {
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
 				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 공 지 사 항!
+					style="width: 50px; height: 50px;" /> 공지사항
 			</p>
 		</div>
 		<div style="width: 100%; text-align: center;">
