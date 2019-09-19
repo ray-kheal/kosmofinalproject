@@ -12,20 +12,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 </head>
 <script>
-	//인클루드 헤더 항목 선택구분.
-	$(function() {
-		$("#welcome").attr("class", "current");
-	});
-
 	function scroll_follow(id) {
 		$(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
 		{
 			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
+			var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
 			$(id).stop().animate({
-				top : position + "px"
-			}, 1); //해당 오브젝트 위치값 재설정
+				top : stop+"px"
+			}, 0); //해당 오브젝트 위치값 재설정
 		});
 	}
 	scroll_follow("#scroll");
@@ -111,11 +108,11 @@ body {
 						<section class="box feature">
 							<a href="right-sidebar.do" class="image featured"><img
 								src="images/store_shadow.png" alt="" /></a>
-							<div class="inner">
+							<div class="inner" style="text-align: center; font-family: Jua;">
 								<header>
-									<h2>편의점 찾기</h2>
+									<h2 style="font-family: Jua;">편의점 찾기</h2>
 								</header>
-								<p>원하시는 상품이 있는 편의점을 찾아 드립니다.</p>
+								<p style="font-family: Jua; font-size: 25px;">원하시는 상품이 있는 편의점을 찾아 드립니다.</p>
 							</div>
 						</section>
 					</div>
@@ -124,11 +121,11 @@ body {
 						<section class="box feature">
 							<a href="placemap.do" class="image featured"><img
 								src="images/product_shadow.png" alt="" /></a>
-							<div class="inner">
+							<div class="inner" style="text-align: center; ">
 								<header>
-									<h2>상품 찾기</h2>
+									<h2 style="font-family: Jua;">상품 찾기</h2>
 								</header>
-								<p>주변 편의점에 있는 상품을 알려드립니다</p>
+								<p style="font-family: Jua; font-size: 25px;">주변 편의점에 있는 상품을 알려드립니다</p>
 							</div>
 						</section>
 					</div>
