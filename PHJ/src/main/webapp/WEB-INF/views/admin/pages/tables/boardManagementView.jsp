@@ -124,7 +124,7 @@
 						<td style="border-right:1px solid #EDEAEA;">${viewRow.view_count }</td>
 					</tr>
 					<tr>
-						<td colspan="4" style="border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:1px solid #EDEAEA;">${viewRow.content}
+						<td colspan="4" style="valign:top; height:200px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:1px solid #EDEAEA;">${viewRow.content}
 						</td>
 					</tr>
 				</table>
@@ -136,7 +136,8 @@
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-secondary btn-sm" 
-				onclick="location.href='./boardManagementEdit.do';">수정하기</button>
+				onclick="location.href='./boardManagementView.do?idx=${viewRow.idx}
+					&nowPage=${nowPage}&board_type=${viewRow.board_type };">수정하기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 				<% if(board_type.equals("1")) { %>
                     	<button type="button" class="btn btn-dark btn-sm" 

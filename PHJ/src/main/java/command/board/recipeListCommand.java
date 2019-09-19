@@ -11,6 +11,7 @@ import command.PHJCommandImpl;
 import model.board.recipeDAO;
 import model.board.recipeDTO;
 import util.FileReader;
+import util.PagingUtil;
 
 public class recipeListCommand implements PHJCommandImpl {
 
@@ -65,36 +66,15 @@ public class recipeListCommand implements PHJCommandImpl {
 		ArrayList<recipeDTO> listRows = dao.list(paramMap);
 		
 		System.out.println("listRows : " + listRows);
-		
-		
-		//가상번호 계산하여 부여하기
-		int virtualNum = 0;
-		int countNum = 0;
-		
-		/*
-		 * for(recipeDTO row : listRows) { virtualNum = totalRecordCount - (((nowPage-1)
-		 * * pageSize) + countNum++); row.setVirtualNum(virtualNum);
-		 * 
-		 * String reSpace = "";
-		 * 
-		 * if(row.getBindent() > 0) { //답변글을 indent만큼 들여쓰기 for(int i=0;
-		 * i<row.getBindent(); i++ ) { reSpace += "&nbsp;&nbsp;"; }
-		 * 
-		 * row.setTitle(reSpace+"<img src='../images/re3.gif'>"+row.getTitle()); } }
-		 */
-		
+	
 		//페이지 처리를 위한 처리부분
-		/*
-		 * String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize,
-		 * blockPage, nowPage, req.getContextPath()+"/board/list.do?"+addQueryString);
-		 */
-		
+		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize,
+		blockPage, nowPage, req.getContextPath()+"/phj/recipe.do?"+addQueryString);
 
-		//model.addAttribute("pagingImg", pagingImg); model.addAttribute("totalPage", totalPage); 
-		//model.addAttribute("nowPage", nowPage);
+		model.addAttribute("pagingImg", pagingImg); 
+		model.addAttribute("totalPage", totalPage); 
+		model.addAttribute("nowPage", nowPage);
 		model.addAttribute("listRows", listRows);
-
-		
 
 	}
 }
