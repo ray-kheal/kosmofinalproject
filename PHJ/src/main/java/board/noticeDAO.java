@@ -3,11 +3,13 @@ package board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -54,7 +56,6 @@ public class noticeDAO {
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 	}
-		
 	/*
 	 * //답변형 게시판 글쓰기 처리 public void write(noticeDTO dto) { try { String query =
 	 * " INSERT INTO springboard (idx, name, title, contents,hits, bgroup, bstep, bindent,pass ) "
@@ -72,45 +73,37 @@ public class noticeDAO {
 
 	// 답변형 게시판 상세보기및 답변글달기에서 사용
 	public noticeDTO view(String idx) {
-		// 조회수증가
+		// 조회수 증가
 		updateHit(idx);
 
 		noticeDTO dto = null;
 
-		String query = "SELECT * FROM springboard WHERE idx=?";
+		String sql = "select * from PHJ_BOARD_NOTICE where idx= " + idx;
 		try {
-			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				dto = new noticeDTO();
 
-				dto.setIdx(rs.getInt(1));
-				dto.setTitle(rs.getString(2));
-				dto.setContent(rs.getString(3));
-				dto.setView_count(rs.getInt(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setBoard_type(rs.getInt(6));
-			}
+			dto = template.queryForObject(sql, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 		} catch (Exception e) {
-			System.out.println("상세보기시 예외발생");
-			e.printStackTrace();
+			System.out.println("view()실행시 예외발생");
+			dto = new noticeDTO();
 		}
+
 		return dto;
 	}
+	
 
 	// 조회수증가
-	public void updateHit(String idx) {
-		String sql = "UPDATE PHJ_BOARD_NOTICE SET VIEW_COUNT = VIEW_COUNT+1 WHERE idx=?";
-		try {
-			psmt = con.prepareStatement(sql);
-			psmt.setString(1, idx);
-			psmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public void updateHit(final String idx) {
+		String sql = "update PHJ_BOARD_NOTICE set view_count = view_count+1 where idx=?";
+		
+		template.update(sql, new PreparedStatementSetter() {
 
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setInt(1, Integer.parseInt(idx));
+			}
+		});
+
+	}
 	/*
 	 * public int password(String idx, String pass) { int retNum = 0; try { String
 	 * sql = "SELECT * FROM springboard WHERE pass=? AND idx=?"; psmt =

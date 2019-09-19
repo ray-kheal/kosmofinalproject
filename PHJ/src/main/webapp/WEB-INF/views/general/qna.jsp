@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>편히점 - 공지사항</title>
+<title>편히점 - QnA</title>
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no">
@@ -106,36 +106,36 @@ body {
 						</tr>
 					</thead>
 					<tbody>
-						
-						</tr>
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">제목1</td>
-							<td>john@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td style="text-align: left;">제목2</td>
-							<td>mary@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td style="text-align: left;">제목3</td>
-							<td>july@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
+					<c:choose>
+							<c:when test="${empty listRows }">
+								<tr>
+									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										<td class="text-center">${row.virtualNum }</td>
+										<td class="text-left"><a
+											href="./view.do?idx=${row.idx}
+								&nowPage=${nowPage}">${row.title}</a>
+										</td>
+										<td class="text-center">${row.content }</td>
+										<td class="text-center">${row.view_count }</td>
+										<td class="text-center">${row.postdate }</td>
+										<!-- <td class="text-center">--</td> -->
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</tbody>
 				</table>
 			</div>
-			<!-- <div class="row text-right" style="float: right;">
+			<br /><br />s
+		 <div class="row text-right" style="float: right;">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
 			</div>
- -->
 
 			<br /> <br />
 			<ul class="pagination justify-content-center">
