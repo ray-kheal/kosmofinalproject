@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%--@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,46 +98,50 @@ nav {
 		 -->	<br /> <br />
 			<div>
 				<table class="table table-hover" style="text-align: center;">
+
 					<colgroup>
 						<col width="80px" />
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
-						<col width="80px" />
+						<col width="120px" />
 					</colgroup>
 					<thead>
 						<tr class="table-primary" style="color: white;">
 							<th style="text-align: center;">번호</th>
 							<th style="text-align: center;">제목</th>
 							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">날짜</th>
-							<th style="text-align: center;">조회</th>
+							<th style="text-align: center;">조회수</th>
+							<th style="text-align: center;">등록날짜</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">제목1</td>
-							<td>john@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td style="text-align: left;">제목2</td>
-							<td>mary@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td style="text-align: left;">제목3</td>
-							<td>july@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
+						<c:choose>
+							<c:when test="${empty listRows }">
+								<tr>
+									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										<td class="text-center">${row.virtualNum }</td>
+										<td class="text-left"><a
+											href="./view.do?idx=${row.idx}
+								&nowPage=${nowPage}">${row.title}</a>
+										</td>
+										<td class="text-center">${row.content }</td>
+										<td class="text-center">${row.view_count }</td>
+										<td class="text-center">${row.postdate }</td>
+										<!-- <td class="text-center">--</td> -->
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</tbody>
 				</table>
+			</div>
 			</div>
 			<!-- <div class="row text-right" style="float: right;">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
