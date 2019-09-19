@@ -128,7 +128,7 @@ nav {
 									<tr>
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left"><a
-											href="./view.do?idx=${row.idx}
+											href="./Eview.do?idx=${row.idx}
 								&nowPage=${nowPage}">${row.title}</a>
 										</td>
 										<td class="text-center">${row.content }</td>
@@ -163,7 +163,7 @@ nav {
 	</div>
 	
 	<!-- Footer -->
-	<%@ include file="../general/LoginFooter.jsp"%>
+	<%@ include file="../general/simpleFooter.jsp"%>
 	
 	<!-- Scripts -->
 

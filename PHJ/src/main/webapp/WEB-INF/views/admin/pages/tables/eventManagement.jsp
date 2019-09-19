@@ -37,8 +37,8 @@
             <div class="page-header">
               <div class="container">
              <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
-             
              <br /><br />
+             <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
@@ -69,64 +69,7 @@
 			<!-- 검색기능 끝 -->
 
 			<br />
-<%-- 
-			<div>
-				<table class="table table-hover" style="text-align: center;">
-					<colgroup>
-						<col width="80px" />
-						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="80px" />
-					</colgroup>
-					<thead>
-						<tr class="table-primary" style="color: white;">
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
-							<th>조회</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>공지</th>
-							<td style="text-align: left; font-weight: bold;">최근공지</td>
-							<td>관리자</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">제목1</td>
-							<td>john@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td style="text-align: left;">제목2</td>
-							<td>mary@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td style="text-align: left;">제목3</td>
-							<td>july@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<br /><br />
-			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
-			</div>
- --%>
+
 		<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
@@ -149,55 +92,59 @@
 						</tr>   
 					</thead>
                       <tbody>
-                       <tr>
-							<th>공지</th>
-							<td style="text-align: left; font-weight: bold;">최근공지</td>
-							<td>관리자</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td style="text-align: left;">제목1</td>
-							<td>john@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td style="text-align: left;">제목2</td>
-							<td>mary@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td style="text-align: left;">제목3</td>
-							<td>july@example.com</td>
-							<td>2019-09-07</td>
-							<td>0</td>
-						</tr>
+                       	<!-- 상품 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 상품이 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.virtualNum }</td>
+										<td class="text-left">
+											<a href="./boardManagementView.do?idx=${row.idx}
+												&nowPage=${nowPage}&board_type=${row.board_type}">${row.title}</a>
+										</td >
+										<td class="text-center">관리자</td>
+										<td class="text-left">${row.postdate}
+										</td>
+										<td class="text-center">${row.view_count }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+                       	
                       </tbody>
                     </table>
                   </div>
                 </div>
               <!-- 내용끝 -->
 			<br /><br />
+			<!-- 페이지번호 -->
+                <div class="container">
+				<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
+                
+                </div>
+                <br /><br />
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
+						onclick="location.href='./boardManagementWrite.do?&board_type=2';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">←</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">→</a></li>
-			</ul>
+			
             </div>
       </div>
       

@@ -36,8 +36,12 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">공지사항</h3>
-                
+                <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
+              		if(board_type.equals("1")) { %>
+             			<h3 class="page-title" style="font-weight: bold;">공지사항</h3> 
+			 	<%}else if (board_type.equals("2")){ %>
+             			<h3 class="page-title" style="font-weight: bold;">이벤트</h3> 
+			 	<%} %>
              <br /><br />
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -55,13 +59,17 @@
                     <form class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputName1">이름</label>
-                        <input type="text" class="form-control" id="exampleInputName1" value="관리자">
+                        <input type="text" class="form-control" id="name" value="관리자">
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="exampleInputPassword4">비밀번호</label>
                         <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                      </div>
+                      </div> -->
                       <div class="form-group">
+                        <label for="exampleInputPassword4">제목</label>
+                        <input type="password" class="form-control" id="title" placeholder="Title">
+                      </div>
+                     <!--  <div class="form-group">
                         <label>파일업로드</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
@@ -70,10 +78,10 @@
                             <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
                           </span>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="form-group">
                         <label for="exampleTextarea1">내용</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="10"></textarea>
+                        <textarea class="form-control" id="content" rows="10"></textarea>
                       </div>
                      
                     </form>

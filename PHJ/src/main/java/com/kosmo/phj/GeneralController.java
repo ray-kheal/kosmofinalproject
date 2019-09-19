@@ -8,8 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import board.command.ListCommand;
 import command.PHJCommandImpl;
+import command.board.ListCommand;
+import command.board.QnAListCommand;
+import command.board.ViewCommand;
+import command.board.recipeListCommand;
 
 @Controller
 public class GeneralController {
@@ -44,24 +47,46 @@ public class GeneralController {
 		
 		return "general/notice";
 	}
+	//공지사항 상세보기
+	 @RequestMapping("view.do")
+	   public String view(Model model, HttpServletRequest req) {
+		   model.addAttribute("req",req);
+		   command = new command.board.ViewCommand();
+		   command.execute(model);
+		   return "general/view";
+	   }
 	//이벤트 게시판
-		@RequestMapping("event.do")
-		public String event(Model model, HttpServletRequest req) {
-			
-			model.addAttribute("req",req);
-			model.addAttribute("board_type",2);
-			command = new ListCommand();
-			command.execute(model);
-			
-			return "general/event";
-		}
+	@RequestMapping("event.do")
+	public String event(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",2);
+		command = new ListCommand();
+		command.execute(model);
+		
+		return "general/event";
+	}
 	
+	//이벤트 게시판 상세보기
+    @RequestMapping("Eview.do")
+      public String event_view(Model model, HttpServletRequest req) {
+         model.addAttribute("req",req);
+         command = new ViewCommand();
+         command.execute(model);
+         return "general/event_view";
+      }
+   
+
 	
-	//리스트게시판
+	//레시피게시판.
 	@RequestMapping("recipe.do")
-	public String recipe() {
+	public String recipe(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new recipeListCommand();
+		command.execute(model);
 		return "general/recipe";
 	}
+	
+	
 	@RequestMapping("placemap.do")
 	public String placemap() {
 		return "general/placemap";
@@ -73,7 +98,10 @@ public class GeneralController {
 	}
 	//Q&A 게시판
 	@RequestMapping("qna.do")
-	public String qna() {
+	public String qna(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new QnAListCommand();
+		command.execute(model);
 		return "general/qna";
 	}
 	

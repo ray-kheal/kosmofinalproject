@@ -422,7 +422,7 @@ input, select, textarea {
 				}
 
 		.row {
-			margin-top: -40px;
+			
 			margin-left: -40px;
 		}
 
@@ -665,7 +665,7 @@ input, select, textarea {
 						}
 
 				.row {
-					margin-top: -40px;
+					
 					margin-left: -40px;
 				}
 
@@ -1563,7 +1563,7 @@ input, select, textarea {
 			}
 
 		table td {
-			padding: 0.5em 1em 0.5em 1em;
+			padding: 0.5em 0.5em 0.5em 0.5em;  
 		}
 
 		table th {

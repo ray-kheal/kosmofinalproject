@@ -160,10 +160,10 @@ nav {
 				href="javascript:void(0);">→</a></li>
 		</ul>
 	</div>
-	</div>
+
 
 	<!-- Footer -->
-	<%@ include file="../general/LoginFooter.jsp"%>
+	<%@ include file="../general/simpleFooter.jsp"%>
 
 	<!-- Scripts -->
 

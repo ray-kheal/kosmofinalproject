@@ -34,7 +34,7 @@ body {
 }
 
 #scroll {
-	z-index: 5;
+	z-index: 10;
 }
 </style>
 
@@ -188,7 +188,7 @@ nav {
 								</div>
 							</div>
 							<a href="recipe.do" class="button icon fa-file-alt">More</a>
-						</section>
+						</section> <br /><br /> 
 					</div>
 					
 					<div class="col-7 col-16-medium imp-medium">
@@ -198,13 +198,28 @@ nav {
 							<table>
 								<td>
 									<h2>공지사항</h2>
-									<h3>이부분에 공지사항 미리보기 게시판 신설</h3>
+								<ul class="main_board_list">
+			<%-- 		<%
+					int vNum = 0;
+					int countNum = 0;
+					for(noticeDTO dto : bbs){
+						vNum  = totalRecordCount-(((nowPage-1)*pageSize)+countNum++);
+					%>
+						<li><a href="../space/sub01_view.jsp?num=<%=dto.getIdx()%>&nowPage=<%=nowPage%>&<%=queryStr%>">  
+								<% if(dto.getSubject().length()>=15) {%>
+								<%=dto.getSubject().substring(0, 15)+"..."%>
+						<%}else{%>
+						<%=dto.getSubject() %>
+						<%} %>
+						<span><%=dto.getPostdate() %></span>	</li>
+							<% } %>			
+				</ul> --%>
 									<a href="notice.do"
 										class="button icon solid fa-arrow-circle-right">더보기</a> </td> 
 								<td>
 									<h2>이벤트</h2>
 									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
-									<a href="qna.do"
+									<a href="event.do"
 										class="button icon solid fa-arrow-circle-right">더보기</a></td>
 							</section>
 								</table>
