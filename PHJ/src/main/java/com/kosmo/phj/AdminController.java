@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import command.PHJCommandImpl;
 import command.admin.AdBoardListCommand;
+import command.admin.AdBoardListEditCommand;
 import command.admin.AdBoardListViewCommand;
 import command.admin.AdEventListCommand;
 import command.admin.AdPlaceListCommand;
@@ -153,6 +154,20 @@ public class AdminController {
 		System.out.println("boardView 익스큐트 실행");
 		
 		return "admin/pages/tables/boardManagementView";
+	}
+	//공지사항수정하기 페이지
+	@RequestMapping("/admin/pages/tables/boardManagementEdit.do")
+	public String boardManagementEdit(Model model, HttpServletRequest req) throws IOException{
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",1);
+		
+		command = new AdBoardListEditCommand();
+		command.execute(model);
+		
+		System.out.println("boardEdit 익스큐트 실행");
+		
+		return "admin/pages/tables/boardManagementEdit";
 	}
 	//공지사항글쓰기 페이지
 	@RequestMapping("/admin/pages/tables/boardManagementWrite.do")
