@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import command.PHJCommandImpl;
 import command.member.LoginActionCommand;
+import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
 import model.member.MemberDAO;
@@ -81,11 +82,7 @@ public class MemberController {
 	public String join3() {
 		return "member/join03";
 	}
-	//회원정보수정페이지 진입(수정폼)
-	@RequestMapping("/memberEdit.do")
-	public String memberEdit() {
-		return "member/memberEdit";
-	}
+	
 	
 	//카카오로그인 매핑
 	@RequestMapping(value="/kakaologin.do",method=RequestMethod.GET)
@@ -122,8 +119,18 @@ public class MemberController {
 		return "member/join03";
 	}
 	
-	//회원정보 수정 페이지 진입시(미제작)
-	
+	//회원정보수정페이지 진입(수정폼)
+	@RequestMapping("/memberEdit.do")
+	public String memberEdit(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new MemberEditCommand();
+		command.execute(model);
+		
+		System.out.println("excute 완료");
+		
+		
+		return "member/memberEdit";
+	}
 	
 	//회원정보수정
 	@RequestMapping(value="/modify.do", method=RequestMethod.POST)

@@ -97,8 +97,25 @@ public class MemberDAO {
 		System.out.println(map);
 		
 		return (ArrayList<MemberDTO>)template.query(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+	}
+	
+	//회원정보 수정을 위한 회원정보 가져오기
+	//위와는 달리 이메일만 일치하면 가져오는 걸로 함.(카카오/구글로그인유저 때메)
+	public MemberDTO memberView(String email) { 
+		MemberDTO dto =null;
+		String query = "SELECT * FROM phj_member WHERE email = '" + email + "'";
 		
+		System.out.println("쿼리문 : " + query);
 		
+		try {
+			dto = template.queryForObject(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("수정폼 회원정보 가져오기 실행시 예외발생.");
+			dto = new MemberDTO();
+		}
+		return dto;
 	}
 	
 }
