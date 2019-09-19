@@ -189,7 +189,7 @@ label {
 					</tr>
 					<tr>
 						<td colspan='4'></td>    
-					</tr>
+					</tr>-
 					<tr>
 						<td>이메일</td>
 						<td>
@@ -202,11 +202,6 @@ label {
 								<select name="email_choice" onChange="choiceInput(this.form, this);"
 									class="custom-select" style="width:30%" readonly>  
 									<option disabled="disabled" selected value="">*변경불가</option>
-									<option disabled="disabled" value="naver.com">naver.com</option>
-									<option disabled="disabled" value="daum.net">daum.net</option>
-									<option disabled="disabled" value="google.com">google.com</option>
-									<option disabled="disabled" value="yahoo.co.kr">yahoo.co.kr</option>
-									<option disabled="disabled" value="direct_input">직접 입력</option>
 								</select> 
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">
