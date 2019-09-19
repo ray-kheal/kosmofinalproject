@@ -8,13 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import board.command.ListCommand;
-
-import board.command.QnAListCommand;
-import board.command.ViewCommand;
-import board.command.recipeListCommand;
-
 import command.PHJCommandImpl;
+import command.board.ListCommand;
+import command.board.QnAListCommand;
+import command.board.ViewCommand;
+import command.board.recipeListCommand;
 
 @Controller
 public class GeneralController {
@@ -53,7 +51,7 @@ public class GeneralController {
 	 @RequestMapping("view.do")
 	   public String view(Model model, HttpServletRequest req) {
 		   model.addAttribute("req",req);
-		   command = new board.command.ViewCommand();
+		   command = new command.board.ViewCommand();
 		   command.execute(model);
 		   return "general/view";
 	   }
