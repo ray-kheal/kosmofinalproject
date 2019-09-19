@@ -215,6 +215,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	$(function() {
 		$("#recipe").attr("class", "current");
 	});
+	
+	function InputSearch(f){
+		if(f.searchWord.value==""){
+			alert("검색어를 입력하세요");
+			f.searchWord.focus();
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
@@ -245,20 +253,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 		<div class="container">
 			<div class="container">
 				<hr class="mt-2 mb-2">
-					<form id="buttonBox" class="form-inline">
-						<div class="form-group">
-							<select name="searchColum" class="form-control" style="width:100px;">
+					<form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
+							<select name="searchColumn" class="form-control" style="width:100px;">
 								<option value="title">제목</option>
 								<option value="content">내용</option>
 							</select>
-						</div>
-						<div class="input-group">
 							<input type="text" name="searchWord" class="form-control"
 								style="width:250px; margin-left:5px;" />
-							<div class="input-group-btn">
-								<button type="submit" style="margin-left:10px;" class="btn btn-outline-success">검색</button>
-							</div>
-						</div>
+							<button type="submit" style="margin-left:10px;" class="btn btn-outline-success">검색</button>
 						<div style="margin-left:50px;">
 							<button type="submit" class="btn btn-outline-warning">글쓰기</button>
 						</div>

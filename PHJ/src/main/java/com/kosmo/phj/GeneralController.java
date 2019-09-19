@@ -83,9 +83,12 @@ public class GeneralController {
          return "general/event_view";
       }
    
-	//리스트게시판
+	//레시피 게시판
 	@RequestMapping("recipe.do")
-	public String recipe() {
+	public String recipe(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new recipeListCommand();
+		command.execute(model);
 		return "general/recipe";
 	}
 	@RequestMapping("placemap.do")
