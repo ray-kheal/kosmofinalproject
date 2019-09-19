@@ -267,7 +267,7 @@ label {
 	</div>
 	</table> 
 	<!-- Footer -->
-	<%@ include file="../general/LoginFooter.jsp"%>
+	<%@ include file="../general/simpleFooter.jsp"%>
 </div>
 
 	<script src="assets/js/jquery.min.js"></script>

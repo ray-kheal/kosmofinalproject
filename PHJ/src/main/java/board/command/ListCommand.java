@@ -52,8 +52,6 @@ public class ListCommand implements PHJCommandImpl {
 	        
 	          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 	          row.setVirtualNum(virtualNum);
-	          
-	          
 	       }
 		//페이지 처리를 위한 처리부분.
 		//String pagingImg = util.PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath() + "/list.do?"+ addQueryString);
@@ -63,10 +61,6 @@ public class ListCommand implements PHJCommandImpl {
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);
 		model.addAttribute("listRows",listRows);
-		
-		
-		
-		
 	}
 
 }

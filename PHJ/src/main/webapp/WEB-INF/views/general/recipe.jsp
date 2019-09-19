@@ -210,11 +210,60 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	transform: translate(0px, 0px);
 	opacity: 1;
 }
+
+.searchbar{
+	margin-bottom: auto;
+	margin-top: auto;
+	height: 60px;
+	background-color: #fcfad9;
+	border-radius: 30px;
+	padding: 10px;
+	border:1px solid orange;
+}
+
+.search_input{
+	color: black;
+	border: 0;
+	outline: 0;
+	background: none;
+	width: 0;
+	caret-color:transparent;
+	line-height: 40px;
+	transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+	padding: 0 10px;
+	width: 190px;
+	caret-color:red;
+	transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+	background: white;
+	color: #e74c3c;
+	border:1px solid yellow;
+}
+
+.search_icon{
+	height: 40px;
+	width: 40px;
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color:red;
+}
 </style>
 <script>
 	$(function() {
 		$("#recipe").attr("class", "current");
 	});
+	
+	function submitSearch() {
+		document.getElementById("search").submit();
+	}
 </script>
 </head>
 <body>
@@ -241,10 +290,24 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 				style="width: 50px; height: 50px;" /> RECIPE <br />
 		</p>
 	</div>
-	<div class="container">
 		<!-- Page Content -->
 		<div class="container">
-			<hr class="mt-2 mb-5 ">
+			<div class="container">
+				<hr class="mt-2 mb-2">
+					<div class="container h-10">
+				      <div class="d-flex justify-content-center h-100">
+						<select name="searchColumn" style="margin-top:5px; margin-right:5px; width:60px; height:50px;">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select>
+				        <div class="searchbar">
+				          <input class="search_input" type="text" id="InputSearch" name="searchWord" placeholder="검색할 내용">
+				          <a href="javascript:submitSearch();" class="search_icon"><i class="fas fa-search"></i></a>
+				        </div>
+						<button type="button" class="btn btn-outline-warning" style="width:75px; margin-left:auto;">글쓰기</button>
+				      </div>
+				    </div>
+			    <hr class="mt-2 mb-2">
 			<div class="row text-center text-lg-left">
 
 				<!-- 이미지 시작 -->

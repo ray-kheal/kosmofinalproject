@@ -122,11 +122,15 @@ public class MemberController {
 		return "member/join03";
 	}
 	
+	//회원정보 수정 페이지 진입시(미제작)
+	
+	
 	//회원정보수정
 	@RequestMapping(value="/modify.do", method=RequestMethod.POST)
-	public String modify(Model model, HttpServletRequest req) throws IOException {
+	public String modify(Model model, HttpServletRequest req, MemberDTO dto) throws IOException {
 		req.setCharacterEncoding("UTF-8");
 		model.addAttribute("req",req);
+		model.addAttribute("memberDTO", dto);
 		command = new ModifyCommand();
 		command.execute(model);
 		

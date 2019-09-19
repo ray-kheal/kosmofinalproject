@@ -57,7 +57,6 @@ public class noticeDAO {
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 	}
-		
 	/*
 	 * //답변형 게시판 글쓰기 처리 public void write(noticeDTO dto) { try { String query =
 	 * " INSERT INTO springboard (idx, name, title, contents,hits, bgroup, bstep, bindent,pass ) "
@@ -75,25 +74,28 @@ public class noticeDAO {
 
 	// 답변형 게시판 상세보기및 답변글달기에서 사용
 	public noticeDTO view(String idx) {
-		// 조회수증가
+		// 조회수 증가
 		updateHit(idx);
 
 		noticeDTO dto = null;
 
+
 		String sql = "SELECT * FROM PHJ_BOARD_NOTICE WHERE idx="+idx;
 		
+
 		try {
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 		}catch (Exception e) {
 			System.out.println("View()실행시 예외발생");
 			dto = new noticeDTO();
 		}
-		System.out.println("dao,view 에서 찾은 게시물 idx"+idx);
 		return dto;
 	}
+	
 
 	// 조회수증가
 	public void updateHit(final String idx) {
+
 		String sql = "UPDATE PHJ_BOARD_NOTICE SET VIEW_COUNT = VIEW_COUNT+1 WHERE idx=?";
 		
 		template.update(sql, new PreparedStatementSetter () {
@@ -106,6 +108,7 @@ public class noticeDAO {
 					
 		}) ; 
 	}
+
 
 	/*
 	 * public int password(String idx, String pass) { int retNum = 0; try { String

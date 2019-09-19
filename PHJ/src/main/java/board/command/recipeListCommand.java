@@ -19,17 +19,8 @@ public class recipeListCommand implements PHJCommandImpl {
 		
 		System.out.println("recipeListCommand > execute() 호출");
 		
-		//컨트롤러에서 넘겨준 파라미터를 한번에 받기 위한 코드
-		//asMap() 메소드를 통해 Model객체에 저장된 내용을 Map컬렉션으로 변환한다.
 		Map<String, Object> paramMap = model.asMap();
-		/*
-		컨트롤러에서 전달된 request객체를 Command객체 내에서 사용하기 위해
-		형변환 후 변수에 저장함.
-		 */
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
-		
-		//커넥션풀 DAO 호출
-		/* SpringBbsDAO dao = new SpringBbsDAO(); */
 		
 		//JDBCTemplate을 통한 DB연결 및 작업
 		recipeDAO dao = new recipeDAO();
