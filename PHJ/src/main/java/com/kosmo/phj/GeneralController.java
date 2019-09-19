@@ -9,7 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.command.ListCommand;
+
+import board.command.QnAListCommand;
+
 import board.command.recipeListCommand;
+
 import command.PHJCommandImpl;
 
 @Controller
@@ -45,6 +49,14 @@ public class GeneralController {
 		
 		return "general/notice";
 	}
+	//공지사항 상세보기
+	 @RequestMapping("view.do")
+	   public String view(Model model, HttpServletRequest req) {
+		   model.addAttribute("req",req);
+		   command = new board.command.ViewCommand();
+		   command.execute(model);
+		   return "general/view";
+	   }
 	//이벤트 게시판
 	@RequestMapping("event.do")
 	public String event(Model model, HttpServletRequest req) {
@@ -55,7 +67,7 @@ public class GeneralController {
 		
 		return "general/event";
 	}
-	
+
 	
 	//레시피게시판.
 	@RequestMapping("recipe.do")
@@ -78,7 +90,10 @@ public class GeneralController {
 	}
 	//Q&A 게시판
 	@RequestMapping("qna.do")
-	public String qna() {
+	public String qna(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new QnAListCommand();
+		command.execute(model);
 		return "general/qna";
 	}
 	

@@ -62,9 +62,11 @@ to {
    <br /><br />
       <img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
    </div> -->
+
    
    <!-- 헤더파일 인클루드 -->
 	<%@ include file="MainHeader.jsp" %>
+
 
 	<div
 		style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">

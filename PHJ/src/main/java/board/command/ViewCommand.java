@@ -22,6 +22,7 @@ public class ViewCommand implements PHJCommandImpl{
 		String idx = req.getParameter("idx");
 		String nowPage = req.getParameter("nowPage");
 		
+		
 		//jdbcTemplate dao
 		noticeDAO dao = new noticeDAO();
 		
@@ -34,5 +35,6 @@ public class ViewCommand implements PHJCommandImpl{
 		
 		model.addAttribute("viewRow",dto);
 		model.addAttribute("nowPage",nowPage);
+		
 	}
 }

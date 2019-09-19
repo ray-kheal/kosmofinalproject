@@ -108,8 +108,8 @@
 									<tr>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
-											<a href="./view.do?idx=${row.idx}
-												&nowPage=${nowPage}">${row.title}</a>
+											<a href="./boardManagementView.do?idx=${row.idx}
+												&nowPage=${nowPage}&board_type=${row.board_type}">${row.title}</a>
 										</td >
 										<td class="text-center">관리자</td>
 										<td class="text-left">${row.postdate}

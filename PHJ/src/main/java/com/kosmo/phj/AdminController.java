@@ -83,6 +83,8 @@ public class AdminController {
 		return "admin/pages/tables/memberManagement";
 	}
 	
+	//////////////////////////////////////////////////////////////////////////////////////// 상품관리
+	
 	//상품관리 페이지
 	@RequestMapping("/admin/pages/tables/productManagement.do")
 	public String productManagement(Model model, HttpServletRequest req) throws IOException{
@@ -101,7 +103,7 @@ public class AdminController {
 		return "admin/pages/tables/productManagementWrite";
 	}
 	
-	
+	//////////////////////////////////////////////////////////////////////////////////////// 점포관리
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagement.do")
 	public String placeManagement(Model model, HttpServletRequest req) throws IOException{
@@ -120,6 +122,8 @@ public class AdminController {
 	public String placeManagementWrite() {
 		return "admin/pages/tables/placeManagementWrite";
 	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////// 공지사항관리
 	
 	//공지사항관리 페이지
 	@RequestMapping("/admin/pages/tables/boardManagement.do")
@@ -141,6 +145,7 @@ public class AdminController {
 	public String boardManagementView(Model model, HttpServletRequest req) throws IOException{
 		req.setCharacterEncoding("UTF-8");
 		model.addAttribute("req",req);
+		model.addAttribute("board_type",1);
 		
 		command = new AdBoardListViewCommand();
 		command.execute(model);
@@ -155,7 +160,7 @@ public class AdminController {
 		return "admin/pages/tables/boardManagementWrite";
 	}
 	
-	
+	//////////////////////////////////////////////////////////////////////////////////////// 이벤트관리
 	//이벤트 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/eventManagement.do")
 	public String eventManagement(Model model, HttpServletRequest req) throws IOException {
@@ -177,28 +182,26 @@ public class AdminController {
 	
 	//이벤트 게시판 상세보기 페이지
 	@RequestMapping("/admin/pages/tables/eventManagementView.do")
-	public String eventManagementWrite(Model model, HttpServletRequest req) throws IOException {
+	public String eventManagementView(Model model, HttpServletRequest req) throws IOException {
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",2);
 		
-		return "admin/pages/tables/eventManagementView";
+		command = new AdBoardListViewCommand();
+		command.execute(model);
+		
+		System.out.println("eventboardView 익스큐트 실행");
+		return "admin/pages/tables/eventdManagementView";
 	}
 	
-	
+	//////////////////////////////////////////////////////////////////////////////////////// 레시피관리
 	//레시피 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/recipeManagement.do")
 	public String recipeManagement() {
 		return "admin/pages/tables/recipeManagement";
 	}
 	
-	@RequestMapping("/admin/pages/ui-features/buttons.do")
-	public String buttons() {
-		return "admin/pages/ui-features/buttons";
-	}
 	
-	
-	@RequestMapping("/admin/pages/ui-features/typography.do")
-	public String typography() {
-		return "admin/pages/ui-features/typography";
-	}
 	
 	
 	
