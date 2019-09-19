@@ -141,7 +141,7 @@
                 <br /><br />
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./boardManagementWrite.do';">글쓰기</button>
+						onclick="location.href='./boardManagementWrite.do?&board_type=2';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
 			
