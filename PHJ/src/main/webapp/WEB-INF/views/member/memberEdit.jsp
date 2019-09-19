@@ -134,8 +134,8 @@
 </script>
 
 <%
-String email = (String)session.getAttribute("EMAIL");
-String[] emailSplit = email.split("@");
+String mobile = request.getParameter("mobile");
+String[] mobileSplit = mobile.split("-");
 
 %>
 
