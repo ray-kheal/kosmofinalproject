@@ -7,11 +7,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import board.command.ListCommand;
-import board.command.QnAListCommand;
-import board.command.ViewCommand;
 import command.PHJCommandImpl;
+import command.board.ListCommand;
+import command.board.QnAListCommand;
+import command.board.ViewCommand;
+import command.board.WriteActionCommand;
+import command.board.recipeListCommand;
+import model.board.serviceDTO;
+
 
 @Controller
 public class GeneralController {
@@ -50,7 +55,9 @@ public class GeneralController {
 	 @RequestMapping("view.do")
 	   public String view(Model model, HttpServletRequest req) {
 		   model.addAttribute("req",req);
-		   command = new ViewCommand();
+
+		   command = new command.board.ViewCommand();
+
 		   command.execute(model);
 		   return "general/view";
 	   }
@@ -65,16 +72,17 @@ public class GeneralController {
 		
 		return "general/event";
 	}
+
+	
 	//이벤트 게시판 상세보기
-	 @RequestMapping("Eview.do")
-	   public String event_view(Model model, HttpServletRequest req) {
-		   model.addAttribute("req",req);
-		   command = new ViewCommand();
-		   command.execute(model);
-		   return "general/event_view";
-	   }
-	
-	
+    @RequestMapping("Eview.do")
+      public String event_view(Model model, HttpServletRequest req) {
+         model.addAttribute("req",req);
+         command = new ViewCommand();
+         command.execute(model);
+         return "general/event_view";
+      }
+   
 	//리스트게시판
 	@RequestMapping("recipe.do")
 	public String recipe() {
@@ -96,7 +104,23 @@ public class GeneralController {
 		command = new QnAListCommand();
 		command.execute(model);
 		return "general/qna";
-	}
+	} //QnA게시판 글쓰기
+	   @RequestMapping("write.do")
+	   public String write(Model model) {   
+		   System.out.println("write() 메소드 호출됨");
+		   return "general/QnAwrite";
+	   }
+	
+	 @RequestMapping(value="writeAction.do",method=RequestMethod.POST)
+	   public String writeAction(Model model,HttpServletRequest req, serviceDTO serviceDTO) {
+		 System.out.println("action 호출됨");
+		model.addAttribute("req",req);
+		model.addAttribute("serviceDTO.",serviceDTO);
+		command = new WriteActionCommand();
+		command.execute(model);
+		return "redirect:qna.do?nowPage=1";
+	   }
+	
 	
 	
 		

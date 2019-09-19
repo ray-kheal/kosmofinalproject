@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import command.LoginActionCommand;
-import command.ModifyCommand;
 import command.PHJCommandImpl;
-import command.RegistCommand;
-import member.MemberDAO;
-import member.MemberDTO;
+import command.member.LoginActionCommand;
+import command.member.ModifyCommand;
+import command.member.RegistCommand;
+import model.member.MemberDAO;
+import model.member.MemberDTO;
 @Controller
 public class MemberController {
 	
@@ -122,11 +122,15 @@ public class MemberController {
 		return "member/join03";
 	}
 	
+	//회원정보 수정 페이지 진입시(미제작)
+	
+	
 	//회원정보수정
 	@RequestMapping(value="/modify.do", method=RequestMethod.POST)
-	public String modify(Model model, HttpServletRequest req) throws IOException {
+	public String modify(Model model, HttpServletRequest req, MemberDTO dto) throws IOException {
 		req.setCharacterEncoding("UTF-8");
 		model.addAttribute("req",req);
+		model.addAttribute("memberDTO", dto);
 		command = new ModifyCommand();
 		command.execute(model);
 		

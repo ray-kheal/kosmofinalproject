@@ -132,9 +132,11 @@ body {
 					</tbody>
 				</table>
 			</div>
-			<br /><br />s
+			<br /><br />
 		 <div class="row text-right" style="float: right;">
+		 <form action="write.do" method="post">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+				</form>
 			</div>
 
 			<br /> <br />

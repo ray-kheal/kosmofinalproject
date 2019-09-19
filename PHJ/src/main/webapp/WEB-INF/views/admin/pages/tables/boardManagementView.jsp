@@ -36,13 +36,12 @@
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-              <%
-              String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
-              if(board_type.equals("1")) { %>
-             <h3 class="page-title" style="font-weight: bold;">공지사항 게시판</h3> 
-			<%}else if (board_type.equals("2")){ %>
-             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
-			<%} %>
+              <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
+              	if(board_type.equals("1")) { %>
+             		<h3 class="page-title" style="font-weight: bold;">공지사항 게시판</h3> 
+			 <%}else if (board_type.equals("2")){ %>
+             		<h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
+			 <%} %>
              <br /><br />
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -139,8 +138,14 @@
 				<button type="button" class="btn btn-secondary btn-sm" 
 				onclick="location.href='./boardManagementEdit.do';">수정하기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
-				<button type="button" class="btn btn-dark btn-sm" 
-					onclick="location.href='./boardManagement.do';">리스트</button>
+				<% if(board_type.equals("1")) { %>
+                    	<button type="button" class="btn btn-dark btn-sm" 
+							onclick="location.href='./boardManagement.do';">리스트</button>
+                    <%}else if (board_type.equals("2")){ %>
+                    	<button type="button" class="btn btn-dark btn-sm" 
+							onclick="location.href='./eventManagement.do';">리스트</button>
+                    <%} %>
+				
 			</div>
 			
             </div>

@@ -13,6 +13,8 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
+import model.board.noticeDTO;
+
 public class noticeDAO {
 
 	Connection con;
