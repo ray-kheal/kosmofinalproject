@@ -1,8 +1,8 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@page import="board.recipeDAO"%>
+<%@page import="model.board.recipeDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="board.recipeDTO"%>
+<%@page import="model.board.recipeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

@@ -151,7 +151,7 @@ body {
 				href="javascript:void(0);">→</a></li>
 		</ul>
 	</div>
-	</div>
+
 
 	<!-- Footer -->
 	<%@ include file="../general/simpleFooter.jsp"%>

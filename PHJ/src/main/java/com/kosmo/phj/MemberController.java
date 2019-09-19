@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import command.LoginActionCommand;
-import command.ModifyCommand;
 import command.PHJCommandImpl;
-import command.RegistCommand;
-import member.MemberDAO;
-import member.MemberDTO;
+import command.member.LoginActionCommand;
+import command.member.ModifyCommand;
+import command.member.RegistCommand;
+import model.member.MemberDAO;
+import model.member.MemberDTO;
 @Controller
 public class MemberController {
 	
