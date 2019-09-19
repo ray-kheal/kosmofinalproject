@@ -12,7 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Goyang&display=swap" rel="stylesheet">
 </head>
 <script>
 	function scroll_follow(id) {
@@ -35,6 +35,16 @@ body {
 
 #scroll {
 	z-index: 10;
+}
+</style>
+
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
 }
 </style>
     
@@ -71,6 +81,7 @@ body {
 			<%if(session.getAttribute("EMAIL")==null) { %>
 				<a href="login.do"><img src="images/scoll_login.png" alt="로그인" /></a>
 			<%}else{ %>
+				<a href="memberEdit.do">회원정보수정</a>
 				<a href="logout.do"><img src="images/scoll_logout.png" alt="로그아웃" /></a>
 			<%} %>
 		</div>
@@ -108,11 +119,11 @@ body {
 						<section class="box feature">
 							<a href="right-sidebar.do" class="image featured"><img
 								src="images/store_shadow.png" alt="" /></a>
-							<div class="inner" style="text-align: center; font-family: Jua;">
+							<div class="inner" style="text-align: center; font-family: Goyang;">
 								<header>
-									<h2 style="font-family: Jua;">편의점 찾기</h2>
+									<h2 style="font-family: Goyang;">편의점 찾기</h2>
 								</header>
-								<p style="font-family: Jua; font-size: 25px;">원하시는 상품이 있는 편의점을 찾아 드립니다.</p>
+								<p style="font-family: Goyang; font-size: 25px;">원하시는 상품이 있는 편의점을 찾아 드립니다.</p>
 							</div>
 						</section>
 					</div>
@@ -123,9 +134,9 @@ body {
 								src="images/product_shadow.png" alt="" /></a>
 							<div class="inner" style="text-align: center; ">
 								<header>
-									<h2 style="font-family: Jua;">상품 찾기</h2>
+									<h2 style="font-family: Goyang;">상품 찾기</h2>
 								</header>
-								<p style="font-family: Jua; font-size: 25px;">주변 편의점에 있는 상품을 알려드립니다</p>
+								<p style="font-family: Goyang; font-size: 25px;">주변 편의점에 있는 상품을 알려드립니다</p>
 							</div>
 						</section>
 					</div>
