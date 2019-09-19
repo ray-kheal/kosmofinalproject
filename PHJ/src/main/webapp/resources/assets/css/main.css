@@ -1485,12 +1485,11 @@ input, select, textarea {
 
 	form label {
 		display: block;
-		font-weight: 800;
 		margin: 0 0 1em 0;
 		font-size: 0.8em;
 		color: #444;
 	}
-
+ 
 	form input[type="text"],
 	form input[type="email"],
 	form input[type="password"],
