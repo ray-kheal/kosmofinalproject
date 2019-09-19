@@ -197,9 +197,10 @@ nav {
 						<div id="notify">
 							<section class="last">
 							<table>
+							<tr>	
 								<td>
 									<h2>공지사항</h2>
-								<ul class="main_board_list">
+									<ul class="main_board_list">
 			<%-- 		<%
 					int vNum = 0;
 					int countNum = 0;
@@ -215,15 +216,19 @@ nav {
 						<span><%=dto.getPostdate() %></span>	</li>
 							<% } %>			
 				</ul> --%>
-									<a href="notice.do"
-										class="button icon solid fa-arrow-circle-right">더보기</a> </td> 
+											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+										</ul>
+								 </td> 
 								<td>
 									<h2>이벤트</h2>
 									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
 									<a href="event.do"
-										class="button icon solid fa-arrow-circle-right">더보기</a></td>
-							</section>
-								</table>
+										class="button icon solid fa-arrow-circle-right">더보기</a>
+								</td>
+							</tr>
+							
+							</table>
+								</section>
 						</div>
 					</div>
 					</div>

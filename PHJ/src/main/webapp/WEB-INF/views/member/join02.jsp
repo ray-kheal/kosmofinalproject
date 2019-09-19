@@ -109,7 +109,7 @@
 			}
 		}
 		
-		f.action ="./join3.do";
+		f.action ="./regist.do";
 		
 
 
@@ -130,12 +130,6 @@
 	}
 	
 </script>
-
-<%
-String email = (String)session.getAttribute("EMAIL");
-String[] emailSplit = email.split("@");
-
-%>
 
 
 <style type="text/css">
@@ -198,7 +192,7 @@ label {
 								<input type="text" id="email2" name="email2" value="" 
 								 class="form-control input-lg" style="width:30%"  />							
 								<select name="email_choice" onChange="choiceInput(this.form, this);"
-									class="custom-select" style="width:30%" readonly>  
+									class="custom-select" style="width:30%" >  
 									<option selected value="">선택</option>
 									<option value="naver.com">naver.com</option>
 									<option value="daum.net">daum.net</option>
@@ -208,11 +202,11 @@ label {
 								</select> 
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">
-								<input type="radio" class="custom-control-input" id="emailY" name="email" value="y"/>
+								<input type="radio" class="custom-control-input" id="emailY" name="email_alert" value="Y"/>
 								<label class="custom-control-label" for="emailY">메일 수신동의</label>
 						  	</div>
 						  	<div class="custom-control custom-radio custom-control-inline">
-						  		<input type="radio" class="custom-control-input" id="emailN" name="email" value="n"/>
+						  		<input type="radio" class="custom-control-input" id="emailN" name="email_alert" value="N"/>
 						  		<label class="custom-control-label" for="emailN">메일 수신거부</label>
 						  	</div>
 							<br />
@@ -232,7 +226,7 @@ label {
 					</tr>  
 					<tr>
 						<td>이름</td>
-						<td><input type="text" style="width: 50%;" name="name" value="<%=session.getAttribute("NAME") %>" class="form-control input-lg" placeholder="닉네임" /> </td>
+						<td><input type="text" style="width: 50%;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> </td>
 						 
 					</tr>
 					
@@ -245,11 +239,11 @@ label {
 								<input type="text" name="mobile3" class="form-control input-lg" style="width:25%"/>&nbsp;
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">	
-								<input type="radio" name="sms" class="custom-control-input" value="y" id="SMSY" />
+								<input type="radio" name="mobile_alert" class="custom-control-input" value="Y" id="SMSY" />
 								<label class="custom-control-label" for="SMSY">SMS 수신동의</label>
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">	
-								<input type="radio" name="sms" class="custom-control-input" value="n" id="SMSN" />
+								<input type="radio" name="mobile_alert" class="custom-control-input" value="N" id="SMSN" />
 								<label class="custom-control-label" for="SMSN">SMS 수신거부</label>
 							</div>
 							
