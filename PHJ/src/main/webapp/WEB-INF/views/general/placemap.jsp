@@ -7,14 +7,10 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	
 	
 </head>
@@ -26,6 +22,8 @@
 
 <body class="is-preload no-sidebar">
 	<div id="page-wrapper">
+	
+	
 
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
@@ -33,7 +31,8 @@
 		<!-- Main -->
 		<div id="main-wrapper">
 			<div class="container">
-			
+			<button type="button" style="float: right" btn btn-outline-info">Info</button>
+			<br/><br/><br/>
 			<table style="border:1px solid gray;">
 			
 				<!-- <td rowspan="3">구글지도 위치</td>
@@ -48,16 +47,16 @@
 			</tr> -->	
 			
 				<tr >
-					<td rowspan="3" style="border-right:1px solid gray; ">구글지도</td>
-					<td style="border-bottom: 1px solid gray; "><input type="text" placeholder="내 위치"></td>
+					<td rowspan="3" style="border-right:10px solid gray; ">구글지도</td>
+					<td style="border-bottom: 1px solid gray; float: right;"><input type="text" placeholder="내 위치"></td>
 				</tr>			
 				<tr>
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; "><input type="text" placeholder="이동 시간"></td>
+					<td style="border-bottom: 1px solid gray; float: right; "><input type="text" placeholder="이동 시간"></td>
 				</tr>			
-				tr>
+				
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; "><input type="text" placeholder="편의점 이름"></td>
+					<td style="border-bottom: 1px solid gray; float: right;"><input type="text" placeholder="편의점 이름"></td>
 				</tr>			
 			</table>
 			</div>
