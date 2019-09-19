@@ -17,19 +17,10 @@ public class recipeListCommand implements PHJCommandImpl {
 	@Override
 	public void execute(Model model) {
 		
-		System.out.println("ListCommand > execute() 호출");
+		System.out.println("recipeListCommand > execute() 호출");
 		
-		//컨트롤러에서 넘겨준 파라미터를 한번에 받기 위한 코드
-		//asMap() 메소드를 통해 Model객체에 저장된 내용을 Map컬렉션으로 변환한다.
 		Map<String, Object> paramMap = model.asMap();
-		/*
-		컨트롤러에서 전달된 request객체를 Command객체 내에서 사용하기 위해
-		형변환 후 변수에 저장함.
-		 */
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
-		
-		//커넥션풀 DAO 호출
-		/* SpringBbsDAO dao = new SpringBbsDAO(); */
 		
 		//JDBCTemplate을 통한 DB연결 및 작업
 		recipeDAO dao = new recipeDAO();
@@ -47,6 +38,7 @@ public class recipeListCommand implements PHJCommandImpl {
 		
 		//전체 레코드 수 카운트하기
 		int totalRecordCount = dao.getTotalCount(paramMap);
+		System.out.println("totalRecordCount = " + totalRecordCount);
 		
 		/*
 		외부파일로 만든 파일에 저장된 게시판 페이징 설정값을 얻어온다.
@@ -72,6 +64,9 @@ public class recipeListCommand implements PHJCommandImpl {
 		//출력할 리스트 가져오기
 		ArrayList<recipeDTO> listRows = dao.list(paramMap);
 		
+		System.out.println("listRows : " + listRows);
+		
+		
 		//가상번호 계산하여 부여하기
 		int virtualNum = 0;
 		int countNum = 0;
@@ -94,12 +89,12 @@ public class recipeListCommand implements PHJCommandImpl {
 		 * blockPage, nowPage, req.getContextPath()+"/board/list.do?"+addQueryString);
 		 */
 		
-		/*
-		 * model.addAttribute("pagingImg", pagingImg); model.addAttribute("totalPage",
-		 * totalPage); model.addAttribute("nowPage", nowPage);
-		 * model.addAttribute("listRows", listRows);
-		 */
+
+		//model.addAttribute("pagingImg", pagingImg); model.addAttribute("totalPage", totalPage); 
+		//model.addAttribute("nowPage", nowPage);
+		model.addAttribute("listRows", listRows);
+
 		
-		dao.close();
+
 	}
 }

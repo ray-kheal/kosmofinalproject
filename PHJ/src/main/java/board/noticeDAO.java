@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
+
 public class noticeDAO {
 
 	Connection con;
@@ -26,32 +27,35 @@ public class noticeDAO {
 	// 게시물 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
+		int board_type = (Integer)map.get("board_type");
+		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
-		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE ";
-
-//	      if (map.get("Word") != null) {
-//	         query += "WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%'";
-//	      }
-
+		if (map.get("searchWord") != null) {
+			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+		}
+		
 		return template.queryForObject(query, Integer.class);
+
 
 	}
 
 	public ArrayList<noticeDTO> list(Map<String, Object> map) {
+		
 		System.out.println("list()메소드 실행");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
-		int board_type = (Integer)map.get("board_type");
-		String query = " SELECT * FROM( " + "    SELECT Tb.*, ROWNUM rNum FROM( " + " SELECT * FROM PHJ_BOARD_NOTICE ";
-
-		if (map.get("Word") != null) {
-
-			query += " WHERE " + map.get("Column") + " " + " LIKE '%" + map.get("Word") + "%' ";
-		}
-
-		query += " ) Tb ) WHERE rNum BETWEEN " + start + " AND " + end +" and board_type="+ board_type ;
 		
-	    System.out.println(map);
+		int board_type = (Integer)map.get("board_type");
+		
+		String query = " SELECT * FROM( "
+				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
+				+ "      SELECT * FROM PHJ_BOARD_NOTICE ";
+
+		if (map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+		}
+		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type;
+	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 	}
 		
@@ -77,24 +81,13 @@ public class noticeDAO {
 
 		noticeDTO dto = null;
 
-		String query = "SELECT * FROM springboard WHERE idx=?";
+		String sql = "SELECT * FROM noticeDTO WHERE idx="+idx;
+		
 		try {
-			psmt = con.prepareStatement(query);
-			psmt.setString(1, idx);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				dto = new noticeDTO();
-
-				dto.setIdx(rs.getInt(1));
-				dto.setTitle(rs.getString(2));
-				dto.setContent(rs.getString(3));
-				dto.setView_count(rs.getInt(4));
-				dto.setPostdate(rs.getDate(5));
-				dto.setBoard_type(rs.getInt(6));
-			}
-		} catch (Exception e) {
-			System.out.println("상세보기시 예외발생");
-			e.printStackTrace();
+			dto = template.queryForObject(sql, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
+		}catch (Exception e) {
+			System.out.println("View()실행시 예외발생");
+			dto = new noticeDTO();
 		}
 		return dto;
 	}
