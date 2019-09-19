@@ -55,7 +55,7 @@
 					<!-- <td></td> -->
 					<td style="border-bottom: 1px solid gray; "><input type="text" placeholder="이동 시간"></td>
 				</tr>			
-				tr>
+				
 					<!-- <td></td> -->
 					<td style="border-bottom: 1px solid gray; "><input type="text" placeholder="편의점 이름"></td>
 				</tr>			
