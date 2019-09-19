@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import board.command.ListCommand;
 
 import board.command.QnAListCommand;
-
+import board.command.ViewCommand;
 import board.command.recipeListCommand;
 
 import command.PHJCommandImpl;
@@ -67,6 +67,16 @@ public class GeneralController {
 		
 		return "general/event";
 	}
+	
+	//이벤트 게시판 상세보기
+    @RequestMapping("Eview.do")
+      public String event_view(Model model, HttpServletRequest req) {
+         model.addAttribute("req",req);
+         command = new ViewCommand();
+         command.execute(model);
+         return "general/event_view";
+      }
+   
 
 	
 	//레시피게시판.
