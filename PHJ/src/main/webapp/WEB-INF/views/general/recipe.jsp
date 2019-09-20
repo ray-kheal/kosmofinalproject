@@ -17,7 +17,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
+</style>
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -244,7 +252,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 		style="width: 100%; height: 200px; text-align: center; background-color: #ffd74d; display: table;">
 		<br /> <br /> <br />
 		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
 			<img src="images/fork_round.png" alt="포크"
 				style="width: 50px; height: 50px;" /> RECIPE <br />
 		</p>

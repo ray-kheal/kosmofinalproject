@@ -172,7 +172,7 @@
 							</div>
 						</div>
 						<div class="or-box row-block">
-							<a class="forgotLnk" href="http://www.jquery2dotnet.com"
+							<a class="forgotLnk" href="accountfind.do"
 								style="color: blue;">로그인이 되지 않으시나요?</a><br /> <span
 								style="color: white;">아직 계정이 없으신가요?</span> <a
 								href="join1.do"
