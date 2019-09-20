@@ -270,6 +270,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
 				<!-- 이미지 시작 -->
 				<!-- 베스트게시물 s-->
+				<%--  
 				<div class="col-lg-3 col-md-4 col-6 effect ">
 					<figure class="recipePhoto">
 						<img class="img-fluid img-thumbnail effect"
@@ -315,13 +316,18 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</figure>
 				</div>
 				<!-- 베스트게시물 e-->
-				
+				--%>
 				<c:choose>
 					<c:when test="${empty listRows }">
 						<div><span>결과가 없습니다.</span></div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${listRows }" var="row" varStatus="loop">
+							<c:when test="${row.recommend !=0 }">
+							
+							
+							</c:when>
+							<c:otherwise></c:otherwise>
 							<!-- 일반게시물 s-->
 							<div class="col-lg-3 col-md-4 col-6 ">
 								<figure class="recipePhoto">
