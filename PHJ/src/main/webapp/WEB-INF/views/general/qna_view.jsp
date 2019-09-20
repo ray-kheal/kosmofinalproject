@@ -105,6 +105,8 @@ body {
 			<!-- </div> -->
 			<br /> <br />
 			<button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
+			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>
+			<button type="button" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button>
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm"
 					onclick="location.href='./qna.do';">리스트</button>

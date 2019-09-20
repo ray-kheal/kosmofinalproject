@@ -133,4 +133,33 @@ public class serviceDAO {
 			}
 		});
   }
+	  
+	  public void edit(final serviceDTO dto) {
+		  
+		   String sql = "update PHJ_BOARD_SERVICE set name =?, title=?,content=? where idx=?";
+		   	template.update(sql,new PreparedStatementSetter() {
+				
+				@Override
+				public void setValues(PreparedStatement ps) throws SQLException {
+					
+					ps.setString(1, dto.getName());
+					ps.setString(2, dto.getTitle());
+					ps.setString(3, dto.getContent());
+					ps.setInt(4, dto.getIdx());
+					
+					
+				}
+			});
+  }
+	  public void delete(final String idx) {
+		   String sql = "delete from PHJ_BOARD_SERVICE where idx=? ";
+		 template.update(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+			
+				ps.setString(1, idx);
+			}
+		});
+	}
 }

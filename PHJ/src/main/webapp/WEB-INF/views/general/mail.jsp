@@ -95,7 +95,7 @@ body {
 							<form action="mail_send.jsp" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
 								<div class="pw_box">
-									<table border="1">
+									<table border="5px solid">
 										<tr>
 											<td>답장 받으실 메일</td>
 											<td><input type="text" name="email" value="" /></td>
@@ -128,9 +128,6 @@ body {
 
 	<!-- Footer -->
 	<%@ include file="../general/simpleFooter.jsp"%>
-
-
-
 	<!-- Scripts -->
 
 	<script src="assets/js/jquery.min.js"></script>
