@@ -27,6 +27,7 @@ public class noticeDAO {
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		int board_type = (Integer)map.get("board_type");
+		System.out.println(board_type);
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
 		if (map.get("searchWord") != null) {
@@ -34,9 +35,19 @@ public class noticeDAO {
 		}
 		
 		return template.queryForObject(query, Integer.class);
+	}
+	
+	//미리보기 게시물 수 파악
+	public int pregetTotalCount(Map<String, Object> map) {
+		System.out.println("pregetTotalCount() 메소드 실행.");
+		int board_type = (Integer)map.get("board_type");
+		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
+		System.out.println(board_type);
+		return template.queryForObject(query, Integer.class);
 
 
 	}
+	
 
 	public ArrayList<noticeDTO> list(Map<String, Object> map) {
 		
