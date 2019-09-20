@@ -48,12 +48,18 @@ public class MemberController {
 			model.addAttribute("loginError","일치하는 회원정보가 없습니다.");
 			page = "member/login";		
 		} else {
-			model.addAttribute("req",req);
-			model.addAttribute("dto",dto);
-			command = new LoginActionCommand();
-			command.execute(model);
-			
-			page="redirect:../phj";
+			if(dto.getMembertype().equals("master")) {
+				System.out.println("관리자가 일반페이지에 접근함.");
+				model.addAttribute("loginError","관리자님! 관리자페이지에서 로그인 해주세요!");
+				page = "member/login";		
+			} else {
+				model.addAttribute("req",req);
+				model.addAttribute("dto",dto);
+				command = new LoginActionCommand();
+				command.execute(model);
+				
+				page="redirect:../phj";
+			}
 		}
 		
 		return page;
@@ -141,5 +147,12 @@ public class MemberController {
 		command.execute(model);
 		
 		return "redirect:../phj";
+	}
+	
+	//아이디 / 비밀번호 찾기 진입 메소드
+	@RequestMapping("/accountfind.do")
+	public String accountfind() {
+		
+		return "member/accountfind";
 	}
 }

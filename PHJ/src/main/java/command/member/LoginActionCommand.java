@@ -24,11 +24,19 @@ public class LoginActionCommand implements PHJCommandImpl {
 		
 		MemberDAO dao = new MemberDAO();
 		
-		session.setAttribute("EMAIL", dto.getEmail());
-		session.setAttribute("PASS", dto.getPass());
-		session.setAttribute("NAME", dto.getName());
-		session.setAttribute("ALERT", dto.getMobile_alert());
-
+		if(dto.getMembertype().equals("master")) {
+			session.setAttribute("ADMINEMAIL", dto.getEmail());
+			session.setAttribute("ADMINNAME", dto.getName());
+			session.setAttribute("ADMINPASS", dto.getPass());
+			session.setAttribute("MEMBERTYPE", dto.getMembertype());
+			
+		} else if (dto.getMembertype().equals("normal")){
+			session.setAttribute("EMAIL", dto.getEmail());
+			session.setAttribute("PASS", dto.getPass());
+			session.setAttribute("NAME", dto.getName());
+			session.setAttribute("ALERT", dto.getMobile_alert());
+			session.setAttribute("MEMBERTYPE", dto.getMembertype());
+		}
 		
 	}
 

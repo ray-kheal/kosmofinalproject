@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -49,7 +50,7 @@ body {
 		<div
 			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: white; font-weight: bold;">
 				<img src="images/memo_w.png" alt="메모"
 					style="width: 50px; height: 50px;" /> 공지사항
 			</p>

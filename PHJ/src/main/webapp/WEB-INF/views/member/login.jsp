@@ -145,9 +145,8 @@
 								<input type="password" class="form-control" name="pass" placeholder="암호"
 									required />
 							</div>
-							<div class="" style="color: white;">
-								<input type="checkbox" value="remember-me"
-									class="" /> 아이디를 저장합니다.
+							<div class="idCheck" style="color: white;">
+								<input type="checkbox" value="remember-me" /> 아이디를 저장합니다.
 							</div>
 							<span style="color:red;font-size:1em;">
 								${loginError }
@@ -173,7 +172,7 @@
 							</div>
 						</div>
 						<div class="or-box row-block">
-							<a class="forgotLnk" href="http://www.jquery2dotnet.com"
+							<a class="forgotLnk" href="accountfind.do"
 								style="color: blue;">로그인이 되지 않으시나요?</a><br /> <span
 								style="color: white;">아직 계정이 없으신가요?</span> <a
 								href="join1.do"

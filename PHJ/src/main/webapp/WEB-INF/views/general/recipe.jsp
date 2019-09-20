@@ -17,7 +17,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
+</style>
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -244,7 +252,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 		style="width: 100%; height: 200px; text-align: center; background-color: #ffd74d; display: table;">
 		<br /> <br /> <br />
 		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Arial; font-size: 60px; color: white; font-weight: bold;">
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
 			<img src="images/fork_round.png" alt="포크"
 				style="width: 50px; height: 50px;" /> RECIPE <br />
 		</p>
@@ -254,69 +262,22 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 			<div class="container">
 				<hr class="mt-2 mb-2">
 					<form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
-							<select name="searchColumn" class="form-control" style="width:100px;">
-								<option value="title">제목</option>
-								<option value="content">내용</option>
-							</select>
-							<input type="text" name="searchWord" class="form-control"
-								style="width:250px; margin-left:5px;" />
-							<button type="submit" style="margin-left:10px;" class="btn btn-outline-success">검색</button>
-						<div style="margin-left:50px;">
-							<button type="submit" class="btn btn-outline-warning">글쓰기</button>
+						<select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select>
+						<input type="text" name="searchWord" class="form-control"
+							style="width:230px; margin-left:5px;" />
+						<div style="margin-left:10px;">
+							<button type="submit" class="btn btn-outline-success" style="width:60px;">검색</button>
 						</div>
 					</form>
-			    <hr class="mt-2 mb-2">
-			<div class="row text-center text-lg-left">
-
-				<!-- 이미지 시작 -->
-				<!-- 베스트게시물 s-->
-				<%--  
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-				--%>
+					<hr class="mt-2 mb-2">  
+					<br />
+					<div class="row text-right">
+						<button type="submit" class="btn btn-warning" style="margin-left:auto;">글쓰기</button>
+					</div>
+			<div class="row text-center text-lg-left">	
 				<c:choose>
 					<c:when test="${empty listRows }">
 						<div><span>결과가 없습니다.</span></div>
@@ -362,22 +323,20 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
+		 </div>
 
-
-			</div>
 		</div>
 		<!-- /.container -->
 
-		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">←</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">1</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">2</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">→</a></li>
-		</ul>
+		<div class="container">
+			<table width="100%">
+				<tr>
+					<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+						${pagingImg }
+					</td>
+				</tr>
+			</table>    
+        </div>
 	</div>
 	
 	<!-- Footer -->

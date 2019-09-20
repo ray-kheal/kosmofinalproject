@@ -16,8 +16,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+<script>
+var mst = '<%=session.getAttribute("MEMBERTYPE")%>';
+
+if (mst == 'null') {
+	alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
+	location.href = "../admin/pages/samples/login.do";
+} 
+if (mst == 'normal') {
+	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
+	location.href = "../admin/pages/samples/login.do";
+} 
+
+</script>
 <body>
 	<div class="container-scroller">
       <!-- partial:partials/_navbar.do -->
@@ -35,16 +47,24 @@
            <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
             <!-- 상단 프로필 -->
-              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="nav-profile-img">
-                  <img src="assets/images/faces/login.png" alt="image">
-                  <span class="availability-status online"></span>
-                </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">PHJ Admin</p>
-                </div>
-              </a>
-             
+             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="true">
+               <div class="nav-profile-img">
+                 <img src="assets/images/faces/login.png" alt="image">
+                 <span class="availability-status online"></span>
+               </div>
+               <div class="nav-profile-text">
+                 <p class="mb-1 text-black"><%=session.getAttribute("ADMINNAME") %></p>
+               </div>
+             </a>
+             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-cached mr-2 text-success"></i> 일단 빈칸 </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="adminLogout.do">
+                  <i class="mdi mdi-logout mr-2 text-primary"></i> 로그아웃 </a>
+             </div>
+            </li>
+           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
@@ -63,8 +83,8 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">PHJ Admin</span>
-                  <span class="text-secondary text-small">Project Manager</span>
+                  <span class="font-weight-bold mb-2"><%=session.getAttribute("ADMINNAME") %></span>
+                  <span class="text-secondary text-small"><%=session.getAttribute("ADMINEMAIL") %></span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
@@ -197,10 +217,10 @@
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
-                  <!-- <div class="card-body">
+                   <div class="card-body">
                     <h4 class="card-title">Recent Tickets</h4>
                     <div class="table-responsive">
-                      <table class="table">
+                      <!--<table class="table">
                         <thead>
                           <tr>
                             <th> Assignee </th>
@@ -252,9 +272,9 @@
                             <td> WD-12348 </td>
                           </tr>
                         </tbody>
-                      </table>
+                      </table>-->
                     </div>
-                  </div> -->
+                  </div> 
                 </div>
               </div>
             </div>
@@ -289,12 +309,12 @@
               </div>
             </div>
             <div class="row">
-             <!--  <div class="col-md-7 grid-margin stretch-card">
+              <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Project Status</h4>
                     <div class="table-responsive">
-                      <table class="table">
+                     <!--  <table class="table">
                         <thead>
                           <tr>
                             <th> # </th>
@@ -365,12 +385,12 @@
                             </td>
                           </tr>
                         </tbody>
-                      </table>
+                      </table>-->
                     </div>
                   </div>
-                </div> -->
-              <!-- </div>
-              <div class="col-md-5 grid-margin stretch-card">
+                </div> 
+               </div>
+              <!--<div class="col-md-5 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title text-white">Todo</h4>
@@ -425,8 +445,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div> -->
+              </div>-->
+            </div> 
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.do -->

@@ -35,7 +35,7 @@
 		if (f.email1.value == "") {
 			alert("이메일을 입력해주세요.");
 			f.email1.focus();
-			return false;
+			return false; 
 		}
 
 		for (var i = 0; i < f.email1.value.length; i++) {
