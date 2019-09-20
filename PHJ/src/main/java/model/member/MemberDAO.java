@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -97,8 +97,47 @@ public class MemberDAO {
 		System.out.println(map);
 		
 		return (ArrayList<MemberDTO>)template.query(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+	}
+	
+	//회원정보 수정을 위한 회원정보 가져오기
+	//위와는 달리 이메일만 일치하면 가져오는 걸로 함.(카카오/구글로그인유저 때메)
+	public MemberDTO memberView(String email) { 
+		MemberDTO dto =null;
+		String query = "SELECT * FROM phj_member WHERE email = '" + email + "'";
 		
+		System.out.println("쿼리문 : " + query);
 		
+		try {
+			dto = template.queryForObject(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("수정폼 회원정보 가져오기 실행시 예외발생.");
+			dto = new MemberDTO();
+		}
+		return dto;
+	}
+	
+	//수정하기
+	public void modify(final MemberDTO dto) {
+		System.out.println("modify() 호출 : " + dto.getEmail());
+		
+		String sql = "UPDATE phj_member SET name=?, email_alert=?, pass=?, mobile=?, mobile_alert=? WHERE email=?";
+		
+		template.update(sql,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dto.getName());
+				ps.setString(2, dto.getEmail_alert());
+				ps.setString(3, dto.getPass());
+				ps.setString(4, dto.getMobile());
+				ps.setString(5, dto.getMobile_alert());
+				ps.setString(6, dto.getEmail());	
+			}
+			
+		});
+		System.out.println("query : " + sql);
 	}
 	
 }

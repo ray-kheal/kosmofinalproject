@@ -27,6 +27,7 @@ public class noticeDAO {
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		int board_type = (Integer)map.get("board_type");
+		System.out.println(board_type);
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
 		if (map.get("searchWord") != null) {
@@ -34,9 +35,19 @@ public class noticeDAO {
 		}
 		
 		return template.queryForObject(query, Integer.class);
+	}
+	
+	//미리보기 게시물 수 파악
+	public int pregetTotalCount(Map<String, Object> map) {
+		System.out.println("pregetTotalCount() 메소드 실행.");
+		int board_type = (Integer)map.get("board_type");
+		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
+		System.out.println(board_type);
+		return template.queryForObject(query, Integer.class);
 
 
 	}
+	
 
 	public ArrayList<noticeDTO> list(Map<String, Object> map) {
 		
@@ -59,19 +70,18 @@ public class noticeDAO {
 	}
 	
 	  //답변형 게시판 글쓰기 처리 
-	public void write(final serviceDTO serviceDTO) {
+	public void write(final noticeDTO noticeDTO) {
 
 		template.update(new PreparedStatementCreator() {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, title, contents, name, bgroup, bstep, bindent)"
-						+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, SEQ_PHJ_BOARD_SERVICE.NEXTVAL, 0, 0 )";
+				String sql = "INSERT INTO PHJ_BOARD_NOTICE(idx, title, contents)"
+						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ? )";
 
 				PreparedStatement psmt = con.prepareStatement(sql);
-				psmt.setString(1, serviceDTO.getName());
-				psmt.setString(2, serviceDTO.getTitle());
-				psmt.setString(3, serviceDTO.getContent());	
+				psmt.setString(1, noticeDTO.getTitle());
+				psmt.setString(2, noticeDTO.getContent());	
 
 				return psmt;
 			}

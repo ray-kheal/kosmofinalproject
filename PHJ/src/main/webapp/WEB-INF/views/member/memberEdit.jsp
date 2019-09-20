@@ -23,23 +23,6 @@
 
 	function sendIt() {
 
-		if (f.email1.value == "") {
-			alert("이메일을 입력해주세요.");
-			f.email1.focus();
-			return false;
-		}
-
-		for (var i = 0; i < f.email1.value.length; i++) {
-			chm = f.email1.value.charAt(i)
-			if (!(chm >= '0' && chm <= '9') && !(chm >= 'a' && chm <= 'z')
-					&& !(chm >= 'A' && chm <= 'Z')) {
-				alert("이메일은 영문 대소문자, 숫자만 입력가능합니다.")
-				document.f.email1.focus();
-				document.f.email1.select();
-				return false;
-			}
-		}
-
 		//닉네임 길이 체크 (4~12자)
 		if (f.name.value.length<2 || f.name.value.length>8) {
 			alert("닉네임을 2~8자까지 입력해주세요.")
@@ -111,7 +94,7 @@
 		
 		alert("수정완료");
 		
-		f.action ="./";
+		f.action ="./modify.do";
 		
 
 
@@ -131,14 +114,9 @@
 		}
 	}
 	
+	
+	
 </script>
-
-<%
-String email = (String)session.getAttribute("EMAIL");
-String[] emailSplit = email.split("@");
-
-%>
-
 
 <style type="text/css">
 body {
@@ -189,27 +167,24 @@ label {
 					</tr>
 					<tr>
 						<td colspan='4'></td>    
-					</tr>-
+					</tr>
 					<tr>
 						<td>이메일</td>
 						<td>
 							<div class="form-inline" >
-								<input type="text" name="email1" id="email1" value="<%=emailSplit[0] %>"
-								class="form-control" style="width:30%" readonly placeholder="이메일(아이디)"/>@
-							
-								<input type="text" id="email2" name="email2" value="<%=emailSplit[1] %>" 
-								 class="form-control input-lg" style="width:30%" readonly />							
+								<input type="text" name="email" id="email" value="${dto.email }"
+								class="form-control" style="width:50%" readonly placeholder="이메일(아이디)"/>
 								<select name="email_choice" onChange="choiceInput(this.form, this);"
 									class="custom-select" style="width:30%" readonly>  
 									<option disabled="disabled" selected value="">*변경불가</option>
 								</select> 
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">
-								<input type="radio" class="custom-control-input" id="emailY" name="email" value="y"/>
+								<input type="radio" class="custom-control-input" id="emailY" name="email_alert" value="Y" ${emailY }/>
 								<label class="custom-control-label" for="emailY">메일 수신동의</label>
 						  	</div>
 						  	<div class="custom-control custom-radio custom-control-inline">
-						  		<input type="radio" class="custom-control-input" id="emailN" name="email" value="n"/>
+						  		<input type="radio" class="custom-control-input" id="emailN" name="email_alert" value="N" ${emailN }/>
 						  		<label class="custom-control-label" for="emailN">메일 수신거부</label>
 						  	</div>
 							<br />
@@ -219,17 +194,17 @@ label {
 					 
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" style="width: 50%;" id="pass1" name="pass" value=""  class="form-control input-lg" placeholder="비밀번호" /></td>
+						<td><input type="password" style="width: 50%;" id="pass1" name="pass" value="${dto.pass }"  class="form-control input-lg" placeholder="비밀번호" /></td>
 						
 					</tr>
 					<tr>
 						<td>비밀번호확인</td>
-						<td><input type="password" style="width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
+						<td><input type="password" style="width: 50%;" id="pass2" name="confirm_password" value="${dto.pass }"  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
 						
 					</tr>  
 					<tr>
 						<td>이름</td>
-						<td><input type="text" style="width: 50%;" name="name" value="<%=session.getAttribute("NAME") %>" class="form-control input-lg" placeholder="닉네임" /> </td>
+						<td><input type="text" style="width: 50%;" name="name" value="${dto.name }" class="form-control input-lg" placeholder="닉네임" /> </td>
 						 
 					</tr>
 					
@@ -237,16 +212,16 @@ label {
 						<td>휴대전화</td>
 						<td>
 							<div class="form-inline">
-								<input type="text" name="mobile1" class="form-control input-lg" style="width:25%"/>&nbsp;-&nbsp; 
-								<input type="text" name="mobile2" class="form-control input-lg" style="width:25%"/>&nbsp;-&nbsp; 	
-								<input type="text" name="mobile3" class="form-control input-lg" style="width:25%"/>&nbsp;
+								<input type="text" name="mobile1" class="form-control input-lg" style="width:25%" value="${mobile1 }"/>&nbsp;-&nbsp; 
+								<input type="text" name="mobile2" class="form-control input-lg" style="width:25%" value="${mobile2 }"/>&nbsp;-&nbsp; 	
+								<input type="text" name="mobile3" class="form-control input-lg" style="width:25%" value="${mobile3 }"/>&nbsp;
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">	
-								<input type="radio" name="sms" class="custom-control-input" value="y" id="SMSY" />
+								<input type="radio" name="mobile_alert" class="custom-control-input" value="Y" id="mobileY" ${mobileY }/>
 								<label class="custom-control-label" for="SMSY">SMS 수신동의</label>
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">	
-								<input type="radio" name="sms" class="custom-control-input" value="n" id="SMSN" />
+								<input type="radio" name="mobile_alert" class="custom-control-input" value="N" id="mobileN" ${mobileN }/>
 								<label class="custom-control-label" for="SMSN">SMS 수신거부</label>
 							</div>
 							

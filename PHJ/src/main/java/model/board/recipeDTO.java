@@ -11,11 +11,12 @@ public class recipeDTO {
 	private String name;
 	private int view_count;
 	private Date postdate;
+	private String recommend;
 	
 	public recipeDTO() {}
 
 	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
-			Date postdate) {
+			Date postdate, String recommend) {
 		Idx = idx;
 		this.image_name = image_name;
 		this.title = title;
@@ -23,6 +24,7 @@ public class recipeDTO {
 		this.name = name;
 		this.view_count = view_count;
 		this.postdate = postdate;
+		this.recommend = recommend;
 	}
 
 	public int getIdx() {
@@ -81,4 +83,12 @@ public class recipeDTO {
 		this.postdate = postdate;
 	}
 
+	public String getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(String recommend) {
+		this.recommend = recommend;
+	}
+	
 }
