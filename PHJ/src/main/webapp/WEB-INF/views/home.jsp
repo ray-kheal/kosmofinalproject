@@ -92,13 +92,21 @@ nav {
 			</ul> --%>
 
 			<!-- 이미지로 스크롤 메뉴 변경함 -->
-			<a href="#"><img src="images/scoll_welcome.png" alt="welcome"
-				style="right: 30; top: 30;" /></a><br /> <a href="#features-wrapper"><img
-				src="images/scoll_product.png" alt="편의점 상품조회" /></a><br /> <a
-				href="#main-wrapper"><img src="images/scoll_recipe.png"
-				alt="편의점 레시피" /></a><br /> <a href="#notify"><img
-				src="images/scoll_notice.png" alt="공지사항" /></a><br /> <a href="#info"><img
-				src="images/scoll_cs.png" alt="고객센터" /></a><br />
+			<a href="#">
+				<img src="images/scoll_welcome.png" alt="welcome" style="right: 30; top: 30;" />
+			</a> <br />
+			<a href="#features-wrapper">
+				<img src="images/scoll_product.png" alt="편의점 상품조회" />
+			</a><br /> 
+			<a href="#main-wrapper">
+				<img src="images/scoll_recipe.png" alt="편의점 레시피" />
+			</a><br /> 
+			<a href="#notify">
+				<img src="images/scoll_notice.png" alt="공지사항" />
+			</a><br /> 
+<!-- 			<a href="#info"> -->
+<!-- 				<img src="images/scoll_cs.png" alt="고객센터" /> -->
+<!-- 			</a><br /> -->
 
 			<%
 				if (session.getAttribute("EMAIL") == null) {
