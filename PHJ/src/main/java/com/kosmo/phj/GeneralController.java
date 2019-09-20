@@ -124,6 +124,18 @@ public class GeneralController {
 		   return "general/QnAwrite";
 	   }
 	   
+	//트위터
+	   @RequestMapping("twitter.do")
+	   public String twitter(Model model) {   
+
+		   return "general/twitter";
+	   }
+	//페이스북
+	   @RequestMapping("facebook.do")
+	   public String facebook(Model model) {   
+		   
+		   return "general/facebook";
+	   }
 	   
 	
 	

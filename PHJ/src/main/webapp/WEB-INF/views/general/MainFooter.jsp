@@ -60,15 +60,15 @@
 				<section class="widget contact">
 					<h3>페이지 SNS</h3>
 					<ul>
-						<li><a href="https://twitter.com" class="icon brands fa-twitter"><span
+						<li><a href="./twitter.do" class="icon brands fa-twitter"><span
 								class="label">쯔이타</span></a></li>
-						<li><a href="https://www.facebook.com/" class="icon brands fa-facebook-f"><span
+						<li><a href="./facebook.do" class="icon brands fa-facebook-f"><span
 								class="label">페북</span></a></li>
-						<li><a href="https://www.instagram.com/" class="icon brands fa-instagram"><span
+						<li><a href="#" class="icon brands fa-instagram"><span
 								class="label">인별</span></a></li>
-						<li><a href="https://dribbble.com/" class="icon brands fa-dribbble"><span
+						<li><a href="#" class="icon brands fa-dribbble"><span
 								class="label">dribbble</span></a></li>
-						<li><a href="https://www.pinterest.co.kr/" class="icon brands fa-pinterest"><span
+						<li><a href="#" class="icon brands fa-pinterest"><span
 								class="label">Pinterest</span></a></li>
 					</ul>
 					<p>
