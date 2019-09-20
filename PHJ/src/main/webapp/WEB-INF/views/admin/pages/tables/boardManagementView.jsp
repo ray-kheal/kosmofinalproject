@@ -43,37 +43,7 @@
              		<h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
 			 <%} %>
              <br /><br />
-       <!--        <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
-                </ol>
-              </nav>
-        -->     
-              	<form class="form-inline">
-				 <div class="form-group ">
-					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
-					</select>
-				</div> 
-				<div class="input-group">
-
-					<input type="text" name="keyString" class="form-control"
-						style="width: 120px; height : 30px" />
-
-					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색
-						</button>
-					</div>
-				</div>
-				
-			</form>
-			<!-- 검색기능 끝 -->
-
-			<br />
+      
 
 			<!-- 내용시작 -->
 			<div class="card">
@@ -135,7 +105,7 @@
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementView.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type };">수정하기</button>
+				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
 				<button class = "btn btn-danger btn-sm">삭제</button>
 				<% if(board_type.equals("1")) { %>
                     	<button type="button" class="btn btn-dark btn-sm" 
@@ -146,10 +116,10 @@
                     <%} %>
 				
 			</div>
-			
+			  
             </div>
       </div>
-      
+          
       <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
