@@ -123,6 +123,9 @@ public class GeneralController {
 		   System.out.println("write() 메소드 호출됨");
 		   return "general/QnAwrite";
 	   }
+	   
+	   
+	
 	
 	 @RequestMapping(value="writeAction.do",method=RequestMethod.POST)
 	   public String writeAction(Model model,HttpServletRequest req, serviceDTO serviceDTO) {

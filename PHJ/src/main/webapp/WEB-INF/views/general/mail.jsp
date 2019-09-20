@@ -67,15 +67,15 @@ body {
 						<section class="widget contact">
 							<h3>Contact Us</h3>
 							<ul>
-								<li><a href="https://twitter.com/2HgFp07ljAUN6Io" class="icon brands fa-twitter"><span
+								<li><a href="https://twitter.com/" class="icon brands fa-twitter"><span
 										class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/%ED%8E%B8%ED%9E%88%EC%A0%90-%ED%8E%B8%ED%9E%88%EC%93%B0%EB%8A%94-%ED%8E%B8%EC%9D%98%EC%A0%90-120437606011425/?modal=admin_todo_tour" class="icon brands fa-facebook-f"><span
+								<li><a href="https://www.facebook.com/" class="icon brands fa-facebook-f"><span
 										class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/pyeonhijeom/" class="icon brands fa-instagram"><span
+								<li><a href="https://www.instagram.com/" class="icon brands fa-instagram"><span
 										class="label">Instagram</span></a></li>
-								<li><a href="https://dribbble.com/pyeonhijeom" class="icon brands fa-dribbble"><span
+								<li><a href="https://dribbble.com/" class="icon brands fa-dribbble"><span
 										class="label">Dribbble</span></a></li>
-								<li><a href="https://www.pinterest.co.kr/vusglwja/" class="icon brands fa-pinterest"><span
+								<li><a href="https://www.pinterest.co.kr/" class="icon brands fa-pinterest"><span
 										class="label">Pinterest</span></a></li>
 							</ul>
 							<p>
