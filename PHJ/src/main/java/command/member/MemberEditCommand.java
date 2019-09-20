@@ -30,12 +30,26 @@ public class MemberEditCommand implements PHJCommandImpl {
 		
 		System.out.println("회원이름 : " + dto.getName());
 		System.out.println("회원등급 : " + dto.getMembertype());
+		System.out.println("메일수신 : " + dto.getEmail_alert() +", 문자수신 : "+ dto.getMobile_alert());
 		model.addAttribute("dto",dto);
 		//전화번호는 여기서 3부분으로 쪼개서 model에 넣음.
 		String[] mobileArr = dto.getMobile().split("-");
 		model.addAttribute("mobile1",mobileArr[0]);
 		model.addAttribute("mobile2",mobileArr[1]);
 		model.addAttribute("mobile3",mobileArr[2]);
+		
+		//메일수신동의여부, SMS수신여부도 여기서 처리.
+		if(dto.getEmail_alert().equals("Y")) {
+			model.addAttribute("emailY","checked");
+		} else {
+			model.addAttribute("emailN","checked");
+		}
+		
+		if(dto.getMobile_alert()=="Y") {
+			model.addAttribute("mobileY","checked");
+		} else {
+			model.addAttribute("mobileN","checked");
+		}
 		
 	}
 

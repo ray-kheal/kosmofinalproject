@@ -233,9 +233,13 @@ to {
 			
 			
 		</div>
+<<<<<<< HEAD
 		
 		
 
+=======
+		
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 		<br /> <br />
 		<ul class="pagination justify-content-center">

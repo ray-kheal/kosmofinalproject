@@ -7,14 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.PHJCommandImpl;
 import command.admin.AdBoardListCommand;
+import command.admin.AdBoardListEditCommand;
 import command.admin.AdBoardListViewCommand;
+import command.admin.AdBoardListWriteActionCommand;
 import command.admin.AdEventListCommand;
 import command.admin.AdPlaceListCommand;
 import command.admin.AdProductListCommand;
 import command.admin.MemberListCommand;
+import model.board.noticeDTO;
+import model.board.serviceDTO;
 @Controller
 public class AdminController {
 	
@@ -154,11 +159,61 @@ public class AdminController {
 		
 		return "admin/pages/tables/boardManagementView";
 	}
+	//공지사항수정하기 페이지
+	@RequestMapping("/admin/pages/tables/boardManagementEdit.do")
+	public String boardManagementEdit(Model model, HttpServletRequest req) throws IOException{
+		req.setCharacterEncoding("UTF-8");
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",1);
+		
+		command = new AdBoardListEditCommand();
+		command.execute(model);
+		
+		System.out.println("boardEdit 익스큐트 실행");
+		
+		return "admin/pages/tables/boardManagementEdit";
+	}
 	//공지사항글쓰기 페이지
-	@RequestMapping("/admin/pages/tables/boardManagementWrite.do")
-	public String boardManagementWrite() {
+	@RequestMapping("/admin/pages/tables/boardManagementWrite.do" )
+	public String boardManagementWrite(Model model, HttpServletRequest req) throws IOException {
+		
+		System.out.println("write 호출됨");
+		//String nowPage = req.getParameter("nowPage");
+		//String board_type=req.getParameter("board_type");
+		model.addAttribute("req",req);
+		
 		return "admin/pages/tables/boardManagementWrite";
 	}
+	//공지사항글쓰기 액션
+	@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )
+	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) {
+		
+		System.out.println("writeAction 호출됨");
+		String nowPage = req.getParameter("nowPage");
+		model.addAttribute("req",req);
+		model.addAttribute("noticeDTO",noticeDTO);
+		command = new AdBoardListWriteActionCommand();
+		command.execute(model);
+		
+		return "admin/pages/tables/boardManagement.do?nowPage="+nowPage;
+		
+	}
+	/*@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )
+	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) {
+		
+		System.out.println("writeAction 호출됨");
+		String nowPage = req.getParameter("nowPage");
+		model.addAttribute("req",req);
+		model.addAttribute("noticeDTO",noticeDTO);
+		command = new WriteActionCommand();
+		command.execute(model);
+		
+		return "admin/pages/tables/boardManagement.do?nowPage="+nowPage;
+		
+	}
+	*/
+	 
+	
 	
 	//////////////////////////////////////////////////////////////////////////////////////// 이벤트관리
 	//이벤트 게시판 관리 페이지

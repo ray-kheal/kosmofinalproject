@@ -25,33 +25,7 @@
 	rel="stylesheet">
 	
 	<%
-	request.setCharacterEncoding("UTF-8");
 
-	noticeDAO dao = new noticeDAO();
-	String queryStr= "";
-
-	Map<String, Object> param = new HashMap<String, Object>();
-	
-	  int totalRecordCount = dao.getTotalCount(param);
-	  
-	  int pageSize = Integer.parseInt(application.getInitParameter("PAGE_SIZE"));
-	  int blockPage = Integer.parseInt(application.getInitParameter("BLOCK_PAGE"));
-	    
-	  int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
-	  
-	  int nowPage = (request.getParameter("nowPage")==null)
-			    || request.getParameter("nowPage").equals("") ? 1 : Integer.parseInt(request.getParameter("nowPage"));
-
-	
-			    int start = (nowPage-1)*pageSize +1;
-			    int end = nowPage * pageSize;
-			    
-	
-			    param.put("start",start);
-			    param.put("end",end);
-
-
-	 List<noticeDTO> bbs = dao.list(param);
 	%>
 </head>
 <script>
@@ -256,35 +230,80 @@ nav {
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
-								<table>
-									<td>
-										<h2>공지사항</h2>
-										<ul class="main_board_list">
-											 <%
-					int vNum = 0;
-					int countNum = 0;
-					for(noticeDTO dto : bbs){
-						vNum  = totalRecordCount-(((nowPage-1)*pageSize)+countNum++);
-					%>
-						<li><a href="../space/sub01_view.jsp?num=<%=dto.getIdx()%>&nowPage=<%=nowPage%>&<%=queryStr%>">  
-								<% if(dto.getContent().length()>=15) {%>
-								<%=dto.getContent().substring(0, 15)+"..."%>
-						<%}else{%>
-						<%=dto.getContent() %>
-						<%} %>
-						<span><%=dto.getPostdate() %></span>	</li>
-							<% } %>			
-				</ul> 
-											<a href="notice.do"
-												class="button icon solid fa-arrow-circle-right">더보기</a>
-									</td>
-									<td>
-										<h2>이벤트</h2>
-										<h3>이부분에 이벤트 미리보기 게시판 신설</h3> <a href="event.do"
+			<table>
+							<tr>	
+								<td>
+									<h2>공지사항</h2>
+									<ul class="main_board_list">
+	
+	<div class="form-group">
+					<select name="keyField" class="form-control" style="width: 100px;">
+						<option value="">제목</option>
+						<option value="">작성자</option>
+						<option value="">내용</option>
+					</select>
+				</div>
+				
+					<div>
+				<table class="table table-hover" style="text-align: center;">
+
+					<colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="120px" />
+					</colgroup>
+					<thead>
+						<tr class="table-primary" style="color: white;">
+							<th style="text-align: center;">번호</th>
+							<th style="text-align: center;">제목</th>
+							<th style="text-align: center;">작성자</th>
+							<th style="text-align: center;">조회수</th>
+							<th style="text-align: center;">등록날짜</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:choose>
+							<c:when test="${empty listRows }">
+								<tr>
+									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										<td class="text-center">${row.virtualNum }</td>
+										<td class="text-left"><a
+											href="./view.do?idx=${row.idx}
+								&nowPage=${nowPage}">${row.title}</a>
+										</td>
+										<td class="text-center">${row.content }</td>
+										<td class="text-center">${row.view_count }</td>
+										<td class="text-center">${row.postdate }</td>
+										<!-- <td class="text-center">--</td> -->
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</tbody>
+				</table>
+			</div>
+											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+										</ul>
+								 </td> 
+								<td>
+									<h2>이벤트</h2>
+									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
+									<a href="event.do"
 										class="button icon solid fa-arrow-circle-right">더보기</a>
-									</td>
-									</section>
-								</table>
+								</td>
+							</tr>
+							
+							</table>
+								</section>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						</div>
 					</div>
 				</div>
