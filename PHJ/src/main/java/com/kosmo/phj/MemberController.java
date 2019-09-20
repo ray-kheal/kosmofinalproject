@@ -77,11 +77,6 @@ public class MemberController {
 	public String join2() {
 		return "member/join02";
 	}
-	//회원가입완료페이지 진입(가입완료폼)
-	@RequestMapping("/join3.do")
-	public String join3() {
-		return "member/join03";
-	}
 	
 	
 	//카카오로그인 매핑
@@ -134,13 +129,12 @@ public class MemberController {
 	
 	//회원정보수정
 	@RequestMapping(value="/modify.do", method=RequestMethod.POST)
-	public String modify(Model model, HttpServletRequest req, MemberDTO dto) throws IOException {
-		req.setCharacterEncoding("UTF-8");
+	public String modify(Model model, HttpServletRequest req, MemberDTO dto) {
 		model.addAttribute("req",req);
 		model.addAttribute("memberDTO", dto);
 		command = new ModifyCommand();
 		command.execute(model);
 		
-		return "../phj";
+		return "redirect:../phj";
 	}
 }

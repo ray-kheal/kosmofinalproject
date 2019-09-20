@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -116,6 +116,28 @@ public class MemberDAO {
 			dto = new MemberDTO();
 		}
 		return dto;
+	}
+	
+	//수정하기
+	public void modify(final MemberDTO dto) {
+		System.out.println("modify() 호출 : " + dto.getEmail());
+		
+		String sql = "UPDATE phj_member SET name=?, email_alert=?, pass=?, mobile=?, mobile_alert=? WHERE email=?";
+		
+		template.update(sql,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dto.getName());
+				ps.setString(2, dto.getEmail_alert());
+				ps.setString(3, dto.getPass());
+				ps.setString(4, dto.getMobile());
+				ps.setString(5, dto.getMobile_alert());
+				ps.setString(6, dto.getEmail());	
+			}
+			
+		});
+		System.out.println("query : " + sql);
 	}
 	
 }

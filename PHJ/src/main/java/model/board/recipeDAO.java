@@ -43,7 +43,7 @@ public class recipeDAO {
 			sql += "WHERE "+map.get("Column")+" LIKE '%"+map.get("Word")+"%' ";
 		}
 		
-		sql += " ORDER BY postdate DESC ) tb) WHERE rNum BETWEEN "+start+" AND "+end;
+		sql += " ORDER BY recommend ASC, postdate DESC ) tb) WHERE rNum BETWEEN "+start+" AND "+end;
 		
 		return (ArrayList<recipeDTO>)template.query(sql, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
 	}

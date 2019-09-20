@@ -323,26 +323,42 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${listRows }" var="row" varStatus="loop">
-							<c:when test="${row.recommend !=0 }">
-							
-							
+						<c:choose>
+							<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+								<!-- 베스트게시물 s-->
+								<div class="col-lg-3 col-md-4 col-6 effect ">
+									<figure class="recipePhoto">
+										<img class="img-fluid img-thumbnail effect"
+											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+											alt="">
+										<figcaption>
+											<h3>${row.title }</h3>
+											<p>${row.content }</p>
+											<i class="ion-ios-arrow-right"></i>
+										</figcaption>
+										<a href="#" class="d-block mb-4 h-100"></a>
+									</figure>
+								</div>	
+								<!-- 베스트게시물 e-->							
 							</c:when>
-							<c:otherwise></c:otherwise>
-							<!-- 일반게시물 s-->
-							<div class="col-lg-3 col-md-4 col-6 ">
-								<figure class="recipePhoto">
-									<img class="img-fluid img-thumbnail effect"
-										src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-										alt="">
-									<figcaption>
-										<h3>${row.title }</h3>
-										<p>${row.content }</p>
-										<i class="ion-ios-arrow-right"></i>
-									</figcaption>
-									<a href="#" class="d-block mb-4 h-100"></a>
-								</figure>
-							</div>
-							<!-- 일반게시물 e-->
+							<c:otherwise>
+								<!-- 일반게시물 s-->
+								<div class="col-lg-3 col-md-4 col-6 ">
+									<figure class="recipePhoto">
+										<img class="img-fluid img-thumbnail effect"
+											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+											alt="">
+										<figcaption>
+											<h3>${row.title }</h3>
+											<p>${row.content }</p>
+											<i class="ion-ios-arrow-right"></i>
+										</figcaption>
+										<a href="#" class="d-block mb-4 h-100"></a>
+									</figure>
+								</div>
+								<!-- 일반게시물 e-->
+							</c:otherwise>
+						</c:choose>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
