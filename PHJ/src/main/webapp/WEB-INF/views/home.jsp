@@ -303,7 +303,7 @@ nav {
 							
 							</table>
 								</section>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 						</div>
 					</div>
 				</div>
