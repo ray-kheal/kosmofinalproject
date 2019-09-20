@@ -125,6 +125,21 @@ public class GeneralController {
 		   System.out.println("write() 메소드 호출됨");
 		   return "general/QnAwrite";
 	   }
+	   
+	//트위터
+	   @RequestMapping("twitter.do")
+	   public String twitter(Model model) {   
+
+		   return "general/twitter";
+	   }
+	//페이스북
+	   @RequestMapping("facebook.do")
+	   public String facebook(Model model) {   
+		   
+		   return "general/facebook";
+	   }
+	   
+	
 	
 	 @RequestMapping(value="writeAction.do",method=RequestMethod.POST)
 	   public String writeAction(Model model,HttpServletRequest req, serviceDTO serviceDTO) throws IOException{

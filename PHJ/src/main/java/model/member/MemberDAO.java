@@ -42,6 +42,15 @@ public class MemberDAO {
 		return dto;
 	}
 	
+	//이메일 중복검사
+	public int emailCheck(String email) {
+		String sql = "SELECT COUNT(*) FROM phj_member WHERE email = '"+email+"' ";
+		System.out.println("sql : " + sql);
+		
+		return template.queryForObject(sql, Integer.class);
+	}
+	
+	
 	//회원등록
 	public void regist(final MemberDTO dto) {
 		template.update(new PreparedStatementCreator() {

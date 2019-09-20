@@ -3,12 +3,17 @@ package com.kosmo.phj;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import command.PHJCommandImpl;
@@ -16,6 +21,7 @@ import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
+import command.member.emailOverlapCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
 @Controller
@@ -45,12 +51,18 @@ public class MemberController {
 			model.addAttribute("loginError","일치하는 회원정보가 없습니다.");
 			page = "member/login";		
 		} else {
-			model.addAttribute("req",req);
-			model.addAttribute("dto",dto);
-			command = new LoginActionCommand();
-			command.execute(model);
-			
-			page="redirect:../phj";
+			if(dto.getMembertype().equals("master")) {
+				System.out.println("관리자가 일반페이지에 접근함.");
+				model.addAttribute("loginError","관리자님! 관리자페이지에서 로그인 해주세요!");
+				page = "member/login";		
+			} else {
+				model.addAttribute("req",req);
+				model.addAttribute("dto",dto);
+				command = new LoginActionCommand();
+				command.execute(model);
+				
+				page="redirect:../phj";
+			}
 		}
 		
 		return page;
@@ -101,10 +113,22 @@ public class MemberController {
 		return "redirect:../phj";
 	}
 	
+	//이메일 중복검사!
+	@RequestMapping("emailOverLap.do")
+	public void emailOverLap(Model model, HttpServletRequest req, HttpServletResponse resp) {
+		
+		String email = req.getParameter("email");
+		System.out.println("ajax를 통하여 받은 이메일주소 : " + email);
+		model.addAttribute("email",email);
+		model.addAttribute("resp",resp);
+		command = new emailOverlapCommand();
+		command.execute(model);
+	}
+	
+	
 	//회원가입
 	@RequestMapping(value="/regist.do",method=RequestMethod.POST)
-	public String regist(Model model, HttpServletRequest req) throws IOException {
-		req.setCharacterEncoding("UTF-8");
+	public String regist(Model model, HttpServletRequest req){
 		model.addAttribute("req",req);
 		command = new RegistCommand();
 		command.execute(model);
@@ -113,6 +137,8 @@ public class MemberController {
 		
 		return "member/join03";
 	}
+	
+	
 	
 	//회원정보수정페이지 진입(수정폼)
 	@RequestMapping("/memberEdit.do")

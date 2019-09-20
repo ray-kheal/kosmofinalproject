@@ -16,6 +16,19 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
 </head>
+<script>
+var mst = '<%=session.getAttribute("MEMBERTYPE")%>';
+
+if (mst == 'null') {
+	alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
+	location.href = "../admin/pages/samples/login.do";
+} 
+if (mst == 'normal') {
+	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
+	location.href = "../admin/pages/samples/login.do";
+} 
+
+</script>
 <script type = "text/javascript">
 function checkValidate(f){
    if(f.title.value==""){
@@ -49,6 +62,7 @@ function checkValidate(f){
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
+            
               <div class="container">
                 <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
               		if(board_type.equals("1")) { %>
@@ -56,74 +70,66 @@ function checkValidate(f){
 			 	<%}else if (board_type.equals("2")){ %>
              			<h3 class="page-title" style="font-weight: bold;">이벤트</h3> 
 			 	<%} %>
-             <br /><br />
-       <!--        <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">관리</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
-                </ol>
-              </nav>
-        -->     
+           	  <br /><br />
+		       <!--        <nav aria-label="breadcrumb">
+		                <ol class="breadcrumb">
+		                  <li class="breadcrumb-item"><a href="#">관리</a></li>
+		                  <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+		                </ol>
+		              </nav>
+		        -->     
  
-			<br />  
-		
-			<div class="card">
-                <div class="card-body">
-                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-<<<<<<< HEAD
-                    <form class="forms-sample" >
-=======
-                    <form action="boardManagementWriteAction.do?board_type=1" name="writeFrm" method="post" 
-						onsubmit="return checkValidate(this);">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-                      <div class="form-group">
-                        <label for="exampleInputName1">이름</label>
-                        <input type="text" class="form-control" id="name" value="관리자">
-                      </div>
-                      <!-- <div class="form-group">
-                        <label for="exampleInputPassword4">비밀번호</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                      </div> -->
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">제목</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title">
-                      </div>
-                     <!--  <div class="form-group">
-                        <label>파일업로드</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div> -->
-                      <div class="form-group">
-                        <label for="exampleTextarea1">내용</label>
-                        <textarea class="form-control" id="content" rows="10"></textarea>
-                      </div>
-                     
-<<<<<<< HEAD
-                   
-                  </div>
-=======
-                    </form>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-                </div>
-             </div>
-			<br /><br />
-			<div class="row text-right" style="float: right;">
-				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
-<<<<<<< HEAD
-				 		 </form>
-                 <button class="btn btn-light btn-rounded">Reset</button>
-=======
-                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-                 <button class="btn btn-dark btn-rounded"
-                 	onclick="location.href='./boardManagement.do';">List</button>
-			</div>	
+				<br />  
+				<div class="card">
+	                <div class="card-body">
+	                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
+		 <form action="sunjeongboardManagementWriteAction.do" name="writeFrm" method="post" 
+							onsubmit="return checkValidate(this);">
+			             
+							<input type="hid-den" name="board_type" value=<%=board_type %> />
+		                      <div class="form-group">
+		                        <label for="exampleInputName1">이름</label>
+		                        <input type="text" class="form-control" name="name" value="관리자">
+		                      </div>
+		                      <!-- <div class="form-group">
+		                        <label for="exampleInputPassword4">비밀번호</label>
+		                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+		                      </div> -->
+		                      <div class="form-group">
+		                        <label for="exampleInputPassword4">제목</label>
+		                        <input type="text" class="form-control" name="title" placeholder="Title">
+		                      </div>
+		                     <!--  <div class="form-group">
+		                        <label>파일업로드</label>
+		                        <input type="file" name="img[]" class="file-upload-default">
+		                        <div class="input-group col-xs-12">
+		                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+		                          <span class="input-group-append">
+		                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
+		                          </span>
+		                        </div>
+		                      </div> -->
+		                     <div class="form-group">
+		                       <label for="exampleTextarea1">내용</label>
+		                       <textarea class="form-control" name="content" rows="10"></textarea>
+		                     </div>
+	                     
+	                    
+	                </div>
+             	</div>
+                
+				<br /><br />
+			
+				<div class="row text-right" style="float: right;">
+					 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+					    </form>
+	                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
 	
+	                 <button class="btn btn-dark btn-rounded"
+	                 	onclick="location.href='./boardManagement.do';">List</button>
+	
+				</div>	
+	 
             </div>
       </div>
       
