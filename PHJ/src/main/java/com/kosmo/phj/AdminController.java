@@ -3,6 +3,7 @@ package com.kosmo.phj;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +19,11 @@ import command.admin.AdEventListCommand;
 import command.admin.AdPlaceListCommand;
 import command.admin.AdProductListCommand;
 import command.admin.MemberListCommand;
+import command.member.LoginActionCommand;
 import model.board.noticeDTO;
 import model.board.serviceDTO;
+import model.member.MemberDAO;
+import model.member.MemberDTO;
 @Controller
 public class AdminController {
 	
@@ -58,22 +62,71 @@ public class AdminController {
 		return "admin/pages/samples/error-500";
 	}
 	
-	@RequestMapping("/admin/pages/samples/login.do")
-	public String login() {
-		return "admin/pages/samples/login";
-	}
 	
-	@RequestMapping("/admin/pages/samples/register.do")
-	public String register() {
-		return "admin/pages/samples/register";
-	}
 	
 	@RequestMapping("/admin/pages/tables/basic-table.do")
 	public String basic_table() {
 		return "admin/pages/tables/basic-table";
 	}
 	
-	//고객관리 페이지
+	//////////////////////////////////////////////////////////////////////////////////////// 회원관련
+	
+	//관리자계정 로그인페이지 진입
+	@RequestMapping("/admin/pages/samples/login.do")
+	public String login() {
+		return "admin/pages/samples/login";
+	}
+	
+	//로그인작업 수행
+	@RequestMapping("admin/adminLogin.do")
+	public String adminLogin(Model model, HttpServletRequest req) {
+		String page = null;
+		
+		String email = req.getParameter("email");
+		String pass = req.getParameter("pass");
+		
+		MemberDAO dao = new MemberDAO();
+		System.out.println("memberinfo 실행 전 email, pass값 : " + email +", "+ pass);
+		MemberDTO dto = dao.memberInfo(email, pass);
+		
+		if(dto.getEmail() == null) {
+			System.out.println("로그인재시도 로그");
+			model.addAttribute("loginError","일치하는 회원정보가 없습니다.");
+			page = "redirect:./pages/samples/login.do";		
+		} else {
+			model.addAttribute("req",req);
+			model.addAttribute("dto",dto);
+			command = new LoginActionCommand();
+			command.execute(model);
+			
+			page="admin/index";
+		}
+		
+		return page;
+	}
+	
+	//로그아웃 처리
+	@RequestMapping("/admin/adminLogout.do")
+	public String logout(HttpServletRequest req, HttpSession session) {
+		
+		session = req.getSession();
+
+		session.invalidate();
+		
+		return "redirect:./pages/samples/login.do";
+	}
+	
+	//관리자계정 가입페이지
+	@RequestMapping("/admin/pages/samples/register.do")
+	public String register() {
+		
+		
+		return "admin/pages/samples/register";
+	}
+	
+	
+	
+	//회원관리 페이지
 	@RequestMapping("/admin/pages/tables/memberManagement.do")
 	public String memberManagement(Model model, HttpServletRequest req) throws IOException {
 		

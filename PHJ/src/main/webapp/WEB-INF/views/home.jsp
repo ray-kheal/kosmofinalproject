@@ -35,8 +35,9 @@
 			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
 			var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
 			$(id).stop().animate({
-				top : stop + "px"
-			}, 0); //해당 오브젝트 위치값 재설정
+				top : stop + 'px' 
+			}, 0); 
+			//해당 오브젝트 위치값 재설정
 		});
 	}
 	scroll_follow("#scroll");
@@ -92,13 +93,21 @@ nav {
 			</ul> --%>
 
 			<!-- 이미지로 스크롤 메뉴 변경함 -->
-			<a href="#"><img src="images/scoll_welcome.png" alt="welcome"
-				style="right: 30; top: 30;" /></a><br /> <a href="#features-wrapper"><img
-				src="images/scoll_product.png" alt="편의점 상품조회" /></a><br /> <a
-				href="#main-wrapper"><img src="images/scoll_recipe.png"
-				alt="편의점 레시피" /></a><br /> <a href="#notify"><img
-				src="images/scoll_notice.png" alt="공지사항" /></a><br /> <a href="#info"><img
-				src="images/scoll_cs.png" alt="고객센터" /></a><br />
+			<a href="#">
+				<img src="images/scoll_welcome.png" alt="welcome" style="right: 30; top: 30;" />
+			</a> <br />
+			<a href="#features-wrapper">
+				<img src="images/scoll_product.png" alt="편의점 상품조회" />
+			</a><br /> 
+			<a href="#main-wrapper">
+				<img src="images/scoll_recipe.png" alt="편의점 레시피" />
+			</a><br /> 
+			<a href="#notify">
+				<img src="images/scoll_notice.png" alt="공지사항" />
+			</a><br /> 
+<!-- 			<a href="#info"> -->
+<!-- 				<img src="images/scoll_cs.png" alt="고객센터" /> -->
+<!-- 			</a><br /> -->
 
 			<%
 				if (session.getAttribute("EMAIL") == null) {
@@ -222,7 +231,7 @@ nav {
 							</div>
 							<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
-						<br />
+						
 						<br />
 					</div>
 
@@ -235,8 +244,10 @@ nav {
 								<td>
 									<h2>공지사항</h2>
 									<ul class="main_board_list">
-	
-	<div class="form-group">
+							</tr>
+							
+							<tr>
+				<div class="form-group">
 					<select name="keyField" class="form-control" style="width: 100px;">
 						<option value="">제목</option>
 						<option value="">작성자</option>
@@ -244,7 +255,7 @@ nav {
 					</select>
 				</div>
 				
-					<div>
+		
 				<table class="table table-hover" style="text-align: center;">
 
 					<colgroup>
@@ -254,6 +265,7 @@ nav {
 						<col width="120px" />
 						<col width="120px" />
 					</colgroup>
+					<div>
 					<thead>
 						<tr class="table-primary" style="color: white;">
 							<th style="text-align: center;">번호</th>
@@ -263,6 +275,9 @@ nav {
 							<th style="text-align: center;">등록날짜</th>
 						</tr>
 					</thead>
+					</div>
+					
+					<div>
 					<tbody>
 						<c:choose>
 							<c:when test="${empty listRows }">
@@ -288,35 +303,46 @@ nav {
 							</c:otherwise>
 						</c:choose>
 					</tbody>
+					</div>
 				</table>
 			</div>
+											
+											<br/><br/><br/>
 											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 										</ul>
-								 </td> 
+								 </td>
+								</div> 
+								
+								<table style="border:1px solid gray;"> 
+								<div>
+								
 								<td>
-									<h2>이벤트</h2>
-									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
+									<h2 style="text-align: center;">이벤트</h2>
+									<br/><br/>
+									<h3 style="text-align: center;">이부분에 이벤트 미리보기 게시판 신설</h3>
 									<a href="event.do"
 										class="button icon solid fa-arrow-circle-right">더보기</a>
 								</td>
+								</div>
+								</table>`
 							</tr>
 							
 							</table>
 								</section>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 						</div>
 					</div>
 				</div>
-				<div class="col-7 col-16-medium imp-medium">
-					<!-- Content -->
-					<div id="info">
-						<section class="last">
-							<h2>고객센터</h2>
-							<h3>이부분에 고객센터 페이지 소개</h3>
-							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-						</section>
-					</div>
-				</div>
+<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
+<!-- 					Content -->
+<!-- 					<div id="info"> -->
+<!-- 						<section class="last"> -->
+<!-- 							<h2>고객센터</h2> -->
+<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
+<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
+<!-- 						</section> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 			</div>
 		</div>
