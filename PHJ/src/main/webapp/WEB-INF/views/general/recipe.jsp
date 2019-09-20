@@ -267,56 +267,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</form>
 			    <hr class="mt-2 mb-2">
 			<div class="row text-center text-lg-left">
-
-				<!-- 이미지 시작 -->
-				<!-- 베스트게시물 s-->
-				<%--  
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-				--%>
+			
 				<c:choose>
 					<c:when test="${empty listRows }">
 						<div><span>결과가 없습니다.</span></div>
