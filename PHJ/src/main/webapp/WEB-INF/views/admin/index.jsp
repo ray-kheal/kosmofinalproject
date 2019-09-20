@@ -18,18 +18,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 </head>
 <script>
-//관리자만 접근 가능하게 걸어놓음.
-var mst = '<%=session.getAttribute("MEMBERTYPE")%>'
+var mst = '<%=session.getAttribute("MEMBERTYPE")%>';
 
+if (mst == 'null') {
+	alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
+	location.href = "../admin/pages/samples/login.do";
+} 
 if (mst == 'normal') {
 	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
 	location.href = "../admin/pages/samples/login.do";
 } 
-
-if (mst == 'null') {
-	alert('비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다.\r\n 테스트중에는 관리자 로그인페이지로 이동합니다.');
-	location.href = '../admin/pages/samples/login.do';
-}
 
 </script>
 <body>
