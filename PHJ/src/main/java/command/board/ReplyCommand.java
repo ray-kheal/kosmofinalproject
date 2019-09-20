@@ -24,7 +24,7 @@ public class ReplyCommand implements PHJCommandImpl{
 		serviceDAO dao = new serviceDAO();
 		serviceDTO dto = dao.view(idx);
 		
-		dto.setTitle("[re]" +dto.getTitle());
+		dto.setTitle("[re]" +dto.getTitle());   
 		dto.setContent("\n\r\r\r --- [원본글] --- \n\r"+ dto.getContent());
 		model.addAttribute("replyRow",dto);
 	

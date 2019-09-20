@@ -136,6 +136,32 @@ public class GeneralController {
 		command.execute(model);
 		return "redirect:qna.do?nowPage=1";
 	   }
+	 //답글 달기
+	  @RequestMapping("reply.do")
+	   public String reply(HttpServletRequest req , Model model) {   
+		   System.out.println("reply() 메소드 호출됨");
+		   
+		   model.addAttribute("req",req);
+		   command = new command.board.ReplyCommand();
+		   command.execute(model);
+		   
+		   model.addAttribute("idx",req.getParameter("idx"));
+		   return "general/reply";
+	   }
+	   @RequestMapping("replyAction.do")
+	   public String replyAction(HttpServletRequest req, Model model, serviceDTO serviceDTO ) {
+		   System.out.println("replyAction() 메소드 호출");
+		   //답변글쓰기폼에서 폼값을 커맨드객체를 이용하여 한번에 받아 전달하기
+		   model.addAttribute("serviceDTO",serviceDTO);
+		   
+		   model.addAttribute("req",req);
+		   command = new command.board.replyActionCommand();
+		   command.execute(model);
+		   
+		   model.addAttribute("nowPage", req.getParameter("nowPage"));
+		   	   
+		   return "redirect:qna.do";
+	   }
 	
 	
 	

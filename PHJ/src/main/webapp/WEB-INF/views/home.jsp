@@ -23,10 +23,10 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Goyang&display=swap"
 	rel="stylesheet">
-	
-	<%
 
-	%>
+<%
+	
+%>
 </head>
 <script>
 	function scroll_follow(id) {
@@ -222,88 +222,128 @@ nav {
 							</div>
 							<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
-						<br />
-						<br />
+						<br /> <br />
 					</div>
-
-					<div class="col-7 col-16-medium imp-medium">
+				</div>
+				<div class="row">
+					<div class="col-6 col-12-medium">
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
-			<table>
-							<tr>	
-								<td>
-									<h2>공지사항</h2>
-									<ul class="main_board_list">
-	
-	<div class="form-group">
-					<select name="keyField" class="form-control" style="width: 100px;">
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
-					</select>
-				</div>
-				
-					<div>
-				<table class="table table-hover" style="text-align: center;">
-
-					<colgroup>
-						<col width="80px" />
-						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="120px" />
-					</colgroup>
-					<thead>
-						<tr class="table-primary" style="color: white;">
-							<th style="text-align: center;">번호</th>
-							<th style="text-align: center;">제목</th>
-							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">조회수</th>
-							<th style="text-align: center;">등록날짜</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:choose>
-							<c:when test="${empty listRows }">
-								<tr>
-									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${listRows }" var="row" varStatus="loop">
-									<!-- 리스트반복시작 -->
+								<table>
 									<tr>
-										<td class="text-center">${row.virtualNum }</td>
-										<td class="text-left"><a
-											href="./view.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
+										<td>
+											<h2>공지사항</h2>
+											<ul class="main_board_list">
+												<div>
+													<table class="table table-hover"
+														style="text-align: center;">
+
+														<colgroup>
+															<col width="80px" />
+															<col width="*" />
+															<col width="120px" />
+															<col width="120px" />
+															<col width="120px" />
+														</colgroup>
+														<thead>
+															<tr class="table-primary" style="color: white;">
+																<th style="text-align: center;">번호</th>
+																<th style="text-align: center;">제목</th>
+																<th style="text-align: center;">작성자</th>
+																<th style="text-align: center;">조회수</th>
+																<th style="text-align: center;">등록날짜</th>
+															</tr>
+														</thead>
+														<tbody>
+															<c:choose>
+																<c:when test="${empty listRows }">
+																	<tr>
+																		<td colspan="6" class="text-center">등록된 게시물이 없습니다
+																			^^*</td>
+																	</tr>
+																</c:when>
+																<c:otherwise>
+																	<c:forEach items="${listRows }" var="row"
+																		varStatus="loop">
+																		<!-- 리스트반복시작 -->
+																		<tr>
+																			<td class="text-center">${row.virtualNum }</td>
+																			<td class="text-left"><a
+																				href="./view.do?idx=${row.idx}				&nowPage=${nowPage}">${row.title}</a>
+																			</td>
+																			<td class="text-center">${row.content }</td>
+																			<td class="text-center">${row.view_count }</td>
+																			<td class="text-center">${row.postdate }</td>
+																			<!-- <td class="text-center">--</td> -->
+																		</tr>
+																	</c:forEach>
+																</c:otherwise>
+															</c:choose>
+														</tbody>
+													</table>
+												</div>
+												<a href="notice.do"
+													class="button icon solid fa-arrow-circle-right">더보기</a>
+											</ul>
 										</td>
-										<td class="text-center">${row.content }</td>
-										<td class="text-center">${row.view_count }</td>
-										<td class="text-center">${row.postdate }</td>
-										<!-- <td class="text-center">--</td> -->
+										<td>
+											<h2>이벤트</h2>
+											<div>
+												<table class="table table-hover" style="text-align: center;">
+
+													<colgroup>
+														<col width="80px" />
+														<col width="*" />
+														<col width="120px" />
+														<col width="120px" />
+														<col width="120px" />
+													</colgroup>
+													<thead>
+														<tr class="table-primary" style="color: white;">
+															<th style="text-align: center;">번호</th>
+															<th style="text-align: center;">제목</th>
+															<th style="text-align: center;">작성자</th>
+															<th style="text-align: center;">조회수</th>
+															<th style="text-align: center;">등록날짜</th>
+														</tr>
+													</thead>
+													<tbody>
+														<c:choose>
+															<c:when test="${empty eventRows }">
+																<tr>
+																	<td colspan="6" class="text-center">등록된 게시물이 없습니다
+																		^^*</td>
+																</tr>
+															</c:when>
+															<c:otherwise>
+																<c:forEach items="${eventRows }" var="row"
+																	varStatus="loop">
+																	<!-- 리스트반복시작 -->
+																	<tr>
+																		<td class="text-center">${row.virtualNum }</td>
+																		<td class="text-left"><a
+																			href="./Eview.do?idx=${row.idx}	&nowPage=${nowPage}">${row.title}</a>
+																		</td>
+																		<td class="text-center">${row.content }</td>
+																		<td class="text-center">${row.view_count }</td>
+																		<td class="text-center">${row.postdate }</td>
+																		<!-- <td class="text-center">--</td> -->
+																	</tr>
+																</c:forEach>
+															</c:otherwise>
+														</c:choose>
+													</tbody>
+												</table>
+											</div> <a href="event.do"
+											class="button icon solid fa-arrow-circle-right" width="40px"
+											height="40px">더보기</a>
+										</td>
 									</tr>
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-					</tbody>
-				</table>
-			</div>
-											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-										</ul>
-								 </td> 
-								<td>
-									<h2>이벤트</h2>
-									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
-									<a href="event.do"
-										class="button icon solid fa-arrow-circle-right">더보기</a>
-								</td>
-							</tr>
-							
-							</table>
-								</section>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
+								</table>
+							</section>
+
 						</div>
 					</div>
 				</div>
