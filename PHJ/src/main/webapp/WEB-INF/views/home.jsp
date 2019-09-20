@@ -222,7 +222,7 @@ nav {
 							</div>
 							<a href="recipe.do" class="button icon fa-file-alt">More</a>
 						</section>
-						<br />
+						
 						<br />
 					</div>
 
@@ -235,8 +235,10 @@ nav {
 								<td>
 									<h2>공지사항</h2>
 									<ul class="main_board_list">
-	
-	<div class="form-group">
+							</tr>
+							
+							<tr>
+				<div class="form-group">
 					<select name="keyField" class="form-control" style="width: 100px;">
 						<option value="">제목</option>
 						<option value="">작성자</option>
@@ -244,7 +246,7 @@ nav {
 					</select>
 				</div>
 				
-					<div>
+		
 				<table class="table table-hover" style="text-align: center;">
 
 					<colgroup>
@@ -254,6 +256,7 @@ nav {
 						<col width="120px" />
 						<col width="120px" />
 					</colgroup>
+					<div>
 					<thead>
 						<tr class="table-primary" style="color: white;">
 							<th style="text-align: center;">번호</th>
@@ -263,6 +266,9 @@ nav {
 							<th style="text-align: center;">등록날짜</th>
 						</tr>
 					</thead>
+					</div>
+					
+					<div>
 					<tbody>
 						<c:choose>
 							<c:when test="${empty listRows }">
@@ -288,35 +294,46 @@ nav {
 							</c:otherwise>
 						</c:choose>
 					</tbody>
+					</div>
 				</table>
 			</div>
+											
+											<br/><br/><br/>
 											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 										</ul>
-								 </td> 
+								 </td>
+								</div> 
+								
+								<table style="border:1px solid gray;"> 
+								<div>
+								
 								<td>
-									<h2>이벤트</h2>
-									<h3>이부분에 이벤트 미리보기 게시판 신설</h3>
+									<h2 style="text-align: center;">이벤트</h2>
+									<br/><br/>
+									<h3 style="text-align: center;">이부분에 이벤트 미리보기 게시판 신설</h3>
 									<a href="event.do"
 										class="button icon solid fa-arrow-circle-right">더보기</a>
 								</td>
+								</div>
+								</table>`
 							</tr>
 							
 							</table>
 								</section>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 						</div>
 					</div>
 				</div>
-				<div class="col-7 col-16-medium imp-medium">
-					<!-- Content -->
-					<div id="info">
-						<section class="last">
-							<h2>고객센터</h2>
-							<h3>이부분에 고객센터 페이지 소개</h3>
-							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-						</section>
-					</div>
-				</div>
+<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
+<!-- 					Content -->
+<!-- 					<div id="info"> -->
+<!-- 						<section class="last"> -->
+<!-- 							<h2>고객센터</h2> -->
+<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
+<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
+<!-- 						</section> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 			</div>
 		</div>
