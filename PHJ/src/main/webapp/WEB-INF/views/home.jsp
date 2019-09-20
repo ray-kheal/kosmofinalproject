@@ -191,17 +191,17 @@ nav {
 					<!-- preview board  시작  -->
 					  
 					 
-					<div id="recipe" style="border:1px solid gray; width: 50%">
+					<div id="recipe">
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
 							<div class="grid">
 								<div class="row gtr-50" s
 									style="position: relative; display: inline-block; *display: inline;">
-									<h3>요기에 레시피 게시판 미리보기</h3>
+									
 									<br />  
 									<div "row text-right"style="float: right;">
 									 <a href="recipe.do"  class="button icon solid fa-arrow-circle-right">더보기</a> 
-									
+									<br/><br/>
 									</div>
 									<!-- <button class="button" onclick="recipe.do"><i class=" fa-arrow-circle-right"></i>더보기</button> -->
 									<br />
@@ -246,7 +246,7 @@ nav {
 					</div>
 
 					<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
-					<div  style="border:1px solid gray; width: 50%">
+					<div >
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
@@ -261,8 +261,9 @@ nav {
 				
 				
 		
-				<table class="table table-hover" style="text-align: center;">
-
+				<table class="table table-hover">
+				<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+				<br/><br/>
 					<colgroup>
 						<col width="80px" />
 						<col width="*" />
@@ -313,7 +314,7 @@ nav {
 			</div>
 											
 											<br/><br/><br/><br/><br/><br/>
-											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+											
 										</ul>
 								 </td>
 								</div> 
