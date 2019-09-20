@@ -270,6 +270,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
 				<!-- 이미지 시작 -->
 				<!-- 베스트게시물 s-->
+				<%--  
 				<div class="col-lg-3 col-md-4 col-6 effect ">
 					<figure class="recipePhoto">
 						<img class="img-fluid img-thumbnail effect"
@@ -315,28 +316,49 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</figure>
 				</div>
 				<!-- 베스트게시물 e-->
-				
+				--%>
 				<c:choose>
 					<c:when test="${empty listRows }">
 						<div><span>결과가 없습니다.</span></div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${listRows }" var="row" varStatus="loop">
-							<!-- 일반게시물 s-->
-							<div class="col-lg-3 col-md-4 col-6 ">
-								<figure class="recipePhoto">
-									<img class="img-fluid img-thumbnail effect"
-										src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-										alt="">
-									<figcaption>
-										<h3>${row.title }</h3>
-										<p>${row.content }</p>
-										<i class="ion-ios-arrow-right"></i>
-									</figcaption>
-									<a href="#" class="d-block mb-4 h-100"></a>
-								</figure>
-							</div>
-							<!-- 일반게시물 e-->
+						<c:choose>
+							<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+								<!-- 베스트게시물 s-->
+								<div class="col-lg-3 col-md-4 col-6 effect ">
+									<figure class="recipePhoto">
+										<img class="img-fluid img-thumbnail effect"
+											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+											alt="">
+										<figcaption>
+											<h3>${row.title }</h3>
+											<p>${row.content }</p>
+											<i class="ion-ios-arrow-right"></i>
+										</figcaption>
+										<a href="#" class="d-block mb-4 h-100"></a>
+									</figure>
+								</div>	
+								<!-- 베스트게시물 e-->							
+							</c:when>
+							<c:otherwise>
+								<!-- 일반게시물 s-->
+								<div class="col-lg-3 col-md-4 col-6 ">
+									<figure class="recipePhoto">
+										<img class="img-fluid img-thumbnail effect"
+											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+											alt="">
+										<figcaption>
+											<h3>${row.title }</h3>
+											<p>${row.content }</p>
+											<i class="ion-ios-arrow-right"></i>
+										</figcaption>
+										<a href="#" class="d-block mb-4 h-100"></a>
+									</figure>
+								</div>
+								<!-- 일반게시물 e-->
+							</c:otherwise>
+						</c:choose>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>

@@ -67,3 +67,8 @@ legend{
 		font-weight:bold;
 	}
 }
+.btn-primary {
+	color: white;
+	background-color: #3aa4d8;
+	
+}

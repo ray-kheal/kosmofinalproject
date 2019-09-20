@@ -1,5 +1,7 @@
 package com.kosmo.phj;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -140,7 +142,8 @@ public class GeneralController {
 	
 	
 	 @RequestMapping(value="writeAction.do",method=RequestMethod.POST)
-	   public String writeAction(Model model,HttpServletRequest req, serviceDTO serviceDTO) {
+	   public String writeAction(Model model,HttpServletRequest req, serviceDTO serviceDTO) throws IOException{
+		 req.setCharacterEncoding("UTF-8");
 		 System.out.println("action 호출됨");
 		model.addAttribute("req",req);
 		model.addAttribute("serviceDTO.",serviceDTO);
