@@ -187,14 +187,23 @@ nav {
 		<div id="main-wrapper">
 			<div class="container">
 				<div class="row gtr-200">
-					<!-- Sidebar -->
-					<div id="recipe">
+				
+					<!-- preview board  시작  -->
+					  
+					 
+					<div id="recipe" style="border:1px solid gray; width: 50%">
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
 							<div class="grid">
-								<div class="row gtr-50"
+								<div class="row gtr-50" s
 									style="position: relative; display: inline-block; *display: inline;">
 									<h3>요기에 레시피 게시판 미리보기</h3>
+									<br />  
+									<div "row text-right"style="float: right;">
+									 <a href="recipe.do"  class="button icon solid fa-arrow-circle-right">더보기</a> 
+									
+									</div>
+									<!-- <button class="button" onclick="recipe.do"><i class=" fa-arrow-circle-right"></i>더보기</button> -->
 									<br />
 									<table>
 										<tr>
@@ -228,13 +237,16 @@ nav {
 									</table>
 								</div>
 							</div>
-							<a href="recipe.do" class="button icon fa-file-alt">More</a>
+							
+							<br/><br/><br/>
+							
 						</section>
 						
 						<br />
 					</div>
 
-					<div class="col-7 col-16-medium imp-medium">
+					<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
+					<div  style="border:1px solid gray; width: 50%">
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
@@ -246,13 +258,7 @@ nav {
 							</tr>
 							
 							<tr>
-				<div class="form-group">
-					<select name="keyField" class="form-control" style="width: 100px;">
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
-					</select>
-				</div>
+				
 				
 		
 				<table class="table table-hover" style="text-align: center;">
@@ -306,7 +312,7 @@ nav {
 				</table>
 			</div>
 											
-											<br/><br/><br/>
+											<br/><br/><br/><br/><br/><br/>
 											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 										</ul>
 								 </td>
@@ -315,18 +321,19 @@ nav {
 								<table style="border:1px solid gray;"> 
 								<div>
 								
-								<td>
+								<td style="text-align:center;">
 									<h2 style="text-align: center;">이벤트</h2>
 									<br/><br/>
 									<h3 style="text-align: center;">이부분에 이벤트 미리보기 게시판 신설</h3>
+									<br/><br/><br/>
 									<a href="event.do"
 										class="button icon solid fa-arrow-circle-right">더보기</a>
 								</td>
 								</div>
-								</table>`
+								</table>
 							</tr>
 							
-							</table>
+			</table>
 								</section>
 
 						</div>

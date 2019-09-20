@@ -95,22 +95,22 @@ body {
 							<form action="mail_send.jsp" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
 								<div class="pw_box">
-									<table border="1">
+									<table style="border:1px solid gray;" >
 										<tr>
-											<td>답장 받으실 메일</td>
+											<td style="text-align: center; vertical-align:middle;" >답장 받으실 메일</td>
 											<td><input type="text" name="email" value="" /></td>
 										</tr>
 										<tr>
-											<td>제목</td>
+											<td style="text-align: center; vertical-align:middle;">제목</td>
 											<td><input type="text" name="subject" value="" /></td>
 										</tr>
 										<tr>
-											<td>내용</td>
+											<td style="text-align: center; vertical-align:middle;">내용</td>
 											<td><textarea name="content" id="" cols="30" rows="10"
 													value=""></textarea></td>
 										</tr>
 										<tr>
-											<td colspan="2"><button type="submit">문의하기</button></td>
+											<td colspan="2" style="text-align:center;"><button type="submit" style="float: center">문의하기</button></td>
 										</tr>
 									</table>
 
