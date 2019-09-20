@@ -160,7 +160,7 @@
             </div>
       </div>
       
-      <!--  공지사항 게시판 끝 -->
+      <!--   게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->

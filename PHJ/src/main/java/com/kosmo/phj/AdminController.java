@@ -175,27 +175,23 @@ public class AdminController {
 	}
 	//공지사항글쓰기 페이지
 	@RequestMapping("/admin/pages/tables/boardManagementWrite.do" )
-	public String boardManagementWrite(Model model, HttpServletRequest req) throws IOException {
-		
+	public String boardManagementWrite(Model model) throws IOException {
 		System.out.println("write 호출됨");
-		//String nowPage = req.getParameter("nowPage");
-		//String board_type=req.getParameter("board_type");
-		model.addAttribute("req",req);
-		
 		return "admin/pages/tables/boardManagementWrite";
 	}
 	//공지사항글쓰기 액션
-	@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )
-	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) {
+	@RequestMapping(value="/admin/pages/tables/sunjeongboardManagementWriteAction.do", method=RequestMethod.POST )
+	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) throws IOException {
 		
 		System.out.println("writeAction 호출됨");
-		String nowPage = req.getParameter("nowPage");
+		//String board_type = req.getParameter("board_type");
+		
 		model.addAttribute("req",req);
 		model.addAttribute("noticeDTO",noticeDTO);
 		command = new AdBoardListWriteActionCommand();
 		command.execute(model);
 		
-		return "admin/pages/tables/boardManagement.do?nowPage="+nowPage;
+		return "redirect:./boardManagement.do";
 		
 	}
 	/*@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )

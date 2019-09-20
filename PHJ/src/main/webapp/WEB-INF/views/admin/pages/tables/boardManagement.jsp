@@ -141,6 +141,7 @@
                 
                 </div>
                 <br /><br />
+                
 			<div class="row text-right" style="float: right;">
 			
 			<%-- <% String board_type=request.getParameter("board_type");//게시판 타입 

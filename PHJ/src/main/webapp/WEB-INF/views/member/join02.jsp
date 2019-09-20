@@ -225,12 +225,12 @@ label {
 						 
 						<tr  valign="middle">
 							<td bgcolor="#f7f4f4" style="text-align: center; ">비밀번호</td>
-							<td bgcolor="white"><input type="password" style="width: 50%;" id="pass1" name="pass" value=""  class="form-control input-lg" placeholder="비밀번호" /></td>
+							<td bgcolor="white"><input type="password" style="font-family:verdana; width: 50%;" id="pass1" name="pass" value=""  class="form-control input-lg" placeholder="비밀번호" /></td>
 							
 						</tr>
 						<tr  valign="middle">
 							<td bgcolor="#f7f4f4"  style="text-align: center; ">비밀번호확인</td>
-							<td bgcolor="white"><input type="password" style="width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
+							<td bgcolor="white"><input type="password" style="font-family:verdana; width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
 							
 						</tr>  
 						<tr valign="middle">
