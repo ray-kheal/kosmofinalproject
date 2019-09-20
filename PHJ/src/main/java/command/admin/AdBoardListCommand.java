@@ -55,7 +55,8 @@ public class AdBoardListCommand implements PHJCommandImpl {
 				
 		//시작 및 끝 rownum 구하기
 		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
-				
+		String board_type = req.getParameter("board_type");	
+		
 		//게시물 select 시 구간으로 사용할 변수를 계산
 		int start = (nowPage -1 )* pageSize +1;
 		int end = nowPage * pageSize;
@@ -83,11 +84,13 @@ public class AdBoardListCommand implements PHJCommandImpl {
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);
+		//model.addAttribute("board_type",board_type);
 				
 		//모델에 저장(뷰로 데이터를 넘겨주기 위해
 		model.addAttribute("viewRow",viewRow);
 		System.out.println("board리스트커맨드 잘끝냄 ^^");
-		System.out.println();		
+		//System.out.println("totalPage:"+totalPage+",board_type:"+board_type);		
+		System.out.println("totalPage:"+totalPage);		
 
 	}
 
