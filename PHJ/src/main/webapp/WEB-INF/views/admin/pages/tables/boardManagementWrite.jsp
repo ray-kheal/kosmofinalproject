@@ -56,7 +56,7 @@
 			<div class="card">
                   <div class="card-body">
                     <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-                    <form class="forms-sample">
+                    <form class="forms-sample" >
                       <div class="form-group">
                         <label for="exampleInputName1">이름</label>
                         <input type="text" class="form-control" id="name" value="관리자">
@@ -67,7 +67,7 @@
                       </div> -->
                       <div class="form-group">
                         <label for="exampleInputPassword4">제목</label>
-                        <input type="password" class="form-control" id="title" placeholder="Title">
+                        <input type="text" class="form-control" id="title" placeholder="Title">
                       </div>
                      <!--  <div class="form-group">
                         <label>파일업로드</label>
@@ -84,16 +84,18 @@
                         <textarea class="form-control" id="content" rows="10"></textarea>
                       </div>
                      
-                    </form>
+                   
                   </div>
                 </div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+				 		 </form>
                  <button class="btn btn-light btn-rounded">Reset</button>
                  <button class="btn btn-dark btn-rounded"
                  	onclick="location.href='./boardManagement.do';">List</button>
 			</div>	
+	
             </div>
       </div>
       
@@ -113,9 +115,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-  
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>

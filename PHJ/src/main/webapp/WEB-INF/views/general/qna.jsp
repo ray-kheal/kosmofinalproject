@@ -108,8 +108,8 @@ nav {
 							<th style="text-align: center;">번호</th>
 							<th style="text-align: center;">제목</th>
 							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">날짜</th>
 							<th style="text-align: center;">조회</th>
+							<th style="text-align: center;">작성일</th>
 						</tr>
 					</thead>
 					<tbody>

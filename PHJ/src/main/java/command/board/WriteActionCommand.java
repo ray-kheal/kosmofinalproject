@@ -29,6 +29,7 @@ public class WriteActionCommand implements PHJCommandImpl{
 		serviceDAO dao = new serviceDAO();
 		
 		dao.write(serviceDTO);
+		System.out.println(dao);
 	
 	}
 	

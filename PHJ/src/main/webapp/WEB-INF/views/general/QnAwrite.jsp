@@ -95,7 +95,7 @@ function checkValidate(f){
 						<col width="80px" />
 						<col width="50px" />
 					</colgroup>
-					<input type="hidden" name="idx" value="${viewRow.idx }" />
+					<%-- <input type="hidden" name="idx" value="${viewRow.idx }" /> --%>
 					   
 					<br /><br />
 					
@@ -131,16 +131,17 @@ function checkValidate(f){
 						</td>
 					</tr>
 				</table>	
-			</form>
+			
 			<!-- </div> -->
 		<br /> <br />
 						
 		<div class="row text-right" style="float: right; ">
-           	<button type="submit" class="btn btn-dark btn-sm" >&nbsp;OK&nbsp;</button>
+		
+           	<button type="submit" class="btn btn-dark btn-sm" >&nbsp;OK&nbsp;</button> 
            	<button type="reset" class="btn btn-secondary btn-sm" >&nbsp;Reset&nbsp;</button>
            	<button type="button" class="btn btn-info btn-sm" 
 					onclick="location.href='./qna.do';">&nbsp;List&nbsp;</button>
-									
+				</form>					
 		</div>
 	</div>
 		       
