@@ -69,7 +69,7 @@ public class recipeListCommand implements PHJCommandImpl {
 	
 		//페이지 처리를 위한 처리부분
 		String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize,
-		blockPage, nowPage, req.getContextPath()+"/phj/recipe.do?"+addQueryString);
+		blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);
 
 		model.addAttribute("pagingImg", pagingImg); 
 		model.addAttribute("totalPage", totalPage); 

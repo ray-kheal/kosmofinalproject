@@ -37,11 +37,13 @@ public class recipeDAO {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		
-		String sql = "SELECT * FROM phj_board_recipe ";
+		String sql = "SELECT * FROM (SELECT tb.*, rownum rNum FROM (SELECT * FROM phj_board_recipe ";
 		
 		if(map.get("Word")!=null) {
 			sql += "WHERE "+map.get("Column")+" LIKE '%"+map.get("Word")+"%' ";
 		}
+		
+		sql += " ORDER BY recommend DESC, postdate DESC ) tb) WHERE rNum BETWEEN "+start+" AND "+end+" ORDER BY recommend DESC, postdate DESC";
 		
 		return (ArrayList<recipeDTO>)template.query(sql, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
 	}

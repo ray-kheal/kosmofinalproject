@@ -254,108 +254,81 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 			<div class="container">
 				<hr class="mt-2 mb-2">
 					<form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
-							<select name="searchColumn" class="form-control" style="width:100px;">
-								<option value="title">제목</option>
-								<option value="content">내용</option>
-							</select>
-							<input type="text" name="searchWord" class="form-control"
-								style="width:250px; margin-left:5px;" />
-							<button type="submit" style="margin-left:10px;" class="btn btn-outline-success">검색</button>
-						<div style="margin-left:50px;">
-							<button type="submit" class="btn btn-outline-warning">글쓰기</button>
+						<select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select>
+						<input type="text" name="searchWord" class="form-control"
+							style="width:230px; margin-left:5px;" />
+						<div style="margin-left:10px;">
+							<button type="submit" class="btn btn-outline-success" style="width:60px;">검색</button>
 						</div>
 					</form>
-			    <hr class="mt-2 mb-2">
-			<div class="row text-center text-lg-left">
-
-				<!-- 이미지 시작 -->
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-				<!-- 베스트게시물 s-->
-				<div class="col-lg-3 col-md-4 col-6 effect ">
-					<figure class="recipePhoto">
-						<img class="img-fluid img-thumbnail effect"
-							src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-							alt="">
-						<figcaption>
-							<h3>샌드위치</h3>
-							<p>계란야채샌드위치</p>
-							<i class="ion-ios-arrow-right"></i>
-						</figcaption>
-						<a href="#" class="d-block mb-4 h-100"></a>
-					</figure>
-				</div>
-				<!-- 베스트게시물 e-->
-				
+					<hr class="mt-2 mb-2">  
+					<br />
+					<div class="row text-right">
+						<button type="submit" class="btn btn-warning" style="margin-left:auto;">글쓰기</button>
+					</div>
+			<div class="row text-center text-lg-left">	
 				<c:choose>
 					<c:when test="${empty listRows }">
 						<div><span>결과가 없습니다.</span></div>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${listRows }" var="row" varStatus="loop">
-							<!-- 일반게시물 s-->
-							<div class="col-lg-3 col-md-4 col-6 ">
-								<figure class="recipePhoto">
-									<img class="img-fluid img-thumbnail effect"
-										src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-										alt="">
-									<figcaption>
-										<h3>${row.title }</h3>
-										<p>${row.content }</p>
-										<i class="ion-ios-arrow-right"></i>
-									</figcaption>
-									<a href="#" class="d-block mb-4 h-100"></a>
-								</figure>
-							</div>
-							<!-- 일반게시물 e-->
+						<c:choose>
+							<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+								<!-- 베스트게시물 s-->
+								<div class="col-lg-3 col-md-4 col-6 effect ">
+									<figure class="recipePhoto">
+										<img class="img-fluid img-thumbnail effect"
+											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+											alt="">
+										<figcaption>
+											<h3>${row.title }</h3>
+											<p>${row.content }</p>
+											<i class="ion-ios-arrow-right"></i>
+										</figcaption>
+										<a href="#" class="d-block mb-4 h-100"></a>
+									</figure>
+								</div>	
+								<!-- 베스트게시물 e-->							
+							</c:when>
+							<c:otherwise>
+								<!-- 일반게시물 s-->
+								<div class="col-lg-3 col-md-4 col-6 ">
+									<figure class="recipePhoto">
+										<img class="img-fluid img-thumbnail effect"
+											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+											alt="">
+										<figcaption>
+											<h3>${row.title }</h3>
+											<p>${row.content }</p>
+											<i class="ion-ios-arrow-right"></i>
+										</figcaption>
+										<a href="#" class="d-block mb-4 h-100"></a>
+									</figure>
+								</div>
+								<!-- 일반게시물 e-->
+							</c:otherwise>
+						</c:choose>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
+		 </div>
 
-
-			</div>
 		</div>
 		<!-- /.container -->
 
-		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">←</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">1</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">2</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">→</a></li>
-		</ul>
+		<div class="container">
+			<table width="100%">
+				<tr>
+					<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+						${pagingImg }
+					</td>
+				</tr>
+			</table>    
+        </div>
 	</div>
 	
 	<!-- Footer -->

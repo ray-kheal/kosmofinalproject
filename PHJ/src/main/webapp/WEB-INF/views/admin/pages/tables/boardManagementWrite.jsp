@@ -70,8 +70,12 @@ function checkValidate(f){
 			<div class="card">
                 <div class="card-body">
                     <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
+<<<<<<< HEAD
+                    <form class="forms-sample" >
+=======
                     <form action="boardManagementWriteAction.do?board_type=1" name="writeFrm" method="post" 
 						onsubmit="return checkValidate(this);">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                       <div class="form-group">
                         <label for="exampleInputName1">이름</label>
                         <input type="text" class="form-control" id="name" value="관리자">
@@ -99,16 +103,27 @@ function checkValidate(f){
                         <textarea class="form-control" id="content" rows="10"></textarea>
                       </div>
                      
+<<<<<<< HEAD
+                   
+                  </div>
+=======
                     </form>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                 </div>
              </div>
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+<<<<<<< HEAD
+				 		 </form>
+                 <button class="btn btn-light btn-rounded">Reset</button>
+=======
                  <button type="reset" class="btn btn-light btn-rounded">Reset</button>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                  <button class="btn btn-dark btn-rounded"
                  	onclick="location.href='./boardManagement.do';">List</button>
 			</div>	
+	
             </div>
       </div>
       
@@ -128,9 +143,7 @@ function checkValidate(f){
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-  
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  
     <script src="../../assets/js/off-canvas.js"></script>
     <script src="../../assets/js/hoverable-collapse.js"></script>
     <script src="../../assets/js/misc.js"></script>
