@@ -138,6 +138,29 @@
 		}
 	}
 	
+	//패스워드 검증폼
+	$(function(){
+		$('#pass1').keyup(function(){
+			$('font[name=checkPass]').text('');
+		});
+		
+		$('#pass2').keyup(function(){
+			if($('#pass1').val()!=$('#pass2').val()){
+				$('font[name=checkPass]').text('');
+				$('font[name=checkPass]').html("패스워드를 확인해주세요.");
+				$('font[name=checkPass]').css('color','red');
+			}else{
+				$('font[name=checkPass]').text('');
+				$('font[name=checkPass]').html("패스워드가 일치합니다.");
+				$('font[name=checkPass]').css('color','green');
+			}
+		});
+		
+	});
+	
+	
+	
+	
 </script>
 
 
@@ -190,10 +213,10 @@ label {
 						</tr>
 						<!-- <tr>
 							<td colspan='4'></td>    
-						</tr> -->
+						</tr> --> 
 						<tr valign="middle">
-							<td bgcolor="#f7f4f4"  style="text-align: center; ">이메일</td>
-							<td  bgcolor="white">
+							<td bgcolor="#f7f4f4" lowspan='2'  style="text-align: center; ">이메일</td>
+							<td  bgcolor="white" lowspan='2'>
 								<div class="form-inline" >
 									<input type="text" name="email1" id="email1" value=""
 									class="form-control" style="width:30%"  placeholder="이메일(아이디)"/>@
@@ -201,15 +224,18 @@ label {
 									<input type="text" id="email2" name="email2" value="" 
 									 class="form-control input-lg" style="width:30%"  />							
 									<select name="email_choice" onChange="choiceInput(this.form, this);"
-										class="custom-select" style="width:30%" >  
+										class="custom-select" style="width:15%" >  
 										<option selected value="">선택</option>
 										<option value="naver.com">naver.com</option>
 										<option value="daum.net">daum.net</option>
 										<option value="google.com">google.com</option>
 										<option value="yahoo.co.kr">yahoo.co.kr</option>
 										<option value="direct_input">직접 입력</option>
-									</select> 
+									</select>&nbsp; 
+									<type="button" class="btn btn-secondary"
+									style="width:10; vartical-align:middle"/>중복체크
 								</div>
+								<font name="checkEmail" size="2" ></font>
 								<div class="custom-control custom-radio custom-control-inline">
 									<input type="radio" class="custom-control-input" id="emailY" name="email_alert" value="Y"/>
 									<label class="custom-control-label" for="emailY">메일 수신동의</label>
@@ -217,21 +243,23 @@ label {
 							  	<div class="custom-control custom-radio custom-control-inline">
 							  		<input type="radio" class="custom-control-input" id="emailN" name="email_alert" value="N"/>
 							  		<label class="custom-control-label" for="emailN">메일 수신거부</label>
-							  	</div>
+							  	</div>  
 								<br />
-								※ 메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다.
-							</td>			
-						</tr> 
+								※ 메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다.   
+							</td>
 						 
 						<tr  valign="middle">
 							<td bgcolor="#f7f4f4" style="text-align: center; ">비밀번호</td>
-							<td bgcolor="white"><input type="password" style="width: 50%;" id="pass1" name="pass" value=""  class="form-control input-lg" placeholder="비밀번호" /></td>
+							<td bgcolor="white"><input type="password" style="font-family:verdana; width: 50%;" id="pass1" name="pass" value=""  class="form-control input-lg" placeholder="비밀번호" /></td>
 							
 						</tr>
 						<tr  valign="middle">
 							<td bgcolor="#f7f4f4"  style="text-align: center; ">비밀번호확인</td>
-							<td bgcolor="white"><input type="password" style="width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
-							
+							<td bgcolor="white">
+								<input type="password" style="font-family:verdana; width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" />
+								<font name="checkPass" size="2" color="red"></font>
+							</td>
+							<td></td>
 						</tr>  
 						<tr valign="middle">
 							<td bgcolor="#f7f4f4" valign="middle"  style="text-align: center; ">이름</td>
