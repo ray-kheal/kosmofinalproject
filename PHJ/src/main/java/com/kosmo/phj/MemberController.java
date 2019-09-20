@@ -137,4 +137,11 @@ public class MemberController {
 		
 		return "redirect:../phj";
 	}
+	
+	//아이디 / 비밀번호 찾기 진입 메소드
+	@RequestMapping("/accountfind.do")
+	public String accountfind() {
+		
+		return "member/accountfind";
+	}
 }
