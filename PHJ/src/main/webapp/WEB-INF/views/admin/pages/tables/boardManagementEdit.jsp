@@ -80,7 +80,7 @@ if (mst == 'normal') {
                       </div> -->
                       <div class="form-group">
                         <label for="exampleInputPassword4">제목</label>
-                        <input type="password" class="form-control" id="title" placeholder="Title">
+                        <input type="text" class="form-control" id="title" placeholder="Title">
                       </div>
                      <!--  <div class="form-group">
                         <label>파일업로드</label>
