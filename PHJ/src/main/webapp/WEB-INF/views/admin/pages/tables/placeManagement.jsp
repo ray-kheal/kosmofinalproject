@@ -16,6 +16,19 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   </head>
+<script>
+var mst = '<%=session.getAttribute("MEMBERTYPE")%>';
+
+if (mst == 'null') {
+	alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
+	location.href = "../admin/pages/samples/login.do";
+} 
+if (mst == 'normal') {
+	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
+	location.href = "../admin/pages/samples/login.do";
+} 
+
+</script>
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
@@ -160,7 +173,7 @@
             </div>
       </div>
       
-      <!--  공지사항 게시판 끝 -->
+      <!--   게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->

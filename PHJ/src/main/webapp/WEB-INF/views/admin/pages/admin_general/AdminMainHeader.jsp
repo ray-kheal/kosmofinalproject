@@ -26,17 +26,25 @@
 				<!----- 상단 오른쪽의 프로필 , 메세지, 알림 아이콘  ----->
 				<ul class="navbar-nav navbar-nav-right">
 					<li class="nav-item nav-profile dropdown">
-						<!-- 상단 프로필 --> <a class="nav-link dropdown-toggle"
-						id="profileDropdown" href="#" data-toggle="dropdown"
-						aria-expanded="false">
+						<!-- 상단 프로필 --> 
+						<a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 							<div class="nav-profile-img">
 								<img src="../../assets/images/faces/login.png" alt="image">
 								<span class="availability-status online"></span>
 							</div>
 							<div class="nav-profile-text">
-								<p class="mb-1 text-black">PHJ Admin</p>
+								<p class="mb-1 text-black"><%=session.getAttribute("ADMINNAME") %></p>
 							</div>
-					</a>
+						</a>
+						<div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+			                <a class="dropdown-item" href="#">
+			                  <i class="mdi mdi-cached mr-2 text-success"></i> 일단 빈칸 </a>
+			                <div class="dropdown-divider"></div>
+			                <a class="dropdown-item" href="adminLogout.do">
+			                  <i class="mdi mdi-logout mr-2 text-primary"></i> 로그아웃 </a>
+		             	</div>
+		             </li>
+	             </ul>
 
 						<button
 							class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"

@@ -65,6 +65,7 @@ public class noticeDAO {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type;
+		query += " order by idx desc";
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 	}
@@ -76,12 +77,13 @@ public class noticeDAO {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO PHJ_BOARD_NOTICE(idx, title, contents)"
-						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ? )";
+				String sql = "INSERT INTO PHJ_BOARD_NOTICE(idx, title, content, board_type)"
+						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ?, ? )";
 
 				PreparedStatement psmt = con.prepareStatement(sql);
 				psmt.setString(1, noticeDTO.getTitle());
 				psmt.setString(2, noticeDTO.getContent());	
+				psmt.setInt(3, noticeDTO.getBoard_type());	
 
 				return psmt;
 			}

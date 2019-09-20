@@ -35,8 +35,9 @@
 			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
 			var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
 			$(id).stop().animate({
-				top : stop + "px"
-			}, 0); //해당 오브젝트 위치값 재설정
+				top : stop + 'px' 
+			}, 0); 
+			//해당 오브젝트 위치값 재설정
 		});
 	}
 	scroll_follow("#scroll");
@@ -92,13 +93,21 @@ nav {
 			</ul> --%>
 
 			<!-- 이미지로 스크롤 메뉴 변경함 -->
-			<a href="#"><img src="images/scoll_welcome.png" alt="welcome"
-				style="right: 30; top: 30;" /></a><br /> <a href="#features-wrapper"><img
-				src="images/scoll_product.png" alt="편의점 상품조회" /></a><br /> <a
-				href="#main-wrapper"><img src="images/scoll_recipe.png"
-				alt="편의점 레시피" /></a><br /> <a href="#notify"><img
-				src="images/scoll_notice.png" alt="공지사항" /></a><br /> <a href="#info"><img
-				src="images/scoll_cs.png" alt="고객센터" /></a><br />
+			<a href="#">
+				<img src="images/scoll_welcome.png" alt="welcome" style="right: 30; top: 30;" />
+			</a> <br />
+			<a href="#features-wrapper">
+				<img src="images/scoll_product.png" alt="편의점 상품조회" />
+			</a><br /> 
+			<a href="#main-wrapper">
+				<img src="images/scoll_recipe.png" alt="편의점 레시피" />
+			</a><br /> 
+			<a href="#notify">
+				<img src="images/scoll_notice.png" alt="공지사항" />
+			</a><br /> 
+<!-- 			<a href="#info"> -->
+<!-- 				<img src="images/scoll_cs.png" alt="고객센터" /> -->
+<!-- 			</a><br /> -->
 
 			<%
 				if (session.getAttribute("EMAIL") == null) {
@@ -179,14 +188,23 @@ nav {
 		<div id="main-wrapper">
 			<div class="container">
 				<div class="row gtr-200">
-					<!-- Sidebar -->
+				
+					<!-- preview board  시작  -->
+					  
+					 
 					<div id="recipe">
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
 							<div class="grid">
-								<div class="row gtr-50"
+								<div class="row gtr-50" s
 									style="position: relative; display: inline-block; *display: inline;">
-									<h3>요기에 레시피 게시판 미리보기</h3>
+									
+									<br />  
+									<div "row text-right"style="float: right;">
+									 <a href="recipe.do"  class="button icon solid fa-arrow-circle-right">더보기</a> 
+									<br/><br/>
+									</div>
+									<!-- <button class="button" onclick="recipe.do"><i class=" fa-arrow-circle-right"></i>더보기</button> -->
 									<br />
 									<table>
 										<tr>
@@ -220,17 +238,77 @@ nav {
 									</table>
 								</div>
 							</div>
-							<a href="recipe.do" class="button icon fa-file-alt">More</a>
+							
+							<br/><br/><br/>
+							
 						</section>
+<<<<<<< HEAD
 						<br /> <br />
+=======
+						
+						<br />
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 					</div>
+<<<<<<< HEAD
 				</div>
 				<div class="row">
 					<div class="col-6 col-12-medium">
+=======
+
+					<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
+					<div >
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
+<<<<<<< HEAD
 								<table>
+=======
+			<table>
+							<tr>	
+								<td>
+									<h2>공지사항</h2>
+									<ul class="main_board_list">
+							</tr>
+							
+							<tr>
+				
+				
+		
+				<table class="table table-hover">
+				<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+				<br/><br/>
+					<colgroup>
+						<col width="80px" />
+						<col width="*" />
+						<col width="120px" />
+						<col width="120px" />
+						<col width="120px" />
+					</colgroup>
+					<div>
+					<thead>
+						<tr class="table-primary" style="color: white;">
+							<th style="text-align: center;">번호</th>
+							<th style="text-align: center;">제목</th>
+							<th style="text-align: center;">작성자</th>
+							<th style="text-align: center;">조회수</th>
+							<th style="text-align: center;">등록날짜</th>
+						</tr>
+					</thead>
+					</div>
+					
+					<div>
+					<tbody>
+						<c:choose>
+							<c:when test="${empty listRows }">
+								<tr>
+									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
+									<!-- 리스트반복시작 -->
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 									<tr>
 										<td>
 											<h2>공지사항</h2>
@@ -340,23 +418,57 @@ nav {
 											height="40px">더보기</a>
 										</td>
 									</tr>
+<<<<<<< HEAD
 
 								</table>
 							</section>
+=======
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</tbody>
+					</div>
+				</table>
+			</div>
+											
+											<br/><br/><br/><br/><br/><br/>
+											
+										</ul>
+								 </td>
+								</div> 
+								
+								<table style="border:1px solid gray;"> 
+								<div>
+								
+								<td style="text-align:center;">
+									<h2 style="text-align: center;">이벤트</h2>
+									<br/><br/>
+									<h3 style="text-align: center;">이부분에 이벤트 미리보기 게시판 신설</h3>
+									<br/><br/><br/>
+									<a href="event.do"
+										class="button icon solid fa-arrow-circle-right">더보기</a>
+								</td>
+								</div>
+								</table>
+							</tr>
+							
+			</table>
+								</section>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 						</div>
 					</div>
 				</div>
-				<div class="col-7 col-16-medium imp-medium">
-					<!-- Content -->
-					<div id="info">
-						<section class="last">
-							<h2>고객센터</h2>
-							<h3>이부분에 고객센터 페이지 소개</h3>
-							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-						</section>
-					</div>
-				</div>
+<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
+<!-- 					Content -->
+<!-- 					<div id="info"> -->
+<!-- 						<section class="last"> -->
+<!-- 							<h2>고객센터</h2> -->
+<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
+<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
+<!-- 						</section> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 			</div>
 		</div>

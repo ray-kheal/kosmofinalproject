@@ -94,6 +94,52 @@ public class GeneralController {
 		command.execute(model);
 		return "general/qna";
 	} 
+<<<<<<< HEAD
+=======
+	//QnA 상세보기	
+	@RequestMapping("qna_view.do")
+      public String qna_view(Model model, HttpServletRequest req) {
+         model.addAttribute("req",req);
+         command = new QnAViewCommand();
+         command.execute(model);
+         return "general/qna_view";
+      }
+   	//QnA게시판 글쓰기
+	   @RequestMapping("write.do")
+	   public String write(Model model) {   
+		   System.out.println("write() 메소드 호출됨");
+		   return "general/QnAwrite";
+	   }
+	   
+	//트위터
+	   @RequestMapping("twitter.do")
+	   public String twitter(Model model) {   
+
+		   return "general/twitter";
+	   }
+	//페이스북
+	   @RequestMapping("facebook.do")
+	   public String facebook(Model model) {   
+		   
+		   return "general/facebook";
+	   }
+	   
+	
+	
+	 @RequestMapping(value="writeAction.do",method=RequestMethod.POST)
+	   public String writeAction(Model model,HttpServletRequest req, serviceDTO serviceDTO) throws IOException{
+		 req.setCharacterEncoding("UTF-8");
+		 System.out.println("action 호출됨");
+		model.addAttribute("req",req);
+		model.addAttribute("serviceDTO.",serviceDTO);
+		command = new WriteActionCommand();
+		command.execute(model);
+		return "redirect:qna.do?nowPage=1";
+	   }
+	
+	
+	
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		
 	//재고 게시판
 	@RequestMapping("findproduct.do")
