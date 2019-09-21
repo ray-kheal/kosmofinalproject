@@ -15,34 +15,28 @@
 <link rel="stylesheet" type="text/css" href="assets/accountfind/css/layout.css"/>
 <link rel="stylesheet" type="text/css" href="assets/accountfind/css/showCont.css"/>
 <link rel="stylesheet" type="text/css" href="assets/accountfind/css/font-awesome.min.css">
-<script src="assets/accountfind/js/placeholders.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="assets/accountfind/js/showCont.js"></script>
+<script src="assets/accountfind/js/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="https://apis.google.com/js/api:client.js"></script>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <style type="text/css">
-	body {
-		font-family: 'Mali', cursive;
-		font-family: 'Gamja Flower', cursive
-	}
-	* {
-		margin: 0px;
-		padding: 0px;
-	}
 	
 	#content {
 		background-image: url("images/bgimg.jpg");
 		margin: 0 auto;
-		text-align: center;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-attachment: fixed;
 		background-size: cover;
 		height: 700px;
+	}
+	
+	#findMenu {
+		margin: 0 auto;
 	}
 </style>
 <script type="text/javascript">
@@ -164,111 +158,117 @@ function PW_check(){
 
 		<div id="content">
 			<div class="row" style="margin-top:10px;">
-				<div class="findPop find" id="findPop find form" >
-					<h3>아이디/비밀번호 찾기</h3>
-	
+				<div id="findMenu" style="margin-top:100px;">
+						<div class="findPop find" id="findPop find form" >
+							<h3 id="Maintitle">아이디/비밀번호 찾기</h3>
+		 	
+							<div class="findTop clear_g custom-control custom-radio custom-control-inline">
+								<input type="radio" class="custom-control-input" name="radio_find2" id="radioFindID" checked="checked" onclick="find_check(1)" />
+								<label for="radioFindID" class="custom-control-label">아이디</label>
+							</div>
+							<div class="findTop clear_g custom-control custom-radio custom-control-inline">
+								<input type="radio" class="custom-control-input" name="radio_find2" id="radioFindPW" onclick="find_check(2)"/>
+								<label for="radioFindPW" class="custom-control-label">비밀번호</label>
+							</div>
+						<div class="findPop" id="findPop IDfind">
+							<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
+								<caption>아이디, 비밀번호 입력폼</caption>
+								<colgroup>
+									<col width="100px">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row"><label for="name">이름</label></th>
+										<td>
+											<div class="formbox"><input maxlength="40" type="text" id="mbName" class="text" name="name"></div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
+										<td>
+											<div class="formbox">
+												<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbIDPhone1" maxlength="3" class="text hp"><span class="dash"></span>
+												<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbIDPhone2" maxlength="4" class="text hp"><span class="dash"></span>
+												<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbIDPhone3" maxlength="4" class="text hp">
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btnWrap">
+								<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
+								<a href="javascript:CloseWindow();"><button type="button" class="btn btn-danger" style="width:70px;">취소</button></a>
+							</div>
+						</div>
+			
+						<div class="findPop" id="findPop PWfind">
+							<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
+								<caption>아이디, 비밀번호 입력폼</caption>
+								<colgroup>
+									<col width="91px">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row"><label for="name">아이디</label></th>
+										<td>
+											<div class="formbox"><input maxlength="40" type="text" id="mbID" class="text" name="name"></div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
+										<td>
+											<div class="formbox">
+												<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbPWPhone1" maxlength="3" class="text hp"><span class="dash"></span>
+												<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbPWPhone2" maxlength="4" class="text hp"><span class="dash"></span>
+												<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbPWPhone3" maxlength="4" class="text hp">
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btnWrap">
+								<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
+								<a href="javascript:CloseWindow();"><button type="button" class="btn btn-danger" style="width:70px;">취소</button></a>
+							</div>
+						</div>
+					</div>
+			
+				<div class="findPop" id="findPop PWok" style="display:none">
+					<h3 id="Maintitle">아이디/비밀번호 찾기</h3>
 					<div class="findTop clear_g">
-						<label for="radioFindID"><input type="radio" name="radio_find2" id="radioFindID" checked="checked" onclick="find_check(1)" /> 아이디</label>
-						<label for="radioFindPW"><input type="radio" name="radio_find2" id="radioFindPW" onclick="find_check(2)"/> 비밀번호</label>
+						<ul>
+							<li>입력하신 휴대폰으로 <span>임시 비밀번호</span>를 발급해드렸습니다.</li>
+							<li>로그인 후 회원정보에서 <span>비밀번호를 변경</span>해 주시기 바랍니다.</li>
+						</ul>
 					</div>
-				<div class="findPop" id="findPop IDfind">
-					<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
-						<caption>아이디, 비밀번호 입력폼</caption>
-						<colgroup>
-							<col width="91px">
-							<col width="*">
-						</colgroup>
-						<tbody>
-							<tr>
-								<th scope="row"><label for="name">이름</label></th>
-								<td>
-									<div class="formbox"><input maxlength="40" type="text" id="mbName" class="text" name="name"></div>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
-								<td>
-									<div class="formbox">
-										<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbIDPhone1" maxlength="3" class="text hp"><span class="dash"></span>
-										<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbIDPhone2" maxlength="4" class="text hp"><span class="dash"></span>
-										<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbIDPhone3" maxlength="4" class="text hp">
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					
+					<div class="resultBox">
+						휴대폰 번호 : <span id="PWok PW"></span>
+					</div>
+			
 					<div class="btnWrap">
-						<a href="javascript:CloseWindow();"><img src="/images/member/btn_cancel.gif" alt="취소" /></a>
-						<a href="javascript:ID_check();"><img src="/images/member/btn_ok.gif" alt="확인" /></a>
+						<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
 					</div>
 				</div>
-	
-				<div class="findPop" id="findPop PWfind">
-					<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
-						<caption>아이디, 비밀번호 입력폼</caption>
-						<colgroup>
-							<col width="91px">
-							<col width="*">
-						</colgroup>
-						<tbody>
-							<tr>
-								<th scope="row"><label for="name">아이디</label></th>
-								<td>
-									<div class="formbox"><input maxlength="40" type="text" id="mbID" class="text" name="name"></div>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
-								<td>
-									<div class="formbox">
-										<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbPWPhone1" maxlength="3" class="text hp"><span class="dash"></span>
-										<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbPWPhone2" maxlength="4" class="text hp"><span class="dash"></span>
-										<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbPWPhone3" maxlength="4" class="text hp">
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+			
+				<div class="findPop" id="findPop IDok"style="display:none">
+					<h3>아이디/비밀번호 찾기</h3>
+					<div class="findTop clear_g">
+						<p><span id="IDok Nameok"></span>님의 아이디입니다.</p>
+					</div>
+					
+					<div class="resultBox" id="IDok ID">
+						
+					</div>
+			
 					<div class="btnWrap">
-						<a href="javascript:CloseWindow();"><img src="/images/member/btn_cancel.gif" alt="취소" /></a>
-						<a href="javascript:PW_check();"><img src="/images/member/btn_ok.gif" alt="확인" /></a>
+						<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
+						<a href="javascript:find_PWcheck();"><button type="button" class="btn btn-warning" style="width:70px;">비밀번호 찾기</button></a>
 					</div>
 				</div>
-			</div>
-	
-		<div class="findPop" id="findPop PWok" style="display:none">
-			<h3>아이디/비밀번호 찾기</h3>
-			<div class="findTop clear_g">
-				<ul>
-					<li>입력하신 휴대폰으로 <span>임시비밀번호</span>를 발급해드렸습니다.</li>
-					<li>로그인 후 회원정보에서 <span>비밀번호를 변경</span>해 주시기 바랍니다.</li>
-				</ul>
-			</div>
-			
-			<div class="resultBox">
-				휴대폰 번호 : <span id="PWok PW"></span>
-			</div>
-	
-			<div class="btnWrap">
-				<a href="javascript:CloseWindow();"><img src="/images/member/btn_ok.gif" alt="확인" /></a>
-			</div>
-		</div>
-	
-		<div class="findPop" id="findPop IDok"style="display:none">
-			<h3>아이디/비밀번호 찾기</h3>
-			<div class="findTop clear_g">
-				<p><span id="IDok Nameok"></span>님의 아이디입니다.</p>
-			</div>
-			
-			<div class="resultBox" id="IDok ID">
-				
-			</div>
-	
-			<div class="btnWrap">
-				<a href="javascript:CloseWindow();"><img src="/images/member/btn_ok.gif" alt="확인" /></a>
-				<a href="javascript:find_PWcheck();"><img src="/images/member/btn_findPW.gif" alt="비밀번호찾기" /></a>
-			</div>
-		</div>
+				</div>
 			</div>
 		</div>
 

@@ -11,7 +11,7 @@ $(function(){
 	chkAll();
 
 	floatBanner.init();
-})
+});
 
 $(window).load(function(){
 	/* 메인 슬라이더 */

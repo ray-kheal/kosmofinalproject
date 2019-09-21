@@ -145,8 +145,9 @@
 								<input type="password" class="form-control" name="pass" placeholder="암호"
 									required />
 							</div>
-							<div class="idCheck" style="color: white;">
-								<input type="checkbox" value="remember-me" /> 아이디를 저장합니다.
+							<div class="idCheck custom-control custom-checkbox" style="color: white;">
+								<input type="checkbox" id="defaultUnchecked" value="remember-me" class="custom-control-input" /> 
+								<label class="custom-control-label" for="defaultUnchecked">아이디를 저장합니다.</label>
 							</div>
 							<span style="color:red;font-size:1em;">
 								${loginError }
