@@ -54,19 +54,19 @@ public class noticeDAO {
 		System.out.println("list()메소드 실행");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
-		//int board_type = Integer.parseInt(map.get("board_type").toString());
+		
 		
 		int board_type = (Integer)map.get("board_type");
 		System.out.println("list()메소드-board_type:"+board_type);
 		String query = " SELECT * FROM( "
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
-				+ "      SELECT * FROM PHJ_BOARD_NOTICE ";
+				+ "      SELECT * FROM PHJ_BOARD_NOTICE where board_type= " + board_type ;
 
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
-		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type+ " order by idx desc";
-		//query += " order by idx desc";
+		query += " order by idx desc  ) Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +"order by idx desc";
+
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 		
