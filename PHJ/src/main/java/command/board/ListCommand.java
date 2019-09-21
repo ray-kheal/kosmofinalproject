@@ -39,7 +39,7 @@ public class ListCommand implements PHJCommandImpl {
 		
 		int pageSize= 10;
 		int blockPage= 5;
-		System.out.println("확인 :" + totalRecordCount);
+		//System.out.println("확인 :" + totalRecordCount);
 		
 		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
 		
@@ -53,9 +53,10 @@ public class ListCommand implements PHJCommandImpl {
 	    int countNum =0;
 	    for(noticeDTO row : listRows) {
         
-          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++)+2;
+          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
           row.setVirtualNum(virtualNum);
        }
+	    
 	    String pagingImg =null;
 	    if(board_type==1) {
 	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
