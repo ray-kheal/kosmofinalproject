@@ -68,7 +68,6 @@ public class AdEventListCommand implements PHJCommandImpl {
 		
 		
 		//가상번호 계산하여 부여하기
-		//가상번호 계산하여 부여하기
 		int virtualNum =0;
 		int countNum =0;
 		for(noticeDTO row : viewRow) {

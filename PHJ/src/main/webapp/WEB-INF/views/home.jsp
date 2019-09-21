@@ -116,8 +116,12 @@ nav {
 			<%
 				} else {
 			%>
-			<a href="memberEdit.do">회원정보수정</a> <a href="logout.do"><img
-				src="images/scoll_logout.png" alt="로그아웃" /></a>
+			<a href="memberEdit.do">
+				<img src="images/scoll_modify.png" alt="정보수정" />
+			</a>
+			<a href="logout.do">
+			 	<img src="images/scoll_logout.png" alt="로그아웃" />
+			</a>
 			<%
 				}
 			%>

@@ -83,7 +83,7 @@ function checkValidate(f){
 				<div class="card">
 	                <div class="card-body">
 	                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-		 <form action="sunjeongboardManagementWriteAction.do" name="writeFrm" method="post" 
+		 <form action="boardManagementWriteAction.do" name="writeFrm" method="post" 
 							onsubmit="return checkValidate(this);">
 			             
 							<input type="hid-den" name="board_type" value=<%=board_type %> />

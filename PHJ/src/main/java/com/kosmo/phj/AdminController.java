@@ -233,18 +233,36 @@ public class AdminController {
 		return "admin/pages/tables/boardManagementWrite";
 	}
 	//공지사항글쓰기 액션
-	@RequestMapping(value="/admin/pages/tables/sunjeongboardManagementWriteAction.do", method=RequestMethod.POST )
+	@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do", method=RequestMethod.POST )
 	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) throws IOException {
 		
 		System.out.println("writeAction 호출됨");
-		//String board_type = req.getParameter("board_type");
+		int board_type = Integer.parseInt(req.getParameter("board_type"));
+		System.out.println("board_type:"+board_type);
 		
 		model.addAttribute("req",req);
 		model.addAttribute("noticeDTO",noticeDTO);
 		command = new AdBoardListWriteActionCommand();
 		command.execute(model);
+		if(board_type==1) {
+			return "redirect:./boardManagement.do";
+			
+		}else {
+			return "redirect:./eventManagement.do";
+		}
+		/*String board_type = req.getParameter("board_type");
+		System.out.println("board_type:"+board_type);
 		
-		return "redirect:./boardManagement.do";
+		model.addAttribute("req",req);
+		model.addAttribute("noticeDTO",noticeDTO);
+		command = new AdBoardListWriteActionCommand();
+		command.execute(model);
+		if(board_type=="1") {
+			return "redirect:./boardManagement.do";
+			
+		}else {
+			return "redirect:./eventManagement.do";
+		}*/
 		
 	}
 	/*@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )
