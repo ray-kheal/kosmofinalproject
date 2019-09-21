@@ -28,6 +28,17 @@ body {
 	$(function() {
 		$("#service").attr("class", "current");
 	});
+	
+	//삭제여부 확인
+	function isDelete(){
+	 	result = confirm('삭제하시겠습니까?');
+	    if(result){
+	        location.href = "delete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+	    }else{
+	    	return false;
+	    }
+	}
+	
 </script>
 <body>
 	<div id="page-wrapper">
@@ -106,7 +117,8 @@ body {
 			<br /> <br />
 			<button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
 			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>
-			<button type="button" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button>
+			<%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
+			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm"
 					onclick="location.href='./qna.do';">리스트</button>
