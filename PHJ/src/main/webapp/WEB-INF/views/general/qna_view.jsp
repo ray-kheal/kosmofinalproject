@@ -37,8 +37,8 @@ body {
 	    }else{
 	    	return false;
 	    }
-		
 	}
+	
 </script>
 <body>
 	<div id="page-wrapper">
