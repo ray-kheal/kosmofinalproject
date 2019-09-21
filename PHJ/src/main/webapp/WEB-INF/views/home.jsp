@@ -195,7 +195,6 @@ nav {
 					<div id="recipe">
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
-<<<<<<< HEAD
 							<div class="grid">
 								<div class="row gtr-50" s
 									style="position: relative; display: inline-block; *display: inline;">
@@ -250,14 +249,9 @@ nav {
 				</div>
 				<div class="row">
 					<div class="col-6 col-12-medium">
-=======
 							<div class="row text-center text-lg-left">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-
-<<<<<<< HEAD
 					<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
 					<div >
-=======
 								<c:choose>
 									<c:when test="${empty recipeRows }">
 										<div>
@@ -312,17 +306,10 @@ nav {
 					</div>
 					<div>
 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 								<table>
-<<<<<<< HEAD
-			<table>
 							<tr>	
 								<td>
 									<h2>공지사항</h2>
@@ -366,15 +353,11 @@ nav {
 							<c:otherwise>
 								<c:forEach items="${listRows }" var="row" varStatus="loop">
 									<!-- 리스트반복시작 -->
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 									<tr>
 										<td>
 											<h2>공지사항</h2>
 											<ul class="main_board_list">
 									</tr>
-<<<<<<< HEAD
-=======
 
 									<tr>
 
@@ -546,11 +529,9 @@ nav {
 										</div>
 
 									</tr>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 								</table>
 							</section>
-<<<<<<< HEAD
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
@@ -582,9 +563,6 @@ nav {
 							
 			</table>
 								</section>
-
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						</div>
 					</div>
 				</div>
