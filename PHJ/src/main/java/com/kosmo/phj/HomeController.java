@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import command.PHJCommandImpl;
 import command.home_eventCommand;
 import command.home_notiCommand;
+import command.home_recipeCommand;
 import command.board.ListCommand;
+import command.board.recipeListCommand;
 
 /**
  * Handles requests for the application home page.
@@ -46,7 +48,6 @@ public class HomeController {
 		
 		model.addAttribute("req",req);
 		model.addAttribute("board_type",1);
-
 		command = new home_notiCommand();
 		command.execute(model);
 		
@@ -54,6 +55,11 @@ public class HomeController {
 		model.addAttribute("board_type",2);
 		command = new home_eventCommand();
 		command.execute(model);
+	
+	  command = new home_recipeCommand(); 
+	  command.execute(model);
+	 
+		
 		return "home";
 	}
 	private JdbcTemplate template;

@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
 <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/join02.css" /> 
+<link rel="stylesheet" href="assets/css/join02.css" />  
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
 
 
@@ -254,6 +254,17 @@ div label input {
 							</div>	
 								 
 								
+							<%-- <div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" class="" id="emailY" name="email_alert" value="Y" ${emailY }
+									style="margin:3px 3px 0px 5px; "/>
+								<label class="" for="emailY">&nbsp;메일 수신동의</label>
+						  	</div>     
+						  	<div class="custom-control custom-radio custom-control-inline">
+						  		<input type="radio" class="" id="emailN" name="email_alert" value="N" ${emailN }
+						  			style="margin:3px 3px 0px 5px; "/>
+						  		<label class="" for="emailN">&nbsp;메일 수신거부</label>
+						  	</div>  --%>
+							<br /> 
 						</td>			
 						 
 					</tr> 
@@ -288,6 +299,11 @@ div label input {
 								<label class="custom-control-label" for="SMSY">SMS 수신동의</label>
 							</div> 
 							<div class="custom-control custom-radio custom-control-inline">	
+								<input type="radio"  class="" id="mobileY" name="mobile_alert" value="Y"  ${mobileY }
+									style="margin:3px 3px 0px 5px; "/>
+								<label class="" for="SMSY">&nbsp;SMS 수신동의</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">	
 								<input type="radio" name="mobile_alert" class="custom-control-input" value="N" id="mobileN" ${mobileN }/>
 								<label class="custom-control-label" for="SMSN">SMS 수신거부</label>
 							</div>  --%>
@@ -299,6 +315,12 @@ div label input {
 								<input type="radio" name="mobile_alert" class="" value="N" id="mobileN" ${mobileN }/>
 								<label class="" for="SMSN">SMS 수신거부</label>
 							</div>  --%>
+							<%-- 	<input type="radio" class=""  name="mobile_alert" value="N"  ${mobileN }
+									style="margin:3px 3px 0px 5px; "/> 
+								<label class="" for="SMSN">&nbsp;SMS 수신거부</label> 
+								 --%>
+							
+
 							
 							<div>
 								<span style="text-align: left;">

@@ -93,7 +93,6 @@ public class GeneralController {
 		command.execute(model);
 		return "general/qna";
 	} 
-
 	//트위터
 	   @RequestMapping("twitter.do")
 	   public String twitter(Model model) {   
@@ -106,8 +105,6 @@ public class GeneralController {
 		   
 		   return "general/facebook";
 	   }
-	   
-
 	//재고 게시판
 	@RequestMapping("findproduct.do")
 	public String findproduct() {

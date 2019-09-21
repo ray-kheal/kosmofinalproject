@@ -1065,17 +1065,17 @@ div.manageImg{width:140px;height:140px;margin:0 auto;background:url(../../images
 	.userComment li p{font-size:24px;color:#4a4a4a;}
 	.userComment .btnWrap{margin-bottom:30px;}
 	
-.findPop{width:456px;height:300px;padding:25px 22px;overflow:hidden;}
-	.findPop h3{padding-bottom:5px;margin-bottom:5px;font-size:23px;font-weight:normal;color:#222121;border-bottom:1px solid #cecece;}
+.findPop{width:500px;height:300px;overflow:hidden;}
+	.findPop h3{padding-bottom:10px;margin-bottom:5px;font-size:30px;font-weight:bold;color:#222121;border-bottom:1px solid #cecece;font-family:Goyang;color:#faf6bb;}
 	.findPop .findTop{}
-	.findPop .findTop label{margin-right:10px;font-size:14px;}
+	.findPop .findTop label{margin-right:10px;font-size:17px;color:white;font-family:Goyang;}
 	.findPop .findTop label input{margin:0;}
 	.findPop .findTop ul{padding:25px 0;}
 	.findPop .findTop ul li{margin-bottom:5px;padding-left:10px;background:url(../../images/common/bul_disc.gif) no-repeat 0 50%;font-size:14px;color:#717171;}
 	.findPop .findTop ul li span{color:#ff7200;}
 	.findPop .findTop p{margin:50px 0 10px;font-size:15px;color:#717171;}
 	.findPop table{width:100%;margin:20px auto 0}
-	.findPop table th{width:91px;padding-top:8px;vertical-align:top;color:#666;text-align:left;}
+	.findPop table th{width:100px;vertical-align:top;color:#666;text-align:left;color:white;}
 	.findPop table th label{;font-size:15px;font-weight:normal;}
 	.findPop table th label span{color:#ff6600;margin:0 5px 0 -12px;line-height:1;vertical-align:bottom;}
 	.findPop table td{padding-bottom:0}
