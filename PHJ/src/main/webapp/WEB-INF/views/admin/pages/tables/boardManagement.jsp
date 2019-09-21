@@ -106,12 +106,12 @@ if (mst == 'normal') {
 						</tr>   
 					</thead>
                       <tbody>
-                       	<!-- 상품 리스트 출력  -->
+                       	<!-- 게시판 리스트 출력  -->
                         <c:choose>
 							<c:when test="${empty viewRow }">
 								<tr>
 									<td colspan="5" class="text-center">
-										등록된 상품이 없습니다.
+										등록된 게시물이 없습니다.
 									</td>
 								</tr>
 							</c:when>

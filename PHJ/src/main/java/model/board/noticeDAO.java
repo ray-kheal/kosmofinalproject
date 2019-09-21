@@ -28,11 +28,13 @@ public class noticeDAO {
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		int board_type = (Integer)map.get("board_type");
-		System.out.println(board_type);
+		
+		System.out.println("getTotalCount의 board_type:"+board_type);
+		
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
 		if (map.get("searchWord") != null) {
-			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		
 		return template.queryForObject(query, Integer.class);
@@ -52,9 +54,10 @@ public class noticeDAO {
 		System.out.println("list()메소드 실행");
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
+		//int board_type = Integer.parseInt(map.get("board_type").toString());
 		
 		int board_type = (Integer)map.get("board_type");
-		
+		System.out.println("list()메소드-board_type:"+board_type);
 		String query = " SELECT * FROM( "
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
 				+ "      SELECT * FROM PHJ_BOARD_NOTICE ";
@@ -62,8 +65,8 @@ public class noticeDAO {
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
-		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type;
-		query += " order by idx desc";
+		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type+ " order by idx desc";
+		//query += " order by idx desc";
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
 		
@@ -83,7 +86,7 @@ public class noticeDAO {
 				psmt.setString(1, noticeDTO.getTitle());
 				psmt.setString(2, noticeDTO.getContent());	
 				psmt.setInt(3, noticeDTO.getBoard_type());	
-
+				System.out.println("dao의 write - title:"+noticeDTO.getTitle()+"/contetn:"+noticeDTO.getContent()+"/type:"+noticeDTO.getBoard_type());
 				return psmt;
 			}
 		});

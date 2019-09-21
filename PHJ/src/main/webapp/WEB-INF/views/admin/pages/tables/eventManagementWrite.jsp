@@ -70,7 +70,7 @@ function checkValidate(f){
 			 	<%}else if (board_type.equals("2")){ %>
              			<h3 class="page-title" style="font-weight: bold;">이벤트</h3> 
 			 	<%} %> --%>
-			 	<h3 class="page-title" style="font-weight: bold;">공지사항</h3> 
+			 	<h3 class="page-title" style="font-weight: bold;">이벤트</h3> 
            	  <br /><br />
 		       <!--        <nav aria-label="breadcrumb">
 		                <ol class="breadcrumb">
@@ -84,10 +84,10 @@ function checkValidate(f){
 				<div class="card">
 	                <div class="card-body">
 	                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-		 <form action="boardManagementWriteAction.do" name="writeFrm" method="post" 
+		 <form action="eventManagementWriteAction.do" name="writeFrm" method="post" 
 							onsubmit="return checkValidate(this);">
 			             
-							<input type="hid-den" name="board_type" value="1" /> 
+							<input type="hid-den" name="board_type" value="2" /> 
 		                      <div class="form-group">
 		                        <label for="exampleInputName1">이름</label>
 		                        <input type="text" class="form-control" name="name" value="관리자">
@@ -127,7 +127,7 @@ function checkValidate(f){
 	                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
 	
 	                 <button class="btn btn-dark btn-rounded"
-	                 	onclick="location.href='./boardManagement.do';">List</button>
+	                 	onclick="location.href='./eventManagement.do';">List</button>
 	
 				</div>	
 	 

@@ -107,8 +107,7 @@ public class GeneralController {
 		   return "general/facebook";
 	   }
 	   
-	
-		
+
 	//재고 게시판
 	@RequestMapping("findproduct.do")
 	public String findproduct() {
