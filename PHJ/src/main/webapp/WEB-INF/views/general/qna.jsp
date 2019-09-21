@@ -1,3 +1,4 @@
+<%@page import="model.board.serviceDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -124,13 +125,18 @@ nav {
 									<!-- 리스트반복시작 -->
 									<tr>
 										<td class="text-center">${row.virtualNum }</td>
-										<td class="text-left"><a
-											href="./qna_view.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
+										<td class="text-left">
+										
+										
+												<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}">
+													${row.title}
+												</a>
+										
 										</td>
-										<td class="text-center">${row.content }</td>
+										<td class="text-center">${row.name}</td>
 										<td class="text-center">${row.view_count }</td>
 										<td class="text-center">${row.postdate }</td>
+										
 										<!-- <td class="text-center">--</td> -->
 									</tr>
 								</c:forEach>

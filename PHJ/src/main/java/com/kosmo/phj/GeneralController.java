@@ -54,16 +54,7 @@ public class GeneralController {
 		
 		return "general/notice";
 	}
-	//공지사항 상세보기
-	 @RequestMapping("view.do")
-	   public String view(Model model, HttpServletRequest req) {
-		   model.addAttribute("req",req);
-
-		   command = new command.board.ViewCommand();
-
-		   command.execute(model);
-		   return "general/view";
-	   }
+	
 	//이벤트 게시판
 	@RequestMapping("event.do")
 	public String event(Model model, HttpServletRequest req) {
@@ -77,15 +68,7 @@ public class GeneralController {
 	}
 
 	
-	//이벤트 게시판 상세보기
-    @RequestMapping("Eview.do")
-      public String event_view(Model model, HttpServletRequest req) {
-         model.addAttribute("req",req);
-         command = new ViewCommand();
-         command.execute(model);
-         return "general/event_view";
-      }
-   
+	
 	//레시피 게시판
 	@RequestMapping("recipe.do")
 	public String recipe(Model model, HttpServletRequest req) {
@@ -111,6 +94,8 @@ public class GeneralController {
 		command.execute(model);
 		return "general/qna";
 	} 
+<<<<<<< HEAD
+=======
 	//QnA 상세보기	
 	@RequestMapping("qna_view.do")
       public String qna_view(Model model, HttpServletRequest req) {
@@ -154,6 +139,7 @@ public class GeneralController {
 	
 	
 	
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		
 	//재고 게시판
 	@RequestMapping("findproduct.do")

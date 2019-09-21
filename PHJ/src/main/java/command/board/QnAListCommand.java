@@ -61,9 +61,10 @@ public class QnAListCommand implements PHJCommandImpl{
             for(int i=0; i<row.getBindent(); i++ ) {
                reSpace += "&nbsp;&nbsp;";
             }
-            row.setTitle(reSpace+"<img src=../../../resources/images/re3.gif'>"+row.getTitle());
+            row.setTitle(reSpace+"<img src='/PHJ/src/main/webapp/resources/images/re3.gif'>"+row.getTitle());
          }
       }
+      
       //페이지 처리를 위한 처리부분
       //String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/board/list.do?"+addQueryString);
       

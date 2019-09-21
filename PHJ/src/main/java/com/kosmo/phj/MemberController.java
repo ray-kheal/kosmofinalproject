@@ -3,11 +3,13 @@ package com.kosmo.phj;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +21,7 @@ import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
+import command.member.emailOverlapCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
 @Controller
@@ -76,16 +79,16 @@ public class MemberController {
 	}
 	
 	//회원가입페이지 진입(약관)
-		@RequestMapping("/join1.do")
-		public String join1() {
-			return "member/join01";
-		}
-		
-		//회원가입페이지 진입(가입폼)
-		@RequestMapping("/join2.do")
-		public String join2() {
-			return "member/join02";
-		}
+	@RequestMapping("/join1.do")
+	public String join1() {
+		return "member/join01";
+	}
+	
+	//회원가입페이지 진입(가입폼)
+	@RequestMapping("/join2.do")
+	public String join2() {
+		return "member/join02";
+	}
 	
 	
 	//카카오로그인 매핑
@@ -110,10 +113,22 @@ public class MemberController {
 		return "redirect:../phj";
 	}
 	
+	//이메일 중복검사!
+	@RequestMapping("emailOverLap.do")
+	public void emailOverLap(Model model, HttpServletRequest req, HttpServletResponse resp) {
+		
+		String email = req.getParameter("email");
+		System.out.println("ajax를 통하여 받은 이메일주소 : " + email);
+		model.addAttribute("email",email);
+		model.addAttribute("resp",resp);
+		command = new emailOverlapCommand();
+		command.execute(model);
+	}
+	
+	
 	//회원가입
 	@RequestMapping(value="/regist.do",method=RequestMethod.POST)
-	public String regist(Model model, HttpServletRequest req) throws IOException {
-		req.setCharacterEncoding("UTF-8");
+	public String regist(Model model, HttpServletRequest req){
 		model.addAttribute("req",req);
 		command = new RegistCommand();
 		command.execute(model);

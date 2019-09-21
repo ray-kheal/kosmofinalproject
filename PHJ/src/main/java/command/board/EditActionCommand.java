@@ -10,25 +10,22 @@ import command.PHJCommandImpl;
 import model.board.serviceDAO;
 import model.board.serviceDTO;
 
-public class ReplyCommand implements PHJCommandImpl{
+public class EditActionCommand implements PHJCommandImpl{
 	
 	@Override
 	public void execute(Model model) {
-
+	
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)map.get("req");
 		
-		String idx = req.getParameter("idx");
+		//커맨드객체 가져오기
+		serviceDTO serviceDTO = (serviceDTO)map.get("serviceDTO");
 		
-	
+		//폼값 확인
+		System.out.println("[command]serviceDTO[내용]="+serviceDTO.getContent());
 		serviceDAO dao = new serviceDAO();
-		serviceDTO dto = dao.view(idx);
 		
-		dto.setTitle("[re]" +dto.getTitle());   
-		dto.setContent("\n\r\r\r --- [원본글] --- \n\r"+ dto.getContent());
-		model.addAttribute("replyRow",dto);
-	
-		
+		dao.edit(serviceDTO);
 	}
 
 }

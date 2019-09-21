@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.PHJCommandImpl;
-import command.homeCommand;
+import command.home_eventCommand;
+import command.home_notiCommand;
 import command.board.ListCommand;
 
 /**
@@ -46,8 +47,12 @@ public class HomeController {
 		model.addAttribute("req",req);
 		model.addAttribute("board_type",1);
 
-		command = new homeCommand();
+		command = new home_notiCommand();
+		command.execute(model);
 		
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",2);
+		command = new home_eventCommand();
 		command.execute(model);
 		return "home";
 	}
