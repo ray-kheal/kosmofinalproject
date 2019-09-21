@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import command.PHJCommandImpl;
 import model.board.serviceDAO;
 import model.board.serviceDTO;
+import util.PagingUtil;
 
 public class QnAListCommand implements PHJCommandImpl{
    @Override
@@ -35,7 +36,7 @@ public class QnAListCommand implements PHJCommandImpl{
       int totalRecordCount = dao.getTotalCount(paramMap);
       
       int pageSize = 10;
-      int blockPage = 10;
+      int blockPage = 5;
       
       int totalPage = (int)Math.ceil((double)totalRecordCount / pageSize);
       
@@ -66,9 +67,10 @@ public class QnAListCommand implements PHJCommandImpl{
       }
       
       //페이지 처리를 위한 처리부분
-      //String pagingImg = PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/board/list.do?"+addQueryString);
+      String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+				req.getContextPath()+"/qna.do?"+addQueryString);
       
-     // model.addAttribute("pagingImg", pagingImg);
+      model.addAttribute("pagingImg", pagingImg);
       model.addAttribute("totalPage", totalPage);
       model.addAttribute("nowPage", nowPage);
       model.addAttribute("listRows", listRows);
