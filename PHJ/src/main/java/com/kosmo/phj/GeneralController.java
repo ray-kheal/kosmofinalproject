@@ -94,8 +94,7 @@ public class GeneralController {
 		command.execute(model);
 		return "general/qna";
 	} 
-<<<<<<< HEAD
-=======
+
 	//QnA 상세보기	
 	@RequestMapping("qna_view.do")
       public String qna_view(Model model, HttpServletRequest req) {
@@ -137,9 +136,7 @@ public class GeneralController {
 		return "redirect:qna.do?nowPage=1";
 	   }
 	
-	
-	
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 		
 	//재고 게시판
 	@RequestMapping("findproduct.do")
