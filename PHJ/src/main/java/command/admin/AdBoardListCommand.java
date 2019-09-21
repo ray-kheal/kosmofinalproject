@@ -45,7 +45,7 @@ public class AdBoardListCommand implements PHJCommandImpl {
 				
 				
 		int totalRecordCount = dao.getTotalCount(paramMap);
-
+		System.out.println("totalRecordCount:"+totalRecordCount);
 		
 		int pageSize = 10;
 		int blockPage = 5;
@@ -55,8 +55,8 @@ public class AdBoardListCommand implements PHJCommandImpl {
 				
 		//시작 및 끝 rownum 구하기
 		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
-		String board_type = req.getParameter("board_type");	
 		
+			
 		//게시물 select 시 구간으로 사용할 변수를 계산
 		int start = (nowPage -1 )* pageSize +1;
 		int end = nowPage * pageSize;
@@ -64,11 +64,12 @@ public class AdBoardListCommand implements PHJCommandImpl {
 		paramMap.put("start", start);
 		paramMap.put("end", end);		
 		
+		
+		
 		//출력할 리스트 가져오기
 		ArrayList<noticeDTO> viewRow = dao.list(paramMap);
 		
 		
-		//가상번호 계산하여 부여하기
 		//가상번호 계산하여 부여하기
 		int virtualNum =0;
 		int countNum =0;

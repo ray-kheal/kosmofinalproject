@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -34,8 +35,8 @@ public class serviceDAO {
 	
 	public ArrayList<serviceDTO> list(Map<String, Object> map) {
 
-		int start = 1;
-		int end = 10;
+		int start =Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
 		String query = " SELECT * FROM( " + "    SELECT Tb.*, ROWNUM rNum FROM( " + "      SELECT * FROM PHJ_BOARD_SERVICE ";
 
 		if (map.get("Word") != null) {

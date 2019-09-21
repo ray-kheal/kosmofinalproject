@@ -63,7 +63,6 @@ public class GeneralController {
 		model.addAttribute("board_type",2);
 		command = new ListCommand();
 		command.execute(model);
-		
 		return "general/event";
 	}
 
@@ -94,9 +93,13 @@ public class GeneralController {
 		command.execute(model);
 		return "general/qna";
 	} 
+<<<<<<< HEAD
 	
 	
 	   
+=======
+
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 	//트위터
 	   @RequestMapping("twitter.do")
 	   public String twitter(Model model) {   
@@ -110,7 +113,11 @@ public class GeneralController {
 		   return "general/facebook";
 	   }
 	   
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 	//재고 게시판
 	@RequestMapping("findproduct.do")
 	public String findproduct() {

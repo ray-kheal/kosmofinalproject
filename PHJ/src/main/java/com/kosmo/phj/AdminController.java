@@ -16,6 +16,7 @@ import command.admin.AdBoardListEditCommand;
 import command.admin.AdBoardListViewCommand;
 import command.admin.AdBoardListWriteActionCommand;
 import command.admin.AdEventListCommand;
+import command.admin.AdEventListWriteActionCommand;
 import command.admin.AdPlaceListCommand;
 import command.admin.AdProductListCommand;
 import command.admin.MemberListCommand;
@@ -244,12 +245,11 @@ public class AdminController {
 		model.addAttribute("noticeDTO",noticeDTO);
 		command = new AdBoardListWriteActionCommand();
 		command.execute(model);
-		if(board_type==1) {
+		
 			return "redirect:./boardManagement.do";
-			
-		}else {
-			return "redirect:./eventManagement.do";
+		
 		}
+		
 		/*String board_type = req.getParameter("board_type");
 		System.out.println("board_type:"+board_type);
 		
@@ -264,7 +264,7 @@ public class AdminController {
 			return "redirect:./eventManagement.do";
 		}*/
 		
-	}
+	
 	/*@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )
 	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) {
 		
@@ -298,10 +298,27 @@ public class AdminController {
 	}
 	//이벤트 게시판 쓰기 페이지
 	@RequestMapping("/admin/pages/tables/eventManagementWrite.do")
-	public String eventManagementWrite() {
+	public String eventManagementWrite(Model model) throws IOException {
+		System.out.println("eventwrite 호출됨");
+	
 		return "admin/pages/tables/eventManagementWrite";
 	}
-	
+	//이벤트글쓰기 액션
+	@RequestMapping(value="/admin/pages/tables/eventManagementWriteAction.do", method=RequestMethod.POST )
+	public String eventManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) throws IOException {
+		
+		System.out.println("eventwriteAction 호출됨");
+		int board_type = Integer.parseInt(req.getParameter("board_type"));
+		System.out.println("board_type:"+board_type);
+		
+		model.addAttribute("req",req);
+		model.addAttribute("noticeDTO",noticeDTO);
+		command = new AdEventListWriteActionCommand();
+		command.execute(model);
+		
+			return "redirect:./eventManagement.do";
+		
+		}
 	//이벤트 게시판 상세보기 페이지
 	@RequestMapping("/admin/pages/tables/eventManagementView.do")
 	public String eventManagementView(Model model, HttpServletRequest req) throws IOException {
