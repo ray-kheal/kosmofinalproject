@@ -147,9 +147,13 @@ nav {
 			</div>
 			<br /><br />
 		 <div class="row text-right" style="float: right;">
+		 
+		<%if(session.getAttribute("EMAIL") != null) { %> 
 		 <form action="write.do" method="post">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-				</form>
+		</form>
+		<%} %>
+		
 			</div>
 
 			<br /> <br />
