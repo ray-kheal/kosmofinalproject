@@ -150,8 +150,16 @@ public class noticeDAO {
 	 * System.out.println("글 수정중 예외발생"); // e.printStackTrace(); // } // }
 	 */
 
-	// 삭제하기
-	public void delete(String idx, String pass) {
-		
+	//게시글 삭제하기
+	public void delete(final String idx) {
+		   String sql = "delete from PHJ_BOARD_NOTICE where idx=? ";
+		 template.update(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+			
+				ps.setString(1, idx);
+			}
+		});
 	}
 }

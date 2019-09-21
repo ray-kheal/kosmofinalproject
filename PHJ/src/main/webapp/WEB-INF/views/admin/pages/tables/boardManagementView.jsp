@@ -28,6 +28,15 @@ if (mst == 'normal') {
 	location.href = "../admin/pages/samples/login.do";
 } 
 
+//삭제여부 확인
+function isDelete(){
+ 	result = confirm('삭제하시겠습니까?');
+    if(result){
+        location.href = "boardDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+    }else{
+    	return false;
+    }
+}
 </script>
   <body>
     <div class="container-scroller">
@@ -119,14 +128,16 @@ if (mst == 'normal') {
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
-				<button class = "btn btn-danger btn-sm">삭제</button>
-				<% if(board_type.equals("1")) { %>
+				<button class = "btn btn-danger btn-sm" onclick="isDelete();">삭제</button>
+				<button type="button" class="btn btn-dark btn-sm" 
+							onclick="location.href='./boardManagement.do';">리스트</button>
+				<%-- <% if(board_type.equals("1")) { %>
                     	<button type="button" class="btn btn-dark btn-sm" 
 							onclick="location.href='./boardManagement.do';">리스트</button>
                     <%}else if (board_type.equals("2")){ %>
                     	<button type="button" class="btn btn-dark btn-sm" 
 							onclick="location.href='./eventManagement.do';">리스트</button>
-                    <%} %>
+                    <%} %> --%>
 				
 			</div>
 			  
