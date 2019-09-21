@@ -242,28 +242,17 @@ nav {
 							<br/><br/><br/>
 							
 						</section>
-<<<<<<< HEAD
-						<br /> <br />
-=======
 						
 						<br />
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-					</div>
-<<<<<<< HEAD
-				</div>
-				<div class="row">
-					<div class="col-6 col-12-medium">
-=======
 
-					<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
+					</div>
+
 					<div >
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
-<<<<<<< HEAD
-								<table>
-=======
+
 			<table>
 							<tr>	
 								<td>
@@ -272,9 +261,7 @@ nav {
 							</tr>
 							
 							<tr>
-				
-				
-		
+							
 				<table class="table table-hover">
 				<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 				<br/><br/>
@@ -308,7 +295,6 @@ nav {
 							<c:otherwise>
 								<c:forEach items="${listRows }" var="row" varStatus="loop">
 									<!-- 리스트반복시작 -->
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 									<tr>
 										<td>
 											<h2>공지사항</h2>
@@ -418,11 +404,7 @@ nav {
 											height="40px">더보기</a>
 										</td>
 									</tr>
-<<<<<<< HEAD
 
-								</table>
-							</section>
-=======
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
@@ -436,40 +418,14 @@ nav {
 										</ul>
 								 </td>
 								</div> 
-								
-								<table style="border:1px solid gray;"> 
-								<div>
-								
-								<td style="text-align:center;">
-									<h2 style="text-align: center;">이벤트</h2>
-									<br/><br/>
-									<h3 style="text-align: center;">이부분에 이벤트 미리보기 게시판 신설</h3>
-									<br/><br/><br/>
-									<a href="event.do"
-										class="button icon solid fa-arrow-circle-right">더보기</a>
-								</td>
-								</div>
-								</table>
+					
 							</tr>
 							
 			</table>
-								</section>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-
+		</section>
 						</div>
 					</div>
 				</div>
-<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
-<!-- 					Content -->
-<!-- 					<div id="info"> -->
-<!-- 						<section class="last"> -->
-<!-- 							<h2>고객센터</h2> -->
-<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
-<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
-<!-- 						</section> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-
 			</div>
 		</div>
 		<div class="container">

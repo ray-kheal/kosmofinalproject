@@ -150,14 +150,13 @@ nav {
 
 		<br /> <br />
 		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">←</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">1</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">2</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">→</a></li>
+		<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
 		</ul>
 	</div>
 

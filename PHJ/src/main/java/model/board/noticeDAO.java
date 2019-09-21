@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -44,10 +45,7 @@ public class noticeDAO {
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 		System.out.println(board_type);
 		return template.queryForObject(query, Integer.class);
-
-
 	}
-	
 
 	public ArrayList<noticeDTO> list(Map<String, Object> map) {
 		
@@ -68,6 +66,7 @@ public class noticeDAO {
 		query += " order by idx desc";
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
+		
 	}
 	
 	  //답변형 게시판 글쓰기 처리 
