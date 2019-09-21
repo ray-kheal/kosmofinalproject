@@ -28,7 +28,7 @@ body {
 </style>
 <script>
 	$(function() {
-		$("#notice").attr("class", "current");
+		$("#service").attr("class", "current");
 	});
 </script>
 <script type = "text/javascript">
@@ -102,11 +102,12 @@ function checkValidate(f){
 					<!-- <div style="border: 1px solid #82b9e4 ; height:2px;"></div> -->
 					<tr >
 						<th bgcolor="#f2efef" style="text-align: center; border-top: 5px solid #82b9e4 ;">제목</th>
-						<td bgcolor="white" style="border-top: 5px solid #82b9e4 ;"><input type="text" class="form-control" name ="title" style="border:none;" /></td>
+						<td bgcolor="white" style="border-top: 5px solid #82b9e4 ;">
+						<input type="text" class="form-control" name ="title" style="border:none;" /></td>
 					</tr>
 					<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-						<td bgcolor="white"><input type="text" class="form-control" name ="name" style="border:none;" /></td>
+						<td bgcolor="white"><input type="text" class="form-control" name ="name" style="border:none;" value="<%=session.getAttribute("NAME") %>" /></td>
 					</tr>
 					
 				</table>

@@ -23,10 +23,10 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Goyang&display=swap"
 	rel="stylesheet">
-	
-	<%
 
-	%>
+<%
+	
+%>
 </head>
 <script>
 	function scroll_follow(id) {
@@ -35,8 +35,8 @@
 			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
 			var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
 			$(id).stop().animate({
-				top : stop + 'px' 
-			}, 0); 
+				top : stop + 'px'
+			}, 0);
 			//해당 오브젝트 위치값 재설정
 		});
 	}
@@ -93,21 +93,18 @@ nav {
 			</ul> --%>
 
 			<!-- 이미지로 스크롤 메뉴 변경함 -->
-			<a href="#">
-				<img src="images/scoll_welcome.png" alt="welcome" style="right: 30; top: 30;" />
-			</a> <br />
-			<a href="#features-wrapper">
-				<img src="images/scoll_product.png" alt="편의점 상품조회" />
-			</a><br /> 
-			<a href="#main-wrapper">
-				<img src="images/scoll_recipe.png" alt="편의점 레시피" />
-			</a><br /> 
-			<a href="#notify">
-				<img src="images/scoll_notice.png" alt="공지사항" />
-			</a><br /> 
-<!-- 			<a href="#info"> -->
-<!-- 				<img src="images/scoll_cs.png" alt="고객센터" /> -->
-<!-- 			</a><br /> -->
+			<a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
+				style="right: 30; top: 30;" />
+			</a> <br /> <a href="#features-wrapper"> <img
+				src="images/scoll_product.png" alt="편의점 상품조회" />
+			</a><br /> <a href="#main-wrapper"> <img
+				src="images/scoll_recipe.png" alt="편의점 레시피" />
+			</a><br /> <a href="#notify"> <img src="images/scoll_notice.png"
+				alt="공지사항" />
+			</a><br />
+			<!-- 			<a href="#info"> -->
+			<!-- 				<img src="images/scoll_cs.png" alt="고객센터" /> -->
+			<!-- 			</a><br /> -->
 
 			<%
 				if (session.getAttribute("EMAIL") == null) {
@@ -116,8 +113,11 @@ nav {
 			<%
 				} else {
 			%>
-			<a href="memberEdit.do">회원정보수정</a> <a href="logout.do"><img
-				src="images/scoll_logout.png" alt="로그아웃" /></a>
+			<a href="memberEdit.do"> <img src="images/scoll_modify.png"
+				alt="정보수정" />
+			</a> <a href="logout.do"> <img src="images/scoll_logout.png"
+				alt="로그아웃" />
+			</a>
 			<%
 				}
 			%>
@@ -188,162 +188,256 @@ nav {
 		<div id="main-wrapper">
 			<div class="container">
 				<div class="row gtr-200">
-					<!-- Sidebar -->
+
+					<!-- preview board  시작  -->
+
+
 					<div id="recipe">
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
-							<div class="grid">
-								<div class="row gtr-50"
-									style="position: relative; display: inline-block; *display: inline;">
-									<h3>요기에 레시피 게시판 미리보기</h3>
-									<br />
-									<table>
-										<tr>
-											<td style="width: 50%;">
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic04.jpg" alt="" style="display: block;" />레시피</a>
-												</div>
-											</td>
-											<td>
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic05.jpg" alt="" />레시피2</a>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic06.jpg" alt="" />레시피3</a>
-												</div>
-											</td>
-											<td>
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic07.jpg" alt="" />레시피4</a>
-												</div>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<a href="recipe.do" class="button icon fa-file-alt">More</a>
-						</section>
-						
-						<br />
-					</div>
+							<div class="row text-center text-lg-left">
 
-					<div class="col-7 col-16-medium imp-medium">
+								<c:choose>
+									<c:when test="${empty recipeRows }">
+										<div>
+											<span>결과가 없습니다.</span>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="${recipeRows }" var="row" varStatus="loop">
+											<c:choose>
+												<c:when
+													test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+
+													<div class="col-lg-3 col-md-4 col-6 effect ">
+														<figure class="recipePhoto">
+															<img class="img-fluid img-thumbnail effect"
+																src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+																alt="">
+															<figcaption>
+																<h3>${row.title }</h3>
+																<p>${row.content }</p>
+																<i class="ion-ios-arrow-right"></i>
+															</figcaption>
+															<a href="#" class="d-block mb-4 h-100"></a>
+														</figure>
+													</div>
+
+												</c:when>
+												<c:otherwise>
+
+													<div class="col-lg-3 col-md-4 col-6 ">
+														<figure class="recipePhoto">
+															<img class="img-fluid img-thumbnail effect"
+																src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+																alt="">
+															<figcaption>
+																<h3>${row.title }</h3>
+																<p>${row.content }</p>
+																<i class="ion-ios-arrow-right"></i>
+															</figcaption>
+															<a href="#" class="d-block mb-4 h-100"></a>
+														</figure>
+													</div>
+
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</section>
+						<a href="recipe.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+					</div>
+					<div>
+
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
-			<table>
-							<tr>	
-								<td>
-									<h2>공지사항</h2>
-									<ul class="main_board_list">
-							</tr>
-							
-							<tr>
-				<div class="form-group">
-					<select name="keyField" class="form-control" style="width: 100px;">
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
-					</select>
-				</div>
-				
-		
-				<table class="table table-hover" style="text-align: center;">
 
-					<colgroup>
-						<col width="80px" />
-						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="120px" />
-					</colgroup>
-					<div>
-					<thead>
-						<tr class="table-primary" style="color: white;">
-							<th style="text-align: center;">번호</th>
-							<th style="text-align: center;">제목</th>
-							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">조회수</th>
-							<th style="text-align: center;">등록날짜</th>
-						</tr>
-					</thead>
-					</div>
-					
-					<div>
-					<tbody>
-						<c:choose>
-							<c:when test="${empty listRows }">
-								<tr>
-									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${listRows }" var="row" varStatus="loop">
-									<!-- 리스트반복시작 -->
+								<table>
 									<tr>
-										<td class="text-center">${row.virtualNum }</td>
-										<td class="text-left"><a
-											href="./view.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
-										</td>
-										<td class="text-center">${row.content }</td>
-										<td class="text-center">${row.view_count }</td>
-										<td class="text-center">${row.postdate }</td>
-										<!-- <td class="text-center">--</td> -->
+										<td>
+											<h2>공지사항</h2>
+											<ul class="main_board_list">
 									</tr>
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-					</tbody>
-					</div>
-				</table>
-			</div>
-											
-											<br/><br/><br/>
-											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-										</ul>
-								 </td>
-								</div> 
-								
-								<table style="border:1px solid gray;"> 
-								<div>
-								
-								<td>
-									<h2 style="text-align: center;">이벤트</h2>
-									<br/><br/>
-									<h3 style="text-align: center;">이부분에 이벤트 미리보기 게시판 신설</h3>
-									<a href="event.do"
-										class="button icon solid fa-arrow-circle-right">더보기</a>
-								</td>
-								</div>
-								</table>`
-							</tr>
-							
-							</table>
-								</section>
 
+									<tr>
+
+										<table class="table table-hover">
+											<a href="notice.do"
+												class="button icon solid fa-arrow-circle-right">더보기</a>
+											<br />
+											<br />
+											<colgroup>
+												<col width="80px" />
+												<col width="*" />
+												<col width="120px" />
+												<col width="120px" />
+												<col width="120px" />
+											</colgroup>
+											<div>
+												<thead>
+													<tr class="table-primary" style="color: white;">
+														<th style="text-align: center;">번호</th>
+														<th style="text-align: center;">제목</th>
+														<th style="text-align: center;">작성자</th>
+														<th style="text-align: center;">조회수</th>
+														<th style="text-align: center;">등록날짜</th>
+													</tr>
+												</thead>
+											</div>
+
+											<div>
+												<tbody>
+													<c:choose>
+														<c:when test="${empty listRows }">
+															<tr>
+																<td colspan="6" class="text-center">등록된 게시물이 없습니다
+																	^^*</td>
+															</tr>
+														</c:when>
+														<c:otherwise>
+															<c:forEach items="${listRows }" var="row"
+																varStatus="loop">
+																<!-- 리스트반복시작 -->
+																<tr>
+																	<td>
+																		<h2>공지사항</h2>
+																		<ul class="main_board_list">
+																			<div>
+																				<table class="table table-hover"
+																					style="text-align: center;">
+
+																					<colgroup>
+																						<col width="80px" />
+																						<col width="*" />
+																						<col width="120px" />
+																						<col width="120px" />
+																						<col width="120px" />
+																					</colgroup>
+																					<thead>
+																						<tr class="table-primary" style="color: white;">
+																							<th style="text-align: center;">번호</th>
+																							<th style="text-align: center;">제목</th>
+																							<th style="text-align: center;">작성자</th>
+																							<th style="text-align: center;">조회수</th>
+																							<th style="text-align: center;">등록날짜</th>
+																						</tr>
+																					</thead>
+																					<tbody>
+																						<c:choose>
+																							<c:when test="${empty listRows }">
+																								<tr>
+																									<td colspan="6" class="text-center">등록된
+																										게시물이 없습니다 ^^*</td>
+																								</tr>
+																							</c:when>
+																							<c:otherwise>
+																								<c:forEach items="${listRows }" var="row"
+																									varStatus="loop">
+																									<!-- 리스트반복시작 -->
+																									<tr>
+																										<td class="text-center">${row.virtualNum }</td>
+																										<td class="text-left"><a
+																											href="./view.do?idx=${row.idx}				&nowPage=${nowPage}">${row.title}</a>
+																										</td>
+																										<td class="text-center">${row.content }</td>
+																										<td class="text-center">${row.view_count }</td>
+																										<td class="text-center">${row.postdate }</td>
+																										<!-- <td class="text-center">--</td> -->
+																									</tr>
+																								</c:forEach>
+																							</c:otherwise>
+																						</c:choose>
+																					</tbody>
+																				</table>
+																			</div>
+																			<a href="notice.do"
+																				class="button icon solid fa-arrow-circle-right">더보기</a>
+																		</ul>
+																	</td>
+																	<td>
+																		<h2>이벤트</h2>
+																		<div>
+																			<table class="table table-hover"
+																				style="text-align: center;">
+
+																				<colgroup>
+																					<col width="80px" />
+																					<col width="*" />
+																					<col width="120px" />
+																					<col width="120px" />
+																					<col width="120px" />
+																				</colgroup>
+																				<thead>
+																					<tr class="table-primary" style="color: white;">
+																						<th style="text-align: center;">번호</th>
+																						<th style="text-align: center;">제목</th>
+																						<th style="text-align: center;">작성자</th>
+																						<th style="text-align: center;">조회수</th>
+																						<th style="text-align: center;">등록날짜</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<c:choose>
+																						<c:when test="${empty eventRows }">
+																							<tr>
+																								<td colspan="6" class="text-center">등록된
+																									게시물이 없습니다 ^^*</td>
+																							</tr>
+																						</c:when>
+																						<c:otherwise>
+																							<c:forEach items="${eventRows }" var="row"
+																								varStatus="loop">
+																								<!-- 리스트반복시작 -->
+																								<tr>
+																									<td class="text-center">${row.virtualNum }</td>
+																									<td class="text-left"><a
+																										href="./Eview.do?idx=${row.idx}	&nowPage=${nowPage}">${row.title}</a>
+																									</td>
+																									<td class="text-center">${row.content }</td>
+																									<td class="text-center">${row.view_count }</td>
+																									<td class="text-center">${row.postdate }</td>
+																									<!-- <td class="text-center">--</td> -->
+																								</tr>
+																							</c:forEach>
+																						</c:otherwise>
+																					</c:choose>
+																				</tbody>
+																			</table>
+																		</div> <a href="event.do"
+																		class="button icon solid fa-arrow-circle-right"
+																		width="40px" height="40px">더보기</a>
+																	</td>
+																</tr>
+
+															</c:forEach>
+														</c:otherwise>
+													</c:choose>
+												</tbody>
+											</div>
+										</table>
+										</div>
+
+										<br />
+										<br />
+										<br />
+										<br />
+										<br />
+										<br />
+
+										</ul>
+										</td>
+										</div>
+
+									</tr>
+
+								</table>
+							</section>
 						</div>
 					</div>
 				</div>
-<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
-<!-- 					Content -->
-<!-- 					<div id="info"> -->
-<!-- 						<section class="last"> -->
-<!-- 							<h2>고객센터</h2> -->
-<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
-<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
-<!-- 						</section> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-
 			</div>
 		</div>
 		<div class="container">

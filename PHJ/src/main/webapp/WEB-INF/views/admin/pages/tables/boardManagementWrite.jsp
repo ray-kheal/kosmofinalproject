@@ -64,12 +64,13 @@ function checkValidate(f){
             <div class="page-header">
             
               <div class="container">
-                <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
+                <%-- <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
               		if(board_type.equals("1")) { %>
              			<h3 class="page-title" style="font-weight: bold;">공지사항</h3> 
 			 	<%}else if (board_type.equals("2")){ %>
              			<h3 class="page-title" style="font-weight: bold;">이벤트</h3> 
-			 	<%} %>
+			 	<%} %> --%>
+			 	<h3 class="page-title" style="font-weight: bold;">공지사항</h3> 
            	  <br /><br />
 		       <!--        <nav aria-label="breadcrumb">
 		                <ol class="breadcrumb">
@@ -83,10 +84,10 @@ function checkValidate(f){
 				<div class="card">
 	                <div class="card-body">
 	                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-		 <form action="sunjeongboardManagementWriteAction.do" name="writeFrm" method="post" 
+		 <form action="boardManagementWriteAction.do" name="writeFrm" method="post" 
 							onsubmit="return checkValidate(this);">
 			             
-							<input type="hid-den" name="board_type" value=<%=board_type %> />
+							<input type="hid-den" name="board_type" value="1" /> 
 		                      <div class="form-group">
 		                        <label for="exampleInputName1">이름</label>
 		                        <input type="text" class="form-control" name="name" value="관리자">

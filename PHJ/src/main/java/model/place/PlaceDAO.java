@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 

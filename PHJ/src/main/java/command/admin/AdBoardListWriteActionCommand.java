@@ -22,7 +22,7 @@ public class AdBoardListWriteActionCommand implements PHJCommandImpl{
 		//폼값받기
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
-		String board_type = req.getParameter("board_type");
+		//String board_type = req.getParameter("board_type");
 			
 		//커맨드객체 받아서 확인하기
 		

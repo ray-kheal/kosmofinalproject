@@ -155,12 +155,56 @@
 				$('font[name=checkPass]').css('color','green');
 			}
 		});
+	
 		
+		$("#emailCheck").click(function(){
+// 			var idObj = document.registFrm.id;
+// 			//아이디 입력후 중복확인
+// 			if(idObj.value.length==0) {	
+// 				alert('아이디를 기입하신다음 중복확인을 누르세요.') ;
+// 				idObj.focus();
+// 				return;
+// 			}
+// 			//아이디가 8~12자 사이가 아니면 false를 반환한다.
+// 			if(!(idObj.value.length>=4 && idObj.value.length<=12))
+// 			{	
+// 				alert('아이디는 4~12자만 설정가능합니다.') ;
+// 				return;
+// 			}
+
+// 			//아이디의 첫문자는 숫자로 시작할수 없다
+// 			//isNumber는 따로 정의함.
+// 			if(isNumber(idObj.value.substring(0,1))==true){		
+// 				alert('아이디의 첫문자는 숫자로 시작할 수 없습니다..') ;
+// 				return;
+// 			}	
+
+			
+			$.ajax({
+				url : "emailOverLap.do", 
+				dataType : "json",
+				type : "get",
+				contentType : 'text/html;charset:utf-8',
+				data : {
+					email : $("#email1").val()+'@'+$("#email2").val()
+				},
+				success : function(d){
+					if(d.isMember == 1){
+						$("#overlap_result").html("<span style='color:red'>사용 불가능한 아이디입니다.</span>");	
+					} else{
+						$("#overlap_result").html("<span style='color:blue'>사용 가능한 아이디입니다.</span>");
+						$("#email1").attr("readOnly",true);
+						$("#email2").attr("readOnly",true);
+						
+					}
+				},
+				error : function(errData){
+					alert("실패 : "+errData.status+ " : " + errData.statusText);
+				} 
+				
+			});
+		});
 	});
-	
-	
-	
-	
 </script>
 
 
@@ -215,14 +259,14 @@ label {
 							<td colspan='4'></td>    
 						</tr> --> 
 						<tr valign="middle">
-							<td bgcolor="#f7f4f4" lowspan='2'  style="text-align: center; ">이메일</td>
-							<td  bgcolor="white" lowspan='2'>
+							<td bgcolor="#f7f4f4"  style="text-align: center; ">이메일</td>
+							<td  bgcolor="white" >
 								<div class="form-inline" >
 									<input type="text" name="email1" id="email1" value=""
 									class="form-control" style="width:30%"  placeholder="이메일(아이디)"/>@
 								
 									<input type="text" id="email2" name="email2" value="" 
-									 class="form-control input-lg" style="width:30%"  />							
+									 class="form-control input-lg" style="width:25%"  />							
 									<select name="email_choice" onChange="choiceInput(this.form, this);"
 										class="custom-select" style="width:15%" >  
 										<option selected value="">선택</option>
@@ -232,10 +276,10 @@ label {
 										<option value="yahoo.co.kr">yahoo.co.kr</option>
 										<option value="direct_input">직접 입력</option>
 									</select>&nbsp; 
-									<type="button" class="btn btn-secondary"
-									style="width:10; vartical-align:middle"/>중복체크
+									<button type="button" class="btn btn-secondary input-sm"
+										style="width:15%; vartical-align:middle" id="emailCheck">중복체크</button>
 								</div>
-								<font name="checkEmail" size="2" ></font>
+								<span id="overlap_result"></span>
 								<div class="custom-control custom-radio custom-control-inline">
 									<input type="radio" class="custom-control-input" id="emailY" name="email_alert" value="Y"/>
 									<label class="custom-control-label" for="emailY">메일 수신동의</label>

@@ -1,3 +1,4 @@
+<%@page import="model.board.serviceDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -124,13 +125,18 @@ nav {
 									<!-- 리스트반복시작 -->
 									<tr>
 										<td class="text-center">${row.virtualNum }</td>
-										<td class="text-left"><a
-											href="./qna_view.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
+										<td class="text-left">
+										
+										
+												<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}">
+													${row.title}
+												</a>
+										
 										</td>
-										<td class="text-center">${row.content }</td>
+										<td class="text-center">${row.name}</td>
 										<td class="text-center">${row.view_count }</td>
 										<td class="text-center">${row.postdate }</td>
+										
 										<!-- <td class="text-center">--</td> -->
 									</tr>
 								</c:forEach>
@@ -141,21 +147,23 @@ nav {
 			</div>
 			<br /><br />
 		 <div class="row text-right" style="float: right;">
+		 
+		<%if(session.getAttribute("EMAIL") != null) { %> 
 		 <form action="write.do" method="post">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-				</form>
+		</form>
+		<%} %>
+		
 			</div>
-
 			<br /> <br />
-			<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">←</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">1</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">2</a></li>
-				<li class="page-item"><a class="page-link"
-					href="javascript:void(0);">→</a></li>
+				<ul class="pagination justify-content-center">
+				<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
 			</ul>
 		</div>
 	</div>

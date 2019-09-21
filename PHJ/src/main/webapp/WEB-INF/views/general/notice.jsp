@@ -71,9 +71,9 @@ nav {
 		<div class="container">
 			<br /> <br />
 			<!-- 검색기능 -->
-			<form class="form-inline">
+			<form class="form-inline" method= "post">
 				<div class="form-group">
-					<select name="keyField" class="form-control" style="width: 100px;">
+					<select name="searchColumn" class="form-control" style="width: 100px;">
 						<option value="">제목</option>
 						<option value="">작성자</option>
 						<option value="">내용</option>
@@ -81,7 +81,7 @@ nav {
 				</div>
 				<div class="input-group">
 
-					<input type="text" name="keyString" class="form-control"
+					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
 
 					<div class="input-group-btn">
@@ -150,14 +150,13 @@ nav {
 
 		<br /> <br />
 		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">←</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">1</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">2</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">→</a></li>
+		<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
 		</ul>
 	</div>
 

@@ -14,7 +14,7 @@ import com.kosmo.phj.boardController;
 import model.board.noticeDAO;
 import model.board.noticeDTO;
 
-public class homeCommand implements PHJCommandImpl {
+public class home_eventCommand implements PHJCommandImpl {
 
 	@Override
 	public void execute(Model model) {
@@ -43,7 +43,7 @@ public class homeCommand implements PHJCommandImpl {
 		}
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("nowPage", nowPage);
-		model.addAttribute("listRows", listRows);
+		model.addAttribute("eventRows", listRows);
 
 	}
 }

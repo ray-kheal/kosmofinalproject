@@ -15,6 +15,9 @@
 nav {
    font-family: 'Goyang', cursive;
 }
+#dep {
+	z-index : 0;
+}
 </style>
 
 <!-- Header -->
@@ -32,10 +35,8 @@ nav {
 		<nav id="nav" style="font-size: 20px;">
 			<ul>
 				<li id="stock"><a href="findproduct.do">편의점 상품 조회</a>
-				<li id="recipe" class=""><a href="recipe.do" id="link2">레시피</a></li>
-
-
 				<li id="place"><a href="placemap.do">전국 편의점 검색</a></li>
+				<li id="recipe" class=""><a href="recipe.do" id="link2">레시피</a></li>
 				<li id="notice"><a href="#">공지사항</a>
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
@@ -43,7 +44,7 @@ nav {
 					</ul></li>
 					
 				<li id="service"><a href="#">고객센터</a>
-					<ul>
+					<ul id = "dep">
 						<li><a href="qna.do">Q&A</a></li>
 						<li><a href="mail.do">1:1 문의</a></li>
 					</ul></li>
