@@ -27,15 +27,15 @@ if (mst == 'null') {
 if (mst == 'normal') {
 	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
 	location.href = "../admin/pages/samples/login.do";
-} 
+}  
 
 </script>
 <body>
-	<div class="container-scroller">
+	<div class="container-scroller">  
       <!-- partial:partials/_navbar.do -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.do"><img src="../resources/images/logo.png" alt="logo"  weight="80%;"/></a>
+          <a class="navbar-brand brand-logo" href="index.do"><img src="../resources/images/logo.png" alt="logo"  style=" width:145px; height:40px;"/></a>
        <!--    <a class="navbar-brand brand-logo-mini" href="index.do"><img src="assets/images/logo-mini.svg" alt="logo" /></a> -->
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">

@@ -12634,7 +12634,7 @@ dl {
 .auth .brand-logo {
   margin-bottom: 2rem; }
   .auth .brand-logo img {
-    width: 150px; }
+    width: 100%; }
 
 .auth form .form-group {
   margin-bottom: 1.5rem; }
@@ -12695,7 +12695,7 @@ dl {
         .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini img {
           width: calc(70px - 50px);
           max-width: 100%;
-          height: 28px;
+          height: 100%;
           margin: auto; }
   .navbar .navbar-menu-wrapper {
     transition: width 0.25s ease;

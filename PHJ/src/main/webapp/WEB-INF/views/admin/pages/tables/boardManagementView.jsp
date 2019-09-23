@@ -28,14 +28,16 @@ if (mst == 'normal') {
 	location.href = "../admin/pages/samples/login.do";
 } 
 
+
 //삭제여부 확인
 function isDelete(){
- 	result = confirm('삭제하시겠습니까?');
-    if(result){
-        location.href = "boardDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
-    }else{
-    	return false;
-    }
+	result = confirm('삭제하시겠습니까?');
+  if(result){
+      location.href = "boardDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=1";
+      //location.href = "boardDelete.do";
+  }else{
+  	return false;
+  }
 }
 </script>
   <body>
@@ -87,6 +89,7 @@ function isDelete(){
 						<col width="50px" />
 					</colgroup>
 					<input type="hidden" name="idx" value="${viewRow.idx }" />
+					<input type="hidden" name="nowPage" value="${nowPage }" />
 					<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">제목</th>
 						<td>${viewRow.title}</td>
