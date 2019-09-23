@@ -89,7 +89,7 @@
 			var access_token = googleUser.getAuthResponse().access_token;
 			console.log(access_token);
 			
-			location.href="googlelogin.do?email="+googleUser.getBasicProfile().getEmail()+"&pass="+access_token+"&name="+googleUser.getBasicProfile().getName();
+			location.href="googlelogin.do?email="+googleUser.getBasicProfile().getEmail()+"&google_id="+googleUser.getBasicProfile().getId()+"&name="+googleUser.getBasicProfile().getName();
 		}, function(error) {
 			  alert(JSON.stringify(error, undefined, 2)); //로그인 에러
 			});
