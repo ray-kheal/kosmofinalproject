@@ -59,6 +59,13 @@ public class MemberDAO {
 		
 	}
 	
+	public int isGoogleMember(String google_id) {
+		String sql = "SELECT COUNT(*) FROM phj_member WHERE google_id = '"+google_id+"' ";
+		System.out.println("sql : " + sql);
+		
+		return template.queryForObject(sql, Integer.class);
+		
+	}
 	
 	//회원등록
 	public void regist(final MemberDTO dto) {
