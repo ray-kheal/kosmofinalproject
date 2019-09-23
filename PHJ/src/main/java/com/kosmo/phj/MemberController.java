@@ -1,6 +1,7 @@
 package com.kosmo.phj;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -93,13 +94,35 @@ public class MemberController {
 	
 	//카카오로그인 매핑
 	@RequestMapping(value="/kakaologin.do",method=RequestMethod.GET)
-	public String kakaologin(HttpServletRequest req, HttpSession session) {
-		System.out.println("카카오로그인 이메일 : "+ req.getParameter("email"));
+	public String kakaologin(Model model, HttpServletRequest req, HttpSession session, HttpServletResponse resp) throws IOException {
+		String page = null;
+		System.out.println("카카오로그인 아이디 : "+ req.getParameter("kakao_id"));
+		String kakao_id = req.getParameter("kakao_id");
+		String email = req.getParameter("email");
+		String name = req.getParameter("name");
+		MemberDAO dao = new MemberDAO();
+		int isKakaoMember = dao.isKakaoMember(kakao_id);
 		
-		session.setAttribute("EMAIL", req.getParameter("email"));  
-		session.setAttribute("PASS", req.getParameter("pass"));
-		session.setAttribute("NAME", req.getParameter("name"));
-		return "redirect:../phj";
+		if(isKakaoMember == 0) {
+			MemberDTO dto = new MemberDTO();
+			dto.setEmail(email);
+			dto.setKakao_id(kakao_id);
+			dto.setName(name);
+			
+			model.addAttribute("dto",dto);
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('카카오 최초 로그인 시도 시 회원정보 추가 기입을 해주셔야 합니다..');</script>");
+			page = "member/join02";
+			
+		} else if(isKakaoMember ==1 ) {
+			session.setAttribute("EMAIL", req.getParameter("email"));  
+			session.setAttribute("KAKAO_ID", req.getParameter("kakao_id"));
+			session.setAttribute("NAME", req.getParameter("name"));
+			page = "redirect:../phj";
+		}
+		
+		return page;
 	}
 	
 	//구글로그인 매핑

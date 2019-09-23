@@ -50,6 +50,14 @@ public class MemberDAO {
 		return template.queryForObject(sql, Integer.class);
 	}
 	
+	public int isKakaoMember(String kakao_id) {
+		String sql = "SELECT COUNT(*) FROM phj_member WHERE kakao_id = '"+kakao_id+"' ";
+		System.out.println("sql : " + sql);
+		
+		return template.queryForObject(sql, Integer.class);
+		
+	}
+	
 	
 	//회원등록
 	public void regist(final MemberDTO dto) {
