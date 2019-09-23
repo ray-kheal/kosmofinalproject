@@ -155,7 +155,8 @@ nav {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="right-sidebar.do" class="image featured"><img
-								src="images/store_shadow.png" alt="" /></a>
+								src="images/store_shadow.png" alt="" 
+									style="border-radius: 5%;" /></a>
 							<div class="inner"
 								style="text-align: center; font-family: Goyang;">
 								<header>
@@ -170,7 +171,8 @@ nav {
 						<!-- Box -->
 						<section class="box feature">
 							<a href="placemap.do" class="image featured"><img
-								src="images/product_shadow.png" alt="" /></a>
+								src="images/product_shadow.png" alt=""
+									style="border-radius: 5%;" /></a>
 							<div class="inner" style="text-align: center;">
 								<header>
 									<h2 style="font-family: Goyang;">상품 찾기</h2>
