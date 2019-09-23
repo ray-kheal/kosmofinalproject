@@ -32,6 +32,7 @@ body {
 	//삭제여부 확인
 	function isDelete(){
 	 	result = confirm('삭제하시겠습니까?');
+	 	
 	    if(result){
 	        location.href = "delete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
 	    }else{
