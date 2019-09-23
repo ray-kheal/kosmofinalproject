@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.PHJCommandImpl;
+import command.admin.AdBoardDeleteActionCommand;
 import command.admin.AdBoardListCommand;
 import command.admin.AdBoardListEditCommand;
 import command.admin.AdBoardListViewCommand;
@@ -248,8 +249,21 @@ public class AdminController {
 		
 			return "redirect:./boardManagement.do";
 		
-		}
+	}
 		
+
+	//공지사항 삭제하기
+	@RequestMapping("boardDelete.do")
+	public String delete(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new AdBoardDeleteActionCommand();
+		command.execute(model);
+
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		String nowPage = req.getParameter("nowPage");
+		return "redirect:./boardManagement.do?nowPage="+nowPage;
+
+	}
 		/*String board_type = req.getParameter("board_type");
 		System.out.println("board_type:"+board_type);
 		

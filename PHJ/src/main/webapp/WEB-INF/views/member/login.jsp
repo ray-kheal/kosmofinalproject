@@ -113,7 +113,7 @@
 					console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근. res.properties.nickname으로도 접근 가능 )
 					console.log(authObj.access_token);
 					
-					location.href="kakaologin.do?email="+res.kaccount_email+"&pass="+authObj.access_token+"&name="+res.properties['nickname']; 
+					location.href="kakaologin.do?email="+res.kaccount_email+"&kakao_id="+res.id+"&name="+res.properties['nickname']; 
 				}
 			})
         },

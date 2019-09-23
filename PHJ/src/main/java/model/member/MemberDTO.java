@@ -16,6 +16,8 @@ public class MemberDTO {
     private String place_bookmark;
     private String products_bookmark;
     private int virtualNum; // 가상번호
+    private String kakao_id;
+    private String google_id;
 	
     //기본생성자
     public MemberDTO() {
@@ -23,7 +25,7 @@ public class MemberDTO {
 	}
     //인자생성자
 	public MemberDTO(String membertype, String email, String email_alert, String name, String pass, String mobile, String mobile_alert,
-			Date regidate, String place_bookmark, String products_bookmark,int virtualNum) {
+			Date regidate, String place_bookmark, String products_bookmark,int virtualNum, String kakao_id, String google_id) {
 		super();
 		this.membertype = membertype;
 		this.email = email;
@@ -36,6 +38,8 @@ public class MemberDTO {
 		this.place_bookmark = place_bookmark;
 		this.products_bookmark = products_bookmark;
 		this.virtualNum = virtualNum;
+		this.kakao_id = kakao_id;
+		this.google_id = google_id;
 	}
 	
 	//getter, setter
@@ -105,6 +109,20 @@ public class MemberDTO {
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
 	}
+	public String getKakao_id() {
+		return kakao_id;
+	}
+	public void setKakao_id(String kakao_id) {
+		this.kakao_id = kakao_id;
+	}
+	public String getGoogle_id() {
+		return google_id;
+	}
+	public void setGoogle_id(String google_id) {
+		this.google_id = google_id;
+	}
+	
+	
 	
     
 
