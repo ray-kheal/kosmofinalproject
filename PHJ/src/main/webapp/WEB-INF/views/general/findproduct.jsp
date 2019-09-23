@@ -134,72 +134,33 @@ to {
 		<!-- 검색기능 끝 -->
 
 		<br />
-		
-		
 				<button type="submit" onclick="" class="btn btn-info">EVENT</button>
 				&nbsp;
 				<button type="submit" onclick="" class="btn btn-danger">품절임박</button>
 				&nbsp;
 				<button type="submit" onclick="" class="btn btn-warning" >BEST</button>
 				&nbsp;
-				
 		<br /> <br />
 		<div>
 			<table class="table table-hover" style="text-align: center;">
 				<colgroup>
-					<col width="80px" />
-					<col width="100px" />
+					<col width="10%" />
 					<col width="*" />
-					<col width="120px" />
-					<col width="105px" />
-					<col width="60px" />
+					<col width="25%" />
+					<col width="10%" />
 				</colgroup>
 				<thead>
 					<tr class="table-primary" style="color: white;">
 						<th>번호</th>
-						<th></th>
 						<th>상품</th>
-						<th>가격</th>
-						<th>편의점</th>
-						<th>조회수</th> 
+						<th>분류</th>
+						<th>가격</th> 
 					</tr>
 				</thead>
 				<tbody>
-
-					<!-- <tr>
-						<td style="padding:50px;">1</td>
-						<td><img style="width: 100px;" alt="핫독"
-							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
-						</td>
-						<td style="text-align: left; padding:50px;">제목1</td>
-						<td style="padding:50px;">john@example.com</td>
-						<td style="padding:50px;">지예쓰</td>
-						<td style="padding:50px;">0</td>
-					</tr>
-					<tr>
-						<td style="padding:50px;">2</td>
-						<td><img style="width: 100px;" alt="핫독"
-							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
-						</td>
-						<td style="text-align: left; padding:50px;">제목2</td>
-						<td style="padding:50px;">mary@example.com</td>
-						<td style="padding:50px;">응잘가</td>
-						<td style="padding:50px;">0</td>
-					</tr>
-					<tr>
-						<td style="padding:50px;">3</td>
-						<td><img style="width: 100px;" alt="핫독"
-							src="http://cdn2.bgfretail.com/bgfbrand/files/product/227743CDDAC242C59668F4E1087B7842.jpg">
-						</td>
-
-						<td style="text-align: left; padding:50px;">제목3</td>
-						<td style="padding:50px;">july@example.com</td>
-						<td style="padding:50px;">7777777</td>
-						<td style="padding:50px;">0</td>
-					</tr> -->
-					<!-- 상품 리스트 출력  -->
+				<!-- 상품 리스트 출력  -->
                         <c:choose>
-							<c:when test="${empty viewRow }">
+							<c:when test="${empty listRows }">
 								<tr>
 									<td colspan="5" class="text-center">
 										등록된 상품이 없습니다.
@@ -207,50 +168,37 @@ to {
 								</tr>
 							</c:when>
 							<c:otherwise>
-								<c:forEach items="${viewRow }" var="row" 
-									varStatus="loop">
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
 									<!-- 리스트반복시작 -->
 									<tr>
-										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-center">${row.product_code }</td>
+										 <td class="text-left">${row.virtualNum }</td>
 										<td class="text-left">
 											<a href="./view.do?idx=${row.product_code}
 												&nowPage=${nowPage}">${row.product_name}</a>
 										</td >
+										<td class="text-left">${row.product_value_code }
+										</td>
 										<td class="text-left">${row.product_price}
 										</td>
-										<td class="text-center">${row.product_value_code }</td>
 									</tr>
 									<!-- 리스트반복끝 -->
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-					
-					
 				</tbody>
 			</table>
 		</div>
 
-		<div class="row text-right" style="float: right;">
-			
-				
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-			
-			
-		</div>
-
-
 		<br /> <br />
-		<ul class="pagination justify-content-center">
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">←</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">1</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">2</a></li>
-			<li class="page-item"><a class="page-link"
-				href="javascript:void(0);">→</a></li>
-		</ul>
+			<ul class="pagination justify-content-center">
+				<table width="100%">
+					<tr>
+						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+							${pagingImg }
+						</td>
+					</tr>
+				</table>
+			</ul>
 		
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>

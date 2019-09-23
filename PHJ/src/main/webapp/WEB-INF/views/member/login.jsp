@@ -74,12 +74,13 @@
 				client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
 				cookiepolicy: 'single_host_origin',
 			});
-		attachSignin(document.getElementById('loginButton'));
+			attachSignin(document.getElementById('loginButton')); 
 		});
 	};
 	
 	//사용자 정보 얻기
 	function attachSignin(element) {
+		console.log(element.id);
 		auth2.attachClickHandler(element, {}, function(googleUser) {
 			alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
 			console.log(googleUser.getBasicProfile().getId());
@@ -89,9 +90,9 @@
 			var access_token = googleUser.getAuthResponse().access_token;
 			console.log(access_token);
 			
-			location.href="googlelogin.do?email="+googleUser.getBasicProfile().getEmail()+"&pass="+access_token+"&name="+googleUser.getBasicProfile().getName();
+			location.href="googlelogin.do?email="+googleUser.getBasicProfile().getEmail()+"&google_id="+googleUser.getBasicProfile().getId()+"&name="+googleUser.getBasicProfile().getName();
 		}, function(error) {
-			  alert(JSON.stringify(error, undefined, 2)); //로그인 에러
+			  //alert(JSON.stringify(error, undefined, 2)); //로그인 에러
 			});
 		}
 </script>
@@ -165,10 +166,9 @@
 										<button type="button" class="btn btn-kakao btn-warning"></button> 
 									</a>
 								</div>
-								<div class="google" style="margin-top:10px;">
-									<a href="javascript:loginWithGoogle();"> 
-										<button type="button" id="loginButton" class="btn btn-google btn-light"></button>
-									</a>
+								<div class="google" style="margin-top:10px;" id="loginButton"> 
+									<script type="text/javascript">loginWithGoogle();</script>
+									<button type="button" class="btn btn-google btn-light"></button>
 								</div>
 							</div>
 						</div>

@@ -398,12 +398,12 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       <div id="banner-wrapper">
          <div  class=" container  ">
          
-         <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/> 
+        <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  -->
          
          
-             <!-- <img class="effect"
+             <img class="effect"
                 src="images/mainpicture.jpg"
-                alt="메인이미지" style="width: 100%;"> -->
+                alt="메인이미지" style="width: 100%;">
              
           
          

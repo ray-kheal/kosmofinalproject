@@ -87,7 +87,7 @@ body {
 				</tr>
 				<tr>
 					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-					<td bgcolor="white">
+					<td bgcolor="white">${viewRow.name}
 					
 					</td>
 				</tr>
