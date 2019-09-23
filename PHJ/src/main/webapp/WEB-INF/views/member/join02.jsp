@@ -118,6 +118,13 @@
 			}
 		}
 		
+		//아이디 중복확인을 마쳐야 회원가입을 할수있다.
+		if (f.chkEmail.value == "0") {
+			alert("아이디 중복확인을 해주세요.")
+			return false;
+		}
+		
+		
 		f.action ="./regist.do";
 		
 
@@ -193,6 +200,7 @@
 						$("#overlap_result").html("<span style='color:red'>사용 불가능한 아이디입니다.</span>");	
 					} else{
 						$("#overlap_result").html("<span style='color:blue'>사용 가능한 아이디입니다.</span>");
+						$("#chkEmail").val("1");
 						$("#email1").attr("readOnly",true);
 						$("#email2").attr("readOnly",true);
 						
@@ -206,6 +214,17 @@
 		});
 	});
 </script>
+
+<%
+//이메일쪼개기
+String email = request.getParameter("email") != null ? request.getParameter("email") : " @ ";
+String[] emailArr = email.split("@");
+if (emailArr[0].equals(" ")){
+	emailArr[0] = "";
+	emailArr[1] = "";
+}
+
+%>
 
 
 <style type="text/css">
@@ -242,6 +261,9 @@ label {
 		<!-- <div class="container" id="wrap"  style="width:100%; height:1000px;"> -->
 		 
 		<form method="post" onsubmit="return sendIt();" class="" name="f">
+		<input type="hid-den" name="kakao_id" value="${dto.kakao_id }"/>
+		<input type="hid-den" name="google_id" value="${dto.google_id }"/>
+		<input type="hid-den" id="chkEmail" value="0"/>
 				<table class="table table-borderless font-goyang">
 					
 						<colgroup>
@@ -262,10 +284,10 @@ label {
 							<td bgcolor="#f7f4f4"  style="text-align: center; ">이메일</td>
 							<td  bgcolor="white" >
 								<div class="form-inline" >
-									<input type="text" name="email1" id="email1" value=""
-									class="form-control" style="width:30%"  placeholder="이메일(아이디)"/>@
+									<input type="text" name="email1" id="email1" value="<%=emailArr[0] %>"
+									class="form-control" style="width:30%"  placeholder="이메일(아이디)" />@
 								
-									<input type="text" id="email2" name="email2" value="" 
+									<input type="text" id="email2" name="email2" value="<%=emailArr[1] %>" 
 									 class="form-control input-lg" style="width:25%"  />							
 									<select name="email_choice" onChange="choiceInput(this.form, this);"
 										class="custom-select" style="width:15%" >  
