@@ -277,12 +277,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					<div class="row text-right">
 						<button type="submit" class="btn btn-warning" style="margin-left:auto;">글쓰기</button>
 					</div>
-			<div class="row text-center text-lg-left">	
+			
 				<c:choose>
 					<c:when test="${empty listRows }">
-						<div><span>결과가 없습니다.</span></div>
+						<br /><div class="row text-center" style="margin-left:auto; margin-right:auto;"><p>등록된 게시물이 없습니다.</p></div>
 					</c:when>
 					<c:otherwise>
+					<div class="row text-center text-lg-left">	
 						<c:forEach items="${listRows }" var="row" varStatus="loop">
 						<c:choose>
 							<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
@@ -321,9 +322,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
+					</div>
 				</c:otherwise>
 			</c:choose>
-		 </div>
+		 
 
 		</div>
 		<!-- /.container -->
