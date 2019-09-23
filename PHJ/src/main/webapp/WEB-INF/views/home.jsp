@@ -1,383 +1,4 @@
 
-<<<<<<< HEAD
-<%
-	
-%>
-</head>
-<script>
-	function scroll_follow(id) {
-		$(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
-		{
-			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-			var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
-			$(id).stop().animate({
-				top : stop + 'px'
-			}, 0);
-			//해당 오브젝트 위치값 재설정
-		});
-	}
-	scroll_follow("#scroll");
-</script>
-<style type="text/css">
-body {
-	font-family: 'Mali', cursive;
-	font-family: '나눔고딕코딩', cursive
-}
-
-#scroll {
-	z-index: 10;
-}
-</style>
-
-<style type="text/css">
-@font-face {
-	font-family: 'Goyang';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-nav {
-	font-family: 'Goyang', cursive;
-}
-</style>
-
-<body class="is-preload homepage">
-	<div id="page-wrapper">
-
-		<!-- 메인페이지 우측 스크롤메뉴 -->
-		<!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
-		<div id="scroll"
-			style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align: center; width: 120px;">
-
-
-
-
-			<%-- <ul>
-				<li><a href="#header">Welcome</a></li>
-				<li><a href="#features-wrapper">편의점 상품조회</a></li>
-				<li><a href="#main-wrapper">편의점 레시피</a></li>
-				<li><a href="#notify">공지사항</a></li>
-				<li><a href="#info">고객센터</a></li>
-				<%if(session.getAttribute("EMAIL")==null) { %>
-					<li><a href="login.do">로그인</a></li>
-				<%}else{ %>
-					<li><a href="logout.do">로그아웃</a></li>
-				<%} %>
-			</ul> --%>
-
-			<!-- 이미지로 스크롤 메뉴 변경함 -->
-			<a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
-				style="right: 30; top: 30;" />
-			</a> <br /> <a href="#features-wrapper"> <img
-				src="images/scoll_product.png" alt="편의점 상품조회" />
-			</a><br /> <a href="#main-wrapper"> <img
-				src="images/scoll_recipe.png" alt="편의점 레시피" />
-			</a><br /> <a href="#notify"> <img src="images/scoll_notice.png"
-				alt="공지사항" />
-			</a><br />
-			<!-- 			<a href="#info"> -->
-			<!-- 				<img src="images/scoll_cs.png" alt="고객센터" /> -->
-			<!-- 			</a><br /> -->
-
-			<%
-				if (session.getAttribute("EMAIL") == null) {
-			%>
-			<a href="login.do"><img src="images/scoll_login.png" alt="로그인" /></a>
-			<%
-				} else {
-			%>
-			<a href="memberEdit.do"> <img src="images/scoll_modify.png"
-				alt="정보수정" />
-			</a> <a href="logout.do"> <img src="images/scoll_logout.png"
-				alt="로그아웃" />
-			</a>
-			<%
-				}
-			%>
-		</div>
-
-		<!-- 메인 헤더 인클루드 -->
-		<%@ include file="general/MainHeader.jsp"%>
-
-		<!-- 배너 -->
-		<div id="banner-wrapper">
-			<div id="banner" class="box container">
-				<div class="row">
-					<div class="col-7 col-12-medium">
-						<h2>편의점을 편하게 :)</h2>
-						<p></p>
-					</div>
-					<div class="col-5 col-12-medium">
-						<ul>
-							<li><a href="#"
-								class="button large icon solid fa-arrow-circle-right">편의점 작업
-									중</a></li>
-							<li><a href="#"
-								class="button alt large icon solid fa-question-circle">더 없음</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Features -->
-		<div id="features-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="col-6 col-12-medium">
-						<!-- Box -->
-						<section class="box feature">
-							<a href="right-sidebar.do" class="image featured"><img
-								src="images/store_shadow.png" alt="" 
-									style="border-radius: 5%;" /></a>
-							<div class="inner"
-								style="text-align: center; font-family: Goyang;">
-								<header>
-									<h2 style="font-family: Goyang;">편의점 찾기</h2>
-								</header>
-								<p style="font-family: Goyang; font-size: 25px;">원하시는 상품이 있는
-									편의점을 찾아 드립니다.</p>
-							</div>
-						</section>
-					</div>
-					<div class="col-6 col-12-medium">
-						<!-- Box -->
-						<section class="box feature">
-							<a href="placemap.do" class="image featured"><img
-								src="images/product_shadow.png" alt=""
-									style="border-radius: 5%;" /></a>
-							<div class="inner" style="text-align: center;">
-								<header>
-									<h2 style="font-family: Goyang;">상품 찾기</h2>
-								</header>
-								<p style="font-family: Goyang; font-size: 25px;">주변 편의점에 있는
-									상품을 알려드립니다</p>
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Main -->
-		<div id="main-wrapper">
-			<div class="container">
-				<div class="row gtr-200">
-
-					<!-- preview board  시작  -->
-				<div id="recipe">
-						<section class="widget thumbnails">
-							<h2>레시피</h2>
-							<div class="row text-center text-lg-left">
-
-								<c:choose>
-									<c:when test="${empty recipeRows }">
-										<div>
-											<span>결과가 없습니다.</span>
-										</div>
-									</c:when>
-									<c:otherwise>
-										<c:forEach items="${recipeRows }" var="row" varStatus="loop">
-											<c:choose>
-												<c:when
-													test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
-
-													<div class="col-lg-3 col-md-4 col-6 effect ">
-														<figure class="recipePhoto">
-															<img class="img-fluid img-thumbnail effect"
-																src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-																alt="">
-															<figcaption>
-																<h3>${row.title }</h3>
-																<p>${row.content }</p>
-																<i class="ion-ios-arrow-right"></i>
-															</figcaption>
-															<a href="#" class="d-block mb-4 h-100"></a>
-														</figure>
-													</div>
-
-												</c:when>
-												<c:otherwise>
-
-													<div class="col-lg-3 col-md-4 col-6 ">
-														<figure class="recipePhoto">
-															<img class="img-fluid img-thumbnail effect"
-																src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
-																alt="">
-															<figcaption>
-																<h3>${row.title }</h3>
-																<p>${row.content }</p>
-																<i class="ion-ios-arrow-right"></i>
-															</figcaption>
-															<a href="#" class="d-block mb-4 h-100"></a>
-														</figure>
-													</div>
-
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-									</c:otherwise>
-								</c:choose>
-							</div>
-						</section>
-						<a href="recipe.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-6 col-12-medium">
-						<!-- Content -->
-						<div id="notify">
-							<section class="last">
-								<table>
-									<tr>
-										<td>
-											<h2>공지사항</h2>
-											<ul class="main_board_list">
-												<div>
-													<table class="table table-hover" style="text-align: center;">
-														<colgroup>
-															<col width="80px" />
-															<col width="*" />
-															<col width="120px" />
-															<col width="120px" />
-															<col width="120px" />
-														</colgroup>
-														<thead>
-															<tr class="table-primary" style="color: white;">
-																<th style="text-align: center;">번호</th>
-																<th style="text-align: center;">제목</th>
-																<th style="text-align: center;">작성자</th>
-																<th style="text-align: center;">조회수</th>
-																<th style="text-align: center;">등록날짜</th>
-															</tr>
-														</thead>
-														<tbody>
-															<c:choose>
-																<c:when test="${empty listRows }">
-																	<tr>
-																		<td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
-																	</tr>
-																</c:when>
-																<c:otherwise>
-																	<c:forEach items="${listRows }" var="row"
-																		varStatus="loop">
-																		<!-- 리스트반복시작 -->
-																		<tr>
-																			<td class="text-center">${row.virtualNum }</td>
-																			<td class="text-left">
-																				<a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
-																			</td>
-																			<td class="text-center">${row.content }</td>
-																			<td class="text-center">${row.view_count }</td>
-																			<td class="text-center">${row.postdate }</td>
-																			<!-- <td class="text-center">--</td> -->
-																		</tr>
-																	</c:forEach>
-																</c:otherwise>
-															</c:choose>
-														</tbody>
-													</table>
-												</div>
-											</ul>
-											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-										</td>
-										<td>
-											<h2>이벤트</h2>
-											<div>
-												<table class="table table-hover" style="text-align: center;">
-
-													<colgroup>
-														<col width="80px" />
-														<col width="*" />
-														<col width="120px" />
-														<col width="120px" />
-														<col width="120px" />
-													</colgroup>
-													<thead>
-														<tr class="table-primary" style="color: white;">
-															<th style="text-align: center;">번호</th>
-															<th style="text-align: center;">제목</th>
-															<th style="text-align: center;">작성자</th>
-															<th style="text-align: center;">조회수</th>
-															<th style="text-align: center;">등록날짜</th>
-														</tr>
-													</thead>
-													<tbody>
-														<c:choose>
-															<c:when test="${empty eventRows }">
-																<tr>
-																	<td colspan="6" class="text-center">등록된 게시물이 없습니다
-																		^^*</td>
-																</tr>
-															</c:when>
-															<c:otherwise>
-																<c:forEach items="${eventRows }" var="row"
-																	varStatus="loop">
-																	<!-- 리스트반복시작 -->
-																	<tr>
-																		<td class="text-center">${row.virtualNum }</td>
-																		<td class="text-left"><a
-																			href="./Eview.do?idx=${row.idx}	&nowPage=${nowPage}">${row.title}</a>
-																		</td>
-																		<td class="text-center">${row.content }</td>
-																		<td class="text-center">${row.view_count }</td>
-																		<td class="text-center">${row.postdate }</td>
-																		<!-- <td class="text-center">--</td> -->
-																	</tr>
-																</c:forEach>
-															</c:otherwise>
-														</c:choose>
-													</tbody>
-												</table>
-											</div> 
-											<a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a>
-										</td>
-									</tr>
-								</table>	
-							</section>
-						</div>
-					</div>
-				</div>
-				<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
-				<!-- 					Content -->
-				<!-- 					<div id="info"> -->
-				<!-- 						<section class="last"> -->
-				<!-- 							<h2>고객센터</h2> -->
-				<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
-				<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
-				<!-- 						</section> -->
-				<!-- 					</div> -->
-				<!-- 				</div> -->
-			</div>
-		</div>
-		<div class="container">
-			<h2>개발중이니 관리자 페이지 링크 활성화.</h2>
-			<a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
-			<h4>
-				로그인 한 이메일 :
-				<%=session.getAttribute("EMAIL")%></h4>
-			<h4>
-				로그인 한 회원 이름 :
-				<%=session.getAttribute("NAME")%></h4>
-		</div>
-		<!-- Footer 인클루드. -->
-		<%@ include file="general/MainFooter.jsp"%>
-
-	</div>
-
-	<!-- Scripts -->
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
-=======
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -390,7 +11,7 @@ nav {
 <%@ page session="true"%>
 <html>
 <head>
-<title>편히점 작업 중</title>
+<title>í¸íì  ìì ì¤</title>
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -408,14 +29,14 @@ nav {
 
 <script>
    function scroll_follow(id) {
-      $(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
+      $(window).scroll(function() //ì¤í¬ë¡¤ì´ ìì§ì¼ëë§ë¤ ì´ë²¤í¸ ë°ì
       {
-         var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-         var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
+         var position = $(window).scrollTop(); // íì¬ ì¤í¬ë¡¤ë°ì ìì¹ê°ì ë°íí©ëë¤.
+         var stop = 100; //ìë¨ ë¬´ì¡°ê±´ 100pxë¡ ê³ ì íê¸° ìí´ ì´ ë³ì.
          $(id).stop().animate({
             top : stop + 'px'
          }, 0);
-         //해당 오브젝트 위치값 재설정
+         //í´ë¹ ì¤ë¸ì í¸ ìì¹ê° ì¬ì¤ì 
       });
    }
    scroll_follow("#scroll");
@@ -423,7 +44,7 @@ nav {
 <style type="text/css">
 body {
    font-family: 'Mali', cursive;
-   font-family: '나눔고딕코딩', cursive
+   font-family: 'ëëê³ ëì½ë©', cursive
 }
 
 #scroll {
@@ -445,7 +66,7 @@ nav {
    font-family: 'Goyang', cursive;
 }
 </style>
-<style>/**** 마우스오버 js *****/
+<style>/**** ë§ì°ì¤ì¤ë² js *****/
 /* Demo purposes only */
 $("
 .hover
@@ -469,7 +90,7 @@ this
 }
 );
 </style>
-<!--  마우스오버 css start  -->
+<!--  ë§ì°ì¤ì¤ë² css start  -->
 <style>
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
@@ -594,11 +215,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    opacity: 1;
 }
 </style>
-<!-- 마우스 오버 end  -->
+<!-- ë§ì°ì¤ ì¤ë² end  -->
 <body class="is-preload homepage">
    <div id="page-wrapper">
 
-      <!-- 메인페이지 우측 스크롤메뉴 -->
+      <!-- ë©ì¸íì´ì§ ì°ì¸¡ ì¤í¬ë¡¤ë©ë´ -->
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
       <div id="scroll"
          style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align: center; width: 120px;">
@@ -608,65 +229,65 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
          <%-- <ul>
             <li><a href="#header">Welcome</a></li>
-            <li><a href="#features-wrapper">편의점 상품조회</a></li>
-            <li><a href="#main-wrapper">편의점 레시피</a></li>
-            <li><a href="#notify">공지사항</a></li>
-            <li><a href="#info">고객센터</a></li>
+            <li><a href="#features-wrapper">í¸ìì  ìíì¡°í</a></li>
+            <li><a href="#main-wrapper">í¸ìì  ë ìí¼</a></li>
+            <li><a href="#notify">ê³µì§ì¬í­</a></li>
+            <li><a href="#info">ê³ ê°ì¼í°</a></li>
             <%if(session.getAttribute("EMAIL")==null) { %>
-               <li><a href="login.do">로그인</a></li>
+               <li><a href="login.do">ë¡ê·¸ì¸</a></li>
             <%}else{ %>
-               <li><a href="logout.do">로그아웃</a></li>
+               <li><a href="logout.do">ë¡ê·¸ìì</a></li>
             <%} %>
          </ul> --%>
 
-         <!-- 이미지로 스크롤 메뉴 변경함 -->
+         <!-- ì´ë¯¸ì§ë¡ ì¤í¬ë¡¤ ë©ë´ ë³ê²½í¨ -->
          <a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
             style="right: 30; top: 30;" />
          </a> <br /> <a href="#features-wrapper"> <img
-            src="images/scoll_product.png" alt="편의점 상품조회" />
+            src="images/scoll_product.png" alt="í¸ìì  ìíì¡°í" />
          </a><br /> <a href="#main-wrapper"> <img
-            src="images/scoll_recipe.png" alt="편의점 레시피" />
+            src="images/scoll_recipe.png" alt="í¸ìì  ë ìí¼" />
          </a><br /> <a href="#notify"> <img src="images/scoll_notice.png"
-            alt="공지사항" />
+            alt="ê³µì§ì¬í­" />
          </a><br />
          <!--          <a href="#info"> -->
-         <!--             <img src="images/scoll_cs.png" alt="고객센터" /> -->
+         <!--             <img src="images/scoll_cs.png" alt="ê³ ê°ì¼í°" /> -->
          <!--          </a><br /> -->
 
          <%
             if (session.getAttribute("EMAIL") == null) {
          %>
-         <a href="login.do"><img src="images/scoll_login.png" alt="로그인" /></a>
+         <a href="login.do"><img src="images/scoll_login.png" alt="ë¡ê·¸ì¸" /></a>
          <%
             } else {
          %>
          <a href="memberEdit.do"> <img src="images/scoll_modify.png"
-            alt="정보수정" />
+            alt="ì ë³´ìì " />
          </a> <a href="logout.do"> <img src="images/scoll_logout.png"
-            alt="로그아웃" />
+            alt="ë¡ê·¸ìì" />
          </a>
          <%
             }
          %>
       </div>
 
-      <!-- 메인 헤더 인클루드 -->
+      <!-- ë©ì¸ í¤ë ì¸í´ë£¨ë -->
       <%@ include file="general/MainHeader.jsp"%>
 
-      <!-- 배너 -->
+      <!-- ë°°ë -->
       <div id="banner-wrapper">
          <div id="banner" class="box container">
             <div class="row">
                <div class="col-7 col-12-medium">
-                  <h2>편의점을 편하게 :)</h2>
+                  <h2>í¸ìì ì í¸íê² :)</h2>
                   <p></p>
                </div>
                <div class="col-5 col-12-medium">
                   <ul>
                      <li><a href="#"
-                        class="button large icon solid fa-arrow-circle-right">편의점 작업 중</a></li>
+                        class="button large icon solid fa-arrow-circle-right">í¸ìì  ìì ì¤</a></li>
                      <li><a href="#"
-                        class="button alt large icon solid fa-question-circle">더 없음</a></li>
+                        class="button alt large icon solid fa-question-circle">ë ìì</a></li>
                   </ul>
                </div>
             </div>
@@ -685,10 +306,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      <div class="inner"
                         style="text-align: center; font-family: Goyang;">
                         <header>
-                           <h2 style="font-family: Goyang;">편의점 찾기</h2>
+                           <h2 style="font-family: Goyang;">í¸ìì  ì°¾ê¸°</h2>
                         </header>
-                        <p style="font-family: Goyang; font-size: 25px;">원하시는 상품이 있는
-                           편의점을 찾아 드립니다.</p>
+                        <p style="font-family: Goyang; font-size: 25px;">ìíìë ìíì´ ìë
+                           í¸ìì ì ì°¾ì ëë¦½ëë¤.</p>
                      </div>
                   </section>
                </div>
@@ -699,10 +320,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         src="images/product_shadow.png" alt="" /></a>
                      <div class="inner" style="text-align: center;">
                         <header>
-                           <h2 style="font-family: Goyang;">상품 찾기</h2>
+                           <h2 style="font-family: Goyang;">ìí ì°¾ê¸°</h2>
                         </header>
-                        <p style="font-family: Goyang; font-size: 25px;">주변 편의점에 있는
-                           상품을 알려드립니다</p>
+                        <p style="font-family: Goyang; font-size: 25px;">ì£¼ë³ í¸ìì ì ìë
+                           ìíì ìë ¤ëë¦½ëë¤</p>
                      </div>
                   </section>
                </div>
@@ -716,16 +337,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <!-- <div class="row gtr-200" style="border :1px solid blue;"> -->
             <div class="row" >
 
-               <!-- preview board  시작  -->
+               <!-- preview board  ìì  -->
             <div id="recipe">
                   <section class="widget thumbnails">
-                     <h2>레시피</h2>
+                     <h2>ë ìí¼</h2>
                      <div class="row " style=" margin-left: -60px;">
 
                         <c:choose>
                            <c:when test="${empty recipeRows }">
                               <div>
-                                 <span>결과가 없습니다.</span>
+                                 <span>ê²°ê³¼ê° ììµëë¤.</span>
                               </div>
                            </c:when>
                            <c:otherwise>
@@ -772,7 +393,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
-                  <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a>
+                  <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">ëë³´ê¸°</a>
                </div>
             </div>
             <div class="row" >
@@ -784,7 +405,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <table>
                            <tr >
                               <td style=" width: 50%;">
-                                 <h2>공지사항</h2>
+                                 <h2>ê³µì§ì¬í­</h2>
                                  <ul class="main_board_list">
                                     <!-- <div> -->
                                        <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
@@ -798,21 +419,21 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                           <thead>
                                              <tr class="table-primary" style="color: white; width: 120%; ">
                                                 <th style="text-align: center;"></th>
-                                                <th style="text-align: center;">제목</th>
-                                                <th style="text-align: center;">작성자</th>
+                                                <th style="text-align: center;">ì ëª©</th>
+                                                <th style="text-align: center;">ìì±ì</th>
                                              </tr>
                                           </thead>
                                           <tbody>
                                              <c:choose>
                                                 <c:when test="${empty listRows }">
                                                    <tr>
-                                                      <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
+                                                      <td colspan="6" class="text-center">ë±ë¡ë ê²ìë¬¼ì´ ììµëë¤^^*</td>
                                                    </tr>
                                                 </c:when>
                                                 <c:otherwise>
                                                    <c:forEach items="${listRows }" var="row"
                                                       varStatus="loop">
-                                                      <!-- 리스트반복시작 -->
+                                                      <!-- ë¦¬ì¤í¸ë°ë³µìì -->
                                                       <tr>
                                                          <td class="text-center"><i class="fas fa-clipboard-check"  style="color: #608ac9;"></i></td>
                                                          <td class="text-left">
@@ -828,11 +449,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        </table>
                                     </div>
                                  </ul>
-                                 <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+                                 <a href="notice.do" class="button icon solid fa-arrow-circle-right">ëë³´ê¸°</a>
                               </td>
                               <td >
                              
-                                 <h2 style="padding-left: 20px;" >이벤트</h2>
+                                 <h2 style="padding-left: 20px;" >ì´ë²¤í¸</h2>
                             
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
@@ -846,23 +467,23 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        <thead>
                                           <tr class="table-primary" style="color: white;">
                                              <th style="text-align: center;"></th>
-                                             <th style="text-align: center;">제목</th>
-                                             <th style="text-align: center;">작성자</th>
-                                            <!--  <th style="text-align: center;">조회수</th> -->
+                                             <th style="text-align: center;">ì ëª©</th>
+                                             <th style="text-align: center;">ìì±ì</th>
+                                            <!--  <th style="text-align: center;">ì¡°íì</th> -->
                                           </tr>
                                        </thead>
                                        <tbody>
                                           <c:choose>
                                              <c:when test="${empty eventRows }">
                                                 <tr>
-                                                   <td colspan="6" class="text-center">등록된 게시물이 없습니다
+                                                   <td colspan="6" class="text-center">ë±ë¡ë ê²ìë¬¼ì´ ììµëë¤
                                                       ^^*</td>
                                                 </tr>
                                              </c:when>
                                              <c:otherwise>
                                                 <c:forEach items="${eventRows }" var="row"
                                                    varStatus="loop">
-                                                   <!-- 리스트반복시작 -->
+                                                   <!-- ë¦¬ì¤í¸ë°ë³µìì -->
                                                    <tr>
                                                       <%-- <td class="text-center">${row.virtualNum }</td> --%>
                                                       <td class="text-center"><i class="fas fa-gift" style="color: #608ac9;"></i></td>
@@ -878,7 +499,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        </tbody>
                                     </table>
                                  </div> 
-                                 <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a>
+                                 <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">ëë³´ê¸°</a>
                               </td>
                            </tr>
                         </table>   
@@ -890,25 +511,25 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <!--                Content -->
             <!--                <div id="info"> -->
             <!--                   <section class="last"> -->
-            <!--                      <h2>고객센터</h2> -->
-            <!--                      <h3>이부분에 고객센터 페이지 소개</h3> -->
-            <!--                      <a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
+            <!--                      <h2>ê³ ê°ì¼í°</h2> -->
+            <!--                      <h3>ì´ë¶ë¶ì ê³ ê°ì¼í° íì´ì§ ìê°</h3> -->
+            <!--                      <a href="qna.do" class="button icon solid fa-arrow-circle-right">ëë³´ê¸°</a> -->
             <!--                   </section> -->
             <!--                </div> -->
             <!--             </div> -->
          </div>
       </div>
       <div class="container">
-         <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
-         <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
+         <h2>ê°ë°ì¤ì´ë ê´ë¦¬ì íì´ì§ ë§í¬ íì±í.</h2>
+         <a href="./admin/index.do">ê´ë¦¬ì íì´ì§ ì¸ë±ì¤ë¡ ã±ã±</a>
          <h4>
-            로그인 한 이메일 :
+            ë¡ê·¸ì¸ í ì´ë©ì¼ :
             <%=session.getAttribute("EMAIL")%></h4>
          <h4>
-            로그인 한 회원 이름 :
+            ë¡ê·¸ì¸ í íì ì´ë¦ :
             <%=session.getAttribute("NAME")%></h4>
       </div>
-      <!-- Footer 인클루드. -->
+      <!-- Footer ì¸í´ë£¨ë. -->
       <%@ include file="general/MainFooter.jsp"%>
 
    </div>
@@ -922,6 +543,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/util.js"></script>
    <script src="assets/js/main.js"></script>
 </body>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 </html>
 
