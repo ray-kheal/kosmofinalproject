@@ -24,10 +24,8 @@
 <link href="https://fonts.googleapis.com/css?family=Goyang&display=swap"
 	rel="stylesheet">
 
-<%
-	
-%>
 </head>
+
 <script>
 	function scroll_follow(id) {
 		$(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
@@ -67,7 +65,156 @@ nav {
 	font-family: 'Goyang', cursive;
 }
 </style>
+<style>/**** 마우스오버 js *****/
+/* Demo purposes only */
+$("
+.hover
+ 
+")
+.mouseleave
+ 
+(
+function
+ 
+(){
+$(
+this
+ 
+)
+.removeClass
+("hover");
 
+	
+
+}
+);
+</style>
+<!--  마우스오버 css start  -->
+<style>
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+
+@import
+	url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css)
+	;
+
+figure.recipePhoto {
+	font-family: 'Raleway', Arial, sans-serif;
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+	min-width: 230px;
+	max-width: 315px;
+	width: 100%;
+	color: #ffffff;
+	text-align: left;
+	font-size: 16px;
+	background-color: #000000;
+	border-radius: 10px;
+}
+
+figure.recipePhoto * {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.35s ease;
+	transition: all 0.35s ease;
+}
+
+figure.recipePhoto img {
+	max-width: 100%;
+	backface-visibility: hidden;
+	vertical-align: top;
+}
+
+figure.recipePhoto:after, figure.recipePhoto figcaption {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+figure.recipePhoto:after {
+	content: '';
+	background-color: rgba(0, 0, 0, 0.65);
+	-webkit-transition: all 0.35s ease;
+	transition: all 0.35s ease;
+	opacity: 0;
+}
+
+figure.recipePhoto figcaption {
+	z-index: 1;
+	padding: 40px;
+}
+
+figure.recipePhoto h3, figure.recipePhoto .links {
+	width: 100%;
+	margin: 5px 0;
+	padding: 0;
+}
+
+figure.recipePhoto h3 {
+	line-height: 1.1em;
+	font-weight: 700;
+	font-size: 1.4em;
+	text-transform: uppercase;
+	opacity: 0;
+}
+
+figure.recipePhoto p {
+	font-size: 0.8em;
+	font-weight: 300;
+	letter-spacing: 1px;
+	opacity: 0;
+	top: 50%;
+	-webkit-transform: translateY(40px);
+	transform: translateY(40px);
+}
+
+figure.recipePhoto i {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	padding: 20px 25px;
+	font-size: 34px;
+	opacity: 0;
+	-webkit-transform: translateX(-10px);
+	transform: translateX(-10px);
+}
+
+figure.recipePhoto a {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+figure.recipePhoto:hover img, figure.recipePhoto.hover img {
+	zoom: 1;
+	filter: alpha(opacity = 50);
+	-webkit-opacity: 0.5;
+	opacity: 0.5;
+}
+
+figure.recipePhoto:hover:after, figure.recipePhoto.hover:after {
+	opacity: 1;
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+}
+
+figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hover p,
+	figure.recipePhoto.hover p, figure.recipePhoto:hover i, figure.recipePhoto.hover i
+	{
+	-webkit-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+</style>
+<!-- 마우스 오버 end  -->
 <body class="is-preload homepage">
 	<div id="page-wrapper">
 
@@ -185,7 +332,7 @@ nav {
 		</div>
 
 		<!-- Main -->
-		<div id="main-wrapper">
+		<div id="main-wrapper"> 
 			<div class="container">
 				<div class="row gtr-200">
 
@@ -248,17 +395,17 @@ nav {
 						<a href="recipe.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-6 col-12-medium">
+				<div class="row" style="border :1px solid red;">
+					<div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;">
 						<!-- Content -->
 						<div id="notify">
 							<section class="last">
 								<table>
 									<tr>
-										<td>
+										<td style=" width: 50%;">
 											<h2>공지사항</h2>
 											<ul class="main_board_list">
-												<div>
+												<!-- <div> -->
 													<table class="table table-hover" style="text-align: center;">
 														<colgroup>
 															<col width="80px" />
