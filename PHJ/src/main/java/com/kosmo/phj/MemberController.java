@@ -94,7 +94,7 @@ public class MemberController {
 	
 	//카카오로그인 매핑
 	@RequestMapping(value="/kakaologin.do",method=RequestMethod.GET)
-	public String kakaologin(Model model, HttpServletRequest req, HttpSession session, HttpServletResponse resp) throws IOException {
+	public String kakaologin(Model model, HttpServletRequest req, HttpSession session, HttpServletResponse resp)  {
 		String page = null;
 		System.out.println("카카오로그인 아이디 : "+ req.getParameter("kakao_id"));
 		String kakao_id = req.getParameter("kakao_id");
@@ -110,9 +110,16 @@ public class MemberController {
 			dto.setName(name);
 			
 			model.addAttribute("dto",dto);
+			model.addAttribute("req",req);
 			resp.setContentType("text/html; charset=utf-8");
-			PrintWriter out = resp.getWriter();
-			out.println("<script>alert('카카오 최초 로그인 시도 시 회원정보 추가 기입을 해주셔야 합니다..');</script>");
+			try {
+				PrintWriter out = resp.getWriter();
+				out.println("<script>alert('카카오 최초 로그인 시도 시 회원정보 추가 기입을 해주셔야 합니다..');</script>");
+				out.flush();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
 			page = "member/join02";
 			
 		} else if(isKakaoMember ==1 ) {
@@ -140,7 +147,7 @@ public class MemberController {
 		if(isGoogleMember == 0) {
 			MemberDTO dto = new MemberDTO();
 			dto.setEmail(email);
-			dto.setKakao_id(google_id);
+			dto.setGoogle_id(google_id);
 			dto.setName(name);
 			
 			model.addAttribute("dto",dto);
