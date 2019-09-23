@@ -106,12 +106,12 @@ if (mst == 'normal') {
 						</tr>   
 					</thead>
                       <tbody>
-                       	<!-- 상품 리스트 출력  -->
+                       	<!-- 게시판 리스트 출력  -->
                         <c:choose>
 							<c:when test="${empty viewRow }">
 								<tr>
 									<td colspan="5" class="text-center">
-										등록된 상품이 없습니다.
+										등록된 게시물이 없습니다.
 									</td>
 								</tr>
 							</c:when>
@@ -167,7 +167,7 @@ if (mst == 'normal') {
 			 <%} %>
 			  --%>
 				<button type="button" class="btn btn-dark btn-sm" 
-						onclick="location.href='./boardManagementWrite.do?board_type=${board_type}';">글쓰기</button>
+						onclick="location.href='./boardManagementWrite.do?board_type=1';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 				
 			</div>

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -27,11 +28,13 @@ public class noticeDAO {
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		int board_type = (Integer)map.get("board_type");
-		System.out.println(board_type);
+		
+		System.out.println("getTotalCount의 board_type:"+board_type);
+		
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
 		if (map.get("searchWord") != null) {
-			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		
 		return template.queryForObject(query, Integer.class);
@@ -44,10 +47,7 @@ public class noticeDAO {
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 		System.out.println(board_type);
 		return template.queryForObject(query, Integer.class);
-
-
 	}
-	
 
 	public ArrayList<noticeDTO> list(Map<String, Object> map) {
 		
@@ -55,19 +55,21 @@ public class noticeDAO {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		
-		int board_type = (Integer)map.get("board_type");
 		
+		int board_type = (Integer)map.get("board_type");
+		System.out.println("list()메소드-board_type:"+board_type);
 		String query = " SELECT * FROM( "
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
-				+ "      SELECT * FROM PHJ_BOARD_NOTICE ";
+				+ "      SELECT * FROM PHJ_BOARD_NOTICE where board_type= " + board_type ;
 
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
-		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +" and board_type="+ board_type;
-		query += " order by idx desc";
+		query += " order by idx desc  ) Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +"order by idx desc";
+
 	    
 		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
+		
 	}
 	
 	  //답변형 게시판 글쓰기 처리 
@@ -84,7 +86,7 @@ public class noticeDAO {
 				psmt.setString(1, noticeDTO.getTitle());
 				psmt.setString(2, noticeDTO.getContent());	
 				psmt.setInt(3, noticeDTO.getBoard_type());	
-
+				System.out.println("dao의 write - title:"+noticeDTO.getTitle()+"/contetn:"+noticeDTO.getContent()+"/type:"+noticeDTO.getBoard_type());
 				return psmt;
 			}
 		});
@@ -148,8 +150,16 @@ public class noticeDAO {
 	 * System.out.println("글 수정중 예외발생"); // e.printStackTrace(); // } // }
 	 */
 
-	// 삭제하기
-	public void delete(String idx, String pass) {
-		
+	//게시글 삭제하기
+	public void delete(final String idx) {
+		   String sql = "delete from PHJ_BOARD_NOTICE where idx=? ";
+		 template.update(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+			
+				ps.setString(1, idx);
+			}
+		});
 	}
 }

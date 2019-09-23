@@ -63,7 +63,6 @@ public class GeneralController {
 		model.addAttribute("board_type",2);
 		command = new ListCommand();
 		command.execute(model);
-		
 		return "general/event";
 	}
 
@@ -95,7 +94,6 @@ public class GeneralController {
 		return "general/qna";
 	} 
 
-	   
 	//트위터
    @RequestMapping("twitter.do")
    public String twitter(Model model) {   
@@ -103,15 +101,13 @@ public class GeneralController {
 	   return "general/twitter";
    }
 	//페이스북
-   @RequestMapping("facebook.do")
-   public String facebook(Model model) {   
-	   
-	   return "general/facebook";
-   }
-	   
-	
-	
-		
+
+	   @RequestMapping("facebook.do")
+	   public String facebook(Model model) {   
+		   
+		   return "general/facebook";
+	   }
+
 	//재고 게시판
 	@RequestMapping("findproduct.do")
 	public String findproduct() {

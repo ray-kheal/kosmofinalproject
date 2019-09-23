@@ -10,7 +10,7 @@ import command.PHJCommandImpl;
 import model.board.noticeDAO;
 import model.board.noticeDTO;
 
-public class AdBoardListWriteActionCommand implements PHJCommandImpl{
+public class AdEventListWriteActionCommand implements PHJCommandImpl{
 
 	@Override
 	public void execute(Model model) {
@@ -30,7 +30,7 @@ public class AdBoardListWriteActionCommand implements PHJCommandImpl{
 		
 		dao.write(noticeDTO);
 		
-		System.out.println("writeAction 익스큐드실행");
+		System.out.println("eventwriteAction 익스큐드실행");
 	
 	}
 	

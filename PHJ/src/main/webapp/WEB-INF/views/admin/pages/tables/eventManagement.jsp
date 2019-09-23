@@ -61,7 +61,7 @@ if (mst == 'normal') {
         -->     
               	<form class="form-inline">
 				 <div class="form-group ">
-					<select name="keyField" class="form-control" style="width: 80px; height : 30px" >
+					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
 						<option value="">제목</option>
 						<option value="">작성자</option>
 						<option value="">내용</option>
@@ -69,7 +69,7 @@ if (mst == 'normal') {
 				</div> 
 				<div class="input-group">
 
-					<input type="text" name="keyString" class="form-control"
+					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px; height : 30px" />
 
 					<div class="input-group-btn">
@@ -97,7 +97,7 @@ if (mst == 'normal') {
 					</colgroup>
 					<thead>
 						<tr class="table-info" style="color: white;">
-							<th>번호</th>
+							<th>no</th>
 							<th>제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
@@ -105,12 +105,12 @@ if (mst == 'normal') {
 						</tr>   
 					</thead>
                       <tbody>
-                       	<!-- 상품 리스트 출력  -->
+                       	<!-- 게시판 리스트 출력  -->
                         <c:choose>
 							<c:when test="${empty viewRow }">
 								<tr>
 									<td colspan="5" class="text-center">
-										등록된 상품이 없습니다.
+										등록된 게시물이 없습니다.
 									</td>
 								</tr>
 							</c:when>
@@ -133,7 +133,8 @@ if (mst == 'normal') {
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-                       	
+                      
+                       
                       </tbody>
                     </table>
                   </div>
@@ -153,8 +154,10 @@ if (mst == 'normal') {
                 </div>
                 <br /><br />
 			<div class="row text-right" style="float: right;">
+				<!-- <button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./eventManagementWrite.do?&board_type=2';">글쓰기</button> -->
 				<button type="button" class="btn btn-dark btn-sm" 
-						onclick="location.href='./boardManagementWrite.do?&board_type=2';">글쓰기</button>
+						onclick="location.href='./eventManagementWrite.do';">글쓰기</button>
 				<button class = "btn btn-danger btn-sm">삭제</button>
 			</div>
 			

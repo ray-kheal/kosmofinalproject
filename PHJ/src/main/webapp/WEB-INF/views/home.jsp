@@ -188,13 +188,14 @@ nav {
 		<div id="main-wrapper">
 			<div class="container">
 				<div class="row gtr-200">
+
 					<!-- preview board  시작  -->
 					<div id="recipe">
 						<section class="widget thumbnails">
 							<h2>레시피</h2>
+
 							<div class="grid">
-								<div class="row gtr-50" 
-									style="position: relative; display: inline-block; *display: inline;">
+								<div class="row gtr-50" style="position: relative; display: inline-block; *display: inline;">
 
 									<br />
 									<div "row text-right"style="float: right;">
@@ -204,114 +205,69 @@ nav {
 									</div>
 									<!-- <button class="button" onclick="recipe.do"><i class=" fa-arrow-circle-right"></i>더보기</button> -->
 									<br />
-									<table>
-										<tr>
-											<td style="width: 50%;">
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic04.jpg" alt="" style="display: block;" />레시피</a>
-												</div>
-											</td>
-											<td>
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic05.jpg" alt="" />레시피2</a>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic06.jpg" alt="" />레시피3</a>
-												</div>
-											</td>
-											<td>
-												<div>
-													<a href="#" class="image fit"><img
-														src="images/pic07.jpg" alt="" />레시피4</a>
-												</div>
-											</td>
-										</tr>
-									</table>
+									<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
+								<div>
+
+									<c:choose>
+										<c:when test="${empty recipeRows }">
+											<div>
+												<span>결과가 없습니다.</span>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${recipeRows }" var="row" varStatus="loop">
+												<c:choose>
+													<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+														<div class="col-lg-3 col-md-4 col-6 effect ">
+															<figure class="recipePhoto">
+																<img class="img-fluid img-thumbnail effect" src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" alt="">
+																<figcaption>
+																	<h3>${row.title }</h3>
+																	<p>${row.content }</p>
+																	<i class="ion-ios-arrow-right"></i>
+																</figcaption>
+																<a href="#" class="d-block mb-4 h-100"></a>
+															</figure>
+														</div>
+													</c:when>
+													<c:otherwise>
+														<div class="col-lg-3 col-md-4 col-6 ">
+															<figure class="recipePhoto">
+																<img class="img-fluid img-thumbnail effect" src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" alt="">
+																<figcaption>
+																	<h3>${row.title }</h3>
+																	<p>${row.content }</p>
+																	<i class="ion-ios-arrow-right"></i>
+																</figcaption>
+																<a href="#" class="d-block mb-4 h-100"></a>
+															</figure>
+														</div>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</div>
 								</div>
 							</div>
-							<br />
-							<br />
-							<br />
+							<br /> <br /> <br />
 						</section>
+
 						<br />
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-6 col-12-medium">
-							<!-- Content -->
-							<div id="notify">
-								<section class="last">
-
-									<table>
-
-										<tr>
-											<td>
-												<h2>공지사항</h2>
-												<ul class="main_board_list">
-													<div>
-														<table class="table table-hover"
-															style="text-align: center;">
-
-															<colgroup>
-																<col width="80px" />
-																<col width="*" />
-																<col width="120px" />
-																<col width="120px" />
-																<col width="120px" />
-															</colgroup>
-															<thead>
-																<tr class="table-primary" style="color: white;">
-																	<th style="text-align: center;">번호</th>
-																	<th style="text-align: center;">제목</th>
-																	<th style="text-align: center;">작성자</th>
-																	<th style="text-align: center;">조회수</th>
-																	<th style="text-align: center;">등록날짜</th>
-																</tr>
-															</thead>
-															<tbody>
-																<c:choose>
-																	<c:when test="${empty listRows }">
-																		<tr>
-																			<td colspan="6" class="text-center">등록된 게시물이
-																				없습니다 ^^*</td>
-																		</tr>
-																	</c:when>
-																	<c:otherwise>
-																		<c:forEach items="${listRows }" var="row"
-																			varStatus="loop">
-																			<!-- 리스트반복시작 -->
-																			<tr>
-																				<td class="text-center">${row.virtualNum }</td>
-																				<td class="text-left"><a
-																					href="./view.do?idx=${row.idx}				&nowPage=${nowPage}">${row.title}</a>
-																				</td>
-																				<td class="text-center">${row.content }</td>
-																				<td class="text-center">${row.view_count }</td>
-																				<td class="text-center">${row.postdate }</td>
-																				<!-- <td class="text-center">--</td> -->
-																			</tr>
-																		</c:forEach>
-																	</c:otherwise>
-																</c:choose>
-															</tbody>
-														</table>
-													</div>
-													<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
-												</ul>
-											</td>
-											<td>
-												<h2>이벤트</h2>
+						<!-- Content -->
+						<div id="notify">
+							<section class="last">
+								<table>
+									<tr>
+										<td>
+											<h2>공지사항</h2>
+											<ul class="main_board_list">
 												<div>
-													<table class="table table-hover"
-														style="text-align: center;">
-
+													<table class="table table-hover" style="text-align: center;">
 														<colgroup>
 															<col width="80px" />
 															<col width="*" />
@@ -330,20 +286,19 @@ nav {
 														</thead>
 														<tbody>
 															<c:choose>
-																<c:when test="${empty eventRows }">
+																<c:when test="${empty listRows }">
 																	<tr>
-																		<td colspan="6" class="text-center">등록된 게시물이 없습니다
-																			^^*</td>
+																		<td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
 																	</tr>
 																</c:when>
 																<c:otherwise>
-																	<c:forEach items="${eventRows }" var="row"
+																	<c:forEach items="${listRows }" var="row"
 																		varStatus="loop">
 																		<!-- 리스트반복시작 -->
 																		<tr>
 																			<td class="text-center">${row.virtualNum }</td>
-																			<td class="text-left"><a
-																				href="./Eview.do?idx=${row.idx}	&nowPage=${nowPage}">${row.title}</a>
+																			<td class="text-left">
+																				<a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
 																			</td>
 																			<td class="text-center">${row.content }</td>
 																			<td class="text-center">${row.view_count }</td>
@@ -355,51 +310,101 @@ nav {
 															</c:choose>
 														</tbody>
 													</table>
-												</div> <a href="event.do"
-												class="button icon solid fa-arrow-circle-right" width="40px"
-												height="40px">더보기</a>
-											</td>
-										</tr>
-									</table>
-								</section>
-							</div>
+												</div>
+											</ul>
+											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+										</td>
+										<td>
+											<h2>이벤트</h2>
+											<div>
+												<table class="table table-hover" style="text-align: center;">
+
+													<colgroup>
+														<col width="80px" />
+														<col width="*" />
+														<col width="120px" />
+														<col width="120px" />
+														<col width="120px" />
+													</colgroup>
+													<thead>
+														<tr class="table-primary" style="color: white;">
+															<th style="text-align: center;">번호</th>
+															<th style="text-align: center;">제목</th>
+															<th style="text-align: center;">작성자</th>
+															<th style="text-align: center;">조회수</th>
+															<th style="text-align: center;">등록날짜</th>
+														</tr>
+													</thead>
+													<tbody>
+														<c:choose>
+															<c:when test="${empty eventRows }">
+																<tr>
+																	<td colspan="6" class="text-center">등록된 게시물이 없습니다
+																		^^*</td>
+																</tr>
+															</c:when>
+															<c:otherwise>
+																<c:forEach items="${eventRows }" var="row"
+																	varStatus="loop">
+																	<!-- 리스트반복시작 -->
+																	<tr>
+																		<td class="text-center">${row.virtualNum }</td>
+																		<td class="text-left"><a
+																			href="./Eview.do?idx=${row.idx}	&nowPage=${nowPage}">${row.title}</a>
+																		</td>
+																		<td class="text-center">${row.content }</td>
+																		<td class="text-center">${row.view_count }</td>
+																		<td class="text-center">${row.postdate }</td>
+																		<!-- <td class="text-center">--</td> -->
+																	</tr>
+																</c:forEach>
+															</c:otherwise>
+														</c:choose>
+													</tbody>
+												</table>
+											</div> 
+											<a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a>
+										</td>
+									</tr>
+								</table>	
+							</section>
 						</div>
 					</div>
-					<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
-					<!-- 					Content -->
-					<!-- 					<div id="info"> -->
-					<!-- 						<section class="last"> -->
-					<!-- 							<h2>고객센터</h2> -->
-					<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
-					<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
-					<!-- 						</section> -->
-					<!-- 					</div> -->
-					<!-- 				</div> -->
-
 				</div>
+				<!-- 				<div class="col-7 col-16-medium imp-medium"> -->
+				<!-- 					Content -->
+				<!-- 					<div id="info"> -->
+				<!-- 						<section class="last"> -->
+				<!-- 							<h2>고객센터</h2> -->
+				<!-- 							<h3>이부분에 고객센터 페이지 소개</h3> -->
+				<!-- 							<a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
+				<!-- 						</section> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
 			</div>
-			<div class="container">
-				<h2>개발중이니 관리자 페이지 링크 활성화.</h2>
-				<a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
-				<h4>
-					로그인 한 이메일 :
-					<%=session.getAttribute("EMAIL")%></h4>
-				<h4>
-					로그인 한 회원 이름 :
-					<%=session.getAttribute("NAME")%></h4>
-			</div>
-			<!-- Footer 인클루드. -->
-			<%@ include file="general/MainFooter.jsp"%>
-
 		</div>
+		<div class="container">
+			<h2>개발중이니 관리자 페이지 링크 활성화.</h2>
+			<a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
+			<h4>
+				로그인 한 이메일 :
+				<%=session.getAttribute("EMAIL")%></h4>
+			<h4>
+				로그인 한 회원 이름 :
+				<%=session.getAttribute("NAME")%></h4>
+		</div>
+		<!-- Footer 인클루드. -->
+		<%@ include file="general/MainFooter.jsp"%>
 
-		<!-- Scripts -->
+	</div>
 
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.dropotron.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>

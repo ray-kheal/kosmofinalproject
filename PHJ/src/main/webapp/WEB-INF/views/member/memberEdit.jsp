@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
 <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/join02.css" /> 
+<link rel="stylesheet" href="assets/css/join02.css" />  
 <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Mali&display=swap" rel="stylesheet">
 
 
@@ -18,6 +18,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 <script type = "text/javascript">
 
 
@@ -138,8 +139,46 @@ body {
 label {
 	font-size: 15px;
 }
-
 </style>
+<style>
+div label input {
+	/*  margin-right:100px; */
+}
+
+#ck-button {
+	margin: 4px;
+	border-radius: 4px;
+	/*border: 1px solid #D0D0D0;*/
+	/*overflow: auto;*/
+	float: left;  
+}
+
+#ck-button label {
+	float: left;
+	width: 4.0em;  
+} 
+
+#ck-button label span {
+	text-align: center;
+	padding: 3px 0px;
+	display: block;
+	border-radius: 4px;
+}
+
+#ck-button label input {
+	position: absolute;
+	top: -20px;
+}
+
+#ck-button input:checked+span { 
+	background-color: #4f9fc6;
+	color: #fff;
+}
+</style>
+
+
+
+
 <body>
 
 <div id="page-wrapper">
@@ -171,7 +210,7 @@ label {
 					<tr>
 						<td>이메일</td>
 						<td>
-							<div class="form-inline" >
+							<div class="form-inline"  >
 								<input type="text" name="email" id="email" value="${dto.email }"
 								class="form-control" style="width:50%" readonly placeholder="이메일(아이디)"/>
 								<select name="email_choice" onChange="choiceInput(this.form, this);"
@@ -179,17 +218,55 @@ label {
 									<option disabled="disabled" selected value="">*변경불가</option>
 								</select> 
 							</div>
-							<div class="custom-control custom-radio custom-control-inline">
-								<input type="radio" class="custom-control-input" id="emailY" name="email_alert" value="Y" ${emailY }/>
-								<label class="custom-control-label" for="emailY">메일 수신동의</label>
+							<%-- <div class="custom-control custom-radio custom-control-inline ">
+								<input type="radio" class="" id="emailY" name="email_alert" value="Y" ${emailY } />
+								<label class="" for="emailY">메일 수신동의</label>
 						  	</div>
+						  	<div class="custom-control custom-radio custom-control-inline" >
+						  		<input type="radio" class="" id="emailN" name="email_alert" value="N" ${emailN }  />
+						  		<label class="" for="emailN">메일 수신거부</label>
+						  	</div> --%>
+						  	 
+													  	 
+							<div>
+								<span style="text-align: left;">
+								
+								※메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다.
+								</span>
+								
+							</div>
+						  	 <div style="text-align: center;">
+							  	 <div id="ck-button" style=" height: 31px; width: 70px;">
+									<label> 
+									<input type="radio" name="email_alert" id="emailY" value="Y" ${emailY }>
+										<span style="font-size: 0.6em; width:66px; border: 1px solid #D0D0D0;">메일수신동의</span>
+									</label>
+								
+								</div>
+								
+								<div id="ck-button"  style=" height: 31px; width: 70px;">
+									<label> 
+									<input type="radio" name="email_alert" id="emailN" value="N" ${emailN } >
+										<span style="font-size: 0.6em; width:66px; border: 1px solid #D0D0D0;">메일수신거부</span>
+									</label>
+							
+								</div>
+							</div>	
+								 
+								
+							<%-- <div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" class="" id="emailY" name="email_alert" value="Y" ${emailY }
+									style="margin:3px 3px 0px 5px; "/>
+								<label class="" for="emailY">&nbsp;메일 수신동의</label>
+						  	</div>     
 						  	<div class="custom-control custom-radio custom-control-inline">
-						  		<input type="radio" class="custom-control-input" id="emailN" name="email_alert" value="N" ${emailN }/>
-						  		<label class="custom-control-label" for="emailN">메일 수신거부</label>
-						  	</div>
-							<br />
-							※메일 수신동의를 체크하시면 행사 및 공지사항을 메일로 보내드립니다.
+						  		<input type="radio" class="" id="emailN" name="email_alert" value="N" ${emailN }
+						  			style="margin:3px 3px 0px 5px; "/>
+						  		<label class="" for="emailN">&nbsp;메일 수신거부</label>
+						  	</div>  --%>
+							<br /> 
 						</td>			
+						 
 					</tr> 
 					 
 					<tr>
@@ -216,16 +293,63 @@ label {
 								<input type="text" name="mobile2" class="form-control input-lg" style="width:25%" value="${mobile2 }"/>&nbsp;-&nbsp; 	
 								<input type="text" name="mobile3" class="form-control input-lg" style="width:25%" value="${mobile3 }"/>&nbsp;
 							</div>
-							<div class="custom-control custom-radio custom-control-inline">	
+							
+							<%--  <div class="custom-control custom-radio custom-control-inline">	
 								<input type="radio" name="mobile_alert" class="custom-control-input" value="Y" id="mobileY" ${mobileY }/>
 								<label class="custom-control-label" for="SMSY">SMS 수신동의</label>
+							</div> 
+							<div class="custom-control custom-radio custom-control-inline">	
+								<input type="radio"  class="" id="mobileY" name="mobile_alert" value="Y"  ${mobileY }
+									style="margin:3px 3px 0px 5px; "/>
+								<label class="" for="SMSY">&nbsp;SMS 수신동의</label>
 							</div>
 							<div class="custom-control custom-radio custom-control-inline">	
 								<input type="radio" name="mobile_alert" class="custom-control-input" value="N" id="mobileN" ${mobileN }/>
 								<label class="custom-control-label" for="SMSN">SMS 수신거부</label>
-							</div>
+							</div>  --%>
+							 <%-- <div class="custom-control custom-radio custom-control-inline">	
+								<input type="radio" name="mobile_alert" class="" value="Y" id="mobileY" ${mobileY }/>
+								<label class="" for="SMSY">SMS 수신동의</label>
+							</div> 
+							<div class="custom-control custom-radio custom-control-inline">	
+								<input type="radio" name="mobile_alert" class="" value="N" id="mobileN" ${mobileN }/>
+								<label class="" for="SMSN">SMS 수신거부</label>
+							</div>  --%>
+							<%-- 	<input type="radio" class=""  name="mobile_alert" value="N"  ${mobileN }
+									style="margin:3px 3px 0px 5px; "/> 
+								<label class="" for="SMSN">&nbsp;SMS 수신거부</label> 
+								 --%>
 							
-							<br />※SMS 수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다.
+
+							
+							<div>
+								<span style="text-align: left;">
+								
+								※SMS 수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다.
+								</span>
+								
+							</div>
+								 <div style="text-align: center;">
+							  	 <div id="ck-button" style=" height: 31px; width: 70px;">
+									<label> 
+									<input type="radio" name="mobile_alert" id="mobileY" value="Y" ${mobileY }>
+										<span style="font-size: 0.6em; width:66px; border: 1px solid #D0D0D0;">SMS 수신동의</span>
+									</label>
+								
+								</div>
+								
+								<div id="ck-button"  style=" height: 31px; width: 70px;">
+									<label> 
+									<input type="radio" name="mobile_alert" id="mobileN" value="N"  ${mobileN } >
+										<span  style="font-size: 0.6em; width:66px; border: 1px solid #D0D0D0;">SMS 수신거부</span>
+									</label>
+							
+								</div>
+							</div>	
+							
+							
+						  	
+							<!-- <br />※SMS 수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다. -->
 						</td>
 						  
 					</tr>

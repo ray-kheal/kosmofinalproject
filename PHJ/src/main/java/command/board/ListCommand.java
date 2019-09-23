@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
+import com.kosmo.phj.boardController;
+
 import command.PHJCommandImpl;
 import model.board.noticeDAO;
 import model.board.noticeDTO;
@@ -20,8 +22,10 @@ public class ListCommand implements PHJCommandImpl {
 		Map<String, Object> paramMap = model.asMap();
 		
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
+		int board_type = (Integer)paramMap.get("board_type");
+	
 			
-		noticeDAO dao = new noticeDAO();
+		noticeDAO dao = new noticeDAO();	
 		
 		String addQueryString = "";
 		String searchColumn = req.getParameter("searchColumn");
@@ -34,8 +38,8 @@ public class ListCommand implements PHJCommandImpl {
 		int totalRecordCount = dao.getTotalCount(paramMap);
 		
 		int pageSize= 10;
-		int blockPage= 10;
-		System.out.println("확인 :" + totalRecordCount);
+		int blockPage= 5;
+		//System.out.println("확인 :" + totalRecordCount);
 		
 		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
 		
@@ -45,22 +49,26 @@ public class ListCommand implements PHJCommandImpl {
 		paramMap.put("start", start);
 		paramMap.put("end", end);
 		ArrayList<noticeDTO> listRows = dao.list(paramMap);
-		
 		int virtualNum =0;
-	      int countNum =0;
-	      for(noticeDTO row : listRows) {
-	        
-	          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
-	          row.setVirtualNum(virtualNum);
-	       }
-		//페이지 처리를 위한 처리부분.
-		//String pagingImg = util.PagingUtil.pagingImg(totalRecordCount, pageSize, blockPage, nowPage, req.getContextPath() + "/list.do?"+ addQueryString);
-		
-		//model.addAttribute("pagingImg",pagingImg);
-		
+	    int countNum =0;
+	    for(noticeDTO row : listRows) {
+        
+          virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
+          row.setVirtualNum(virtualNum);
+       }
+	    
+	    String pagingImg =null;
+	    if(board_type==1) {
+	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+				req.getContextPath()+"/notice.do?"+addQueryString);
+	    }else if(board_type==2) {
+	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+				req.getContextPath()+"/event.do?"+addQueryString);
+	    }
+	    
+		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);
 		model.addAttribute("listRows",listRows);
 	}
-
 }
