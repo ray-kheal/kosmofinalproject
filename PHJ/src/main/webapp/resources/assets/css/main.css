@@ -1482,13 +1482,6 @@ input, select, textarea {
 	}
 
 /* Forms */
-
-	form label {
-		display: block;
-		margin: 0 0 1em 0;
-		font-size: 0.8em;
-		color: #444;
-	}
  
 	form input[type="text"],
 	form input[type="email"],

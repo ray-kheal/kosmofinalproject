@@ -47,7 +47,7 @@ main font : ,
 
 #showHead h1 {display:inline;float:left;font-weight:bold;font-size:32px;line-height:40px;letter-spacing:-1px}
 #showHead .slogan{float:left;margin:39px 0 0 13px;}
-#logo{display:block;margin:17px 0 14px 7px;width:132px;height:46px;background:url(../../images/common/logo.gif) no-repeat 0 0}
+/* #logo{display:block;margin:17px 0 14px 7px;width:132px;height:46px;background:url(../../images/common/logo.gif) no-repeat 0 0} */
 #topMail{display:block;float:left;margin:37px 0 0 23px;padding-left:20px;background:url(../../images/common/bg_topMail.gif) no-repeat 0 0;}
 #showHead .slogan2{display:block;float:left;margin:33px 0 0 25px;}
 

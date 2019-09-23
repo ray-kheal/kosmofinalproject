@@ -95,18 +95,18 @@ public class GeneralController {
 	} 
 
 	//트위터
-	   @RequestMapping("twitter.do")
-	   public String twitter(Model model) {   
+   @RequestMapping("twitter.do")
+   public String twitter(Model model) {   
 
-		   return "general/twitter";
-	   }
+	   return "general/twitter";
+   }
 	//페이스북
+
 	   @RequestMapping("facebook.do")
 	   public String facebook(Model model) {   
 		   
 		   return "general/facebook";
 	   }
-	   
 
 	//재고 게시판
 	@RequestMapping("findproduct.do")

@@ -299,20 +299,18 @@ label {
 						</tr>
 						<tr  valign="middle">
 							<td bgcolor="#f7f4f4"  style="text-align: center; ">비밀번호확인</td>
-<<<<<<< HEAD
-							<td bgcolor="white"><input type="password" style="font-family:verdana; width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" /></td>
-							
-=======
+
 							<td bgcolor="white">
 								<input type="password" style="font-family:verdana; width: 50%;" id="pass2" name="confirm_password" value=""  class="form-control input-lg" placeholder="비밀번호 확인" />
 								<font name="checkPass" size="2" color="red"></font>
 							</td>
-							<td></td>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+							<td>
+						</td>
+
 						</tr>  
 						<tr valign="middle">
 							<td bgcolor="#f7f4f4" valign="middle"  style="text-align: center; ">이름</td>
-							<td bgcolor="white"><input type="text" style="width: 50%;" name="name" value="" class="form-control input-lg" placeholder="닉네임" /> </td>
+							<td bgcolor="white"><input type="text" style="width: 50%;" name="name" value="${dto.name}" class="form-control input-lg" placeholder="닉네임" /> </td>
 							 
 						</tr>
 						

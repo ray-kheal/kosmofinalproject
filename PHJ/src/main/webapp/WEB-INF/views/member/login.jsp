@@ -113,7 +113,7 @@
 					console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근. res.properties.nickname으로도 접근 가능 )
 					console.log(authObj.access_token);
 					
-					location.href="kakaologin.do?email="+res.kaccount_email+"&pass="+authObj.access_token+"&name="+res.properties['nickname']; 
+					location.href="kakaologin.do?email="+res.kaccount_email+"&kakao_id="+res.id+"&name="+res.properties['nickname']; 
 				}
 			})
         },
@@ -145,8 +145,9 @@
 								<input type="password" class="form-control" name="pass" placeholder="암호"
 									required />
 							</div>
-							<div class="idCheck" style="color: white;">
-								<input type="checkbox" value="remember-me" /> 아이디를 저장합니다.
+							<div class="idCheck custom-control custom-checkbox" style="color: white;">
+								<input type="checkbox" id="defaultUnchecked" value="remember-me" class="custom-control-input" /> 
+								<label class="custom-control-label" for="defaultUnchecked">아이디를 저장합니다.</label>
 							</div>
 							<span style="color:red;font-size:1em;">
 								${loginError }
