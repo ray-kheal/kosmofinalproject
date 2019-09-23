@@ -421,8 +421,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                 <th style="text-align: center;"></th>
                                                 <th style="text-align: center;">제목</th>
                                                 <th style="text-align: center;">작성자</th>
-                                               
-                                               
                                              </tr>
                                           </thead>
                                           <tbody>
