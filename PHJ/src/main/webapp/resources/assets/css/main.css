@@ -23,7 +23,7 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -1482,13 +1482,6 @@ input, select, textarea {
 	}
 
 /* Forms */
-
-	form label {
-		display: block;
-		margin: 0 0 1em 0;
-		font-size: 0.8em;
-		color: #444;
-	}
  
 	form input[type="text"],
 	form input[type="email"],
