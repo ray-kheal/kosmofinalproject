@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
-import model.member.MemberDTO;
 
 public class MemberDAO {
 	
@@ -82,6 +81,7 @@ public class MemberDAO {
 		});
 		
 	}
+	
 	
 	//전체 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
@@ -157,5 +157,26 @@ public class MemberDAO {
 		});
 		System.out.println("query : " + sql);
 	}
+	
+	//아이디 찾기
+	public MemberDTO SearchId(Map<String, Object> map) {
+		System.out.println("SearchId() 메소드 실행.");
+		
+		MemberDTO dto = null;
+		
+		String query = " SELECT EMAIL from PHJ_MEMBER where NAME=? AND MOBILE=?" ;
+		
+		try {
+			dto = template.queryForObject(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			dto = new MemberDTO();
+			
+		}
+	return dto;
+	}
+	
+	
 	
 }

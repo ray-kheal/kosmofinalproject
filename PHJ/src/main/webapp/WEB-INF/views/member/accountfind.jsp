@@ -76,24 +76,8 @@ function CloseWindow(url,intWidth,intHeight) {
       window.close('/login/findPop','popup','width=600,height=400,left=0,top=0') ; 
 } 
 function ID_check(){
-	var mb_Name=$("#mbName").val();
-	var mbIDPhone1=$("#mbIDPhone1").val();
-	var mbIDPhone2=$("#mbIDPhone2").val();
-	var mbIDPhone3=$("#mbIDPhone3").val();
-	var mb_Phone = mbIDPhone1+"-"+mbIDPhone2+"-"+mbIDPhone3;
-		
-		//alert(mb_Phone);
-
-		$.get("/login/id_check" ,
-			{
-				mbName:mb_Name,
-				mbPhone:mb_Phone
-				
-			},
-
-function(result){
-
-	if(mb_Name == ""){
+	
+	if(mbName == ""){
 		alert("이름과 휴대폰번호를 입력해주세요.");
 		//$("#tmp_check_id").val("0");
 		//document.getElementById("tmp_check_id-error").style.display="";
@@ -112,9 +96,20 @@ function(result){
 		document.getElementById("IDok ID").innerHTML = result;
 		
 	}
-});
-
+	
+	var f = document.getElementById("findPop IDfind");
+	var mbName=$("#mbName").val();
+	var mbIDPhone1 =$("#mbIDPhone1").val();
+	var mbIDPhone2 =$("#mbIDPhone2").val();
+	var mbIDPhone3 =$("#mbIDPhone3").val();
+	var mb_Phone = mbIDPhone1+"-"+mbIDPhone2+"-"+mbIDPhone3;
+	
+	f.action ="./accountfind.do";
+		
+		//alert(mb_Phone);
+		
 }
+
 function PW_check(){
 		var mb_ID=$("#mbID").val();
 		var mbPWPhone1=$("#mbPWPhone1").val();
@@ -160,8 +155,9 @@ function PW_check(){
 			<div class="row" style="margin-top:10px;">
 				<div id="findMenu" style="margin-top:100px;">
 						<div class="findPop find" id="findPop find form" >
+						
 							<h3 id="Maintitle">아이디/비밀번호 찾기</h3>
-		 	
+		 				
 							<div class="findTop clear_g custom-control custom-radio custom-control-inline">
 								<input type="radio" class="custom-control-input" name="radio_find2" id="radioFindID" checked="checked" onclick="find_check(1)" />
 								<label for="radioFindID" class="custom-control-label">아이디</label>
@@ -194,6 +190,7 @@ function PW_check(){
 											</div>
 										</td>
 									</tr>
+								</form>
 								</tbody>
 							</table>
 							<div class="btnWrap">
@@ -211,7 +208,7 @@ function PW_check(){
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="name">아이디</label></th>
+										<th scope="row"><label for="name">이메일</label></th>
 										<td>
 											<div class="formbox"><input maxlength="40" type="text" id="mbID" class="text" name="name"></div>
 										</td>
