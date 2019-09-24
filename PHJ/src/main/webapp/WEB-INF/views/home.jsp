@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -233,18 +229,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 </style>
 <!-- 마우스 오버 end  -->
 
-<style>
-
-#main-wrapper{
-		
-	
-		
-		
-		
-		
-		
-	}
-</style>
 <body class="is-preload homepage">
    <div id="page-wrapper">
 
@@ -253,21 +237,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <div id="scroll"
          style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align: center; width: 120px;">
 
-
-
-
-         <%-- <ul>
-            <li><a href="#header">Welcome</a></li>
-            <li><a href="#features-wrapper">편의점 상품조회</a></li>
-            <li><a href="#main-wrapper">편의점 레시피</a></li>
-            <li><a href="#notify">공지사항</a></li>
-            <li><a href="#info">고객센터</a></li>
-            <%if(session.getAttribute("EMAIL")==null) { %>
-               <li><a href="login.do">로그인</a></li>
-            <%}else{ %>
-               <li><a href="logout.do">로그아웃</a></li>
-            <%} %>
-         </ul> --%>
 
          <!-- 이미지로 스크롤 메뉴 변경함 -->
          <a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
@@ -313,7 +282,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          
         <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  -->
          
-          
          
          
             <div class="row">
@@ -614,4 +582,4 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/main.js"></script>
 </body>
 </html>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
