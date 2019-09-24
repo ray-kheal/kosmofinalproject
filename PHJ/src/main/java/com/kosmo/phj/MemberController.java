@@ -134,13 +134,39 @@ public class MemberController {
 	
 	//구글로그인 매핑
 	@RequestMapping(value="/googlelogin.do",method=RequestMethod.GET)
-	public String googlelogin(HttpServletRequest req, HttpSession session) {
-		System.out.println("구글로그인 이메일 : "+ req.getParameter("email"));
+	public String googlelogin(Model model, HttpServletRequest req, HttpSession session, HttpServletResponse resp) throws IOException {
+		String page = null;
+		System.out.println("구글로그인 아이디 : "+ req.getParameter("google_id"));
+		String google_id = req.getParameter("google_id");
+		String email = req.getParameter("email");
+		String name = req.getParameter("name");
 		
-		session.setAttribute("EMAIL", req.getParameter("email"));
-		session.setAttribute("PASS", req.getParameter("pass")); 
-		session.setAttribute("NAME", req.getParameter("name"));
-		return "redirect:../phj";
+		MemberDAO dao = new MemberDAO();
+		int isGoogleMember = dao.isGoogleMember(google_id);
+		
+		if(isGoogleMember == 0) {
+			MemberDTO dto = new MemberDTO();
+			dto.setEmail(email);
+			dto.setGoogle_id(google_id);
+			dto.setName(name);
+			
+			model.addAttribute("dto",dto);
+			resp.setContentType("text/html; charset=utf-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('구글 최초 로그인 시도 시 회원정보 추가 기입을 해주셔야 합니다..');</script>");
+			out.flush();
+			
+			page = "member/join02";
+		}
+		else if(isGoogleMember == 1) {
+			session.setAttribute("EMAIL", req.getParameter("email"));
+			session.setAttribute("GOOGLE_ID", req.getParameter("google_id")); 
+			session.setAttribute("NAME", req.getParameter("name"));
+			
+			page = "redirect:../phj";
+		}
+		
+		return page;
 	}
 	
 	//이메일 중복검사!

@@ -62,7 +62,8 @@ public class QnAListCommand implements PHJCommandImpl{
             for(int i=0; i<row.getBindent(); i++ ) {
                reSpace += "&nbsp;&nbsp;";
             }
-            row.setTitle(reSpace+"<img src='../resources/images/re3.gif'>"+row.getTitle());
+            //row.setTitle(reSpace+"<img src='../resources/images/re3.gif'>"+row.getTitle());
+            row.setTitle(reSpace+"<img src='https://img.lovepik.com/element/40067/8474.png_860.png' style='width:20px;'>"+row.getTitle());
          }								
       }
       

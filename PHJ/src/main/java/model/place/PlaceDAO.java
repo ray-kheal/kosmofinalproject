@@ -54,8 +54,22 @@ public class PlaceDAO {
 
 		System.out.println(map);
 		
+		return (ArrayList<PlaceDTO>)template.query(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));	
+	}
+	
+	//반경검색 쿼리
+	public ArrayList<PlaceDTO> searchRadius(double distance,double latTxt,double lngTxt){
+		String query = "SELECT " + 
+				"		place_name, place_name2, place_address, latitude, longitude, " + 
+				"		trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5) AS disKM, ROWNUM AS virtualNum " + 
+				"	FROM " + 
+				"		phj_place " + 
+				"	WHERE " + 
+				"		trunc(to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude))*10,5)<= " + distance + 
+				"		AND ROWNUM BETWEEN 1 and 20 " + 
+				"	ORDER BY " + 
+				"		to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude)) ASC ";
+		System.out.println("query = " + query);
 		return (ArrayList<PlaceDTO>)template.query(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
-		
-		
 	}
 }
