@@ -21,11 +21,31 @@ nav {
 #dep {
 	z-index : 0;
 }
+@media screen and (max-width: 995px) { #outer_btn_right { display: none; } }
+@media screen and (min-width: 782px) { #nav_login { display: none; } }
 </style>
-
+ 
 <!-- Header -->
-<div id="header-wrapper">
-	<header id="header" class="container">
+<div id="header-wrapper"  >
+	<div id="outer_btn_right" class="container" style=" text-align: right;margin-top: -50px; font-family: 'Goyang'; ">
+		
+		 <%
+            if (session.getAttribute("EMAIL") == null) {
+         %>
+			 <i class="fas fa-child"></i> 
+			<a href="login.do" style=" color: #565454;" >LOGIN</a>
+		 <%
+            } else {   
+         %>
+         <i class="fas fa-user-check"></i> 
+        <%=session.getAttribute("NAME") %>님&nbsp;&nbsp;
+			<a href="logout.do" style=" color: #565454;" >LOGOUT</a>
+	 	<%
+            }
+         %>
+	</div>
+	<div >
+	<header id="header" class="container" >
 
 		<!-- Logo -->
 		<div id="logo">
@@ -51,9 +71,23 @@ nav {
 						<li><a href="qna.do">Q&A</a></li>
 						<li><a href="mail.do">1:1 문의</a></li>
 					</ul></li>
+				<%
+       		   		if (session.getAttribute("EMAIL") == null) {
+      			 %>
+					<li id="nav_login"><a href="login.do">로그인</a>
+				<%} else{ %>
+					<li  id="nav_login"><a href="logout.do">로그아웃</a>
+			
+				<%}%>
+				
+				
+				
 			</ul>
 		</nav>
 	</header>
+	
+	</div>
+	
 </div>
 
 

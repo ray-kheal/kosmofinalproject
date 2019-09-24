@@ -133,7 +133,7 @@
 
 		<!-- Main -->
 
-		<div id="content" style="border: 10px solid black;">
+		<div id="content" >
 			<div class="row" style="margin-top:10px;">
 				<div id="account-box">
 					<div class="account-box">

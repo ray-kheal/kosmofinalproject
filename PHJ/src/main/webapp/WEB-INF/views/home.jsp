@@ -1,4 +1,3 @@
-
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -230,18 +229,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 </style>
 <!-- 마우스 오버 end  -->
 
-<style>
-
-#main-wrapper{
-		
-	
-		
-		
-		
-		
-		
-	}
-</style>
 <body class="is-preload homepage">
    <div id="page-wrapper">
 
@@ -250,21 +237,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <div id="scroll"
          style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align: center; width: 120px;">
 
-
-
-
-         <%-- <ul>
-            <li><a href="#header">Welcome</a></li>
-            <li><a href="#features-wrapper">편의점 상품조회</a></li>
-            <li><a href="#main-wrapper">편의점 레시피</a></li>
-            <li><a href="#notify">공지사항</a></li>
-            <li><a href="#info">고객센터</a></li>
-            <%if(session.getAttribute("EMAIL")==null) { %>
-               <li><a href="login.do">로그인</a></li>
-            <%}else{ %>
-               <li><a href="logout.do">로그아웃</a></li>
-            <%} %>
-         </ul> --%>
 
          <!-- 이미지로 스크롤 메뉴 변경함 -->
          <a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
@@ -310,7 +282,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          
         <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  -->
          
-          
          
          
             <div class="row">
@@ -370,7 +341,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             </div>
          </div>
       </div>
-      </div>
 
       <!-- Main -->
       
@@ -383,8 +353,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <div id="recipe ">
                   <section class="widget thumbnails">
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2>
-                     <a href="recipe.do" class="btn"; style="margin-top: -50px; margin-left:  0px;">더보기-></a>
-                      
+                     <!-- <a href="recipe.do" class="btn" style="margin-top: -50px; margin-left:  0px;">더보기-></a> -->
+                         <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
+               				<div style="text-align: right;">
+                  				<a href="recipe.do"  style="margin-top: -50px;">
+                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+                  				</a>
+               				</div>
+               
+
+              
                      <div class="row " style=" margin-left: -60px;">
 
                         <c:choose>
@@ -438,6 +416,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      </div>
                   </section>
 
+
                </div>
             </div>
             <div class="row" >
@@ -451,7 +430,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               <td style=" width: 50%;">
 <!--                                <a href="recipe.do" class="btn btn-outline-info" style="margin-top: -50px; text-align: right">더보기-></a> -->
                                  <h2 style="font-family: Goyang;">공지사항</h2>
-                                    
+                                    <div style="text-align: right; margin-right: 50px; margin-bottom: 20px;">
+		                  				<a href="notice.do" >
+		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+		                  				</a>
+		               				</div>
                                  <ul class="main_board_list">
                                     <!-- <div> -->
                                        <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
@@ -497,12 +480,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        </table>
                                     </div>
                                  </ul>
-                                 <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+                                 <!-- <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
                               </td>
                               <td >
-                             
+                              
                                  <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2>
-                            
+                           			<div style="text-align: right; margin-bottom: 20px;">
+		                  				<a href="event.do"  >
+		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+		                  				</a>
+		               				</div>
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
 
@@ -547,7 +534,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        </tbody>
                                     </table>
                                  </div> 
-                                 <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a>
+                                 <!-- <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a> -->
                               </td>
                            </tr>
                         </table>   
@@ -567,7 +554,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <!--             </div> -->
          </div>
       </div>
-       </div>
       <div class="container">
          <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
@@ -596,4 +582,3 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/main.js"></script>
 </body>
 </html>
-

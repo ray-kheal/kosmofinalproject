@@ -2424,6 +2424,10 @@ input, select, textarea {
 					display: inline-block;
 					width: 5em;
 				}
+				#navPanel .indent-6 {
+					display: inline-block;
+					width: 6em;
+				}
 
 				#navPanel .depth-0 {
 					color: #444;
