@@ -361,8 +361,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            <h2 style="font-family: Goyang;">상품 찾기</h2>
                         </header>
                         <p style="font-family: Goyang; font-size: 25px;">
-                        	주변 편의점에 있는
-                           	상품을 알려드립니다</p>
+                        	맛Eat는 먹거리 찾기</p>
                      </div>
                   </section>
                </div>
