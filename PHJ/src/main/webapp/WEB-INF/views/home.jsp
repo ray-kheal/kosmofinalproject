@@ -369,7 +369,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             </div>
          </div>
       </div>
-      </div>
 
       <!-- Main -->
       
@@ -584,7 +583,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <!--             </div> -->
          </div>
       </div>
-       </div>
       <div class="container">
          <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
@@ -610,4 +608,3 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/main.js"></script>
 </body>
 </html>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
