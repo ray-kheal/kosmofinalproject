@@ -48,7 +48,8 @@ body {
 		$("#service").attr("class", "current");
 	});
 </script>
-<body><div id="page-wrapper">
+<body>
+<div id="page-wrapper">
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
