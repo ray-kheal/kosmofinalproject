@@ -32,6 +32,7 @@ body {
 	//삭제여부 확인
 	function isDelete(){
 	 	result = confirm('삭제하시겠습니까?');
+	 	
 	    if(result){
 	        location.href = "delete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
 	    }else{
@@ -86,7 +87,7 @@ body {
 				</tr>
 				<tr>
 					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-					<td bgcolor="white">
+					<td bgcolor="white">${viewRow.name}
 					
 					</td>
 				</tr>

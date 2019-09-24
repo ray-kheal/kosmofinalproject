@@ -1580,7 +1580,7 @@ input, select, textarea {
 		.image img {
 			display: block;
 			width: 100%;
-			border-radius: 8px;
+			
 		}
 
 		.image.fit {
@@ -1796,8 +1796,7 @@ input, select, textarea {
 			}
 
 				.box.feature .image img {
-					border-bottom-left-radius: 0;
-					border-bottom-right-radius: 0;
+					
 				}
 
 /* Icons */
@@ -1873,7 +1872,7 @@ input, select, textarea {
 				height: 2.5em;
 				text-align: center;
 				line-height: 2.5em;
-				border-radius: 0.35em;
+				
 				outline: 0;
 				opacity: 0.75;
 				text-decoration: none;
@@ -1963,7 +1962,7 @@ input, select, textarea {
 					letter-spacing: 0.025em;
 					color: #696969;
 					text-decoration: none;
-					border-radius: 6px;
+					
 					padding: 0.5em 1em 0.5em 1em;
 				}
 
@@ -2564,8 +2563,7 @@ input, select, textarea {
 					}
 
 						.box.feature .image img {
-							border-bottom-left-radius: 0;
-							border-bottom-right-radius: 0;
+							
 						}
 
 		/* Widgets */
@@ -2662,3 +2660,4 @@ input, select, textarea {
 			
 
 	}
+	
