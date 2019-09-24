@@ -3,6 +3,7 @@ package com.kosmo.phj;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -37,7 +38,7 @@ public class MemberController {
 	
 	//로그인 처리
 	@RequestMapping("/loginAction.do")
-	public String loginAction(Model model, HttpServletRequest req) {
+	public String loginAction(Model model, HttpServletRequest req, HttpServletResponse resp) {
 		String page = null;
 		
 		String email = req.getParameter("email");
@@ -59,6 +60,7 @@ public class MemberController {
 			} else {
 				model.addAttribute("req",req);
 				model.addAttribute("dto",dto);
+				model.addAttribute("resp",resp);
 				command = new LoginActionCommand();
 				command.execute(model);
 				
@@ -223,7 +225,16 @@ public class MemberController {
 	//아이디 / 비밀번호 찾기 진입 메소드
 	@RequestMapping("/accountfind.do")
 	public String accountfind() {
-		
 		return "member/accountfind";
+	}
+	
+	//아이디 찾기
+	@RequestMapping("/idFind.do")
+	public String idFind(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		/* command = new idFind(); */
+		command.execute(model);
+		
+		return "member/login";
 	}
 }
