@@ -1,6 +1,7 @@
 package com.kosmo.phj;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.PHJCommandImpl;
+import command.placeMapCommand;
 import command.admin.AdProductListCommand;
 import command.board.ListCommand;
 import command.board.ProductListCommand;
@@ -21,6 +23,8 @@ import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import command.board.recipeListCommand;
 import model.board.serviceDTO;
+import model.place.PlaceDAO;
+import model.place.PlaceDTO;
 
 
 @Controller
@@ -87,8 +91,14 @@ public class GeneralController {
 		command.execute(model);
 		return "general/recipe";
 	}
+	
 	@RequestMapping("placemap.do")
-	public String placemap() {
+	public String placemap(Model model, HttpServletRequest req) {
+		
+		model.addAttribute("req",req);
+		command = new placeMapCommand();
+		command.execute(model);
+		
 		return "general/placemap";
 	}
 	
@@ -118,7 +128,11 @@ public class GeneralController {
 		   
 		   return "general/facebook";
 	   }
+	   
+	   @RequestMapping ("recipe_edit.do")
+	   public String recipe_view(Model model) {
+		   
+		   return "general/recipe_edit";
+	   }
+	   }
 
-	
-	
-}

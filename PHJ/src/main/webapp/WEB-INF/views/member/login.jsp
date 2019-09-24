@@ -197,7 +197,7 @@ if(cookies!=null){
 
 		<!-- Main -->
 
-		<div id="content">
+		<div id="content" >
 			<div class="row" style="margin-top:10px;">
 				<div id="account-box">
 					<div class="account-box">

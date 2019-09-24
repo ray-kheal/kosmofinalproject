@@ -23,6 +23,16 @@
    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Goyang&display=swap"
    rel="stylesheet">
+   
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
+</style>
 
 </head>
 
@@ -88,7 +98,10 @@ this
 
 }
 );
+
+
 </style>
+
 <!--  마우스오버 css start  -->
 <style>
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
@@ -215,124 +228,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 }
 </style>
 <!-- 마우스 오버 end  -->
-<style>
-figure.mainMouseOver {
-   font-family: 'Raleway', Arial, sans-serif;
-   position: relative;
-   overflow: hidden;
-   margin: 10px;
-   width: 100%;
-   color: #ffffff;
-   text-align: center;
-   font-size: 35px;
-   background-color: #000000;
-   vertical-align: middle;
-   
-}
-
-figure.mainMouseOver * {
-   -webkit-box-sizing: border-box;
-   box-sizing: border-box;
-   -webkit-transition: all 0.35s ease;
-   transition: all 0.35s ease;
-}
-
-figure.mainMouseOver img {
-   max-width: 100%;
-   backface-visibility: hidden;
-   vertical-align: top;
-}
-
-figure.mainMouseOver:after, figure.mainMouseOver figcaption {
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-}
-
-figure.mainMouseOver:after {
-   content: '';
-   background-color: rgba(0, 0, 0, 0.65);
-   -webkit-transition: all 0.35s ease;
-   transition: all 0.35s ease;
-   opacity: 0;
-}
-
-figure.mainMouseOver figcaption {
-   z-index: 1;
-   padding: 40px;
-}
-
-figure.mainMouseOver h3, figure.mainMouseOver .links {
-   width: 100%;
-   margin: 5px 0;
-   padding: 0;
-}
-
-figure.mainMouseOver h3 {
-   line-height: 1.1em;
-   font-weight: 700;
-   font-size: 1.4em;
-   text-transform: uppercase;
-   opacity: 0;
-}
-
-figure.mainMouseOver p {
-   font-size: 0.8em;
-   font-weight: 300;
-   letter-spacing: 1px;
-   opacity: 0;
-   top: 50%;
-   -webkit-transform: translateY(40px);
-   transform: translateY(40px);
-}
-
-figure.mainMouseOver i {
-   position: absolute;
-   bottom: 10px;
-   right: 10px;
-   padding: 20px 25px;
-   font-size: 34px;
-   opacity: 0;
-   -webkit-transform: translateX(-10px);
-   transform: translateX(-10px);
-}
-
-figure.mainMouseOver a {
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   z-index: 1;
-}
-
-figure.mainMouseOver:hover img, figure.mainMouseOver.hover img {
-   zoom: 1;
-   filter: alpha(opacity = 50);
-   -webkit-opacity: 0.5;
-   opacity: 0.5;
-}
-
-figure.mainMouseOver:hover:after, figure.mainMouseOver.hover:after {
-   opacity: 1;
-   position: absolute;
-   top: 10px;
-   bottom: 10px;
-   left: 10px;
-   right: 10px;
-}
-
-figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOver:hover p,
-   figure.mainMouseOver.hover p, figure.mainMouseOver:hover i, figure.mainMouseOver.hover i
-   {
-   -webkit-transform: translate(0px, 0px);
-   transform: translate(0px, 0px);
-   opacity: 1;
-}
-
-</style>
 
 <body class="is-preload homepage">
    <div id="page-wrapper">
@@ -342,21 +237,6 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       <div id="scroll"
          style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align: center; width: 120px;">
 
-
-
-
-         <%-- <ul>
-            <li><a href="#header">Welcome</a></li>
-            <li><a href="#features-wrapper">편의점 상품조회</a></li>
-            <li><a href="#main-wrapper">편의점 레시피</a></li>
-            <li><a href="#notify">공지사항</a></li>
-            <li><a href="#info">고객센터</a></li>
-            <%if(session.getAttribute("EMAIL")==null) { %>
-               <li><a href="login.do">로그인</a></li>
-            <%}else{ %>
-               <li><a href="logout.do">로그아웃</a></li>
-            <%} %>
-         </ul> --%>
 
          <!-- 이미지로 스크롤 메뉴 변경함 -->
          <a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
@@ -392,20 +272,16 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       <!-- 메인 헤더 인클루드 -->
       <%@ include file="general/MainHeader.jsp"%>
       
-		
+		 <img class="effect"
+                src="images/mainpic2.jpg"
+                alt="메인이미지" style="width: 100%;">
           
       <!-- 배너 -->
-      <div id="banner-wrapper">
+      <div id="banner-wrapper ">
          <div  class=" container  ">
          
         <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  -->
          
-         
-             <img class="effect"
-                src="images/mainpicture.jpg"
-                alt="메인이미지" style="width: 100%;">
-             
-          
          
          
             <div class="row">
@@ -427,21 +303,23 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       </div>
 
       <!-- Features -->
-      <div id="features-wrapper">
+     <!-- <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     "> -->
+      
+      <div id="features-wrapper  ">
          <div class="container">
             <div class="row">
                <div class="col-6 col-12-medium">
                   <!-- Box -->
                   <section class="box feature">
-                     <a href="right-sidebar.do" class="image featured"><img
+                     <a href="findproduct.do" class="image featured"><img
                         src="images/store_shadow.png" alt="" /></a>
                      <div class="inner"
                         style="text-align: center; font-family: Goyang;">
                         <header>
                            <h2 style="font-family: Goyang;">편의점 찾기</h2>
                         </header>
-                        <p style="font-family: Goyang; font-size: 25px;">원하시는 상품이 있는
-                           편의점을 찾아 드립니다.</p>
+                        <p style="font-family: Goyang; font-size: 25px;">
+                        	내 주변 편의점 찾기</p>
                      </div>
                   </section>
                </div>
@@ -454,8 +332,9 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
                         <header>
                            <h2 style="font-family: Goyang;">상품 찾기</h2>
                         </header>
-                        <p style="font-family: Goyang; font-size: 25px;">주변 편의점에 있는
-                           상품을 알려드립니다</p>
+                        <p style="font-family: Goyang; font-size: 25px;">
+                        	주변 편의점에 있는
+                           	상품을 알려드립니다</p>
                      </div>
                   </section>
                </div>
@@ -464,15 +343,26 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       </div>
 
       <!-- Main -->
-      <div id="main-wrapper"> 
+      
+      <div id="main-wrapper "> 
          <div class="container">
             <!-- <div class="row gtr-200" style="border :1px solid blue;"> -->
             <div class="row" >
 
                <!-- preview board  시작  -->
-            <div id="recipe">
+            <div id="recipe ">
                   <section class="widget thumbnails">
-                     <h2>레시피</h2>
+                     <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2>
+                     <!-- <a href="recipe.do" class="btn" style="margin-top: -50px; margin-left:  0px;">더보기-></a> -->
+                         <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
+               				<div style="text-align: right;">
+                  				<a href="recipe.do"  style="margin-top: -50px;">
+                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+                  				</a>
+               				</div>
+               
+
+              
                      <div class="row " style=" margin-left: -60px;">
 
                         <c:choose>
@@ -525,7 +415,8 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
                         </c:choose>
                      </div>
                   </section>
-                  <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a>
+
+
                </div>
             </div>
             <div class="row" >
@@ -537,7 +428,13 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
                         <table>
                            <tr >
                               <td style=" width: 50%;">
-                                 <h2>공지사항</h2>
+<!--                                <a href="recipe.do" class="btn btn-outline-info" style="margin-top: -50px; text-align: right">더보기-></a> -->
+                                 <h2 style="font-family: Goyang;">공지사항</h2>
+                                    <div style="text-align: right; margin-right: 50px; margin-bottom: 20px;">
+		                  				<a href="notice.do" >
+		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+		                  				</a>
+		               				</div>
                                  <ul class="main_board_list">
                                     <!-- <div> -->
                                        <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
@@ -583,12 +480,16 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
                                        </table>
                                     </div>
                                  </ul>
-                                 <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+                                 <!-- <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
                               </td>
                               <td >
-                             
-                                 <h2 style="padding-left: 20px;" >이벤트</h2>
-                            
+                              
+                                 <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2>
+                           			<div style="text-align: right; margin-bottom: 20px;">
+		                  				<a href="event.do"  >
+		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+		                  				</a>
+		               				</div>
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
 
@@ -633,7 +534,7 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
                                        </tbody>
                                     </table>
                                  </div> 
-                                 <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a>
+                                 <!-- <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a> -->
                               </td>
                            </tr>
                         </table>   
@@ -656,6 +557,9 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       <div class="container">
          <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
+         <br /><br />
+         <a href=recipe_edit.do> 레시피 게시판 준비중</a>
+      
          <h4>
             로그인 한 이메일 :
             <%=session.getAttribute("EMAIL")%></h4>
