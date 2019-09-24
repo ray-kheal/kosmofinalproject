@@ -253,7 +253,7 @@ public class AdminController {
 		
 
 	//공지사항 삭제하기
-	@RequestMapping("boardDelete.do")
+	@RequestMapping("./boardDelete.do")
 	public String delete(Model model, HttpServletRequest req) {
 		
 		System.out.println("delete 호출됨");
@@ -263,7 +263,6 @@ public class AdminController {
 		command.execute(model);
 
 		String nowPage = req.getParameter("nowPage");
-		//String board_type = req.getParameter("board_type");
 		model.addAttribute("nowPage", nowPage);
 		//model.addAttribute("board_type", board_type);
 		
