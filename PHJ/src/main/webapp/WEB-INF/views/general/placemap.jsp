@@ -14,7 +14,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
 #map{
-	width:800px; height:600px;
+	width:500px; height:500px;
 	}
 </style>
 	
@@ -151,6 +151,14 @@
 
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
+		
+		<div style="width: 100%; height: 200px; text-align: center; background-color: #63e8ae; display: table;">
+			<br /> <br /> <br />
+			<p
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
+				<i class="fas fa-map-marked-alt"></i> 편의점 찾기 ^~^ <br />
+			</p>
+		</div>
 
 		<!-- Main -->
 		<div id="main-wrapper">
@@ -159,36 +167,23 @@
 			<br/><br/><br/>
 			<table style="border:1px solid gray;">
 			
-				<!-- <td rowspan="3">구글지도 위치</td>
-				<td ><input type="text" placeholder="입력하세요"></td>
-				
-			<tr>
-				<td ><input type="text" placeholder="입력하세요"></td>
-			</tr>	
-			
-			<tr>
-				<td ><input type="text" placeholder="입력하세요"></td>
-			</tr> -->	
-			
 				<tr >
 					<td rowspan="3" style="border-right:10px solid gray; ">
 						
 						<div id="map"></div>
 						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
-						
-						
 					</td>
-					<td style="border-bottom: 1px solid gray; float: right;">
+					<td style="border-bottom: 1px solid gray; float: center;">
 						
 						<span id="result"></span>
 					</td>
 				</tr>			
 				<tr>
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; float: right; ">
+					<td style="border-bottom: 1px solid gray; float: left; ">
 						<form name="searchFrm">
-							<input type="hid-den" id="latTxt" name="latTxt" />
-							<input type="hid-den" id="lngTxt" name="lngTxt" />
+							<input type="hidden" id="latTxt" name="latTxt" />
+							<input type="hidden" id="lngTxt" name="lngTxt" />
 							<select name="distance" id="distance">
 								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
 								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
@@ -203,7 +198,33 @@
 				</tr>			
 				
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; float: right;"><input type="text" placeholder="편의점 이름"></td>
+					<td style="border-bottom: 1px solid gray; float: center;">
+					<h3>검색결과</h3>
+					<table class="table table-bordered">
+					<c:choose>
+							<c:when test="${empty searchLists }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 점포가 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${searchLists }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.place_name }</td>
+										<td class="text-center">${row.place_name2 }</td>
+										<td class="text-left">${row.place_address}
+										</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+						</table>
+					</td>
 				</tr>			
 			</table>
 			</div>
