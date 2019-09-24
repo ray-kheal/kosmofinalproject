@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -340,7 +343,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <div class="col-6 col-12-medium">
                   <!-- Box -->
                   <section class="box feature">
-                     <a href="right-sidebar.do" class="image featured"><img
+                     <a href="findproduct.do" class="image featured"><img
                         src="images/store_shadow.png" alt="" /></a>
                      <div class="inner"
                         style="text-align: center; font-family: Goyang;">

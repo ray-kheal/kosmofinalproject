@@ -246,14 +246,10 @@ public class AdminController {
 		model.addAttribute("noticeDTO",noticeDTO);
 		command = new AdBoardListWriteActionCommand();
 		command.execute(model);
-		
 			return "redirect:./boardManagement.do";
-		
 	}
-		
-
 	//공지사항 삭제하기
-	@RequestMapping("boardDelete.do")
+	@RequestMapping("/admin/pages/tables/boardDelete.do")
 	public String delete(Model model, HttpServletRequest req) {
 		
 		System.out.println("delete 호출됨");
@@ -263,7 +259,6 @@ public class AdminController {
 		command.execute(model);
 
 		String nowPage = req.getParameter("nowPage");
-		//String board_type = req.getParameter("board_type");
 		model.addAttribute("nowPage", nowPage);
 		//model.addAttribute("board_type", board_type);
 		
@@ -362,10 +357,4 @@ public class AdminController {
 		return "admin/pages/tables/recipeManagement";
 	}
 	
-	
-	
-	
-	
-	
-
 }
