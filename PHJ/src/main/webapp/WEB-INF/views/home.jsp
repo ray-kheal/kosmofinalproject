@@ -1,3 +1,4 @@
+
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -23,6 +24,16 @@
    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Goyang&display=swap"
    rel="stylesheet">
+   
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
+</style>
 
 </head>
 
@@ -336,8 +347,8 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <header>
                            <h2 style="font-family: Goyang;">편의점 찾기</h2>
                         </header>
-                        <p style="font-family: Goyang; font-size: 25px;">원하시는 상품이 있는
-                           편의점을 찾아 드립니다.</p>
+                        <p style="font-family: Goyang; font-size: 25px;">
+                        	내 주변 편의점 찾기</p>
                      </div>
                   </section>
                </div>
@@ -350,8 +361,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <header>
                            <h2 style="font-family: Goyang;">상품 찾기</h2>
                         </header>
-                        <p style="font-family: Goyang; font-size: 25px;">주변 편의점에 있는
-                           상품을 알려드립니다</p>
+                        <p style="font-family: Goyang; font-size: 25px;">
+                        	주변 편의점에 있는
+                           	상품을 알려드립니다</p>
                      </div>
                   </section>
                </div>
@@ -370,7 +382,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <!-- preview board  시작  -->
             <div id="recipe ">
                   <section class="widget thumbnails">
-                     <h2>레시피</h2>
+                     <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2>
+                     <a href="recipe.do" class="btn"; style="margin-top: -50px; margin-left:  0px;">더보기-></a>
+                      
                      <div class="row " style=" margin-left: -60px;">
 
                         <c:choose>
@@ -423,8 +437,12 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
+<<<<<<< HEAD
                   <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
                   <a href="recipe.do"  style="margin-top: -50px;"><img src="images/moreView.png" alt="" style="width: 120px"/></a>
+=======
+              
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                </div>
             </div>
             <div class="row" >
@@ -436,7 +454,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <table>
                            <tr >
                               <td style=" width: 50%;">
-                                 <h2>공지사항</h2>
+<!--                                <a href="recipe.do" class="btn btn-outline-info" style="margin-top: -50px; text-align: right">더보기-></a> -->
+                                 <h2 style="font-family: Goyang;">공지사항</h2>
+                                    
                                  <ul class="main_board_list">
                                     <!-- <div> -->
                                        <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
@@ -486,7 +506,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               </td>
                               <td >
                              
-                                 <h2 style="padding-left: 20px;" >이벤트</h2>
+                                 <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2>
                             
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
@@ -578,3 +598,4 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/main.js"></script>
 </body>
 </html>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git

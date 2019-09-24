@@ -17,6 +17,16 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	<style type="text/css">
+	@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
+</style>
 </head>
 <script type="text/javascript">
 	function FindFrmCheck() {
@@ -91,30 +101,30 @@ body {
 						<!-- Content -->
 						<article>
 
-							<h2>1:1 문의하기</h2>
+							<h2 style="font-family: Goyang;">1:1 문의하기</h2>
 							<form action="mail_send.jsp" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
 								<div class="pw_box">
-<<<<<<< HEAD
+
 									<table border="5px solid">
-=======
+
 									<table style="border:1px solid gray;" >
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 										<tr>
-											<td style="text-align: center; vertical-align:middle;" >답장 받으실 메일</td>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">답장 받으실 메일</td>
 											<td><input type="text" name="email" value="" /></td>
 										</tr>
 										<tr>
-											<td style="text-align: center; vertical-align:middle;">제목</td>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">제목</td>
 											<td><input type="text" name="subject" value="" /></td>
 										</tr>
 										<tr>
-											<td style="text-align: center; vertical-align:middle;">내용</td>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">내용</td>
 											<td><textarea name="content" id="" cols="30" rows="10"
 													value=""></textarea></td>
 										</tr>
 										<tr>
-											<td colspan="2" style="text-align:center;"><button type="submit" style="float: center">문의하기</button></td>
+											<td colspan="2" style="text-align:center;"><button type="submit" style="float: center; font-family: Goyang;">문의하기</button></td>
 										</tr>
 									</table>
 
