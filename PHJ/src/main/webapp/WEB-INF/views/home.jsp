@@ -161,8 +161,8 @@ nav {
 								<header>
 									<h2 style="font-family: Goyang;">편의점 찾기</h2>
 								</header>
-								<p style="font-family: Goyang; font-size: 25px;">원하시는 상품이 있는
-									편의점을 찾아 드립니다.</p>
+								<p style="font-family: Goyang; font-size: 25px;">
+									근처에 편의점이 어디있지?</p>
 							</div>
 						</section>
 					</div>
@@ -175,8 +175,8 @@ nav {
 								<header>
 									<h2 style="font-family: Goyang;">상품 찾기</h2>
 								</header>
-								<p style="font-family: Goyang; font-size: 25px;">주변 편의점에 있는
-									상품을 알려드립니다</p>
+								<p style="font-family: Goyang; font-size: 25px;">
+									내가 먹고 싶은게 있을까?</p>
 							</div>
 						</section>
 					</div>
@@ -190,70 +190,62 @@ nav {
 				<div class="row gtr-200">
 
 					<!-- preview board  시작  -->
-					<div id="recipe">
+				<div id="recipe">
 						<section class="widget thumbnails">
-							<h2>레시피</h2>
+							<h2 style="font-family: Goyang;">레시피</h2>
+							<div class="row text-center text-lg-left">
 
-							<div class="grid">
-								<div class="row gtr-50" style="position: relative; display: inline-block; *display: inline;">
+								<c:choose>
+									<c:when test="${empty recipeRows }">
+										<div>
+											<span>결과가 없습니다.</span>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="${recipeRows }" var="row" varStatus="loop">
+											<c:choose>
+												<c:when
+													test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
 
-									<br />
-									<div "row text-right"style="float: right;">
-										<a href="recipe.do"
-											class="button icon solid fa-arrow-circle-right">더보기</a> <br />
-										<br />
-									</div>
-									<!-- <button class="button" onclick="recipe.do"><i class=" fa-arrow-circle-right"></i>더보기</button> -->
-									<br />
-									<!-- <div class="col-7 col-16-medium imp-medium" style="border:1px solid gray; width: 50%"> -->
-								<div>
+													<div class="col-lg-3 col-md-4 col-6 effect ">
+														<figure class="recipePhoto">
+															<img class="img-fluid img-thumbnail effect"
+																src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+																alt="">
+															<figcaption>
+																<h3>${row.title }</h3>
+																<p>${row.content }</p>
+																<i class="ion-ios-arrow-right"></i>
+															</figcaption>
+															<a href="#" class="d-block mb-4 h-100"></a>
+														</figure>
+													</div>
 
-									<c:choose>
-										<c:when test="${empty recipeRows }">
-											<div>
-												<span>결과가 없습니다.</span>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<c:forEach items="${recipeRows }" var="row" varStatus="loop">
-												<c:choose>
-													<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
-														<div class="col-lg-3 col-md-4 col-6 effect ">
-															<figure class="recipePhoto">
-																<img class="img-fluid img-thumbnail effect" src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" alt="">
-																<figcaption>
-																	<h3>${row.title }</h3>
-																	<p>${row.content }</p>
-																	<i class="ion-ios-arrow-right"></i>
-																</figcaption>
-																<a href="#" class="d-block mb-4 h-100"></a>
-															</figure>
-														</div>
-													</c:when>
-													<c:otherwise>
-														<div class="col-lg-3 col-md-4 col-6 ">
-															<figure class="recipePhoto">
-																<img class="img-fluid img-thumbnail effect" src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" alt="">
-																<figcaption>
-																	<h3>${row.title }</h3>
-																	<p>${row.content }</p>
-																	<i class="ion-ios-arrow-right"></i>
-																</figcaption>
-																<a href="#" class="d-block mb-4 h-100"></a>
-															</figure>
-														</div>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-								</div>
-								</div>
+												</c:when>
+												<c:otherwise>
+
+													<div class="col-lg-3 col-md-4 col-6 ">
+														<figure class="recipePhoto">
+															<img class="img-fluid img-thumbnail effect"
+																src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+																alt="">
+															<figcaption>
+																<h3>${row.title }</h3>
+																<p>${row.content }</p>
+																<i class="ion-ios-arrow-right"></i>
+															</figcaption>
+															<a href="#" class="d-block mb-4 h-100"></a>
+														</figure>
+													</div>
+
+												</c:otherwise>
+											</c:choose>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
 							</div>
-							<br /> <br /> <br />
 						</section>
-
-						<br />
+						<a href="recipe.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 					</div>
 				</div>
 				<div class="row">
@@ -264,14 +256,14 @@ nav {
 								<table>
 									<tr>
 										<td>
-											<h2>공지사항</h2>
+											<h2 style="font-family: Goyang;">공지사항</h2>
 											<ul class="main_board_list">
 												<div>
 													<table class="table table-hover" style="text-align: center;">
 														<colgroup>
 															<col width="80px" />
 															<col width="*" />
-															<col width="120px" />
+															<col width="200px" />
 															<col width="120px" />
 															<col width="120px" />
 														</colgroup>
@@ -315,7 +307,7 @@ nav {
 											<a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
 										</td>
 										<td>
-											<h2>이벤트</h2>
+											<h2 style="font-family: Goyang;">이벤트</h2>
 											<div>
 												<table class="table table-hover" style="text-align: center;">
 
