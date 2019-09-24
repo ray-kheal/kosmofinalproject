@@ -246,14 +246,10 @@ public class AdminController {
 		model.addAttribute("noticeDTO",noticeDTO);
 		command = new AdBoardListWriteActionCommand();
 		command.execute(model);
-		
 			return "redirect:./boardManagement.do";
-		
 	}
-		
-
 	//공지사항 삭제하기
-	@RequestMapping("./boardDelete.do")
+	@RequestMapping("/admin/pages/tables/boardDelete.do")
 	public String delete(Model model, HttpServletRequest req) {
 		
 		System.out.println("delete 호출됨");
@@ -361,10 +357,4 @@ public class AdminController {
 		return "admin/pages/tables/recipeManagement";
 	}
 	
-	
-	
-	
-	
-	
-
 }
