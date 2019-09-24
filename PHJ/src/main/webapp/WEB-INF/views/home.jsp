@@ -88,7 +88,10 @@ this
 
 }
 );
+
+
 </style>
+
 <!--  마우스오버 css start  -->
 <style>
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
@@ -215,125 +218,19 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 }
 </style>
 <!-- 마우스 오버 end  -->
+
 <style>
-figure.mainMouseOver {
-   font-family: 'Raleway', Arial, sans-serif;
-   position: relative;
-   overflow: hidden;
-   margin: 10px;
-   width: 100%;
-   color: #ffffff;
-   text-align: center;
-   font-size: 35px;
-   background-color: #000000;
-   vertical-align: middle;
-   
-}
 
-figure.mainMouseOver * {
-   -webkit-box-sizing: border-box;
-   box-sizing: border-box;
-   -webkit-transition: all 0.35s ease;
-   transition: all 0.35s ease;
-}
-
-figure.mainMouseOver img {
-   max-width: 100%;
-   backface-visibility: hidden;
-   vertical-align: top;
-}
-
-figure.mainMouseOver:after, figure.mainMouseOver figcaption {
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-}
-
-figure.mainMouseOver:after {
-   content: '';
-   background-color: rgba(0, 0, 0, 0.65);
-   -webkit-transition: all 0.35s ease;
-   transition: all 0.35s ease;
-   opacity: 0;
-}
-
-figure.mainMouseOver figcaption {
-   z-index: 1;
-   padding: 40px;
-}
-
-figure.mainMouseOver h3, figure.mainMouseOver .links {
-   width: 100%;
-   margin: 5px 0;
-   padding: 0;
-}
-
-figure.mainMouseOver h3 {
-   line-height: 1.1em;
-   font-weight: 700;
-   font-size: 1.4em;
-   text-transform: uppercase;
-   opacity: 0;
-}
-
-figure.mainMouseOver p {
-   font-size: 0.8em;
-   font-weight: 300;
-   letter-spacing: 1px;
-   opacity: 0;
-   top: 50%;
-   -webkit-transform: translateY(40px);
-   transform: translateY(40px);
-}
-
-figure.mainMouseOver i {
-   position: absolute;
-   bottom: 10px;
-   right: 10px;
-   padding: 20px 25px;
-   font-size: 34px;
-   opacity: 0;
-   -webkit-transform: translateX(-10px);
-   transform: translateX(-10px);
-}
-
-figure.mainMouseOver a {
-   position: absolute;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   z-index: 1;
-}
-
-figure.mainMouseOver:hover img, figure.mainMouseOver.hover img {
-   zoom: 1;
-   filter: alpha(opacity = 50);
-   -webkit-opacity: 0.5;
-   opacity: 0.5;
-}
-
-figure.mainMouseOver:hover:after, figure.mainMouseOver.hover:after {
-   opacity: 1;
-   position: absolute;
-   top: 10px;
-   bottom: 10px;
-   left: 10px;
-   right: 10px;
-}
-
-figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOver:hover p,
-   figure.mainMouseOver.hover p, figure.mainMouseOver:hover i, figure.mainMouseOver.hover i
-   {
-   -webkit-transform: translate(0px, 0px);
-   transform: translate(0px, 0px);
-   opacity: 1;
-}
-
+#main-wrapper{
+		
+	
+		
+		
+		
+		
+		
+	}
 </style>
-
 <body class="is-preload homepage">
    <div id="page-wrapper">
 
@@ -392,19 +289,16 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       <!-- 메인 헤더 인클루드 -->
       <%@ include file="general/MainHeader.jsp"%>
       
-		
+		 <img class="effect"
+                src="images/mainpic2.jpg"
+                alt="메인이미지" style="width: 100%;">
           
       <!-- 배너 -->
-      <div id="banner-wrapper">
+      <div id="banner-wrapper ">
          <div  class=" container  ">
          
         <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  -->
          
-         
-             <img class="effect"
-                src="images/mainpicture.jpg"
-                alt="메인이미지" style="width: 100%;">
-             
           
          
          
@@ -427,7 +321,9 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
       </div>
 
       <!-- Features -->
-      <div id="features-wrapper">
+     <!-- <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     "> -->
+      
+      <div id="features-wrapper  ">
          <div class="container">
             <div class="row">
                <div class="col-6 col-12-medium">
@@ -462,15 +358,17 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
             </div>
          </div>
       </div>
+      </div>
 
       <!-- Main -->
-      <div id="main-wrapper"> 
+      
+      <div id="main-wrapper "> 
          <div class="container">
             <!-- <div class="row gtr-200" style="border :1px solid blue;"> -->
             <div class="row" >
 
                <!-- preview board  시작  -->
-            <div id="recipe">
+            <div id="recipe ">
                   <section class="widget thumbnails">
                      <h2>레시피</h2>
                      <div class="row " style=" margin-left: -60px;">
@@ -525,7 +423,8 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
                         </c:choose>
                      </div>
                   </section>
-                  <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a>
+                  <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
+                  <a href="recipe.do"  style="margin-top: -50px;"><img src="images/moreView.png" alt="" style="width: 120px"/></a>
                </div>
             </div>
             <div class="row" >
@@ -653,6 +552,7 @@ figure.mainMouseOver:hover h3, figure.mainMouseOver.hover h3, figure.mainMouseOv
             <!--             </div> -->
          </div>
       </div>
+       </div>
       <div class="container">
          <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
