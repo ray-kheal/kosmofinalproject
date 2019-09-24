@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -440,12 +437,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
-<<<<<<< HEAD
-                  <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
-                  <a href="recipe.do"  style="margin-top: -50px;"><img src="images/moreView.png" alt="" style="width: 120px"/></a>
-=======
-              
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
                </div>
             </div>
             <div class="row" >
@@ -579,6 +571,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <div class="container">
          <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
+         <br /><br />
+         <a href=recipe_edit.do> 레시피 게시판 준비중</a>
+      
          <h4>
             로그인 한 이메일 :
             <%=session.getAttribute("EMAIL")%></h4>
@@ -601,4 +596,4 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/main.js"></script>
 </body>
 </html>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
