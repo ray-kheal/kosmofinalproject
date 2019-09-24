@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
@@ -343,7 +339,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <div class="col-6 col-12-medium">
                   <!-- Box -->
                   <section class="box feature">
-                     <a href="findproduct.do" class="image featured"><img
+                     <a href= "placemap.do" class="image featured"><img
                         src="images/store_shadow.png" alt="" /></a>
                      <div class="inner"
                         style="text-align: center; font-family: Goyang;">
@@ -358,7 +354,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <div class="col-6 col-12-medium">
                   <!-- Box -->
                   <section class="box feature">
-                     <a href="placemap.do" class="image featured"><img
+                     <a href="findproduct.do" class="image featured"><img
                         src="images/product_shadow.png" alt="" /></a>
                      <div class="inner" style="text-align: center;">
                         <header>
@@ -386,8 +382,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <div id="recipe ">
                   <section class="widget thumbnails">
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2>
-                     <a href="recipe.do" class="btn"; style="margin-top: -50px; margin-left:  0px;">더보기-></a>
-                      
+                     <!-- <a href="recipe.do" class="btn" style="margin-top: -50px; margin-left:  0px;">더보기-></a> -->
+                         <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
+               				<div style="text-align: right;">
+                  				<a href="recipe.do"  style="margin-top: -50px;">
+                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+                  				</a>
+               				</div>
+               
+
+              
                      <div class="row " style=" margin-left: -60px;">
 
                         <c:choose>
@@ -440,12 +444,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
-<<<<<<< HEAD
-                  <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
-                  <a href="recipe.do"  style="margin-top: -50px;"><img src="images/moreView.png" alt="" style="width: 120px"/></a>
-=======
-              
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
+               
+
                </div>
             </div>
             <div class="row" >
@@ -459,7 +460,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               <td style=" width: 50%;">
 <!--                                <a href="recipe.do" class="btn btn-outline-info" style="margin-top: -50px; text-align: right">더보기-></a> -->
                                  <h2 style="font-family: Goyang;">공지사항</h2>
-                                    
+                                    <div style="text-align: right; margin-right: 50px; margin-bottom: 20px;">
+		                  				<a href="notice.do" >
+		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+		                  				</a>
+		               				</div>
                                  <ul class="main_board_list">
                                     <!-- <div> -->
                                        <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
@@ -505,12 +510,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        </table>
                                     </div>
                                  </ul>
-                                 <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a>
+                                 <!-- <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
                               </td>
                               <td >
-                             
+                              
                                  <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2>
-                            
+                           			<div style="text-align: right; margin-bottom: 20px;">
+		                  				<a href="event.do"  >
+		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
+		                  				</a>
+		               				</div>
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
 
@@ -555,7 +564,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                        </tbody>
                                     </table>
                                  </div> 
-                                 <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a>
+                                 <!-- <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a> -->
                               </td>
                            </tr>
                         </table>   
