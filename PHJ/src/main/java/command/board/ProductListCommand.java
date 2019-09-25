@@ -8,21 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 
 import command.PHJCommandImpl;
-import model.product.ProductDAO;
-import model.product.ProductDTO;
+import model.stock.StockDAO;
+import model.stock.StockDTO;
 import util.PagingUtil;
 
 public class ProductListCommand implements PHJCommandImpl {
 	@Override
 	public void execute(Model model) {
 		
-		System.out.println("ListCommand클래스 > execute() 메소드 호출");
+		System.out.println("ProductListCommand클래스 > execute() 메소드 호출");
 		
 		Map<String, Object> paramMap = model.asMap();
 		
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
 					
-		ProductDAO dao = new ProductDAO();	
+		StockDAO dao = new StockDAO();	
 		
 		String addQueryString = "";
 		String searchColumn = req.getParameter("searchColumn");
@@ -45,17 +45,27 @@ public class ProductListCommand implements PHJCommandImpl {
 		int end = nowPage * pageSize;
 		paramMap.put("start", start);
 		paramMap.put("end", end);
-		ArrayList<ProductDTO> listRows = dao.list(paramMap);
+		ArrayList<StockDTO> listRows = dao.list(paramMap);
 		int virtualNum =0;
 	    int countNum =0;
-	    for(ProductDTO row : listRows) {
+	    for(StockDTO row : listRows) {
         
           virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
           row.setVirtualNum(virtualNum);
+          
+          //점포명 재조립.
+          if(row.getPlace_name().contains(row.getPlace_name2())==true) {
+        	  
+          } else {
+        	  row.setPlace_name(row.getPlace_name()+row.getPlace_name2());
+          }
+          
        }
 	    
 	    String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString);
+	    
+	    
 	    
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);

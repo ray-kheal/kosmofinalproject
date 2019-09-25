@@ -23,6 +23,7 @@ import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
+import command.member.SearchIDPWCommand;
 import command.member.emailOverlapCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
@@ -222,19 +223,33 @@ public class MemberController {
 		return "redirect:../phj";
 	}
 	
+
 	//아이디 / 비밀번호 찾기 진입 메소드
 	@RequestMapping("/accountfind.do")
 	public String accountfind() {
 		return "member/accountfind";
 	}
+	//아이디 / 비밀번호 확인 메소드
+	
+	@RequestMapping("/idFind.do")
+	public String idFind() {
+		return "member/idFind";
+	}
 	
 	//아이디 찾기
-	@RequestMapping("/idFind.do")
-	public String idFind(Model model, HttpServletRequest req) {
+	@RequestMapping("/IdPwfind.do")
+	public String accountfind(Model model, HttpServletRequest req) {
+		System.out.println("들어옴");
 		model.addAttribute("req",req);
-		/* command = new idFind(); */
+		command = new SearchIDPWCommand();
 		command.execute(model);
 		
-		return "member/login";
+		model.addAttribute("name",req.getParameter("name"));
+		model.addAttribute("mobile",req.getParameter("mobile"));
+		
+		return "member/idFind";
 	}
+	
+
+
 }

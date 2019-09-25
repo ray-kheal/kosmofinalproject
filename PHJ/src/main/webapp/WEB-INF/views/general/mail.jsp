@@ -104,11 +104,13 @@ body {
 							<h2 style="font-family: Goyang;">1:1 문의하기</h2>
 							<form action="mail_send.jsp" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
+
 								<div class="pw_box">
 
 									<table border="5px solid">
 
 									<table style="border:1px solid gray;" >
+
 
 										<tr>
 											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">답장 받으실 메일</td>
