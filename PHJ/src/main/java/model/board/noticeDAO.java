@@ -34,7 +34,7 @@ public class noticeDAO {
 		String query = " SELECT COUNT(*) FROM PHJ_BOARD_NOTICE  where board_type=" + board_type;
 
 		if (map.get("searchWord") != null) {
-			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+			query += "and " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		
 		return template.queryForObject(query, Integer.class);
@@ -63,7 +63,7 @@ public class noticeDAO {
 				+ "      SELECT * FROM PHJ_BOARD_NOTICE where board_type= " + board_type ;
 
 		if (map.get("searchWord") != null) {
-			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+			query += "  and " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		query += " order by idx desc  ) Tb ) WHERE rNum BETWEEN "+start+" AND "+ end +"order by idx desc";
 
@@ -91,6 +91,23 @@ public class noticeDAO {
 			}
 		});
 	}
+	 //수정하기
+	 public void edit(final noticeDTO dto) {
+		  
+		   String sql = "UPDATE PHJ_BOARD_NOTICE SET title=?,content=? WHERE idx=?";
+		   	template.update(sql,new PreparedStatementSetter() {
+				
+				@Override
+				public void setValues(PreparedStatement ps) throws SQLException {
+					
+					ps.setString(1, dto.getTitle());
+					ps.setString(2, dto.getContent());
+					ps.setInt(3, dto.getIdx());
+					
+					
+				}
+			});
+}
 	 
 	// 답변형 게시판 상세보기및 답변글달기에서 사용
 	public noticeDTO view(String idx) {

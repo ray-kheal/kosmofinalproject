@@ -39,8 +39,8 @@ public class AdEventListCommand implements PHJCommandImpl {
 		
 		if(searchWord !=null ) {
 			addQueryString = String.format("searchColumn=%s&searchWord=%s&",searchColumn, searchWord);
-			paramMap.put("Column", searchColumn);
-			paramMap.put("Word", searchWord);
+			paramMap.put("searchColumn", searchColumn);
+			paramMap.put("searchWord", searchWord);
 		}
 				
 				

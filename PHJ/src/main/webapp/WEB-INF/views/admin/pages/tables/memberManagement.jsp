@@ -83,7 +83,8 @@ if (mst == 'normal') {
 			<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-basket"></i>&nbsp;회원조회</h4>
+                  
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-account-multiple"></i>&nbsp;회원조회</h4>
                     <table class="table table-hover" style="text-align: center;">
 					<colgroup>
 						<col width="20px" />

@@ -20,6 +20,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
+import model.member.MemberDTO;
+
 public class recipeDAO {
 	
 	JdbcTemplate template;
@@ -49,20 +51,43 @@ public class recipeDAO {
 		return (ArrayList<recipeDTO>)template.query(sql, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
 	}
 	
+	
 	//게시물 수 카운트
 	public int getTotalCount(Map<String, Object> map) {	
 		System.out.println("getTotalCount() 호출");
 	
-		String sql = "";
+		String sql = " SELECT COUNT(*) FROM PHJ_BOARD_RECIPE ";
 		
-		sql += " SELECT COUNT(*) FROM phj_board_recipe ";
-		
-		if(map.get("Word")!=null) {
-			sql += " WHERE "+map.get("Coulmn")+" LIKE '%"+map.get("Word")+"%' ";
+		if(map.get("searchWord")!=null) {
+			sql += " WHERE "+map.get("searchColumn")+" LIKE '%"+map.get("searchWord")+"%' ";
 		}
 		
 		System.out.println("sql = " +sql);
 		
 		return template.queryForObject(sql, Integer.class);
 	}
+	
+	
+	//*****************************************************어드민용
+	//레코드 페이지별로 가져오기(어드민용)
+	public ArrayList<recipeDTO> ad_list(Map<String, Object> map) {
+		
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		
+		String query = " SELECT * FROM( "
+				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
+				+ "      SELECT * FROM PHJ_BOARD_RECIPE ";
+
+		if (map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+		}
+		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end ;
+
+		System.out.println(map);
+		
+		return (ArrayList<recipeDTO>)template.query(query, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
+	}
+	
+			
 }

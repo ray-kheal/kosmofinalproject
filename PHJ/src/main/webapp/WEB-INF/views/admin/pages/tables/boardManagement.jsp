@@ -29,6 +29,41 @@ if (mst == 'normal') {
 } 
 
 </script>
+<script>
+//전체선택&해제
+var checkDelete = function(){
+	if($('#check_all').prop('checked')){
+		$('input[name=checkDel]').prop('checked',true);
+	}
+	else{
+		$('input[name=checkDel]').prop('checked',false);
+	}
+}
+/* var DeleteAll = function(){
+	$('input[name=checkDel]:checked').each(function(){
+		alert($(this).val());
+	});
+} */
+
+//삭제여부 확인
+function DeleteAll(){
+	result = confirm('삭제하시겠습니까?');
+	var idx = "";
+	  $('input[name=checkDel]:checked').each(function(){
+		  idx = $(this).val();
+	  });
+	  
+  if(result){
+	  
+	 location.href = "boardDelete.do?idx="+idx+"&nowPage=${nowPage}&board_type=1";
+		
+	  
+      //location.href = "boardDelete.do";
+  }else{
+  	return false;
+  }
+}
+</script>
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
@@ -90,14 +125,20 @@ if (mst == 'normal') {
                     <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
                      <colgroup>
-						<col width="80px" />
+						<col width="20px" />
+						<col width="20px" />
 						<col width="*" />
+						<col width="30px" />
 						<col width="120px" />
-						<col width="120px" />
-						<col width="80px" />
+						<col width="30px" />
 					</colgroup>
 					<thead>
 						<tr class="table-info" style="color: white;">
+							 <th>전체 <br />
+	                          	<input type="checkbox" name="check_all" id="check_all" onclick="checkDelete();">
+	                			<label for="checkbox"></label>
+	                						
+	                		</th> 
 							<th>no</th>
 							<th>제목</th>
 							<th>작성자</th>
@@ -120,6 +161,9 @@ if (mst == 'normal') {
 									varStatus="loop">
 									<!-- 리스트반복시작 -->
 									<tr>
+										<td> 
+										<input type="checkbox" name ="checkDel" id="checkDel" value="${row.idx}">
+                						</td>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
 											<a href="./boardManagementView.do?idx=${row.idx}
@@ -168,7 +212,7 @@ if (mst == 'normal') {
 			  --%>
 				<button type="button" class="btn btn-dark btn-sm" 
 						onclick="location.href='./boardManagementWrite.do?board_type=1';">글쓰기</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
+				<button class = "btn btn-danger btn-sm"  onclick="DeleteAll();">삭제</button>
 				
 			</div>
             </div>

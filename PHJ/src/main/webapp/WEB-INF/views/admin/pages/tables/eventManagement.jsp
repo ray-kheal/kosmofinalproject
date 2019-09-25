@@ -62,9 +62,9 @@ if (mst == 'normal') {
               	<form class="form-inline">
 				 <div class="form-group ">
 					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="postdate">게시일</option>
 					</select>
 				</div> 
 				<div class="input-group">

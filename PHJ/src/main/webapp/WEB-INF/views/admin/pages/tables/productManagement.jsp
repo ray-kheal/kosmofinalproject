@@ -29,6 +29,7 @@ if (mst == 'normal') {
 } 
 
 </script>
+
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
@@ -61,9 +62,9 @@ if (mst == 'normal') {
               	<form class="form-inline">
 				 <div class="form-group ">
 					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
+						<option value="product_name">상품명</option>
+						<option value="product_price">가격</option>
+						<option value="product_value_code">상품코드</option>
 					</select>
 				</div> 
 				<div class="input-group">
@@ -86,6 +87,7 @@ if (mst == 'normal') {
                     <h4 class="card-title">&nbsp;<i class="mdi mdi-basket"></i>&nbsp;상품조회</h4>
                     <table class="table table-hover" style="text-align: center;">
                       <colgroup>
+						<%-- <col width="30px" /> --%>
 						<col width="20px" />
 						<col width="50px" />
 						<col width="*" />
@@ -94,7 +96,12 @@ if (mst == 'normal') {
 					</colgroup>  
                         
                       <thead>
-                        <tr class="table-info" style="color: white;">
+                        <tr class="table-info" style="color: white;" valign="middle">
+                         <!--  <th>전체 <br />
+                          	<input type="checkbox" name="check_all" id="check_all" onclick="checkDelete();">
+                			<label for="checkbox"></label>
+                						
+                		</th> -->
                           <th>no</th>
                           <th>상품코드</th>
                           <th>상품명</th>
@@ -113,19 +120,21 @@ if (mst == 'normal') {
 								</tr>
 							</c:when>
 							<c:otherwise>
+							 
 								<c:forEach items="${viewRow }" var="row" 
 									varStatus="loop">
 									<!-- 리스트반복시작 -->
 									<tr>
+										<%-- <td> 
+										<input type="checkbox" name ="checkDel" id="checkDel" value="${row.product_code}">
+                						</td> --%>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-center">${row.product_code }</td>
-										<td class="text-left">
-											<a href="./view.do?idx=${row.product_code}
-												&nowPage=${nowPage}">${row.product_name}</a>
+										<td class="text-left">${row.product_name}
 										</td >
 										<td class="text-left">${row.product_price}
 										</td>
-										<td class="text-center">${row.product_value_code }</td>
+										<td class="text-center">${row.product_value }</td>
 									</tr>
 									<!-- 리스트반복끝 -->
 								</c:forEach>
@@ -154,7 +163,7 @@ if (mst == 'normal') {
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
 				onclick="location.href='./productManagementWrite.do';">상품등록</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
+				<button class = "btn btn-danger btn-sm" onclick="DeleteAll();">삭제</button>
 			</div>
 
 
@@ -163,8 +172,17 @@ if (mst == 'normal') {
             </div>
       </div>
       
+      
       <!--  공지사항 게시판 끝 -->
+      
+  
+   
+     
           </div>
+          
+          
+          
+      
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.do -->
           <footer class="footer">
