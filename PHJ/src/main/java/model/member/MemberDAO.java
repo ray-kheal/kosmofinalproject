@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -93,13 +94,20 @@ public class MemberDAO {
 	
 	//아이디찾기
 	public String emailFind(String name, String mobile) {
-		
-		
+		String email = "";
+
 		String sql = "SELECT email FROM phj_member WHERE name='"+name+"' AND mobile='"+mobile+"' ";
 		System.out.println("sql : " + sql);
 		
-		return template.queryForObject(sql, String.class);
+		try {
+			email = template.queryForObject(sql, new BeanPropertyRowMapper<String>(String.class));
+			
+		} catch(EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			email = "ERROR";
+		}
 		
+		return email;
 	}
 	
 	

@@ -40,14 +40,19 @@
 	}
 </style>
 
-<c:if test="${not empty resultEmail }">
-	<script>alert('${name}님의 이메일은 ${resultEmail} 입니다.')</script>
+<c:if test="${'ERROR' ne resultEmail and not empty resultEmail}">
+	<script>
+		alert('${name}님의 이메일은 ${resultEmail} 입니다.');
+		location.href="login.do";
+	</script>
+</c:if> 
+<c:if test="${'ERROR' eq resultEmail }">
+	<script>
+		alert('회원 정보가 없습니다.');
+		location.href="accountfind.do";
+	</script>
 </c:if>
-
 <script type="text/javascript">
-
-
-
 function find_check(num){
 	if(num=='1'){
 		document.getElementById("findPop PWfind").style.display="none";
