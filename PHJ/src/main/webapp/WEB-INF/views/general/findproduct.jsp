@@ -1,3 +1,4 @@
+<%@page import="util.PagingUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -74,11 +75,16 @@ to {
 
 	<div
 		style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+		
 		<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
 			font-size: 60px; color: white; font-weight: bold;">
-			<img src="./images/memo_w.png" alt="메모"
-				style="width: 50px; height: 50px;" /> 편의점 정보가 여기에!
+			<!-- <img src="./images/memo_w.png" alt="메모"
+				style="width: 50px; height: 50px;" /> -->
+			<i class="fas fa-store" style="width: 45px; height: 45px;"></i>
+			&nbsp;	
+
+				 편의점 정보가 여기에!
 		</p>
 	</div>
 	<div style="width: 100%; text-align: center;">
@@ -185,15 +191,17 @@ to {
 		</div>
 
 		<br /> <br />
-			<ul class="pagination justify-content-center">
-				<table width="100%">
+		<!-- 	<ul class="pagination justify-content-center"> -->
+		  <div class="container">
+				<table style="width:100%;">
 					<tr>
 						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
 							${pagingImg }
 						</td>
 					</tr>
 				</table>
-			</ul>
+			</div>
+			<!-- </ul> -->
 		
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>

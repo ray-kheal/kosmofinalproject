@@ -18,8 +18,8 @@ public class SearchIDPWCommand implements PHJCommandImpl {
 		HttpServletRequest req = (HttpServletRequest)map.get("req");
 		
 		//폼값받기
-		String name = req.getParameter("NAME");
-		String mobile = req.getParameter("MOBILE");
+		String name = req.getParameter("name");
+		String mobile = req.getParameter("mobile1")+"-"+req.getParameter("mobile2")+"-"+req.getParameter("mobile3");
 		
 		
 		//dto객체에 폼값저장하기
@@ -29,7 +29,7 @@ public class SearchIDPWCommand implements PHJCommandImpl {
 		
 		
 		MemberDAO dao = new MemberDAO();
-		dao.SearchId(map);
+		dao.searchID(dto);
 	}
 
 }

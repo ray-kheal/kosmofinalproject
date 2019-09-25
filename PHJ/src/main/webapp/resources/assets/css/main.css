@@ -1405,7 +1405,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 20px 0 0 20px;
+						padding: 20px;
 					}
 
 					.row.gtr-uniform {
@@ -2424,6 +2424,10 @@ input, select, textarea {
 					display: inline-block;
 					width: 5em;
 				}
+				#navPanel .indent-6 {
+					display: inline-block;
+					width: 6em;
+				}
 
 				#navPanel .depth-0 {
 					color: #444;
@@ -2660,3 +2664,4 @@ input, select, textarea {
 			
 
 	}
+	

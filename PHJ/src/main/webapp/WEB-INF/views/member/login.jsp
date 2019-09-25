@@ -61,7 +61,7 @@
 	}
 	
 	.form-group {
-		width:400px;
+		width:350px;
 	}
 </style>
 <script type="text/javascript">
@@ -80,7 +80,6 @@
 	
 	//사용자 정보 얻기
 	function attachSignin(element) {
-		console.log(element.id);
 		auth2.attachClickHandler(element, {}, function(googleUser) {
 			alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
 			console.log(googleUser.getBasicProfile().getId());
@@ -125,7 +124,72 @@
     };
   //]]>
 </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    var email = getCookie("email");
+	    $("input[name='email']").val(email); 
+	     
+	    if($("input[name='email']").val() != ""){ 
+	        $("input[name='saveCheck']").attr("checked", true); 
+	    }
+	     
+	    $("input[name='saveCheck']").change(function(){ 
+	        if($("input[name='saveCheck']").is(":checked")){ 
+	            var userId = $("input[name='email']").val();
+	            setCookie("email", email, 7); 
+	        }else{ 
+	            deleteCookie("email");
+	        }
+	    });
+	     
+	    $("input[name='email']").keyup(function(){ 
+	        if($("input[name='saveCheck']").is(":checked")){ 
+	            var userId = $("input[name='email']").val();
+	            setCookie("email", email, 7);
+	        }
+	    });
+	    
+	    function setCookie(cookieName, value, exdays){
+	        var exdate = new Date();
+	        exdate.setDate(exdate.getDate() + exdays);
+	        var cookieValue = escape(value) + ((exdays==null)?"":";expires="+exdate.toGMTString());
+	        document.cookie = cookieName + "=" + cookieValue;
+	    }
+	     
+	    function deleteCookie(cookieName){
+	        var expireDate = new Date();
+	        expireDate.setDate(expireDate.getDate() - 1);
+	        document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+	    }
+	     
+	    function getCookie(cookieName) {
+	        cookieName = cookieName + '=';
+	        var cookieData = document.cookie;
+	        var start = cookieData.indexOf(cookieName);
+	        var cookieValue = '';
+	        if(start != -1){
+	            start += cookieName.length;
+	            var end = cookieData.indexOf(';', start);
+	            if(end == -1)end = cookieData.length;
+	            cookieValue = cookieData.substring(start, end);
+	        }
+	        return unescape(cookieValue);
+	    }
+	    
+	});
+</script>
+<%
+Cookie[] cookies = request.getCookies();
+String user = "";
 
+if(cookies!=null){
+	for(Cookie ck : cookies){
+		if(ck.getName().equals("email")){
+			user = ck.getValue();
+		}
+	}
+}
+%>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
 		<!-- 헤더 -->
@@ -133,13 +197,13 @@
 
 		<!-- Main -->
 
-		<div id="content">
+		<div id="content" >
 			<div class="row" style="margin-top:10px;">
 				<div id="account-box">
 					<div class="account-box">
 						<form class="loginForm" action="loginAction.do">
 							<div class="form-group">
-								<input type="text" class="form-control" name="email" placeholder="이메일"
+								<input type="text" class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
 									required autofocus />
 							</div>
 							<div class="form-group">
@@ -147,10 +211,11 @@
 									required />
 							</div>
 							<div class="idCheck custom-control custom-checkbox" style="color: white;">
-								<input type="checkbox" id="defaultUnchecked" value="remember-me" class="custom-control-input" /> 
-								<label class="custom-control-label" for="defaultUnchecked">아이디를 저장합니다.</label>
+								<input type="checkbox" name="saveCheck" id="defaultUnchecked" value="1" <% if(user.length()!=0){ %> checked = "checked" <% } %>
+									class="custom-control-input" /> 
+								<label class="custom-control-label" for="defaultUnchecked">이메일 계정을 저장합니다.</label>
 							</div>
-							<span style="color:red;font-size:1em;">
+							<span style="color:red;font-size:1em;"> 
 								${loginError }
 							</span>
 							<br />

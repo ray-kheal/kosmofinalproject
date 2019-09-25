@@ -178,7 +178,7 @@ div.manageImg{width:140px;height:140px;margin:0 auto;background:url(../../images
 	#paging a:hover{color:#000;}
 	#paging a.on{background:#fafafa;color:#000;}
 
-.signature{;text-align:center;}
+.signature{text-align:center;}
 	.signature p{font-size:19px;color:#3a3a3a;}
 	.signature p.location{font-size:23px;font-weight:bold;}
 
@@ -365,7 +365,7 @@ div.manageImg{width:140px;height:140px;margin:0 auto;background:url(../../images
 
 	.detail_contents .detail_cont_top .detail_info{float:left;width:371px;margin-left:35px;}
 	.detail_contents .detail_cont_top .detail_info h4{padding:0;font-size:26px;color:#333;}
-	.detail_contents .detail_cont_top .detail_info .team_top{;color:#333;}
+	.detail_contents .detail_cont_top .detail_info .team_top{color:#333;}
 	.detail_contents .detail_cont_top .detail_info .team_top .infoTxt{font-size:14px;}
 	.detail_contents .detail_cont_top .detail_info .team_star{position:relative;display:block;float:left;width:130px;height:32px;}
 	.detail_contents .detail_cont_top .detail_info .team_star .starWrap{right:none;left:0;top:5px;width:130px;height:20px;line-height:20px;}
@@ -446,7 +446,7 @@ div.manageImg{width:140px;height:140px;margin:0 auto;background:url(../../images
 	.mypage .agreeBox2 ul{display:block;width:697px;margin-bottom:5px;padding:18px 25px;background-color:#eee;font-size:12px;color:#5a5a5a;border-radius:10px;}
 	.mypage .agreeBox2 li{font-size:13px;color:#717171;line-height:1.8;}
 	.mypage .agreeBox2 li span{font-weight:bold;color:#333;}
-	.mypage .agreeBox2 label{;font-size:14px;color:#717171;cursor:pointer;}
+	.mypage .agreeBox2 label{font-size:14px;color:#717171;cursor:pointer;}
 	.mypage .agreeBox2 label input{margin:0 10px 0 25px;}
 	.mypage .btnWrap{margin:35px 0 25px;text-align:center;}
 	.mypage .btnWrap a{margin:0 5px;}
@@ -1065,7 +1065,7 @@ div.manageImg{width:140px;height:140px;margin:0 auto;background:url(../../images
 	.userComment li p{font-size:24px;color:#4a4a4a;}
 	.userComment .btnWrap{margin-bottom:30px;}
 	
-.findPop{width:500px;height:300px;overflow:hidden;}
+.findPop{width:100%;height:300px;overflow:hidden;}
 	.findPop h3{padding-bottom:10px;margin-bottom:5px;font-size:30px;font-weight:bold;color:#222121;border-bottom:1px solid #cecece;font-family:Goyang;color:#faf6bb;}
 	.findPop .findTop{}
 	.findPop .findTop label{margin-right:10px;font-size:17px;color:white;font-family:Goyang;}
@@ -1076,7 +1076,7 @@ div.manageImg{width:140px;height:140px;margin:0 auto;background:url(../../images
 	.findPop .findTop p{margin:50px 0 10px;font-size:15px;color:#717171;}
 	.findPop table{width:100%;margin:20px auto 0}
 	.findPop table th{width:100px;vertical-align:top;color:#666;text-align:left;color:white;}
-	.findPop table th label{;font-size:15px;font-weight:normal;}
+	.findPop table th label{font-size:15px;font-weight:normal;}
 	.findPop table th label span{color:#ff6600;margin:0 5px 0 -12px;line-height:1;vertical-align:bottom;}
 	.findPop table td{padding-bottom:0}
 	.findPop .btnWrap{padding:20px 0;text-align:center;}

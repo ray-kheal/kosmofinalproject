@@ -35,7 +35,7 @@
 		if (f.email1.value == "") {
 			alert("이메일을 입력해주세요.");
 			f.email1.focus();
-			return false; 
+			return; 
 		}
 
 		for (var i = 0; i < f.email1.value.length; i++) {
@@ -45,7 +45,7 @@
 				alert("이메일은 영문 대소문자, 숫자만 입력가능합니다.")
 				document.f.email1.focus();
 				document.f.email1.select();
-				return false;
+				return;
 			}
 		}
 
@@ -54,40 +54,40 @@
 			alert("닉네임을 2~8자까지 입력해주세요.")
 			document.f.name.focus();
 			document.f.name.select();
-			return false;
+			return;
 		}
 		//비밀번호 입력여부 체크
 		if (f.pass1.value == "") {
 			alert("비밀번호를 입력하지 않았습니다.")
 			document.f.pass1.focus();
-			return false;
+			return;
 		}
 		//비밀번호 길이 체크(4~12자 까지 허용)
 		if (f.pass1.value.length<4 || f.pass1.value.length>12) {
 			alert("비밀번호를 4~12자까지 입력해주세요.")
 			document.f.pass1.focus();
 			document.f.pass1.select();
-			return false;
+			return;
 		}
 		//비밀번호확인 공백체크
 		if (f.pass2.value == "") {
 			alert("비밀번호를 입력해주세요.")
 			document.f.pass2.focus();
 			document.f.pass2.select();
-			return false;
+			return;
 		}
 		//비밀번호와 비밀번호 확인 일치여부 체크
 		if (f.pass1.value != f.pass2.value) {
 			alert("비밀번호가 일치하지 않습니다")
 			document.f.user_pw2.value = ""
 			document.f.user_pw2.focus();
-			return false;
+			return;
 		}
 
 		if (f.mobile1.value == "" || f.mobile2.value == "" || f.mobile3.value == "") {
 			alert("휴대전화번호를 입력해주세요.")
 			document.f.mobile1.focus(); 
-			return false;
+			return;
 		
 		}
 		for (var i = 0; i < f.mobile1.value.length; i++) {
@@ -96,7 +96,7 @@
 				alert("핸드폰 번호는 숫자만 입력가능합니다.")
 				document.f.mobile1.focus();
 				document.f.mobile1.select();
-				return false;
+				return;
 			}
 		}
 		for (var i = 0; i < f.mobile2.value.length; i++) {
@@ -105,7 +105,7 @@
 				alert("핸드폰 번호는 숫자만 입력가능합니다.")
 				document.f.mobile2.focus();
 				document.f.mobile2.select();
-				return false;
+				return;
 			}
 		}
 		for (var i = 0; i < f.mobile3.value.length; i++) {
@@ -114,16 +114,15 @@
 				alert("핸드폰 번호는 숫자만 입력가능합니다.")
 				document.f.mobile3.focus();
 				document.f.mobile3.select();
-				return false;
+				return;
 			}
 		}
 		
 		//아이디 중복확인을 마쳐야 회원가입을 할수있다.
 		if (f.chkEmail.value == "0") {
 			alert("아이디 중복확인을 해주세요.")
-			return false;
+			return;
 		}
-		
 		
 		f.action ="./regist.do";
 		
@@ -294,7 +293,7 @@ label {
 										<option selected value="">선택</option>
 										<option value="naver.com">naver.com</option>
 										<option value="daum.net">daum.net</option>
-										<option value="google.com">google.com</option>
+										<option value="gmail.com">google.com</option>
 										<option value="yahoo.co.kr">yahoo.co.kr</option>
 										<option value="direct_input">직접 입력</option>
 									</select>&nbsp; 

@@ -27,8 +27,6 @@ if (mst == 'normal') {
 	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
 	location.href = "../admin/pages/samples/login.do";
 } 
-
-
 //삭제여부 확인
 function isDelete(){
 	result = confirm('삭제하시겠습니까?');
@@ -52,9 +50,7 @@ function isDelete(){
       
       <!-- admin 사이드바 인클루드 -->
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
-        
       <!-- 사이드바 끝 -->
-        
         <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">

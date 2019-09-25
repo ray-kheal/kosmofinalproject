@@ -91,6 +91,25 @@ public class MemberDAO {
 		
 	}
 	
+	//아이디찾기
+	public void searchID(final MemberDTO dto) {
+		template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "SELECT email FROM phj_member WHERE name=? AND mobile=? ";
+				
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, dto.getName());
+				psmt.setString(2, dto.getMobile());
+
+				
+				return psmt;
+			}
+		});
+		
+	}
+	
 	
 	//전체 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
@@ -167,25 +186,5 @@ public class MemberDAO {
 		System.out.println("query : " + sql);
 	}
 	
-	//아이디 찾기
-	public MemberDTO SearchId(Map<String, Object> map) {
-		System.out.println("SearchId() 메소드 실행.");
-		
-		MemberDTO dto = null;
-		
-		String query = " SELECT EMAIL from PHJ_MEMBER where NAME=? AND MOBILE=?" ;
-		
-		try {
-			dto = template.queryForObject(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			dto = new MemberDTO();
-			
-		}
-	return dto;
-	}
-	
-	
-	
+
 }

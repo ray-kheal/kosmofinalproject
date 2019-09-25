@@ -3,6 +3,7 @@ package com.kosmo.phj;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,7 +39,7 @@ public class MemberController {
 	
 	//로그인 처리
 	@RequestMapping("/loginAction.do")
-	public String loginAction(Model model, HttpServletRequest req) {
+	public String loginAction(Model model, HttpServletRequest req, HttpServletResponse resp) {
 		String page = null;
 		
 		String email = req.getParameter("email");
@@ -60,6 +61,7 @@ public class MemberController {
 			} else {
 				model.addAttribute("req",req);
 				model.addAttribute("dto",dto);
+				model.addAttribute("resp",resp);
 				command = new LoginActionCommand();
 				command.execute(model);
 				
@@ -222,18 +224,33 @@ public class MemberController {
 	}
 	
 
+	//아이디 / 비밀번호 찾기 진입 메소드
+	@RequestMapping("/accountfind.do")
+	public String accountfind() {
+		return "member/accountfind";
+	}
+	//아이디 / 비밀번호 확인 메소드
+	
+	@RequestMapping("/idFind.do")
+	public String idFind() {
+		
+		return "member/idFind";
+	}
 	
 	//아이디 찾기
-		@RequestMapping(value="accountfind.do",method=RequestMethod.GET)
-		public String searchId(Model model, HttpServletRequest req){
-			model.addAttribute("req",req);
-			command = new SearchIDPWCommand();
-			command.execute(model);
-			
-			model.addAttribute("NAME",req.getParameter("mbName"));
-			model.addAttribute("MOBILE",req.getParameter("mb_Phone"));
-			
-			return "member/accountfind.do";
-		}
+	@RequestMapping("/IdPwfindAction.do")
+	public String accountfind(Model model, HttpServletRequest req) {
+		System.out.println("들어옴");
+		model.addAttribute("req",req);
+		command = new SearchIDPWCommand();
+		command.execute(model);
+		
+		model.addAttribute("name",req.getParameter("name"));
+		model.addAttribute("mobile",req.getParameter("mobile"));
+		
+		return "member/idFind";
+	}
+	
+
 
 }

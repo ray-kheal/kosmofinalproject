@@ -60,9 +60,12 @@ public class QnAListCommand implements PHJCommandImpl{
          if(row.getBindent() > 0) {
             //답변글을 indent만큼 들여쓰기
             for(int i=0; i<row.getBindent(); i++ ) {
+            	
                reSpace += "&nbsp;&nbsp;";
             }
-            row.setTitle(reSpace+"<img src='../resources/images/re3.gif'>"+row.getTitle());
+            //row.setTitle(reSpace+"<img src='../resources/images/re3.gif'>"+row.getTitle());
+            //row.setTitle(reSpace+"<img src='https://img.lovepik.com/element/40067/8474.png_860.png' style='width:20px;'>"+row.getTitle());
+            row.setTitle(reSpace+"<img src='../../phj/images/re3.gif' style='width:20px;'>"+row.getTitle());
          }								
       }
       
