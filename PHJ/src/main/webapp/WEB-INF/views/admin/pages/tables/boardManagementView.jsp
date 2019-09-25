@@ -126,7 +126,12 @@ function isDelete(){
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
+			 <% if(board_type.equals("1")) { %>
 				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
+			 <%}else if (board_type.equals("2")){ %>
+				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./eventManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
+			 <%} %>
+			 
 				<button class = "btn btn-danger btn-sm" onclick="isDelete();">삭제</button>
 				<button type="button" class="btn btn-dark btn-sm" 
 							onclick="location.href='./boardManagement.do';">리스트</button>

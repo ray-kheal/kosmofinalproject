@@ -82,7 +82,7 @@ function checkValidate(f){
                   <div class="card-body">
                     <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
                     
-                    <form action="./boardManagementEditAction.do" name = "writeFrm" method = "post" 
+                    <form action="./eventManagementEditAction.do" name = "writeFrm" method = "post" 
 						onsubmit="return checkValidate(this);">
                     <input type="hidden" name="idx" value = "${viewRow.idx }"  />
 					<input type="hidden" name="nowPage" value = "${param.nowPage }" />

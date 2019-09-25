@@ -130,7 +130,7 @@ public class MemberDAO {
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
-		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end;
+		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end +"ORDER BY regidate desc ";
 
 		System.out.println(map);
 		
