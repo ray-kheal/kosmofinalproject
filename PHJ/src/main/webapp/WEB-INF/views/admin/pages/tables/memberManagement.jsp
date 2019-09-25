@@ -61,7 +61,7 @@ if (mst == 'normal') {
               	<form class="form-inline">
 				 <div class="form-group ">
 					<select name="searchColumn" class="form-control" style="width: 100px; height : 30px" >
-						<option value="member">회원명</option>
+						<option value="name">회원명</option>
 						<option value="mobile">핸드폰번호</option>
 						<option value="regidate">가입일</option>
 					</select>
