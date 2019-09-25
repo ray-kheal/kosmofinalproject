@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.PHJCommandImpl;
+import command.admin.AdProductListCommand;
 import command.board.ListCommand;
+import command.board.ProductListCommand;
 import command.board.QnAListCommand;
 import command.board.QnAViewCommand;
 import command.board.ViewCommand;
@@ -39,13 +41,22 @@ public class GeneralController {
 	public String no_sidebar() {
 		return "general/no-sidebar";
 	}
-			
+	
+	//상품관리 게시판
+
+	@RequestMapping("findproduct.do")
+	public String findProduct(Model model, HttpServletRequest req){
+		model.addAttribute("req",req);
+		command = new ProductListCommand();
+		command.execute(model);
+		
+		System.out.println("product 익스큐트 실행");
+		return "general/findproduct";
+	}
 	
 	//공지사항게시판
-
 	@RequestMapping("notice.do")
 	public String notice(Model model, HttpServletRequest req) {
-		//System.out.println("컨트롤러 안 진입 성공");
 		model.addAttribute("req",req);
 		model.addAttribute("board_type",1);
 		
@@ -110,14 +121,6 @@ public class GeneralController {
 		   return "general/facebook";
 
 	   }
-
-
-	//재고 게시판
-	@RequestMapping("findproduct.do")
-	public String findproduct() {
-		return "general/findproduct";
-	}
-	
 	
 	
 }

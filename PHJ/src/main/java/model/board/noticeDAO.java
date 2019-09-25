@@ -152,7 +152,9 @@ public class noticeDAO {
 
 	//게시글 삭제하기
 	public void delete(final String idx) {
-		   String sql = "delete from PHJ_BOARD_NOTICE where idx=? ";
+
+		System.out.println("delete할 idx:"+idx);
+		String sql = "delete from PHJ_BOARD_NOTICE where idx=? ";
 		 template.update(sql, new PreparedStatementSetter() {
 			
 			@Override

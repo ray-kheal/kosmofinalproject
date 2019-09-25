@@ -58,6 +58,13 @@ public class MemberDAO {
 		
 	}
 	
+	public int isGoogleMember(String google_id) {
+		String sql = "SELECT COUNT(*) FROM phj_member WHERE google_id = '"+google_id+"' ";
+		System.out.println("sql : " + sql);
+		
+		return template.queryForObject(sql, Integer.class);
+		
+	}
 	
 	//회원등록
 	public void regist(final MemberDTO dto) {
@@ -65,8 +72,8 @@ public class MemberDAO {
 			
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO phj_member (name, email, email_alert, pass, mobile, mobile_alert) "
-						+ "VALUES(?, ?, ?, ?, ?, ?)";
+				String sql = "INSERT INTO phj_member (name, email, email_alert, pass, mobile, mobile_alert, kakao_id, google_id) "
+						+ "VALUES(?, ?, ?, ?, ?, ?,?,?)";
 				
 				PreparedStatement psmt = con.prepareStatement(sql);
 				psmt.setString(1, dto.getName());
@@ -75,6 +82,8 @@ public class MemberDAO {
 				psmt.setString(4, dto.getPass());
 				psmt.setString(5, dto.getMobile());
 				psmt.setString(6, dto.getMobile_alert());
+				psmt.setString(7, dto.getKakao_id());
+				psmt.setString(8, dto.getGoogle_id());
 				
 				return psmt;
 			}

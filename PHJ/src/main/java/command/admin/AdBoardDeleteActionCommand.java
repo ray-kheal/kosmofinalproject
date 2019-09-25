@@ -19,7 +19,6 @@ public class AdBoardDeleteActionCommand implements PHJCommandImpl{
 		
 		//폼값받기
 		String idx = req.getParameter("idx");
-		
 		noticeDAO dao = new noticeDAO();
 		dao.delete(idx);
 		

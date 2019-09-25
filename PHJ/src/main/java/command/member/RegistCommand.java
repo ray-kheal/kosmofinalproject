@@ -24,6 +24,8 @@ public class RegistCommand implements PHJCommandImpl {
 		String pass = req.getParameter("pass");
 		String mobile = req.getParameter("mobile1")+"-"+req.getParameter("mobile2")+"-"+req.getParameter("mobile3");
 		String mobile_alert = req.getParameter("mobile_alert");
+		String kakao_id = req.getParameter("kakao_id");
+		String google_id = req.getParameter("google_id");
 		
 		//dto객체에 폼값저장하기
 		MemberDTO dto = new MemberDTO();
@@ -33,6 +35,8 @@ public class RegistCommand implements PHJCommandImpl {
 		dto.setPass(pass);
 		dto.setMobile(mobile);
 		dto.setMobile_alert(mobile_alert);
+		dto.setKakao_id(kakao_id);
+		dto.setGoogle_id(google_id);
 		
 		MemberDAO dao = new MemberDAO();
 		dao.regist(dto);
