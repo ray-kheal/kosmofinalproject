@@ -39,6 +39,11 @@
 		margin: 0 auto;
 	}
 </style>
+
+<c:if test="${not empty resultEmail }">
+	<script>alert('${name}님의 이메일은 ${resultEmail} 입니다.')</script>
+</c:if>
+
 <script type="text/javascript">
 
 
@@ -78,13 +83,6 @@ function find_PWcheck(){
 
 }
 
-
-
-
-
-
-
-
 </script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
@@ -110,7 +108,7 @@ function find_PWcheck(){
 							</div>
 						<div class="findPop" id="findPop IDfind">
 
-							<form method="post"  class="" name="f" action="IdPwfindAction.do">
+							<form method="post"  class="" name="f" action="emailFindAction.do">
 								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
@@ -146,7 +144,7 @@ function find_PWcheck(){
 			
 						<div class="findPop" id="findPop PWfind">
 
-							<form action="">
+							<form action="pwfindAction.do">
 								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
