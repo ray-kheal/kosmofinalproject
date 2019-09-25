@@ -20,7 +20,7 @@ public class PlaceDAO {
 	//생성자
 	public PlaceDAO() {
 		this.template = JdbcTemplateConst.template;
-		System.out.println("JDBCTemplateDAO()생성자 호출");
+		System.out.println("PlaceDAO()생성자 호출");
 	}
 	
 	//전체 수 카운트

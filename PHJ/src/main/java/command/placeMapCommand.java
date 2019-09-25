@@ -39,12 +39,28 @@ public class placeMapCommand implements PHJCommandImpl {
 			
 			searchLists = dao.searchRadius(distance, latTxt, lngTxt, start, end);
 			
-			String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,req.getContextPath()+"/placemap.do?");
+			String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,req.getContextPath()+"/placemap.do?"
+					+ "latTxt="+latTxt+"&lngTxt="+lngTxt+"&distance="+Integer.parseInt(req.getParameter("distance"))+"&");
 			model.addAttribute("pagingImg",pagingImg);
 			model.addAttribute("totalPage",totalPage);
 			model.addAttribute("nowPage",nowPage);
 			
+			for(PlaceDTO row : searchLists) {
+		          System.out.println(row.getPlace_name() + " + " + row.getPlace_name2());
+		          //점포명 재조립.
+		          if(row.getPlace_name2() != null) {
+			          
+			          if(row.getPlace_name().contains(row.getPlace_name2())==true) {
+			        	  
+			          } else {
+			        	  row.setPlace_name(row.getPlace_name()+row.getPlace_name2());
+			          }
+		          }
+		    }
 		}
+		
+		
+		
 		
 		
 		System.out.println("searchLists : " +searchLists);
