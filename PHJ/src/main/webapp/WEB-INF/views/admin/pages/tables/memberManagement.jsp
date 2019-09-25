@@ -108,7 +108,7 @@ if (mst == 'normal') {
 							<th>가입일</th>
 						</tr>
 					</thead>
-					<tbody> 
+					<tbody style="color:black;"> 
 						
                         <!-- 회원 리스트 출력  -->
                         <c:choose>
