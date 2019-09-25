@@ -26,6 +26,7 @@ import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
 import command.member.emailOverlapCommand;
+import command.member.emailFindActionCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
 @Controller
@@ -245,6 +246,7 @@ public class MemberController {
 		return "redirect:../phj";
 	}
 	
+
 	//아이디 / 비밀번호 찾기 진입 메소드
 	@RequestMapping("/accountfind.do")
 	public String accountfind() {
@@ -252,15 +254,20 @@ public class MemberController {
 	}
 	
 	//아이디 찾기
-	@RequestMapping("/idFind.do")
-	public String idFind(Model model, HttpServletRequest req) {
+	@RequestMapping("/emailFindAction.do")
+	public String emailfindAction(Model model, HttpServletRequest req) {
+		System.out.println("들어옴");
 		model.addAttribute("req",req);
-		/* command = new idFind(); */
+		command = new emailFindActionCommand();
 		command.execute(model);
 		
-		return "member/login";
+		
+		model.addAttribute("name",req.getParameter("name"));
+		
+		
+		return "member/accountfind";
 	}
-
+	
 	//이메일 쿠키 메소드
     @RequestMapping("loginCookie")
     public String handleRequest ( @CookieValue(value="email", required=false) 
@@ -271,4 +278,5 @@ public class MemberController {
 
         return "redirect:../phj";
     }
+
 }

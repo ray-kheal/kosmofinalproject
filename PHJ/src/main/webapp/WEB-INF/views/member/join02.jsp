@@ -124,7 +124,6 @@
 			return;
 		}
 		
-		
 		f.action ="./regist.do";
 		
 

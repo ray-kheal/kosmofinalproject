@@ -317,7 +317,8 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <div class="col-6 col-12-medium">
                   <!-- Box -->
                   <section class="box feature">
-                     <a href="placemap.do" class="image featured"><img
+                     <a href="placemap.do" class="image featured">
+                     <a href= "placemap.do" class="image featured"><img
                         src="images/store_shadow.png" alt="" /></a>
                      <div class="inner"
                         style="text-align: center; font-family: Goyang;">
@@ -339,8 +340,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            <h2 style="font-family: Goyang;">상품 찾기</h2>
                         </header>
                         <p style="font-family: Goyang; font-size: 25px;">
-                        	주변 편의점에 있는
-                           	상품을 알려드립니다</p>
+                        	맛Eat는 먹거리 찾기</p>
                      </div>
                   </section>
                </div>
@@ -421,6 +421,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
+
 
 
                </div>
@@ -587,4 +588,5 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/util.js"></script>
    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

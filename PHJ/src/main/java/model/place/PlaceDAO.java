@@ -66,9 +66,10 @@ public class PlaceDAO {
 				"		phj_place " + 
 				"	WHERE " + 
 				"		trunc(to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude))*10,5)<= " + distance + 
-				"		AND ROWNUM BETWEEN 1 and 20 " + 
+				//"		AND ROWNUM BETWEEN 1 and 20 " + 
 				"	ORDER BY " + 
-				"		to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude)) ASC ";
+				//"		to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude)) ASC ";
+				"disKM asc";
 		System.out.println("query = " + query);
 		return (ArrayList<PlaceDTO>)template.query(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
 	}
