@@ -108,7 +108,7 @@ function find_PWcheck(){
 							</div>
 						<div class="findPop" id="findPop IDfind">
 
-							<form method="post"  class="" name="f" >
+							<form method="post"  class="" name="f" action="emailFindAction.do">
 								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
