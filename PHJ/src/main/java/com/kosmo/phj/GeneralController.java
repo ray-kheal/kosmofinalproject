@@ -113,9 +113,7 @@ public class GeneralController {
 		command = new QnAListCommand();
 		command.execute(model);
 		return "general/qna";
-	} 
-
-	//트위터
+	} 	//트위터
    @RequestMapping("twitter.do")
    public String twitter(Model model) {   
 
