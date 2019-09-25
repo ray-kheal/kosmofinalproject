@@ -333,23 +333,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	                     </div>
 	                  </section>
 	               </div>
-	           <div class="col-6 col-12-medium">
-                  <!-- Box -->
-
-                  <section class="box feature">
-                     <a href="placemap.do" class="image featured">
-                     <a href= "placemap.do" class="image featured"><img
-                        src="images/store_shadow.png" alt="" /></a>
-                     <div class="inner"
-                        style="text-align: center; font-family: Goyang;">
-                        <header>
-                           <h2 style="font-family: Goyang;">편의점 찾기</h2>
-                        </header>
-                        <p style="font-family: Goyang; font-size: 25px;">
-                        	내 주변 편의점 찾기</p>
-                     </div>
-                  </section>
-               </div>
+	        
                <div class="col-6 col-12-medium">
                   <!-- Box -->
 
@@ -440,6 +424,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                </div>
 
             </div>
+            <div class="container">
             <div class="row" >
                <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> -->
                <div class="" style=" width: 100%;"> 
@@ -563,6 +548,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      </section>
                   </div>
                </div>
+            </div>
             </div>
             <!--             <div class="col-7 col-16-medium imp-medium"> -->
             <!--                Content -->
