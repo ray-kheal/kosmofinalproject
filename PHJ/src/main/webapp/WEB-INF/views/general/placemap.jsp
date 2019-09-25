@@ -158,10 +158,7 @@ body {
 			span.innerHTML = "시간초과";break;
 	}
 	
-	function setZoomable(zoomable) {
-	    // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
-	    map.setZoomable(zoomable);    
-	}
+	
 } 
 </script>
 
@@ -206,8 +203,8 @@ body {
 			<br/><br/><br/>
 			<table style="border:1px solid gray; height: 600px;">
 				<colgroup>
-					<col width="75%" />
-					<col width="25%" />
+					<col width="55%" />
+					<col width="45%" />
 				</colgroup>
 				
 			
@@ -238,12 +235,10 @@ body {
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-							<!-- <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;"/> -->
-						<!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  /> -->
-						<a href="javascript:document.searchFrm.onsubmit()">
-							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
-						</a>
-
+							 <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
+						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
+						
+						
 						</form>
 					
 					</td>
@@ -251,7 +246,35 @@ body {
 				<tr>
 					<!-- <td></td> -->
 					<td style="text-align: center;">
-						<h5>근처 편의점 목록</h5> <br />
+						<h5>근처 편의점 목록</h5> 
+						
+						<table class="table table-bordered">
+					<c:choose>
+							<c:when test="${empty searchLists }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 점포가 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${searchLists }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr >
+										 <td class="text-center">${row.place_name }</td>
+										<td class="text-center">${row.place_name2 }</td>
+										<td class="text-left">${row.place_address}
+										</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+						</table>
+						
+						
+						<br />
 					
 					</td>
 				</tr>			

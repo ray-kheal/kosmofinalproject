@@ -142,53 +142,194 @@ to {
 				<button type="submit" onclick="" class="btn btn-warning" >BEST</button>
 				&nbsp;
 		<br /> <br />
-		<div>
-			<table class="table table-hover" style="text-align: center;">
-				<colgroup>
-					<col width="10%" />
-					<col width="*" />
-					<col width="25%" />
-					<col width="10%" />
-				</colgroup>
-				<thead>
-					<tr class="table-primary" style="color: white;">
-						<th>번호</th>
-						<th>상품명</th>
-						<th>점포명</th>
-						<th>재고</th> 
-					</tr>
-				</thead>
-				<tbody>
-				<!-- 상품 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty listRows }">
-								<tr>
-									<td colspan="5" class="text-center">
-										등록된 상품이 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${listRows }" var="row" varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-left">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./view.do?idx=${row.product_name}
-												&nowPage=${nowPage}">${row.product_name}</a>
-										</td >
-										<td class="text-left">${row.place_name } 
-										</td>
-										<td class="text-left">${row.stock}
-										</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-				</tbody>
-			</table>
-		</div>
+		
+		<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
+<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+            	<rect width="100%" height="100%" ></rect>
+            	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+            	
+<!--             	</svg> -->
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
+<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+            	<rect width="100%" height="100%" ></rect>
+            	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+            	
+<!--             	</svg> -->
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+         <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
+<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+            	<rect width="100%" height="100%" ></rect>
+            	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+            	
+<!--             	</svg> -->
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>  <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
+<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+            	<rect width="100%" height="100%" ></rect>
+            	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+            	
+<!--             	</svg> -->
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>  <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
+<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+            	<rect width="100%" height="100%" ></rect>
+            	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+            	
+<!--             	</svg> -->
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>  <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          
+<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
+<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+            	<rect width="100%" height="100%" ></rect>
+            	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+            	
+<!--             	</svg> -->
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+    </div>
+  </div>
+<!-- 		<div> -->
+<!-- 			<table class="table table-hover" style="text-align: center;"> -->
+<%-- 				<colgroup> --%>
+<%-- 					<col width="10%" /> --%>
+<%-- 					<col width="*" /> --%>
+<%-- 					<col width="25%" /> --%>
+<%-- 					<col width="10%" /> --%>
+<%-- 				</colgroup> --%>
+<!-- 				<thead> -->
+<!-- 					<tr class="table-primary" style="color: white;"> -->
+<!-- 						<th>번호</th> -->
+<!-- 						<th>상품명</th> -->
+<!-- 						<th>점포명</th> -->
+<!-- 						<th>재고</th>  -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
+<!-- 				<tbody> -->
+<!-- 				상품 리스트 출력  -->
+<%--                         <c:choose> --%>
+<%-- 							<c:when test="${empty listRows }"> --%>
+<!-- 								<tr> -->
+<!-- 									<td colspan="5" class="text-center"> -->
+<!-- 										등록된 상품이 없습니다. -->
+<!-- 									</td> -->
+<!-- 								</tr> -->
+<%-- 							</c:when> --%>
+<%-- 							<c:otherwise> --%>
+<%-- 								<c:forEach items="${listRows }" var="row" varStatus="loop"> --%>
+<!-- 									리스트반복시작 -->
+<!-- 									<tr> -->
+<%-- 										 <td class="text-left">${row.virtualNum }</td> --%>
+<!-- 										<td class="text-left"> -->
+<%-- 											<a href="./view.do?idx=${row.product_name} --%>
+<%-- 												&nowPage=${nowPage}">${row.product_name}</a> --%>
+<!-- 										</td > -->
+<%-- 										<td class="text-left">${row.place_name }  --%>
+<!-- 										</td> -->
+<%-- 										<td class="text-left">${row.stock} --%>
+<!-- 										</td> -->
+<!-- 									</tr> -->
+<!-- 									리스트반복끝 -->
+<%-- 								</c:forEach> --%>
+<%-- 							</c:otherwise> --%>
+<%-- 						</c:choose> --%>
+<!-- 				</tbody> -->
+<!-- 			</table> -->
+<!-- 		</div> -->
 
 		<br /> <br />
 		<!-- 	<ul class="pagination justify-content-center"> -->

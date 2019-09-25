@@ -270,9 +270,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <a href="#"> <img src="images/top.png"
             alt="업" />
          </a>
-          <a href="" > <img id="go-bottom" src="images/down.png"
-            alt="다운" />
-         </a>
+<!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
+<!--             alt="다운" /> -->
+<!--          </a> -->
       </div>
 
       <!-- 메인 헤더 인클루드 -->
