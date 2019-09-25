@@ -233,12 +233,11 @@ public class MemberController {
 	
 	@RequestMapping("/idFind.do")
 	public String idFind() {
-		
 		return "member/idFind";
 	}
 	
 	//아이디 찾기
-	@RequestMapping("/IdPwfindAction.do")
+	@RequestMapping("/IdPwfind.do")
 	public String accountfind(Model model, HttpServletRequest req) {
 		System.out.println("들어옴");
 		model.addAttribute("req",req);
