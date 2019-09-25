@@ -48,7 +48,7 @@ public class ProductDTO {
 		return product_value;
 	}
 
-	public void setProduct_value_code(String product_value) {
+	public void setProduct_value(String product_value) {
 		this.product_value = product_value;
 	}
 
