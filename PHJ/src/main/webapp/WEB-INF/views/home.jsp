@@ -423,6 +423,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                   </section>
 
 
+
                </div>
             </div>
             <div class="row" >
@@ -587,4 +588,5 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/util.js"></script>
    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
