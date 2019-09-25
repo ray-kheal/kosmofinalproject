@@ -125,7 +125,7 @@ if (mst == 'normal') {
 										</td >
 										<td class="text-left">${row.product_price}
 										</td>
-										<td class="text-center">${row.product_value_code }</td>
+										<td class="text-center">${row.product_value }</td>
 									</tr>
 									<!-- 리스트반복끝 -->
 								</c:forEach>

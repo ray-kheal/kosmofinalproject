@@ -1,30 +1,30 @@
-package model.product;
+package model.stock;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
 
-public class ProductDAO {
+public class StockDAO {
+	
 	//멤버변수
 	JdbcTemplate template;
 	
 	//생성자
-	public ProductDAO() {
+	public StockDAO() {
 		this.template = JdbcTemplateConst.template;
-		System.out.println("ProductDAO()생성자 호출");
+		System.out.println("StockDAO()생성자 호출");
 	}
 	
 	//게시물 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		
-		String query = " SELECT COUNT(*) FROM PHJ_PRODUCT ";
+		String query = " SELECT COUNT(*) FROM phj_board_stock ";
 
 		if (map.get("searchWord") != null) {
 			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
@@ -35,14 +35,18 @@ public class ProductDAO {
 	}
 	
 	//레코드 페이지별로 가져오기
-	public ArrayList<ProductDTO> list(Map<String, Object> map) {
+	public ArrayList<StockDTO> list(Map<String, Object> map) {
 		
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		
 		String query = " SELECT * FROM( "
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
-				+ "      SELECT * FROM PHJ_PRODUCT ";
+				+ "      SELECT * FROM PHJ_board_stock ";
+		query += " inner join phj_place " + 
+				"        on phj_board_stock.place_code = phj_place.place_code " + 
+				"    inner join phj_product " + 
+				"        on phj_board_stock.product_code = phj_product.product_code ";
 
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
@@ -51,6 +55,7 @@ public class ProductDAO {
 
 		System.out.println(map);
 		
-		return (ArrayList<ProductDTO>)template.query(query, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
+		return (ArrayList<StockDTO>)template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 	}
+
 }

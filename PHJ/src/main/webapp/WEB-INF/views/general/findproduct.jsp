@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bs05Table</title>
+<title>편히점-재고확인</title>
 
 <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
 
@@ -153,9 +153,9 @@ to {
 				<thead>
 					<tr class="table-primary" style="color: white;">
 						<th>번호</th>
-						<th>상품</th>
-						<th>분류</th>
-						<th>가격</th> 
+						<th>상품명</th>
+						<th>점포명</th>
+						<th>재고</th> 
 					</tr>
 				</thead>
 				<tbody>
@@ -174,12 +174,12 @@ to {
 									<tr>
 										 <td class="text-left">${row.virtualNum }</td>
 										<td class="text-left">
-											<a href="./view.do?idx=${row.product_code}
+											<a href="./view.do?idx=${row.product_name}
 												&nowPage=${nowPage}">${row.product_name}</a>
 										</td >
-										<td class="text-left">${row.product_value_code }
+										<td class="text-left">${row.place_name } 
 										</td>
-										<td class="text-left">${row.product_price}
+										<td class="text-left">${row.stock}
 										</td>
 									</tr>
 									<!-- 리스트반복끝 -->

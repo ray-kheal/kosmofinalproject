@@ -92,21 +92,13 @@ public class MemberDAO {
 	}
 	
 	//아이디찾기
-	public void searchID(final MemberDTO dto) {
-		template.update(new PreparedStatementCreator() {
-			
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "SELECT email FROM phj_member WHERE name=? AND mobile=? ";
-				
-				PreparedStatement psmt = con.prepareStatement(sql);
-				psmt.setString(1, dto.getName());
-				psmt.setString(2, dto.getMobile());
-
-				
-				return psmt;
-			}
-		});
+	public String emailFind(String name, String mobile) {
+		
+		
+		String sql = "SELECT email FROM phj_member WHERE name='"+name+"' AND mobile='"+mobile+"' ";
+		System.out.println("sql : " + sql);
+		
+		return template.queryForObject(sql, String.class);
 		
 	}
 	

@@ -23,8 +23,8 @@ import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
-import command.member.SearchIDPWCommand;
 import command.member.emailOverlapCommand;
+import command.member.emailFindActionCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
 @Controller
@@ -229,27 +229,8 @@ public class MemberController {
 	public String accountfind() {
 		return "member/accountfind";
 	}
-	//아이디 / 비밀번호 확인 메소드
-	
-	@RequestMapping("/idFind.do")
-	public String idFind() {
-		return "member/idFind";  
-	}
-	
-	//아이디 찾기
-	/*@RequestMapping("/IdPwfind.do")
-	public String accountfind(Model model, HttpServletRequest req) {
-		System.out.println("들어옴");
-		model.addAttribute("req",req);
-		command = new SearchIDPWCommand();
-		command.execute(model);
-		
-		model.addAttribute("name",req.getParameter("name"));
-		model.addAttribute("mobile",req.getParameter("mobile"));
-		
-		return "member/idFind";
-	}
-	*/
+
+
 	
 
 

@@ -47,14 +47,13 @@ public class GeneralController {
 	}
 	
 	//상품관리 게시판
-
 	@RequestMapping("findproduct.do")
 	public String findProduct(Model model, HttpServletRequest req){
 		model.addAttribute("req",req);
 		command = new ProductListCommand();
 		command.execute(model);
 		
-		System.out.println("product 익스큐트 실행");
+		System.out.println("product 익스큐트 실행완료");
 		return "general/findproduct";
 	}
 	
@@ -121,22 +120,21 @@ public class GeneralController {
    @RequestMapping("twitter.do")
    public String twitter(Model model) {   
 
-	   return "general/twitter";
+	   return "sns_page/twitter";
    }
 	//페이스북
+   @RequestMapping("facebook.do")
+   public String facebook(Model model) {   
 
-	   @RequestMapping("facebook.do")
-	   public String facebook(Model model) {   
-		   
-		   return "general/facebook";
-
-	   }
 	   
-	   @RequestMapping ("recipe_edit.do")
-	   public String recipe_view(Model model) {
-		   
-		   return "general/recipe_edit";
-	   }
-	   }
+	   return "sns_page/facebook";
+   }
+   
+   @RequestMapping ("recipe_edit.do")
+   public String recipe_view(Model model) {
+	   
+	   return "general/recipe_edit";
+   }
+}
 
 
