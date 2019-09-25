@@ -45,8 +45,9 @@ function checkValidate(f){
 </script>
 <script>
 $(function(){
-	$('#summernote').summernote();
-	height:"1000px"
+	$('#summernote').summernote({
+		height:500		
+	});
 });
 </script>
 </head>

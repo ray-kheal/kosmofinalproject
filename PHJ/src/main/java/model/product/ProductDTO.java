@@ -8,9 +8,9 @@ public class ProductDTO {
 	private String product_value;
 	private int virtualNum; // 가상번호
 
-	public ProductDTO() {
-	}
 
+	
+	public ProductDTO() {}
 	public ProductDTO(int product_code, String product_name, int product_price, String product_value,
 			int virtualNum) {
 		super();
@@ -44,12 +44,11 @@ public class ProductDTO {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
-
-	public String getproduct_value() {
+	public String getProduct_value() {
 		return product_value;
 	}
 
-	public void setproduct_value(String product_value) {
+	public void setProduct_value_code(String product_value) {
 		this.product_value = product_value;
 	}
 

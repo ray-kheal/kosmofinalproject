@@ -12,10 +12,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 <style>
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+
 #map{
-	width:500px; height:500px;
+	max-width: 100%; height: auto;
 	}
+	
+body {
+	font-family: Goyang;
+	
+}
 </style>
 	
 </head>
@@ -36,7 +48,11 @@
 		<c:set var="zoomLevel" value="13" />
 	</c:otherwise>
 </c:choose>
+ 
+
 <script type="text/javascript">
+
+
 	$(function() {
 		$("#place").attr("class", "current");
 	});
@@ -100,7 +116,7 @@
 		var locations = [		
 			<c:forEach items="${searchLists }" var="row">
 				['${row.place_name} '+'${row.place_name2}' ,  ${row.latitude },${row.longitude }], 
-			</c:forEach>
+			</c:forEach> 
 		];
 		
 	 	var marker, i;
@@ -136,12 +152,17 @@
 			span.innerHTML = "알수없는오류발생";break;
 		case error.PERMISSION_DENIED:
 			span.innerHTML = "권한이 없습니다";break;
-		case error.POSITION_UNAVAILABLE:
+		case error.POSITION_UNAVAILABLE:                                                    
 			span.innerHTML = "위치 확인불가";break;
 		case error.TIMEOUT:
 			span.innerHTML = "시간초과";break;
 	}
-}
+	
+	function setZoomable(zoomable) {
+	    // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+	    map.setZoomable(zoomable);    
+	}
+} 
 </script>
 
 <body class="is-preload no-sidebar">
@@ -151,60 +172,91 @@
 
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
-		
-		<div style="width: 100%; height: 200px; text-align: center; background-color: #63e8ae; display: table;">
-			<br /> <br /> <br />
+
+		<div
+			style="width: 100%; height: 200px; text-align: center; background-color: #b1d8bf; display: table;">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-				<i class="fas fa-map-marked-alt"></i> 편의점 찾기 ^~^ <br />
+				
+					<i class="fas fa-search-location" style="width: 50px; height: 50px;"></i>&nbsp;
+					근처 편의점 찾기
 			</p>
 		</div>
-
 		<!-- Main -->
 		<div id="main-wrapper">
 			<div class="container">
-			<button type="button" style="float: right" class="btn btn-outline-info">Info</button>
-			<br/><br/><br/>
-			<table style="border:1px solid gray;">
+		
+<!-- 			<button type="button" style="float: right" class="btn btn-outline-info">검색하기</button> -->
 			
-				<tr >
-					<td rowspan="3" style="border-right:10px solid gray; ">
-						
-						<div id="map"></div>
+<!-- 			<input type="submit" style="float: right;" value="검색하기" />  -->
+			
+		
+				<!-- <td rowspan="3">구글지도 위치</td>
+				<td ><in    put type="text" placeholder="입력하세요"></td>
+				
+			<tr>
+				<td ><input type="text" placeholder="입력하세요"></td>
+			</tr>	
+			
+			<tr>
+				<td ><input type="text" placeholder="입력하세요"></td>
+			</tr> -->	
+
+			<!-- <button type="button" style="float: right" class="btn btn-outline-info">Info</button> -->
+			<br/><br/><br/>
+			<table style="border:1px solid gray; height: 600px;">
+				<colgroup>
+					<col width="75%" />
+					<col width="25%" />
+				</colgroup>
+				
+			
+				<tr > 
+					<td rowspan="3"  id=map>			
 						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
-					</td>
-					<td style="border-bottom: 1px solid gray; float: center;">
+
+					</td> 
+					<td style=" float: center;">
 						
 						<span id="result"></span>
 					</td>
 				</tr>			
 				<tr>
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; float: left; ">
+					<td style="text-align: center;">
 						<form name="searchFrm">
 							<input type="hidden" id="latTxt" name="latTxt" />
 							<input type="hidden" id="lngTxt" name="lngTxt" />
+							<h5>근처 편의점 찾기</h5> <br />
 							<select name="distance" id="distance">
-								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
-								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
-								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
-								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
+								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>100m</option>
+								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>200m</option>
+								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>500m</option>
+								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1Km</option>
 
 							</select>
-							<input type="submit" value="검색하기" />
+<!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
+<!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
+							<br/><br/>
+							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
+						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
+						<!-- <a href="javascript:document.searchFrm.onsubmit();">
+							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
+						</a> -->
+
 						</form>
 					
 					</td>
 				</tr>			
-				
+				<tr>
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; float: center;">
-					<h3>검색결과</h3>
-					<table class="table table-bordered">
+					<td style="text-align: center;">
+						<h5>근처 편의점 목록</h5> <br />
+						<table class="table table-bordered">
 					<c:choose>
 							<c:when test="${empty searchLists }">
 								<tr>
-									<td colspan="5" class="text-center">
+									<td colspan="3" class="text-center">
 										등록된 점포가 없습니다.
 									</td>
 								</tr>
@@ -216,18 +268,23 @@
 									<tr>
 										 <td class="text-center">${row.place_name }</td>
 										<td class="text-center">${row.place_name2 }</td>
-										<td class="text-left">${row.place_address}
-										</td>
+										<td class="text-left">${row.place_address}</td>
 									</tr>
+									
 									<!-- 리스트반복끝 -->
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
+						<tr>
+							<td colspan="3" align="center" style="font-weight: bold; font-size: 1.5em; ">
+								${pagingImg }
+							</td>
+						</tr>
 						</table>
 					</td>
 				</tr>			
 			</table>
-			</div>
+			</div><!-- container -->
 		</div>
 
 		<!-- Footer -->
