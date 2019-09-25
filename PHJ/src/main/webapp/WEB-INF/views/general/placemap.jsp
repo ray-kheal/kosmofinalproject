@@ -14,8 +14,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
 #map{
-	width:800px; 
-	height:600px;
+	width:550px; 
+	height:550px;
 	}
 </style>
 	
@@ -37,6 +37,7 @@
 		<c:set var="zoomLevel" value="13" />
 	</c:otherwise>
 </c:choose>
+ 
 <script type="text/javascript">
 	$(function() {
 		$("#place").attr("class", "current");
@@ -137,12 +138,17 @@
 			span.innerHTML = "알수없는오류발생";break;
 		case error.PERMISSION_DENIED:
 			span.innerHTML = "권한이 없습니다";break;
-		case error.POSITION_UNAVAILABLE:
+		case error.POSITION_UNAVAILABLE:                                                    
 			span.innerHTML = "위치 확인불가";break;
 		case error.TIMEOUT:
 			span.innerHTML = "시간초과";break;
 	}
-}
+	
+	function setZoomable(zoomable) {
+	    // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+	    map.setZoomable(zoomable);    
+	}
+} 
 </script>
 
 <body class="is-preload no-sidebar">
@@ -156,10 +162,11 @@
 		<!-- Main -->
 		<div id="main-wrapper">
 			<div class="container">
-			<button type="button" style="float: right" class="btn btn-outline-info">Info</button>
-        	
-			<br/><br/><br/>
-			<table style="border:1px solid gray;">
+<!-- 			<button type="button" style="float: right" class="btn btn-outline-info">검색하기</button> -->
+			
+<!-- 			<input type="submit" style="float: right;" value="검색하기" />  -->
+			<br/><br/>
+			<table>
 			
 				<!-- <td rowspan="3">구글지도 위치</td>
 				<td ><input type="text" placeholder="입력하세요"></td>
@@ -173,39 +180,42 @@
 			</tr> -->	
 			
 				<tr >
-					<td rowspan="3" style="border-right:10px solid gray; ">
+					<td rowspan="3" >
 						
 						<div id="map"></div>
 						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
 						
 						
 					</td>
-					<td style="border-bottom: 1px solid gray; float: right;">
+					<td style=" float: center;">
 						
 						<span id="result"></span>
 					</td>
 				</tr>			
 				<tr>
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; float: right; ">
+					<td style="float: center; ">
 						<form name="searchFrm">
-							<input type="hid-den" id="latTxt" name="latTxt" />
-							<input type="hid-den" id="lngTxt" name="lngTxt" />
+							<input type="hidden" id="latTxt" name="latTxt" />
+							<input type="hidden" id="lngTxt" name="lngTxt" />
 							<select name="distance" id="distance">
-								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
-								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
-								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
-								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
+								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>100m</option>
+								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>200m</option>
+								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>500m</option>
+								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1Km</option>
 
 							</select>
-							<input type="submit" value="검색하기" />
+<!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
+<!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
+							<br/><br/>
+							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;"/>
 						</form>
 					
 					</td>
 				</tr>			
 				
 					<!-- <td></td> -->
-					<td style="border-bottom: 1px solid gray; float: right;"><input type="text" placeholder="편의점 이름"></td>
+					<td style=float: right;"><input type="text" placeholder="편의점 이름"></td>
 				</tr>			
 			</table>
 			</div>
