@@ -179,8 +179,8 @@
 	});
 </script>
 <%
-Cookie[] cookies = request.getCookies();
 String user = "";
+Cookie[] cookies = request.getCookies();
 
 if(cookies!=null){
 	for(Cookie ck : cookies){

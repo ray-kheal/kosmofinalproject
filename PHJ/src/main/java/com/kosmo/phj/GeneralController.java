@@ -3,10 +3,15 @@ package com.kosmo.phj;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -113,7 +118,6 @@ public class GeneralController {
 		command = new QnAListCommand();
 		command.execute(model);
 		return "general/qna";
-
 	} 
 
 
@@ -123,12 +127,11 @@ public class GeneralController {
 
 	   return "sns_page/twitter";
    }
-	//페이스북
+   
+   //페이스북
    @RequestMapping("facebook.do")
    public String facebook(Model model) {   
-
-	   
-	   return "sns_page/facebook";
+	   return "general/facebook";
    }
    
    @RequestMapping ("recipe_edit.do")
@@ -136,6 +139,44 @@ public class GeneralController {
 	   
 	   return "general/recipe_edit";
    }
+   
+   //1:1 문의하기 메일 메소드
+   @Autowired
+	private JavaMailSenderImpl mailSender;
+   
+   @RequestMapping(value = "/InquireEmail.do", method = RequestMethod.POST)
+	public String InquireEmail(final HttpServletRequest req, Model model) {
+				
+	    final String fromEmail = "pwyank10321@naver.com";
+	    final String toEmail = "pwyank10321@naver.com";
+		final String subject = req.getParameter("subject");
+		final String contents = req.getParameter("contents").replace("\r\n", "<br/>");
+		
+		final MimeMessagePreparator preparator = new MimeMessagePreparator() {			
+			@Override
+			public void prepare(MimeMessage mimeMessage) throws Exception {
+
+				final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+				helper.setFrom(fromEmail); 
+				helper.setTo(toEmail); 
+				helper.setSubject(subject);  
+				helper.setText(contents, true); 
+			}
+		};		
+		
+		try {
+			mailSender.send(preparator);
+			System.out.println("메일이 정상발송 되었습니다");
+		}
+		catch (Exception e) {
+			System.out.println("예외발생");
+			System.out.println("메일발송오류");
+			e.printStackTrace();
+		}
+		
+		return "redirect:../phj";
+	}
+  
 }
 
 

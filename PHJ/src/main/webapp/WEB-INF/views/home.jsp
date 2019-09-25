@@ -317,6 +317,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <div class="col-6 col-12-medium">
                   <!-- Box -->
                   <section class="box feature">
+                     <a href="placemap.do" class="image featured">
                      <a href= "placemap.do" class="image featured"><img
                         src="images/store_shadow.png" alt="" /></a>
                      <div class="inner"
@@ -529,7 +530,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                       <%-- <td class="text-center">${row.virtualNum }</td> --%>
                                                       <td class="text-center"><i class="fas fa-gift" style="color: #608ac9;"></i></td>
                                                       <td class="text-left"><a
-                                                         href="./Eview.do?idx=${row.idx}   &nowPage=${nowPage}">${row.title}</a>
+                                                         href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
                                                       </td>
                                                       <td class="text-center">${row.content }</td>
                                                       <%-- <td class="text-center">${row.view_count }</td> --%>

@@ -39,7 +39,7 @@ public class placeMapCommand implements PHJCommandImpl {
 			
 			searchLists = dao.searchRadius(distance, latTxt, lngTxt, start, end);
 			
-			String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,req.getContextPath()+"/placemap.do?"+);
+			String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,req.getContextPath()+"/placemap.do?");
 			model.addAttribute("pagingImg",pagingImg);
 			model.addAttribute("totalPage",totalPage);
 			model.addAttribute("nowPage",nowPage);

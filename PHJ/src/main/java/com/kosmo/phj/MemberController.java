@@ -2,6 +2,7 @@ package com.kosmo.phj;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,9 +43,11 @@ public class MemberController {
 	@RequestMapping("/loginAction.do")
 	public String loginAction(Model model, HttpServletRequest req, HttpServletResponse resp) {
 		String page = null;
+		String user = "";
 		
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
+		String saveCheck = req.getParameter("saveCheck");
 		
 		MemberDAO dao = new MemberDAO();
 		System.out.println("memberinfo 실행 전 email, pass값 : " + email +", "+ pass);
@@ -63,7 +67,26 @@ public class MemberController {
 				model.addAttribute("dto",dto);
 				model.addAttribute("resp",resp);
 				command = new LoginActionCommand();
-				command.execute(model);
+				command.execute(model);	
+		        
+		        if(saveCheck==null) {
+					Cookie emailCookie = new Cookie("email","");
+					emailCookie.setPath(req.getContextPath());
+					emailCookie.setMaxAge(0);
+					resp.addCookie(emailCookie);
+				} else {
+					Cookie[] cookies = req.getCookies();
+					
+					Cookie emailCookie = new Cookie("email", email);
+			        emailCookie.setMaxAge(24 * 60 * 60);
+			        emailCookie.setPath(req.getContextPath());
+			        resp.addCookie(emailCookie);
+					
+					if(cookies!=null){
+						dto.setEmail(emailCookie.getValue());
+					}
+					
+				}
 				
 				page="redirect:../phj";
 			}
@@ -245,6 +268,15 @@ public class MemberController {
 		return "member/accountfind";
 	}
 	
+	//이메일 쿠키 메소드
+    @RequestMapping("loginCookie")
+    public String handleRequest ( @CookieValue(value="email", required=false) 
+    	String cookieValue, Model model) {
+    	
+        System.out.println(cookieValue);
+        model.addAttribute("cookieValue", cookieValue);
 
+        return "redirect:../phj";
+    }
 
 }
