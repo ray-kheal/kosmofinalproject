@@ -45,9 +45,36 @@ function checkValidate(f){
 </script>
 <script>
 $(function(){
-	$('#summernote').summernote();
-	height:"1000px"
+	$('#summernote').summernote({
+	height:"500px",
+	callbacks : {
+		onImageUpload : function(files, editor, welEditable){
+			for(var i = files.length - 1; i >= 0; i--){
+				sendFile(files[i], this);
+			}
+		}
+	}
 });
+})
+
+function sendFile(file, el) {
+      var form_data = new FormData();
+      form_data.append('file', file);
+      $.ajax({
+        data: form_data,
+        type: "POST",
+        url: '/imageUpload',
+        cache: false,
+        contentType: false,
+        enctype: 'multipart/form-data',
+        processData: false,
+        success: function(url) {
+          $note.summernote('editor.insertImage', url);
+         }
+      });
+    }
+
+
 </script>
 </head>
 <style type="text/css">
@@ -82,10 +109,10 @@ body {
 			<!-- <div class="row text-right" style="float: right;">
 				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px;"><i class="far fa-question-circle"></i>&nbsp;궁금한 점이 있으신가요</h5>
 			</div> -->
-<form action="./editAction.do" name = "writeFrm" method = "post" 
+<form action="./ReditAction.do" name = "writeFrm" method = "post"  enctype="multipart/form-data" 
 onsubmit="return checkValidate(this);">
-<input type="hidden" name="idx" value = "${viewRow.idx }"  />
-<input type="hidden" name="nowPage" value = "${param.nowPage }" />
+<input type="hidden" name="idx" value = "${viewRow.idx}"  />
+<input type="hidden" name="nowPage" value = "${param.nowPage}" />
 <table border = 1 width =800>
 		<table class="table table-bordered" style="margin-bottom: -1px;">
 					<colgroup>
@@ -109,6 +136,10 @@ onsubmit="return checkValidate(this);">
 					<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
 						<td bgcolor="white"><input type="text" class="form-control" name ="name" style="border:none;" value="${viewRow.name}" /></td>
+					</tr>
+					<tr>
+						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
+						<td><input type="file" name="IMAGE_NAME" /></td>
 					</tr>
 					<tr>
 						<th bgcolor="#f2efef" style="text-align: center; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA;border-bottom:5px solid #ffd74d;  ">내용</th>

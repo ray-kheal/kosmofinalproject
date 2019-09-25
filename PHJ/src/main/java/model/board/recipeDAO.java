@@ -5,6 +5,7 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
@@ -65,4 +68,23 @@ public class recipeDAO {
 		
 		return template.queryForObject(sql, Integer.class);
 	}
+	public void write(final recipeDTO recipeDTO) {
+
+		template.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "INSERT INTO phj_board_recipe(idx, name, title, IMAGE_NAME,content)"
+						+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, ?)";
+
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, recipeDTO.getName());
+				psmt.setString(2, recipeDTO.getTitle());
+				psmt.setString(3, recipeDTO.getImage_name());
+				psmt.setString(4, recipeDTO.getContent());
+				return psmt;
+			}
+		});
+	}
+		  
 }
