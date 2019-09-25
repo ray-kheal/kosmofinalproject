@@ -12,11 +12,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 <style>
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+
 #map{
-	width:550px; 
-	height:550px;
+	max-width: 100%; height: auto;
 	}
+	
+body {
+	font-family: Goyang;
+	
+}
 </style>
 	
 </head>
@@ -38,7 +49,10 @@
 	</c:otherwise>
 </c:choose>
  
+
 <script type="text/javascript">
+
+
 	$(function() {
 		$("#place").attr("class", "current");
 	});
@@ -102,7 +116,7 @@
 		var locations = [		
 			<c:forEach items="${searchLists }" var="row">
 				['${row.place_name} '+'${row.place_name2}' ,  ${row.latitude },${row.longitude }], 
-			</c:forEach>
+			</c:forEach> 
 		];
 		
 	 	var marker, i;
@@ -159,17 +173,26 @@
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
+		<div
+			style="width: 100%; height: 200px; text-align: center; background-color: #b1d8bf; display: table;">
+			<p
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
+				
+					<i class="fas fa-search-location" style="width: 50px; height: 50px;"></i>&nbsp;
+					근처 편의점 찾기
+			</p>
+		</div>
 		<!-- Main -->
 		<div id="main-wrapper">
 			<div class="container">
+		
 <!-- 			<button type="button" style="float: right" class="btn btn-outline-info">검색하기</button> -->
 			
 <!-- 			<input type="submit" style="float: right;" value="검색하기" />  -->
-			<br/><br/>
-			<table>
 			
+		
 				<!-- <td rowspan="3">구글지도 위치</td>
-				<td ><input type="text" placeholder="입력하세요"></td>
+				<td ><in    put type="text" placeholder="입력하세요"></td>
 				
 			<tr>
 				<td ><input type="text" placeholder="입력하세요"></td>
@@ -178,15 +201,21 @@
 			<tr>
 				<td ><input type="text" placeholder="입력하세요"></td>
 			</tr> -->	
+
+			<!-- <button type="button" style="float: right" class="btn btn-outline-info">Info</button> -->
+			<br/><br/><br/>
+			<table style="border:1px solid gray; height: 600px;">
+				<colgroup>
+					<col width="75%" />
+					<col width="25%" />
+				</colgroup>
+				
 			
-				<tr >
-					<td rowspan="3" >
-						
-						<div id="map"></div>
+				<tr > 
+					<td rowspan="3"  id=map>			
 						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
-						
-						
-					</td>
+
+					</td> 
 					<td style=" float: center;">
 						
 						<span id="result"></span>
@@ -194,10 +223,11 @@
 				</tr>			
 				<tr>
 					<!-- <td></td> -->
-					<td style="float: center; ">
+					<td style="text-align: center;">
 						<form name="searchFrm">
 							<input type="hidden" id="latTxt" name="latTxt" />
 							<input type="hidden" id="lngTxt" name="lngTxt" />
+							<h5>근처 편의점 찾기</h5> <br />
 							<select name="distance" id="distance">
 								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>100m</option>
 								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>200m</option>
@@ -208,17 +238,25 @@
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;"/>
+							<!-- <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;"/> -->
+						<!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  /> -->
+						<a href="javascript:document.searchFrm.onsubmit()">
+							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
+						</a>
+
 						</form>
 					
 					</td>
 				</tr>			
-				
+				<tr>
 					<!-- <td></td> -->
-					<td style=float: right;"><input type="text" placeholder="편의점 이름"></td>
+					<td style="text-align: center;">
+						<h5>근처 편의점 목록</h5> <br />
+					
+					</td>
 				</tr>			
 			</table>
-			</div>
+			</div><!-- container -->
 		</div>
 
 		<!-- Footer -->

@@ -229,50 +229,23 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 </style>
 <!-- 마우스 오버 end  -->
 
-<style>
-
-#main-wrapper{
-		
-	
-		
-		
-		
-		
-		
-	}
-</style>
 <body class="is-preload homepage">
    <div id="page-wrapper">
-
+ 
       <!-- 메인페이지 우측 스크롤메뉴 -->
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
-      <div id="scroll"
-         style="position: fixed; right: 50%; top: 100px; margin-right: -720px; text-align: center; width: 120px;">
+      <div id="scroll"  
+         style=" position: fixed; right: 50%; top: 100px; margin-right: -800px; text-align: center; width: 180px;">
 
-
-
-
-         <%-- <ul>
-            <li><a href="#header">Welcome</a></li>
-            <li><a href="#features-wrapper">편의점 상품조회</a></li>
-            <li><a href="#main-wrapper">편의점 레시피</a></li>
-            <li><a href="#notify">공지사항</a></li>
-            <li><a href="#info">고객센터</a></li>
-            <%if(session.getAttribute("EMAIL")==null) { %>
-               <li><a href="login.do">로그인</a></li>
-            <%}else{ %>
-               <li><a href="logout.do">로그아웃</a></li>
-            <%} %>
-         </ul> --%>
 
          <!-- 이미지로 스크롤 메뉴 변경함 -->
-         <a href="#"> <img src="images/scoll_welcome.png" alt="welcome"
+         <a href="#"> <img src="images/welcome_scoll.png" alt="welcome" 
             style="right: 30; top: 30;" />
          </a> <br /> <a href="#features-wrapper"> <img
-            src="images/scoll_product.png" alt="편의점 상품조회" />
+            src="images/product_scoll.png" alt="편의점 상품조회" />
          </a><br /> <a href="#main-wrapper"> <img
-            src="images/scoll_recipe.png" alt="편의점 레시피" />
-         </a><br /> <a href="#notify"> <img src="images/scoll_notice.png"
+            src="images/recipe_scoll.png" alt="편의점 레시피" />
+         </a><br /> <a href="#notify"> <img src="images/notice_scoll.png"
             alt="공지사항" />
          </a><br />
          <!--          <a href="#info"> -->
@@ -282,18 +255,24 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <%
             if (session.getAttribute("EMAIL") == null) {
          %>
-         <a href="login.do"><img src="images/scoll_login.png" alt="로그인" /></a>
+         <a href="login.do"><img src="images/login_scoll.png" alt="로그인" /></a>
          <%
             } else {
          %>
-         <a href="memberEdit.do"> <img src="images/scoll_modify.png"
+         <a href="memberEdit.do"> <img src="images/modify_scoll.png"
             alt="정보수정" />
-         </a> <a href="logout.do"> <img src="images/scoll_logout.png"
+         </a> <a href="logout.do"> <img src="images/logout_scoll.png"
             alt="로그아웃" />
          </a>
          <%
             }
          %>
+         <a href="#"> <img src="images/top.png"
+            alt="업" />
+         </a>
+          <a href="" > <img id="go-bottom" src="images/down.png"
+            alt="다운" />
+         </a>
       </div>
 
       <!-- 메인 헤더 인클루드 -->
@@ -309,7 +288,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          
         <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  -->
          
-          
          
          
             <div class="row">
@@ -443,7 +421,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      </div>
                   </section>
 
-               
 
                </div>
             </div>
@@ -585,6 +562,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <div class="container">
          <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
+         <br /><br />
+         <a href=recipe_edit.do> 레시피 게시판 준비중</a>
+      
          <h4>
             로그인 한 이메일 :
             <%=session.getAttribute("EMAIL")%></h4>

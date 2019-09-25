@@ -128,7 +128,11 @@ public class GeneralController {
 		   
 		   return "general/facebook";
 	   }
+	   
+	   @RequestMapping ("recipe_edit.do")
+	   public String recipe_view(Model model) {
+		   
+		   return "general/recipe_edit";
+	   }
+	   }
 
-	
-	
-}

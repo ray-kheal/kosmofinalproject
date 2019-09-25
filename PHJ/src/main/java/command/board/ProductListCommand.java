@@ -7,13 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.ui.Model;
 
-import com.kosmo.phj.boardController;
-
 import command.PHJCommandImpl;
-import model.board.noticeDAO;
-import model.board.noticeDTO;
 import model.product.ProductDAO;
 import model.product.ProductDTO;
+import util.PagingUtil;
 
 public class ProductListCommand implements PHJCommandImpl {
 	@Override
@@ -57,7 +54,7 @@ public class ProductListCommand implements PHJCommandImpl {
           row.setVirtualNum(virtualNum);
        }
 	    
-	    String pagingImg = util.MainPagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+	    String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString);
 	    
 		model.addAttribute("pagingImg",pagingImg);

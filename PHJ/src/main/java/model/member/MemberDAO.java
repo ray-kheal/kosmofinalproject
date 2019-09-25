@@ -167,4 +167,11 @@ public class MemberDAO {
 		System.out.println("query : " + sql);
 	}
 	
+	/*
+	 * //아이디 찾기 public String idFind(Connection con, String name, String mobile) {
+	 * String email = null; String query =
+	 * "SELECT email FROM phj_member WHERE name=? AND mobile=?";
+	 * 
+	 * try { ps = con.prepareStatement(query); } }
+	 */
 }
