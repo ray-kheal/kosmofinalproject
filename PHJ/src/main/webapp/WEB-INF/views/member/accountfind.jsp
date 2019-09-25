@@ -45,18 +45,18 @@ function find_check(num){
 	if(num=='1'){
 		document.getElementById("findPop PWfind").style.display="none";
 		document.getElementById("findPop IDfind").style.display="";
-		var mb_ID=$("#mbID").val();
-		var mbPWPhone1=$("#mbPWPhone1").val();
-		var mbPWPhone2=$("#mbPWPhone2").val();
-		var mbPWPhone3=$("#mbPWPhone3").val();
+		var email=$("#email").val();
+		var mobile1=$("#mobile1").val();
+		var mobile2=$("#mobile2").val();
+		var mobile3=$("#mobile3").val();
 	}
 	if(num=='2'){
 		document.getElementById("findPop IDfind").style.display="none";
 		document.getElementById("findPop PWfind").style.display="";
-		$("#mbName").val("");
-		$("#mbIDPhone1").val("");
-		$("#mbIDPhone2").val("");
-		$("#mbIDPhone3").val("");
+		$("#name").val("");
+		$("#mobile1").val("");
+		$("#mobile2").val("");
+		$("#mobile3").val("");
 	}
 }
 
@@ -67,87 +67,11 @@ function find_PWcheck(){
 	document.getElementById("findPop IDok").style.display="none";
 	$("#radioFindPW").attr("checked", true);
 	$("#mbName").val("");
-	$("#mbIDPhone1").val("");
-	$("#mbIDPhone2").val("");
-	$("#mbIDPhone3").val("");
+	$("#mobile1").val("");
+	$("#mobile2").val("");
+	$("#mobile3").val("");
 
 }
-function CloseWindow(url,intWidth,intHeight) { 
-      window.close('/login/findPop','popup','width=600,height=400,left=0,top=0') ; 
-} 
-function ID_check(){
-	var mb_Name=$("#mbName").val();
-	var mbIDPhone1=$("#mbIDPhone1").val();
-	var mbIDPhone2=$("#mbIDPhone2").val();
-	var mbIDPhone3=$("#mbIDPhone3").val();
-	var mb_Phone = mbIDPhone1+"-"+mbIDPhone2+"-"+mbIDPhone3;
-		
-		//alert(mb_Phone);
-
-		$.get("/login/id_check" ,
-			{
-				mbName:mb_Name,
-				mbPhone:mb_Phone
-				
-			},
-
-function(result){
-
-	if(mb_Name == ""){
-		alert("이름과 휴대폰번호를 입력해주세요.");
-		//$("#tmp_check_id").val("0");
-		//document.getElementById("tmp_check_id-error").style.display="";
-	}			
-
-	else if(result == ""){
-		alert("정보를 다시입력해주세요");
-		//$("#tmp_check_id").val("0");
-		//document.getElementById("tmp_check_id-error").style.display="";
-	}
-	else if(result != ""){
-		//alert(result+"아이디를 찾았습니다.")
-		document.getElementById("findPop find form").style.display="none";
-		document.getElementById("findPop IDok").style.display="";
-		document.getElementById("IDok Nameok").innerHTML = mb_Name;
-		document.getElementById("IDok ID").innerHTML = result;
-		
-	}
-});
-
-}
-function PW_check(){
-		var mb_ID=$("#mbID").val();
-		var mbPWPhone1=$("#mbPWPhone1").val();
-		var mbPWPhone2=$("#mbPWPhone2").val();
-		var mbPWPhone3=$("#mbPWPhone3").val();
-		var mb_Phone = mbPWPhone1+"-"+mbPWPhone2+"-"+mbPWPhone3;
-		
-		//alert(mb_Phone);
-
-		$.get("/login/pw_check" ,
-			{
-				mbID:mb_ID,
-				mbPhone:mb_Phone
-				
-			},
-
-		function(result){
-			
-
-			if(result != ""){
-				alert("정보가 틀립니다. 다시 입력해주세요.");
-				//$("#tmp_check_id").val("0");
-				//document.getElementById("tmp_check_id-error").style.display="";
-			}
-			else if(result == ""){
-				document.getElementById("findPop find form").style.display="none";
-				//alert("아이디를 찾았습니다.")
-				document.getElementById("findPop PWok").style.display="";
-				document.getElementById("PWok PW").innerHTML = mb_Phone;
-			}
-		});
-
-	}
 </script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
@@ -171,67 +95,71 @@ function PW_check(){
 								<label for="radioFindPW" class="custom-control-label">비밀번호</label>
 							</div>
 						<div class="findPop" id="findPop IDfind">
-							<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
-								<caption>아이디, 비밀번호 입력폼</caption>
-								<colgroup>
-									<col width="100px">
-									<col width="*">
-								</colgroup>
-								<tbody>
-									<tr>
-										<th scope="row"><label for="name">이름</label></th>
-										<td>
-											<div class="formbox"><input maxlength="40" type="text" id="mbName" class="text" name="name"></div>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
-										<td>
-											<div class="formbox">
-												<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbIDPhone1" maxlength="3" class="text hp"><span class="dash"></span>
-												<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbIDPhone2" maxlength="4" class="text hp"><span class="dash"></span>
-												<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbIDPhone3" maxlength="4" class="text hp">
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="btnWrap">
-								<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
-								<a href="javascript:CloseWindow();"><button type="button" class="btn btn-danger" style="width:70px;">취소</button></a>
-							</div>
+							<form action="">
+								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
+									<caption>아이디, 비밀번호 입력폼</caption>
+									<colgroup>
+										<col width="100px">
+										<col width="*">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row"><label for="name">이름</label></th>
+											<td>
+												<div class="formbox"><input maxlength="40" type="text" id="name" class="text" name="name"></div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
+											<td>
+												<div class="formbox">
+													<input type="text" title="휴대폰 앞 번호" value="" name="mobile1" id="mobile1" maxlength="3" class="text hp"><span class="dash"></span>
+													<input type="text" title="휴대폰 중간 번호" value="" name="mobile2" id="mobile2" maxlength="4" class="text hp"><span class="dash"></span>
+													<input type="text" title="휴대폰 끝 번호" value="" name="mobile3" id="mobile3" maxlength="4" class="text hp">
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="btnWrap">
+									<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
+									<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
+								</div>
+							</form>
 						</div>
 			
 						<div class="findPop" id="findPop PWfind">
-							<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
-								<caption>아이디, 비밀번호 입력폼</caption>
-								<colgroup>
-									<col width="91px">
-									<col width="*">
-								</colgroup>
-								<tbody>
-									<tr>
-										<th scope="row"><label for="name">아이디</label></th>
-										<td>
-											<div class="formbox"><input maxlength="40" type="text" id="mbID" class="text" name="name"></div>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
-										<td>
-											<div class="formbox">
-												<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbPWPhone1" maxlength="3" class="text hp"><span class="dash"></span>
-												<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbPWPhone2" maxlength="4" class="text hp"><span class="dash"></span>
-												<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbPWPhone3" maxlength="4" class="text hp">
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="btnWrap">
-								<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
-								<a href="javascript:CloseWindow();"><button type="button" class="btn btn-danger" style="width:70px;">취소</button></a>
-							</div>
+							<form action="">
+								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
+									<caption>아이디, 비밀번호 입력폼</caption>
+									<colgroup>
+										<col width="91px">
+										<col width="*">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row"><label for="name">이메일</label></th>
+											<td>
+												<div class="formbox"><input maxlength="40" type="text" id="email" class="text" name="email"></div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
+											<td>
+												<div class="formbox">
+													<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbPWPhone1" maxlength="3" class="text hp"><span class="dash"></span>
+													<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbPWPhone2" maxlength="4" class="text hp"><span class="dash"></span>
+													<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbPWPhone3" maxlength="4" class="text hp">
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="btnWrap">
+									<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
+									<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
+								</div>
+							</form>
 						</div>
 					</div>
 			
@@ -249,7 +177,7 @@ function PW_check(){
 					</div>
 			
 					<div class="btnWrap">
-						<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
+						<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
 					</div>
 				</div>
 			
@@ -264,7 +192,7 @@ function PW_check(){
 					</div>
 			
 					<div class="btnWrap">
-						<a href="javascript:ID_check();"><button type="button" class="btn btn-success" style="width:70px;">확인</button></a>
+						<button type="button" onclick="location.href='login.do';" class="btn btn-success" style="width:70px;">확인</button>
 						<a href="javascript:find_PWcheck();"><button type="button" class="btn btn-warning" style="width:70px;">비밀번호 찾기</button></a>
 					</div>
 				</div>
