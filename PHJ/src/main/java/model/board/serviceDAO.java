@@ -151,7 +151,9 @@ public class serviceDAO {
 					
 				}
 			});
-  }
+  }	 
+	
+	  
 	  public void delete(final String idx) {
 		   String sql = "delete from PHJ_BOARD_SERVICE where idx=? ";
 		 template.update(sql, new PreparedStatementSetter() {

@@ -1,18 +1,30 @@
 package com.kosmo.phj;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.plaf.multi.MultiFileChooserUI;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import command.PHJCommandImpl;
+import command.board.EditActionCommand;
 import command.board.QnAViewCommand;
+import command.board.RecipeEditActionCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
+import model.board.recipeDTO;
 import model.board.serviceDTO;
 
 
@@ -114,7 +126,7 @@ public class boardController {
 		System.out.println("serviceDTO[제목] = " + serviceDTO.getTitle());
 		model.addAttribute("req", req);
 		model.addAttribute("serviceDTO", serviceDTO);
-		command = new command.board.EditActionCommand();
+		command = new EditActionCommand();
 		command.execute(model);
 
 		// redirect를 이용해서 페이지 이동을 할때 쿼리스트링을 연결하려면 아래와 같이 model에 속성을 저장하면 된다. 즉
@@ -137,4 +149,35 @@ public class boardController {
 		return "redirect:qna.do";
 
 	}
+	
+	//레시피 게시판 글쓰기 
+	@RequestMapping("ReditAction.do")
+	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO recipeDTO) {
+
+		// 커맨드객체로 받은 폼값 확인하기
+		model.addAttribute("req", req);
+		model.addAttribute("recipeDTO", recipeDTO);
+		command = new RecipeEditActionCommand();
+		command.execute(model);
+
+		model.addAttribute("idx", req.getParameter("idx"));
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+
+		// 뷰 호출이 아니고 페이지 이동
+		return "redirect:recipe.do";
+	}
+	
+	/*
+	  @RequestMapping(value="/imageUpload",method=RequestMethod.POST)
+	  @ResponseBody
+	  public String imageUpload(MultipartHttpServletRequest req) throws IOException{
+		  MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
+		  List<MultipartFile> list = multiFileMap.get(FILE);
+		  
+	  }
+
+	
+	
+	*/
 }
+;
