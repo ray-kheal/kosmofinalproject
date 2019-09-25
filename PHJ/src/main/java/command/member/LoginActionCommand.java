@@ -2,7 +2,9 @@ package command.member;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -19,7 +21,10 @@ public class LoginActionCommand implements PHJCommandImpl {
 		
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
+		HttpServletResponse resp = (HttpServletResponse)paramMap.get("resp");
+		
 		MemberDTO dto = (MemberDTO)paramMap.get("dto");
+		
 		HttpSession session = req.getSession();
 		
 		MemberDAO dao = new MemberDAO();
@@ -35,7 +40,7 @@ public class LoginActionCommand implements PHJCommandImpl {
 			session.setAttribute("PASS", dto.getPass());
 			session.setAttribute("NAME", dto.getName());
 			session.setAttribute("ALERT", dto.getMobile_alert());
-			session.setAttribute("MEMBERTYPE", dto.getMembertype());
+			session.setAttribute("MEMBERTYPE", dto.getMembertype());		
 		}
 		
 	}

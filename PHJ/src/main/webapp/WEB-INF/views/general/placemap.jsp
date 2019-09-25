@@ -163,7 +163,7 @@
 		<!-- Main -->
 		<div id="main-wrapper">
 			<div class="container">
-			<button type="button" style="float: right" btn btn-outline-info">Info</button>
+			<button type="button" style="float: right" class="btn btn-outline-info">Info</button>
 			<br/><br/><br/>
 			<table style="border:1px solid gray;">
 			

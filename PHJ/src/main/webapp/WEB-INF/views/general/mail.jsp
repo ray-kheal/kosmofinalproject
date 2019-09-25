@@ -1,3 +1,4 @@
+<%@page import="model.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype HTML>
@@ -33,21 +34,21 @@ nav {
 		var fn = document.emailFrm;
 
 		if (fn.email.value == "") {
-			alert("이메일을 입력하세요");
+			alert("답장 받으실 이메일을 입력하세요");
 			fn.email.focus();
 			return false;
 		}
 		if (fn.subject.value == "") {
-			alert("제목을 입력하세요");
+			alert("문의하실 제목을 입력하세요");
 			fn.subject.focus();
 			return false;
 		}
-		if (fn.content.value == "") {
-			alert("내용을 입력하세요");
-			fn.content.focus();
+		if (fn.contents.value == "") {
+			alert("문의하실 내용을 입력하세요");
+			fn.contents.focus();
 			return false;
 		} else {
-			alert("메일이 전송되었습니다.");
+			alert("문의해 주셔서 감사합니다.");
 		}
 	}
 
@@ -102,7 +103,7 @@ body {
 						<article>
 
 							<h2 style="font-family: Goyang;">1:1 문의하기</h2>
-							<form action="mail_send.jsp" method="post" name="emailFrm"
+							<form action="InquireEmail.do" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
 								<div class="pw_box">
 
@@ -115,12 +116,12 @@ body {
 											<td><input type="text" name="email" value="" /></td>
 										</tr>
 										<tr>
-											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">제목</td>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">문의할 제목</td>
 											<td><input type="text" name="subject" value="" /></td>
 										</tr>
 										<tr>
-											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">내용</td>
-											<td><textarea name="content" id="" cols="30" rows="10"
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">문의할 내용</td>
+											<td><textarea name="contents" id="" cols="30" rows="10"
 													value=""></textarea></td>
 										</tr>
 										<tr>

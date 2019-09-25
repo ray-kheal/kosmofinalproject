@@ -294,7 +294,7 @@ label {
 										<option selected value="">선택</option>
 										<option value="naver.com">naver.com</option>
 										<option value="daum.net">daum.net</option>
-										<option value="google.com">google.com</option>
+										<option value="gmail.com">google.com</option>
 										<option value="yahoo.co.kr">yahoo.co.kr</option>
 										<option value="direct_input">직접 입력</option>
 									</select>&nbsp; 
