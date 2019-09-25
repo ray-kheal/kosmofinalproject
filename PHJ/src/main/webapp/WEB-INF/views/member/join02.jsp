@@ -124,7 +124,6 @@
 			return;
 		}
 		
-		
 		f.action ="./regist.do";
 		
 
@@ -337,7 +336,7 @@ label {
 						</tr>
 						
 						<tr valign="middle">
-							<td bgcolor="#f7f4f4" valign="middle"  style="text-align: center; border-bottom: 6px solid #343a40;">휴대전화</td>
+							<td bgcolor="#f7f4f4"  style="text-align: center; border-bottom: 6px solid #343a40;">휴대전화</td>
 							<td style="border-bottom: 6px solid #343a40;" bgcolor="white">
 								<div class="form-inline">
 									<input type="text" name="mobile1" class="form-control input-lg" style="width:25%"/>&nbsp;-&nbsp; 

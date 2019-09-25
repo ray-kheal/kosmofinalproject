@@ -13,14 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import command.PHJCommandImpl;
 import command.admin.AdBoardDeleteActionCommand;
 import command.admin.AdBoardListCommand;
+import command.admin.AdBoardListEditActionCommand;
 import command.admin.AdBoardListEditCommand;
 import command.admin.AdBoardListViewCommand;
 import command.admin.AdBoardListWriteActionCommand;
 import command.admin.AdEventListCommand;
 import command.admin.AdEventListWriteActionCommand;
 import command.admin.AdPlaceListCommand;
+import command.admin.AdProductDeleteActionCommand;
 import command.admin.AdProductListCommand;
-import command.admin.MemberListCommand;
+import command.admin.AdRecipeListCommand;
+import command.board.recipeListCommand;
+import command.admin.AdMemberListCommand;
 import command.member.LoginActionCommand;
 import model.board.noticeDTO;
 import model.board.serviceDTO;
@@ -135,7 +139,7 @@ public class AdminController {
 		req.setCharacterEncoding("UTF-8");
 		model.addAttribute("req",req);
 		
-		command = new MemberListCommand();
+		command = new AdMemberListCommand();
 		command.execute(model);
 		
 		System.out.println("member 익스큐트 실행");
@@ -163,6 +167,26 @@ public class AdminController {
 		return "admin/pages/tables/productManagementWrite";
 	}
 	
+	//상품 삭제하기
+	@RequestMapping("/admin/pages/tables/productDelete.do")
+	public String productDelete(Model model, HttpServletRequest req) {
+		
+		System.out.println("delete 호출됨");
+		
+		model.addAttribute("req", req);
+		command = new AdProductDeleteActionCommand();
+		command.execute(model);
+
+		String nowPage = req.getParameter("nowPage");
+		String product_code = req.getParameter("product_code");
+		model.addAttribute("nowPage", nowPage);
+		model.addAttribute("product_code", product_code);
+		
+		System.out.println("delete컨트롤러의product_code:"+product_code);
+		
+		return "redirect:./productManagement.do?";
+
+	}
 	//////////////////////////////////////////////////////////////////////////////////////// 점포관리
 	//점포관리 페이지
 	@RequestMapping("/admin/pages/tables/placeManagement.do")
@@ -228,6 +252,24 @@ public class AdminController {
 		
 		return "admin/pages/tables/boardManagementEdit";
 	}
+	//공지사항수정하기액션 페이지
+	@RequestMapping("/admin/pages/tables/boardManagementEditAction.do")
+	public String boardManagementEditAction(Model model, HttpServletRequest req,noticeDTO noticeDTO) throws IOException{
+		model.addAttribute("req",req);
+		
+		command = new AdBoardListEditActionCommand();
+		command.execute(model);
+		
+		System.out.println("boardEditAction 익스큐트 실행");
+		
+			return "redirect:./boardManagement.do";
+		
+		// 뷰 호출이 아니고 페이지 이동
+		
+	}
+	
+	
+	
 	//공지사항글쓰기 페이지
 	@RequestMapping("/admin/pages/tables/boardManagementWrite.do" )
 	public String boardManagementWrite(Model model) throws IOException {
@@ -262,41 +304,11 @@ public class AdminController {
 		model.addAttribute("nowPage", nowPage);
 		//model.addAttribute("board_type", board_type);
 		
-		//return "redirect:./boardManagement.do?nowPage="+nowPage+"&board_type="+board_type;
+		
 		return "redirect:./boardManagement.do?nowPage="+nowPage;
 		//return "redirect:./boardManagement.do?nowPage="+nowPage+"&board_type="+board_type;
 
 	}
-		/*String board_type = req.getParameter("board_type");
-		System.out.println("board_type:"+board_type);
-		
-		model.addAttribute("req",req);
-		model.addAttribute("noticeDTO",noticeDTO);
-		command = new AdBoardListWriteActionCommand();
-		command.execute(model);
-		if(board_type=="1") {
-			return "redirect:./boardManagement.do";
-			
-		}else {
-			return "redirect:./eventManagement.do";
-		}*/
-		
-	
-	/*@RequestMapping(value="/admin/pages/tables/boardManagementWriteAction.do",method=RequestMethod.POST )
-	public String boardManagementWriteAction(Model model,HttpServletRequest req,noticeDTO noticeDTO) {
-		
-		System.out.println("writeAction 호출됨");
-		String nowPage = req.getParameter("nowPage");
-		model.addAttribute("req",req);
-		model.addAttribute("noticeDTO",noticeDTO);
-		command = new WriteActionCommand();
-		command.execute(model);
-		
-		return "admin/pages/tables/boardManagement.do?nowPage="+nowPage;
-		
-	}
-	*/
-	 
 	
 	
 	//////////////////////////////////////////////////////////////////////////////////////// 이벤트관리
@@ -350,10 +362,44 @@ public class AdminController {
 		return "admin/pages/tables/eventdManagementView";
 	}
 	
+	//이벤트 게시판 수정하기 페이지
+	@RequestMapping("/admin/pages/tables/eventManagementEdit.do")
+	public String eventManagementEdit(Model model, HttpServletRequest req) throws IOException{
+		model.addAttribute("req",req);
+		model.addAttribute("board_type",2);
+		
+		command = new AdBoardListEditCommand();
+		command.execute(model);
+		
+		System.out.println("boardEdit 익스큐트 실행");
+		
+		return "admin/pages/tables/eventManagementEdit";
+	}
+	//이벤트 게시판 수정하기액션 페이지
+	@RequestMapping("/admin/pages/tables/eventManagementEditAction.do")
+	public String eventManagementEditAction(Model model, HttpServletRequest req,noticeDTO noticeDTO) throws IOException{
+		model.addAttribute("req",req);
+	
+		
+		command = new AdBoardListEditActionCommand();
+		command.execute(model);
+		
+		System.out.println("boardEditAction 익스큐트 실행");
+		
+			return "redirect:./eventManagement.do";
+		
+		// 뷰 호출이 아니고 페이지 이동
+		
+	}
+		
+		
 	//////////////////////////////////////////////////////////////////////////////////////// 레시피관리
 	//레시피 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/recipeManagement.do")
-	public String recipeManagement() {
+	public String recipeManagement(Model model, HttpServletRequest req) throws IOException {
+		model.addAttribute("req", req);
+		command = new AdRecipeListCommand();
+		command.execute(model);
 		return "admin/pages/tables/recipeManagement";
 	}
 	

@@ -39,7 +39,14 @@
 		margin: 0 auto;
 	}
 </style>
+
+<c:if test="${not empty resultEmail }">
+	<script>alert('${name}님의 이메일은 ${resultEmail} 입니다.')</script>
+</c:if>
+
 <script type="text/javascript">
+
+
 
 function find_check(num){
 	if(num=='1'){
@@ -49,6 +56,8 @@ function find_check(num){
 		var mobile1=$("#mobile1").val();
 		var mobile2=$("#mobile2").val();
 		var mobile3=$("#mobile3").val();
+		
+		
 	}
 	if(num=='2'){
 		document.getElementById("findPop IDfind").style.display="none";
@@ -58,6 +67,7 @@ function find_check(num){
 		$("#mobile2").val("");
 		$("#mobile3").val("");
 	}
+	
 }
 
 function find_PWcheck(){
@@ -66,12 +76,13 @@ function find_PWcheck(){
 	document.getElementById("findPop PWfind").style.display="";
 	document.getElementById("findPop IDok").style.display="none";
 	$("#radioFindPW").attr("checked", true);
-	$("#mbName").val("");
+	$("#email").val("");
 	$("#mobile1").val("");
 	$("#mobile2").val("");
 	$("#mobile3").val("");
 
 }
+
 </script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
@@ -84,8 +95,9 @@ function find_PWcheck(){
 			<div class="row" style="margin-top:10px;">
 				<div id="findMenu" style="margin-top:100px;">
 						<div class="findPop find" id="findPop find form" >
+						
 							<h3 id="Maintitle">아이디/비밀번호 찾기</h3>
-		 	
+		 				
 							<div class="findTop clear_g custom-control custom-radio custom-control-inline">
 								<input type="radio" class="custom-control-input" name="radio_find2" id="radioFindID" checked="checked" onclick="find_check(1)" />
 								<label for="radioFindID" class="custom-control-label">아이디</label>
@@ -95,7 +107,8 @@ function find_PWcheck(){
 								<label for="radioFindPW" class="custom-control-label">비밀번호</label>
 							</div>
 						<div class="findPop" id="findPop IDfind">
-							<form action="">
+
+							<form method="post"  class="" name="f" action="emailFindAction.do">
 								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
@@ -126,10 +139,12 @@ function find_PWcheck(){
 									<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
 								</div>
 							</form>
+
 						</div>
 			
 						<div class="findPop" id="findPop PWfind">
-							<form action="">
+
+							<form action="pwfindAction.do">
 								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
@@ -156,10 +171,11 @@ function find_PWcheck(){
 									</tbody>
 								</table>
 								<div class="btnWrap">
-									<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
+									<button type="submit" class="btn btn-success"  style="width:70px;">확인</button>
 									<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
 								</div>
 							</form>
+
 						</div>
 					</div>
 			

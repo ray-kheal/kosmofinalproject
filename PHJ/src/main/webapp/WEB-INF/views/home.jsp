@@ -335,6 +335,24 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	               </div>
 	           <div class="col-6 col-12-medium">
                   <!-- Box -->
+
+                  <section class="box feature">
+                     <a href="placemap.do" class="image featured">
+                     <a href= "placemap.do" class="image featured"><img
+                        src="images/store_shadow.png" alt="" /></a>
+                     <div class="inner"
+                        style="text-align: center; font-family: Goyang;">
+                        <header>
+                           <h2 style="font-family: Goyang;">편의점 찾기</h2>
+                        </header>
+                        <p style="font-family: Goyang; font-size: 25px;">
+                        	내 주변 편의점 찾기</p>
+                     </div>
+                  </section>
+               </div>
+               <div class="col-6 col-12-medium">
+                  <!-- Box -->
+
                   <section class="box feature">
                      <a href="findproduct.do" class="image featured"><img
                         src="images/product_shadow.png" alt="" /></a>
@@ -343,8 +361,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            <h2 style="font-family: Goyang;">상품 찾기</h2>
                         </header>
                         <p style="font-family: Goyang; font-size: 25px;">
-                        	주변 편의점에 있는
-                           	상품을 알려드립니다</p>
+                        	맛Eat는 먹거리 찾기</p>
                      </div>
                   </section>
                </div>
@@ -417,6 +434,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
+
+
+
+               </div>
+
             </div>
             <div class="row" >
                <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> -->
@@ -523,7 +545,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                       <%-- <td class="text-center">${row.virtualNum }</td> --%>
                                                       <td class="text-center"><i class="fas fa-gift" style="color: #608ac9;"></i></td>
                                                       <td class="text-left"><a
-                                                         href="./Eview.do?idx=${row.idx}   &nowPage=${nowPage}">${row.title}</a>
+                                                         href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
                                                       </td>
                                                       <td class="text-center">${row.content }</td>
                                                       <%-- <td class="text-center">${row.view_count }</td> --%>
@@ -581,4 +603,5 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <script src="assets/js/util.js"></script>
    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

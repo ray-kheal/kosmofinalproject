@@ -36,7 +36,7 @@ public class RecipeEditActionCommand implements PHJCommandImpl{
 		
 		
 		recipeDAO dao = new recipeDAO();
-		dao.write(dto);
+		//dao.write(dto);
 	}
 	
 }
