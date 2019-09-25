@@ -1,10 +1,13 @@
 package model.product;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
@@ -47,10 +50,29 @@ public class ProductDAO {
 		if (map.get("searchWord") != null) {
 			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
+		
 		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end;
-
+		
 		System.out.println(map);
 		
 		return (ArrayList<ProductDTO>)template.query(query, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
 	}
+		
+		
+		//상품 삭제하기
+		public void delete(final String product_code) {
+
+			System.out.println("delete할 product_code:"+product_code);
+			String sql = "DELETE FROM PHJ_PRODUCT WHERE product_code=? ";
+			 template.update(sql, new PreparedStatementSetter() {
+				
+				@Override
+				public void setValues(PreparedStatement ps) throws SQLException {
+				
+					ps.setString(1, product_code);
+				}
+			});
+		
+	}
+
 }

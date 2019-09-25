@@ -28,8 +28,19 @@ if (mst == 'normal') {
 	location.href = "../admin/pages/samples/login.do";
 } 
 
+function checkValidate(f){
+	if(f.title.value==""){
+		alert("제목을 입력하세요.");
+		f.title.focus();
+		return false;
+	}
+	if(f.content.value==""){
+		alert("내용을 입력하세요.");
+		f.content.focus();
+		return false;
+	}
+}
 </script>
-
   <body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.do -->
@@ -50,9 +61,13 @@ if (mst == 'normal') {
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">레시피 게시판</h3> 
+                <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
+              		if(board_type.equals("1")) { %>
+             			<h3 class="page-title" style="font-weight: bold;">공지사항 수정</h3> 
+			 	<%}else if (board_type.equals("2")){ %>
+             			<h3 class="page-title" style="font-weight: bold;">이벤트 수정</h3> 
+			 	<%} %>
              <br /><br />
-             <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
@@ -60,114 +75,58 @@ if (mst == 'normal') {
                 </ol>
               </nav>
         -->     
-              	<form class="form-inline">
-				 <div class="form-group ">
-					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
-						<option value="title">제목</option>
-						<option value="name">작성자</option>
-						<option value="content">내용</option>
-					</select>
-				</div> 
-				<div class="input-group">
-
-					<input type="text" name="searchWord" class="form-control"
-						style="width: 120px; height : 30px" />
-
-					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색 <i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
-			</form>
-			<!-- 검색기능 끝 -->
-
-			<br />
-
-		<!-- 내용시작 -->
+ 
+			<br />  
+		
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-food"></i>&nbsp;레시피 리스트</h4>
-                    <table class="table table-hover" style="text-align: center;">
-                     <colgroup>
-						<col width="80px" />
-						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="80px" />
-					</colgroup>
-					<thead>
-						<tr class="table-info" style="color: white;">
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
-							<th>조회</th>
-						</tr>   
-					</thead>
-                      <tbody style="color: black;">
-                   		<!-- 게시판 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty viewRow }">
-								<tr>
-									<td colspan="5" class="text-center">
-										등록된 게시물이 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${viewRow }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./recipeManagementView.do?idx=${row.idx}
-												&nowPage=${nowPage}">${row.title}</a>
-										</td >
-										<td class="text-center">${row.name}</td>
-										<td class="text-left">${row.postdate}
-										</td>
-										<td class="text-center">${row.view_count }</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-     
-                       
-                       
-                      </tbody>
-                    </table>
+                    <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
+                    
+                    <form action="./eventManagementEditAction.do" name = "writeFrm" method = "post" 
+						onsubmit="return checkValidate(this);">
+                    <input type="hidden" name="idx" value = "${viewRow.idx }"  />
+					<input type="hidden" name="nowPage" value = "${param.nowPage }" />
+                      <div class="form-group">
+                        <label for="exampleInputName1">이름</label>
+                        <input type="text" class="form-control" id="name" value="관리자">
+                      </div>
+                      <!-- <div class="form-group">
+                        <label for="exampleInputPassword4">비밀번호</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                      </div> -->
+                      <div class="form-group">
+                        <label for="exampleInputPassword4">제목</label>
+                        <input type="text" class="form-control" name="title" id="title" value="${viewRow.title}">
+                      </div>
+                     <!--  <div class="form-group">
+                        <label>파일업로드</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div> -->
+                      <div class="form-group">
+                        <label for="exampleTextarea1">내용</label>
+                        <textarea class="form-control" name="content" id="content" rows="10">${viewRow.content}</textarea>
+                      </div>
+                     
+                   
                   </div>
                 </div>
-              <!-- 내용끝 -->
 			<br /><br />
-			<!-- 페이지번호 -->
-                <div class="container">
-				<table width="100%">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-				</table>
-                
-                </div>
-                <br /><br />
 			<div class="row text-right" style="float: right;">
-				<!-- <button type="button" class="btn btn-dark btn-sm" 
-				onclick="location.href='./boardManagementWrite.do';">글쓰기</button> -->
-				<button class = "btn btn-danger btn-sm">삭제</button>
-			</div>
-			
+				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+                 <button class="btn btn-light btn-rounded">Reset</button>
+                 <button class="btn btn-dark btn-rounded"
+                 	onclick="location.href='./boardManagement.do';">List</button>
+            </form>	
+			</div>	
             </div>
       </div>
-       <!-- 내용끝 -->
-			<br /><br />
-			  
-				
-			<br /><br />
+      
       <!--  공지사항 게시판 끝 -->
           </div>
           <!-- content-wrapper ends -->

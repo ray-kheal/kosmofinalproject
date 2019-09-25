@@ -20,7 +20,7 @@ public class PlaceDAO {
 	//생성자
 	public PlaceDAO() {
 		this.template = JdbcTemplateConst.template;
-		System.out.println("JDBCTemplateDAO()생성자 호출");
+		System.out.println("PlaceDAO()생성자 호출");
 	}
 	
 	//전체 수 카운트
@@ -36,6 +36,24 @@ public class PlaceDAO {
 		return template.queryForObject(query, Integer.class);
 		
 	}
+	
+	//전체 수 카운트
+		public int getPlaceCount(double distance,double latTxt,double lngTxt) {
+			System.out.println("getTotalCount() 메소드 실행.");
+			
+			String query = "SELECT " + 
+					"		count(*) " + 
+					"	FROM " + 
+					"		phj_place " + 
+					"	WHERE " + 
+					"		trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5)<= " + distance + 
+					//"		AND ROWNUM BETWEEN 1 and 20 " + 
+					"	ORDER BY " + 
+					"		trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5) ASC ";
+			
+			return template.queryForObject(query, Integer.class);
+			
+		}
 	
 	//레코드 페이지별로 가져오기
 	public ArrayList<PlaceDTO> list(Map<String, Object> map) {
@@ -58,18 +76,18 @@ public class PlaceDAO {
 	}
 	
 	//반경검색 쿼리
-	public ArrayList<PlaceDTO> searchRadius(double distance,double latTxt,double lngTxt){
-		String query = "SELECT " + 
-				"		place_name, place_name2, place_address, latitude, longitude, " + 
-				"		trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5) AS disKM, ROWNUM AS virtualNum " + 
-				"	FROM " + 
-				"		phj_place " + 
-				"	WHERE " + 
-				"		trunc(to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude))*10,5)<= " + distance + 
-				//"		AND ROWNUM BETWEEN 1 and 20 " + 
-				"	ORDER BY " + 
-				//"		to_number(DISTNACE_WGS84(37.4778304,126.8772826,latitude, longitude)) ASC ";
-				"disKM asc";
+	public ArrayList<PlaceDTO> searchRadius(double distance,double latTxt,double lngTxt, int start, int end){
+		String query = 
+				" SELECT * FROM ( " +
+					" SELECT tb.*, rownum rNum from (" + 
+						" SELECT " + 
+							" place_name, place_name2, place_address, latitude, longitude, " + 
+							" trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5) AS disKM, ROWNUM AS virtualNum " + 
+						" FROM phj_place " + 
+						" WHERE trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5)<= " + distance + 
+						" ORDER BY disKM asc " +
+					" ) tb " +
+				" ) where rNum BETWEEN "+start+" AND "+end;
 		System.out.println("query = " + query);
 		return (ArrayList<PlaceDTO>)template.query(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
 	}
