@@ -103,7 +103,7 @@ if (mst == 'normal') {
                           
                         </tr>
                       </thead> 
-                      <tbody>
+                      <tbody style="color: black;">
                        
                         <!-- 편의점 리스트 출력  -->
                         <c:choose>

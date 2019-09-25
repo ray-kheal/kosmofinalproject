@@ -105,7 +105,7 @@ if (mst == 'normal') {
 							<th>조회</th>
 						</tr>   
 					</thead>
-                      <tbody>
+                      <tbody style="color: black;">
                    		<!-- 게시판 리스트 출력  -->
                         <c:choose>
 							<c:when test="${empty viewRow }">
