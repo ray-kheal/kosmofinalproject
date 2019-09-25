@@ -238,11 +238,11 @@ body {
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-							<!-- <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;"/> -->
-						<!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  /> -->
-						<a href="javascript:document.searchFrm.onsubmit()">
+							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
+						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
+						<!-- <a href="javascript:document.searchFrm.onsubmit();">
 							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
-						</a>
+						</a> -->
 
 						</form>
 					
@@ -252,7 +252,35 @@ body {
 					<!-- <td></td> -->
 					<td style="text-align: center;">
 						<h5>근처 편의점 목록</h5> <br />
-					
+						<table class="table table-bordered">
+					<c:choose>
+							<c:when test="${empty searchLists }">
+								<tr>
+									<td colspan="3" class="text-center">
+										등록된 점포가 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${searchLists }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.place_name }</td>
+										<td class="text-center">${row.place_name2 }</td>
+										<td class="text-left">${row.place_address}</td>
+									</tr>
+									
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+						<tr>
+							<td colspan="3" align="center" style="font-weight: bold; font-size: 1.5em; ">
+								${pagingImg }
+							</td>
+						</tr>
+						</table>
 					</td>
 				</tr>			
 			</table>
