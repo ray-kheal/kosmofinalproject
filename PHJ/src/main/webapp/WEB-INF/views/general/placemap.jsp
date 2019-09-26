@@ -240,19 +240,19 @@ body {
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-<<<<<<< HEAD
+
 							 <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
 						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
 						
 						
-=======
+
 							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
 						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
 						<!-- <a href="javascript:document.searchFrm.onsubmit();">
 							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
 						</a> -->
 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 						</form>
 					
 					</td>
@@ -260,7 +260,7 @@ body {
 				<tr>
 					<!-- <td></td> -->
 					<td style="text-align: center;">
-<<<<<<< HEAD
+
 						<h5>근처 편의점 목록</h5> 
 						
 						<table class="table table-bordered">
