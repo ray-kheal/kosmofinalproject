@@ -23,6 +23,7 @@ import command.admin.AdPlaceListCommand;
 import command.admin.AdProductDeleteActionCommand;
 import command.admin.AdProductListCommand;
 import command.admin.AdRecipeListCommand;
+import command.admin.Index_memberListCommand;
 import command.board.recipeListCommand;
 import command.admin.AdMemberListCommand;
 import command.member.LoginActionCommand;
@@ -36,7 +37,10 @@ public class AdminController {
 	PHJCommandImpl command = null;
 	
 	@RequestMapping("/admin/index.do")
-	public String index() {
+	public String index(Model model,HttpServletRequest req) {
+		model.addAttribute("req",req);
+		command = new Index_memberListCommand();
+		command.execute(model);
 		return "admin/index";
 	}
 	@RequestMapping("/admin/pages/charts/chartjs.do")
