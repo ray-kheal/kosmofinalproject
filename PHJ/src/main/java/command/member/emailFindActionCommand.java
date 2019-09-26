@@ -10,7 +10,7 @@ import command.PHJCommandImpl;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
 
-public class SearchIDPWCommand implements PHJCommandImpl {
+public class emailFindActionCommand implements PHJCommandImpl {
 	
 	@Override
 	public void execute(Model model) {
@@ -21,15 +21,13 @@ public class SearchIDPWCommand implements PHJCommandImpl {
 		String name = req.getParameter("name");
 		String mobile = req.getParameter("mobile1")+"-"+req.getParameter("mobile2")+"-"+req.getParameter("mobile3");
 		
-		
-		//dto객체에 폼값저장하기
-		MemberDTO dto = new MemberDTO();
-		dto.setName(name);
-		dto.setMobile(mobile);
-		
+		System.out.println("가져온 mobile값 : " + mobile);
 		
 		MemberDAO dao = new MemberDAO();
-		dao.searchID(dto);
+		String email = dao.emailFind(name, mobile);
+		System.out.println("쿼리실행후 email : " + email);
+		
+		model.addAttribute("resultEmail",email);
 	}
 
 }

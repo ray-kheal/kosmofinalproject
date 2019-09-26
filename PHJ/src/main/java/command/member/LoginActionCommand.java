@@ -23,10 +23,7 @@ public class LoginActionCommand implements PHJCommandImpl {
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
 		HttpServletResponse resp = (HttpServletResponse)paramMap.get("resp");
 		
-		String email = (String)paramMap.get("email");
 		MemberDTO dto = (MemberDTO)paramMap.get("dto");
-		
-		String saveCheck = (String)paramMap.get("saveCheck");
 		
 		HttpSession session = req.getSession();
 		
@@ -43,22 +40,7 @@ public class LoginActionCommand implements PHJCommandImpl {
 			session.setAttribute("PASS", dto.getPass());
 			session.setAttribute("NAME", dto.getName());
 			session.setAttribute("ALERT", dto.getMobile_alert());
-			session.setAttribute("MEMBERTYPE", dto.getMembertype());
-			
-			if(saveCheck==null) {
-				Cookie ck = new Cookie("SAVE_CHECK","");
-				
-				ck.setPath(req.getContextPath());
-				ck.setMaxAge(0);
-				resp.addCookie(ck);
-			} else {
-				Cookie ck = new Cookie("SAVE_CHECK", email);
-				System.out.println("Cookie Value="+req.getContentType());
-				ck.setPath(req.getContextPath());
-				ck.setMaxAge(60*60*24*100);
-				resp.addCookie(ck);
-			}
-				
+			session.setAttribute("MEMBERTYPE", dto.getMembertype());		
 		}
 		
 	}
