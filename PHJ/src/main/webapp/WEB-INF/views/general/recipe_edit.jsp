@@ -44,13 +44,12 @@ function checkValidate(f){
 	}
 </script>
 <script>
-$(function(){
+$(document).ready(function() {
 	$('#summernote').summernote({
-
 		height:500		
 	});
 
-})
+});
 
 function sendFile(file, el) {
       var form_data = new FormData();
