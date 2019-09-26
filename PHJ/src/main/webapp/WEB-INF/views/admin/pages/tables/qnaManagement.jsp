@@ -173,7 +173,7 @@ function DeleteAll(){
                 						</td>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
-											<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}">
+											<a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
 													${row.title}
 											</a>
 										</td >
