@@ -88,7 +88,7 @@ function DeleteAll(){
 	           <div style="text-align: right;">
 	         
 	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 
-	             		onclick="location.href='../../../notice.do';">
+	             		onclick="location.href='../../../qna.do';">
 	                 <i class="mdi mdi-logout-variant"></i>
 	             </button>
 	              <br />
@@ -129,7 +129,7 @@ function DeleteAll(){
 		<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 리스트</h4>
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;QnA 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
                      <colgroup>
 						<col width="5%" />
@@ -173,11 +173,12 @@ function DeleteAll(){
                 						</td>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
-											<a href="./boardManagementView.do?idx=${row.idx}
-												&nowPage=${nowPage}&board_type=${row.board_type}">${row.title}</a>
+											<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}">
+													${row.title}
+											</a>
 										</td >
-										<td class="text-center">관리자</td>
-										<td class="text-left">${row.postdate}
+										<td class="text-center">${row.name}</td>
+										<td class="text-center">${row.postdate}
 										</td>
 										<td class="text-center">${row.view_count }</td>
 									</tr>

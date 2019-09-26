@@ -22,6 +22,7 @@ import command.admin.AdEventListWriteActionCommand;
 import command.admin.AdPlaceListCommand;
 import command.admin.AdProductDeleteActionCommand;
 import command.admin.AdProductListCommand;
+import command.admin.AdQnaListCommand;
 import command.admin.AdRecipeListCommand;
 import command.admin.Index_memberListCommand;
 import command.board.recipeListCommand;
@@ -407,4 +408,13 @@ public class AdminController {
 		return "admin/pages/tables/recipeManagement";
 	}
 	
+	//////////////////////////////////////////////////////////////////////////////////////// QnA 관리
+	//레시피 게시판 관리 페이지
+	@RequestMapping("/admin/pages/tables/qnaManagement.do")
+	public String qnaManagement(Model model, HttpServletRequest req) throws IOException {
+		model.addAttribute("req", req);
+		command = new AdQnaListCommand();
+		command.execute(model);
+		return "admin/pages/tables/qnaManagement";
+	}
 }
