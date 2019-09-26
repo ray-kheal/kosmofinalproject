@@ -25,6 +25,7 @@ import command.admin.AdProductListCommand;
 import command.admin.AdQnaListCommand;
 import command.admin.AdQnaListViewCommand;
 import command.admin.AdRecipeListCommand;
+import command.admin.AdRecipeListViewCommand;
 import command.admin.Index_memberListCommand;
 import command.board.recipeListCommand;
 import command.admin.AdMemberListCommand;
@@ -408,7 +409,16 @@ public class AdminController {
 		command.execute(model);
 		return "admin/pages/tables/recipeManagement";
 	}
-	
+	//레시피 게시판 상세보기 페이지
+		@RequestMapping("/admin/pages/tables/recipeManagementView.do")
+		public String recipeManagementView(Model model, HttpServletRequest req) throws IOException {
+			model.addAttribute("req",req);
+			command = new AdRecipeListViewCommand();
+			command.execute(model);
+			
+			System.out.println("qnaManagementView 익스큐트 실행");
+			return "admin/pages/tables/recipeManagementView";
+		}
 	//////////////////////////////////////////////////////////////////////////////////////// QnA 관리
 	//QnA 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/qnaManagement.do")
