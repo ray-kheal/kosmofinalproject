@@ -125,7 +125,7 @@ function DeleteAll(){
 			<!-- 검색기능 끝 -->
 
 			<br />
-
+ 
 		<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
