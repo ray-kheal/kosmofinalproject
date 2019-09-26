@@ -129,7 +129,7 @@ function DeleteAll(){
 		<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;QnA 리스트</h4>
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-comment-question-outline"></i>&nbsp;QnA 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
                      <colgroup>
 						<col width="5%" />
@@ -173,7 +173,7 @@ function DeleteAll(){
                 						</td>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
-											<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}">
+											<a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
 													${row.title}
 											</a>
 										</td >

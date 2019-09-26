@@ -93,6 +93,34 @@ public class recipeDAO {
 		return (ArrayList<recipeDTO>)template.query(query, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
 	}
 	
-			
+	//상세보기
+	public recipeDTO view(String idx) {
+		// 조회수 증가
+		updateHit(idx);
 
+		recipeDTO dto = null;
+
+		String sql = "select * from PHJ_BOARD_RECIPE where idx= " + idx;
+		try {
+
+			dto = template.queryForObject(sql, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
+		} catch (Exception e) {
+			System.out.println("view()실행시 예외발생");
+			dto = new recipeDTO();
+		}
+
+		return dto;
+	}	
+	public void updateHit(final String idx) {
+		String sql = "update PHJ_BOARD_RECIPE set VIEW_COUNT = VIEW_COUNT+1 where idx=?";
+		
+		template.update(sql, new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setInt(1, Integer.parseInt(idx));
+			}
+		});
+
+	}
 }

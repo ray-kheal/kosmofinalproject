@@ -56,12 +56,9 @@ function isDelete(){
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-              <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
-              	if(board_type.equals("1")) { %>
-             		<h3 class="page-title" style="font-weight: bold;">공지사항 게시판</h3> 
-			 <%}else if (board_type.equals("2")){ %>
-             		<h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
-			 <%} %>
+           
+             	<h3 class="page-title" style="font-weight: bold;">레시피 게시판</h3> 
+			 
              <br /><br />
       
 
@@ -69,13 +66,12 @@ function isDelete(){
 			<div class="card">
                   <div class="card-body">
                     <h4 class="card-title">&nbsp;
-                    <% if(board_type.equals("1")) { %>
-                    	<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 
-                    <%}else if (board_type.equals("2")){ %>
-                    	<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 
-                    <%} %>
+                   
+                    	<i class="mdi mdi-food"></i>&nbsp;레시피 보기
+                 
+                    
                     </h4>
-                  <table class="table table-bordered" style="margin-bottom: -1px; color:black;">
+                 <%--  <table class="table table-bordered" style="margin-bottom: -1px; color:black;">
 					<colgroup>
 						<col width="80px" />
 						<col width="*" />
@@ -92,7 +88,7 @@ function isDelete(){
 					</tr>
 					<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-						<td>관리자</td>
+						<td>${viewRow.name}</td>
 					</tr>
 					<!-- 	<th>작성자</th>
 							<th>날짜</th>
@@ -118,23 +114,60 @@ function isDelete(){
 						<td colspan="4" style="valign:top; height:200px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:1px solid #EDEAEA;">${viewRow.content}
 						</td>
 					</tr>
+				</table> --%>
+				<input type="hidden" name="idx" value="${viewRow.idx }" />
+				<input type="hidden" name="nowPage" value="${nowPage }" />
+				<table class="table" style="color:black; font-size: 0.7em;  ">
+					<colgroup>  
+						<col width="50%" />
+						<col width="5%" />
+						<col width="45%" />
+					</colgroup> 
+					<tr >     
+						<td rowspan="5" style="border-top: 2px solid white;">
+						     
+						<img src="https://i1.wp.com/pizzaschool.net/wp-content/uploads/2015/11/%EC%BD%A4%EB%B9%84%EB%84%A4%EC%9D%B4%EC%85%98%ED%94%BC%EC%9E%90.jpg?resize=800%2C800" 
+						style="width: 90%; border-radius: 0; height: auto;" />
+						</td>
+						 
+						<td style="border-top: 2px solid white; font-weight: bold; text-align: center;">레시피명</td>
+						<td style="border-top: 2px solid white;">
+						${viewRow.title}
+						</td>
+					</tr> 
+					<tr>
+						<!-- <td></td> -->
+						<td style="font-weight: bold; text-align: center;">작성자</td>
+						<td> ${viewRow.name}</td>
+					</tr>
+					<tr>
+						<!-- <td></td> -->
+						<td style="font-weight: bold; text-align: center;">작성일</td>
+						<td>${viewRow.postdate}</td>
+					</tr>
+					<tr>
+						<!-- <td></td> -->
+						<td style="font-weight: bold; text-align: center;">조회수</td>
+						<td>${viewRow.view_count }</td>
+					</tr>
+					<tr>
+						<!-- <td></td> -->
+						<td colspan="2">${viewRow.content}</td>
+						<!-- <td></td>  -->
+					</tr>
+					
 				</table>
-
 				
                   </div>
                 </div>
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-			 <% if(board_type.equals("1")) { %>
-				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
-			 <%}else if (board_type.equals("2")){ %>
-				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./eventManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
-			 <%} %>
+			
 			 
 				<button class = "btn btn-danger btn-sm" onclick="isDelete();">삭제</button>
 				<button type="button" class="btn btn-dark btn-sm" 
-							onclick="location.href='./boardManagement.do';">리스트</button>
+							onclick="location.href='./recipeManagement.do';">리스트</button>
 				<%-- <% if(board_type.equals("1")) { %>
                     	<button type="button" class="btn btn-dark btn-sm" 
 							onclick="location.href='./boardManagement.do';">리스트</button>

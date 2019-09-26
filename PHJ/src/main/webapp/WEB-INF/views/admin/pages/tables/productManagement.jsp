@@ -170,7 +170,7 @@ if (mst == 'normal') {
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
 				onclick="location.href='./productManagementWrite.do';">상품등록</button>
-				<button class = "btn btn-danger btn-sm" onclick="DeleteAll();">삭제</button>
+				<!-- <button class = "btn btn-danger btn-sm" onclick="DeleteAll();">삭제</button> -->
 			</div>
 
 

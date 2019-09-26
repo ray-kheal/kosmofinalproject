@@ -162,10 +162,10 @@ if (mst == 'normal') {
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
 				onclick="location.href='./placeManagementWrite.do';">점포등록</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
+				<!-- <button class = "btn btn-danger btn-sm">삭제</button> -->
 			</div>
-
-
+ 
+ 
 			<br /> <br />
 			<!-- <ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"
