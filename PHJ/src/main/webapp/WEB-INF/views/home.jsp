@@ -262,20 +262,26 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <%
             } else {
          %>
-         <a href="memberEdit.do"> <img src="images/modify_scoll.png"
+      <a href="memberEdit.do"> <img src="images/modify_scoll.png"
             alt="정보수정" />
          </a> <a href="logout.do"> <img src="images/logout_scoll.png"
             alt="로그아웃" />
-         </a>
+         </a>  
          <%
             }
          %>
-         <a href="#"> <img src="images/top.png"
+   <!--      <a href="#"> <img src="images/top.png"
             alt="업" />
          </a>
+<<<<<<< HEAD
+<!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
+<!--             alt="다운" /> -->
+<!--          </a> -->
+=======
           <a href="" > <img id="go-bottom" src="images/down.png"
             alt="다운" />
-         </a>
+         </a> --> 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       </div>
 
       <!-- 메인 헤더 인클루드 -->
@@ -562,19 +568,19 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <!--             </div> -->
          </div>
       </div>
-      <div class="container">
-         <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
-         <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
-         <br /><br />
-         <a href=recipe_edit.do> 레시피 게시판 준비중</a>
+<!--       <div class="container"> -->
+<!--          <h2>개발중이니 관리자 페이지 링크 활성화.</h2> -->
+<!--          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a> -->
+<!--          <br /><br /> -->
+<!--          <a href=recipe_edit.do> 레시피 게시판 준비중</a> -->
       
-         <h4>
-            로그인 한 이메일 :
-            <%=session.getAttribute("EMAIL")%></h4>
-         <h4>
-            로그인 한 회원 이름 :
-            <%=session.getAttribute("NAME")%></h4>
-      </div>
+<!--          <h4> -->
+<!--             로그인 한 이메일 : -->
+<%--             <%=session.getAttribute("EMAIL")%></h4> --%>
+<!--          <h4> -->
+<!--             로그인 한 회원 이름 : -->
+<%--             <%=session.getAttribute("NAME")%></h4> --%>
+<!--       </div> -->
       <!-- Footer 인클루드. -->
       <%@ include file="general/MainFooter.jsp"%>
 

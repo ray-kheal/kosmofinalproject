@@ -74,9 +74,9 @@ nav {
 			<form class="form-inline" method= "post">
 				<div class="form-group">
 					<select name="searchColumn" class="form-control" style="width: 100px;">
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="postdate">게시일</option>
 					</select>
 				</div>
 				<div class="input-group">
@@ -86,7 +86,8 @@ nav {
 
 					<div class="input-group-btn">
 						<button type="submit" class="btn btn-outline-secondary ">
-							검색 <i class="glyphicon glyphicon-search"></i>
+							검색 
+							<i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
@@ -134,7 +135,7 @@ nav {
 											href="./view.do?idx=${row.idx}
 								&nowPage=${nowPage}">${row.title}</a>
 										</td>
-										<td class="text-center">${row.content }</td>
+										<td class="text-center">관리자</td>
 										<td class="text-center">${row.view_count }</td>
 										<td class="text-center">${row.postdate }</td>
 										<!-- <td class="text-center">--</td> -->
