@@ -126,8 +126,9 @@ if (mst == 'normal') {
 									<tr>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-center">
-											<a href="./view.do?type=${row.membertype}
-												&nowPage=${nowPage}">${row.name}</a>
+										<%-- 	<a href="./view.do?type=${row.membertype}
+												&nowPage=${nowPage}">${row.name}</a> --%>
+												${row.name}
 										</td >
 										<td class="text-center">${row.email }</td>
 										<td class="text-center">${row.mobile }</td>

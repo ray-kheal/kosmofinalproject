@@ -56,12 +56,9 @@ function isDelete(){
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-              <% String board_type=request.getParameter("board_type");//게시판 타입 받아오기 
-              	if(board_type.equals("1")) { %>
-             		<h3 class="page-title" style="font-weight: bold;">공지사항 게시판</h3> 
-			 <%}else if (board_type.equals("2")){ %>
-             		<h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
-			 <%} %>
+           
+             	<h3 class="page-title" style="font-weight: bold;">QnA 게시판</h3> 
+			 
              <br /><br />
       
 
@@ -69,11 +66,10 @@ function isDelete(){
 			<div class="card">
                   <div class="card-body">
                     <h4 class="card-title">&nbsp;
-                    <% if(board_type.equals("1")) { %>
-                    	<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 
-                    <%}else if (board_type.equals("2")){ %>
-                    	<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 
-                    <%} %>
+                   
+                    	<i class="mdi mdi-comment-question-outline"></i>&nbsp;QnA
+                 
+                    
                     </h4>
                   <table class="table table-bordered" style="margin-bottom: -1px; color:black;">
 					<colgroup>
@@ -92,7 +88,7 @@ function isDelete(){
 					</tr>
 					<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-						<td>관리자</td>
+						<td>${viewRow.name}</td>
 					</tr>
 					<!-- 	<th>작성자</th>
 							<th>날짜</th>
@@ -126,11 +122,7 @@ function isDelete(){
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
-			 <% if(board_type.equals("1")) { %>
-				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./boardManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
-			 <%}else if (board_type.equals("2")){ %>
-				<button type="button" class="btn btn-secondary btn-sm" onclick="location.href='./eventManagementEdit.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=${viewRow.board_type}'">수정하기</button> 
-			 <%} %>
+			
 			 
 				<button class = "btn btn-danger btn-sm" onclick="isDelete();">삭제</button>
 				<button type="button" class="btn btn-dark btn-sm" 
