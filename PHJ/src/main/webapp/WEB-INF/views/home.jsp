@@ -47,7 +47,7 @@ nav {
          }, 0);
          //해당 오브젝트 위치값 재설정
       });
-   }
+   } 
    scroll_follow("#scroll");
 </script>
 <style type="text/css">
