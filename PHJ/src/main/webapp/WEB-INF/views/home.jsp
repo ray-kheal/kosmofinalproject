@@ -277,11 +277,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
 <!--             alt="다운" /> -->
 <!--          </a> -->
-=======
-          <a href="" > <img id="go-bottom" src="images/down.png"
-            alt="다운" />
-         </a> --> 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
       </div>
 
       <!-- 메인 헤더 인클루드 -->

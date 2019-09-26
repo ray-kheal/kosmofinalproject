@@ -20,8 +20,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import command.PHJCommandImpl;
 import command.board.EditActionCommand;
+import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeEditActionCommand;
+import command.board.StockListCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import model.board.recipeDTO;
@@ -60,7 +62,21 @@ public class boardController {
 		command.execute(model);
 		return "general/qna_view";
 	}
-
+	
+	
+	//재고 상세 보기 
+	@RequestMapping("product_view.do")
+	public String productView(Model model, HttpServletRequest req){
+		model.addAttribute("req",req);
+		int product_code = Integer.parseInt(req.getParameter("product_code"));
+		System.out.println("컨트롤러 내부의 product_code : " + product_code);
+		model.addAttribute("product_code",product_code);
+		command = new StockListCommand();
+		command.execute(model);
+		System.out.println("product 익스큐트 실행완료");
+		return "general/product_view";
+	}
+	
 	// QnA게시판 글쓰기
 	@RequestMapping("write.do")
 	public String write(Model model) {

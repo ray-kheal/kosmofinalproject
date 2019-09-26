@@ -235,19 +235,12 @@ body {
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-<<<<<<< HEAD
+
 							 <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
 						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
 						
 						
-=======
-							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
-						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
-						<!-- <a href="javascript:document.searchFrm.onsubmit();">
-							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
-						</a> -->
 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						</form>
 					
 					</td>
@@ -255,38 +248,7 @@ body {
 				<tr>
 					<!-- <td></td> -->
 					<td style="text-align: center;">
-<<<<<<< HEAD
-						<h5>근처 편의점 목록</h5> 
-						
-						<table class="table table-bordered">
-					<c:choose>
-							<c:when test="${empty searchLists }">
-								<tr>
-									<td colspan="5" class="text-center">
-										등록된 점포가 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${searchLists }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr >
-										 <td class="text-center">${row.place_name }</td>
-										<td class="text-center">${row.place_name2 }</td>
-										<td class="text-left">${row.place_address}
-										</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-						</table>
-						
-						
-						<br />
-					
-=======
+
 						<h5>근처 편의점 목록</h5> <br />
 						<table class="table table-bordered">
 					<c:choose>
@@ -316,7 +278,7 @@ body {
 							</td>
 						</tr>
 						</table>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 					</td>
 				</tr>			
 			</table>
