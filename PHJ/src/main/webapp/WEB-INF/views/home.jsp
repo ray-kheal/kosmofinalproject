@@ -41,13 +41,13 @@ nav {
       $(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
       {
          var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-         var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
+         var stop = 230; //상단 무조건 230px로 고정하기 위해 쓴 변수.
          $(id).stop().animate({
             top : stop + 'px'
          }, 0);
          //해당 오브젝트 위치값 재설정
       });
-   }
+   } 
    scroll_follow("#scroll");
 </script>
 <style type="text/css">
@@ -230,13 +230,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!-- 마우스 오버 end  -->
 
 <body class="is-preload homepage">
-   <div id="page-wrapper">
+   <div id="page-wrapper" >
  
       <!-- 메인페이지 우측 스크롤메뉴 -->
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
       <div id="scroll"  
-         style=" position: fixed; right: 50%; top: 100px; margin-right: -800px; text-align: center; width: 180px;">
-
+         style=" position: fixed; right: 50%; top: 230px; margin-right: -800px; text-align: center; width: 180px;">
+ 
 
          <!-- 이미지로 스크롤 메뉴 변경함 -->
          <a href="#"> <img src="images/welcome_scoll.png" alt="welcome" 
@@ -320,7 +320,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
  	               <div class="col-6 col-12-medium">
 	                  <!-- Box -->
 	            
-	                  <section class="box feature">
+	                  <section class="box feature" style="border : 1px solid #f7f4f4;">
 	                     <a href="placemap.do" class="image featured"><img
 	                        src="images/store_shadow.png" alt="" /></a>
 	                     <div class="inner"
@@ -337,7 +337,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                <div class="col-6 col-12-medium">
                   <!-- Box -->
 
-                  <section class="box feature">
+                  <section class="box feature" style="border : 1px solid #f7f4f4;">
                      <a href="findproduct.do" class="image featured"><img
                         src="images/product_shadow.png" alt="" /></a>
                      <div class="inner" style="text-align: center;">
