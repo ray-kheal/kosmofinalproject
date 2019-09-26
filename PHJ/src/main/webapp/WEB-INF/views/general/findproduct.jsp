@@ -115,18 +115,14 @@ to {
 					<option value="">하우머치?</option>
 					<option value="">가격이 낮아요</option>
 					<option value="">오 가격이 높네</option>
-				</select> &nbsp;&nbsp;&nbsp;
+				</select> 
+				<input type="text" id="product" />
+				
 				<button type="submit" class="btn btn-outline-secondary ">
 					검색 <i class="glyphicon glyphicon-search"></i>
 				</button>
-
-			
-				
 			</div>     
- 			&nbsp;&nbsp;
- 			<br/>
- 			<br/>
- 			
+ 	
  			
 		 
 
@@ -149,13 +145,17 @@ to {
 					<col width="*" />
 					<col width="25%" />
 					<col width="10%" />
+					<col width="10%" />
+					
 				</colgroup>
 				<thead>
 					<tr class="table-primary" style="color: white;">
 						<th>번호</th>
 						<th>상품명</th>
 						<th>점포명</th>
+						<th>가격</th>
 						<th>재고</th> 
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -178,6 +178,8 @@ to {
 												&nowPage=${nowPage}">${row.product_name}</a>
 										</td >
 										<td class="text-left">${row.place_name } 
+										</td>
+										<td class="text-left">${row.product_price } 
 										</td>
 										<td class="text-left">${row.stock}
 										</td>
