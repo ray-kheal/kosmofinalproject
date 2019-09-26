@@ -48,17 +48,15 @@ var checkDelete = function(){
 //삭제여부 확인
 function DeleteAll(){
 	result = confirm('삭제하시겠습니까?');
-	var idx = "";
-	  $('input[name=checkDel]:checked').each(function(){
-		  idx = $(this).val();
-	  });
+  	if(result){
+		var idx = "";
+		  $('input[name=checkDel]:checked').each(function(){
+			  idx = $(this).val();
+			  //alert("idx:"+idx);
+	 		location.href = "boardDelete.do?idx="+idx+"&nowPage=${nowPage}&board_type=1";
+		  });
 	  
-  if(result){
 	  
-	 location.href = "boardDelete.do?idx="+idx+"&nowPage=${nowPage}&board_type=1";
-		
-	  
-      //location.href = "boardDelete.do";
   }else{
   	return false;
   }
@@ -134,10 +132,10 @@ function DeleteAll(){
 					</colgroup>
 					<thead>
 						<tr class="table-info" style="color: white;">
-							 <th>전체 <br />
+							 <th>
 	                          	<input type="checkbox" name="check_all" id="check_all" onclick="checkDelete();">
 	                			<label for="checkbox"></label>
-	                						
+	                	
 	                		</th> 
 							<th>no</th>
 							<th>제목</th>
@@ -146,7 +144,7 @@ function DeleteAll(){
 							<th>조회</th>
 						</tr>   
 					</thead>
-                      <tbody>
+                      <tbody style="color: black;">
                        	<!-- 게시판 리스트 출력  -->
                         <c:choose>
 							<c:when test="${empty viewRow }">

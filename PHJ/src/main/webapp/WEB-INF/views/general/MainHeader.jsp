@@ -17,7 +17,7 @@
 }
 nav {
    font-family: 'Goyang', cursive;
-}
+} 
 #dep {
 	z-index : 0;
 }
@@ -26,7 +26,8 @@ nav {
 </style>
  
 <!-- Header -->
-<div id="header-wrapper"  >
+<div id="header-wrapper" 
+	style="position:fixed; top:0; width: 100%; z-index:10; background-color: white; ">
 	<div id="outer_btn_right" class="container" style=" text-align: right;margin-top: -50px; font-family: 'Goyang'; ">
 		
 		 <%
@@ -88,6 +89,8 @@ nav {
 	
 	</div>
 	
+</div>
+<div style="margin-bottom: 170px;">
 </div>
 
 

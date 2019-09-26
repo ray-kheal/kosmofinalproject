@@ -107,10 +107,10 @@ public class MemberDAO {
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 		
-		String query = " SELECT COUNT(*) FROM PHJ_MEMBER ";
+		String query = " SELECT COUNT(*) FROM PHJ_MEMBER where 1=1";
 
 		if (map.get("searchWord") != null) {
-			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
+			query += "and " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
 		
 		return template.queryForObject(query, Integer.class);
@@ -128,7 +128,7 @@ public class MemberDAO {
 				+ "      SELECT * FROM PHJ_MEMBER ";
 
 		if (map.get("searchWord") != null) {
-			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+			query += " where " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
 		}
 		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end +"ORDER BY regidate desc ";
 

@@ -17,6 +17,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+
 <style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -67,7 +68,18 @@ to {
    <br /><br />
       <img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
    </div> -->
-
+   
+     <!-- 텍스트 색상 강조  -->
+   <script>
+		$(function() {
+			$('#foo').rainbow({animate:true,animateInterval:100,colors:['#FF0000','#f26522','#fff200','#00a651','#28abe2','#2e3192','#6868ff']});
+			$('#bar').rainbow({animate:true,animateInterval:50,pauseLength:500,pad:true,colors:['rgb(153, 204, 255);','rgb(173, 224, 255);','rgb(193, 244, 255);','rgb(213, 264, 255);','rgb(193, 244, 255);','rgb(173, 224, 255);','rgb(153, 204, 255);']});
+			$('#baz').rainbow({animate:true,animateInterval:10,colors:['#FF0000','#f26522','#fff200','#00a651','#28abe2','#2e3192','#6868ff']});
+		});
+	
+	</script>
+ 
+	
    
    <!-- 헤더파일 인클루드 -->
 	<%@ include file="MainHeader.jsp" %>
@@ -180,13 +192,22 @@ to {
             	
 <!--             	</svg> -->
             <div class="card-body">
-              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <p class="card-text" style="text-align: center">오 놀라운 가격  
+              	<img class="image blinking" src="images/wow.png" width="40px" height="40px"></p>
+              <div class="wowicon">
+
+              </div>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                <div class="btn">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">상품보기</button>
+<!--                  <img src="images/wow.png" width="33px" height="33px"> -->
+                 
+<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">히트!</button> -->
                 </div>
                 
+                <div class="coin">
+                </div>
+                <small class="text-muted"><img  src="images/coin2.png" width="20px" height="20px">1억4천만원</small>
               </div>
             </div>
           </div>
