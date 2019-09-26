@@ -40,13 +40,25 @@
 	}
 </style>
 
-<c:if test="${not empty resultEmail }">
-	<script>alert('${name}님의 이메일은 ${resultEmail} 입니다.')</script>
-</c:if>
+<c:choose>
+	<c:when test="${not empty resultEmail }">
+	<script>alert('"${name}"님의 이메일은 "${resultEmail}" 입니다.')</script>
+	</c:when> 
+	<c:when test="${empty resultEmail }">
+	<script>alert('회원정보가 올바르지 않습니다.')</script>
+	</c:when>
+	<c:otherwise>
+	<script>alert('회원정보가 올바르지 않습니다.')</script>
+	</c:otherwise> 
+</c:choose> 
+
+
 
 <script type="text/javascript">
+function result(){
+	
 
-
+}
 
 function find_check(num){
 	if(num=='1'){
@@ -135,7 +147,7 @@ function find_PWcheck(){
 									</tbody>
 								</table>
 								<div class="btnWrap">
-									<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
+									<button type="submit" class="btn btn-success" onclick="result();" style="width:70px;">확인</button>
 									<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
 								</div>
 							</form>
