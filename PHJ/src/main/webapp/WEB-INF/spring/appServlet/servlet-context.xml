@@ -17,8 +17,8 @@
    <resources mapping="/admin/**" location="/resources/admin/" />
    <resources mapping="/assets/**" location="/resources/assets/" />
    <resources mapping="/images/**" location="/resources/images/" />
-   <resources mapping="/summernote/**" location="/resources/summernote/" />
-
+   <resources mapping="/summernote/**" location="/WEB-INF/views/summernote/" />
+	
    <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <beans:property name="prefix" value="/WEB-INF/views/" />

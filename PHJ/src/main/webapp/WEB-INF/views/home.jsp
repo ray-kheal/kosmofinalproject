@@ -262,20 +262,26 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <%
             } else {
          %>
-         <a href="memberEdit.do"> <img src="images/modify_scoll.png"
+      <a href="memberEdit.do"> <img src="images/modify_scoll.png"
             alt="정보수정" />
          </a> <a href="logout.do"> <img src="images/logout_scoll.png"
             alt="로그아웃" />
-         </a>
+         </a>  
          <%
             }
          %>
-         <a href="#"> <img src="images/top.png"
+   <!--      <a href="#"> <img src="images/top.png"
             alt="업" />
          </a>
+<<<<<<< HEAD
 <!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
 <!--             alt="다운" /> -->
 <!--          </a> -->
+=======
+          <a href="" > <img id="go-bottom" src="images/down.png"
+            alt="다운" />
+         </a> --> 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       </div>
 
       <!-- 메인 헤더 인클루드 -->
