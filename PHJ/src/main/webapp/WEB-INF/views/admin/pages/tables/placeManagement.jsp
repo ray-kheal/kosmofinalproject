@@ -165,7 +165,7 @@ if (mst == 'normal') {
 				<!-- <button class = "btn btn-danger btn-sm">삭제</button> -->
 			</div>
  
-
+ 
 			<br /> <br />
 			<!-- <ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"
