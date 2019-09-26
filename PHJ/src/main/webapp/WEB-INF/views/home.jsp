@@ -241,11 +241,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <!-- 이미지로 스크롤 메뉴 변경함 -->
          <a href="#"> <img src="images/welcome_scoll.png" alt="welcome" 
             style="right: 30; top: 30;" />
-         </a> <br /> <a href="#features-wrapper"> <img
+         </a> <br /> 
+         <a href="#search"> <img
             src="images/product_scoll.png" alt="편의점 상품조회" />
-         </a><br /> <a href="#main-wrapper"> <img
+         </a><br /> 
+         <a href="#reci"> <img
             src="images/recipe_scoll.png" alt="편의점 레시피" />
-         </a><br /> <a href="#notify"> <img src="images/notice_scoll.png"
+         </a><br /> 
+         <a href="#notify"> <img src="images/notice_scoll.png"
             alt="공지사항" />
          </a><br />
          <!--          <a href="#info"> -->
@@ -313,9 +316,26 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       
       <div id="features-wrapper  ">
          <div class="container">
-            <div class="row">
-               <div class="col-6 col-12-medium">
+            <div class="row" id="search">
+ 	               <div class="col-6 col-12-medium">
+	                  <!-- Box -->
+	            
+	                  <section class="box feature">
+	                     <a href="placemap.do" class="image featured"><img
+	                        src="images/store_shadow.png" alt="" /></a>
+	                     <div class="inner"
+	                        style="text-align: center; font-family: Goyang;">
+	                        <header>
+	                           <h2 style="font-family: Goyang;">매장 삭제하기</h2>
+	                        </header>
+	                        <p style="font-family: Goyang; font-size: 25px;">
+	                        	내 주변 편의점 찾기</p>
+	                     </div>
+	                  </section>
+	               </div>
+	           <div class="col-6 col-12-medium">
                   <!-- Box -->
+
                   <section class="box feature">
                      <a href="placemap.do" class="image featured">
                      <a href= "placemap.do" class="image featured"><img
@@ -332,6 +352,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                </div>
                <div class="col-6 col-12-medium">
                   <!-- Box -->
+
                   <section class="box feature">
                      <a href="findproduct.do" class="image featured"><img
                         src="images/product_shadow.png" alt="" /></a>
@@ -344,33 +365,25 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      </div>
                   </section>
                </div>
-            </div>
+            
          </div>
       </div>
+    </div>
 
       <!-- Main -->
       
-      <div id="main-wrapper "> 
+      <div id="main-wrapper" > 
          <div class="container">
-            <!-- <div class="row gtr-200" style="border :1px solid blue;"> -->
-            <div class="row" >
-
+           <div class="row" id="reci"> 
                <!-- preview board  시작  -->
-            <div id="recipe ">
                   <section class="widget thumbnails">
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2>
-                     <!-- <a href="recipe.do" class="btn" style="margin-top: -50px; margin-left:  0px;">더보기-></a> -->
-                         <!-- <a href="recipe.do" class="button icon solid fa-arrow-circle-right" style="margin-top: -50px;">더보기</a> -->
-               				<div style="text-align: right;">
+                  		<div style="text-align: right;">
                   				<a href="recipe.do"  style="margin-top: -50px;">
                   					<img src="images/moreView.png" alt="" style="width: 120px"/>
                   				</a>
                				</div>
-               
-
-              
-                     <div class="row " style=" margin-left: -60px;">
-
+                           <div class="row " style=" margin-left: -60px;">
                         <c:choose>
                            <c:when test="${empty recipeRows }">
                               <div>
@@ -425,11 +438,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
 
                </div>
+
             </div>
             <div class="row" >
                <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> -->
                <div class="" style=" width: 100%;"> 
                   <!-- Content -->
+                  
                   <div id="notify">
                      <section class="last">
                         <table>

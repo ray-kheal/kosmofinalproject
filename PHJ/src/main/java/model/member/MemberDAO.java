@@ -94,26 +94,41 @@ public class MemberDAO {
 	
 	//아이디찾기
 	public String emailFind(String name, String mobile) {
-		String email = "";
+		String email = "ERROR";
 
-		String sql = "SELECT email FROM phj_member WHERE name='"+name+"' AND mobile='"+mobile+"' ";
+		String sql = "SELECT email FROM phj_member AND name='"+name+"' AND mobile='"+mobile+"' ";
 		System.out.println("sql : " + sql);
 		
 		try {
-			email = template.queryForObject(sql, new BeanPropertyRowMapper<String>(String.class));
-			
+			MemberDTO dto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			email = dto.getEmail();
+			return email;
 		} catch(EmptyResultDataAccessException e) {
 			e.printStackTrace();
-			email = "ERROR";
+			return email;
 		}
-		
-		return email;
 	}
 	
+	//비밀번호 찾기
+	public String pwFind(String email, String mobile) {
+		String pass = "ERROR";
+
+		String sql = "SELECT pass FROM phj_member WHERE email='"+email+"' AND mobile='"+mobile+"' ";
+		System.out.println("sql : " + sql);
+		
+		try {
+			MemberDTO dto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			pass = dto.getEmail();
+			return pass;
+		} catch(EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			return pass;
+		}
+	}
 	
 	//전체 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
-		System.out.println("getTotalCount() 메소드 실행.");
+		System.out.println("getTotalCount() 메소드 실행불가.");
 		
 		String query = " SELECT COUNT(*) FROM PHJ_MEMBER ";
 

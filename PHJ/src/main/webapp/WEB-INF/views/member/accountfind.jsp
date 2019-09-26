@@ -52,6 +52,18 @@
 		location.href="accountfind.do";
 	</script>
 </c:if>
+<c:if test="${'ERROR' ne resultPass and not empty resultPass}">
+	<script>
+		alert('${email}님의 이메일은 ${resultPass} 입니다.');
+		location.href="login.do";
+	</script>
+</c:if> 
+<c:if test="${'ERROR' eq resultPass }">
+	<script>
+		alert('회원 정보가 없습니다.');
+		location.href="accountfind.do";
+	</script>
+</c:if>
 <script type="text/javascript">
 function find_check(num){
 	if(num=='1'){
@@ -149,7 +161,7 @@ function find_PWcheck(){
 			
 						<div class="findPop" id="findPop PWfind">
 
-							<form action="pwfindAction.do">
+							<form action="pwFindAction.do">
 								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
@@ -167,9 +179,9 @@ function find_PWcheck(){
 											<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
 											<td>
 												<div class="formbox">
-													<input type="text" title="휴대폰 앞 번호" value="" name="hp_no_ins" id="mbPWPhone1" maxlength="3" class="text hp"><span class="dash"></span>
-													<input type="text" title="휴대폰 중간 번호" value="" name="hp_no_ins" id="mbPWPhone2" maxlength="4" class="text hp"><span class="dash"></span>
-													<input type="text" title="휴대폰 끝 번호" value="" name="hp_no_ins" id="mbPWPhone3" maxlength="4" class="text hp">
+													<input type="text" title="휴대폰 앞 번호" value="" name="mobile1" id="mobile1" maxlength="3" class="text hp"><span class="dash"></span>
+													<input type="text" title="휴대폰 중간 번호" value="" name="mobile2" id="mobile2" maxlength="4" class="text hp"><span class="dash"></span>
+													<input type="text" title="휴대폰 끝 번호" value="" name="mobile3" id="mobile3" maxlength="4" class="text hp">
 												</div>
 											</td>
 										</tr>
