@@ -38,12 +38,12 @@
           if (this.options && this.options.click) {
               $node.on('click', this.options.click);
           }
-         /* if (this.children) {
+          if (this.children) {
               var $container_1 = $node.find('.note-children-container');
               this.children.forEach(function (child) {
                   child.render($container_1.length ? $container_1 : $node);
               });
-          }*/
+          }
           if (this.callback) {
               this.callback($node, this.options);
           }
@@ -166,11 +166,11 @@
           '</div>',
       ].join(''));
   });
-  /*var popover = renderer.create([
+  var popover = renderer.create([
       '<div class="note-popover popover in">',
       '  <div class="arrow"/>',
       '  <div class="popover-content note-children-container"/>',
-      '</div>',*/
+      '</div>',
   ].join(''), function ($node, options) {
       var direction = typeof options.direction !== 'undefined' ? options.direction : 'bottom';
       $node.addClass(direction);
@@ -6665,7 +6665,7 @@
       LinkPopover.prototype.shouldInitialize = function () {
           return !lists.isEmpty(this.options.popover.link);
       };
-     /* LinkPopover.prototype.initialize = function () {
+      LinkPopover.prototype.initialize = function () {
           this.$popover = this.ui.popover({
               className: 'note-link-popover',
               callback: function ($node) {
@@ -6675,7 +6675,7 @@
           }).render().appendTo(this.options.container);
           var $content = this.$popover.find('.popover-content,.note-popover-content');
           this.context.invoke('buttons.build', $content, this.options.popover.link);
-      };*/
+      };
       LinkPopover.prototype.destroy = function () {
           this.$popover.remove();
       };
@@ -6684,7 +6684,7 @@
           if (!this.context.invoke('editor.hasFocus')) {
               this.hide();
               return;
-          } 
+          }
           var rng = this.context.invoke('editor.getLastRange');
           if (rng.isCollapsed() && rng.isOnAnchor()) {
               var anchor = dom.ancestor(rng.sc, dom.isAnchor);

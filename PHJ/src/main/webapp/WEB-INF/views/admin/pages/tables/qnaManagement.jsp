@@ -76,17 +76,19 @@ function DeleteAll(){
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
         
       <!-- 사이드바 끝 -->
-        
+          
         <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">이벤트 게시판</h3> 
-            <%--  <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
-             <div style="text-align: right;">
+             <h3 class="page-title" style="font-weight: bold;">QnA</h3> 
+             
+             <%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
+	           <div style="text-align: right;">
+	         
 	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 
-	             		onclick="location.href='../../../event.do';">
+	             		onclick="location.href='../../../qna.do';">
 	                 <i class="mdi mdi-logout-variant"></i>
 	             </button>
 	              <br />
@@ -99,6 +101,7 @@ function DeleteAll(){
                 </ol>
               </nav>
         -->     
+       		 <!-- 검색기능 시작 -->
               	<form class="form-inline">
 				 <div class="form-group ">
 					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
@@ -108,13 +111,13 @@ function DeleteAll(){
 					</select>
 				</div> 
 				<div class="input-group">
-
+ 
 					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px; height : 30px" />
 
 					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary btn-sm">
-							검색 
+						<button type="submit" class="btn btn-outline-secondary btn-sm" >
+							검색
 						</button>
 					</div>
 				</div>
@@ -122,11 +125,11 @@ function DeleteAll(){
 			<!-- 검색기능 끝 -->
 
 			<br />
-
+ 
 		<!-- 내용시작 -->
 			<div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">&nbsp;<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 리스트</h4>
+                    <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;QnA 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
                      <colgroup>
 						<col width="5%" />
@@ -137,10 +140,11 @@ function DeleteAll(){
 						<col width="5%" />
 					</colgroup>
 					<thead>
-						<tr  style="color: white; background-color:#6ea2d3; ">
-							<th>
+						<tr  style="color: white; background-color:#6ea2d3; " >
+							 <th>
 	                          	<input type="checkbox" name="check_all" id="check_all" onclick="checkDelete();">
 	                			<label for="checkbox"></label>
+	                	
 	                		</th> 
 							<th>no</th>
 							<th>제목</th>
@@ -169,11 +173,12 @@ function DeleteAll(){
                 						</td>
 										 <td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
-											<a href="./boardManagementView.do?idx=${row.idx}
-												&nowPage=${nowPage}&board_type=${row.board_type}">${row.title}</a>
+											<a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
+													${row.title}
+											</a>
 										</td >
-										<td class="text-center">관리자</td>
-										<td class="text-left">${row.postdate}
+										<td class="text-center">${row.name}</td>
+										<td class="text-center">${row.postdate}
 										</td>
 										<td class="text-center">${row.view_count }</td>
 									</tr>
@@ -201,14 +206,23 @@ function DeleteAll(){
                 
                 </div>
                 <br /><br />
+                
 			<div class="row text-right" style="float: right;">
-				<!-- <button type="button" class="btn btn-dark btn-sm" 
-						onclick="location.href='./eventManagementWrite.do?&board_type=2';">글쓰기</button> -->
-				<button type="button" class="btn btn-dark btn-sm" 
-						onclick="location.href='./eventManagementWrite.do';">글쓰기</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
-			</div>
 			
+			<%-- <% String board_type=request.getParameter("board_type");//게시판 타입 
+              	if(board_type.equals("1")) { %>
+             		<button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./boardManagementWrite.do?&board_type=${row.board_type}';">글쓰기</button>
+			 <%}else if (board_type.equals("2")){ %>
+             		<button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./boardManagementWrite.do?&board_type=${row.board_type}';">글쓰기</button>
+			 <%} %>
+			  --%>
+				<button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./boardManagementWrite.do?board_type=1';">글쓰기</button>
+				<button class = "btn btn-danger btn-sm"  onclick="DeleteAll();">삭제</button>
+				
+			</div>
             </div>
       </div>
       

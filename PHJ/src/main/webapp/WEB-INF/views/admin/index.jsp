@@ -135,7 +135,7 @@ if (mst == 'normal') {
            
       
           </ul>   
-        </nav>
+        </nav> 
         <!-- partial --> <!-- 사이드바 끝 -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -214,12 +214,12 @@ if (mst == 'normal') {
                 </div>
               </div>
             </div>    
-            <div class="row">
-              <div class="col-12 grid-margin">
+           <div class="row">
+              <!-- <div class="col-12 grid-margin">
                 <div class="card">
                    <div class="card-body">
                     <h4 class="card-title">Recent Tickets</h4>
-                    <div class="table-responsive">
+                    <div class="table-responsive"> --> 
                       <!--<table class="table">
                         <thead>
                           <tr>
@@ -273,47 +273,103 @@ if (mst == 'normal') {
                           </tr>
                         </tbody>
                       </table>-->
-                    </div>
-                  </div> 
+                 <!--    </div>
+                  </div>  
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Recent Updates</h4>
-                    
-                    <div class="row mt-3">
-                      <div class="col-6 pr-1">
-                        <img src="assets/images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                        <img src="assets/images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
-                      </div>
-                      <div class="col-6 pl-1">
-                        <img src="assets/images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                        <img src="assets/images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
-                      </div>
-                    </div>
-                    <div class="d-flex mt-5 align-items-top">
-                      <img src="assets/images/faces/face3.jpg" class="img-sm rounded-circle mr-3" alt="image">
-                      <div class="mb-0 flex-grow">
-                        <h5 class="mr-2 mb-2">School Website - Authentication Module.</h5>
-                        <p class="mb-0 font-weight-light">It is a long established fact that a reader will be distracted by the readable content of a page.</p>
-                      </div>
-                      <div class="ml-auto">
-                        <i class="mdi mdi-heart-outline text-muted"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </div> -->
             </div>
             <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                    <div class="clearfix">
+                      <h4 class="card-title float-left">Recent Updates</h4>
+                      
+                      
+                    <h5 class="card-title">&nbsp;<i class="mdi mdi-account-multiple"></i>&nbsp;최근가입회원</h5>
+                    <table class="table table-hover" style="text-align: center;">
+					<colgroup>
+						<col width="5%" />
+						<col width="7%" />
+						<col width="*" />
+						<col width="15%" />
+						<col width="5%" />
+						<col width="7%" />
+					</colgroup>
+					<thead>
+						<tr class="table-danger" style="color: white;">
+							<th>번호</th>
+							<th>회원명</th>
+							<th>이메일</th>
+							<th>핸드폰 번호</th>
+							<th>알림설정</th>
+							<th>가입일</th>
+						</tr>
+					</thead>
+					<tbody style="color:black;"> 
+						
+                        <!-- 회원 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="8" class="text-center">
+										등록된 회원이 없습니다.
+									</td>
+								</tr>
+							</c:when>   
+							<c:otherwise>
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.virtualNum }</td>
+										<td class="text-left">
+											<a href="./view.do?type=${row.membertype}
+												&nowPage=${nowPage}">${row.name}</a>
+										</td >
+										<td class="text-center">${row.email }</td>
+										<td class="text-center">${row.mobile }</td>
+										<td class="text-center">${row.mobile_alert }</td>
+										<td class="text-center">${row.regidate }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+       
+					</tbody>
+				</table>
+                      
+                      
+                      
+                  </div>
+                </div>
+              </div>
+              
+              
+              <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Recent QnA</h4>
+                    
+                  
+                  
+                  
+                  
+                  
+                </div>
+              </div>
+            </div>     
+            
+            
+            
+            
+           <!--  <div class="row">
+              <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
                     <h4 class="card-title">Project Status</h4>
-                    <div class="table-responsive">
+                    <div class="table-responsive"> -->
                      <!--  <table class="table">
                         <thead>
                           <tr>
@@ -390,64 +446,11 @@ if (mst == 'normal') {
                   </div>
                 </div> 
                </div>
-              <!--<div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title text-white">Todo</h4>
-                    <div class="add-items d-flex">
-                      <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?">
-                      <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="add-task">Add</button>
-                    </div>
-                    <div class="list-wrapper">
-                      <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Meeting with Alisa </label>
-                          </div>
-                        </li>
-                        <li class="completed">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox" checked> Call John </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Create invoice </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Print Statements </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li class="completed">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                        <li>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="checkbox" type="checkbox"> Pick up kids from school </label>
-                          </div>
-                          <i class="remove mdi mdi-close-circle-outline"></i>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
-              </div>-->
-            </div> 
-          </div>
+              </div>
+         <!--    </div> 
+          </div> -->
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.do -->
           <footer class="footer">

@@ -41,13 +41,13 @@ nav {
       $(window).scroll(function() //스크롤이 움직일때마다 이벤트 발생
       {
          var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-         var stop = 100; //상단 무조건 100px로 고정하기 위해 쓴 변수.
+         var stop = 230; //상단 무조건 230px로 고정하기 위해 쓴 변수.
          $(id).stop().animate({
             top : stop + 'px'
          }, 0);
          //해당 오브젝트 위치값 재설정
       });
-   }
+   } 
    scroll_follow("#scroll");
 </script>
 <style type="text/css">
@@ -230,13 +230,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!-- 마우스 오버 end  -->
 
 <body class="is-preload homepage">
-   <div id="page-wrapper">
+   <div id="page-wrapper" >
  
       <!-- 메인페이지 우측 스크롤메뉴 -->
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> -->
       <div id="scroll"  
-         style=" position: fixed; right: 50%; top: 100px; margin-right: -800px; text-align: center; width: 180px;">
-
+         style=" position: fixed; right: 50%; top: 230px; margin-right: -800px; text-align: center; width: 180px;">
+ 
 
          <!-- 이미지로 스크롤 메뉴 변경함 -->
          <a href="#"> <img src="images/welcome_scoll.png" alt="welcome" 
@@ -262,20 +262,26 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <%
             } else {
          %>
-         <a href="memberEdit.do"> <img src="images/modify_scoll.png"
+      <a href="memberEdit.do"> <img src="images/modify_scoll.png"
             alt="정보수정" />
          </a> <a href="logout.do"> <img src="images/logout_scoll.png"
             alt="로그아웃" />
-         </a>
+         </a>  
          <%
             }
          %>
-         <a href="#"> <img src="images/top.png"
+   <!--      <a href="#"> <img src="images/top.png"
             alt="업" />
          </a>
+<<<<<<< HEAD
+<!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
+<!--             alt="다운" /> -->
+<!--          </a> -->
+=======
           <a href="" > <img id="go-bottom" src="images/down.png"
             alt="다운" />
-         </a>
+         </a> --> 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       </div>
 
       <!-- 메인 헤더 인클루드 -->
@@ -320,7 +326,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
  	               <div class="col-6 col-12-medium">
 	                  <!-- Box -->
 	            
-	                  <section class="box feature">
+	                  <section class="box feature" style="border : 1px solid #f7f4f4;">
 	                     <a href="placemap.do" class="image featured"><img
 	                        src="images/store_shadow.png" alt="" /></a>
 	                     <div class="inner"
@@ -333,27 +339,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	                     </div>
 	                  </section>
 	               </div>
-	           <div class="col-6 col-12-medium">
-                  <!-- Box -->
-
-                  <section class="box feature">
-                     <a href="placemap.do" class="image featured">
-                     <a href= "placemap.do" class="image featured"><img
-                        src="images/store_shadow.png" alt="" /></a>
-                     <div class="inner"
-                        style="text-align: center; font-family: Goyang;">
-                        <header>
-                           <h2 style="font-family: Goyang;">편의점 찾기</h2>
-                        </header>
-                        <p style="font-family: Goyang; font-size: 25px;">
-                        	내 주변 편의점 찾기</p>
-                     </div>
-                  </section>
-               </div>
+	        
                <div class="col-6 col-12-medium">
                   <!-- Box -->
 
-                  <section class="box feature">
+                  <section class="box feature" style="border : 1px solid #f7f4f4;">
                      <a href="findproduct.do" class="image featured"><img
                         src="images/product_shadow.png" alt="" /></a>
                      <div class="inner" style="text-align: center;">
@@ -440,6 +430,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                </div>
 
             </div>
+            <div class="container">
             <div class="row" >
                <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> -->
                <div class="" style=" width: 100%;"> 
@@ -564,6 +555,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                   </div>
                </div>
             </div>
+            </div>
             <!--             <div class="col-7 col-16-medium imp-medium"> -->
             <!--                Content -->
             <!--                <div id="info"> -->
@@ -576,19 +568,19 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             <!--             </div> -->
          </div>
       </div>
-      <div class="container">
-         <h2>개발중이니 관리자 페이지 링크 활성화.</h2>
-         <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a>
-         <br /><br />
-         <a href=recipe_edit.do> 레시피 게시판 준비중</a>
+<!--       <div class="container"> -->
+<!--          <h2>개발중이니 관리자 페이지 링크 활성화.</h2> -->
+<!--          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a> -->
+<!--          <br /><br /> -->
+<!--          <a href=recipe_edit.do> 레시피 게시판 준비중</a> -->
       
-         <h4>
-            로그인 한 이메일 :
-            <%=session.getAttribute("EMAIL")%></h4>
-         <h4>
-            로그인 한 회원 이름 :
-            <%=session.getAttribute("NAME")%></h4>
-      </div>
+<!--          <h4> -->
+<!--             로그인 한 이메일 : -->
+<%--             <%=session.getAttribute("EMAIL")%></h4> --%>
+<!--          <h4> -->
+<!--             로그인 한 회원 이름 : -->
+<%--             <%=session.getAttribute("NAME")%></h4> --%>
+<!--       </div> -->
       <!-- Footer 인클루드. -->
       <%@ include file="general/MainFooter.jsp"%>
 

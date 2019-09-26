@@ -17,8 +17,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="summernote/summernote.css" type="text/css"/>
-<script src = "summernote/summernote.min.js" type="text/javascript">
+
+<!--  summernote js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$('#summernote').summernote({
+		height:500
+		});
+});
 
 function checkValidate(f){
 	if(f.name.value==""){
@@ -44,13 +53,7 @@ function checkValidate(f){
 	}
 </script>
 <script>
-$(function(){
-	$('#summernote').summernote({
 
-		height:500		
-	});
-
-})
 
 function sendFile(file, el) {
       var form_data = new FormData();
@@ -140,9 +143,7 @@ onsubmit="return checkValidate(this);">
 						<th bgcolor="#f2efef" style="text-align: center; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA;border-bottom:5px solid #ffd74d;  ">내용</th>
 						
 						<td style="height:500px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:5px solid #ffd74d;">
-						<div id="summernote" >
-							
-							</div>
+						<textarea id="summernote" ></textarea> 
 						</td>
 					</tr>
 				</table>	

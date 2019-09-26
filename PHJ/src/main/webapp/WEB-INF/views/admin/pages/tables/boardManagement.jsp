@@ -76,15 +76,24 @@ function DeleteAll(){
       <%@ include file="../admin_general/AdminSidebar.jsp"%>
         
       <!-- 사이드바 끝 -->
-        
+          
         <!-- 페이지 시작 -->
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
              <h3 class="page-title" style="font-weight: bold;">공지사항 </h3> 
-             <br /><br />
-             <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
+             
+             <%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
+	           <div style="text-align: right;">
+	         
+	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 
+	             		onclick="location.href='../../../notice.do';">
+	                 <i class="mdi mdi-logout-variant"></i>
+	             </button>
+	              <br />
+	              <p style="font-size: 0.7em; color:#c6c6c6;">Go Site!</p>
+	           </div>
        <!--        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">관리</a></li>
@@ -102,12 +111,12 @@ function DeleteAll(){
 					</select>
 				</div> 
 				<div class="input-group">
-
+ 
 					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px; height : 30px" />
 
 					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary btn-sm">
+						<button type="submit" class="btn btn-outline-secondary btn-sm" >
 							검색
 						</button>
 					</div>
@@ -123,15 +132,15 @@ function DeleteAll(){
                     <h4 class="card-title">&nbsp;<i class="mdi mdi-book-multiple-variant"></i>&nbsp;공지사항 리스트</h4>
                     <table class="table table-hover" style="text-align: center;">
                      <colgroup>
-						<col width="20px" />
-						<col width="20px" />
+						<col width="5%" />
+						<col width="5%" />
 						<col width="*" />
-						<col width="30px" />
-						<col width="120px" />
-						<col width="30px" />
+						<col width="10%" />
+						<col width="10%" />
+						<col width="5%" />
 					</colgroup>
 					<thead>
-						<tr class="table-info" style="color: white;">
+						<tr  style="color: white; background-color:#6ea2d3; " >
 							 <th>
 	                          	<input type="checkbox" name="check_all" id="check_all" onclick="checkDelete();">
 	                			<label for="checkbox"></label>

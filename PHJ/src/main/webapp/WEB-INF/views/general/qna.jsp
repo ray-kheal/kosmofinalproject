@@ -71,15 +71,15 @@ nav {
 			<!-- 검색기능 -->
 			<form class="form-inline">
 				<div class="form-group">
-					<select name="keyField" class="form-control" style="width: 100px;">
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
+					<select name="searchColumn" class="form-control" style="width: 100px;">
+						<option value="title">제목</option>
+						<option value="name">작성자</option>
+						<option value="content">내용</option>
 					</select>
 				</div>
 				<div class="input-group">
 
-					<input type="text" name="keyString" class="form-control"
+					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
 
 					<div class="input-group-btn">

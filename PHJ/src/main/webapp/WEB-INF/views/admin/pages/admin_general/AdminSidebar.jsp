@@ -65,6 +65,7 @@
                   <li class="nav-item"> <a class="nav-link" href="./boardManagement.do">공지사항</a></li>
                   <li class="nav-item"> <a class="nav-link" href="./recipeManagement.do">레시피 게시판</a></li>
                   <li class="nav-item"> <a class="nav-link" href="./eventManagement.do">이벤트 게시판</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="./qnaManagement.do">QnA</a></li>
                 </ul>
               </div>
             </li> 
