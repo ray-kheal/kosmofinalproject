@@ -54,7 +54,7 @@
 </c:if>
 <c:if test="${'ERROR' ne resultPass and not empty resultPass}">
 	<script>
-		alert('${email}님의 이메일은 ${resultPass} 입니다.');
+		alert('인증번호를 보내드렸습니다.');
 		location.href="login.do";
 	</script>
 </c:if> 
@@ -73,8 +73,6 @@ function find_check(num){
 		var mobile1=$("#mobile1").val();
 		var mobile2=$("#mobile2").val();
 		var mobile3=$("#mobile3").val();
-		
-		
 	}
 	if(num=='2'){
 		document.getElementById("findPop IDfind").style.display="none";

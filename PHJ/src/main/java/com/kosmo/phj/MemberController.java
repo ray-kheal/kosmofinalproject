@@ -289,7 +289,9 @@ public class MemberController {
 		System.out.println(subject);
 		System.out.println(contents);
 		
-		model.addAttribute("req",req.getParameter("email"));
+		model.addAttribute("req",req);
+		command = new pwFindActionCommand();
+		command.execute(model);
 		
 		final MimeMessagePreparator preparator = new MimeMessagePreparator() {			
 			@Override
@@ -306,8 +308,6 @@ public class MemberController {
 		try {
 			mailSender.send(preparator);
 			System.out.println("메일이 정상발송 되었습니다");
-			command = new pwFindActionCommand();
-			command.execute(model);
 		}
 		catch (Exception e) {
 			System.out.println("예외발생");

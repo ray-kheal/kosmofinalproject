@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -96,7 +97,7 @@ public class MemberDAO {
 	public String emailFind(String name, String mobile) {
 		String email = "ERROR";
 
-		String sql = "SELECT email FROM phj_member AND name='"+name+"' AND mobile='"+mobile+"' ";
+		String sql = "SELECT email FROM phj_member WHERE name='"+name+"' AND mobile='"+mobile+"' ";
 		System.out.println("sql : " + sql);
 		
 		try {
@@ -106,7 +107,7 @@ public class MemberDAO {
 		} catch(EmptyResultDataAccessException e) {
 			e.printStackTrace();
 			return email;
-		}
+		} 
 	}
 	
 	//비밀번호 찾기
@@ -117,8 +118,8 @@ public class MemberDAO {
 		System.out.println("sql : " + sql);
 		
 		try {
-			MemberDTO dto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
-			pass = dto.getEmail();
+			MemberDTO memberdto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			pass = memberdto.getPass();
 			return pass;
 		} catch(EmptyResultDataAccessException e) {
 			e.printStackTrace();

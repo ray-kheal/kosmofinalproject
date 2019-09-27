@@ -50,7 +50,40 @@
 
 		<div id="content">
 			<div class="row" style="margin-top:10px;">
-				
+			<div id="findMenu" style="margin-top:100px;">
+				<div class="findPop find" id="findPop find form" >
+					<div class="findPop find" id="findPop find form" >
+							
+						<h3 id="Maintitle">인증번호를 입력하세요.</h3>
+	 				
+						<div class="findPop" id="findPop IDfind">
+	
+								<form method="post"  class="" name="f" action="emailFindAction.do">
+									<table summary="인증번호를 입력할 수 있습니다.">
+										<caption>인증번호 입력폼</caption>
+										<colgroup>
+											<col width="100px">
+											<col width="*">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row"><label for="name">인증번호</label></th>
+												<td>
+													<div class="formbox"><input maxlength="40" type="text" id="name" class="text" name="name"></div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="btnWrap">
+										<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
+										<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
+									</div>
+								</form>
+	
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
