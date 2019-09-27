@@ -420,9 +420,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>
                      </div>
                   </section>
-
-
-
                </div>
 
             </div>
@@ -568,8 +565,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!--          <h2>개발중이니 관리자 페이지 링크 활성화.</h2> -->
 <!--          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a> -->
 <!--          <br /><br /> -->
-<!--          <a href=recipe_edit.do> 레시피 게시판 준비중</a> -->
-      
+   
 <!--          <h4> -->
 <!--             로그인 한 이메일 : -->
 <%--             <%=session.getAttribute("EMAIL")%></h4> --%>

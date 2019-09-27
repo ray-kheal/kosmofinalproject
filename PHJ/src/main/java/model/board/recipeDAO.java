@@ -69,7 +69,27 @@ public class recipeDAO {
 		
 		return template.queryForObject(sql, Integer.class);
 	}
+	
+	public void write(final recipeDTO recipeDTO) {
+		System.out.println("요기도 들어오나??");
 
+		template.update(new PreparedStatementCreator() {
+		
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "INSERT INTO PHJ_BOARD_RECIPE(idx, title,name, content)"
+						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ?,?)";
+
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, recipeDTO.getTitle());
+				psmt.setString(2, recipeDTO.getName());	
+				psmt.setString(3, recipeDTO.getContent());	
+					
+				System.out.println("dao의 write - title:"+recipeDTO.getTitle()+"/contetn:"+recipeDTO.getContent());
+				return psmt;
+			}
+		});
+	}
 	
 	
 	//*****************************************************어드민용
@@ -108,14 +128,25 @@ public class recipeDAO {
 			System.out.println("view()실행시 예외발생");
 			dto = new recipeDTO();
 		}
-
 		return dto;
 	}	
+	
 	public void updateHit(final String idx) {
 		String sql = "update PHJ_BOARD_RECIPE set VIEW_COUNT = VIEW_COUNT+1 where idx=?";
 		
 		template.update(sql, new PreparedStatementSetter() {
 
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setInt(1, Integer.parseInt(idx));
+			}
+		});
+	}
+	public void updateRecommend(final String idx) {
+		String sql = "update PHJ_BOARD_RECIPE set BTNRECOMMEND = BTNRECOMMEND+1 where idx=?";
+		System.out.println("들어왔니2");
+		template.update(sql, new PreparedStatementSetter() {
+			
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, Integer.parseInt(idx));

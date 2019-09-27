@@ -24,19 +24,21 @@ public class RecipeEditActionCommand implements PHJCommandImpl{
 	@Override
 	public void execute(Model model) {
 	
+		System.out.println("요기는요?");
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)map.get("req");
-		
 		recipeDTO dto = (recipeDTO)map.get("recipeDTO");
+		
+		String idx = req.getParameter("idx");
 		String name = req.getParameter("name");
 		String title = req.getParameter("title");
-		String IMAGE_NAME = req.getParameter("IMAGE_NAME");
+		//String IMAGE_NAME = req.getParameter("IMAGE_NAME");
 		String content = req.getParameter("content");
-		
-		
-		
+		System.out.println("name"+name);
+		System.out.println("title"+title);
+		System.out.println("content"+content);
 		recipeDAO dao = new recipeDAO();
-		//dao.write(dto);
+		dao.write(dto);
 	}
 	
 }

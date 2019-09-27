@@ -269,7 +269,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 						<input type="text" name="searchWord" class="form-control"
 							style="width:230px; margin-left:5px;" />
 						<div style="margin-left:10px;">
-							<button type="submit" class="btn btn-outline-success" style="width:60px;">검색</button>
+							<button type="submit" class="btn">
+							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
+						</button>
 						</div>
 					</form>
 					<hr class="mt-2 mb-2">  
@@ -298,10 +300,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 											alt="">
 										<figcaption>
 											<h3>${row.title }</h3>
-											<p>${row.content }</p>
+											<%-- <p>${row.content }</p> --%>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
-										<a href="#" class="d-block mb-4 h-100"></a>
+										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
 									</figure>
 								</div>	
 								<!-- 베스트게시물 e-->							
@@ -315,10 +317,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 											alt="">
 										<figcaption>
 											<h3>${row.title }</h3>
-											<p>${row.content }</p>
+											<%-- <p>${row.content }</p> --%>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
-										<a href="#" class="d-block mb-4 h-100"></a>
+										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
 									</figure>
 								</div>
 								<!-- 일반게시물 e-->
@@ -328,7 +330,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</div>
 				</c:otherwise>
 			</c:choose>
-		 
+	
 
 		</div>
 		<!-- /.container -->
