@@ -106,7 +106,7 @@ to {
   
 			<div class="form-group" style="text-align: center; display:block;">
 				<select name="keyField" class="form-control">
-					<option value="">편의점목록</option>
+					<option value="">메뚜기가족</option>
 					<option value="">지예쓰</option>
 					<option value="">씨유~</option>
 					<option value="">77777777777</option>
@@ -151,143 +151,201 @@ to {
 
       <div class="row">
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          
+<!--           <div class="card mb-4 shadow-sm">
+ -->          
 <!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
 <!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
-				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
+			<!-- 	<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
             	<rect width="100%" height="100%" ></rect>
             	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
-            	
+             -->	
 <!--             	</svg> -->
-            <div class="card-body">
+         <!--    <div class="card-body">
               <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                  <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button>
                 </div>
                 
               </div>
-            </div>
+            </div> -->
           </div>
-        </div>
+         
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+         
           
-<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
-<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+         <table class="table table-hover" style="text-align: center;">
+                      <colgroup>
+						<col width="5%" />
+						<col width="*" />
+						<col width="10%" />
+						<col width="20%" />
+					</colgroup>   
+                        
+                      <thead> 
+                        <tr style="color: white; background-color:#6ea2d3; "  >
+                          <th>상품코드</th>
+                          <th>상품명</th>
+                          <th>가격</th>
+                          <th>분류</th>
+                        </tr>
+                      </thead>
+                      <tbody style="color: black;">
+                      	<!-- 상품 리스트 출력  -->
+                        <c:choose>
+							<c:when test="${empty viewRow }">
+								<tr>
+									<td colspan="5" class="text-center">
+										등록된 상품이 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+							 
+								<c:forEach items="${viewRow }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+									
+										<td class="text-center">${row.product_code }</td>
+										<td class="text-left">
+									 <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}" class="btn btn-sm btn-outline-secondary" >
+                  						${row.product_name }</a>
+										</td> 
+      						  </div>
+										</td >
+										<td class="text-center">${row.product_price}
+										</td>
+										<td class="text-center">${row.product_value }</td>
+									</tr>
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+                      
+                                 
+                      </tbody>
+                    </table>
+						 
+        <!--    <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
+            	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
 				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
             	<rect width="100%" height="100%" ></rect>
             	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
             	
-<!--             	</svg> -->
+            	</svg>
             <div class="card-body">
-              <p class="card-text" style="text-align: center">오 놀라운 가격  
+            
+              <p class="card-text" style="text-align: center">메뚜기튀김
               	<img class="image blinking" src="images/wow.png" width="40px" height="40px"></p>
               <div class="wowicon">
 
               </div>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">상품보기</button>
-<!--                  <img src="images/wow.png" width="33px" height="33px"> -->
+                  
+                 <img src="images/wow.png" width="33px" height="33px">
                  
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">히트!</button> -->
+                  <button type="button" class="btn btn-sm btn-outline-secondary">히트!</button>
                 </div>
                 
                 <div class="coin">
                 </div>
-                <small class="text-muted"><img  src="images/coin2.png" width="20px" height="20px">1억4천만원</small>
+                <small class="text-muted"><img  src="images/coin2.png" width="20px" height="20px">잔디500m가격</small>
               </div>
             </div>
           </div>
-        </div>
-         <div class="col-md-4">
+        </div> -->
+        <!--  <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
           
-<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
-<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
+            	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
 				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
             	<rect width="100%" height="100%" ></rect>
             	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
             	
-<!--             	</svg> -->
+            	</svg>
             <div class="card-body">
-              <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
+              <p class="card-text" style="text-align: center">참치마요 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+               
+                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> 
                 </div>
                 
               </div>
             </div>
           </div>
-        </div>  <div class="col-md-4">
+        </div>  -->
+  <!--        <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
           
-<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
-<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
+            	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
 				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
             	<rect width="100%" height="100%" ></rect>
             	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
             	
-<!--             	</svg> -->
+            	</svg>
             <div class="card-body">
               <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                  <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button>
                 </div>
                 
               </div>
             </div>
           </div>
-        </div>  <div class="col-md-4">
+        </div> -->
+         <!--  <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
           
-<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
-<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
+            	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
 				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
             	<rect width="100%" height="100%" ></rect>
             	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
             	
-<!--             	</svg> -->
+            	</svg>
             <div class="card-body">
               <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                  <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button>
                 </div>
                 
               </div>
             </div>
           </div>
-        </div>  <div class="col-md-4">
+        </div> -->
+          <!-- <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
           
-<!--             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"  -->
-<!--             	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title> -->
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" 
+            	focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
 				<img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg" width="100%" height="225" />
             	<rect width="100%" height="100%" ></rect>
             	<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
             	
-<!--             	</svg> -->
+            	</svg>
             <div class="card-body">
               <p class="card-text" style="text-align: center">오 놀라운 가격 </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">상품 자세히 보기</button>
-<!--                   <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button> -->
+                  <button type="button" class="btn btn-sm btn-outline-secondary">즐겨찾기</button>
                 </div>
                 
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         
         
         
@@ -342,6 +400,10 @@ to {
 <!-- 				</tbody> -->
 <!-- 			</table> -->
 <!-- 		</div> -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 			<!-- </ul> -->
 		

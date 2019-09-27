@@ -277,11 +277,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
 <!--             alt="다운" /> -->
 <!--          </a> -->
-=======
-          <a href="" > <img id="go-bottom" src="images/down.png"
-            alt="다운" />
-         </a> --> 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
       </div>
 
       <!-- 메인 헤더 인클루드 -->
@@ -332,7 +328,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	                     <div class="inner"
 	                        style="text-align: center; font-family: Goyang;">
 	                        <header>
-	                           <h2 style="font-family: Goyang;">편의점 찾기</h2>
+	                           <h2 style="font-family: Goyang;">매장 삭제하기</h2>
 	                        </header>
 	                        <p style="font-family: Goyang; font-size: 25px;">
 	                        	내 주변 편의점 찾기</p>

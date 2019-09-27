@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
+import model.board.serviceDTO;
+
 
 public class ProductDAO {
 	//멤버변수
@@ -74,5 +76,5 @@ public class ProductDAO {
 			});
 		
 	}
-
+		
 }

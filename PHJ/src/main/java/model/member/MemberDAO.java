@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -93,19 +95,41 @@ public class MemberDAO {
 	
 	//아이디찾기
 	public String emailFind(String name, String mobile) {
-		
-		
+		String email = "ERROR";
+
 		String sql = "SELECT email FROM phj_member WHERE name='"+name+"' AND mobile='"+mobile+"' ";
 		System.out.println("sql : " + sql);
 		
-		return template.queryForObject(sql, String.class);
-		
+		try {
+			MemberDTO dto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			email = dto.getEmail();
+			return email;
+		} catch(EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			return email;
+		} 
 	}
 	
+	//비밀번호 찾기
+	public String pwFind(String email, String mobile) {
+		String pass = "ERROR";
+
+		String sql = "SELECT pass FROM phj_member WHERE email='"+email+"' AND mobile='"+mobile+"' ";
+		System.out.println("sql : " + sql);
+		
+		try {
+			MemberDTO memberdto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+			pass = memberdto.getPass();
+			return pass;
+		} catch(EmptyResultDataAccessException e) {
+			e.printStackTrace();
+			return pass;
+		}
+	}
 	
 	//전체 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
-		System.out.println("getTotalCount() 메소드 실행.");
+		System.out.println("getTotalCount() 메소드 실행불가.");
 		
 		String query = " SELECT COUNT(*) FROM PHJ_MEMBER where 1=1";
 
