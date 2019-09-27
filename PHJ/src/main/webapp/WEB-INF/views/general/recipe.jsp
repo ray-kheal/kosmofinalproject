@@ -298,10 +298,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 											alt="">
 										<figcaption>
 											<h3>${row.title }</h3>
-											<p>${row.content }</p>
+											<%-- <p>${row.content }</p> --%>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
-										<a href="#" class="d-block mb-4 h-100"></a>
+										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
 									</figure>
 								</div>	
 								<!-- 베스트게시물 e-->							
@@ -315,10 +315,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 											alt="">
 										<figcaption>
 											<h3>${row.title }</h3>
-											<p>${row.content }</p>
+											<%-- <p>${row.content }</p> --%>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
-										<a href="#" class="d-block mb-4 h-100"></a>
+										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
 									</figure>
 								</div>
 								<!-- 일반게시물 e-->

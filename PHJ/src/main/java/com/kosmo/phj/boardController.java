@@ -23,9 +23,12 @@ import command.board.EditActionCommand;
 import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeEditActionCommand;
+import command.board.RecipeListViewCommand;
 import command.board.StockListCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
+import command.board.findPlaceCommand;
+import command.board.recipeListCommand;
 import model.board.recipeDTO;
 import model.board.serviceDTO;
 
@@ -75,6 +78,20 @@ public class boardController {
 		command.execute(model);
 		System.out.println("product 익스큐트 실행완료");
 		return "general/product_view";
+	}
+	
+	//재고 관련 편의점 찾기	
+	@RequestMapping("findPlace.do")
+	public String findPlace(Model model, HttpServletRequest req) {
+		model.addAttribute("req",req);
+		int place_code = Integer.parseInt(req.getParameter("place_code"));
+		System.out.println("컨트롤러 내부의 place_code : " + place_code);
+		model.addAttribute("place_code",place_code);
+		command = new findPlaceCommand();		
+		command.execute(model);
+		System.out.println("findPlace 익스큐트 실행완료");
+		
+		return "general/findPlace";
 	}
 	
 	// QnA게시판 글쓰기
@@ -167,9 +184,10 @@ public class boardController {
 	}
 	
 	//레시피 게시판 글쓰기 
-	@RequestMapping("ReditAction.do")
+	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
 	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO recipeDTO) {
 
+		System.out.println("들어옵니까?");
 		// 커맨드객체로 받은 폼값 확인하기
 		model.addAttribute("req", req);
 		model.addAttribute("recipeDTO", recipeDTO);
@@ -183,17 +201,16 @@ public class boardController {
 		return "redirect:recipe.do";
 	}
 	
-	/*
-	  @RequestMapping(value="/imageUpload",method=RequestMethod.POST)
-	  @ResponseBody
-	  public String imageUpload(MultipartHttpServletRequest req) throws IOException{
-		  MultiValueMap<String, MultipartFile> multiFileMap = req.getMultiFileMap();
-		  List<MultipartFile> list = multiFileMap.get(FILE);
-		  
-	  }
-
+	
+	//레시피 상세보기 
+	@RequestMapping("Rview.do")
+	public String recipeView(Model model, HttpServletRequest req) throws IOException{
+		model.addAttribute("req", req);
+		command = new RecipeListViewCommand();
+		command.execute(model);
+		return "general/recipe_view";
+	}
 	
 	
-	*/
 }
 ;
