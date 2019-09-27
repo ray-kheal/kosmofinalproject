@@ -171,9 +171,14 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #b1d8bf; display: table;">
+			style="width: 100%; height: 200px; text-align: center;  display: table;"  >
+			
+				
+			<!-- 컨텐츠 -->
+			
+			
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				
 					<i class="fas fa-search-location" style="width: 50px; height: 50px;"></i>&nbsp;
 					근처 편의점 찾기
@@ -235,17 +240,20 @@ body {
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-<<<<<<< HEAD
+
 							 <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
 						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
 						
 						
+
+<<<<<<< HEAD
 =======
 							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
 						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
 						<!-- <a href="javascript:document.searchFrm.onsubmit();">
 							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
 						</a> -->
+
 
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						</form>
@@ -255,7 +263,9 @@ body {
 				<tr>
 					<!-- <td></td> -->
 					<td style="text-align: center;">
+
 <<<<<<< HEAD
+=======
 						<h5>근처 편의점 목록</h5> 
 						
 						<table class="table table-bordered">
@@ -287,6 +297,7 @@ body {
 						<br />
 					
 =======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						<h5>근처 편의점 목록</h5> <br />
 						<table class="table table-bordered">
 					<c:choose>
@@ -316,7 +327,7 @@ body {
 							</td>
 						</tr>
 						</table>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 					</td>
 				</tr>			
 			</table>

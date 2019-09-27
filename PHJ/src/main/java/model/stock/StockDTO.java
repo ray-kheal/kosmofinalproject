@@ -2,6 +2,7 @@ package model.stock;
 
 public class StockDTO {
 	
+	private String place_code;
 	private String place_name;
 	private String place_name2;
 	private String product_name;
@@ -14,9 +15,10 @@ public class StockDTO {
 		super();
 	}
 	
-	public StockDTO(String place_name, String place_name2, String product_name, String product_price,
+	public StockDTO(String place_code, String place_name, String place_name2, String product_name, String product_price,
 			String product_value, String stock, int virtualNum) {
 		super();
+		this.place_code = place_code;
 		this.place_name = place_name;
 		this.place_name2 = place_name2;
 		this.product_name = product_name;
@@ -25,7 +27,21 @@ public class StockDTO {
 		this.stock = stock;
 		this.virtualNum = virtualNum;
 	}
-	
+
+
+
+	public String getPlace_code() {
+		return place_code;
+	}
+
+
+
+	public void setPlace_code(String place_code) {
+		this.place_code = place_code;
+	}
+
+
+
 	public String getPlace_name() {
 		return place_name;
 	}
