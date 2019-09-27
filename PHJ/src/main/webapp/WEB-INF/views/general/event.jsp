@@ -53,9 +53,10 @@ nav {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+		
+			style="width: 100%; height: 200px; text-align: center; display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
 					style="width: 50px; height: 50px;" /> -->
 					<i class="fas fa-gift" style="width: 50px; height: 50px;"></i>
@@ -73,20 +74,20 @@ nav {
 			<!-- 검색기능 -->
 			<form class="form-inline">
 				<div class="form-group">
-					<select name="keyField" class="form-control" style="width: 100px;">
-						<option value="">제목</option>
-						<option value="">작성자</option>
-						<option value="">내용</option>
+					<select name="searchColumn" class="form-control" style="width: 100px;">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="postdate">게시일</option>
 					</select>
 				</div>
 				<div class="input-group">
 
-					<input type="text" name="keyString" class="form-control"
+					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
 
 					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary ">
-							검색 <i class="glyphicon glyphicon-search"></i>
+						<button type="submit" class="btn">
+							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
@@ -134,7 +135,7 @@ nav {
 											href="./Eview.do?idx=${row.idx}
 								&nowPage=${nowPage}">${row.title}</a>
 										</td>
-										<td class="text-center">${row.content }</td>
+										<td class="text-center">관리자</td>
 										<td class="text-center">${row.view_count }</td>
 										<td class="text-center">${row.postdate }</td>
 										<!-- <td class="text-center">--</td> -->

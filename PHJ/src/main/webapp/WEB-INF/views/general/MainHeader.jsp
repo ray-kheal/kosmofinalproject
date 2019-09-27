@@ -23,7 +23,19 @@ nav {
 }
 @media screen and (max-width: 995px) { #outer_btn_right { display: none; } }
 @media screen and (min-width: 782px) { #nav_login { display: none; } }
+
+
+@media screen and (max-width: 995px) { #place_web { display: none; } }
+@media screen and (min-width: 782px) { #place_app { display: none; } }
 </style>
+<script>
+function catchAlert(){
+	alert("모바일웹에선 지원하지 않습니다. PC웹이나 어플리케이션을 통하여 실행해주세요");
+	
+}
+
+
+</script>
  
 <!-- Header -->
 <div id="header-wrapper" 
@@ -59,7 +71,8 @@ nav {
 		<nav id="nav" style="font-size: 20px;">
 			<ul>
 				<li id="stock"><a href="findproduct.do">편의점 상품 조회</a>
-				<li id="place"><a href="placemap.do">전국 편의점 검색</a></li>
+				<li id="place_web"><a href="placemap.do">전국 편의점 검색(웹)</a></li>
+				<li id="place_app"><a href="javascript:catchAlert();">전국 편의점 검색(앱)</a></li>
 				<li id="recipe" class=""><a href="recipe.do" id="link2">레시피</a></li>
 				<li id="notice"><a href="#">공지사항</a>
 					<ul>

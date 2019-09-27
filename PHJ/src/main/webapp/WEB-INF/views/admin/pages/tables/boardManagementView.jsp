@@ -75,7 +75,7 @@ function isDelete(){
                     	<i class="mdi mdi-checkbox-marked-circle-outline"></i>&nbsp;이벤트 
                     <%} %>
                     </h4>
-                  <table class="table table-bordered" style="margin-bottom: -1px;">
+                  <table class="table table-bordered" style="margin-bottom: -1px; color:black;">
 					<colgroup>
 						<col width="80px" />
 						<col width="*" />
@@ -100,8 +100,8 @@ function isDelete(){
 					<!-- <tbody>
 					</tbody> -->
 				</table>
-				
-				<table class="table table-borderless">
+				  
+				<table class="table table-borderless" style="color:black;">
 					<colgroup>
 						<col width="80px" />
 						<col width="100px" />

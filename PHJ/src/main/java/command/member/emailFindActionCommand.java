@@ -25,6 +25,7 @@ public class emailFindActionCommand implements PHJCommandImpl {
 		
 		MemberDAO dao = new MemberDAO();
 		String email = dao.emailFind(name, mobile);
+
 		System.out.println("쿼리실행후 email : " + email);
 		
 		model.addAttribute("resultEmail",email);
