@@ -70,14 +70,7 @@ to {
    </div> -->
    
      <!-- 텍스트 색상 강조  -->
-   <script>
-		$(function() {
-			$('#foo').rainbow({animate:true,animateInterval:100,colors:['#FF0000','#f26522','#fff200','#00a651','#28abe2','#2e3192','#6868ff']});
-			$('#bar').rainbow({animate:true,animateInterval:50,pauseLength:500,pad:true,colors:['rgb(153, 204, 255);','rgb(173, 224, 255);','rgb(193, 244, 255);','rgb(213, 264, 255);','rgb(193, 244, 255);','rgb(173, 224, 255);','rgb(153, 204, 255);']});
-			$('#baz').rainbow({animate:true,animateInterval:10,colors:['#FF0000','#f26522','#fff200','#00a651','#28abe2','#2e3192','#6868ff']});
-		});
-	
-	</script>
+   
  
 	
    
@@ -85,18 +78,19 @@ to {
 	<%@ include file="MainHeader.jsp" %>
 
 
-	<div
-		style="width: 100%; height: 200px; text-align: center;  display: table;">
+	<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
 		
 		<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
 			font-size: 60px; color: black; font-weight: bold;">
 			<!-- <img src="./images/memo_w.png" alt="메모"
 				style="width: 50px; height: 50px;" /> -->
-			<i class="fas fa-store" style="width: 45px; height: 45px;"></i>
+<!-- 			<i class="fas fa-store" style="width: 45px; height: 45px;" ></i> -->
 			&nbsp;	
-
-				 편의점 정보가 여기에!
+			
+				<img src="https://image.flaticon.com/icons/svg/1067/1067602.svg" width="80px" height="80px" /> 
+				편의점 정보가 여기에!
+				<img src="https://image.flaticon.com/icons/svg/126/126510.svg" width="80px" height="80px" /> 
 		</p>
 	</div>
 	<div style="width: 100%; text-align: center;">
@@ -131,7 +125,7 @@ to {
 				<input type="text" id="product" />
 				
 				<button type="submit" class="btn">
-							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
+							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
 						</button>
 			</div>     
  	
@@ -150,7 +144,7 @@ to {
 				<button type="submit" onclick="" class="btn btn-warning" >BEST</button>
 				&nbsp;
 		<br /> <br />
-<<<<<<< HEAD
+
 		
 		<div class="album py-5 bg-light">
     <div class="container">
@@ -348,73 +342,7 @@ to {
 <!-- 				</tbody> -->
 <!-- 			</table> -->
 <!-- 		</div> -->
-=======
-		<div>
-			<table class="table table-hover" style="text-align: center;">
-				<colgroup>
-					<col width="10%" />
-					<col width="*" />
-					<col width="25%" />
-					<col width="10%" />
-					<col width="10%" />
-					
-				</colgroup>
-				<thead>
-					<tr class="table-primary" style="color: white;">
-						<th>번호</th>
-						<th>상품명</th>
-						<th>점포명</th>
-						<th>가격</th>
-						<th>재고</th> 
-						
-					</tr>
-				</thead>
-				<tbody>
-				<!-- 상품 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty listRows }">
-								<tr>
-									<td colspan="5" class="text-center">
-										등록된 상품이 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${listRows }" var="row" varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-left">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./view.do?idx=${row.product_name}
-												&nowPage=${nowPage}">${row.product_name}</a>
-										</td >
-										<td class="text-left">${row.place_name } 
-										</td>
-										<td class="text-left">${row.product_price } 
-										</td>
-										<td class="text-left">${row.stock}
-										</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-				</tbody>
-			</table>
-		</div>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
-		<br /> <br />
-		<!-- 	<ul class="pagination justify-content-center"> -->
-		  <div class="container">
-				<table style="width:100%;">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-				</table>
-			</div>
 			<!-- </ul> -->
 		
 		<!-- Footer -->

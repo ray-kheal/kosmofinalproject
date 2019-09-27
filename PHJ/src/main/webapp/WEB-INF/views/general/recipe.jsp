@@ -269,7 +269,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 						<input type="text" name="searchWord" class="form-control"
 							style="width:230px; margin-left:5px;" />
 						<div style="margin-left:10px;">
-							<button type="submit" class="btn btn-outline-success" style="width:60px;">검색</button>
+							<button type="submit" class="btn">
+							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
+						</button>
 						</div>
 					</form>
 					<hr class="mt-2 mb-2">  
