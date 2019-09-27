@@ -57,7 +57,7 @@ body {
 			</p>
 		</div>
 
-		<input type="hid-den" name="product_code" value="${product_code }" />
+		<input type="hidden" name="product_code" value="${product_code }" />
 		<div class="container">
 			<table class="table table-hover" style="text-align: center;">
 				<tbody style="color: black;">
