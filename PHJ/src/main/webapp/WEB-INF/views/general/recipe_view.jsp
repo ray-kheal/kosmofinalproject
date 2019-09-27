@@ -1,3 +1,5 @@
+<%@page import="model.member.MemberDAO"%>
+<%@page import="model.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,7 +9,6 @@
 <meta charset="UTF-8">
 <title>편히점 - QnA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script
@@ -18,15 +19,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
-
-<style type="text/css">
-	@font-face { 
-   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
-   font-weight: normal; font-style: normal;
-}
-nav {
-   font-family: 'Goyang', cursive;
-}
 <style type="text/css">
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -36,7 +28,7 @@ body {
 </style>
 <script>
 	$(function() {
-		$("#service").attr("class", "current");
+		$("#recipe").attr("class", "current");
 	});
 	
 	//삭제여부 확인
@@ -49,6 +41,17 @@ body {
 	    	return false;
 	    }
 	}
+	//추천하기 	
+	function isRecommend(){
+	 	result = confirm('추천하시겠습니까?');
+	 	
+	    if(result){
+	        location.href = "recommend.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+	    }else{
+	    	return false;
+	    }
+	}
+	
 	
 </script>
 <body>
@@ -61,7 +64,7 @@ body {
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
 				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> QnA
+					style="width: 50px; height: 50px;" /> 레시피
 			</p>
 		</div>
 
@@ -71,10 +74,12 @@ body {
 
 			<div class="row text-right" style="float: right;">
 				<h5 style="color: #82b9e4; font-weight: bold; padding-right: 20px;">
-					<i class="far fa-bell"></i>&nbsp;무엇이든 물어보세요~
+					<i class="far fa-bell"></i>&nbsp; 레시피
 				</h5>
 			</div>
-
+			<input type="hidden" name="idx" value="${viewRow.idx }" />
+			<input type="hidden" name="nowPage" value="${nowPage }" />
+			
 			<table class="table table-bordered" style="margin-bottom: -1px;">
 				<colgroup>
 					<col width="80px" />
@@ -84,12 +89,7 @@ body {
 					<col width="80px" />
 					<col width="50px" />
 				</colgroup>
-				<input type="hidden" name="idx" value="${viewRow.idx }" />
-
-				<br />
-				<br />
-
-			
+							
 				<tr>
 					<th bgcolor="#f2efef"
 						style="text-align: center; border-top: 5px solid #82b9e4;">제목</th>
@@ -113,7 +113,7 @@ body {
 				</colgroup>
 				<tr>
 					<th
-						style="text-align: center; border-left: 1px solid #EDEAEA; font-weight: normal;">DATE</th>
+						style="text-align: center; border-left: 1px solid #EDEAEA; font-weight: normal;">작성일</th>
 					<td>${viewRow.postdate}</td>
 					<th style="text-align: center;">조회수</th>
 					<td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
@@ -126,14 +126,24 @@ body {
 			</table>
 			<!-- </div> -->
 			<br /> <br />
-			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">답변글달기</button>
-			<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
-			<%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
-			<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+			<%-- <button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
+			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>--%>
+			  <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
+			<%
+		/* 	String email= get.
+			MemberDAO dao = new MemberDAO();
+			MemberDTO dto = dao.memberView(email);
+		 */	
+			if(session.getAttribute("EMAIL") != null) /* &&session.getAttribute("EMAIL").toString().equals(dto.getEmail())) */ { %> 
+			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
+			<%} %>
+			<button type = "button" id ="recommendBtn" onclick = "isRecommend();">추천하기</button>
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./qna.do';">리스트</button>
+					onclick="location.href='./recipe.do';">리스트</button>
 			</div>
+		</div>
+		
 		</div>
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>

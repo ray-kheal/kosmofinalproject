@@ -21,17 +21,17 @@
 var mst = '<%=session.getAttribute("MEMBERTYPE")%>';
 
 if (mst == 'null') {
-	alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
-	location.href = "../admin/pages/samples/login.do";
+   alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
+   location.href = "../admin/pages/samples/login.do";
 } 
 if (mst == 'normal') {
-	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
-	location.href = "../admin/pages/samples/login.do";
+   alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
+   location.href = "../admin/pages/samples/login.do";
 }  
 
 </script>
 <body>
-	<div class="container-scroller">  
+   <div class="container-scroller">  
       <!-- partial:partials/_navbar.do -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -162,9 +162,9 @@ if (mst == 'normal') {
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class=" mb-3">Weekly New Member<i class="mdi mdi-account-plus mdi-24px float-right"></i>
+                    <h4 class=" mb-3">Total Member<i class="mdi mdi-account-plus mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">500 People</h2>
+                    <h2 class="mb-5">${member_totalRecordCount } People</h2>
                     <h6 class="card-text">Increased by 60%</h6>
                   </div>  
                 </div>
@@ -184,14 +184,16 @@ if (mst == 'normal') {
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly New product <i class="mdi mdi-shopping mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Total QnA <i class="mdi mdi-shopping mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">100</h2>
+                    <h2 class="mb-5">${totalRecordCount }</h2>
                     <h6 class="card-text">Increased by 5%</h6>
                   </div>
                 </div>
               </div>
             </div>
+            
+            
             <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
@@ -214,6 +216,141 @@ if (mst == 'normal') {
                 </div>
               </div>
             </div>    
+            
+            
+            <div class="row">
+              <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="clearfix">
+                      <h4 class="card-title float-left">Recent Updates</h4>
+                    <br />
+                       <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i>최근가입회원</h5>
+                       <table class="table table-hover" style="text-align: center;">
+                  <colgroup>    
+                     <col width="5%" />
+                     <col width="7%" />
+                     <col width="*" />
+                     <col width="15%" />
+                     <col width="7%" />
+                  </colgroup>
+                  <thead>
+                     <tr class="table-danger" style="color: white;">
+                        <th>번호</th>
+                        <th>회원명</th>
+                        <th>이메일</th>
+                        <th>핸드폰 번호</th>
+                        <th>가입일</th>
+                     </tr>
+                  </thead>
+                  <tbody style="color:black;"> 
+                     
+                           <!-- 회원 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty viewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다.
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${viewRow }" var="row" 
+                              varStatus="loop">
+                              <!-- 리스트반복시작 -->
+                              <tr>
+                                  <td class="text-center">${row.virtualNum }</td>
+                                 <td class="text-left">
+                                    ${row.name}
+                                 </td >
+                                 <td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+               </table>
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Updates</h4>
+                         <br />  
+                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i>최근문의사항</h5>
+                         <table class="table table-hover" style="text-align: center;">
+                        <colgroup>
+                      
+                     <col width="5%" />
+                     <col width="*" />
+                     <col width="10%" />
+                     <col width="10%" />
+                     <col width="5%" />
+                  </colgroup>
+                  <thead> 
+                     <tr  style="color: white; background-color:#6ea2d3; " >
+                        <th>no</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                        <th>조회</th>
+                     </tr>   
+                  </thead>
+                         <tbody style="color: black;">
+                             <!-- 게시판 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty qnaviewRow }">
+                           <tr>
+                              <td colspan="5" class="text-center">
+                                 등록된 게시물이 없습니다.
+                              </td>
+                           </tr>
+                        </c:when>
+                        <c:otherwise>
+                           <c:forEach items="${qnaviewRow }" var="row" 
+                              varStatus="loop">
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-center">${row.virtualNum }</td>
+                                 <td class="text-left">
+                                    <a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
+                                          ${row.title}
+                                    </a>
+                                 </td >
+                                 <td class="text-center">${row.name}</td>
+                                 <td class="text-center">${row.postdate}
+                                 </td>
+                                 <td class="text-center">${row.view_count }</td>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+                         
+                          
+                         </tbody>
+                       </table>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>    
+            
+            
            <div class="row">
               <!-- <div class="col-12 grid-margin">
                 <div class="card">
@@ -274,9 +411,11 @@ if (mst == 'normal') {
                         </tbody>
                       </table>-->
                  <!--    </div>
-                  </div>  
+                  </div>   
                 </div>
               </div> -->
+              
+         <!--      
             </div>
             <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
@@ -285,62 +424,7 @@ if (mst == 'normal') {
                     <div class="clearfix">
                       <h4 class="card-title float-left">Recent Updates</h4>
                       
-                      
-                    <h5 class="card-title">&nbsp;<i class="mdi mdi-account-multiple"></i>&nbsp;최근가입회원</h5>
-                    <table class="table table-hover" style="text-align: center;">
-					<colgroup>
-						<col width="5%" />
-						<col width="7%" />
-						<col width="*" />
-						<col width="15%" />
-						<col width="5%" />
-						<col width="7%" />
-					</colgroup>
-					<thead>
-						<tr class="table-danger" style="color: white;">
-							<th>번호</th>
-							<th>회원명</th>
-							<th>이메일</th>
-							<th>핸드폰 번호</th>
-							<th>알림설정</th>
-							<th>가입일</th>
-						</tr>
-					</thead>
-					<tbody style="color:black;"> 
-						
-                        <!-- 회원 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty viewRow }">
-								<tr>
-									<td colspan="8" class="text-center">
-										등록된 회원이 없습니다.
-									</td>
-								</tr>
-							</c:when>   
-							<c:otherwise>
-								<c:forEach items="${viewRow }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./view.do?type=${row.membertype}
-												&nowPage=${nowPage}">${row.name}</a>
-										</td >
-										<td class="text-center">${row.email }</td>
-										<td class="text-center">${row.mobile }</td>
-										<td class="text-center">${row.mobile_alert }</td>
-										<td class="text-center">${row.regidate }</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-       
-					</tbody>
-				</table>
-                      
-                      
+                       
                       
                   </div>
                 </div>
@@ -351,15 +435,11 @@ if (mst == 'normal') {
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Recent QnA</h4>
-                    
-                  
-                  
-                  
                   
                   
                 </div>
               </div>
-            </div>     
+            </div>      -->
             
             
             

@@ -48,11 +48,12 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+			style="width: 100%; height: 200px; text-align: center; display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 이벤트
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: black; font-weight: bold;">
+				<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2019/png/iconmonstr-party-16.png&r=0&g=0&b=0" width="80px" height="80px" /> 
+						이벤트게시판
+				<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2019/96/iconmonstr-party-20.png" width="80px" height="80px" /> 
 			</p>
 		</div>
 		  
@@ -61,7 +62,7 @@ body {
 			<br /><br />
 			
 			<div class="row text-right" style="float: right;">
-				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px;"><i class="far fa-smile-wink"></i>&nbsp;이벤트를 확인하세요</h5>
+				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' "><i class="far fa-smile-wink"></i>&nbsp;이벤트를 확인하세요</h5>
 			</div>
 			
 			<table class="table table-bordered" style="margin-bottom: -1px;">
@@ -116,7 +117,7 @@ body {
 						
 		<div class="row text-right" style="float: right;">
            	<button type="button" class="btn btn-dark btn-sm" 
-					onclick="location.href='./event.do';">리스트</button>
+					 onclick="location.href='./event.do';">리스트</button>
 									
 		</div>
 	</div>
