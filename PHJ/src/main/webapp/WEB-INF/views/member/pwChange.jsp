@@ -40,10 +40,6 @@
 	}
 </style>
 <script type="text/javascript">
-	history.pushState(null, null, location.href);
-		window.onpopstate = function () {
-		   	history.go(1);
-	};
 </script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
@@ -58,25 +54,31 @@
 				<div class="findPop find" id="findPop find form" >
 					<div class="findPop find" id="findPop find form" >
 							
-						<h3 id="Maintitle">4자리의 인증번호를 입력하세요.</h3>
+						<h3 id="Maintitle">비밀번호를 변경합니다.</h3>
 	 				
 						<div class="findPop" id="findPop IDfind">
 				
-								<form method="post"  class="" name="f" action="certification.do" onsubmit="sendIt(f);">
+								<form method="post"  class="" name="f" action="">
 									<table summary="인증번호를 입력할 수 있습니다.">
-										<caption>인증번호 입력폼</caption>
+										<caption>비밀번호 변경 입력폼</caption>
 										<colgroup>
 											<col width="100px">
 											<col width="*">
 										</colgroup>
 										<tbody>
 											<tr>
-												<th scope="row"><label for="name">인증번호</label></th>
+												<th scope="row"><label for="name">변경할<br /> 비밀번호</label></th>
 												<td>
 													<div class="formbox">
-														<% String cerOk = (String)session.getAttribute("rndPass"); %>
-														<input type="hidden" id="cerOk" name="cerOk" value="<%=cerOk %>" />
-														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass" />
+														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass">
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="name">비밀번호<br /> 확인</label></th>
+												<td>
+													<div class="formbox">
+														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass">
 													</div>
 												</td>
 											</tr>
