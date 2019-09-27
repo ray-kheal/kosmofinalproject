@@ -57,11 +57,11 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+			style="width: 100%; height: 200px; text-align: center; display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> QnA
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+				<img src="https://image.flaticon.com/icons/svg/263/263062.svg" width="80px" height="80px" /> 
+						여기에 남겨주세요~
 			</p>
 		</div>
 
@@ -70,7 +70,7 @@ body {
 			<br />
 
 			<div class="row text-right" style="float: right;">
-				<h5 style="color: #82b9e4; font-weight: bold; padding-right: 20px;">
+				<h5 style="color: #82b9e4; font-weight: bold; padding-right: 20px; font-family: Goyang">
 					<i class="far fa-bell"></i>&nbsp;무엇이든 물어보세요~
 				</h5>
 			</div>

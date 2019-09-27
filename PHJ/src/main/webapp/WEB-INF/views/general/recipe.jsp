@@ -253,8 +253,8 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 		<br /> <br /> <br />
 		<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-			<img src="images/fork_round.png" alt="포크"
-				style="width: 50px; height: 50px;" /> RECIPE <br />
+					RECIPE
+				<img src="https://image.flaticon.com/icons/svg/1411/1411258.svg" width="80px" height="80px" /> 
 		</p>
 	</div>
 		<!-- Page Content -->
@@ -278,8 +278,8 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					<br />
 					<div class="row text-right">
 					<%if(session.getAttribute("EMAIL") != null) { %> 
-						<button type="submit" class="btn btn-warning" style="margin-left:auto;"
-						onclick="location.href='./recipe_edit.do';">글쓰기</button>
+						<button type="submit" class="btn" style="margin:0 auto;"
+						onclick="location.href='./recipe_edit.do';">글쓰기 &nbsp; <img src="https://image.flaticon.com/icons/svg/1159/1159633.svg" width="25px" height="25px"/></button>
 						<%} %>
 					</div>
 			

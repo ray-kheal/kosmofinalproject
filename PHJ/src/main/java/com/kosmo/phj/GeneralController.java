@@ -65,7 +65,7 @@ public class GeneralController {
 	@RequestMapping("notice.do")
 	public String notice(Model model, HttpServletRequest req) {
 		model.addAttribute("req",req);
-		
+		model.addAttribute("board_type",1);
 		command = new ListCommand();
 		command.execute(model);
 		

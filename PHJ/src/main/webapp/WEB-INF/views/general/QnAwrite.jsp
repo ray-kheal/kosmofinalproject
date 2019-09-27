@@ -25,6 +25,15 @@ body {
 	font-family: verdana;
 	font-size: 12px;
 }
+
+<style type="text/css">
+@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
 </style>
 <script>
 	$(function() {
@@ -67,11 +76,12 @@ function checkValidate(f){
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+			style="width: 100%; height: 200px; text-align: center;  display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" />무엇이든 물어보세요
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+				<img src="https://image.flaticon.com/icons/svg/942/942796.svg" width="80px" height="80px" /> 
+				궁금한 점을 물어봐주세요!
+				
 			</p>
 		</div>
 		  
@@ -80,7 +90,7 @@ function checkValidate(f){
 			<br /><br />
 			
 			<div class="row text-right" style="float: right;">
-				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px;"><i class="far fa-question-circle"></i>&nbsp;궁금한 점이 있으신가요</h5>
+				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: Goyang"><i class="far fa-question-circle"></i>&nbsp;궁금한 점이 있으신가요</h5>
 			</div>
 			
 			<form action="writeAction.do" name = "writeFrm" method = "post" 

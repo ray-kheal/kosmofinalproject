@@ -170,7 +170,7 @@ body {
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<	<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
 		
 		<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
