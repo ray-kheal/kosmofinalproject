@@ -170,19 +170,21 @@ body {
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
-			style="width: 100%; height: 200px; text-align: center;  display: table;"  >
+		<	<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+		
+		<p
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+			font-size: 60px; color: black; font-weight: bold;">
+			<!-- <img src="./images/memo_w.png" alt="메모"
+				style="width: 50px; height: 50px;" /> -->
+<!-- 			<i class="fas fa-store" style="width: 45px; height: 45px;" ></i> -->
+			&nbsp;	
 			
-				
-			<!-- 컨텐츠 -->
-			
-			
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-				
-					<i class="fas fa-search-location" style="width: 50px; height: 50px;"></i>&nbsp;
-					근처 편의점 찾기
-			</p>
+				<img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
+				편의점을 찾아보아요
+				<img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
+		</p>
+	</div>
 		</div>
 		<!-- Main -->
 		<div id="main-wrapper">

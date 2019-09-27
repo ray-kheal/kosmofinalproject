@@ -39,35 +39,7 @@ keyframes blink {
 
 30%
 {
-color
-
-
-
-
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-yellow
-
-
-
-
-
-
-
-
-;
+color :yellow;
 }
 to {
 	color: red;
@@ -97,6 +69,17 @@ to {
    <br /><br />
       <img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
    </div> -->
+
+   
+     <!-- 텍스트 색상 강조  -->
+   
+ 
+	
+   
+   <!-- 헤더파일 인클루드 -->
+	<%@ include file="MainHeader.jsp" %>
+
+
 
 	<!-- 텍스트 색상 강조  -->
 	<script>
@@ -138,12 +121,12 @@ to {
 	<div
 		style="width: 100%; height: 200px; text-align: center; display: table;">
 
-		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: black; font-weight: bold;">
 			<!-- <img src="./images/memo_w.png" alt="메모"
 				style="width: 50px; height: 50px;" /> -->
+
 			<i class="fas fa-store" style="width: 45px; height: 45px;"></i>
 			&nbsp; 편의점 정보가 여기에!
+
 		</p>
 	</div>
 	<div style="width: 100%; text-align: center;">
@@ -176,6 +159,7 @@ to {
 				</select> <input type="text" id="product" />
 
 				<button type="submit" class="btn">
+
 					검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg"
 						width="25px" height="25px" /><i
 						class="glyphicon glyphicon-search"></i>
@@ -241,6 +225,7 @@ to {
 					</tr>
 				</table>
 			</div>
+
 			<!-- </ul> -->
 
 			<!-- Footer -->

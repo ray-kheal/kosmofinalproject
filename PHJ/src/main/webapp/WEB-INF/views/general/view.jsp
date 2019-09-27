@@ -48,11 +48,12 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+			style="width: 100%; height: 200px; text-align: center; 	 display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 공지사항
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: black; font-weight: bold;">
+				 
+						공지사항
+				<img src="https://image.flaticon.com/icons/svg/1189/1189734.svg" width="80px" height="80px" /> 
 			</p>
 		</div>
 		  
