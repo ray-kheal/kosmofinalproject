@@ -49,8 +49,15 @@ if (mst == 'normal') {
             <div class="page-header">
               <div class="container">
              	<h3 class="page-title" style="font-weight: bold;">상품관리</h3> 
-             	<br /><br />
-             	<h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
+             	<%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
+             	 <div style="text-align: right;">
+	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 
+	             		onclick="location.href='../../../findproduct.do';">
+	                 <i class="mdi mdi-logout-variant"></i>
+	             </button>
+	              <br />
+	              <p style="font-size: 0.7em; color:#c6c6c6;">Go Site!</p>
+	           </div>
             <!-- 
             	<nav aria-label="breadcrumb">
                	 <ol class="breadcrumb">
@@ -88,15 +95,15 @@ if (mst == 'normal') {
                     <table class="table table-hover" style="text-align: center;">
                       <colgroup>
 						<%-- <col width="30px" /> --%>
-						<col width="20px" />
-						<col width="50px" />
+						<col width="10%" />
+						<col width="5%" />
 						<col width="*" />
-						<col width="80px" />
-						<col width="120px" />
-					</colgroup>  
+						<col width="10%" />
+						<col width="20%" />
+					</colgroup>   
                         
-                      <thead>
-                        <tr class="table-info" style="color: white;" valign="middle">
+                      <thead> 
+                        <tr style="color: white; background-color:#6ea2d3; "  >
                          <!--  <th>전체 <br />
                           	<input type="checkbox" name="check_all" id="check_all" onclick="checkDelete();">
                 			<label for="checkbox"></label>
@@ -132,7 +139,7 @@ if (mst == 'normal') {
 										<td class="text-center">${row.product_code }</td>
 										<td class="text-left">${row.product_name}
 										</td >
-										<td class="text-left">${row.product_price}
+										<td class="text-center">${row.product_price}
 										</td>
 										<td class="text-center">${row.product_value }</td>
 									</tr>
