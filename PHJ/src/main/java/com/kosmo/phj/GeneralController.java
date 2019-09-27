@@ -61,13 +61,11 @@ public class GeneralController {
 		System.out.println("product 익스큐트 실행완료");
 		return "general/findproduct";
 	}
-	
 	//공지사항게시판
 	@RequestMapping("notice.do")
 	public String notice(Model model, HttpServletRequest req) {
 		model.addAttribute("req",req);
 		model.addAttribute("board_type",1);
-		
 		command = new ListCommand();
 		command.execute(model);
 		
@@ -84,9 +82,6 @@ public class GeneralController {
 		command.execute(model);
 		return "general/event";
 	}
-
-	
-	
 	//레시피 게시판
 	@RequestMapping("recipe.do")
 	public String recipe(Model model, HttpServletRequest req) {

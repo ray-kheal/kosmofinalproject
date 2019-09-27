@@ -55,13 +55,14 @@ nav {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+			style="width: 100%; height: 200px; text-align: center;  display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
 					style="width: 50px; height: 50px;" /> -->
-					<i class="far fa-smile" style="width: 50px; height: 50px;"></i>
-					무엇이든 물어보세요
+					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-marketing-23.png&r=0&g=0&b=0" width="80px" height="80px" /> 
+						궁금하면 500원
+					<img src="https://image.flaticon.com/icons/svg/76/76818.svg" width="80px" height="80px" /> 
 			</p>
 		</div>
 		
@@ -83,8 +84,8 @@ nav {
 						style="width: 120px;" />
 
 					<div class="input-group-btn">
-						<button type="submit" class="btn btn-outline-secondary ">
-							검색 <i class="glyphicon glyphicon-search"></i>
+						<button type="submit" class="btn">
+							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
@@ -108,11 +109,11 @@ nav {
 					</colgroup>
 					<thead>
 						<tr class="table-primary" style="color: white;">
-							<th style="text-align: center;">번호</th>
-							<th style="text-align: center;">제목</th>
-							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">조회</th>
-							<th style="text-align: center;">작성일</th>
+							<th style="text-align: center; font-family: Goyang">번호</th>
+							<th style="text-align: center; font-family: Goyang">제목</th>
+							<th style="text-align: center; font-family: Goyang">작성자</th>
+							<th style="text-align: center; font-family: Goyang">조회수</th>
+							<th style="text-align: center; font-family: Goyang">등록날짜</th>
 						</tr>
 					</thead>
 					<tbody>

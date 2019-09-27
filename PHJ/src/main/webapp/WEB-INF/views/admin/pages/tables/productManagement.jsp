@@ -71,7 +71,7 @@ if (mst == 'normal') {
 					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
 						<option value="product_name">상품명</option>
 						<option value="product_price">가격</option>
-						<option value="product_value_code">상품코드</option>
+						<option value="product_value">상품코드</option>
 					</select>
 				</div> 
 				<div class="input-group">

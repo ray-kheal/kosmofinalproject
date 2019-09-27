@@ -202,7 +202,11 @@ if (mst == 'normal') {
             </div>
             
             
+<<<<<<< HEAD
             <%-- <div class="row">
+=======
+            <div class="row">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -225,13 +229,155 @@ if (mst == 'normal') {
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
             </div>     --%>
              
             <!-- -------------------------------------------------------------------최근가입회원 -->
             <div class="row">
             
               <div class="col-md-4 grid-margin stretch-card">
+=======
+            </div>    
+            
+            
+            <div class="row">
+              <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
+                  <div class="card-body">
+                    <div class="clearfix">
+                      <h4 class="card-title float-left">Recent Updates</h4>
+                    <br />
+                       <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i>최근가입회원</h5>
+                       <table class="table table-hover" style="text-align: center;">
+                  <colgroup>    
+                     <col width="5%" />
+                     <col width="7%" />
+                     <col width="*" />
+                     <col width="15%" />
+                     <col width="7%" />
+                  </colgroup>
+                  <thead>
+                     <tr class="table-danger" style="color: white;">
+                        <th>번호</th>
+                        <th>회원명</th>
+                        <th>이메일</th>
+                        <th>핸드폰 번호</th>
+                        <th>가입일</th>
+                     </tr>
+                  </thead>
+                  <tbody style="color:black;"> 
+                     
+                           <!-- 회원 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty viewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다.
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${viewRow }" var="row" 
+                              varStatus="loop">
+                              <!-- 리스트반복시작 -->
+                              <tr>
+                                  <td class="text-center">${row.virtualNum }</td>
+                                 <td class="text-left">
+                                    ${row.name}
+                                 </td >
+                                 <td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+               </table>
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Updates</h4>
+                         <br />  
+                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i>최근문의사항</h5>
+                         <table class="table table-hover" style="text-align: center;">
+                        <colgroup>
+                      
+                     <col width="5%" />
+                     <col width="*" />
+                     <col width="10%" />
+                     <col width="10%" />
+                     <col width="5%" />
+                  </colgroup>
+                  <thead> 
+                     <tr  style="color: white; background-color:#6ea2d3; " >
+                        <th>no</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                        <th>조회</th>
+                     </tr>   
+                  </thead>
+                         <tbody style="color: black;">
+                             <!-- 게시판 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty qnaviewRow }">
+                           <tr>
+                              <td colspan="5" class="text-center">
+                                 등록된 게시물이 없습니다.
+                              </td>
+                           </tr>
+                        </c:when>
+                        <c:otherwise>
+                           <c:forEach items="${qnaviewRow }" var="row" 
+                              varStatus="loop">
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-center">${row.virtualNum }</td>
+                                 <td class="text-left">
+                                    <a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
+                                          ${row.title}
+                                    </a>
+                                 </td >
+                                 <td class="text-center">${row.name}</td>
+                                 <td class="text-center">${row.postdate}
+                                 </td>
+                                 <td class="text-center">${row.view_count }</td>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+                         
+                          
+                         </tbody>
+                       </table>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>    
+            
+            
+           <div class="row">
+              <!-- <div class="col-12 grid-margin">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+                <div class="card">
+<<<<<<< HEAD
                   <div class="card-body">
                     <div class="clearfix">
                     
@@ -324,7 +470,68 @@ if (mst == 'normal') {
 					</table>
                     </div>
                   </div> 
+=======
+                   <div class="card-body">
+                    <h4 class="card-title">Recent Tickets</h4>
+                    <div class="table-responsive"> --> 
+                      <!--<table class="table">
+                        <thead>
+                          <tr>
+                            <th> Assignee </th>
+                            <th> Subject </th>
+                            <th> Status </th>
+                            <th> Last Update </th>
+                            <th> Tracking ID </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image"> David Grey </td>
+                            <td> Fund is not recieved </td>
+                            <td>
+                              <label class="badge badge-gradient-success">DONE</label>
+                            </td>
+                            <td> Dec 5, 2017 </td>
+                            <td> WD-12345 </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <img src="assets/images/faces/face2.jpg" class="mr-2" alt="image"> Stella Johnson </td>
+                            <td> High loading time </td>
+                            <td>
+                              <label class="badge badge-gradient-warning">PROGRESS</label>
+                            </td>
+                            <td> Dec 12, 2017 </td>
+                            <td> WD-12346 </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <img src="assets/images/faces/face3.jpg" class="mr-2" alt="image"> Marina Michel </td>
+                            <td> Website down for one week </td>
+                            <td>
+                              <label class="badge badge-gradient-info">ON HOLD</label>
+                            </td>
+                            <td> Dec 16, 2017 </td>
+                            <td> WD-12347 </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <img src="assets/images/faces/face4.jpg" class="mr-2" alt="image"> John Doe </td>
+                            <td> Loosing control on server </td>
+                            <td>
+                              <label class="badge badge-gradient-danger">REJECTED</label>
+                            </td>
+                            <td> Dec 3, 2017 </td>
+                            <td> WD-12348 </td>
+                          </tr>
+                        </tbody>
+                      </table>-->
+                 <!--    </div>
+                  </div>   
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                 </div>
+<<<<<<< HEAD
               </div>
               <!-- -------------------------------------------------------------------최근문의사항 -->
               <div class="col-md-8 grid-margin stretch-card">
@@ -511,6 +718,9 @@ if (mst == 'normal') {
               </div>
               
              </div>
+=======
+              </div> -->
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
               
          <!--      
             </div>

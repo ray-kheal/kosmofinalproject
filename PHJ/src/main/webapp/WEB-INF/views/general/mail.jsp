@@ -56,12 +56,12 @@ nav {
 		$("#service").attr("class", "current");
 	});
 </script>
-<style type="text/css">
-body {
-	font-family: 'Mali', cursive;
-	font-family: 'Gamja Flower', cursive
-}
-</style>
+<!-- <style type="text/css"> -->
+/* body { */
+/* 	font-family: 'Mali', cursive; */
+/* 	font-family: 'Gamja Flower', cursive */
+/* } */
+<!-- </style> -->
 <body class="is-preload left-sidebar">
 
 	<!-- 메인헤더 인클루드 -->
@@ -76,7 +76,7 @@ body {
 
 						<!-- Sidebar -->
 						<section class="widget contact">
-							<h3>Contact Us</h3>
+							<h3 >Contact Us</h3>
 							<ul>
 								<li><a href="./twitter.do" class="icon brands fa-twitter"><span
 										class="label">Twitter</span></a></li>
@@ -89,7 +89,7 @@ body {
 								<li><a href="" class="icon brands fa-pinterest"><span
 										class="label">Pinterest</span></a></li>
 							</ul>
-							<p>
+							<p style="font-family: Goyang" >
 								서울특별시 금천구 가산동 426-5 <br /> 월드 메르디앙 벤처 센터 2 차 410 호<br />  (02) 2025-4119 
 								
 							</p>
@@ -101,8 +101,10 @@ body {
 
 						<!-- Content -->
 						<article>
+						
 
-							<h2 style="font-family: Goyang;">1:1 문의하기</h2>
+							<h2 style="font-family: Goyang; text-align: center;" > <img src="https://image.flaticon.com/icons/svg/1067/1067566.svg" width="80px" height="80px" />1:1 문의하기</h2>
+							
 							<form action="InquireEmail.do" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">
 
@@ -127,7 +129,7 @@ body {
 													value=""></textarea></td>
 										</tr>
 										<tr>
-											<td colspan="2" style="text-align:center;"><button type="submit" style="float: center; font-family: Goyang;">문의하기</button></td>
+											<td colspan="2" style="text-align:center;"><button type="submit" class="btn" style="float: center; font-family: Goyang; font-size: 20px;">문의하기<img src="https://image.flaticon.com/icons/svg/2139/2139118.svg" width="30px" height="30px" /></button></td>
 										</tr>
 									</table>
 
