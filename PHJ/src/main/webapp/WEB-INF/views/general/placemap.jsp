@@ -115,7 +115,7 @@ body {
 	 	
 		var locations = [		
 			<c:forEach items="${searchLists }" var="row">
-				['${row.place_name} '+'${row.place_name2}' ,  ${row.latitude },${row.longitude }], 
+				['${row.place_name}' ,  ${row.latitude },${row.longitude }], 
 			</c:forEach> 
 		];
 		
@@ -229,20 +229,20 @@ body {
 							<input type="hidden" id="lngTxt" name="lngTxt" />
 							<h5>근처 편의점 찾기</h5> <br />
 							<select name="distance" id="distance">
-								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>100m</option>
-								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>200m</option>
-								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>500m</option>
-								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1Km</option>
+								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
+								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
+								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
+								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
 
 							</select>
 <!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
 <!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
 							<br/><br/>
-							<!-- <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;"/> -->
-						<!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  /> -->
-						<a href="javascript:document.searchFrm.onsubmit()">
+							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
+						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
+						<!-- <a href="javascript:document.searchFrm.onsubmit();">
 							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
-						</a>
+						</a> -->
 
 						</form>
 					
@@ -252,7 +252,34 @@ body {
 					<!-- <td></td> -->
 					<td style="text-align: center;">
 						<h5>근처 편의점 목록</h5> <br />
-					
+						<table class="table table-bordered">
+					<c:choose>
+							<c:when test="${empty searchLists }">
+								<tr>
+									<td colspan="2" class="text-center">
+										등록된 점포가 없습니다.
+									</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${searchLists }" var="row" 
+									varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										 <td class="text-center">${row.place_name }</td>
+										<td class="text-left">${row.place_address}</td>
+									</tr>
+									
+									<!-- 리스트반복끝 -->
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+						<tr>
+							<td colspan="2" align="center" style="font-weight: bold; font-size: 1.5em; ">
+								${pagingImg }
+							</td>
+						</tr>
+						</table>
 					</td>
 				</tr>			
 			</table>

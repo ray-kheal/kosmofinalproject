@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class recipeDTO {
 
-	private int Idx;
+	private int idx;
 	private String image_name;
 	private String title;
 	private String content;
@@ -12,12 +12,13 @@ public class recipeDTO {
 	private int view_count;
 	private Date postdate;
 	private String recommend;
+	private int virtualNum;
 	
 	public recipeDTO() {}
 
 	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
-			Date postdate, String recommend) {
-		Idx = idx;
+			Date postdate, String recommend,int virtualNum) {
+		this.idx = idx;
 		this.image_name = image_name;
 		this.title = title;
 		this.content = content;
@@ -25,14 +26,15 @@ public class recipeDTO {
 		this.view_count = view_count;
 		this.postdate = postdate;
 		this.recommend = recommend;
+		this.virtualNum = virtualNum;
 	}
 
 	public int getIdx() {
-		return Idx;
+		return idx;
 	}
 
 	public void setIdx(int idx) {
-		Idx = idx;
+		this.idx = idx;
 	}
 
 	public String getImage_name() {
@@ -75,11 +77,11 @@ public class recipeDTO {
 		this.view_count = view_count;
 	}
 
-	public Date getPostdate() {
+	public Date getpostdate() {
 		return postdate;
 	}
 
-	public void setPostdate(Date postdate) {
+	public void setpostdate(Date postdate) {
 		this.postdate = postdate;
 	}
 
@@ -90,5 +92,12 @@ public class recipeDTO {
 	public void setRecommend(String recommend) {
 		this.recommend = recommend;
 	}
-	
+	public int getVirtualNum() {
+		return virtualNum;
+	}
+
+	public void setVirtualNum(int virtualNum) {
+		this.virtualNum = virtualNum;
+	}
+
 }

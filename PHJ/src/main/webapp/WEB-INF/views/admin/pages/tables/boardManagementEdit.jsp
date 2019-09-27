@@ -28,6 +28,18 @@ if (mst == 'normal') {
 	location.href = "../admin/pages/samples/login.do";
 } 
 
+function checkValidate(f){
+	if(f.title.value==""){
+		alert("제목을 입력하세요.");
+		f.title.focus();
+		return false;
+	}
+	if(f.content.value==""){
+		alert("내용을 입력하세요.");
+		f.content.focus();
+		return false;
+	}
+}
 </script>
   <body>
     <div class="container-scroller">
@@ -69,7 +81,11 @@ if (mst == 'normal') {
 			<div class="card">
                   <div class="card-body">
                     <h4 class="card-title "><i class="mdi mdi-lead-pencil"></i>&nbsp;게시판 글쓰기</h4>
-                    <form class="forms-sample">
+                    
+                    <form action="./boardManagementEditAction.do" name = "writeFrm" method = "post" 
+						onsubmit="return checkValidate(this);">
+                    <input type="hidden" name="idx" value = "${viewRow.idx }"  />
+					<input type="hidden" name="nowPage" value = "${param.nowPage }" />
                       <div class="form-group">
                         <label for="exampleInputName1">이름</label>
                         <input type="text" class="form-control" id="name" value="관리자">
@@ -80,7 +96,7 @@ if (mst == 'normal') {
                       </div> -->
                       <div class="form-group">
                         <label for="exampleInputPassword4">제목</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title">
+                        <input type="text" class="form-control" name="title" id="title" value="${viewRow.title}">
                       </div>
                      <!--  <div class="form-group">
                         <label>파일업로드</label>
@@ -94,10 +110,10 @@ if (mst == 'normal') {
                       </div> -->
                       <div class="form-group">
                         <label for="exampleTextarea1">내용</label>
-                        <textarea class="form-control" id="content" rows="10"></textarea>
+                        <textarea class="form-control" name="content" id="content" rows="10">${viewRow.content}</textarea>
                       </div>
                      
-                    </form>
+                   
                   </div>
                 </div>
 			<br /><br />
@@ -106,6 +122,7 @@ if (mst == 'normal') {
                  <button class="btn btn-light btn-rounded">Reset</button>
                  <button class="btn btn-dark btn-rounded"
                  	onclick="location.href='./boardManagement.do';">List</button>
+            </form>	
 			</div>	
             </div>
       </div>

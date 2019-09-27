@@ -96,6 +96,7 @@ public class GeneralController {
 		return "general/recipe";
 	}
 	
+	//편의점찾기 페이지
 	@RequestMapping("placemap.do")
 	public String placemap(Model model, HttpServletRequest req) {
 		
