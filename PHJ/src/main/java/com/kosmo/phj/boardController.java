@@ -24,6 +24,7 @@ import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeEditActionCommand;
 import command.board.RecipeListViewCommand;
+import command.board.RecommendCommand;
 import command.board.StockListCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
@@ -180,8 +181,8 @@ public class boardController {
 
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:qna.do";
-
 	}
+	
 	
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
@@ -209,6 +210,18 @@ public class boardController {
 		command = new RecipeListViewCommand();
 		command.execute(model);
 		return "general/recipe_view";
+	}
+	
+	//레시피 추천수 증가 
+	@RequestMapping("recommend.do")
+	public String recommend(Model model, HttpServletRequest req) {
+		System.out.println("들어왔니?");
+		model.addAttribute("req", req);
+		command = new RecommendCommand();
+		command.execute(model);
+
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		return "redirect:recipe.do";
 	}
 	
 	

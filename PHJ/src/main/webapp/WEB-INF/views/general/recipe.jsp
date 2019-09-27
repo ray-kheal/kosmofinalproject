@@ -328,7 +328,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					</div>
 				</c:otherwise>
 			</c:choose>
-		 
+	
 
 		</div>
 		<!-- /.container -->

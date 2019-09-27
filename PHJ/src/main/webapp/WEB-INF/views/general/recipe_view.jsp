@@ -1,3 +1,5 @@
+<%@page import="model.member.MemberDAO"%>
+<%@page import="model.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -39,6 +41,17 @@ body {
 	    	return false;
 	    }
 	}
+	//추천하기 	
+	function isRecommend(){
+	 	result = confirm('추천하시겠습니까?');
+	 	
+	    if(result){
+	        location.href = "recommend.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+	    }else{
+	    	return false;
+	    }
+	}
+	
 	
 </script>
 <body>
@@ -116,7 +129,15 @@ body {
 			<%-- <button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
 			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>--%>
 			  <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
+			<%
+		/* 	String email= get.
+			MemberDAO dao = new MemberDAO();
+			MemberDTO dto = dao.memberView(email);
+		 */	
+			if(session.getAttribute("EMAIL") != null) /* &&session.getAttribute("EMAIL").toString().equals(dto.getEmail())) */ { %> 
 			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
+			<%} %>
+			<button type = "button" id ="recommendBtn" onclick = "isRecommend();">추천하기</button>
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm"
 					onclick="location.href='./recipe.do';">리스트</button>
