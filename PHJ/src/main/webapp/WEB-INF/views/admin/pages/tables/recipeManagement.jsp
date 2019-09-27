@@ -50,7 +50,7 @@ if (mst == 'normal') {
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">레시피 게시판</h3> 
+             <h3 class="page-title" style="font-weight: bold;"><mark class="bg-dark text-white">레시피 게시판</mark></h3> 
              <%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
               <div style="text-align: right;">
 	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 

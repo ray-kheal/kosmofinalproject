@@ -16,22 +16,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 </head>
 <script>
 var mst = '<%=session.getAttribute("MEMBERTYPE")%>';
 
 if (mst == 'null') {
-	alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
-	location.href = "../admin/pages/samples/login.do";
+   alert("비로그인 사용자는 접근이 불가합니다. 메인 홈페이지로 이동합니다. \r\n 테스트중에는 관리자 로그인페이지로 이동합니다.");
+   location.href = "../admin/pages/samples/login.do";
 } 
 if (mst == 'normal') {
-	alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
-	location.href = "../admin/pages/samples/login.do";
+   alert('관리자만 이용할 수 있습니다 일반회원은 사용이 불가능합니다..');
+   location.href = "../admin/pages/samples/login.do";
 }  
 
 </script>
+
 <body>
-	<div class="container-scroller">  
+   <div class="container-scroller">  
       <!-- partial:partials/_navbar.do -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -128,6 +130,7 @@ if (mst == 'normal') {
                   <li class="nav-item"> <a class="nav-link" href="pages/tables/boardManagement.do">공지사항</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/tables/recipeManagement.do">레시피 게시판</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/tables/eventManagement.do">이벤트 게시판</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/tables/qnaManagement.do">QnA 게시판</a></li>
                 </ul>
               </div>
             </li> 
@@ -143,7 +146,7 @@ if (mst == 'normal') {
               <div class="col-12">
                  <i class="mdi mdi-close" id="bannerClose"></i> 
               </div>
-            </div>
+            </div> 
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-info text-white mr-2">
@@ -154,7 +157,7 @@ if (mst == 'normal') {
                   <li class="breadcrumb-item active" aria-current="page">
                     <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                   </li>
-                </ul>
+                </ul>  
               </nav>  -->
             </div>
             <div class="row">
@@ -162,45 +165,54 @@ if (mst == 'normal') {
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class=" mb-3">Weekly New Member<i class="mdi mdi-account-plus mdi-24px float-right"></i>
+                    <h4 class=" mb-3">Total Member<i class="mdi mdi-account-plus mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">500 People</h2>
+                    <h2 class="mb-5">${member_totalRecordCount } People</h2>
                     <h6 class="card-text">Increased by 60%</h6>
                   </div>  
                 </div>
               </div>
-              <div class="col-md-4 stretch-card grid-margin">
+              
+               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly New Recipe <i class="mdi mdi-food-fork-drink mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Total Recipe <i class="mdi mdi-food-fork-drink mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">10,000</h2>
+                    <h2 class="mb-5">${recipe_totalRecordCount } Recipe</h2>
                     <h6 class="card-text">Increased by 10%</h6>
                   </div>
                 </div>
-              </div>
+              </div>  
+              
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly New product <i class="mdi mdi-shopping mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Total QnA <i class="mdi mdi-shopping mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5">100</h2>
+                    <h2 class="mb-5">${totalRecordCount }</h2>
                     <h6 class="card-text">Increased by 5%</h6>
                   </div>
                 </div>
               </div>
+              
+              
+              
             </div>
-            <div class="row">
+            
+            
+            <%-- <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
                       <h4 class="card-title float-left">Board Statistics</h4>
-                      <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
+                       <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
+                    
+                    	<!-- <div id="myChart"></div> -->
                     </div>
-                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
+                   <canvas id="visit-sale-chart" class="mt-4"></canvas> 
                   </div>
                 </div>
               </div>
@@ -208,75 +220,299 @@ if (mst == 'normal') {
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Traffic Sources</h4>
-                    <canvas id="traffic-chart"></canvas>
-                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                    <canvas id="traffic-chart"></canvas> 
+                   <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div> 
                   </div>
                 </div>
               </div>
-            </div>    
-           <div class="row">
-              <!-- <div class="col-12 grid-margin">
+            </div>     --%>
+             
+            <!-- -------------------------------------------------------------------최근가입회원 -->
+            <div class="row">
+            
+              <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
-                   <div class="card-body">
-                    <h4 class="card-title">Recent Tickets</h4>
-                    <div class="table-responsive"> --> 
-                      <!--<table class="table">
-                        <thead>
-                          <tr>
-                            <th> Assignee </th>
-                            <th> Subject </th>
-                            <th> Status </th>
-                            <th> Last Update </th>
-                            <th> Tracking ID </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image"> David Grey </td>
-                            <td> Fund is not recieved </td>
-                            <td>
-                              <label class="badge badge-gradient-success">DONE</label>
-                            </td>
-                            <td> Dec 5, 2017 </td>
-                            <td> WD-12345 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face2.jpg" class="mr-2" alt="image"> Stella Johnson </td>
-                            <td> High loading time </td>
-                            <td>
-                              <label class="badge badge-gradient-warning">PROGRESS</label>
-                            </td>
-                            <td> Dec 12, 2017 </td>
-                            <td> WD-12346 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face3.jpg" class="mr-2" alt="image"> Marina Michel </td>
-                            <td> Website down for one week </td>
-                            <td>
-                              <label class="badge badge-gradient-info">ON HOLD</label>
-                            </td>
-                            <td> Dec 16, 2017 </td>
-                            <td> WD-12347 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face4.jpg" class="mr-2" alt="image"> John Doe </td>
-                            <td> Loosing control on server </td>
-                            <td>
-                              <label class="badge badge-gradient-danger">REJECTED</label>
-                            </td>
-                            <td> Dec 3, 2017 </td>
-                            <td> WD-12348 </td>
-                          </tr>
-                        </tbody>
-                      </table>-->
-                 <!--    </div>
-                  </div>  
+                  <div class="card-body">
+                    <div class="clearfix">
+                    
+                      <h4 class="card-title float-left">Recent Updates</h4>
+						  <br />
+	                    <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i><a href="pages/tables/memberManagement.do" style="color:black;">최근가입회원</a></h5>
+	                   <%--  <table class="table table-hover" style="text-align: center;">
+						<colgroup>    
+							<col width="5%" />
+							<col width="7%" />
+							<col width="*" />
+							<col width="15%" />
+							<col width="7%" />
+						</colgroup>
+						<thead>
+							<tr class="table-danger" style="color: white;">
+								<th>번호</th>
+								<th>회원명</th>
+								<th>이메일</th>
+								<th>핸드폰 번호</th>
+								<th>가입일</th>
+
+							</tr>
+						</thead>
+						<tbody style="color:black;"> 
+							
+	                        <!-- 회원 리스트 출력  -->
+	                        <c:choose>
+								<c:when test="${empty viewRow }">
+									<tr>
+										<td colspan="6" class="text-center">
+											등록된 회원이 없습니다.
+										</td>
+									</tr>
+								</c:when>   
+								<c:otherwise>
+									<c:forEach items="${viewRow }" var="row" 
+										varStatus="loop">
+										<!-- 리스트반복시작 -->
+										<tr>
+											 <td class="text-center">${row.virtualNum }</td>
+											<td class="text-left">
+												${row.name}
+											</td >
+											<td class="text-center">${row.email }</td>
+											<td class="text-center">${row.mobile }</td>
+											<td class="text-center">${row.regidate }</td>
+										</tr>
+										<!-- 리스트반복끝 -->
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+	       
+						</tbody>
+					</table> --%>
+	                    <table class="table " style="text-align: center;">
+						<tbody style="color:black;"> 
+							  
+	                        <!-- 회원 리스트 출력  -->
+	                        <c:choose>
+								<c:when test="${empty viewRow }">
+									<tr>
+										<td colspan="6" class="text-center">
+											등록된 회원이 없습니다. 
+										</td>
+									</tr>
+								</c:when>   
+								<c:otherwise>
+									<c:forEach items="${viewRow }" var="row" 
+										varStatus="loop"> 
+										<!-- 리스트반복시작 --> 
+										<tr>
+											<%-- <td class="text-center">${row.virtualNum } 님이 가입했습니다.</td>--%>
+											 <td class="text-left">
+												<p style="font-weight: bold;"><img src="assets/images/faces-clipart/pic-4.png" alt="image"> &nbsp;  ${row.name}님이 가입했습니다.</p>
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;">${row.regidate }</p>
+											</td >  
+											<%--<td class="text-center">${row.email }</td>
+											<td class="text-center">${row.mobile }</td>
+											<td class="text-center">${row.regidate }</td> --%>
+										</tr>
+										<!-- 리스트반복끝 -->
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+	       
+						</tbody>
+					</table>
+                    </div>
+                  </div> 
                 </div>
-              </div> -->
+              </div>
+              <!-- -------------------------------------------------------------------최근문의사항 -->
+              <div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Updates</h4>
+                   		<br />  
+	                    <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/qnaManagement.do" style="color:black;">최근문의사항</a></h5>
+	                   
+ 						<table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+	                      <tbody style="color: black;">
+	                       	<!-- 게시판 리스트 출력  -->
+	                        <c:choose> 
+								<c:when test="${empty qnaviewRow }">
+									<tr>
+										<td colspan="5" class="text-center">
+											등록된 게시물이 없습니다.
+										</td> 
+									</tr> 
+								</c:when> 
+								<c:otherwise>   
+									<c:forEach items="${qnaviewRow }" var="row" 
+										varStatus="loop">
+										
+
+
+										<!-- 리스트반복시작 --> 
+											<%--  <td class="text-center">${row.virtualNum }</td> --%>
+										<c:if test="${row.bstep eq '0'}"> <!-- 댓글이 안달린 게시물만 보이게 -->
+											<td >
+												<br /><br />
+												<!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
+						 						<p style="color:#6ea2d3;"><i class="mdi mdi-human-greeting icon-lg" ></i> </p>
+												<br />
+												<label class="badge badge-danger">new</label><br /><br />
+												<a href="pages/tables/qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
+														" ${row.title} "
+												</a> 
+												<br /><br /><br /><br /><br />
+												<p style="color:gray; text-align: center;">${row.name}</p>
+												<p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
+												<button type="button" class="btn btn-outline-info btn-fw" onclick="location.href='pages/tables/qnaReply.do?idx=${row.idx}&nowPage=${nowPage}';">
+													<i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기
+												</button>
+												<!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
+											</td>
+										</c:if>
+									</c:forEach> 
+								</c:otherwise>
+							</c:choose>
+	                        
+	                      </tbody>
+	                    </table>
+
+                  </div> 
+                </div> 
+              </div>
+               
+            </div>     
+            <!-- -------------------------------------------------------------------최근레시피 -->
+            <div class="row">
+            
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="clearfix">
+                    
+                      <h4 class="card-title float-left">Recent Recipe</h4>
+                    	<br />  
+	                    <h5 class="card-title float-right"><i class="mdi mdi-login-variant"></i><a href="pages/tables/recipeManagement.do" style="color:black;">레시피게시판</a></h5>
+                   		  <!-- <div class="table-responsive"> -->
+                    	
+                     	 <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
+		                  	 <col width="20%" /> 
+		                  	 <col width="20%" /> 
+		                  	 <col width="20%" /> 
+		                  	 <col width="20%" /> 
+		                  	 <col width="20%" /> 
+		                  	 <col width="20%" /> 
+	                      <tbody style="color: black;">
+	                       	<!-- 게시판 리스트 출력  -->
+	                        <c:choose> 
+								<c:when test="${empty recipeviewRow }">
+									<tr>
+										<td colspan="5" class="text-center">
+											등록된 게시물이 없습니다.
+										</td> 
+									</tr> 
+								</c:when> 
+								<c:otherwise>   
+									<c:forEach items="${recipeviewRow }" var="row" 
+										varStatus="loop">
+										
+
+
+										<!-- 리스트반복시작 --> 
+											<%--  <td class="text-center">${row.virtualNum }</td> --%>
+											<td >
+												<br /><br />
+												<!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
+						 						<p style="color:#EC9A00;"><i class="mdi mdi-food icon-lg" ></i> </p>
+												<br /><br />
+												<!-- <mark class="bg-warning text-white" > -->
+												<a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
+														 ${row.title} 
+												</a> 
+												<!--  </mark> -->
+												<br /><br /><br /><br /><br />
+												<p style="color:gray; text-align: center;">${row.name}</p>
+												
+												<p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
+												<!-- <button type="button" class="btn btn-outline-info btn-fw"><i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기</button> -->
+												<!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
+											</td>
+									</c:forEach> 
+								</c:otherwise>
+							</c:choose>
+	                        
+	                      </tbody>
+	                    </table>
+				
+                    </div>
+                  </div> 
+                </div>
+              </div>
+             
+             <!-- -------------------------------------------------------------------최근공지사항 -->
+             <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Notice</h4>
+                   		<br />  
+	                    <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/boardManagement.do" style="color:black;">최근공지사항</a></h5>
+	                
+ 						<table class="table " style="text-align: center;">
+						<tbody style="color:black;"> 
+							  
+	                        <!-- 회원 리스트 출력  -->
+	                        <c:choose>
+								<c:when test="${empty noticeviewRow }">
+									<tr>
+										<td colspan="6" class="text-center">
+											등록된 회원이 없습니다. 
+										</td>
+									</tr>
+								</c:when>   
+								<c:otherwise>
+									<c:forEach items="${noticeviewRow }" var="row" 
+										varStatus="loop"> 
+										<!-- 리스트반복시작 --> 
+										<tr>
+											
+											 <td class="text-left">
+												<p style="font-weight: bold;">
+												<label class="badge badge-gradient-success">공지</label>&nbsp;  ${row.title}
+												<!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+												</p>
+											</td > 	
+											<td class="text-left" style="vertical-align: center;">	
+												${row.content }
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;">${row.postdate }</p>
+											</td >  
+											<%--<td class="text-center">${row.email }</td>
+											<td class="text-center">${row.mobile }</td>
+											<td class="text-center">${row.regidate }</td> --%>
+										</tr>
+										<!-- 리스트반복끝 -->
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+	       
+						</tbody>
+					</table>
+                  </div> 
+                </div> 
+              </div>
+              
+             </div>
+              
+         <!--      
             </div>
             <div class="row">
               <div class="col-md-7 grid-margin stretch-card">
@@ -285,62 +521,7 @@ if (mst == 'normal') {
                     <div class="clearfix">
                       <h4 class="card-title float-left">Recent Updates</h4>
                       
-                      
-                    <h5 class="card-title">&nbsp;<i class="mdi mdi-account-multiple"></i>&nbsp;최근가입회원</h5>
-                    <table class="table table-hover" style="text-align: center;">
-					<colgroup>
-						<col width="5%" />
-						<col width="7%" />
-						<col width="*" />
-						<col width="15%" />
-						<col width="5%" />
-						<col width="7%" />
-					</colgroup>
-					<thead>
-						<tr class="table-danger" style="color: white;">
-							<th>번호</th>
-							<th>회원명</th>
-							<th>이메일</th>
-							<th>핸드폰 번호</th>
-							<th>알림설정</th>
-							<th>가입일</th>
-						</tr>
-					</thead>
-					<tbody style="color:black;"> 
-						
-                        <!-- 회원 리스트 출력  -->
-                        <c:choose>
-							<c:when test="${empty viewRow }">
-								<tr>
-									<td colspan="8" class="text-center">
-										등록된 회원이 없습니다.
-									</td>
-								</tr>
-							</c:when>   
-							<c:otherwise>
-								<c:forEach items="${viewRow }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./view.do?type=${row.membertype}
-												&nowPage=${nowPage}">${row.name}</a>
-										</td >
-										<td class="text-center">${row.email }</td>
-										<td class="text-center">${row.mobile }</td>
-										<td class="text-center">${row.mobile_alert }</td>
-										<td class="text-center">${row.regidate }</td>
-									</tr>
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-       
-					</tbody>
-				</table>
-                      
-                      
+                       
                       
                   </div>
                 </div>
@@ -351,15 +532,11 @@ if (mst == 'normal') {
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Recent QnA</h4>
-                    
-                  
-                  
-                  
                   
                   
                 </div>
               </div>
-            </div>     
+            </div>      -->
             
             
             

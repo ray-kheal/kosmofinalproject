@@ -124,9 +124,10 @@ function isDelete(){
 			<div class="row text-right" style="float: right;">
 			
 			 
+				<button class = "btn btn-secondary btn-sm" onclick="location.href='./qnaReply.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="background-color: cd9ae2;">답변하기</button>
 				<button class = "btn btn-danger btn-sm" onclick="isDelete();">삭제</button>
 				<button type="button" class="btn btn-dark btn-sm" 
-							onclick="location.href='./boardManagement.do';">리스트</button>
+							onclick="location.href='./qnaManagement.do';">리스트</button>
 				<%-- <% if(board_type.equals("1")) { %>
                     	<button type="button" class="btn btn-dark btn-sm" 
 							onclick="location.href='./boardManagement.do';">리스트</button>
