@@ -26,8 +26,12 @@ import command.admin.AdQnaListCommand;
 import command.admin.AdQnaListViewCommand;
 import command.admin.AdRecipeListCommand;
 import command.admin.AdRecipeListViewCommand;
+import command.admin.AdReplyCommand;
 import command.admin.Index_memberListCommand;
-import command.board.recipeListCommand;
+import command.admin.Index_noticeListCommand;
+import command.admin.Index_qnaListCommand;
+import command.admin.Index_recipeListCommand;
+import command.admin.AdReplyActionCommand;
 import command.admin.AdMemberListCommand;
 import command.member.LoginActionCommand;
 import model.board.noticeDTO;
@@ -42,8 +46,20 @@ public class AdminController {
 	@RequestMapping("/admin/index.do")
 	public String index(Model model,HttpServletRequest req) {
 		model.addAttribute("req",req);
+		
 		command = new Index_memberListCommand();
 		command.execute(model);
+		
+		command = new Index_qnaListCommand();
+		command.execute(model);
+		
+		command = new Index_recipeListCommand();
+		command.execute(model);
+		
+		command = new Index_noticeListCommand();
+		model.addAttribute("board_type",1);
+		command.execute(model);
+
 		return "admin/index";
 	}
 	@RequestMapping("/admin/pages/charts/chartjs.do")
@@ -440,4 +456,38 @@ public class AdminController {
 		System.out.println("qnaManagementView 익스큐트 실행");
 		return "admin/pages/tables/qnaManagementView";
 	}
+	
+	// 답글 달기
+	@RequestMapping("/admin/pages/tables/qnaReply.do")
+	public String qnaReply(HttpServletRequest req, Model model) throws IOException {
+		System.out.println("reply() 메소드 호출됨");
+
+		model.addAttribute("req", req);
+		command = new AdReplyCommand();
+		command.execute(model);
+
+		model.addAttribute("idx", req.getParameter("idx"));
+		return "admin/pages/tables/qnaReply";
+	}
+	
+	
+	// 답글 달기 액션
+	@RequestMapping("/admin/pages/tables/qnaReplyAction.do")
+	public String qnaReplyAction(HttpServletRequest req, Model model, serviceDTO serviceDTO) throws IOException {
+		System.out.println("replyAction() 메소드 호출");
+		// 답변글쓰기폼에서 폼값을 커맨드객체를 이용하여 한번에 받아 전달하기
+		model.addAttribute("serviceDTO", serviceDTO);
+
+		model.addAttribute("req", req);
+		command = new AdReplyActionCommand();
+		command.execute(model);
+
+		System.out.println("qnaReplyAction 익스큐트 실행");
+		
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+
+		return "redirect:./qnaManagement.do";
+	}
+
+	
 }
