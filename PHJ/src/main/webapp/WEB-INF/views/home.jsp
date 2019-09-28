@@ -337,7 +337,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             </div> 
          </div> 
       </div> 
-
+      
       <!-- Features --> 
      <!-- <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     "> --> 
        
