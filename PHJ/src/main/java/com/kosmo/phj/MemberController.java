@@ -1,6 +1,7 @@
 package com.kosmo.phj;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -38,7 +40,7 @@ import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
 import command.member.emailOverlapCommand;
-import command.member.pwFindActionCommand;
+import command.member.pwChangeCommand;
 import command.member.emailFindActionCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
@@ -285,40 +287,45 @@ public class MemberController {
    
     @RequestMapping(value = "pwFindAction.do", method = RequestMethod.GET)
 	public String pwFindAction(final HttpServletRequest req, HttpServletResponse resp, Model model, HttpSession session) {
-				
-    	command = new pwFindActionCommand();
-		model.addAttribute("req",req);
-		command.execute(model);
 		
     	Map<String, Object> map = model.asMap();
     	
 		final String fromEmail = "pwyank10321@naver.com";
 		final String toEmail = req.getParameter("email");
 		
-		String mailContent = "";
-		String rndPass = "";
-	    
-	    for (int i = 0; i < 4; i++) {
-			int rndVal = (int) (Math.random() * 62);
+		String email = req.getParameter("email");
+		String mobile = req.getParameter("mobile1") + "-" + req.getParameter("mobile2") + "-"
+				+ req.getParameter("mobile3");
 
-			if (rndVal < 10) {
-				rndPass += rndVal;
-			} else if (rndVal > 35) {
-				rndPass += (char) (rndVal + 61);
-			} else {
-				rndPass += (char) (rndVal + 55);
-			}
-		}
-	    
-	    session.setAttribute("rndPass", rndPass);
-	    
-		System.out.println(rndPass);
-	    
+		String pass = new MemberDAO().pwFind(email, mobile).toString();
+		
+		model.addAttribute("resultPass", pass);
+		System.out.println("pass값 : " + pass);
+		
+		String mailContent = "";
 	    String dirPath = "";
 		String filePath = "";
 		String mailBox = "";
 
 		try {
+			String rndPass = "";
+		    
+		    for (int i = 0; i < 4; i++) {
+				int rndVal = (int) (Math.random() * 62);
+
+				if (rndVal < 10) {
+					rndPass += rndVal;
+				} else if (rndVal > 35) {
+					rndPass += (char) (rndVal + 61);
+				} else {
+					rndPass += (char) (rndVal + 55);
+				}
+			}
+		    
+		    session.setAttribute("rndPass", rndPass);
+		    
+		    System.out.println(rndPass);
+		    
 			dirPath = req.getSession().getServletContext().getRealPath("/WEB-INF/views/member/");
 			filePath = dirPath + "pwMailForm.html";
 			
@@ -335,7 +342,6 @@ public class MemberController {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(rndPass);
 		final String subject = "편히점 비밀번호 변경을 위한 인증번호입니다.";
 		final String contents = mailContent;
 		
@@ -355,10 +361,19 @@ public class MemberController {
 			}
 		};		
 		
+		String returnPass = null;
+
 		try{
-			mailSender.send(preparator);
-			System.out.println("메일이 정상발송 되었습니다");
-			return "member/pwCertification";
+			if(pass.equals("ERROR")) {
+				returnPass = "member/accountfind";
+				System.out.println("메일이 발송되지 않았습니다.");
+			}
+			else if(!pass.equals("ERROR")) {
+				mailSender.send(preparator);
+				System.out.println("메일이 정상발송 되었습니다");
+				returnPass = "member/pwCertification";
+			}
+			return returnPass;
 		}
 		catch(Exception e){
 			System.out.println("예외발생");
@@ -375,6 +390,7 @@ public class MemberController {
     public String certification(Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IOException {
     	
     	PrintWriter out = resp.getWriter();	
+    	resp.setCharacterEncoding("UTF-8");
     	String rndPass = req.getParameter("rndPass");
     	String cerOk = req.getParameter("cerOk");
     	
@@ -393,6 +409,16 @@ public class MemberController {
 		
 		return "member/pwChange";
     }
+    
+    //비밀번호 변경
+  	@RequestMapping(value="/changePass.do",method=RequestMethod.POST)
+  	public String changePass(Model model, HttpServletRequest req){
+  		model.addAttribute("req",req);
+  		command = new pwChangeCommand();
+  		command.execute(model);
+  		
+  		return "member/login";
+  	}
     
 	//이메일 쿠키 메소드
     @RequestMapping("loginCookie")
