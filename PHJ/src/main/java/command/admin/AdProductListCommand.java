@@ -18,7 +18,7 @@ public class AdProductListCommand implements PHJCommandImpl {
 	@Override
 	public void execute(Model model) {
 		
-		System.out.println("ProductListCommand > exectue()");
+		System.out.println("ProductListCommand > execute()");
 		
 		//파라미터 한번에 전달받기
 		Map<String, Object> paramMap = model.asMap();

@@ -40,10 +40,56 @@
 	}
 </style>
 <script type="text/javascript">
-	history.pushState(null, null, location.href);
-		window.onpopstate = function () {
-		   	history.go(1);
-	};
+	function sendIt() {
+		//비밀번호 입력여부 체크
+		if (f.pass1.value == "") {
+			alert("비밀번호를 입력하지 않았습니다.")
+			document.f.pass1.focus();
+			return;
+		}
+		//비밀번호 길이 체크(4~12자 까지 허용)
+		if (f.pass1.value.length<4 || f.pass1.value.length>12) {
+			alert("비밀번호를 4~12자까지 입력해주세요.")
+			document.f.pass1.focus();
+			document.f.pass1.select();
+			return;
+		}
+		//비밀번호확인 공백체크
+		if (f.pass2.value == "") {
+			alert("비밀번호를 입력해주세요.")
+			document.f.pass2.focus();
+			document.f.pass2.select();
+			return;
+		}
+		//비밀번호와 비밀번호 확인 일치여부 체크
+		if (f.pass1.value != f.pass2.value) {
+			alert("비밀번호가 일치하지 않습니다")
+			document.f.user_pw2.value = ""
+			document.f.user_pw2.focus();
+			return;
+		}
+		else {
+			alert("비밀번호가 변경되었습니다.");
+		}
+	}
+
+	$(function(){
+		$('#pass1').keyup(function(){
+			$('font[name=checkPass]').text('');
+		});
+		
+		$('#pass2').keyup(function(){
+			if($('#pass1').val()!=$('#pass2').val()){
+				$('font[name=checkPass]').text('');
+				$('font[name=checkPass]').html("패스워드를 확인해주세요.");
+				$('font[name=checkPass]').css('color','red');
+			}else{
+				$('font[name=checkPass]').text('');
+				$('font[name=checkPass]').html("패스워드가 일치합니다.");
+				$('font[name=checkPass]').css('color','green');
+			}
+		});
+	});
 </script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
@@ -58,35 +104,40 @@
 				<div class="findPop find" id="findPop find form" >
 					<div class="findPop find" id="findPop find form" >
 							
-						<h3 id="Maintitle">4자리의 인증번호를 입력하세요.</h3>
+						<h3 id="Maintitle">비밀번호를 변경합니다.</h3>
 	 				
 						<div class="findPop" id="findPop IDfind">
 				
-								<form method="post"  class="" name="f" action="certification.do" onsubmit="sendIt(f);">
+								<form method="post"  class="" name="f" action="changePass.do" onsubmit="sendIt();">
 									<table summary="인증번호를 입력할 수 있습니다.">
-										<caption>인증번호 입력폼</caption>
+										<caption>비밀번호 변경 입력폼</caption>
 										<colgroup>
 											<col width="100px">
 											<col width="*">
 										</colgroup>
 										<tbody>
 											<tr>
-												<th scope="row"><label for="name">인증번호</label></th>
+												<th scope="row"><label for="name">변경할<br /> 비밀번호</label></th>
 												<td>
 													<div class="formbox">
-														<% 
-														String cerOk = (String)session.getAttribute("rndPass"); 
+														<%
+														String pass = request.getParameter("pass");
 														String email = request.getParameter("email");
-														String mobile = request.getParameter("mobile1") + "-" + request.getParameter("mobile2") + "-"
-																+ request.getParameter("mobile3");
-														String pass = (String)request.getAttribute("resultPass");
+														String mobile = request.getParameter("mobile");
 														%>
-														<input type="hidden" id="cerOk" name="cerOk" value="<%=cerOk %>" style="visibility:hidden;" />
 														<input type="hidden" id="email" name="email" value="<%=email %>" style="visibility:hidden;" />
 														<input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
-														<input type="hidden" id="pass" name="pass" value="<%=pass %>" />
-														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass" />
-														<p style="color:white;">※ 인증번호는 이메일로 보내드렸습니다.</p>
+														<input type="password" id="pass1" class="text" name="pass" value="<%=pass %>" onblur="if(value=='') value = '<%=pass %>'" 
+														    onfocus="if(value=='<%=pass %>') value = ''" required autofocus>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="name">비밀번호<br /> 확인</label></th>
+												<td>
+													<div class="formbox">
+														<input type="password" id="pass2" class="text" name="pass2" value="">
+														<font name="checkPass" size="2" color="red"></font>
 													</div>
 												</td>
 											</tr>

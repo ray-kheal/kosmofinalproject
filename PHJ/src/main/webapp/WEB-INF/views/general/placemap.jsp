@@ -54,7 +54,7 @@ body {
 
 
 	$(function() {
-		$("#place").attr("class", "current");
+		$("#place_web").attr("class", "current");
 	});
 	
 	var span;
@@ -151,7 +151,9 @@ body {
 		case error.UNKNOWN_ERROR:
 			span.innerHTML = "알수없는오류발생";break;
 		case error.PERMISSION_DENIED:
-			span.innerHTML = "권한이 없습니다";break;
+			span.innerHTML = "권한이 없습니다";
+			alert('모바일웹에선 지원하지 않습니다. PC웹이나 어플리케이션을 통하여 실행해주세요');
+			break;
 		case error.POSITION_UNAVAILABLE:                                                    
 			span.innerHTML = "위치 확인불가";break;
 		case error.TIMEOUT:
@@ -217,7 +219,7 @@ body {
 			
 				<tr > 
 					<td rowspan="3"  id=map>			
-						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
+						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
 
 					</td> 
 					<td style=" float: center;">
@@ -256,6 +258,7 @@ body {
 				<tr>
 					<!-- <td></td> -->
 					<td style="text-align: center;">
+
 
 
 						<h5>근처 편의점 목록</h5> <br />

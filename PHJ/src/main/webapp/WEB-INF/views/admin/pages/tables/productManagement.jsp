@@ -48,7 +48,7 @@ if (mst == 'normal') {
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             	<h3 class="page-title" style="font-weight: bold;">상품관리</h3> 
+             	<h3 class="page-title" style="font-weight: bold;"><mark class="bg-dark text-white">상품관리</mark></h3> 
              	<%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
              	 <div style="text-align: right;">
 	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 
@@ -71,7 +71,7 @@ if (mst == 'normal') {
 					<select name="searchColumn" class="form-control" style="width: 80px; height : 30px" >
 						<option value="product_name">상품명</option>
 						<option value="product_price">가격</option>
-						<option value="product_value_code">상품코드</option>
+						<option value="product_value">상품코드</option>
 					</select>
 				</div> 
 				<div class="input-group">
