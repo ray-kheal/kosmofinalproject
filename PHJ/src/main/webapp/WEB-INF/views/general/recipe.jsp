@@ -327,6 +327,15 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
+						<div class="container">
+							<table width="100%">
+								<tr>
+									<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+										${pagingImg }
+									</td>
+								</tr>
+							</table>    
+				        </div>
 					</div>
 				</c:otherwise>
 			</c:choose>
@@ -334,16 +343,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
 		</div>
 		<!-- /.container -->
-
-		<div class="container">
-			<table width="100%">
-				<tr>
-					<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-						${pagingImg }
-					</td>
-				</tr>
-			</table>    
-        </div>
 	</div>
 	
 	<!-- Footer -->
