@@ -119,7 +119,7 @@ function checkValidate(f){
 			<br /><br />
 			<div class="row text-right" style="float: right;">
 				 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
-                 <button class="btn btn-light btn-rounded">Reset</button>
+                 <button class="btn btn-gradient-success btn-rounded" >Reset</button>
                  <button class="btn btn-dark btn-rounded"
                  	onclick="location.href='./boardManagement.do';">List</button>
             </form>	

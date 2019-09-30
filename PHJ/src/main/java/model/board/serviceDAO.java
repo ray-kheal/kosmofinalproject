@@ -57,7 +57,7 @@ public class serviceDAO {
 		String query = "  SELECT * FROM( " + 
 				"    SELECT Tb.*, ROWNUM rNum FROM( " + 
 				"    SELECT * FROM PHJ_BOARD_SERVICE where 1=1 and" + 
-				"    ROWID IN (SELECT MAX(ROWID) FROM PHJ_BOARD_SERVICE GROUP BY BGROUP HAVING count(*)<2) " + 
+				"    ROWID IN (SELECT MAX(ROWID) FROM PHJ_BOARD_SERVICE GROUP BY BGROUP HAVING count(*)<2) order by postdate desc" + 
 				"    ) Tb ) WHERE rNum BETWEEN " + start + " AND " + end;
 		
 		
@@ -119,8 +119,8 @@ public class serviceDAO {
 		   replyPreUpdate (dto.getBgroup(),dto.getBstep());
 		   
 		   //답변글 입력
-		   String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, view_count, postdate, bgroup, bstep, bindent)"
-					+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, 0, sysdate, ?, ?, ?)";
+		   String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, view_count, postdate, bgroup, bstep, bindent, email)"
+					+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, 0, sysdate, ?, ?, ?,?)";
 			  template.update(sql,new PreparedStatementSetter() {
 				
 				@Override
@@ -132,6 +132,7 @@ public class serviceDAO {
 					ps.setInt(4, dto.getBgroup());
 					ps.setInt(5, dto.getBstep()+1);
 					ps.setInt(6, dto.getBindent()+1);
+					ps.setString(7, dto.getEmail());
 					
 					
 				}
