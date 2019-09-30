@@ -166,13 +166,8 @@ to {
 				</button>
 			</div>
 
-
-
-
 		</form>
-
 		<!-- 검색기능 끝 -->
-
 		<br />
 		<button type="submit" onclick="" class="btn btn-info">EVENT</button>
 		&nbsp;

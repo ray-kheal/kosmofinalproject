@@ -392,7 +392,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                 <p>${row.content }</p>
                                                 <i class="ion-ios-arrow-right"></i>
                                              </figcaption>
-                                             <a href="#" class="d-block mb-4 h-100"></a>
+                                             	<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
                                           </figure>
                                        </div>
 
@@ -409,7 +409,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                 <p>${row.content }</p>
                                                 <i class="ion-ios-arrow-right"></i>
                                              </figcaption>
-                                             <a href="#" class="d-block mb-4 h-100"></a>
+                                            	<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
                                           </figure>
                                        </div>
 

@@ -13,11 +13,12 @@ public class serviceDTO {
 	private int bgroup;
 	private int bstep;
 	private int bindent;
+	private String email;
 	
 	public serviceDTO() {}
 	
-	public serviceDTO(int idx, String title, String content, String name, int view_count, Date postdate, int virtualNum,
-			int bgroup, int bstep, int bindent) {
+		public serviceDTO(int idx, String title, String content, String name, int view_count, Date postdate, int virtualNum,
+			int bgroup, int bstep, int bindent, String email) {
 		super();
 		this.idx = idx;
 		this.title = title;
@@ -29,12 +30,20 @@ public class serviceDTO {
 		this.bgroup = bgroup;
 		this.bstep = bstep;
 		this.bindent = bindent;
+		this.email = email;
 	}
 
 
 
 
 
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public int getBgroup() {
 		return bgroup;
 	}
