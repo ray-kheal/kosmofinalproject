@@ -41,7 +41,7 @@ body {
 		span = document.getElementById("result");
 		
 		if(navigator.geolocation){
-			span.innerHTML = "Geolocation API를 지원합니다.";
+			
 			
 			var options = {	
 				enableHighAccurcy:true, 
@@ -51,7 +51,7 @@ body {
 			navigator.geolocation.getCurrentPosition(showPosition,showError,options);
 		}
 		else{
-			span.innerHTML = "이 브라우저는 Geolocation API를 지원하지 않습니다.";
+			
 		}	
 	}
 	
@@ -60,12 +60,12 @@ body {
 		var latitude = position.coords.latitude;
 		//경도를 가져오는 부분
 		var longitude = position.coords.longitude;
-		span.innerHTML = "위도:"+latitude+"<br/>경도:"+longitude;	
+		
 		
 		
 		//위경도를 text input에 입력
-		document.getElementById("latTxt").value = latitude;
-		document.getElementById("lngTxt").value = longitude;
+		//document.getElementById("latTxt").value = latitude;
+		//document.getElementById("lngTxt").value = longitude;
 		
 		
 			
@@ -74,25 +74,25 @@ body {
 	}
 	
 	function initMap(latVar, lngVar) {				
-		var uluru = {lat: latVar, lng: lngVar};
+		var uluru = {lat: ${dto.latitude}, lng: ${dto.longitude }};
 		var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: ${zoomLevel},
+			zoom: 15,
 			center: uluru
 		});
 		
-		var marker = new google.maps.Marker({
-			position: uluru,
-			map: map,
-			icon: './images/icon_me.png'
+// 		var marker = new google.maps.Marker({
+// 			position: uluru,
+// 			map: map,
+// 			icon: './images/icon_me.png'
 			
-		});		
+// 		});		
 		
 		var infowindow = new google.maps.InfoWindow();
 		
 	 	
 		var locations = [		
 			
-				['${row.place_name}' ,  ${row.latitude },${row.longitude }], 
+				['${dto.place_name}' ,  ${dto.latitude },${dto.longitude }], 
 			
 		];
 		
@@ -172,8 +172,18 @@ body {
 
 					</td> 
 					<td style=" float: center;">
+						<table>
+							<tr>
+								<td>점포명 : </td>
+								<td>${dto.place_name } ${dto.place_name2 }</td>
+							</tr>
+							<tr>
+								<td>점포주소 : </td>
+								<td>${dto.place_address } <br /> (${dto.place_road_addr })</td>
+							</tr>
 						
-						<span id="result"></span>
+							
+						</table>
 					</td>
 				</tr>			
 			

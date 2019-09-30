@@ -96,10 +96,10 @@ function checkValidate(f){
 		                        <label for="exampleInputName1">이름</label>
 		                        <input type="text" class="form-control" name="name" value="관리자">
 		                      </div>
-		                      <!-- <div class="form-group">
-		                        <label for="exampleInputPassword4">비밀번호</label>
-		                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-		                      </div> -->
+		                      <div class="form-group"> 
+		                        <label for="exampleInputEmail">이메일</label>
+		                        <input type="text" class="form-control" id="email" value="<%=session.getAttribute("ADMINEMAIL")%>">
+		                      </div> 
 		                      <div class="form-group">
 		                        <label for="exampleInputPassword4">제목</label>
 		                        <input type="text" class="form-control" name="title" value="${replyRow.title}">

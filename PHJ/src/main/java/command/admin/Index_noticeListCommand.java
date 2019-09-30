@@ -46,6 +46,9 @@ public class Index_noticeListCommand implements PHJCommandImpl{
 	// 출력할 리스트 가져오기
 	ArrayList<noticeDTO> noticeviewRow = dao.list(paramMap);
 
+	// 인기 게시물 가져오기 
+	ArrayList<noticeDTO> pop_noticeviewRow = dao.popular_notice(paramMap);
+	
 	// 가상번호 계산하여 부여하기
 	int virtualNum = 0;
 	int countNum = 0;
@@ -60,6 +63,7 @@ public class Index_noticeListCommand implements PHJCommandImpl{
 	model.addAttribute("totalPage", totalPage);
 	model.addAttribute("nowPage", nowPage);
 	model.addAttribute("noticeviewRow",noticeviewRow);
+	model.addAttribute("pop_noticeviewRow",pop_noticeviewRow);
 	model.addAttribute("totalRecordCount",totalRecordCount);
 	}
 }

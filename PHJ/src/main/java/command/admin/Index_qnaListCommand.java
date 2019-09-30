@@ -46,12 +46,14 @@ public class Index_qnaListCommand implements PHJCommandImpl{
 	paramMap.put("end",end);
 
 	// 출력할 리스트 가져오기
-	ArrayList<serviceDTO> qnaviewRow = dao.list(paramMap);
+	//ArrayList<serviceDTO> qnaviewRow = dao.list(paramMap);
 
+	//중복안된 리스트 가져오기 
+	ArrayList<serviceDTO> qnaviewRow_noreply = dao.list_noreply(paramMap);
 	// 가상번호 계산하여 부여하기
 	int virtualNum = 0;
 	int countNum = 0;
-	for(serviceDTO row: qnaviewRow)
+	for(serviceDTO row: qnaviewRow_noreply)
 	{
 		// 가상번호 연산 후 setter를 통해 값을 저장함
 		virtualNum = totalRecordCount - (((nowPage - 1) * pageSize) + countNum++);
@@ -61,7 +63,7 @@ public class Index_qnaListCommand implements PHJCommandImpl{
 	
 	model.addAttribute("totalPage", totalPage);
 	model.addAttribute("nowPage", nowPage);
-	model.addAttribute("qnaviewRow",qnaviewRow);
+	model.addAttribute("qnaviewRow_noreply",qnaviewRow_noreply);
 	model.addAttribute("totalRecordCount",totalRecordCount);
 	}
 }
