@@ -47,7 +47,7 @@ if (mst == 'normal') {
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             	<h3 class="page-title" style="font-weight: bold;">고객관리</h3> 
+             	<h3 class="page-title" style="font-weight: bold;"><mark class="bg-dark text-white">고객관리</mark></h3> 
              	<br /><br />
              	<h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
             <!-- 

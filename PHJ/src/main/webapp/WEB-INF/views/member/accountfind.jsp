@@ -39,31 +39,6 @@
 		margin: 0 auto;
 	}
 </style>
-
-<c:if test="${'ERROR' ne resultEmail and not empty resultEmail}">
-	<script>
-		alert('${name}님의 이메일은 ${resultEmail} 입니다.');
-		location.href="login.do";
-	</script>
-</c:if> 
-<c:if test="${'ERROR' eq resultEmail }">
-	<script>
-		alert('회원 정보가 없습니다.');
-		location.href="accountfind.do";
-	</script>
-</c:if>
-<c:if test="${'ERROR' ne resultPass and not empty resultPass}">
-	<script>
-		alert('인증번호를 보내드렸습니다.');
-		location.href="login.do";
-	</script>
-</c:if> 
-<c:if test="${'ERROR' eq resultPass }">
-	<script>
-		alert('회원 정보가 없습니다.');
-		location.href="accountfind.do";
-	</script>
-</c:if>
 <script type="text/javascript">
 function find_check(num){
 	if(num=='1'){
@@ -97,8 +72,30 @@ function find_PWcheck(){
 	$("#mobile3").val("");
 
 }
-
 </script>
+
+<c:if test="${'ERROR' ne resultEmail and not empty resultEmail}">
+	<script>
+		alert('${name}님의 이메일은 ${resultEmail} 입니다.');
+		location.href="login.do";
+	</script>
+</c:if> 
+<c:if test="${'ERROR' eq resultEmail }">
+	<script>
+		alert('회원 정보가 없거나 모든 정보를 입력해주세요.');
+		location.href="accountfind.do";
+	</script>
+</c:if>
+<c:if test="${'ERROR' ne resultPass and not empty resultPass}">
+	<script>
+		alert('4자리의 인증번호를 이메일로 보내드렸습니다.');
+	</script>
+</c:if> 
+<c:if test="${'ERROR' eq resultPass }">
+	<script>
+		alert('회원 정보가 없거나 모든 정보를 입력해주세요.');
+	</script>
+</c:if>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
 		<!-- 헤더 -->
@@ -170,7 +167,10 @@ function find_PWcheck(){
 										<tr>
 											<th scope="row"><label for="name">이메일</label></th>
 											<td>
-												<div class="formbox"><input maxlength="40" type="text" id="email" class="text" name="email"></div>
+												<div class="formbox">
+													<input maxlength="40" type="text" id="email" class="text" name="email">
+													<input type="hidden" name="form" />
+												</div>
 											</td>
 										</tr>
 										<tr>
