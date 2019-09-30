@@ -340,9 +340,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 				</c:otherwise>
 			</c:choose>
 	
+			<!-- /.container -->
 
 		</div>
-		<!-- /.container -->
 	</div>
 	
 	<!-- Footer -->
