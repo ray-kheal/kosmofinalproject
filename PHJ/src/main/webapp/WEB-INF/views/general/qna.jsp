@@ -148,8 +148,7 @@ nav {
 					</tbody>
 				</table>
 			</div>
-			<br /><br />
-		 <div class="row text-right" style="float: right;">
+			 <div class="row text-right" style="float: right;">
 		 
 		<%if(session.getAttribute("EMAIL") != null) { %> 
 		 <form action="write.do" method="post">
@@ -166,7 +165,7 @@ nav {
 							${pagingImg }
 						</td>
 					</tr>
-				</table>
+			</table>  
 			</ul>
 		</div>
 	</div>

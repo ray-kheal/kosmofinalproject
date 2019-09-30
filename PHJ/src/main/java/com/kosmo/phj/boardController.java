@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.swing.plaf.multi.MultiFileChooserUI;
 
 import org.springframework.http.ResponseEntity;
@@ -103,10 +104,13 @@ public class boardController {
 	}
 
 	@RequestMapping(value = "writeAction.do", method = RequestMethod.POST)
-	public String writeAction(Model model, HttpServletRequest req, serviceDTO serviceDTO) throws IOException {
+	public String writeAction(Model model, HttpServletRequest req, serviceDTO serviceDTO,HttpSession session) throws IOException {
 		req.setCharacterEncoding("UTF-8");
+		String email = session.getAttribute("EMAIL").toString();
 		System.out.println("action 호출됨");
 		model.addAttribute("req", req);
+		model.addAttribute("session",session);
+		model.addAttribute("email",email);
 		model.addAttribute("serviceDTO.", serviceDTO);
 		command = new WriteActionCommand();
 		command.execute(model);

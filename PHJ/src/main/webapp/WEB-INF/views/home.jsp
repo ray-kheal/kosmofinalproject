@@ -270,38 +270,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <% 
             } 
          %> 
-   <!--      <a href="#"> <img src="images/top.png" 
-            alt="업" /> 
-         </a> 
-<<<<<<< HEAD 
-<!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" --> 
-<!--             alt="다운" /> --> 
-<!--          </a> --> 
-         <%
-            if (session.getAttribute("EMAIL") == null) {
-         %>
-         <a href="login.do"><img src="images/login_scoll.png" alt="로그인" /></a>
-         <%
-            } else {
-         %>
-      <a href="memberEdit.do"> <img src="images/modify_scoll.png"
-            alt="정보수정" />
-         </a> <a href="logout.do"> <img src="images/logout_scoll.png"
-            alt="로그아웃" />
-         </a>  
-         <%
-            }
-         %>
-   <!--      <a href="#"> <img src="images/top.png"
-            alt="업" />
-         </a>
-<<<<<<< HEAD
-<!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" -->
-<!--             alt="다운" /> -->
-<!--          </a> -->
-
-      </div>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+  
 
       </div> 
 
@@ -315,32 +284,17 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <!-- 배너 --> 
       <div id="banner-wrapper "> 
          <div  class=" container  "> 
-          
-        <!--  <img src="images/mainNeon.jpg" alt="메인이미지" style="width: 100%;"/>  --> 
-          
-          
-          
             <div class="row"> 
                <div class="col-7 col-12-medium"> 
                    
                   
                </div> 
-             <!--   <div class="col-5 col-12-medium"> 
-                  <ul> 
-                     <li><a href="#" 
-                        class="button large icon solid fa-arrow-circle-right">편의점 작업 
-                           중</a></li> 
-                     <li><a href="#" 
-                        class="button alt large icon solid fa-question-circle">더 없음</a></li> 
-                  </ul> 
-               </div> --> 
+             
             </div> 
          </div> 
       </div> 
       
       <!-- Features --> 
-     <!-- <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     "> --> 
-       
       <div id="features-wrapper  "> 
          <div class="container"> 
             <div class="row" id="search"> 
@@ -353,7 +307,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      <div class="inner" 
                         style="text-align: center; font-family: Goyang;"> 
                         <header> 
-                           <h2 style="font-family: Goyang;">매장 삭제하기</h2> 
+                           <h2 style="font-family: Goyang;">매장 찾기</h2> 
                         </header> 
                         <p style="font-family: Goyang; font-size: 25px;"> 
                            내 주변 편의점 찾기</p> 
@@ -363,51 +317,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          
                <div class="col-6 col-12-medium"> 
                   <!-- Box --> 
-<!-- =======
-      Features
-     <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     ">
-      
-      <div id="features-wrapper  ">
-         <div class="container">
-            <div class="row" id="search">
- 	               <div class="col-6 col-12-medium">
-	                  Box
-	            
-	                  <section class="box feature" style="border : 1px solid #f7f4f4;">
-	                     <a href="placemap.do" class="image featured"><img
-	                        src="images/store_shadow.png" alt="" /></a>
-	                     <div class="inner"
-	                        style="text-align: center; font-family: Goyang;">
-	                        <header>
-	                           <h2 style="font-family: Goyang;">매장 삭제하기</h2>
-	                        </header>
-	                        <p style="font-family: Goyang; font-size: 25px;">
-	                        	내 주변 편의점 찾기</p>
-	                     </div>
-	                  </section>
-	               </div>
-	        
-               <div class="col-6 col-12-medium">
-                  Box
-
-                  <section class="box feature" style="border : 1px solid #f7f4f4;">
-                     <a href="findproduct.do" class="image featured"><img
-                        src="images/product_shadow.png" alt="" /></a>
-                     <div class="inner" style="text-align: center;">
-                        <header>
-                           <h2 style="font-family: Goyang;">상품 찾기</h2>
-                        </header>
-                        <p style="font-family: Goyang; font-size: 25px;">
-                        	맛Eat는 먹거리 찾기</p>
-                     </div>
-                  </section>
-               </div>
-            
-         </div>
-      </div>
-    </div>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
-
+ 
                   <section class="box feature" style="border : 1px solid #f7f4f4;"> 
                      <a href="findproduct.do" class="image featured"><img 
                         src="images/product_shadow.png" alt="" /></a> 
@@ -461,7 +371,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                 <p>${row.content }</p> 
                                                 <i class="ion-ios-arrow-right"></i> 
                                              </figcaption> 
-                                             <a href="#" class="d-block mb-4 h-100"></a> 
+                                             <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a> 
                                           </figure> 
                                        </div> 
 
@@ -477,7 +387,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                 <p>${row.content }</p> 
                                                 <i class="ion-ios-arrow-right"></i> 
                                              </figcaption> 
-                                             <a href="#" class="d-block mb-4 h-100"></a> 
+                                          <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a> 
                                           </figure> 
                                        </div> 
                                     </c:otherwise>
@@ -501,13 +411,12 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <table>
                            <tr >
                               <td style=" width: 50%;">
-<!--                                <a href="recipe.do" class="btn btn-outline-info" style="margin-top: -50px; text-align: right">더보기-></a> -->
                                  <h2 style="font-family: Goyang;">공지사항</h2>
                                     <div style="text-align: right; margin-right: 50px; margin-bottom: 20px;">
-		                  				<a href="notice.do" >
-		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
-		                  				</a>
-		               				</div>
+                                    <a href="notice.do" >
+                                       <img src="images/moreView.png" alt="" style="width: 120px"/>
+                                    </a>
+                                 </div>
                                  <ul class="main_board_list">
                                     <!-- <div> -->
                                        <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
@@ -558,11 +467,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               <td >
                               
                                  <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2>
-                           			<div style="text-align: right; margin-bottom: 20px;">
-		                  				<a href="event.do"  >
-		                  					<img src="images/moreView.png" alt="" style="width: 120px"/>
-		                  				</a>
-		               				</div>
+                                    <div style="text-align: right; margin-bottom: 20px;">
+                                    <a href="event.do"  >
+                                       <img src="images/moreView.png" alt="" style="width: 120px"/>
+                                    </a>
+                                 </div>
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
                                        <colgroup>
