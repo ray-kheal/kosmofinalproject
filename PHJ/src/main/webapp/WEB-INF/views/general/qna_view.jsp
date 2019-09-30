@@ -87,19 +87,16 @@ body {
 					<col width="50px" />
 				</colgroup>
 				<input type="hidden" name="idx" value="${viewRow.idx }" />
-
 				<br />
 				<br />
-
-			
 				<tr>
 					<th bgcolor="#f2efef"
-						style="text-align: center; border-top: 5px solid #82b9e4;">제목</th>
-					<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${viewRow.title}</td>
+						style="text-align: center; border-top: 5px solid #82b9e4;border-left: 5px solid #82b9e4; ">제목</th>
+					<td bgcolor="white" style="border-top: 5px solid #82b9e4; border-right: 5px solid #82b9e4">${viewRow.title}</td>
 				</tr>
 				<tr>
-					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-					<td bgcolor="white">${viewRow.name}
+					<th bgcolor="#f2efef" style="text-align: center;border-left: 5px solid #82b9e4; " >작성자</th>
+					<td bgcolor="white" style="border-right: 5px solid #82b9e4">${viewRow.name}
 					
 					</td>
 				</tr>
@@ -115,36 +112,36 @@ body {
 				</colgroup>
 				<tr>
 					<th
-						style="text-align: center; border-left: 1px solid #EDEAEA; font-weight: normal;">DATE</th>
+						style="text-align: center; border-left: 5px solid #82b9e4; font-weight: normal;">작성일</th>
 					<td>${viewRow.postdate}</td>
 					<th style="text-align: center;">조회수</th>
-					<td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
+					<td style="border-right: 1px solid #EDEAEA; border-right: 5px solid #82b9e4">${viewRow.view_count }</td>
 				</tr>
 				<tr>
 					<td colspan="4"
-						style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
+						style="height: 500px; border-left: 1px solid #EDEAEA;border-left: 5px solid #82b9e4; border-right: 5px solid #82b9e4; border-bottom: 5px solid #82b9e4;">${viewRow.content}
 					</td>
 				</tr>
 			</table>
 			<!-- </div> -->
 			<br /> <br />
-			
-			<%
-			String email = (String)session.getAttribute("EMAIL");
-			MemberDAO dao = new MemberDAO();
-			MemberDTO dto = dao.memberView(email);
-			
-			if(session.getAttribute("EMAIL") != null && session.getAttribute("EMAIL").toString().equals(dto.getEmail()) )  { %> 
-			<%-- <button t ype="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">답변글달기</button> --%>
-			<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
-			<%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
+			<input type="hidden" name="email" value="${viewRow.email}" />
+			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
+			<c:choose>
+				<c:when test="${EMAIL eq viewRow.email}">
+				<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
 			<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
-			<%}%>
+				</c:when>
+				<c:otherwise>
+					
+				</c:otherwise>
+			</c:choose>
 			
-			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./qna.do';">리스트</button>
-			</div>
+					onclick="location.href='./qna.do';" style="font-family: Goyang">리스트</button>
+			
+		</div>
+		
 		</div>
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>

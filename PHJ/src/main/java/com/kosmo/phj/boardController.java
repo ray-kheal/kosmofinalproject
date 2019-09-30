@@ -65,6 +65,7 @@ public class boardController {
 		model.addAttribute("req", req);
 		command = new QnAViewCommand();
 		command.execute(model);
+
 		return "general/qna_view";
 	}
 	

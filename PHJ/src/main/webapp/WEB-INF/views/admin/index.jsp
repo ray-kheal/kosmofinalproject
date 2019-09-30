@@ -140,13 +140,16 @@ if (mst == 'normal') {
           </ul>   
         </nav> 
         <!-- partial --> <!-- 사이드바 끝 -->
-        <div class="main-panel">
+
+      
+
+<div class="main-panel">
           <div class="content-wrapper">
             <div class="row" id="proBanner">
               <div class="col-12">
                  <i class="mdi mdi-close" id="bannerClose"></i> 
               </div>
-            </div> 
+            </div>
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-info text-white mr-2">
@@ -157,7 +160,7 @@ if (mst == 'normal') {
                   <li class="breadcrumb-item active" aria-current="page">
                     <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                   </li>
-                </ul>  
+                </ul>
               </nav>  -->
             </div>
             <div class="row">
@@ -172,8 +175,7 @@ if (mst == 'normal') {
                   </div>  
                 </div>
               </div>
-              
-               <div class="col-md-4 stretch-card grid-margin">
+              <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
@@ -183,8 +185,7 @@ if (mst == 'normal') {
                     <h6 class="card-text">Increased by 10%</h6>
                   </div>
                 </div>
-              </div>  
-              
+              </div>
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
@@ -196,98 +197,268 @@ if (mst == 'normal') {
                   </div>
                 </div>
               </div>
-              
-              
-              
             </div>
             
             
-<<<<<<< HEAD
-            <%-- <div class="row">
-=======
-            <div class="row">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-              <div class="col-md-7 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="clearfix">
-                      <h4 class="card-title float-left">Board Statistics</h4>
-                       <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                    
-                    	<!-- <div id="myChart"></div> -->
-                    </div>
-                   <canvas id="visit-sale-chart" class="mt-4"></canvas> 
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Traffic Sources</h4>
-                    <canvas id="traffic-chart"></canvas> 
-                   <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div> 
-                  </div>
-                </div>
-              </div>
-<<<<<<< HEAD
-            </div>     --%>
-             
-            <!-- -------------------------------------------------------------------최근가입회원 -->
-            <div class="row">
             
+            
+            
+          <!-- -------------------------------------------------------------------최근가입회원 -->
+            
+            
+            <div class="row">
               <div class="col-md-4 grid-margin stretch-card">
-=======
-            </div>    
-            
-            
-            <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
                       <h4 class="card-title float-left">Recent Updates</h4>
                     <br />
-                       <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i>최근가입회원</h5>
-                       <table class="table table-hover" style="text-align: center;">
-                  <colgroup>    
-                     <col width="5%" />
-                     <col width="7%" />
-                     <col width="*" />
-                     <col width="15%" />
-                     <col width="7%" />
-                  </colgroup>
-                  <thead>
-                     <tr class="table-danger" style="color: white;">
-                        <th>번호</th>
-                        <th>회원명</th>
-                        <th>이메일</th>
-                        <th>핸드폰 번호</th>
-                        <th>가입일</th>
-                     </tr>
-                  </thead>
-                  <tbody style="color:black;"> 
+                       <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i><a href="pages/tables/memberManagement.do" style="color:black;">최근가입회원</a></h5>
                      
+                       <table class="table " style="text-align: center;">
+                           <tbody style="color:black;"> 
+                       
                            <!-- 회원 리스트 출력  -->
                            <c:choose>
                         <c:when test="${empty viewRow }">
                            <tr>
                               <td colspan="6" class="text-center">
-                                 등록된 회원이 없습니다.
+                                 등록된 회원이 없습니다. 
                               </td>
                            </tr>
                         </c:when>   
                         <c:otherwise>
                            <c:forEach items="${viewRow }" var="row" 
-                              varStatus="loop">
-                              <!-- 리스트반복시작 -->
+                              varStatus="loop"> 
+                              <!-- 리스트반복시작 --> 
                               <tr>
-                                  <td class="text-center">${row.virtualNum }</td>
-                                 <td class="text-left">
-                                    ${row.name}
-                                 </td >
-                                 <td class="text-center">${row.email }</td>
+                                 <%-- <td class="text-center">${row.virtualNum } 님이 가입했습니다.</td>--%>
+                                  <td class="text-left">
+                                    <p style="font-weight: bold;"><img src="assets/images/faces-clipart/pic-4.png" alt="image"> &nbsp;  ${row.name}님이 가입했습니다.</p>
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;">${row.regidate }</p>
+                                 </td >  
+                                 <%--<td class="text-center">${row.email }</td>
                                  <td class="text-center">${row.mobile }</td>
-                                 <td class="text-center">${row.regidate }</td>
+                                 <td class="text-center">${row.regidate }</td> --%>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+                        </table>
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+          
+              
+              
+              
+              
+              
+              
+              
+            <!-- -------------------------------------------------------------------최근문의사항 -->
+              
+              
+              
+              <div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Updates</h4>
+                         <br />  
+                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/qnaManagement.do" style="color:black;">최근문의사항</a></h5>
+                      
+                   <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
+                        <colgroup>
+                          <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                        </colgroup>
+                           <tbody style="color: black;">
+                             <!-- 게시판 리스트 출력  -->
+                           <c:choose> 
+                        <c:when test="${empty qnaviewRow }">
+                           <tr>
+                              <td colspan="5" class="text-center">
+                                 등록된 게시물이 없습니다.
+                              </td> 
+                           </tr> 
+                        </c:when> 
+                        <c:otherwise>   
+                           <c:forEach items="${qnaviewRow }" var="row" 
+                              varStatus="loop">
+                              
+
+
+                              <!-- 리스트반복시작 --> 
+                                 <%--  <td class="text-center">${row.virtualNum }</td> --%>
+                              <c:if test="${row.bstep eq '0'}"> <!-- 댓글이 안달린 게시물만 보이게 -->
+                                 <td >
+                                    <br /><br />
+                                    <!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
+                                     <p style="color:#6ea2d3;"><i class="mdi mdi-human-greeting icon-lg" ></i> </p>
+                                    <br />
+                                    <label class="badge badge-danger">new</label><br /><br />
+                                    <a href="pages/tables/qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
+                                          " ${row.title} "
+                                    </a> 
+                                    <br /><br /><br /><br /><br />
+                                    <p style="color:gray; text-align: center;">${row.name}</p>
+                                    <p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
+                                    <button type="button" class="btn btn-outline-info btn-fw" onclick="location.href='pages/tables/qnaReply.do?idx=${row.idx}&nowPage=${nowPage}';">
+                                       <i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기
+                                    </button>
+                                    <!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
+                                 </td>
+                              </c:if>
+                           </c:forEach> 
+                        </c:otherwise>
+                     </c:choose>
+                           
+                         </tbody>
+                  
+                  
+                  
+                       </table>
+
+
+
+                  </div>
+                </div>
+              </div> 
+            </div>    
+            
+            
+            
+              <!-- -------------------------------------------------------------------최근레시피 -->
+            
+            <div class="row">
+              <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="clearfix">
+                       <h4 class="card-title float-left">Recent Recipe</h4>
+                       <br />  
+                       <h5 class="card-title float-right"><i class="mdi mdi-login-variant"></i><a href="pages/tables/recipeManagement.do" style="color:black;">레시피게시판</a></h5>
+                  
+                      <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                         <tbody style="color: black;">
+                     <!-- 게시판 리스트 출력  -->
+                           <c:choose> 
+                        <c:when test="${empty recipeviewRow }">
+                           <tr>
+                              <td colspan="5" class="text-center">
+                                 등록된 게시물이 없습니다.
+                              </td> 
+                           </tr> 
+                        </c:when> 
+                        <c:otherwise>   
+                           <c:forEach items="${recipeviewRow }" var="row" 
+                              varStatus="loop">
+                              
+
+
+                              <!-- 리스트반복시작 --> 
+                                 <%--  <td class="text-center">${row.virtualNum }</td> --%>
+                                 <td >
+                                    <br /><br />
+                                    <!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
+                                     <p style="color:#EC9A00;"><i class="mdi mdi-food icon-lg" ></i> </p>
+                                    <br /><br />
+                                    <!-- <mark class="bg-warning text-white" > -->
+                                    <a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
+                                           ${row.title} 
+                                    </a> 
+                                    <!--  </mark> -->
+                                    <br /><br /><br /><br /><br />
+                                    <p style="color:gray; text-align: center;">${row.name}</p>
+                                    
+                                    <p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
+                                    <!-- <button type="button" class="btn btn-outline-info btn-fw"><i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기</button> -->
+                                    <!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
+                                 </td>
+                           </c:forEach> 
+                        </c:otherwise>
+                     </c:choose>
+                           
+                         </tbody>
+                        </table>
+                      
+                      
+                      
+                      
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+               <!-- -------------------------------------------------------------------최근공지-->
+              
+            
+              
+              
+              <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Notice</h4>
+                        <br />  
+                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/boardManagement.do" style="color:black;">최근공지사항</a></h5>
+                   
+                   <table class="table " style="text-align: center;">
+                  <tbody style="color:black;"> 
+                       
+                           <!-- 회원 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty noticeviewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다. 
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${noticeviewRow }" var="row" 
+                              varStatus="loop"> 
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-left">
+                                    <p style="font-weight: bold;">
+                                    <label class="badge badge-gradient-success">공지</label>&nbsp;  ${row.title}
+                                    <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+                                    </p>
+                                 </td >    
+                                 <td class="text-left" style="vertical-align: center;">   
+                                    ${row.content }
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;">${row.postdate }</p>
+                                 </td >  
+                                 <%--<td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td> --%>
                               </tr>
                               <!-- 리스트반복끝 -->
                            </c:forEach>
@@ -296,74 +467,6 @@ if (mst == 'normal') {
           
                   </tbody>
                </table>
-                      
-                      
-                      
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title float-left">Recent Updates</h4>
-                         <br />  
-                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i>최근문의사항</h5>
-                         <table class="table table-hover" style="text-align: center;">
-                        <colgroup>
-                      
-                     <col width="5%" />
-                     <col width="*" />
-                     <col width="10%" />
-                     <col width="10%" />
-                     <col width="5%" />
-                  </colgroup>
-                  <thead> 
-                     <tr  style="color: white; background-color:#6ea2d3; " >
-                        <th>no</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>날짜</th>
-                        <th>조회</th>
-                     </tr>   
-                  </thead>
-                         <tbody style="color: black;">
-                             <!-- 게시판 리스트 출력  -->
-                           <c:choose>
-                        <c:when test="${empty qnaviewRow }">
-                           <tr>
-                              <td colspan="5" class="text-center">
-                                 등록된 게시물이 없습니다.
-                              </td>
-                           </tr>
-                        </c:when>
-                        <c:otherwise>
-                           <c:forEach items="${qnaviewRow }" var="row" 
-                              varStatus="loop">
-                              <!-- 리스트반복시작 --> 
-                              <tr>
-                                 
-                                  <td class="text-center">${row.virtualNum }</td>
-                                 <td class="text-left">
-                                    <a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
-                                          ${row.title}
-                                    </a>
-                                 </td >
-                                 <td class="text-center">${row.name}</td>
-                                 <td class="text-center">${row.postdate}
-                                 </td>
-                                 <td class="text-center">${row.view_count }</td>
-                              </tr>
-                              <!-- 리스트반복끝 -->
-                           </c:forEach>
-                        </c:otherwise>
-                     </c:choose>
-                         
-                          
-                         </tbody>
-                       </table>
 
 
 
@@ -373,462 +476,11 @@ if (mst == 'normal') {
             </div>    
             
             
-           <div class="row">
-              <!-- <div class="col-12 grid-margin">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-                <div class="card">
-<<<<<<< HEAD
-                  <div class="card-body">
-                    <div class="clearfix">
-                    
-                      <h4 class="card-title float-left">Recent Updates</h4>
-						  <br />
-	                    <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i><a href="pages/tables/memberManagement.do" style="color:black;">최근가입회원</a></h5>
-	                   <%--  <table class="table table-hover" style="text-align: center;">
-						<colgroup>    
-							<col width="5%" />
-							<col width="7%" />
-							<col width="*" />
-							<col width="15%" />
-							<col width="7%" />
-						</colgroup>
-						<thead>
-							<tr class="table-danger" style="color: white;">
-								<th>번호</th>
-								<th>회원명</th>
-								<th>이메일</th>
-								<th>핸드폰 번호</th>
-								<th>가입일</th>
-
-							</tr>
-						</thead>
-						<tbody style="color:black;"> 
-							
-	                        <!-- 회원 리스트 출력  -->
-	                        <c:choose>
-								<c:when test="${empty viewRow }">
-									<tr>
-										<td colspan="6" class="text-center">
-											등록된 회원이 없습니다.
-										</td>
-									</tr>
-								</c:when>   
-								<c:otherwise>
-									<c:forEach items="${viewRow }" var="row" 
-										varStatus="loop">
-										<!-- 리스트반복시작 -->
-										<tr>
-											 <td class="text-center">${row.virtualNum }</td>
-											<td class="text-left">
-												${row.name}
-											</td >
-											<td class="text-center">${row.email }</td>
-											<td class="text-center">${row.mobile }</td>
-											<td class="text-center">${row.regidate }</td>
-										</tr>
-										<!-- 리스트반복끝 -->
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-	       
-						</tbody>
-					</table> --%>
-	                    <table class="table " style="text-align: center;">
-						<tbody style="color:black;"> 
-							  
-	                        <!-- 회원 리스트 출력  -->
-	                        <c:choose>
-								<c:when test="${empty viewRow }">
-									<tr>
-										<td colspan="6" class="text-center">
-											등록된 회원이 없습니다. 
-										</td>
-									</tr>
-								</c:when>   
-								<c:otherwise>
-									<c:forEach items="${viewRow }" var="row" 
-										varStatus="loop"> 
-										<!-- 리스트반복시작 --> 
-										<tr>
-											<%-- <td class="text-center">${row.virtualNum } 님이 가입했습니다.</td>--%>
-											 <td class="text-left">
-												<p style="font-weight: bold;"><img src="assets/images/faces-clipart/pic-4.png" alt="image"> &nbsp;  ${row.name}님이 가입했습니다.</p>
-											</td >  
-											 <td class="text-left">
-												<p style="color:gray; text-align: center;">${row.regidate }</p>
-											</td >  
-											<%--<td class="text-center">${row.email }</td>
-											<td class="text-center">${row.mobile }</td>
-											<td class="text-center">${row.regidate }</td> --%>
-										</tr>
-										<!-- 리스트반복끝 -->
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-	       
-						</tbody>
-					</table>
-                    </div>
-                  </div> 
-=======
-                   <div class="card-body">
-                    <h4 class="card-title">Recent Tickets</h4>
-                    <div class="table-responsive"> --> 
-                      <!--<table class="table">
-                        <thead>
-                          <tr>
-                            <th> Assignee </th>
-                            <th> Subject </th>
-                            <th> Status </th>
-                            <th> Last Update </th>
-                            <th> Tracking ID </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image"> David Grey </td>
-                            <td> Fund is not recieved </td>
-                            <td>
-                              <label class="badge badge-gradient-success">DONE</label>
-                            </td>
-                            <td> Dec 5, 2017 </td>
-                            <td> WD-12345 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face2.jpg" class="mr-2" alt="image"> Stella Johnson </td>
-                            <td> High loading time </td>
-                            <td>
-                              <label class="badge badge-gradient-warning">PROGRESS</label>
-                            </td>
-                            <td> Dec 12, 2017 </td>
-                            <td> WD-12346 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face3.jpg" class="mr-2" alt="image"> Marina Michel </td>
-                            <td> Website down for one week </td>
-                            <td>
-                              <label class="badge badge-gradient-info">ON HOLD</label>
-                            </td>
-                            <td> Dec 16, 2017 </td>
-                            <td> WD-12347 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face4.jpg" class="mr-2" alt="image"> John Doe </td>
-                            <td> Loosing control on server </td>
-                            <td>
-                              <label class="badge badge-gradient-danger">REJECTED</label>
-                            </td>
-                            <td> Dec 3, 2017 </td>
-                            <td> WD-12348 </td>
-                          </tr>
-                        </tbody>
-                      </table>-->
-                 <!--    </div>
-                  </div>   
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-                </div>
-<<<<<<< HEAD
-              </div>
-              <!-- -------------------------------------------------------------------최근문의사항 -->
-              <div class="col-md-8 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title float-left">Recent Updates</h4>
-                   		<br />  
-	                    <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/qnaManagement.do" style="color:black;">최근문의사항</a></h5>
-	                   
- 						<table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
-	                  	 <col width="20%" /> 
-	                  	 <col width="20%" /> 
-	                  	 <col width="20%" /> 
-	                  	 <col width="20%" /> 
-	                  	 <col width="20%" /> 
-	                  	 <col width="20%" /> 
-	                      <tbody style="color: black;">
-	                       	<!-- 게시판 리스트 출력  -->
-	                        <c:choose> 
-								<c:when test="${empty qnaviewRow }">
-									<tr>
-										<td colspan="5" class="text-center">
-											등록된 게시물이 없습니다.
-										</td> 
-									</tr> 
-								</c:when> 
-								<c:otherwise>   
-									<c:forEach items="${qnaviewRow }" var="row" 
-										varStatus="loop">
-										
-
-
-										<!-- 리스트반복시작 --> 
-											<%--  <td class="text-center">${row.virtualNum }</td> --%>
-										<c:if test="${row.bstep eq '0'}"> <!-- 댓글이 안달린 게시물만 보이게 -->
-											<td >
-												<br /><br />
-												<!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
-						 						<p style="color:#6ea2d3;"><i class="mdi mdi-human-greeting icon-lg" ></i> </p>
-												<br />
-												<label class="badge badge-danger">new</label><br /><br />
-												<a href="pages/tables/qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
-														" ${row.title} "
-												</a> 
-												<br /><br /><br /><br /><br />
-												<p style="color:gray; text-align: center;">${row.name}</p>
-												<p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
-												<button type="button" class="btn btn-outline-info btn-fw" onclick="location.href='pages/tables/qnaReply.do?idx=${row.idx}&nowPage=${nowPage}';">
-													<i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기
-												</button>
-												<!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
-											</td>
-										</c:if>
-									</c:forEach> 
-								</c:otherwise>
-							</c:choose>
-	                        
-	                      </tbody>
-	                    </table>
-
-                  </div> 
-                </div> 
-              </div>
-               
-            </div>     
-            <!-- -------------------------------------------------------------------최근레시피 -->
-            <div class="row">
-            
-              <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="clearfix">
-                    
-                      <h4 class="card-title float-left">Recent Recipe</h4>
-                    	<br />  
-	                    <h5 class="card-title float-right"><i class="mdi mdi-login-variant"></i><a href="pages/tables/recipeManagement.do" style="color:black;">레시피게시판</a></h5>
-                   		  <!-- <div class="table-responsive"> -->
-                    	
-                     	 <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
-		                  	 <col width="20%" /> 
-		                  	 <col width="20%" /> 
-		                  	 <col width="20%" /> 
-		                  	 <col width="20%" /> 
-		                  	 <col width="20%" /> 
-		                  	 <col width="20%" /> 
-	                      <tbody style="color: black;">
-	                       	<!-- 게시판 리스트 출력  -->
-	                        <c:choose> 
-								<c:when test="${empty recipeviewRow }">
-									<tr>
-										<td colspan="5" class="text-center">
-											등록된 게시물이 없습니다.
-										</td> 
-									</tr> 
-								</c:when> 
-								<c:otherwise>   
-									<c:forEach items="${recipeviewRow }" var="row" 
-										varStatus="loop">
-										
-
-
-										<!-- 리스트반복시작 --> 
-											<%--  <td class="text-center">${row.virtualNum }</td> --%>
-											<td >
-												<br /><br />
-												<!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
-						 						<p style="color:#EC9A00;"><i class="mdi mdi-food icon-lg" ></i> </p>
-												<br /><br />
-												<!-- <mark class="bg-warning text-white" > -->
-												<a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
-														 ${row.title} 
-												</a> 
-												<!--  </mark> -->
-												<br /><br /><br /><br /><br />
-												<p style="color:gray; text-align: center;">${row.name}</p>
-												
-												<p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
-												<!-- <button type="button" class="btn btn-outline-info btn-fw"><i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기</button> -->
-												<!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
-											</td>
-									</c:forEach> 
-								</c:otherwise>
-							</c:choose>
-	                        
-	                      </tbody>
-	                    </table>
-				
-                    </div>
-                  </div> 
-                </div>
-              </div>
-             
-             <!-- -------------------------------------------------------------------최근공지사항 -->
-             <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title float-left">Recent Notice</h4>
-                   		<br />  
-	                    <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/boardManagement.do" style="color:black;">최근공지사항</a></h5>
-	                
- 						<table class="table " style="text-align: center;">
-						<tbody style="color:black;"> 
-							  
-	                        <!-- 회원 리스트 출력  -->
-	                        <c:choose>
-								<c:when test="${empty noticeviewRow }">
-									<tr>
-										<td colspan="6" class="text-center">
-											등록된 회원이 없습니다. 
-										</td>
-									</tr>
-								</c:when>   
-								<c:otherwise>
-									<c:forEach items="${noticeviewRow }" var="row" 
-										varStatus="loop"> 
-										<!-- 리스트반복시작 --> 
-										<tr>
-											
-											 <td class="text-left">
-												<p style="font-weight: bold;">
-												<label class="badge badge-gradient-success">공지</label>&nbsp;  ${row.title}
-												<!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
-												</p>
-											</td > 	
-											<td class="text-left" style="vertical-align: center;">	
-												${row.content }
-											</td >  
-											 <td class="text-left">
-												<p style="color:gray; text-align: center;">${row.postdate }</p>
-											</td >  
-											<%--<td class="text-center">${row.email }</td>
-											<td class="text-center">${row.mobile }</td>
-											<td class="text-center">${row.regidate }</td> --%>
-										</tr>
-										<!-- 리스트반복끝 -->
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-	       
-						</tbody>
-					</table>
-                  </div> 
-                </div> 
-              </div>
-              
-             </div>
-=======
-              </div> -->
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-              
-         <!--      
-            </div>
-            <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="clearfix">
-                      <h4 class="card-title float-left">Recent Updates</h4>
-                      
-                       
-                      
-                  </div>
-                </div>
-              </div>
-              
-              
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Recent QnA</h4>
-                  
-                  
-                </div>
-              </div>
-            </div>      -->
             
             
             
             
-           <!--  <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Project Status</h4>
-                    <div class="table-responsive"> -->
-                     <!--  <table class="table">
-                        <thead>
-                          <tr>
-                            <th> # </th>
-                            <th> Name </th>
-                            <th> Due Date </th>
-                            <th> Progress </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td> 1 </td>
-                            <td> Herman Beck </td>
-                            <td> May 15, 2015 </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> 2 </td>
-                            <td> Messsy Adam </td>
-                            <td> Jul 01, 2015 </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> 3 </td>
-                            <td> John Richards </td>
-                            <td> Apr 12, 2015 </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> 4 </td>
-                            <td> Peter Meggik </td>
-                            <td> May 15, 2015 </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> 5 </td>
-                            <td> Edward </td>
-                            <td> May 03, 2015 </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> 5 </td>
-                            <td> Ronald </td>
-                            <td> Jun 05, 2015 </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>-->
+            
                     </div>
                   </div>
                 </div> 
@@ -836,8 +488,21 @@ if (mst == 'normal') {
                   </div>
                 </div>
               </div>
-         <!--    </div> 
-          </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.do -->
           <footer class="footer">
