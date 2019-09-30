@@ -21,12 +21,20 @@ nav {
 #dep {
 	z-index : 0;
 }
-@media screen and (max-width: 995px) { #outer_btn_right { display: none; } }
-@media screen and (min-width: 782px) { #nav_login { display: none; } }
 
+@media screen and(max-width: 768px){
+	#place_web { display: none; } 
+}
 
-@media screen and (max-width: 995px) { #place_web { display: none; } }
-@media screen and (min-width: 782px) { #place_app { display: none; } }
+@media screen and (max-width: 995px) { 
+	#outer_btn_right { display: none; } 
+	
+}
+@media screen and (min-width: 782px) { 
+	#nav_login { display: none; }
+	#place_app { display: none; } 
+}
+
 </style>
 <script>
 function catchAlert(){
@@ -78,13 +86,15 @@ function catchAlert(){
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="event.do">이벤트</a></li>
-					</ul></li>
+					</ul>
+				</li>
 					
 				<li id="service"><a href="#">고객센터</a>
 					<ul id = "dep">
 						<li><a href="qna.do">Q&A</a></li>
 						<li><a href="mail.do">1:1 문의</a></li>
-					</ul></li>
+					</ul>
+				</li>
 				<%
        		   		if (session.getAttribute("EMAIL") == null) {
       			 %>
@@ -93,9 +103,7 @@ function catchAlert(){
 					<li  id="nav_login"><a href="logout.do">로그아웃</a>
 			
 				<%}%>
-				
-				
-				
+
 			</ul>
 		</nav>
 	</header>

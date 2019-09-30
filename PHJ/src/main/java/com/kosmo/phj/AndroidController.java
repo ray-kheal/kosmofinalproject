@@ -1,6 +1,6 @@
 package com.kosmo.phj;
 
-import java.text.SimpleDateFormat;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,9 +27,8 @@ public class AndroidController {
 		
 		
 		Map<String, String> result = new HashMap<String, String>();
-		
-		
-		
+		result.put("latitude","위도");
+		result.put("longitude","경도");
 		
 		return result;
 	}	
