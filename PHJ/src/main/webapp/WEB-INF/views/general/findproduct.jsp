@@ -194,7 +194,7 @@ to {
 									width="80%" heigth="80%" ; /> 
 									<!-- <rect width="100%" height="100%" ></rect>
 									<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
-									<p>${row.product_value }</p>
+									<p>${row.product_value}</p>
 									<!-- <img class="image blinking"
 									src="images/wow.png" width="40px" height="40px">  -->
 									<small	class="text-muted">
