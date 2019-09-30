@@ -200,7 +200,6 @@ public class MemberDAO {
 		}
 		return dto;
 	}
-	
 	//수정하기
 	public void modify(final MemberDTO dto) {
 		System.out.println("modify() 호출 : " + dto.getEmail());

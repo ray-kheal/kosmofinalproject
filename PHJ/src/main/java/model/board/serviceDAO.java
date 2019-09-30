@@ -94,17 +94,20 @@ public class serviceDAO {
 
 	}
 	public void write(final serviceDTO serviceDTO) {
+		System.out.println("write는 들어오나");
+		
 
 		template.update(new PreparedStatementCreator() {
-
+					
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, view_count, postdate, bgroup, bstep, bindent)"
-						+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, 0, sysdate, SEQ_PHJ_BOARD_SERVICE.NEXTVAL, 0, 0)";
+				String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, EMAIL, view_count, postdate, bgroup, bstep, bindent)"
+						+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, ?, 0, sysdate, SEQ_PHJ_BOARD_SERVICE.NEXTVAL, 0, 0)";
 
 				PreparedStatement psmt = con.prepareStatement(sql);
 				psmt.setString(1, serviceDTO.getName());
 				psmt.setString(2, serviceDTO.getTitle());
+				psmt.setString(4, serviceDTO.getEmail());
 				psmt.setString(3, serviceDTO.getContent());
 				return psmt;
 			}

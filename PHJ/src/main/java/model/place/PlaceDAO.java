@@ -91,4 +91,13 @@ public class PlaceDAO {
 		System.out.println("query = " + query);
 		return (ArrayList<PlaceDTO>)template.query(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
 	}
+	
+	//점포코드로 편의점 검색 쿼리.
+	public PlaceDTO searchPlace(int place_code) {
+		
+		String query = "SELECT * FROM phj_place where place_code = " + place_code;
+		
+		return(PlaceDTO)template.queryForObject(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
+		
+	}
 }
