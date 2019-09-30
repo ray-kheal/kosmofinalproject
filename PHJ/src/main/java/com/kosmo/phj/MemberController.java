@@ -2,7 +2,6 @@ package com.kosmo.phj;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
@@ -16,21 +15,18 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import command.PHJCommandImpl;
 import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
-import command.member.emailOverlapCommand;
 import command.member.emailFindActionCommand;
+import command.member.emailOverlapCommand;
+import command.member.pwFindActionCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
 @Controller
@@ -274,6 +270,51 @@ public class MemberController {
 		return "member/accountfind";
 	}
 	
+	/*//비밀번호 찾기
+	@Autowired
+	private JavaMailSenderImpl mailSender;
+   
+    @RequestMapping(value = "/pwFindAction.do", method = RequestMethod.GET)
+	public String pwFindAction(final HttpServletRequest req, Model model) {
+				
+	    final String fromEmail = "pwyank10321@naver.com";
+	    final String toEmail = req.getParameter("email");
+		final String subject = "값";
+		final String contents = "내용";
+		
+		System.out.println(toEmail);
+		System.out.println(subject);
+		System.out.println(contents);
+		
+		model.addAttribute("req",req);
+		command = new pwFindActionCommand();
+		command.execute(model);
+		
+		final MimeMessagePreparator preparator = new MimeMessagePreparator() {			
+			@Override
+			public void prepare(MimeMessage mimeMessage) throws Exception {
+
+				final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+				helper.setFrom(fromEmail); 
+				helper.setTo(toEmail); 
+				helper.setSubject(subject);  
+				helper.setText(contents, true); 
+			}
+		};		
+		
+		try {
+			mailSender.send(preparator);
+			System.out.println("메일이 정상발송 되었습니다");
+		}
+		catch (Exception e) {
+			System.out.println("예외발생");
+			System.out.println("메일발송오류");
+			e.printStackTrace();
+		}
+		
+		return "member/pwCertification";
+	}
+	
 	//이메일 쿠키 메소드
     @RequestMapping("loginCookie")
     public String handleRequest ( @CookieValue(value="email", required=false) 
@@ -317,9 +358,10 @@ public class MemberController {
  			System.out.println("예외발생");
  			System.out.println("메일발송오류");
  			e.printStackTrace();
- 		}
+ 		} 
  		
  		return "redirect:../phj";
  	}
+ 	*/
 
 }

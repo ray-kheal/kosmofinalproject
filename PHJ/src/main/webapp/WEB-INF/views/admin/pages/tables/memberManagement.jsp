@@ -87,17 +87,17 @@ if (mst == 'normal') {
                     <h4 class="card-title">&nbsp;<i class="mdi mdi-account-multiple"></i>&nbsp;회원조회</h4>
                     <table class="table table-hover" style="text-align: center;">
 					<colgroup>
-						<col width="20px" />
-						<col width="30px" />
+						<col width="5%" />
+						<col width="7%" />
 						<col width="*" />
-						<col width="50px" />
-						<col width="20px" />
-						<col width="60px" />
-						<col width="50px" />
-						<col width="30px" />
+						<col width="15%" />
+						<col width="5%" />
+						<col width="20%" />
+						<col width="20%" />
+						<col width="7%" />
 					</colgroup>
 					<thead>
-						<tr class="table-danger" style="color: white;">
+						<tr style="color: white; background-color:#6ea2d3; ">
 							<th>번호</th>
 							<th>회원명</th>
 							<th>이메일</th>
@@ -125,9 +125,10 @@ if (mst == 'normal') {
 									<!-- 리스트반복시작 -->
 									<tr>
 										 <td class="text-center">${row.virtualNum }</td>
-										<td class="text-left">
-											<a href="./view.do?type=${row.membertype}
-												&nowPage=${nowPage}">${row.name}</a>
+										<td class="text-center">
+										<%-- 	<a href="./view.do?type=${row.membertype}
+												&nowPage=${nowPage}">${row.name}</a> --%>
+												${row.name}
 										</td >
 										<td class="text-center">${row.email }</td>
 										<td class="text-center">${row.mobile }</td>

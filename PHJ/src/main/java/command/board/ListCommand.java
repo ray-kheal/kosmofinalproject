@@ -30,11 +30,12 @@ public class ListCommand implements PHJCommandImpl {
 		String addQueryString = "";
 		String searchColumn = req.getParameter("searchColumn");
 		String searchWord = req.getParameter("searchWord");
-		if(searchColumn!= null) {
+		if(searchWord!= null) {
 			addQueryString = String.format("searchColumn=%s&searchWord=%s&", searchColumn, searchWord);
-			paramMap.put("Column", searchColumn);
-			paramMap.put("Word", searchWord);
+			paramMap.put("searchColumn", searchColumn);
+			paramMap.put("searchWord", searchWord);
 		}
+		
 		int totalRecordCount = dao.getTotalCount(paramMap);
 		
 		int pageSize= 10;

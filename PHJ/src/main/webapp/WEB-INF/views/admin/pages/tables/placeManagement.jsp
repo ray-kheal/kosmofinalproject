@@ -48,8 +48,15 @@ if (mst == 'normal') {
             <div class="page-header">
               <div class="container">
              	<h3 class="page-title" style="font-weight: bold;">점포관리</h3> 
-             	<br /><br />
-             	<h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3>
+             	<%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
+             	 <div style="text-align: right;">
+	             <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" 
+	             		onclick="location.href='../../../placemap.do';">
+	                 <i class="mdi mdi-logout-variant"></i>
+	             </button>
+	              <br />
+	              <p style="font-size: 0.7em; color:#c6c6c6;">Go Site!</p>
+	           </div>
             <!-- 
             	<nav aria-label="breadcrumb">
                	 <ol class="breadcrumb">
@@ -94,7 +101,7 @@ if (mst == 'normal') {
 					</colgroup>  
                         
                       <thead>
-                        <tr class="table-info" style="color: white;">
+                        <tr  style="color: white; background-color:#6ea2d3; ">
                           <th>no</th>
                           <th>점포코드</th>
                           <th>점포명</th>
@@ -155,10 +162,10 @@ if (mst == 'normal') {
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm" 
 				onclick="location.href='./placeManagementWrite.do';">점포등록</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
+				<!-- <button class = "btn btn-danger btn-sm">삭제</button> -->
 			</div>
-
-
+ 
+ 
 			<br /> <br />
 			<!-- <ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"

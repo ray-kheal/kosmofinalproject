@@ -3109,11 +3109,11 @@ pre {
   border: 0; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #f2edf3; }
+  background-color: #f7f7f7; }
 
 .table-hover tbody tr:hover {
   color: #ffffff;
-  background-color: #f2edf3; }
+  background-color: #f7f7f7; }
 
 .table-primary,
 .table-primary > th,
@@ -6500,7 +6500,7 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #f2edf3;
+  background-color: #f7f7f7;
   background-clip: padding-box;
   border: 1px solid #ebedf2;
   border-radius: 0.3rem;
@@ -10323,7 +10323,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #f2edf3;
+  background: #f7f7f7;
   border-top: 1px solid #e7dee9;
   padding: 30px 1rem;
   transition: all 0.25s ease;
@@ -13368,11 +13368,31 @@ dl {
       width: 100%; } }
 
 .content-wrapper {
-  background: #f2edf3;
+  background: #f7f7f7;
   padding: 2.75rem 2.25rem;
   width: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1; }
+  
+  	/* 	깜박거림효과 */
+			.blinking{
+		-webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    	-moz-animation:blink 1.5s ease-in-out infinite alternate;
+    	animation:blink 1.5s ease-in-out infinite alternate;
+	}
+	@-webkit-keyframes blink{
+    	0% {opacity:0;}
+    :;00% {opacity:1;}
+	}
+	@-moz-keyframes blink{
+    	0% {opacity:0;}
+    :;00% {opacity:1;}
+	}
+	@keyframes blink{
+    	0% {opacity:0;}
+    :;00% {opacity:1;}
+}
+  
 
 /*# sourceMappingURL=style.css.map */

@@ -218,7 +218,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	transform: translate(0px, 0px);
 	opacity: 1;
 }
-</style>
+#nore{
+	
+	background-repeat:no-repeat;
+	background-position: 50%;
+	background-size: 700px;
+}
+</style> 
 <script>
 	$(function() {
 		$("#recipe").attr("class", "current");
@@ -248,16 +254,15 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	<!-- 메인헤더 인클루드 -->
 	<%@ include file="MainHeader.jsp"%>
 
-	<div
-		style="width: 100%; height: 200px; text-align: center; background-color: #ffd74d; display: table;">
+	<div id= "nore"
+		style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/fork2.png);">
 		<br /> <br /> <br />
 		<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-			<img src="images/fork_round.png" alt="포크"
-				style="width: 50px; height: 50px;" /> RECIPE <br />
+			 RECIPE <br />
 		</p>
-	</div>
-		<!-- Page Content -->
+	</div> 
+		<!-- Page Content --> 
 		<div class="container">
 			<div class="container">
 				<hr class="mt-2 mb-2">
