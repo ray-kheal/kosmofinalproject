@@ -27,7 +27,7 @@ body {
 }
 </style>
 <script>
-	$(function() {
+	$(function() { 
 		$("#recipe").attr("class", "current");
 	});
 	
@@ -60,12 +60,12 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
+			style="width: 100%; height: 200px; text-align: center;display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 레시피
-			</p>
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+					RECIPE
+				<img src="https://image.flaticon.com/icons/svg/1411/1411258.svg" width="80px" height="80px" /> 
+		</p>
 		</div>
 
 		<div class="container">
@@ -73,9 +73,8 @@ body {
 			<br />
 
 			<div class="row text-right" style="float: right;">
-				<h5 style="color: #82b9e4; font-weight: bold; padding-right: 20px;">
-					<i class="far fa-bell"></i>&nbsp; 레시피
-				</h5>
+				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' ">
+					<i class="far fa-smile-wink"></i>&nbsp;레시피</h5>
 			</div>
 			<input type="hidden" name="idx" value="${viewRow.idx }" />
 			<input type="hidden" name="nowPage" value="${nowPage }" />
@@ -137,10 +136,12 @@ body {
 			if(session.getAttribute("EMAIL") != null) /* &&session.getAttribute("EMAIL").toString().equals(dto.getEmail())) */ { %> 
 			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
 			<%} %>
-			<button type = "button" id ="recommendBtn" onclick = "isRecommend();">추천하기</button>
+			<button type = "button" class="btn" id ="recommendBtn" onclick = "isRecommend();" style="font-family: 'Goyang';" >
+			<img src="https://image.flaticon.com/icons/svg/470/470289.svg" width="40px" height="40px"/>	 추천하기</button>
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./recipe.do';">리스트</button>
+				<button type="button" class="btn"
+					onclick="location.href='./recipe.do';" style="font-family: 'Goyang'; font-size: 30px;">
+						<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
 			</div>
 		</div>
 		

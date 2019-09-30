@@ -1,21 +1,31 @@
 package com.kosmo.phj;
 
+import java.io.BufferedReader;
+
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +40,7 @@ import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.RegistCommand;
 import command.member.emailOverlapCommand;
-import command.member.pwFindActionCommand;
+import command.member.pwChangeCommand;
 import command.member.emailFindActionCommand;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
@@ -266,9 +276,7 @@ public class MemberController {
 		command = new emailFindActionCommand();
 		command.execute(model);
 		
-		
 		model.addAttribute("name",req.getParameter("name"));
-		
 		
 		return "member/accountfind";
 	}
@@ -277,21 +285,69 @@ public class MemberController {
 	@Autowired
 	private JavaMailSenderImpl mailSender;
    
-    @RequestMapping(value = "/pwFindAction.do", method = RequestMethod.GET)
-	public String pwFindAction(final HttpServletRequest req, Model model) {
-				
-	    final String fromEmail = "pwyank10321@naver.com";
-	    final String toEmail = req.getParameter("email");
-		final String subject = "값";
-		final String contents = "내용";
+    @RequestMapping(value = "pwFindAction.do", method = RequestMethod.GET)
+	public String pwFindAction(final HttpServletRequest req, HttpServletResponse resp, Model model, HttpSession session) {
+		
+    	Map<String, Object> map = model.asMap();
+    	
+		final String fromEmail = "pwyank10321@naver.com";
+		final String toEmail = req.getParameter("email");
+		
+		String email = req.getParameter("email");
+		String mobile = req.getParameter("mobile1") + "-" + req.getParameter("mobile2") + "-"
+				+ req.getParameter("mobile3");
+
+		String pass = new MemberDAO().pwFind(email, mobile).toString();
+		
+		model.addAttribute("resultPass", pass);
+		System.out.println("pass값 : " + pass);
+		
+		String mailContent = "";
+	    String dirPath = "";
+		String filePath = "";
+		String mailBox = "";
+
+		try {
+			String rndPass = "";
+		    
+		    for (int i = 0; i < 4; i++) {
+				int rndVal = (int) (Math.random() * 62);
+
+				if (rndVal < 10) {
+					rndPass += rndVal;
+				} else if (rndVal > 35) {
+					rndPass += (char) (rndVal + 61);
+				} else {
+					rndPass += (char) (rndVal + 55);
+				}
+			}
+		    
+		    session.setAttribute("rndPass", rndPass);
+		    
+		    System.out.println(rndPass);
+		    
+			dirPath = req.getSession().getServletContext().getRealPath("/WEB-INF/views/member/");
+			filePath = dirPath + "pwMailForm.html";
+			
+			FileReader fr = new FileReader(filePath);
+			BufferedReader br = new BufferedReader(fr);
+			
+			while((mailBox = br.readLine())!=null){
+				mailContent += mailBox;
+			}
+			
+			mailContent = mailContent.replace("email", req.getParameter("email"));
+			mailContent = mailContent.replace("rndPass", rndPass);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		final String subject = "편히점 비밀번호 변경을 위한 인증번호입니다.";
+		final String contents = mailContent;
 		
 		System.out.println(toEmail);
 		System.out.println(subject);
 		System.out.println(contents);
-		
-		model.addAttribute("req",req);
-		command = new pwFindActionCommand();
-		command.execute(model);
 		
 		final MimeMessagePreparator preparator = new MimeMessagePreparator() {			
 			@Override
@@ -305,19 +361,65 @@ public class MemberController {
 			}
 		};		
 		
-		try {
-			mailSender.send(preparator);
-			System.out.println("메일이 정상발송 되었습니다");
+		String returnPass = null;
+
+		try{
+			if(pass.equals("ERROR")) {
+				returnPass = "member/accountfind";
+				System.out.println("메일이 발송되지 않았습니다.");
+			}
+			else if(!pass.equals("ERROR")) {
+				mailSender.send(preparator);
+				System.out.println("메일이 정상발송 되었습니다");
+				returnPass = "member/pwCertification";
+			}
+			return returnPass;
 		}
-		catch (Exception e) {
+		catch(Exception e){
 			System.out.println("예외발생");
 			System.out.println("메일발송오류");
 			e.printStackTrace();
+			
+			return "member/accountfind";
+		}
+
+	}
+    
+    //인증번호 확인 폼
+    @RequestMapping("certification.do")
+    public String certification(Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    	
+    	PrintWriter out = resp.getWriter();	
+    	resp.setCharacterEncoding("UTF-8");
+    	String rndPass = req.getParameter("rndPass");
+    	String cerOk = req.getParameter("cerOk");
+    	
+		if(rndPass.equals(cerOk)) {	
+			out.print("<script>alert('인증 되었습니다.');</script>");
+			out.flush();
+    	}
+		else {
+			out.print("<script>alert('인증번호가 다르거나 입력해 주세요.');</script>");
+			out.print("<script>history.back();</script>");
+			out.flush();
 		}
 		
-		return "member/pwCertification";
-	}
-	
+		System.out.println(rndPass);
+		System.out.println(cerOk);
+		
+		return "member/pwChange";
+    }
+    
+    //비밀번호 변경
+  	@RequestMapping(value="/changePass.do",method=RequestMethod.POST)
+  	public String changePass(Model model, HttpServletRequest req){
+  		model.addAttribute("req",req);
+  		command = new pwChangeCommand();
+  		command.execute(model);
+  		
+  		return "member/login";
+  	}
+    
 	//이메일 쿠키 메소드
     @RequestMapping("loginCookie")
     public String handleRequest ( @CookieValue(value="email", required=false) 

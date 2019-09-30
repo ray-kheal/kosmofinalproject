@@ -131,8 +131,9 @@ body {
 			<%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
 			<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./qna.do';">리스트</button>
+				<button type="button" class="btn"
+					onclick="location.href='./qna.do';" style="font-family: 'Goyang'; font-size: 30px;">
+						<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
 			</div>
 		</div>
 		<!-- Footer -->

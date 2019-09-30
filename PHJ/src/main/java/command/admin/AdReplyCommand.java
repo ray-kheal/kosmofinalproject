@@ -1,4 +1,4 @@
-package command.board;
+package command.admin;
 
 import java.util.Map;
 
@@ -10,7 +10,7 @@ import command.PHJCommandImpl;
 import model.board.serviceDAO;
 import model.board.serviceDTO;
 
-public class ReplyCommand implements PHJCommandImpl{
+public class AdReplyCommand implements PHJCommandImpl{
 	
 	@Override
 	public void execute(Model model) {
@@ -24,7 +24,7 @@ public class ReplyCommand implements PHJCommandImpl{
 		serviceDAO dao = new serviceDAO();
 		serviceDTO dto = dao.view(idx);
 		
-		dto.setTitle(" " +dto.getTitle());   
+		dto.setTitle("[re]" +dto.getTitle());   
 		dto.setContent("\n\r\r\r --- [원본글] --- \n\r"+ dto.getContent());
 		model.addAttribute("replyRow",dto);
 	
