@@ -74,9 +74,19 @@
 												<th scope="row"><label for="name">인증번호</label></th>
 												<td>
 													<div class="formbox">
-														<% String cerOk = (String)session.getAttribute("rndPass"); %>
-														<input type="hidden" id="cerOk" name="cerOk" value="<%=cerOk %>" />
+														<% 
+														String cerOk = (String)session.getAttribute("rndPass"); 
+														String email = request.getParameter("email");
+														String mobile = request.getParameter("mobile1") + "-" + request.getParameter("mobile2") + "-"
+																+ request.getParameter("mobile3");
+														String pass = (String)request.getAttribute("resultPass");
+														%>
+														<input type="hidden" id="cerOk" name="cerOk" value="<%=cerOk %>" style="visibility:hidden;" />
+														<input type="hidden" id="email" name="email" value="<%=email %>" style="visibility:hidden;" />
+														<input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
+														<input type="hidden" id="pass" name="pass" value="<%=pass %>" />
 														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass" />
+														<p style="color:white;">※ 인증번호는 이메일로 보내드렸습니다.</p>
 													</div>
 												</td>
 											</tr>

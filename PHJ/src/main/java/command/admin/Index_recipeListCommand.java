@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 
 import command.PHJCommandImpl;
+import model.board.noticeDTO;
 import model.board.recipeDAO;
 import model.board.recipeDTO;
 
@@ -44,8 +45,10 @@ public class Index_recipeListCommand implements PHJCommandImpl{
 	paramMap.put("end",end);
 
 	// 출력할 리스트 가져오기
-	ArrayList<recipeDTO> recipeviewRow = dao.list(paramMap);
+	ArrayList<recipeDTO> recipeviewRow = dao.ad_list(paramMap);
 
+	// 인기 게시물 가져오기 
+	ArrayList<recipeDTO> pop_recipeviewRow = dao.popular_recipe(paramMap);
 	// 가상번호 계산하여 부여하기
 	int virtualNum = 0;
 	int countNum = 0;
@@ -60,6 +63,7 @@ public class Index_recipeListCommand implements PHJCommandImpl{
 	model.addAttribute("totalPage", totalPage);
 	model.addAttribute("nowPage", nowPage);
 	model.addAttribute("recipeviewRow",recipeviewRow);
+	model.addAttribute("pop_recipeviewRow",pop_recipeviewRow);
 	model.addAttribute("recipe_totalRecordCount",recipe_totalRecordCount);
 	}
 }

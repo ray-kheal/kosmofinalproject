@@ -49,6 +49,21 @@ public class serviceDAO {
 		return (ArrayList<serviceDTO>) template.query(query,
 				new BeanPropertyRowMapper<serviceDTO>(serviceDTO.class));
 	}
+	
+	public ArrayList<serviceDTO> list_noreply(Map<String, Object> map) {
+		
+		int start =Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		String query = "  SELECT * FROM( " + 
+				"    SELECT Tb.*, ROWNUM rNum FROM( " + 
+				"    SELECT * FROM PHJ_BOARD_SERVICE where 1=1 and" + 
+				"    ROWID IN (SELECT MAX(ROWID) FROM PHJ_BOARD_SERVICE GROUP BY BGROUP HAVING count(*)<2) " + 
+				"    ) Tb ) WHERE rNum BETWEEN " + start + " AND " + end;
+		
+		
+		return (ArrayList<serviceDTO>) template.query(query,
+				new BeanPropertyRowMapper<serviceDTO>(serviceDTO.class));
+	}
 	public serviceDTO view(String idx) {
 		// 조회수 증가
 		updateHit(idx);

@@ -255,7 +255,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <!--             <img src="images/scoll_cs.png" alt="고객센터" /> --> 
          <!--          </a><br /> --> 
 
-<<<<<<< HEAD
          <% 
             if (session.getAttribute("EMAIL") == null) { 
          %> 
@@ -278,7 +277,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!--           <a href="#scrollbottom" > <img id="go-bottom" src="images/down.png" --> 
 <!--             alt="다운" /> --> 
 <!--          </a> --> 
-=======
          <%
             if (session.getAttribute("EMAIL") == null) {
          %>
@@ -339,8 +337,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             </div> 
          </div> 
       </div> 
-
-<<<<<<< HEAD
+      
       <!-- Features --> 
      <!-- <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     "> --> 
        
@@ -366,15 +363,15 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          
                <div class="col-6 col-12-medium"> 
                   <!-- Box --> 
-=======
-      <!-- Features -->
-     <!-- <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     "> -->
+<!-- =======
+      Features
+     <div id=" contents" style="background-attachment: fixed; background-image: url('images/mainpic2dark.jpg'); background-repeat: no-repeat; background-size: cover;     ">
       
       <div id="features-wrapper  ">
          <div class="container">
             <div class="row" id="search">
  	               <div class="col-6 col-12-medium">
-	                  <!-- Box -->
+	                  Box
 	            
 	                  <section class="box feature" style="border : 1px solid #f7f4f4;">
 	                     <a href="placemap.do" class="image featured"><img
@@ -391,7 +388,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	               </div>
 	        
                <div class="col-6 col-12-medium">
-                  <!-- Box -->
+                  Box
 
                   <section class="box feature" style="border : 1px solid #f7f4f4;">
                      <a href="findproduct.do" class="image featured"><img
@@ -409,7 +406,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          </div>
       </div>
     </div>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
 
                   <section class="box feature" style="border : 1px solid #f7f4f4;"> 
                      <a href="findproduct.do" class="image featured"><img 
@@ -470,8 +467,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
                                     </c:when> 
                                     <c:otherwise> 
-
-<<<<<<< HEAD
                                        <div class="col-lg-3 col-md-4 col-6 " > 
                                           <figure class="recipePhoto"> 
                                              <img class="img-fluid img-thumbnail effect" 
@@ -485,7 +480,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                              <a href="#" class="d-block mb-4 h-100"></a> 
                                           </figure> 
                                        </div> 
-=======
                                     </c:otherwise>
                                  </c:choose>
                               </c:forEach>
@@ -571,17 +565,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 		               				</div>
                                  <div>
                                     <table class="table table-hover" style="text-align: center; margin-left: -10px;">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-
-<<<<<<< HEAD
-                                    </c:otherwise> 
-                                 </c:choose> 
-                              </c:forEach> 
-                           </c:otherwise> 
-                        </c:choose> 
-                     </div> 
-                  </section> 
-=======
                                        <colgroup>
                                           <col width="80px" />
                                           <col width="*" />
@@ -658,168 +641,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 <!--       </div> -->
       <!-- Footer 인클루드. -->
       <%@ include file="general/MainFooter.jsp"%>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-
-
-
-               </div> 
-
-            </div> 
-            <div class="container"> 
-            <div class="row" > 
-               <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> --> 
-               <div class="" style=" width: 100%;">  
-                  <!-- Content --> 
-                   
-                  <div id="notify"> 
-                     <section class="last"> 
-                        <table> 
-                           <tr > 
-                              <td style=" width: 50%;"> 
-<!--                                <a href="recipe.do" class="btn btn-outline-info" style="margin-top: -50px; text-align: right">더보기-></a> --> 
-                                 <h2 style="font-family: Goyang;">공지사항</h2> 
-                                    <div style="text-align: right; margin-right: 50px; margin-bottom: 20px;"> 
-                     <a href="notice.do" > 
-                     <img src="images/moreView.png" alt="" style="width: 120px"/> 
-                     </a> 
-                  </div> 
-                                 <ul class="main_board_list"> 
-                                    <!-- <div> --> 
-                                       <table class="table table-hover" style="text-align: center;  margin-left: -50px; " > 
-                                          <colgroup> 
-                                             <col width="80px" /> 
-                                             <col width="*" /> 
-                                             <col width="120px" /> 
-                                             <col width="120px" /> 
-                                              
-                                          </colgroup> 
-                                          <thead> 
-                                             <tr class="table-primary" style="color: white; width: 120%; "> 
-                                                <th style="text-align: center;"></th> 
-                                                <th style="text-align: center;">제목</th> 
-                                                <th style="text-align: center;">작성자</th> 
-                                                
-                                                
-                                             </tr> 
-                                          </thead> 
-                                          <tbody> 
-                                             <c:choose> 
-                                                <c:when test="${empty listRows }"> 
-                                                   <tr> 
-                                                      <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td> 
-                                                   </tr> 
-                                                </c:when> 
-                                                <c:otherwise> 
-                                                   <c:forEach items="${listRows }" var="row" 
-                                                      varStatus="loop"> 
-                                                      <!-- 리스트반복시작 --> 
-                                                      <tr> 
-                                                         <td class="text-center"><i class="fas fa-clipboard-check"  style="color: #608ac9;"></i></td> 
-                                                         <td class="text-left"> 
-                                                            <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a> 
-                                                         </td> 
-                                                         <td class="text-center">${row.content }</td> 
-                                                         <%-- <td class="text-center">${row.view_count }</td> --%> 
-                                                      </tr> 
-                                                   </c:forEach> 
-                                                </c:otherwise> 
-                                             </c:choose> 
-                                          </tbody> 
-                                       </table> 
-                                    </div> 
-                                 </ul> 
-                                 <!-- <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a> --> 
-                              </td> 
-                              <td > 
-                               
-                                 <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2> 
-                              <div style="text-align: right; margin-bottom: 20px;"> 
-                     <a href="event.do"  > 
-                     <img src="images/moreView.png" alt="" style="width: 120px"/> 
-                     </a> 
-                  </div> 
-                                 <div> 
-                                    <table class="table table-hover" style="text-align: center; margin-left: -10px;"> 
-
-                                       <colgroup> 
-                                          <col width="80px" /> 
-                                          <col width="*" /> 
-                                          <col width="120px" /> 
-                                          <col width="120px" /> 
-                                       </colgroup> 
-                                       <thead> 
-                                          <tr class="table-primary" style="color: white;"> 
-                                             <th style="text-align: center;"></th> 
-                                             <th style="text-align: center;">제목</th> 
-                                             <th style="text-align: center;">작성자</th> 
-                                            <!--  <th style="text-align: center;">조회수</th> --> 
-                                          </tr> 
-                                       </thead> 
-                                       <tbody> 
-                                          <c:choose> 
-                                             <c:when test="${empty eventRows }"> 
-                                                <tr> 
-                                                   <td colspan="6" class="text-center">등록된 게시물이 없습니다 
-                                                      ^^*</td> 
-                                                </tr> 
-                                             </c:when> 
-                                             <c:otherwise> 
-                                                <c:forEach items="${eventRows }" var="row" 
-                                                   varStatus="loop"> 
-                                                   <!-- 리스트반복시작 --> 
-                                                   <tr> 
-                                                      <%-- <td class="text-center">${row.virtualNum }</td> --%> 
-                                                      <td class="text-center"><i class="fas fa-gift" style="color: #608ac9;"></i></td> 
-                                                      <td class="text-left"><a 
-                                                         href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a> 
-                                                      </td> 
-                                                      <td class="text-center">${row.content }</td> 
-                                                      <%-- <td class="text-center">${row.view_count }</td> --%> 
-                                                   </tr> 
-                                                </c:forEach> 
-                                             </c:otherwise> 
-                                          </c:choose> 
-                                       </tbody> 
-                                    </table> 
-                                 </div>  
-                                 <!-- <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a> --> 
-                              </td> 
-                           </tr> 
-                        </table>    
-                     </section> 
-                  </div> 
-               </div> 
-            </div> 
-            </div> 
-            <!--             <div class="col-7 col-16-medium imp-medium"> --> 
-            <!--                Content --> 
-            <!--                <div id="info"> --> 
-            <!--                   <section class="last"> --> 
-            <!--                      <h2>고객센터</h2> --> 
-            <!--                      <h3>이부분에 고객센터 페이지 소개</h3> --> 
-            <!--                      <a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> --> 
-            <!--                   </section> --> 
-            <!--                </div> --> 
-            <!--             </div> --> 
-         </div> 
-      </div> 
-<!--       <div class="container"> --> 
-<!--          <h2>개발중이니 관리자 페이지 링크 활성화.</h2> --> 
-<!--          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a> --> 
-<!--          <br /><br /> --> 
-<!--          <a href=recipe_edit.do> 레시피 게시판 준비중</a> --> 
-       
-<!--          <h4> --> 
-<!--             로그인 한 이메일 : --> 
-<%--             <%=session.getAttribute("EMAIL")%></h4> --%> 
-<!--          <h4> --> 
-<!--             로그인 한 회원 이름 : --> 
-<%--             <%=session.getAttribute("NAME")%></h4> --%> 
-<!--       </div> --> 
-      <!-- Footer 인클루드. --> 
-      <%@ include file="general/MainFooter.jsp"%> 
-
-   </div> 
 
    <!-- Scripts --> 
 

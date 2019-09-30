@@ -88,14 +88,12 @@ function find_PWcheck(){
 </c:if>
 <c:if test="${'ERROR' ne resultPass and not empty resultPass}">
 	<script>
-		alert('4자리의 인증번호를 보내드렸습니다.');
-		location.href="login.do";
+		alert('4자리의 인증번호를 이메일로 보내드렸습니다.');
 	</script>
 </c:if> 
 <c:if test="${'ERROR' eq resultPass }">
 	<script>
 		alert('회원 정보가 없거나 모든 정보를 입력해주세요.');
-		location.href="accountfind.do";
 	</script>
 </c:if>
 <body class="is-preload left-sidebar">
