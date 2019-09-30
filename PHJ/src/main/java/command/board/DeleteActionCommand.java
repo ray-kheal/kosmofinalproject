@@ -19,7 +19,7 @@ public class DeleteActionCommand implements PHJCommandImpl{
 		
 		//폼값받기
 		String idx = req.getParameter("idx");
-		String pass = req.getParameter("pass");
+		//String pass = req.getParameter("pass");
 		
 		serviceDAO dao = new serviceDAO();
 		dao.delete(idx);

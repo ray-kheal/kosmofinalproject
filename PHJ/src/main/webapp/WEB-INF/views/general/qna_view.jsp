@@ -1,3 +1,5 @@
+<%@page import="model.member.MemberDTO"%>
+<%@page import="model.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,6 +9,7 @@
 <meta charset="UTF-8">
 <title>편히점 - QnA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script
@@ -17,6 +20,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
+
+<style type="text/css">
+	@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
+nav {
+   font-family: 'Goyang', cursive;
+}
 <style type="text/css">
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -116,10 +128,19 @@ body {
 			</table>
 			<!-- </div> -->
 			<br /> <br />
-			<button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
-			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>
+			
+			<%
+			String email = (String)session.getAttribute("EMAIL");
+			MemberDAO dao = new MemberDAO();
+			MemberDTO dto = dao.memberView(email);
+			
+			if(session.getAttribute("EMAIL") != null && session.getAttribute("EMAIL").toString().equals(dto.getEmail()) )  { %> 
+			<%-- <button t ype="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">답변글달기</button> --%>
+			<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
 			<%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
-			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
+			<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+			<%}%>
+			
 			<div class="row text-right" style="float: right;">
 				<button type="button" class="btn btn-dark btn-sm"
 					onclick="location.href='./qna.do';">리스트</button>

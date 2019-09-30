@@ -64,8 +64,9 @@ nav {
 			style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/event.png);">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-				<img src="https://image.flaticon.com/icons/svg/1681/1681241.svg"  alt="메모"
-					style="width: 70px; height: 70px;" /> 공지사항
+				
+						공지사항
+				<img src="https://image.flaticon.com/icons/svg/1189/1189734.svg" width="80px" height="80px" /> 
 			</p>
 		</div>
 		<div style="width: 100%; text-align: center;">
@@ -116,11 +117,11 @@ nav {
 					</colgroup>
 					<thead>
 						<tr class="table-primary" style="color: white;">
-							<th style="text-align: center;">번호</th>
-							<th style="text-align: center;">제목</th>
-							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">조회수</th>
-							<th style="text-align: center;">등록날짜</th>
+							<th style="text-align: center; font-family: Goyang">번호</th>
+							<th style="text-align: center; font-family: Goyang">제목</th>
+							<th style="text-align: center; font-family: Goyang">작성자</th>
+							<th style="text-align: center; font-family: Goyang">조회수</th>
+							<th style="text-align: center; font-family: Goyang">등록날짜</th>
 						</tr>
 					</thead>
 					<tbody>

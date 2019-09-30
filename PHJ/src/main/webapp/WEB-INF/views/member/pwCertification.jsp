@@ -40,6 +40,10 @@
 	}
 </style>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+		window.onpopstate = function () {
+		   	history.go(1);
+	};
 </script>
 <body class="is-preload left-sidebar">
 	<div id="page-wrapper">
@@ -54,11 +58,11 @@
 				<div class="findPop find" id="findPop find form" >
 					<div class="findPop find" id="findPop find form" >
 							
-						<h3 id="Maintitle">인증번호를 입력하세요.</h3>
+						<h3 id="Maintitle">4자리의 인증번호를 입력하세요.</h3>
 	 				
 						<div class="findPop" id="findPop IDfind">
-	
-								<form method="post"  class="" name="f" action="emailFindAction.do">
+				
+								<form method="post"  class="" name="f" action="certification.do" onsubmit="sendIt(f);">
 									<table summary="인증번호를 입력할 수 있습니다.">
 										<caption>인증번호 입력폼</caption>
 										<colgroup>
@@ -69,14 +73,28 @@
 											<tr>
 												<th scope="row"><label for="name">인증번호</label></th>
 												<td>
-													<div class="formbox"><input maxlength="40" type="text" id="name" class="text" name="name"></div>
+													<div class="formbox">
+														<% 
+														String cerOk = (String)session.getAttribute("rndPass"); 
+														String email = request.getParameter("email");
+														String mobile = request.getParameter("mobile1") + "-" + request.getParameter("mobile2") + "-"
+																+ request.getParameter("mobile3");
+														String pass = (String)request.getAttribute("resultPass");
+														%>
+														<input type="hidden" id="cerOk" name="cerOk" value="<%=cerOk %>" style="visibility:hidden;" />
+														<input type="hidden" id="email" name="email" value="<%=email %>" style="visibility:hidden;" />
+														<input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
+														<input type="hidden" id="pass" name="pass" value="<%=pass %>" />
+														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass" />
+														<p style="color:white;">※ 인증번호는 이메일로 보내드렸습니다.</p>
+													</div>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 									<div class="btnWrap">
 										<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
-										<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
+										<button type="button" onclick="location.href='accountfind.do';" class="btn btn-danger" style="width:70px;">취소</button>
 									</div>
 								</form>
 	

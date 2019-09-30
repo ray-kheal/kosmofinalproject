@@ -30,7 +30,7 @@ body {
 </style>
 <script>
 	$(function() {
-		$("#notice").attr("class", "current");
+		$("#stock").attr("class", "current");
 	});
 </script>
 <body>
@@ -57,7 +57,8 @@ body {
 			</p>
 		</div>
 
-		<input type="hid-den" name="product_code" value="${product_code }" />
+		<input type="hidden" name="product_code" value="${product_code }" />
+		
 		<div class="container">
 			<table class="table table-hover" style="text-align: center;">
 				<tbody style="color: black;">
@@ -66,7 +67,7 @@ body {
 					<c:choose>
 						<c:when test="${empty listRows }">
 							<tr>
-								<td colspan="5" class="text-center">등록된 상품이 없습니다.</td>
+								<td colspan="5" class="text-center">해상 상품이 등록된 편의점이 없습니다.</td>
 							</tr>
 						</c:when>
 						<c:otherwise>
@@ -78,6 +79,10 @@ body {
 									<th bgcolor="#f2efef"
 										style="text-align: center; border-top: 5px solid #82b9e4;">편의점</th>
 									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${row.place_name}</td>
+									
+									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">
+									<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}"
+									class="btn btn-sm btn-outline-secondary" style="text-align: center"> 편의점 찾기</a></td>  
 								</tr>
 								<tr>
 									<th bgcolor="#f2efef"

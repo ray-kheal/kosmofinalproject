@@ -54,7 +54,7 @@ body {
 
 
 	$(function() {
-		$("#place").attr("class", "current");
+		$("#place_web").attr("class", "current");
 	});
 	
 	var span;
@@ -151,7 +151,9 @@ body {
 		case error.UNKNOWN_ERROR:
 			span.innerHTML = "알수없는오류발생";break;
 		case error.PERMISSION_DENIED:
-			span.innerHTML = "권한이 없습니다";break;
+			span.innerHTML = "권한이 없습니다";
+			alert('모바일웹에선 지원하지 않습니다. PC웹이나 어플리케이션을 통하여 실행해주세요');
+			break;
 		case error.POSITION_UNAVAILABLE:                                                    
 			span.innerHTML = "위치 확인불가";break;
 		case error.TIMEOUT:
@@ -170,19 +172,21 @@ body {
 		<!-- 헤더파일 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
-			style="width: 100%; height: 200px; text-align: center;  display: table;"  >
+		<	<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+		
+		<p
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+			font-size: 60px; color: black; font-weight: bold;">
+			<!-- <img src="./images/memo_w.png" alt="메모"
+				style="width: 50px; height: 50px;" /> -->
+<!-- 			<i class="fas fa-store" style="width: 45px; height: 45px;" ></i> -->
+			&nbsp;	
 			
-				
-			<!-- 컨텐츠 -->
-			
-			
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-				
-					<i class="fas fa-search-location" style="width: 50px; height: 50px;"></i>&nbsp;
-					근처 편의점 찾기
-			</p>
+				<img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
+				편의점을 찾아보아요
+				<img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
+		</p>
+	</div>
 		</div>
 		<!-- Main -->
 		<div id="main-wrapper">
@@ -215,7 +219,7 @@ body {
 			
 				<tr > 
 					<td rowspan="3"  id=map>			
-						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
+						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
 
 					</td> 
 					<td style=" float: center;">
@@ -246,6 +250,7 @@ body {
 						
 						
 
+<<<<<<< HEAD
 
 							<input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center;border-radius: 15px;"/>
 						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
@@ -253,8 +258,13 @@ body {
 							<img src="images/searchbutton.png"  style=" width:150px; height:75px; border-radius: 15px;">
 						</a> -->
 
+=======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						</form>
 					
 					</td>
@@ -264,6 +274,7 @@ body {
 					<td style="text-align: center;">
 
 
+<<<<<<< HEAD
 						<h5>근처 편의점 목록</h5> 
 						
 						<table class="table table-bordered">
@@ -294,6 +305,8 @@ body {
 						
 						<br />
 					
+=======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 						<h5>근처 편의점 목록</h5> <br />
 						<table class="table table-bordered">

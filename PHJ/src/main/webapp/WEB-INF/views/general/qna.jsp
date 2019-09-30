@@ -65,9 +65,15 @@ nav {
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
 					style="width: 50px; height: 50px;" /> -->
+<<<<<<< HEAD
 					
 					무엇이든 물어보세요
 					<i class="far fa-smile" style="width: 50px; height: 50px;"></i>
+=======
+					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-marketing-23.png&r=0&g=0&b=0" width="80px" height="80px" /> 
+						궁금하면 500원
+					<img src="https://image.flaticon.com/icons/svg/76/76818.svg" width="80px" height="80px" /> 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 			</p>
 		</div>
 		
@@ -114,11 +120,11 @@ nav {
 					</colgroup>
 					<thead>
 						<tr class="table-primary" style="color: white;">
-							<th style="text-align: center;">번호</th>
-							<th style="text-align: center;">제목</th>
-							<th style="text-align: center;">작성자</th>
-							<th style="text-align: center;">조회</th>
-							<th style="text-align: center;">작성일</th>
+							<th style="text-align: center; font-family: Goyang">번호</th>
+							<th style="text-align: center; font-family: Goyang">제목</th>
+							<th style="text-align: center; font-family: Goyang">작성자</th>
+							<th style="text-align: center; font-family: Goyang">조회수</th>
+							<th style="text-align: center; font-family: Goyang">등록날짜</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -153,8 +159,7 @@ nav {
 					</tbody>
 				</table>
 			</div>
-			<br /><br />
-		 <div class="row text-right" style="float: right;">
+			 <div class="row text-right" style="float: right;">
 		 
 		<%if(session.getAttribute("EMAIL") != null) { %> 
 		 <form action="write.do" method="post">
@@ -171,7 +176,7 @@ nav {
 							${pagingImg }
 						</td>
 					</tr>
-				</table>
+			</table>  
 			</ul>
 		</div>
 	</div>

@@ -260,9 +260,9 @@ label {
 		<!-- <div class="container" id="wrap"  style="width:100%; height:1000px;"> -->
 		 
 		<form method="post" onsubmit="return sendIt();" class="" name="f">
-		<input type="hid-den" name="kakao_id" value="${dto.kakao_id }"/>
-		<input type="hid-den" name="google_id" value="${dto.google_id }"/>
-		<input type="hid-den" id="chkEmail" value="0"/>
+		<input type="hidden" name="kakao_id" value="${dto.kakao_id }"/>
+		<input type="hidden" name="google_id" value="${dto.google_id }"/>
+		<input type="hidden" id="chkEmail" value="0"/>
 				<table class="table table-borderless font-goyang">
 					
 						<colgroup>

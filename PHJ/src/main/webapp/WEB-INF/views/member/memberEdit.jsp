@@ -283,15 +283,16 @@ div label input {
 					 
 					<tr>
 						<td bgcolor="#f7f4f4" style="text-align: center; ">비밀번호</td>
-						<td bgcolor="white"><input type="password" style="width: 50%;" id="pass1" name="pass" value="${dto.pass }" 
-						 class="form-control input-lg" placeholder="비밀번호" bgcolor="white"/></td>
+						<td bgcolor="white"><input type="password" style="width: 50%; font-family: verdana; " id="pass1" name="pass" value="${dto.pass }" 
+						 class="form-control input-lg" placeholder="비밀번호" bgcolor="white" 
+						 	onblur="if(value=='${dto.pass}'"  onfocus="if(value=='${dto.pass }') value = ''" /></td>
 						
 					</tr>
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center; ">비밀번호확인</td>
-						<td bgcolor="white"><input type="password" style="width: 50%; background-color: white;" id="pass2" name="confirm_password" value="${dto.pass }"  
+						<td bgcolor="white"><input type="password" style="width: 50%; font-family: verdana; background-color: white;" id="pass2" name="confirm_password" value=""  
 						class="form-control input-lg" placeholder="비밀번호 확인" /></td>
-						
+						 
 					</tr>  
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center; ">이름</td>

@@ -120,11 +120,32 @@ public class MemberDAO {
 		try {
 			MemberDTO memberdto = template.queryForObject(sql, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
 			pass = memberdto.getPass();
+			System.out.println(pass);
 			return pass;
 		} catch(EmptyResultDataAccessException e) {
 			e.printStackTrace();
+			System.out.println(pass);
 			return pass;
 		}
+	}
+	
+	//비밀번호 변경
+	public void pwChange(final MemberDTO dto) {
+		System.out.println(dto.getEmail());
+		System.out.println(dto.getMobile());
+		System.out.println(dto.getPass());
+		String sql = "UPDATE phj_member SET pass=? WHERE email=? AND mobile=? ";
+		
+		template.update(sql,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, dto.getPass());	
+				ps.setString(2, dto.getEmail());	
+				ps.setString(3, dto.getMobile());	
+			}
+		});
+		System.out.println("sql : " + sql);
 	}
 	
 	//전체 수 카운트
@@ -179,7 +200,6 @@ public class MemberDAO {
 		}
 		return dto;
 	}
-	
 	//수정하기
 	public void modify(final MemberDTO dto) {
 		System.out.println("modify() 호출 : " + dto.getEmail());

@@ -103,7 +103,7 @@ nav {
 						<article>
 						
 
-							<h2 style="font-family: Goyang; text-align: center;" > <img src="https://www.flaticon.com/premium-icon/icons/svg/2068/2068726.svg" width="35px" height="35px" />1:1 문의하기</h2>
+							<h2 style="font-family: Goyang; text-align: center;" > <img src="https://image.flaticon.com/icons/svg/1067/1067566.svg" width="80px" height="80px" />1:1 문의하기</h2>
 							
 							<form action="InquireEmail.do" method="post" name="emailFrm"
 								onsubmit="return FindFrmCheck();">

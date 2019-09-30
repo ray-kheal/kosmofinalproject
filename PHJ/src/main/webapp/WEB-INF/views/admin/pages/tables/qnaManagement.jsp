@@ -82,7 +82,7 @@ function DeleteAll(){
           <div class="content-wrapper">
             <div class="page-header">
               <div class="container">
-             <h3 class="page-title" style="font-weight: bold;">QnA</h3> 
+             <h3 class="page-title" style="font-weight: bold;"><mark class="bg-dark text-white">QnA</mark></h3> 
              
              <%-- <h3>전체페이지:${totalPage }(현재페이지:${nowPage })</h3> --%>
 	           <div style="text-align: right;">
@@ -176,7 +176,7 @@ function DeleteAll(){
 											<a href="./qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}">
 													${row.title}
 											</a>
-										</td >
+										</td > 
 										<td class="text-center">${row.name}</td>
 										<td class="text-center">${row.postdate}
 										</td>
