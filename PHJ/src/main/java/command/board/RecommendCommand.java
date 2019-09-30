@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 
 import command.PHJCommandImpl;
+import model.board.recipeDAO;
 import model.board.serviceDAO;
 
-public class DeleteActionCommand implements PHJCommandImpl{
+public class RecommendCommand implements PHJCommandImpl{
 	
 	@Override
 	public void execute(Model model) {
@@ -21,8 +22,8 @@ public class DeleteActionCommand implements PHJCommandImpl{
 		String idx = req.getParameter("idx");
 		//String pass = req.getParameter("pass");
 		
-		serviceDAO dao = new serviceDAO();
-		dao.delete(idx);
+		recipeDAO dao = new recipeDAO();
+		dao.updateRecommend(idx);
 		
 	}
 
