@@ -218,8 +218,8 @@ function DeleteAll(){
 						onclick="location.href='./boardManagementWrite.do?&board_type=${row.board_type}';">글쓰기</button>
 			 <%} %>
 			  --%>
-				<button type="button" class="btn btn-dark btn-sm" 
-						onclick="location.href='./boardManagementWrite.do?board_type=1';">글쓰기</button>
+				<!-- <button type="button" class="btn btn-dark btn-sm" 
+						onclick="location.href='./boardManagementWrite.do?board_type=1';">글쓰기</button> -->
 				<button class = "btn btn-danger btn-sm"  onclick="DeleteAll();">삭제</button>
 				
 			</div>
