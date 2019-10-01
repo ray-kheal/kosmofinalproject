@@ -278,8 +278,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					<br />
 					<div class="row text-right">
 					<%if(session.getAttribute("EMAIL") != null) { %> 
-						<button type="submit" class="btn btn-warning" style="margin-left:auto;"
-						onclick="location.href='./recipe_edit.do';">글쓰기</button>
+						 <form action="recipe_edit.do" method="post">
+				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+							</form>
 						<%} %>
 					</div>
 			

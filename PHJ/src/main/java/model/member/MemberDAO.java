@@ -243,5 +243,40 @@ public class MemberDAO {
 		System.out.println("query : " + sql);
 	}
 	
+	//관심점포 등록
+	public int placeBookmark(final String email, final String placeCode) {
+		String query = " UPDATE phj_member SET place_bookmark=? WHERE email = ?";
+		int result = 0;
+		
+		result = template.update(query,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, placeCode);
+				ps.setString(2, email);
+				
+			}
+		});
+		return result;
+		
+	}
+	
+	//관심점포 삭제
+	public int deletePlaceBookmark(final String email) {
+		String query = " UPDATE phj_member SET place_bookmark='' WHERE email = ?";
+		int result = 0;
+		
+		result = template.update(query,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1,email);
+				
+			}
+		});
+		return result;
+		
+	}
+	
 
 }
