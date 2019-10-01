@@ -132,7 +132,13 @@ body {
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
 					
-					infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>");
+					infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>"
+					<%if(){%>
+					+"<br/><a href=''>관심점포로 등록하기 </a>"
+					<%}else{%>
+					+"<br/><a href=''>관심점포에서 해제하기 </a>"
+					<%}%>
+					);
 					infowindow.open(map, marker);
 				}
 			})(marker, i));
