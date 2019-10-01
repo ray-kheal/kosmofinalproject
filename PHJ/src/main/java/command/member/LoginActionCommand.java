@@ -40,7 +40,8 @@ public class LoginActionCommand implements PHJCommandImpl {
 			session.setAttribute("PASS", dto.getPass());
 			session.setAttribute("NAME", dto.getName());
 			session.setAttribute("ALERT", dto.getMobile_alert());
-			session.setAttribute("MEMBERTYPE", dto.getMembertype());		
+			session.setAttribute("MEMBERTYPE", dto.getMembertype());
+			session.setAttribute("PLACE_BOOKMARK", dto.getPlace_bookmark());
 		}
 		
 	}

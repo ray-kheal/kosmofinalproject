@@ -38,6 +38,7 @@ import command.PHJCommandImpl;
 import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
+import command.member.PlaceBookmarkCommand;
 import command.member.RegistCommand;
 import command.member.emailOverlapCommand;
 import command.member.pwChangeCommand;
@@ -390,7 +391,8 @@ public class MemberController {
     public String certification(Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws IOException {
     	
     	PrintWriter out = resp.getWriter();	
-    	resp.setCharacterEncoding("UTF-8");
+    	//resp.setCharacterEncoding("UTF-8");
+    	resp.setContentType("text/html; charset=utf-8");
     	String rndPass = req.getParameter("rndPass");
     	String cerOk = req.getParameter("cerOk");
     	
@@ -429,6 +431,23 @@ public class MemberController {
         model.addAttribute("cookieValue", cookieValue);
 
         return "redirect:../phj";
+    }
+    
+    //관심점포 북마크
+    @RequestMapping("bookmarkPlace.do")
+    public void bookmarkPlace(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException{
+    	model.addAttribute("req",req);
+    	model.addAttribute("session",session);
+    	System.out.println("관심점포 등록을 위한 place_code : " + req.getParameter("place_code"));
+    	command = new PlaceBookmarkCommand();
+    	command.execute(model);
+    	
+    	PrintWriter out = resp.getWriter();	
+    	resp.setContentType("text/html; charset=utf-8");
+    	out.print("<script>alert('관심점포가 등록되었습니다!.');</script>");
+    	out.print("<script>history.back;</script>");
+		out.print("<script>location.href=document.referrer;</script>");
+		out.flush();
     }
 
 }
