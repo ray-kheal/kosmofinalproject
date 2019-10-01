@@ -92,6 +92,27 @@ public class MemberDAO {
 		});
 		
 	}
+	//관리자등록
+	public void adminRegist(final MemberDTO dto) {
+		template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "INSERT INTO phj_member (membertype , name, email, pass, mobile) "
+						+ "VALUES(?, ?, ?, ?, ?)";
+				
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, dto.getMembertype());
+				psmt.setString(2, dto.getName());
+				psmt.setString(3, dto.getEmail());
+				psmt.setString(4, dto.getPass());
+				psmt.setString(5, dto.getMobile());
+				
+				return psmt;
+			}
+		});
+		
+	}
 	
 	//아이디찾기
 	public String emailFind(String name, String mobile) {
