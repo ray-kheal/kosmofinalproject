@@ -63,13 +63,10 @@ nav {
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
-<<<<<<< HEAD
-					style="width: 50px; height: 50px;" /> --> 
-					<i class="fas fa-gift" style="width: 50px; height: 50px;"></i>
-=======
+
 					style="width: 50px; height: 50px;" /> -->
 					
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 					&nbsp;
 					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2019/png/iconmonstr-party-16.png&r=0&g=0&b=0" width="80px" height="80px" /> 
 						이벤트게시판

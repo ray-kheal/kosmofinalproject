@@ -77,87 +77,7 @@ body {
             </h5>
          </div>
 
-<<<<<<< HEAD
-         <table class="table table-bordered" style="margin-bottom: -1px;">
-            <colgroup>
-               <col width="80px" />
-               <col width="*" />
-               <col width="120px" />
-               <col width="120px" />
-               <col width="80px" />
-               <col width="50px" />
-            </colgroup>
-            <input type="hidden" name="idx" value="${viewRow.idx }" />
 
-            <br />
-            <br />
-
-         
-            <tr>
-               <th bgcolor="#f2efef"
-                  style="text-align: center; border-top: 5px solid #82b9e4;">제목</th>
-               <td bgcolor="white" style="border-top: 5px solid #82b9e4;">${viewRow.title}</td>
-            </tr>
-            <tr>
-               <th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-               <td bgcolor="white">${viewRow.name}
-               
-               </td>
-            </tr>
-         
-         </table>
-      
-         <table class="table" bgcolor="white">
-            <colgroup>
-               <col width="80px" />
-               <col width="120px" />
-               <col width="80px" />
-               <col width="*" />
-            </colgroup>
-            <tr>
-               <th
-                  style="text-align: center; border-left: 1px solid #EDEAEA; font-weight: normal;">DATE</th>
-               <td>${viewRow.postdate}</td>
-               <th style="text-align: center;">조회수</th>
-               <td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
-            </tr>
-            <tr>
-               <td colspan="4"
-                  style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
-               </td>
-            </tr>
-         </table>
-         <!-- </div> -->
-         <br /> <br />
-         
-         <%
-         String email = (String)session.getAttribute("EMAIL");
-         MemberDAO dao = new MemberDAO();
-         MemberDTO dto = dao.memberView(email);
-         
-         if(session.getAttribute("EMAIL") != null && session.getAttribute("EMAIL").toString().equals(dto.getEmail()) )  { %> 
-         <%-- <button t ype="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">답변글달기</button> --%>
-         <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
-         <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
-         <button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
-         <%}%>
-         
-         <div class="row text-right" style="float: right;">
-            <button type="button" class="btn"
-               onclick="location.href='./qna.do';" style="font-family: 'Goyang'; font-size: 30px;">
-                  <img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
-         </div>
-      </div>
-      <!-- Footer -->
-      <%@ include file="../general/simpleFooter.jsp"%>
-      <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.dropotron.min.js"></script>
-      <script src="assets/js/browser.min.js"></script>
-      <script src="assets/js/breakpoints.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
-=======
 			<table class="table table-bordered" style="margin-bottom: -1px;">
 				<colgroup>
 					<col width="80px" />
@@ -233,6 +153,6 @@ body {
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 </body>
 </html>

@@ -57,10 +57,7 @@ nav {
 	});
 </script>
 <!-- <style type="text/css"> -->
-/* body { */
-/* 	font-family: 'Mali', cursive; */
-/* 	font-family: 'Gamja Flower', cursive */
-/* } */
+
 <!-- </style> -->
 <body class="is-preload left-sidebar">
 
