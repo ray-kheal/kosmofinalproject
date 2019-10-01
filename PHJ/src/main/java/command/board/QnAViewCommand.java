@@ -37,6 +37,7 @@ public class QnAViewCommand implements PHJCommandImpl{
 		
 		model.addAttribute("viewRow",dto);
 		model.addAttribute("nowPage",nowPage);
+		req.setAttribute("email",dto.getEmail());
 		
 	}
 }

@@ -63,61 +63,17 @@ function isDelete(){
       
 
 			<!-- 내용시작 -->
-			<div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">&nbsp;
-                   
+			<div class="container">
+                  <div class="container">
+                    <h4 >&nbsp;
                     	<i class="mdi mdi-food"></i>&nbsp;레시피 보기
-                 
-                    
                     </h4>
-                 <%--  <table class="table table-bordered" style="margin-bottom: -1px; color:black;">
-					<colgroup>
-						<col width="80px" />
-						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="80px" />
-						<col width="50px" />
-					</colgroup>
-					<input type="hidden" name="idx" value="${viewRow.idx }" />
-					<input type="hidden" name="nowPage" value="${nowPage }" />
-					<tr>
-						<th bgcolor="#f2efef" style="text-align: center;">제목</th>
-						<td>${viewRow.title}</td>
-					</tr>
-					<tr>
-						<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-						<td>${viewRow.name}</td>
-					</tr>
-					<!-- 	<th>작성자</th>
-							<th>날짜</th>
-							<th>조회</th> -->
-					<!-- <tbody>
-					</tbody> -->
-				</table>
-				  
-				<table class="table table-borderless" style="color:black;">
-					<colgroup>
-						<col width="80px" />
-						<col width="100px" />
-						<col width="80px" />
-						<col width="*" />
-					</colgroup>
-					<tr>
-						<th style="text-align: center; border-left:1px solid #EDEAEA; ">DATE</th>
-						<td>${viewRow.postdate}</td>
-						<th style="text-align: center;">조회수</th>
-						<td style="border-right:1px solid #EDEAEA;">${viewRow.view_count }</td>
-					</tr>
-					<tr>
-						<td colspan="4" style="valign:top; height:200px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:1px solid #EDEAEA;">${viewRow.content}
-						</td>
-					</tr>
-				</table> --%>
+                 
 				<input type="hidden" name="idx" value="${viewRow.idx }" />
 				<input type="hidden" name="nowPage" value="${nowPage }" />
-				<table class="table" style="color:black; font-size: 0.7em;  ">
+				
+				<div class="table-responsive">
+				<table class="table" style="color:black; font-size: 0.7em; heigth:1000px; ">
 					<colgroup>  
 						<col width="50%" />
 						<col width="5%" />
@@ -126,8 +82,67 @@ function isDelete(){
 					<tr >     
 						<td rowspan="5" style="border-top: 2px solid white;">
 						     
-						<img src="https://i1.wp.com/pizzaschool.net/wp-content/uploads/2015/11/%EC%BD%A4%EB%B9%84%EB%84%A4%EC%9D%B4%EC%85%98%ED%94%BC%EC%9E%90.jpg?resize=800%2C800" 
-						style="width: 90%; border-radius: 0; height: auto;" />
+						<!-- <img src="https://i1.wp.com/pizzaschool.net/wp-content/uploads/2015/11/%EC%BD%A4%EB%B9%84%EB%84%A4%EC%9D%B4%EC%85%98%ED%94%BC%EC%9E%90.jpg?resize=800%2C800" 
+						style="width: 90%; border-radius: 0; height: auto;" /> -->
+						</td>
+						 
+						<td style="border-top: 2px solid white; font-weight: bold; text-align: center;">레시피명</td>
+						<td style="border-top: 2px solid white;">
+						${viewRow.title}
+						</td>
+					</tr> 
+					<tr>
+						<!-- <td></td> -->
+						<td style="font-weight: bold; text-align: center;">작성자</td>
+						<td> ${viewRow.name}</td>
+					</tr>
+					<tr>
+						<!-- <td></td> -->
+						<td style="font-weight: bold; text-align: center;">작성일</td>
+						<td>${viewRow.postdate}</td>
+					</tr>
+					<tr> 
+						<!-- <td></td> -->
+						<td style="font-weight: bold; text-align: center;">조회수</td>
+						<td>${viewRow.view_count }</td>
+					</tr>
+				
+					
+				</table>
+				</div>
+					
+						 
+					 
+                  </div> 
+						<div class="container" style="border :1px solid white; text-align: center;">
+						${viewRow.content}
+						
+						</div>
+                </div>
+                
+                
+                
+			<%-- <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">&nbsp;
+                    	<i class="mdi mdi-food"></i>&nbsp;레시피 보기
+                    </h4>
+                 
+				<input type="hidden" name="idx" value="${viewRow.idx }" />
+				<input type="hidden" name="nowPage" value="${nowPage }" />
+				
+				<div class="table-responsive">
+				<table class="table" style="color:black; font-size: 0.7em; heigth:1000px; ">
+					<colgroup>  
+						<col width="50%" />
+						<col width="5%" />
+						<col width="45%" />
+					</colgroup> 
+					<tr >     
+						<td rowspan="5" style="border-top: 2px solid white;">
+						     
+						<!-- <img src="https://i1.wp.com/pizzaschool.net/wp-content/uploads/2015/11/%EC%BD%A4%EB%B9%84%EB%84%A4%EC%9D%B4%EC%85%98%ED%94%BC%EC%9E%90.jpg?resize=800%2C800" 
+						style="width: 90%; border-radius: 0; height: auto;" /> -->
 						</td>
 						 
 						<td style="border-top: 2px solid white; font-weight: bold; text-align: center;">레시피명</td>
@@ -152,14 +167,15 @@ function isDelete(){
 					</tr>
 					<tr>
 						<!-- <td></td> -->
-						<td colspan="2">${viewRow.content}</td>
+						<td colspan="2" style=";">${viewRow.content}</td>
 						<!-- <td></td>  -->
 					</tr>
 					
 				</table>
+				</div>
 				
                   </div>
-                </div>
+                </div> --%>
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">

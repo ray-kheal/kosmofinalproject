@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>편히점 - QnA</title>
+<title>편히점 - 레시피</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -126,25 +126,26 @@ body {
 			</table>
 			<!-- </div> -->
 			<br /> <br />
-			<%-- <button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
-			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>--%>
-			  <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
-			<%
-			String email = (String)session.getAttribute("EMAIL");
-			MemberDAO dao = new MemberDAO();
-			MemberDTO dto = dao.memberView(email);
-		  
-			if(session.getAttribute("EMAIL") != null &&session.getAttribute("EMAIL").toString().equals(dto.getEmail()))  { %> 
-			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
-			<%} %>
-			<button type = "button" id ="recommendBtn" onclick = "isRecommend();">추천하기</button>
-			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./recipe.do';">리스트</button>
-			</div>
-		</div>
 		
-		</div>
+			</div>
+			
+			<input type="hidden" name="email" value="${viewRow.email}" />
+			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
+			<c:choose>
+				<c:when test="${EMAIL eq viewRow.email}">
+			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>
+			<button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> 
+				</c:when>
+				<c:otherwise>
+					
+				</c:otherwise>
+			</c:choose>
+			
+				<button type="button" class="btn btn-dark btn-sm"
+					onclick="location.href='./recipe.do';">리스트</button> 
+			
+		
+			</div>
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>
 		<!-- Scripts -->
