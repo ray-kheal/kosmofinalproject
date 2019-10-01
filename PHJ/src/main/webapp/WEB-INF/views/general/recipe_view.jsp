@@ -129,11 +129,11 @@ body {
 			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>--%>
 			  <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
 			<%
-		/* 	String email= get.
+			String email = (String)session.getAttribute("EMAIL");
 			MemberDAO dao = new MemberDAO();
 			MemberDTO dto = dao.memberView(email);
-		 */	
-			if(session.getAttribute("EMAIL") != null) /* &&session.getAttribute("EMAIL").toString().equals(dto.getEmail())) */ { %> 
+		  
+			if(session.getAttribute("EMAIL") != null &&session.getAttribute("EMAIL").toString().equals(dto.getEmail()))  { %> 
 			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
 			<%} %>
 			<button type = "button" class="btn" id ="recommendBtn" onclick = "isRecommend();" style="font-family: 'Goyang';" >

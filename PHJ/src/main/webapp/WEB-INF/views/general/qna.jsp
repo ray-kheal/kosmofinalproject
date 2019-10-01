@@ -160,8 +160,12 @@ nav {
 					</tbody>
 				</table>
 			</div>
+<<<<<<< HEAD
 			<br /><br />
 <!-- 		 <div class="row text-right" style="float: right;"> -->
+=======
+			 <div class="row text-right" style="float: right;">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		 
 <%-- 		<%if(session.getAttribute("EMAIL") != null) { %>  --%>
 <!-- 		 <form action="write.do" method="post"> -->
@@ -178,7 +182,7 @@ nav {
 							${pagingImg }
 						</td>
 					</tr>
-				</table>
+			</table>  
 			</ul>
 		</div>
 	</div>
