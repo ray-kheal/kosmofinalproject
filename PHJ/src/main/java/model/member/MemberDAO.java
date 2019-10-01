@@ -240,5 +240,22 @@ public class MemberDAO {
 		
 	}
 	
+	//관심점포 삭제
+	public int deletePlaceBookmark(final String email) {
+		String query = " UPDATE phj_member SET place_bookmark='' WHERE email = ?";
+		int result = 0;
+		
+		result = template.update(query,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1,email);
+				
+			}
+		});
+		return result;
+		
+	}
+	
 
 }

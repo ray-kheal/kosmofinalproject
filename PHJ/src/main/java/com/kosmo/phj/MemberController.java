@@ -35,6 +35,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import command.PHJCommandImpl;
+import command.member.DeletePlaceBookmarkCommand;
 import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
@@ -445,6 +446,22 @@ public class MemberController {
     	PrintWriter out = resp.getWriter();	
     	resp.setContentType("text/html; charset=utf-8");
     	out.print("<script>alert('관심점포가 등록되었습니다!.');</script>");
+    	out.print("<script>history.back;</script>");
+		out.print("<script>location.href=document.referrer;</script>");
+		out.flush();
+    }
+    
+  //관심점포 북마크
+    @RequestMapping("deleteBookmarkPlace.do")
+    public void deleteBookmarkPlace(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException{
+    	model.addAttribute("req",req);
+    	model.addAttribute("session",session);
+    	command = new DeletePlaceBookmarkCommand();
+    	command.execute(model);
+    	
+    	PrintWriter out = resp.getWriter();	
+    	resp.setContentType("text/html; charset=utf-8");
+    	out.print("<script>alert('관심점포가 해제되었습니다!.');</script>");
     	out.print("<script>history.back;</script>");
 		out.print("<script>location.href=document.referrer;</script>");
 		out.flush();

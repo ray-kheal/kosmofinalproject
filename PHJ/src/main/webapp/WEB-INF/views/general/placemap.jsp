@@ -136,7 +136,7 @@ body {
 				return function() {
 					
 					if (place_bookmark == locations[i][3]){
-						bookmark = "<br/><a href=''>관심점포에서 해제하기 </a>";
+						bookmark = "<br/><a href='./deleteBookmarkPlace.do'>관심점포에서 해제하기 </a>";
 					} else {
 						bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"'>관심점포로 등록하기 </a>";
 					}
