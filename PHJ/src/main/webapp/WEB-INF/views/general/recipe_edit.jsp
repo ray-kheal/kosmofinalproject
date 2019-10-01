@@ -135,10 +135,10 @@ body {
 							<td bgcolor="white"><input type="text" class="form-control"
 								name="name" style="border: none;" /></td>
 						</tr>
-						<!-- <tr>
+						<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
 						<td><input type="file" name="IMAGE_NAME" /></td>
-					</tr> -->
+					</tr> 
 						<tr>
 							<th bgcolor="#f2efef"
 								style="text-align: center; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #ffd74d;">내용</th>

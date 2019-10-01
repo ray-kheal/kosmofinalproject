@@ -452,7 +452,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                          <td class="text-left">
                                                             <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
                                                          </td>
-                                                         <td class="text-center">${row.content }</td>
+                                                         <td class="text-center">관리자</td>
                                                          <%-- <td class="text-center">${row.view_count }</td> --%>
                                                       </tr>
                                                    </c:forEach>
@@ -506,7 +506,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                                                       <td class="text-left"><a
                                                          href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
                                                       </td>
-                                                      <td class="text-center">${row.content }</td>
+                                                      <td class="text-center">관리자</td>
                                                       <%-- <td class="text-center">${row.view_count }</td> --%>
                                                    </tr>
                                                 </c:forEach>
