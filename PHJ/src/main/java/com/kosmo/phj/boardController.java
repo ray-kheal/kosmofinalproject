@@ -189,13 +189,23 @@ public class boardController {
 	}
 	
 	
+	// 레시피 글쓰기
+		@RequestMapping("recipe_edit.do")
+	public String Recipewrite(Model model) {
+			System.out.println("write() 메소드 호출됨");
+		return "general/recipe_edit";
+		}
+		
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
-	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO recipeDTO) {
+	public String RecipeEditAction(HttpServletRequest req, Model model,HttpSession session, recipeDTO recipeDTO) {
 
 		System.out.println("들어옵니까?");
 		// 커맨드객체로 받은 폼값 확인하기
+		String email = session.getAttribute("EMAIL").toString();
 		model.addAttribute("req", req);
+		model.addAttribute("session",session);
+		model.addAttribute("email",email);
 		model.addAttribute("recipeDTO", recipeDTO);
 		command = new RecipeEditActionCommand();
 		command.execute(model);

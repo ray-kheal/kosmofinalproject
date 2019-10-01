@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +28,7 @@ public class RecipeEditActionCommand implements PHJCommandImpl{
 		System.out.println("요기는요?");
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)map.get("req");
+		HttpSession session = (HttpSession)map.get("session");
 		recipeDTO dto = (recipeDTO)map.get("recipeDTO");
 		
 		String idx = req.getParameter("idx");
@@ -34,10 +36,13 @@ public class RecipeEditActionCommand implements PHJCommandImpl{
 		String title = req.getParameter("title");
 		//String IMAGE_NAME = req.getParameter("IMAGE_NAME");
 		String content = req.getParameter("content");
+		String email = session.getAttribute("EMAIL").toString();
 		System.out.println("name"+name);
 		System.out.println("title"+title);
 		System.out.println("content"+content);
+		System.out.println("email : "+email);
 		recipeDAO dao = new recipeDAO();
+		dto.setEmail(email);
 		dao.write(dto);
 	}
 	
