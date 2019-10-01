@@ -129,12 +129,6 @@ public class GeneralController {
 	   return "general/facebook";
    }
    
-   @RequestMapping ("recipe_edit.do")
-   public String recipe_view(Model model) {
-	   
-	   return "general/recipe_edit";
-   }
-   
    //1:1 문의하기 메일 메소드
    @Autowired
 	private JavaMailSenderImpl mailSender;
