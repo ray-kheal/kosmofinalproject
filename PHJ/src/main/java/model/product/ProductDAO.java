@@ -47,10 +47,24 @@ public class ProductDAO {
 		
 		String query = " SELECT * FROM( "
 				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
-				+ "      SELECT * FROM PHJ_PRODUCT ";
+				+ "      SELECT * FROM PHJ_PRODUCT WHERE 1=1";
 
 		if (map.get("searchWord") != null) {
-			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+			query += " AND " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+		}
+		
+		if (map.get("priceRange") != null) {
+			
+			if(map.get("priceRange").equals("1500to5000")||map.get("priceRange")=="1500to5000") {//1500-5000사이 추리기
+				query += " AND product_price between 1500 and 5000 ";
+			}
+			
+			else{
+				query += " AND product_price " + map.get("priceRange") ;
+			}
+			
+			System.out.println("priceRange:"+map.get("priceRange"));
+			
 		}
 		
 		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end;

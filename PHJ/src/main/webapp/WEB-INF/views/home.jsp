@@ -240,6 +240,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 } 
 </style> 
 <!-- 마우스 오버 end  --> 
+
+ 
+<!-- 공지제목 자르기 -->
 <script>
 function textLengthOverCut(txt, len, lastTxt) {
     if (len == "" || len == null) { // 기본값
@@ -303,19 +306,18 @@ function textLengthOverCut(txt, len, lastTxt) {
 
       <!-- 메인 헤더 인클루드 --> 
       <%@ include file="general/MainHeader.jsp"%> 
-       
- <img class="effect" 
-                src="images/mainpic2.jpg" 
-                alt="메인이미지" style="width: 100%;"> 
-           
+      
+	<img class="effect" 
+             src="images/mainpic2.jpg" 
+             alt="메인이미지" style="width: 100%;"> 
+    
       <!-- 배너 --> 
       <div id="banner-wrapper "> 
          <div  class=" container  "> 
             <div class="row"> 
                <div class="col-7 col-12-medium"> 
                    
-                  
-               </div> 
+               </div>   
              
             </div> 
          </div> 
@@ -651,9 +653,7 @@ function textLengthOverCut(txt, len, lastTxt) {
             
             <div class="container" id="wideboard">
             
-            
             <div class="row">
-            
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -667,7 +667,6 @@ function textLengthOverCut(txt, len, lastTxt) {
 		                     <col width="*" />
 		                     <col width="120px" />
 		                  </colgroup>
-		                   
 		                  <tbody>
 		                     <c:choose>
 		                        <c:when test="${empty listRows }">
