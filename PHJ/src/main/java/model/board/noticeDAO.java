@@ -72,6 +72,28 @@ public class noticeDAO {
 		
 	}
 	
+	//인기게시물
+	public ArrayList<noticeDTO> popular_notice(Map<String, Object> map) {
+		
+		System.out.println("popular_notice()메소드 실행");
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		
+		
+		int board_type = (Integer)map.get("board_type");
+		System.out.println("list()메소드-board_type:"+board_type);
+		
+		//공지사항 게시판에서 조회높은 순으로 정렬 후 상위 3개만 가져오기
+		String query = "  SELECT * FROM ( " 
+					+ " SELECT * FROM PHJ_BOARD_NOTICE where board_type= " +board_type+" order by view_count desc "  
+					+" ) WHERE ROWNUM <= 3 ";
+					
+		
+		
+		return (ArrayList<noticeDTO>) template.query(query, new BeanPropertyRowMapper<noticeDTO>(noticeDTO.class));
+		
+	}
+	
 	  //답변형 게시판 글쓰기 처리 
 	public void write(final noticeDTO noticeDTO) {
 

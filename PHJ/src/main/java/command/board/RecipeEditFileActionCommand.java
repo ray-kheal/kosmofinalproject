@@ -3,6 +3,10 @@ package command.board;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -12,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
 import command.PHJCommandImpl;
@@ -21,7 +26,7 @@ import model.board.serviceDAO;
 import model.board.serviceDTO;
 import sun.net.www.protocol.http.logging.HttpLogFormatter;
 
-public class RecipeEditActionCommand implements PHJCommandImpl{
+public class RecipeEditFileActionCommand implements PHJCommandImpl{
 	
 	@Override
 	public void execute(Model model) {
@@ -29,20 +34,11 @@ public class RecipeEditActionCommand implements PHJCommandImpl{
 		System.out.println("요기는요?");
 		
 		Map<String, Object> map = model.asMap();
-		HttpServletRequest req = (HttpServletRequest)map.get("req");
-		recipeDTO dto = (recipeDTO)map.get("recipeDTO");
 				
-		String idx = req.getParameter("idx");
-		String name = req.getParameter("name");
-		String title = req.getParameter("title");
-		String content = req.getParameter("content");
-		String thumbnail = req.getParameter("thumbnail");
-		System.out.println("name"+name);
-		System.out.println("title"+title);
-		System.out.println("content"+content);
-		System.out.println("thumbnail"+thumbnail);
+					
 		recipeDAO dao = new recipeDAO();
-		dao.write(dto);
+		recipeDTO dto = (recipeDTO)map.get("recipeDTO");
+		
+		dao.write(dto);	
 	}
-	
 }

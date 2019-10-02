@@ -81,7 +81,7 @@ body {
 									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${row.place_name}</td>
 									
 									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">
-									<a href="./findPlace.do?product_code=${product_code}"
+									<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}"
 									class="btn btn-sm btn-outline-secondary" style="text-align: center"> 편의점 찾기</a></td>  
 								</tr>
 								<tr>

@@ -96,10 +96,10 @@ function checkValidate(f){
 		                        <label for="exampleInputName1">이름</label>
 		                        <input type="text" class="form-control" name="name" value="관리자">
 		                      </div>
-		                      <!-- <div class="form-group">
-		                        <label for="exampleInputPassword4">비밀번호</label>
-		                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-		                      </div> -->
+		                      <div class="form-group"> 
+		                        <label for="exampleInputEmail">이메일</label>
+		                        <input type="text" class="form-control" id="email" value="<%=session.getAttribute("ADMINEMAIL")%>">
+		                      </div> 
 		                      <div class="form-group">
 		                        <label for="exampleInputPassword4">제목</label>
 		                        <input type="text" class="form-control" name="title" value="${replyRow.title}">
@@ -110,7 +110,7 @@ function checkValidate(f){
 		                        <div class="input-group col-xs-12">
 		                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
 		                          <span class="input-group-append">
-		                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
+		                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button> 
 		                          </span>
 		                        </div>
 		                      </div> -->
@@ -127,7 +127,7 @@ function checkValidate(f){
 			
 				<div class="row text-right" style="float: right;">
 					 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
-	                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
+	                 <button type="reset" class="btn btn-gradient-success btn-rounded">Reset</button>
 	                 <button class="btn btn-dark btn-rounded"
 	                 	onclick="location.href='./boardManagement.do';">List</button>
 	

@@ -49,6 +49,21 @@ public class serviceDAO {
 		return (ArrayList<serviceDTO>) template.query(query,
 				new BeanPropertyRowMapper<serviceDTO>(serviceDTO.class));
 	}
+	
+	public ArrayList<serviceDTO> list_noreply(Map<String, Object> map) {
+		
+		int start =Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		String query = "  SELECT * FROM( " + 
+				"    SELECT Tb.*, ROWNUM rNum FROM( " + 
+				"    SELECT * FROM PHJ_BOARD_SERVICE where 1=1 and" + 
+				"    ROWID IN (SELECT MAX(ROWID) FROM PHJ_BOARD_SERVICE GROUP BY BGROUP HAVING count(*)<2) order by postdate desc" + 
+				"    ) Tb ) WHERE rNum BETWEEN " + start + " AND " + end;
+		
+		
+		return (ArrayList<serviceDTO>) template.query(query,
+				new BeanPropertyRowMapper<serviceDTO>(serviceDTO.class));
+	}
 	public serviceDTO view(String idx) {
 		// 조회수 증가
 		updateHit(idx);
@@ -104,8 +119,8 @@ public class serviceDAO {
 		   replyPreUpdate (dto.getBgroup(),dto.getBstep());
 		   
 		   //답변글 입력
-		   String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, view_count, postdate, bgroup, bstep, bindent)"
-					+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, 0, sysdate, ?, ?, ?)";
+		   String sql = "INSERT INTO PHJ_BOARD_SERVICE(idx, name, title, content, view_count, postdate, bgroup, bstep, bindent, email)"
+					+ "VALUES(SEQ_PHJ_BOARD_SERVICE.NEXTVAL, ?, ?, ?, 0, sysdate, ?, ?, ?,?)";
 			  template.update(sql,new PreparedStatementSetter() {
 				
 				@Override
@@ -117,6 +132,7 @@ public class serviceDAO {
 					ps.setInt(4, dto.getBgroup());
 					ps.setInt(5, dto.getBstep()+1);
 					ps.setInt(6, dto.getBindent()+1);
+					ps.setString(7, dto.getEmail());
 					
 					
 				}
