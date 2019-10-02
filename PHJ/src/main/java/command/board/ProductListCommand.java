@@ -42,6 +42,15 @@ public class ProductListCommand implements PHJCommandImpl {
 			paramMap.put("searchWord", searchWord);
 		}
 				
+	   //가격검색기능 구현
+      String priceQueryString ="";
+      
+      String priceRange = req.getParameter("priceRange");
+      
+      if(priceRange !=null ) {
+         priceQueryString = String.format("priceRange=%s&",priceRange );
+         paramMap.put("priceRange", priceRange);
+      }
 				
 		int totalRecordCount = dao.getTotalCount(paramMap);
 
@@ -74,11 +83,9 @@ public class ProductListCommand implements PHJCommandImpl {
 			//가상번호 연산 후 setter를 통해 값을 저장함
 			virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 			row.setVirtualNum(virtualNum);
-			
-			
 		}
 		String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
-				req.getContextPath()+"/findproduct.do?"+addQueryString);
+				req.getContextPath()+"/findproduct.do?"+addQueryString+priceQueryString);
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);
