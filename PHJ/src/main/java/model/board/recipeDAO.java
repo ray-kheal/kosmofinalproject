@@ -90,15 +90,17 @@ public class recipeDAO {
 		
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO PHJ_BOARD_RECIPE(idx, title, name, content, EMAIL)"
-						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ?,?,?)";
+
+				String sql = "INSERT INTO PHJ_BOARD_RECIPE(idx, title,name, content, thumbnail)"
+						+ "VALUES(SEQ_PHJ_BOARD_NOTICE.NEXTVAL, ?, ?,?, ?)";
+
 
 				PreparedStatement psmt = con.prepareStatement(sql);
 				psmt.setString(1, recipeDTO.getTitle());
 				psmt.setString(2, recipeDTO.getName());	
 				psmt.setString(3, recipeDTO.getContent());	
-				psmt.setString(4, recipeDTO.getEmail());	
-				
+				psmt.setString(4, recipeDTO.getThumbnail());
+
 					
 				System.out.println("dao의 write - title:"+recipeDTO.getTitle()+"/content:"+recipeDTO.getContent()+"email:" +recipeDTO.getEmail() );
 				return psmt;

@@ -87,8 +87,13 @@ public class ProductListCommand implements PHJCommandImpl {
 			
 			
 		}
+<<<<<<< HEAD
 		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString+priceQueryString);
+=======
+		String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
+				req.getContextPath()+"/findproduct.do?"+addQueryString);
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);

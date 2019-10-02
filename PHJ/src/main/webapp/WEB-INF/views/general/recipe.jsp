@@ -218,7 +218,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	transform: translate(0px, 0px);
 	opacity: 1;
 }
-</style>
+#nore{
+	
+	background-repeat:no-repeat;
+	background-position: 50%;
+	background-size: 700px;
+}
+</style> 
 <script>
 	$(function() {
 		$("#recipe").attr("class", "current");
@@ -248,16 +254,15 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 	<!-- 메인헤더 인클루드 -->
 	<%@ include file="MainHeader.jsp"%>
 
-	<div
-		style="width: 100%; height: 200px; text-align: center;  display: table;">
+	<div id= "nore"
+		style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/fork2.png);">
 		<br /> <br /> <br />
 		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-			<img src="images/fork_round.png" alt="포크"
-				style="width: 50px; height: 50px;" /> RECIPE <br />
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
+			 RECIPE <br />
 		</p>
-	</div>
-		<!-- Page Content -->
+	</div> 
+		<!-- Page Content --> 
 		<div class="container">
 			<div class="container">
 				<hr class="mt-2 mb-2">
@@ -295,13 +300,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 							<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
 								<!-- 베스트게시물 s-->
 								<div class="col-lg-3 col-md-4 col-6 effect ">
-									<figure class="recipePhoto">
-										<img class="img-fluid img-thumbnail effect"
-											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+									<input type="hidden" value="${row.thumbnail }"/>
+									<figure class="recipePhoto" style="width:100px; height:200px;">
+										<img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+											src="./resources/imageUpload/${row.thumbnail }"
 											alt="">
 										<figcaption>
-											<h3>${row.title }</h3>
-											<%-- <p>${row.content }</p> --%>
+											<h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
+											<p>${row.content }</p>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
 										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
@@ -312,13 +318,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 							<c:otherwise>
 								<!-- 일반게시물 s-->
 								<div class="col-lg-3 col-md-4 col-6 ">
-									<figure class="recipePhoto">
-										<img class="img-fluid img-thumbnail effect"
-											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+									<input type="hidden" value="${row.thumbnail }"/>
+									<figure class="recipePhoto" style="width:100px; height:200px;">
+										<img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+											src="./resources/imageUpload/${row.thumbnail }"
 											alt="">
 										<figcaption>
-											<h3>${row.title }</h3>
-											<%-- <p>${row.content }</p> --%>
+											<h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
+											<p>${row.content }</p>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
 										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>

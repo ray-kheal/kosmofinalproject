@@ -39,6 +39,7 @@ public class ProductDAO {
 		
 	}
 	
+	
 	//레코드 페이지별로 가져오기
 	public ArrayList<ProductDTO> list(Map<String, Object> map) {
 		
@@ -68,6 +69,26 @@ public class ProductDAO {
 		}
 		
 		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end;
+		
+		System.out.println(map);
+		
+		return (ArrayList<ProductDTO>)template.query(query, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
+	}
+	//레코드 가격별로 가져오기
+	public ArrayList<ProductDTO> listSort(Map<String, Object> map) {
+		
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+		
+		String query = " SELECT * FROM( "
+				+"    SELECT Tb.*, ROWNUM rNum FROM( " 
+				+ "      SELECT * FROM PHJ_PRODUCT ";
+		
+		if (map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%' ";
+		}
+		
+		query += ") Tb ) WHERE rNum BETWEEN "+start+" AND "+end +"ORDER BY PRODUCT_PRICE DESC";
 		
 		System.out.println(map);
 		

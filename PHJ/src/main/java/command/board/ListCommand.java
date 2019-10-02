@@ -30,6 +30,7 @@ public class ListCommand implements PHJCommandImpl {
 		String addQueryString = "";
 		String searchColumn = req.getParameter("searchColumn");
 		String searchWord = req.getParameter("searchWord");
+		
 		if(searchWord!= null) {
 			addQueryString = String.format("searchColumn=%s&searchWord=%s&", searchColumn, searchWord);
 			paramMap.put("searchColumn", searchColumn);
@@ -60,10 +61,10 @@ public class ListCommand implements PHJCommandImpl {
 	    
 	    String pagingImg =null;
 	    if(board_type==1) {
-	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+	    pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/notice.do?"+addQueryString);
 	    }else if(board_type==2) {
-	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+	    pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/event.do?"+addQueryString);
 	    }
 	    

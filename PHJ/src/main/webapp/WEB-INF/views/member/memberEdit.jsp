@@ -124,8 +124,19 @@
 			}
 		}
 	}
+
+	$(document).ready( function(){
+	    $("#deleteBox").click( function() {
+	        if(confirm("관심점포를 제거하시겠습니까?")) {
+	        	$("#phj_place").empty();
+	        	$("#place_bookmark").val('');
+	        	
+	        }
+	    });
+	});
+
 	
-	
+		
 	
 </script>
 
@@ -283,15 +294,16 @@ div label input {
 					 
 					<tr>
 						<td bgcolor="#f7f4f4" style="text-align: center; ">비밀번호</td>
-						<td bgcolor="white"><input type="password" style="width: 50%;" id="pass1" name="pass" value="${dto.pass }" 
-						 class="form-control input-lg" placeholder="비밀번호" bgcolor="white"/></td>
+						<td bgcolor="white"><input type="password" style="width: 50%; font-family: verdana; " id="pass1" name="pass" value="${dto.pass }" 
+						 class="form-control input-lg" placeholder="비밀번호" bgcolor="white" 
+						 	onblur="if(value=='${dto.pass}'"  onfocus="if(value=='${dto.pass }') value = ''" /></td>
 						
 					</tr>
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center; ">비밀번호확인</td>
-						<td bgcolor="white"><input type="password" style="width: 50%; background-color: white;" id="pass2" name="confirm_password" value="${dto.pass }"  
+						<td bgcolor="white"><input type="password" style="width: 50%; font-family: verdana; background-color: white;" id="pass2" name="confirm_password" value=""  
 						class="form-control input-lg" placeholder="비밀번호 확인" /></td>
-						
+						 
 					</tr>  
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center; ">이름</td>
@@ -300,8 +312,8 @@ div label input {
 					</tr>
 					
 					<tr>
-						<td bgcolor="#f7f4f4"  style="text-align: center; border-bottom: 6px solid #343a40;">휴대전화</td>
-						<td bgcolor="white" style="border-bottom: 6px solid #343a40;">
+						<td bgcolor="#f7f4f4"  style="text-align: center; ">휴대전화</td>
+						<td bgcolor="white">
 							<div class="form-inline">
 								<input type="text" name="mobile1" class="form-control input-lg" style="width:25%" value="${mobile1 }"/>&nbsp;-&nbsp; 
 								<input type="text" name="mobile2" class="form-control input-lg" style="width:25%" value="${mobile2 }"/>&nbsp;-&nbsp; 	
@@ -343,7 +355,7 @@ div label input {
 								</span>
 								
 							</div>
-								 <div style="text-align: center;">
+							<div style="text-align: center;">
 							  	 <div id="ck-button" style=" height: 31px; width: 70px;">
 									<label> 
 									<input type="radio" name="mobile_alert" id="mobileY" value="Y" ${mobileY }>
@@ -360,30 +372,15 @@ div label input {
 							
 								</div>
 							</div>	
-							
-							
-						  	
-							<!-- <br />※SMS 수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다. -->
+
 						</td>
 						  
 					</tr>
-					<!-- <tr>
-						<td colspan='2'>
-							
-					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>				 -->
+						<td bgcolor="#f7f4f4"  style="text-align: center; border-bottom: 6px solid #343a40;">관심점포</td>
+						<input type="hidden" name="place_bookmark" id ="place_bookmark" value="${dto.place_bookmark }"/>
+						<td bgcolor="white" id="phj_place"  style="border-bottom: 6px solid #343a40;">${place_bookmark} &nbsp; <img type="button" id="deleteBox" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;"  /></td>
+					</tr>																			
 			</table>
 			<br /><br />
 			<div class="form-inline">

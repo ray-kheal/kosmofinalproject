@@ -1,6 +1,7 @@
 package command.board;
 
 import java.util.ArrayList;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,6 @@ public class recipeListCommand implements PHJCommandImpl {
 		
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
-		
-		//JDBCTemplate을 통한 DB연결 및 작업
 		recipeDAO dao = new recipeDAO();
 		
 		//검색기능 구현
@@ -37,36 +36,33 @@ public class recipeListCommand implements PHJCommandImpl {
 			paramMap.put("Word", searchWord);
 		}
 		
-		//전체 레코드 수 카운트하기
 		int totalRecordCount = dao.getTotalCount(paramMap);
 		System.out.println("totalRecordCount = " + totalRecordCount);
-		
-		/*
-		외부파일로 만든 파일에 저장된 게시판 페이징 설정값을 얻어온다.
-		초기상태는 String 형태이므로 int형으로 변환한 후 저장한다.
-		 */
+
 		int pageSize = Integer.parseInt(FileReader.getValue("recipeBoard.properties", "recipeBoard.pageSize"));
 		int blockPage = Integer.parseInt(FileReader.getValue("recipeBoard.properties", "recipeBoard.blockPage"));
-		
-		//전체 페이지 수 카운트하기
+
 		int totalPage = (int)Math.ceil((double)totalRecordCount / pageSize);
-		
-		//시작 및 끝 rownum 구하기
 		int nowPage = req.getParameter("nowPage")==null || req.getParameter("nowPage")=="" ? 1 : Integer.parseInt(req.getParameter("nowPage"));
 		
-		//게시물 select 시 구각으로 사용할 변수를 계산
 		int start = (nowPage-1) * pageSize+1;
 		int end = nowPage * pageSize;
-		
-		//리스트 가져오기 위한 파라미터 저장
+
 		paramMap.put("start", start);
 		paramMap.put("end", end);
 		
-		//출력할 리스트 가져오기
 		ArrayList<recipeDTO> listRows = dao.list(paramMap);
 		
 		System.out.println("listRows : " + listRows);
-	
+		
+		int virtualNum = 0;
+		int countNum = 0;
+		
+		for(recipeDTO row : listRows) {
+			virtualNum = totalRecordCount-(((nowPage-1)*pageSize)+countNum++);
+			row.setVirtualNum(virtualNum);
+		}
+		
 		//페이지 처리를 위한 처리부분
 		String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount, pageSize,
 		blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);
