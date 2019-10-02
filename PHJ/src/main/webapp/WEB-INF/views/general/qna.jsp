@@ -38,6 +38,17 @@ nav {
 	background-repeat:no-repeat;
 	
 }
+
+/* 	.container { */
+/*  		background-image: url("images/backimg1.png");  */
+/* 		margin: 0 auto; */
+/* 		text-align: center; */
+/* 		background-repeat: no-repeat; */
+/* 		background-position: 50% 50%; */
+/* 		background-attachment: fixed; */
+/* 		background-size: cover; */
+/* 		height: 700px; */
+/* 	} */
 </style>
 <script>
 	$(function() {

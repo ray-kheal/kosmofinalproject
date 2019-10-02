@@ -44,7 +44,7 @@
 	}
 	
 	#content {
-		background-image: url("images/bgimg.jpg");
+/* 		background-image: url("images/bgimg.jpg"); */
 		margin: 0 auto;
 		text-align: center;
 		background-repeat: no-repeat;
@@ -213,7 +213,7 @@ if(cookies!=null){
 							<div class="idCheck custom-control custom-checkbox" style="color: white;">
 								<input type="checkbox" name="saveCheck" id="defaultUnchecked" value="1" <% if(user.length()!=0){ %> checked = "checked" <% } %>
 									class="custom-control-input" /> 
-								<label class="custom-control-label" for="defaultUnchecked">이메일 계정을 저장합니다.</label>
+								<label class="custom-control-label" for="defaultUnchecked" style="color: black">이메일 계정을 저장합니다.</label>
 							</div>
 							<span style="color:red;font-size:1em;"> 
 								${loginError }
@@ -223,7 +223,7 @@ if(cookies!=null){
 								로그인</button>
 						</form>
 						<div class="or-box">
-							<span class="or" style="text-align: center; color: white;">
+							<span class="or" style="text-align: center; color: black;">
 								또는 </span>
 							<div id="OtherLogin">
 								<div class="kakao" style="margin-bottom:15px;">

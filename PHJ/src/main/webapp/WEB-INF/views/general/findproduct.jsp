@@ -228,11 +228,22 @@ to {
                            <!-- <rect width="100%" height="100%" ></rect>
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
                            <div>
-                           <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}">${row.product_name}</a>                           
+                           <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+                           		href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}">${row.product_name}</a>
+                           		                          
+                            
+                           <p style="text-align: center; color: grey; font-size: 0.9em;  ">${row.product_value}</p>
                            
-                           <p style="text-align: center; color: grey; font-size: 0.7em;  ">${row.product_value}</p>
-                           
-                           <p  style="margin-top: -15px; font-size: 0.9em;"><img src="images/coin2.png" width="20px" height="20px " />  ${row.product_price}</p>     
+                           <p  style="margin-top: -15px; font-size: 0.9em;"><img src="images/coin2.png" width="20px" height="20px " />  ${row.product_price} 
+                           </p>
+                           	&nbsp;&nbsp;
+                           		 
+<!--                            		<a><img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-256.png" width="20px" height="20px"> -->
+<!--                            		<button type="submit" class="btn" style="font-family: Goyang">관심상품!</button></a> -->
+                              <%-- <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}" style="color:black;"><i class="fas fa-heart" ></i></a> --%>
+                              
+                             <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+                           		href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}">영현아 너가 해야 할 것이다 알앗니?</a>
                            </div>
                            <%-- <small   class="text-muted">
                             <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small> --%>

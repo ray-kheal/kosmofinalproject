@@ -25,19 +25,25 @@
 </head>
 <style type="text/css">
 	
-	#content {
-		background-image: url("images/bgimg.jpg");
-		margin: 0 auto;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		background-attachment: fixed;
-		background-size: cover;
-		height: 700px;
-	}
+/* 	#content { */
+/* 		background-image: url("images/bgimg.jpg"); */
+/* 		margin: 0 auto; */
+/* 		background-repeat: no-repeat; */
+/* 		background-position: 50% 50%; */
+/* 		background-attachment: fixed; */
+/* 		background-size: cover; */
+/* 		height: 700px; */
+/* 	} */
+
 	
 	#findMenu {
 		margin: 0 auto;
 	}
+	
+	@font-face { 
+   font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
+   font-weight: normal; font-style: normal;
+}
 </style>
 
 <script type="text/javascript">
@@ -105,39 +111,39 @@ function find_PWcheck(){
 
 		<!-- Main -->
 
-		<div id="content">
-			<div class="row" style="margin-top:10px;">
+		<div id="content ">
+			<div class="row" style="background-color:#f9f7f7;   margin-top:10px;">
 				<div id="findMenu" style="margin-top:100px;">
 						<div class="findPop find" id="findPop find form" >
 						
-							<h3 id="Maintitle">아이디/비밀번호 찾기</h3>
+							<h3 id="Maintitle" style="color: black">아이디/비밀번호 찾기</h3>
 		 				
 							<div class="findTop clear_g custom-control custom-radio custom-control-inline">
 								<input type="radio" class="custom-control-input" name="radio_find2" id="radioFindID" checked="checked" onclick="find_check(1)" />
-								<label for="radioFindID" class="custom-control-label">아이디</label>
+								<label for="radioFindID" class="custom-control-label" style="color: black">아이디</label>
 							</div>
 							<div class="findTop clear_g custom-control custom-radio custom-control-inline">
 								<input type="radio" class="custom-control-input" name="radio_find2" id="radioFindPW" onclick="find_check(2)"/>
-								<label for="radioFindPW" class="custom-control-label">비밀번호</label>
+								<label for="radioFindPW" class="custom-control-label" style="color: black">비밀번호</label>
 							</div>
 						<div class="findPop" id="findPop IDfind">
 
 							<form method="post"  class="" name="f" action="emailFindAction.do">
-								<table summary="아이디, 비밀번호를 입력할 수 있습니다.">
+								<table summary="아이디, 비밀번호를 입력할 수 있습니다." style=" color:black;">
 									<caption>아이디, 비밀번호 입력폼</caption>
 									<colgroup>
 										<col width="100px">
 										<col width="*">
 									</colgroup>
-									<tbody>
+									<tbody>  
 										<tr>
-											<th scope="row"><label for="name">이름</label></th>
+											<th scope="row" style=" color:black; font-family:Goyang " ><label for="name">이름</label></th>
 											<td>
 												<div class="formbox"><input maxlength="40" type="text" id="name" class="text" name="name"></div>
 											</td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
+											<th scope="row" style=" color:black; font-family:Goyang "><label for="hp_no_ins01">휴대폰</label></th>
 											<td>
 												<div class="formbox">
 													<input type="text" title="휴대폰 앞 번호" value="" name="mobile1" id="mobile1" maxlength="3" class="text hp"><span class="dash"></span>
@@ -167,7 +173,7 @@ function find_PWcheck(){
 									</colgroup>
 									<tbody>
 										<tr>
-											<th scope="row"><label for="name">이메일</label></th>
+											<th scope="row" style=" color:black; font-family:Goyang "><label for="name">이메일</label></th>
 											<td>
 												<div class="formbox">
 													<input maxlength="40" type="text" id="email" class="text" name="email">
@@ -176,7 +182,7 @@ function find_PWcheck(){
 											</td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="hp_no_ins01">휴대폰</label></th>
+											<th scope="row" style=" color:black; font-family:Goyang "><label for="hp_no_ins01">휴대폰</label></th>
 											<td>
 												<div class="formbox">
 													<input type="text" title="휴대폰 앞 번호" value="" name="mobile1" id="mobile1" maxlength="3" class="text hp"><span class="dash"></span>
@@ -215,7 +221,7 @@ function find_PWcheck(){
 				</div>
 			
 				<div class="findPop" id="findPop IDok"style="display:none">
-					<h3>아이디/비밀번호 찾기</h3>
+					<h3 style="color: black">아이디/비밀번호 찾기</h3>
 					<div class="findTop clear_g">
 						<p><span id="IDok Nameok"></span>님의 아이디입니다.</p>
 					</div>
