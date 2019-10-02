@@ -92,6 +92,27 @@ public class MemberDAO {
 		});
 		
 	}
+	//관리자등록
+	public void adminRegist(final MemberDTO dto) {
+		template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "INSERT INTO phj_member (membertype , name, email, pass, mobile) "
+						+ "VALUES(?, ?, ?, ?, ?)";
+				
+				PreparedStatement psmt = con.prepareStatement(sql);
+				psmt.setString(1, dto.getMembertype());
+				psmt.setString(2, dto.getName());
+				psmt.setString(3, dto.getEmail());
+				psmt.setString(4, dto.getPass());
+				psmt.setString(5, dto.getMobile());
+				
+				return psmt;
+			}
+		});
+		
+	}
 	
 	//아이디찾기
 	public String emailFind(String name, String mobile) {
@@ -220,6 +241,41 @@ public class MemberDAO {
 			
 		});
 		System.out.println("query : " + sql);
+	}
+	
+	//관심점포 등록
+	public int placeBookmark(final String email, final String placeCode) {
+		String query = " UPDATE phj_member SET place_bookmark=? WHERE email = ?";
+		int result = 0;
+		
+		result = template.update(query,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1, placeCode);
+				ps.setString(2, email);
+				
+			}
+		});
+		return result;
+		
+	}
+	
+	//관심점포 삭제
+	public int deletePlaceBookmark(final String email) {
+		String query = " UPDATE phj_member SET place_bookmark='' WHERE email = ?";
+		int result = 0;
+		
+		result = template.update(query,new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setString(1,email);
+				
+			}
+		});
+		return result;
+		
 	}
 	
 

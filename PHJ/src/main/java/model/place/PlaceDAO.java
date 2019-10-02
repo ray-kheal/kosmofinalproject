@@ -81,7 +81,7 @@ public class PlaceDAO {
 				" SELECT * FROM ( " +
 					" SELECT tb.*, rownum rNum from (" + 
 						" SELECT " + 
-							" place_name, place_name2, place_address, latitude, longitude, " + 
+							" place_code, place_name, place_name2, place_address, latitude, longitude, " + 
 							" trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5) AS disKM, ROWNUM AS virtualNum " + 
 						" FROM phj_place " + 
 						" WHERE trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5)<= " + distance + 

@@ -26,6 +26,7 @@ import command.admin.AdQnaListCommand;
 import command.admin.AdQnaListViewCommand;
 import command.admin.AdRecipeListCommand;
 import command.admin.AdRecipeListViewCommand;
+import command.admin.AdRegistCommand;
 import command.admin.AdReplyCommand;
 import command.admin.Index_memberListCommand;
 import command.admin.Index_noticeListCommand;
@@ -34,6 +35,7 @@ import command.admin.Index_recipeListCommand;
 import command.admin.AdReplyActionCommand;
 import command.admin.AdMemberListCommand;
 import command.member.LoginActionCommand;
+import command.member.RegistCommand;
 import model.board.noticeDTO;
 import model.board.serviceDTO;
 import model.member.MemberDAO;
@@ -99,6 +101,19 @@ public class AdminController {
 	}
 	
 	//////////////////////////////////////////////////////////////////////////////////////// 회원관련
+	
+	//관리자계정회원가입
+	@RequestMapping(value="/admin/pages/samples/adminRegist.do",method=RequestMethod.POST)
+	public String regist(Model model, HttpServletRequest req,MemberDTO memberDTO){
+		
+		model.addAttribute("req",req);
+		model.addAttribute("memberDTO",memberDTO);
+		command = new AdRegistCommand();
+		command.execute(model);
+		
+		return "redirect:./login.do";
+	}
+	
 	
 	//관리자계정 로그인페이지 진입
 	@RequestMapping("/admin/pages/samples/login.do")
