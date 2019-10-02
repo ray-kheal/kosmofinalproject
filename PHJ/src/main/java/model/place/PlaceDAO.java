@@ -1,10 +1,13 @@
 package model.place;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
@@ -100,4 +103,6 @@ public class PlaceDAO {
 		return(PlaceDTO)template.queryForObject(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
 		
 	}
+	
+
 }

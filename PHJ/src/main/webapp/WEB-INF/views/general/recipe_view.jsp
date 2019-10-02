@@ -100,7 +100,7 @@ body {
 				<tr>
 					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
 					<td bgcolor="white">${viewRow.name}
-					
+
 					</td>
 				</tr>
 			
@@ -111,7 +111,9 @@ body {
 					<col width="80px" />
 					<col width="120px" />
 					<col width="80px" />
-					<col width="*" />
+					<col width="80px" />
+					<col width="80px" />
+					<col width="80px" />
 				</colgroup>
 				<tr>
 					<th
@@ -119,9 +121,11 @@ body {
 					<td>${viewRow.postdate}</td>
 					<th style="text-align: center;">조회수</th>
 					<td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
+					<th style="text-align: center;">추천수</th>
+					<td style="border: 1px solid #EDEAEA;">${viewRow.BTNRECOMMEND}</td>
 				</tr>
 				<tr>
-					<td colspan="4"
+					<td colspan="6"
 						style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
 					</td>
 				</tr>
@@ -129,6 +133,8 @@ body {
 			<!-- </div> -->
 			<br /> <br />
 			<input type="hidden" name="email" value="${viewRow.email}" />
+			
+			<button type="button" class="btn" onclick="location.href='recommend.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">추천하기</button>
 		<%-- 	<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button> --%>
 	 		<c:choose>
 				<c:when test="${not empty EMAIL and EMAIL eq viewRow.email}">

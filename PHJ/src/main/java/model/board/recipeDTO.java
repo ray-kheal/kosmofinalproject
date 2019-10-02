@@ -13,13 +13,14 @@ public class recipeDTO {
 	private Date postdate;
 	private String email;
 	private String recommend;
+	private String BTNRECOMMEND;
 	private int virtualNum;
+
+	private String thumbnail;
 	
 	public recipeDTO() {}
-
-	
-		public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
-			Date postdate, String email, String recommend, int virtualNum) {
+	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
+			Date postdate, String email, String recommend, String bTNRECOMMEND, int virtualNum, String thumbnail) {
 		super();
 		this.idx = idx;
 		this.image_name = image_name;
@@ -30,32 +31,22 @@ public class recipeDTO {
 		this.postdate = postdate;
 		this.email = email;
 		this.recommend = recommend;
+		BTNRECOMMEND = bTNRECOMMEND;
 		this.virtualNum = virtualNum;
+		this.thumbnail = thumbnail;
 	}
 
 
 
 
-	public Date getPostdate() {
-			return postdate;
-		}
 
 
-		public void setPostdate(Date postdate) {
-			this.postdate = postdate;
-		}
-
-
-		public String getEmail() {
-			return email;
-		}
-
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
-
+	public String getBTNRECOMMEND() {
+		return BTNRECOMMEND;
+	}
+	public void setBTNRECOMMEND(String bTNRECOMMEND) {
+		BTNRECOMMEND = bTNRECOMMEND;
+	}
 	public int getIdx() {
 		return idx;
 	}
@@ -125,6 +116,30 @@ public class recipeDTO {
 
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
+	}
+
+	public Date getPostdate() {
+		return postdate;
+	}
+
+	public void setPostdate(Date postdate) {
+		this.postdate = postdate;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
 }

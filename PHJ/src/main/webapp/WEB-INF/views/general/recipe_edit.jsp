@@ -107,7 +107,7 @@ body {
 			<!-- <div class="row text-right" style="float: right;">
 				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px;"><i class="far fa-question-circle"></i>&nbsp;궁금한 점이 있으신가요</h5>
 			</div> -->
-			<form action="./ReditAction.do" name="writeFrm" method="post"
+			<form action="./ReditAction.do" enctype="multipart/form-data" name="writeFrm" method="post"
 				onsubmit="return checkValidate(this);">
 			<%-- 	<input type="hidden" name="idx" value="${viewRow.idx}" /> 
 				<input type="hidden" name="nowPage" value="${param.nowPage}" />
@@ -130,15 +130,22 @@ body {
 								style="border: none;" />
 							</td>
 						</tr>
+
 						<tr>
 							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
 							<td bgcolor="white"><input type="text" class="form-control"
 								name="name" style="border: none;" value="<%=session.getAttribute("NAME") %>" readonly/></td>
 						</tr>
+
 						<!-- <tr>
+							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
+							<td bgcolor="white"> -->
+						<input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td>
+						<!-- </tr> -->
+						<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
-						<td><input type="file" name="IMAGE_NAME" /></td>
-					</tr> -->
+						<td><input type="file" name="fileUpload" /></td>
+					</tr> 
 						<tr>
 							<th bgcolor="#f2efef"
 								style="text-align: center; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #ffd74d;">내용</th>
