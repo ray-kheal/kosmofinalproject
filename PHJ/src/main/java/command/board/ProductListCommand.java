@@ -42,9 +42,19 @@ public class ProductListCommand implements PHJCommandImpl {
 			paramMap.put("searchWord", searchWord);
 		}
 				
-				
+		//가격검색기능 구현
+		String priceQueryString ="";
+		
+		String priceRange = req.getParameter("priceRange");
+		
+		if(priceRange !=null ) {
+			priceQueryString = String.format("priceRange=%s&",priceRange );
+			paramMap.put("priceRange", priceRange);
+		}
+		
+		
+		
 		int totalRecordCount = dao.getTotalCount(paramMap);
-
 		
 		int pageSize = 10;
 		int blockPage = 5;
@@ -77,8 +87,13 @@ public class ProductListCommand implements PHJCommandImpl {
 			
 			
 		}
+<<<<<<< HEAD
+		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+				req.getContextPath()+"/findproduct.do?"+addQueryString+priceQueryString);
+=======
 		String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString);
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);

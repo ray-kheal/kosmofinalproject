@@ -12545,7 +12545,7 @@ dl {
 /* Tables */
 .table {
   margin-bottom: 0; }
-  .table thead th {
+  .table thead th { 
     border-top: 0;
     border-bottom-width: 1px;
     font-family: "ubuntu-medium", sans-serif;
@@ -12559,10 +12559,10 @@ dl {
     line-height: 1;
     white-space: nowrap; }
     .table th img,
-    .table td img {
-      width: 36px;
-      height: 36px;
-      border-radius: 100%; }
+     .table td img {
+      max-width: 150px;
+      
+       } 
     .table th .badge,
     .table td .badge {
       margin-bottom: 0; }
