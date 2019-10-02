@@ -242,9 +242,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 } 
 </style> 
 <!-- 마우스 오버 end  --> 
-
- 
-<!-- 공지제목 자르기 -->
 <script>
 function textLengthOverCut(txt, len, lastTxt) {
     if (len == "" || len == null) { // 기본값
@@ -308,18 +305,19 @@ function textLengthOverCut(txt, len, lastTxt) {
 
       <!-- 메인 헤더 인클루드 --> 
       <%@ include file="general/MainHeader.jsp"%> 
-      
-	<img class="effect" 
-             src="images/mainpic2.jpg" 
-             alt="메인이미지" style="width: 100%;"> 
-    
+       
+ <img class="effect" 
+                src="images/mainpic2.jpg" 
+                alt="메인이미지" style="width: 100%;"> 
+           
       <!-- 배너 --> 
       <div id="banner-wrapper "> 
          <div  class=" container  "> 
             <div class="row"> 
                <div class="col-7 col-12-medium"> 
                    
-               </div>   
+                  
+               </div> 
              
             </div> 
          </div> 
@@ -379,9 +377,9 @@ function textLengthOverCut(txt, len, lastTxt) {
                      <a href="recipe.do"  style="margin-top: -50px;"> 
                      <img src="images/moreView.png" alt="" style="width: 120px"/> 
                      </a> 
-                 	 </div> 
-                  		<!-- <div class="container">  -->
-                  		<div class="row " style=" margin-left: -60px;"> 
+                     </div> 
+                        <!-- <div class="container">  -->
+                        <div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 
                            <c:when test="${empty recipeRows }"> 
                               <div> 
@@ -394,7 +392,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                                     <c:when 
                                        test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }"> 
 
-                        				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
 
                                           <figure class="recipePhoto" style="width:100px; height:200px;"> 
                                              <img class="img-fluid img-thumbnail effect" 
@@ -569,7 +567,9 @@ function textLengthOverCut(txt, len, lastTxt) {
             
             <div class="container" id="wideboard">
             
+            
             <div class="row">
+            
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -577,40 +577,6 @@ function textLengthOverCut(txt, len, lastTxt) {
                       <h4 class="card-title float-left">공지</h4>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
-<<<<<<< HEAD
-                      	<table class="table" style="text-align: center;  " >
-		                  <colgroup>
-		                     <col width="80px" />
-		                     <col width="*" />
-		                     <col width="120px" />
-		                  </colgroup>
-		                  <tbody>
-		                     <c:choose>
-		                        <c:when test="${empty listRows }">
-		                           <tr>
-		                              <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
-		                           </tr>
-		                        </c:when>
-		                        <c:otherwise>
-		                           <c:forEach items="${listRows }" var="row"
-		                              varStatus="loop">
-		                              <!-- 리스트반복시작 -->
-		                              <tr>  
-		                                 <td class="text-center"> <label class="badge badge-danger">공지</label></td>
-		                                 <td class="text-left" style="color: black;">
-		                                    <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
-		                                    ${row.title}
-		                                    </a> 
-		                                 </td>
-		                                 <%-- <td class="text-center">${row.content }</td> --%>
-		                                <td class="text-center">${row.postdate }</td> 
-		                              </tr>
-		                           </c:forEach>
-		                        </c:otherwise>
-		                     </c:choose>
-		                  </tbody>
-		               </table>
-=======
                          <table class="table" style="text-align: center;  " >
                         <colgroup>
                            <col width="80px" />
@@ -644,7 +610,6 @@ function textLengthOverCut(txt, len, lastTxt) {
                            </c:choose>
                         </tbody>
                      </table>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                       
                       
                       
