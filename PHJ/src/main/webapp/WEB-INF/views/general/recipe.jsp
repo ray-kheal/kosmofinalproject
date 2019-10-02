@@ -278,8 +278,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 					<br />
 					<div class="row text-right">
 					<%if(session.getAttribute("EMAIL") != null) { %> 
+<<<<<<< HEAD
 						<button type="submit" class="btn" style="margin:0 auto;"
 						onclick="location.href='./recipe_edit.do';">글쓰기 &nbsp; <img src="https://image.flaticon.com/icons/svg/1159/1159633.svg" width="25px" height="25px"/></button>
+=======
+						 <form action="recipe_edit.do" method="post">
+				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+							</form>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 						<%} %>
 					</div>
 			

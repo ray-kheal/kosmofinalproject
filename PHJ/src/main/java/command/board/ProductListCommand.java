@@ -77,7 +77,7 @@ public class ProductListCommand implements PHJCommandImpl {
 			
 			
 		}
-		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+		String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString);
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);

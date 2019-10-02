@@ -60,10 +60,10 @@ public class ListCommand implements PHJCommandImpl {
 	    
 	    String pagingImg =null;
 	    if(board_type==1) {
-	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+	    pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/notice.do?"+addQueryString);
 	    }else if(board_type==2) {
-	    pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+	    pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/event.do?"+addQueryString);
 	    }
 	    
