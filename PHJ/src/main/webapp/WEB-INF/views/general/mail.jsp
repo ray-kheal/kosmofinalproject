@@ -18,6 +18,17 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<%
+if(session.getAttribute("EMAIL")==null){
+%>
+<script type="text/javascript">
+	alert("로그인 후 문의하실 수 있습니다.");
+	location.href="login.do";
+</script>
+<%
+	return;
+}
+%>
 	
 	<style type="text/css">
 	@font-face { 
@@ -33,11 +44,6 @@ nav {
 	function FindFrmCheck() {
 		var fn = document.emailFrm;
 
-		if (fn.email.value == "") {
-			alert("답장 받으실 이메일을 입력하세요");
-			fn.email.focus();
-			return false;
-		}
 		if (fn.subject.value == "") {
 			alert("문의하실 제목을 입력하세요");
 			fn.subject.focus();
@@ -115,10 +121,11 @@ nav {
 									<table style="border:1px solid gray;" >
 
 
-										<tr>
-											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">답장 받으실 메일</td>
-											<td><input type="text" name="email" value="" /></td>
-										</tr>
+										<!-- <tr>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">답장 받으실 메일</td> -->
+											<input type="hidden" name="email" value="<%=session.getAttribute("EMAIL") %>" />
+											<input type="hidden" name="name" value="<%=session.getAttribute("NAME") %>" />
+										<!-- </tr> -->
 										<tr>
 											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">문의할 제목</td>
 											<td><input type="text" name="subject" value="" /></td>

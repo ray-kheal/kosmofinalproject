@@ -30,6 +30,7 @@ public class ListCommand implements PHJCommandImpl {
 		String addQueryString = "";
 		String searchColumn = req.getParameter("searchColumn");
 		String searchWord = req.getParameter("searchWord");
+		
 		if(searchWord!= null) {
 			addQueryString = String.format("searchColumn=%s&searchWord=%s&", searchColumn, searchWord);
 			paramMap.put("searchColumn", searchColumn);
