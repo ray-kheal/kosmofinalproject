@@ -118,17 +118,15 @@ to {
    <%@ include file="MainHeader.jsp"%>
 
 
-   <div
-      style="width: 100%; height: 200px; text-align: center; display: table;">
-
-         <!-- <img src="./images/memo_w.png" alt="메모"
-            style="width: 50px; height: 50px;" /> -->
-
-         <i class="fas fa-store" style="width: 45px; height: 45px;"></i>
-         &nbsp; 편의점 정보가 여기에!
-
-      </p>
-   </div>
+  <div
+			style="width: 100%; height: 200px; text-align: center;  display: table;">
+			<p
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+				
+						편의점 정보가 여기에!
+				<img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+			</p>
+		</div>
    <div style="width: 100%; text-align: center;">
       <br /> <br />
 
@@ -177,38 +175,38 @@ to {
       &nbsp; <br /> <br />
 
 
-<div class="album py-5 bg-light">
-      <div class="container" style="color: black;">
-         <!-- 상품 리스트 출력  -->
-         <div class="row ">
-            <c:choose>
-               <c:when test="${empty viewRow }">
-                  <p class="text-center">등록된 상품이 없습니다.</p>
-               </c:when>
-               <c:otherwise>
-                  <c:forEach items="${viewRow }" var="row" varStatus="loop">
-                     <div class="col-lg-4 col-md-3 col-4 ">
-                        <!-- 리스트반복시작 -->
-                        <img
-                           src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg"
-                           width="80%" heigth="80%" ; /> 
-                           <!-- <rect width="100%" height="100%" ></rect>
-                           <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
-                           <p>${row.product_value }</p>
-                           <!-- <img class="image blinking"
-                           src="images/wow.png" width="40px" height="40px">  -->
-                           <small   class="text-muted">
-                            <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small>
-                     
-                        <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}"
-                           class="btn btn-sm btn-outline-secondary">${row.product_name }</a> 
-                           <!-- 리스트반복끝 -->
-                     </div>
-                  </c:forEach>
-               </c:otherwise>
-            </c:choose>
-         </div>
-</div>
+
+		<div class="container" style="color: black;">
+			<!-- 상품 리스트 출력  -->
+			<div class="row ">
+				<c:choose>
+					<c:when test="${empty viewRow }">
+						<p class="text-center">등록된 상품이 없습니다.</p>
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${viewRow }" var="row" varStatus="loop">
+							<div class="col-lg-4 col-md-3 col-4 ">
+								<!-- 리스트반복시작 -->
+								<img
+									src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg"
+									width="80%" heigth="80%" ; /> 
+									<!-- <rect width="100%" height="100%" ></rect>
+									<text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
+									<p>${row.product_value}</p>
+									<!-- <img class="image blinking"
+									src="images/wow.png" width="40px" height="40px">  -->
+									<small	class="text-muted">
+									 <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small>
+							
+								<a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}"
+									class="btn btn-sm btn-outline-secondary">${row.product_name }</a> 
+									<!-- 리스트반복끝 -->
+							</div>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+			</div>
+
 
          <br /> <br />
          <!--    <ul class="pagination justify-content-center"> -->

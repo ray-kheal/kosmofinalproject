@@ -31,8 +31,44 @@ if (mst == 'normal') {
 }  
 
 </script>
+<script>
 
-<body>
+function printClock() {
+    
+    var clock = document.getElementById("clock");            // 출력할 장소 선택
+    var currentDate = new Date();                                     // 현재시간
+    var calendar = currentDate.getFullYear() + "-" + (currentDate.getMonth()+1) + "-" + currentDate.getDate() // 현재 날짜
+    var amPm = 'AM'; // 초기값 AM
+    var currentHours = addZeros(currentDate.getHours(),2); 
+    var currentMinute = addZeros(currentDate.getMinutes() ,2);
+    var currentSeconds =  addZeros(currentDate.getSeconds(),2);
+    
+    if(currentHours >= 12){ // 시간이 12보다 클 때 PM으로 세팅, 12를 빼줌
+    	amPm = 'PM';
+    	currentHours = addZeros(currentHours - 12,2);
+    }
+
+    if(currentSeconds >= 50){// 50초 이상일 때 색을 변환해 준다.
+       currentSeconds = '<span style="color:#48b4db;">'+currentSeconds+'</span>'
+    }
+    clock.innerHTML = currentHours+":"+currentMinute+":"+currentSeconds +" <span style='font-size:1em;'>"+ amPm+"</span>"; //날짜를 출력해 줌
+    
+    setTimeout("printClock()",1000);         // 1초마다 printClock() 함수 호출
+}
+
+function addZeros(num, digit) { // 자릿수 맞춰주기
+	  var zero = '';
+	  num = num.toString();
+	  if (num.length < digit) {
+	    for (i = 0; i < digit - num.length; i++) {
+	      zero += '0';
+	    }
+	  }
+	  return zero + num;
+}
+</script>
+
+<body onload="printClock()">
    <div class="container-scroller">  
       <!-- partial:partials/_navbar.do -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -136,7 +172,9 @@ if (mst == 'normal') {
             </li> 
              
            
-      
+     
+
+
           </ul>   
         </nav> 
         <!-- partial --> <!-- 사이드바 끝 -->
@@ -200,6 +238,16 @@ if (mst == 'normal') {
             </div>
             
             
+<<<<<<< HEAD
+=======
+            
+            
+            
+          <!-- -------------------------------------------------------------------최근가입회원 -->
+            
+            
+            <div class="row">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             
             
             
@@ -214,7 +262,11 @@ if (mst == 'normal') {
                       <h4 class="card-title float-left">Recent Updates</h4>
                     <br />
                        <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i><a href="pages/tables/memberManagement.do" style="color:black;">최근가입회원</a></h5>
+<<<<<<< HEAD
                      
+=======
+                     <div class="table-responsive">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                        <table class="table " style="text-align: center;">
                            <tbody style="color:black;"> 
                        
@@ -242,6 +294,7 @@ if (mst == 'normal') {
                                  <%--<td class="text-center">${row.email }</td>
                                  <td class="text-center">${row.mobile }</td>
                                  <td class="text-center">${row.regidate }</td> --%>
+<<<<<<< HEAD
                               </tr>
                               <!-- 리스트반복끝 -->
                            </c:forEach>
@@ -459,6 +512,282 @@ if (mst == 'normal') {
                                  <%--<td class="text-center">${row.email }</td>
                                  <td class="text-center">${row.mobile }</td>
                                  <td class="text-center">${row.regidate }</td> --%>
+=======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+<<<<<<< HEAD
+               </table>
+=======
+                        </table>
+                      
+                      
+                      
+                      
+                     </div> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+          
+              
+              
+              
+              
+              
+              
+              
+            <!-- -------------------------------------------------------------------최근문의사항 -->
+              
+              
+              
+              <div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body"> 
+                    <h4 class="card-title float-left" style="font-weight: bold;">답변을 기다리고 있어요!</h4>
+                          <br />
+                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/qnaManagement.do" style="color:black;">최근문의사항</a></h5>
+                      <div class="table-responsive">
+                   <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
+                        <colgroup>
+                          <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                        </colgroup>
+                           <tbody style="color: black;">
+                             <!-- 게시판 리스트 출력  -->
+                           <c:choose> 
+                        <c:when test="${empty qnaviewRow_noreply }">
+                           <tr>
+                              <td colspan="5" class="text-center">
+                                 등록된 게시물이 없습니다.
+                              </td> 
+                           </tr> 
+                        </c:when> 
+                        <c:otherwise>   
+                         <c:forEach items="${qnaviewRow_noreply }" var="row" varStatus="status"> 
+
+                              <!-- 리스트반복시작 --> 
+                              
+                                 <td >
+                                    <br /><br />
+                                    <!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
+                                     <p style="color:#6ea2d3;"><i class="mdi mdi-human-greeting icon-lg" ></i> </p>
+                                    <br />
+                                    <label class="badge badge-danger">new</label><br /><br />
+                                    <a href="pages/tables/qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
+                                          " ${row.title} "
+                                    </a> 
+                                    <br /><br /><br /><br /><br />
+                                    <p style="color:gray; text-align: center;">${row.name}</p>
+                                    <p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
+                                    <button type="button" class="btn btn-outline-info btn-fw" onclick="location.href='pages/tables/qnaReply.do?idx=${row.idx}&nowPage=${nowPage}';">
+                                       <i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기
+                                    </button>
+                                    <!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
+                                 </td>
+                           </c:forEach> 
+                        </c:otherwise>
+                     </c:choose>
+                           
+                         </tbody>
+                  
+                  
+                  
+                       </table>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
+
+                </div>   
+                  </div>
+                </div>
+              </div> 
+            </div>    
+            
+            
+<<<<<<< HEAD
+=======
+            
+              <!-- -------------------------------------------------------------------최근레시피 -->
+            
+            <div class="row">
+              <div class="col-md-7 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="clearfix">
+                       <h4 class="card-title float-left">Recent Recipe</h4>
+                       <br />  
+                       <h5 class="card-title float-right"><i class="mdi mdi-login-variant"></i><a href="pages/tables/recipeManagement.do" style="color:black;">레시피게시판</a></h5>
+                     <div class="table-responsive">
+                      <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                            <col width="20%" /> 
+                         <tbody style="color: black;">
+                     <!-- 게시판 리스트 출력  -->
+                           <c:choose> 
+                        <c:when test="${empty recipeviewRow }">
+                           <tr>
+                              <td colspan="5" class="text-center">
+                                 등록된 게시물이 없습니다.
+                              </td> 
+                           </tr> 
+                        </c:when> 
+                        <c:otherwise>   
+                           <c:forEach items="${recipeviewRow }" var="row" 
+                              varStatus="loop">
+                              
+
+
+                              <!-- 리스트반복시작 --> 
+                                 <%--  <td class="text-center">${row.virtualNum }</td> --%>
+                                 <td >
+                                    <br /><br />
+                                    <!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
+                                     <p style="color:#EC9A00;"><i class="mdi mdi-food icon-lg" ></i> </p>
+                                    <br /><br />
+                                    <!-- <mark class="bg-warning text-white" > -->
+                                    <a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
+                                           ${row.title} 
+                                    </a> 
+                                    <!--  </mark> -->
+                                    <br /><br /><br /><br /><br />
+                                    <p style="color:gray; text-align: center;">${row.name}</p>
+                                    
+                                    <p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
+                                    <!-- <button type="button" class="btn btn-outline-info btn-fw"><i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기</button> -->
+                                    <!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
+                                 </td>
+                           </c:forEach> 
+                        </c:otherwise>
+                     </c:choose>
+                           
+                         </tbody>
+                        </table>
+                      
+                      
+                      
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+               <!-- -------------------------------------------------------------------최근공지-->
+              
+        
+              
+            <%--   <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left">Recent Notice</h4>
+                        <br />  
+<<<<<<< HEAD
+	                    <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/boardManagement.do" style="color:black;">최근공지사항</a></h5>
+	                	<div class="table-responsive">
+ 						<table class="table " style="text-align: center;">
+						 <col width="20%" /> 
+	                  	 <col width="*" /> 
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+						<tbody style="color:black;"> 
+						
+	                        <!-- 공지 리스트 출력  -->
+	                        <c:choose>
+								<c:when test="${empty noticeviewRow }">
+									<tr>
+										<td colspan="6" class="text-center">
+											등록된 회원이 없습니다. 
+										</td>
+									</tr>
+								</c:when>   
+								<c:otherwise>
+									<c:forEach items="${noticeviewRow }" var="row" 
+										varStatus="loop"> 
+										<!-- 리스트반복시작 --> 
+										<tr>
+											
+											 <td class="text-left">
+												<p style="font-weight: bold;">
+												<label class="badge badge-gradient-info">공지</label>&nbsp; 
+												<a href="pages/tables/boardManagementView.do?idx=${row.idx}&nowPage=${nowPage}&board_type=1" style="color:black; ">
+															 ${row.title} 
+													</a>
+												
+												<!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+												</p>
+											</td > 	
+											<td class="text-left" style="vertical-align: center;">	
+												${row.content }
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;">${row.postdate }</p>
+											</td >  
+											<td class="text-center">${row.email }</td>
+											<td class="text-center">${row.mobile }</td>
+											<td class="text-center">${row.regidate }</td>
+										</tr>
+										<!-- 리스트반복끝 -->
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+	       
+						</tbody>
+					</table>
+=======
+                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/boardManagement.do" style="color:black;">최근공지사항</a></h5>
+                      <div class="table-responsive">
+                   <table class="table " style="text-align: center;">
+                   <col width="20%" /> 
+                         <col width="*" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                  <tbody style="color:black;"> 
+                  
+                           <!-- 공지 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty noticeviewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다. 
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${noticeviewRow }" var="row" 
+                              varStatus="loop"> 
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-left">
+                                    <p style="font-weight: bold;">
+                                    <label class="badge badge-gradient-info">공지</label>&nbsp;  ${row.title}
+                                    <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+                                    </p>
+                                 </td >    
+                                 <td class="text-left" style="vertical-align: center;">   
+                                    ${row.content }
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;">${row.postdate }</p>
+                                 </td >  
+                                 <%--<td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td> --%>
                               </tr>
                               <!-- 리스트반복끝 -->
                            </c:forEach>
@@ -467,20 +796,268 @@ if (mst == 'normal') {
           
                   </tbody>
                </table>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 
-
+               </div>
                   </div>
                 </div>
               </div>
-            </div>    
+            </div>     --%>
+               <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title float-left"></h4>
+                        <br />  
+	                		<i class="mdi mdi-alarm "></i>
+ 						     <div class="container" style="font-size:2em;  padding-top:20px;  height:auto; line-height:250px; color:#666; text-align:center;" id="clock">
+							</div>
+							
+                  </div>
+                </div>
+              </div>
+            </div>     
+            
+            
+            
+             
+              <!-- -------------------------------------------------------------------인기게시물 -->
+            
+            <div class="row">
+              <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="clearfix">
+                       <h4 class="card-title float-left">Popular posts</h4>
+<<<<<<< HEAD
+                    	<br />  
+	                	<div class="table-responsive">
+	                	<h6>notice</h6>
+ 						<table class="table " style="text-align: center;">
+						<col width="20%" /> 
+	                  	 <col width="*" />  
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+						<tbody style="color:black;"> 
+							  
+	                        <!-- 공지 리스트 출력  -->
+	                        <c:choose>
+								<c:when test="${empty pop_noticeviewRow }">
+									<tr>
+										<td colspan="6" class="text-center">
+											등록된 회원이 없습니다. 
+										</td>
+									</tr>
+								</c:when>   
+								<c:otherwise>
+									<c:forEach items="${pop_noticeviewRow }" var="row" 
+										varStatus="loop">   
+										<!-- 리스트반복시작 --> 
+										<tr>
+											
+											 <td class="text-left">
+												<p style="font-weight: bold;">
+												<label class="badge badge-gradient-success">HOT</label>&nbsp; 
+												<a href="pages/tables/boardManagementView.do?idx=${row.idx}&nowPage=${nowPage}&board_type=1" style="color:black; ">
+															 ${row.title} 
+													</a>
+												<!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+												</p>
+											</td > 	
+											<td class="text-left" style="vertical-align: center;">	
+												${row.content }
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;">${row.postdate }</p>
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;"> ${row.view_count } hits</p>
+											</td >  
+											<%--<td class="text-center">${row.email }</td>
+											<td class="text-center">${row.mobile }</td>
+											<td class="text-center">${row.regidate }</td> --%>
+										</tr>
+										<!-- 리스트반복끝 -->
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+	       
+						</tbody>
+					</table>
+					<h6>recipe</h6>
+ 						<table class="table " style="text-align: center;">
+						<col width="20%" /> 
+	                  	 <col width="*" /> 
+	                  	 <col width="20%" /> 
+	                  	 <col width="20%" /> 
+						<tbody style="color:black;"> 
+							  
+	                        <!-- 레시피 리스트 출력  -->
+	                        <c:choose>
+								<c:when test="${empty pop_recipeviewRow }">
+									<tr>
+										<td colspan="6" class="text-center">
+											등록된 회원이 없습니다. 
+										</td>
+									</tr>
+								</c:when>   
+								<c:otherwise>
+									<c:forEach items="${pop_recipeviewRow }" var="row" 
+										varStatus="loop"> 
+										<!-- 리스트반복시작 --> 
+										<tr>
+											 <td class="text-left">
+												<p style="font-weight: bold;">
+												<label class="badge badge-gradient-success">HOT</label>&nbsp;  
+												
+													<a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; ">
+															 ${row.title} 
+													</a>
+												
+												<!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+												</p>
+											</td > 	
+											<td class="text-left" style="vertical-align: center;">	
+												${row.content }
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;">${row.postdate }</p>
+											</td >  
+											 <td class="text-left">
+												<p style="color:gray; text-align: center;"> ${row.view_count } hits</p>
+											</td >  
+											<%--<td class="text-center">${row.email }</td>
+											<td class="text-center">${row.mobile }</td>
+											<td class="text-center">${row.regidate }</td> --%>
+										</tr>
+										<!-- 리스트반복끝 -->
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+	       
+						</tbody>
+					</table>
+=======
+                       <br />  
+                      <div class="table-responsive">
+                      <h6>notice</h6>
+                   <table class="table " style="text-align: center;">
+                  <col width="20%" /> 
+                         <col width="*" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                  <tbody style="color:black;"> 
+                       
+                           <!-- 공지 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty pop_noticeviewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다. 
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${pop_noticeviewRow }" var="row" 
+                              varStatus="loop">   
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-left">
+                                    <p style="font-weight: bold;">
+                                    <label class="badge badge-gradient-success">HOT</label>&nbsp;  ${row.title}
+                                    <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+                                    </p>
+                                 </td >    
+                                 <td class="text-left" style="vertical-align: center;">   
+                                    ${row.content }
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;">${row.postdate }</p>
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;"> ${row.view_count } hits</p>
+                                 </td >  
+                                 <%--<td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td> --%>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+               </table>
+               <h6>recipe</h6>
+                   <table class="table " style="text-align: center;">
+                  <col width="20%" /> 
+                         <col width="*" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                  <tbody style="color:black;"> 
+                       
+                           <!-- 레시피 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty pop_recipeviewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다. 
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${pop_recipeviewRow }" var="row" 
+                              varStatus="loop"> 
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-left">
+                                    <p style="font-weight: bold;">
+                                    <label class="badge badge-gradient-success">HOT</label>&nbsp;  ${row.title}
+                                    <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+                                    </p>
+                                 </td >    
+                                 <td class="text-left" style="vertical-align: center;">   
+                                    ${row.content }
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;">${row.postdate }</p>
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;"> ${row.view_count } hits</p>
+                                 </td >  
+                                 <%--<td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td> --%>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+               </table>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+                      
+                      
+                      
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             
             
             
             
             
+<<<<<<< HEAD
+=======
             
-            
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                     </div>
                   </div>
                 </div> 

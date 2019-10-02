@@ -109,7 +109,7 @@ function checkValidate(f){
 		                            <button class="file-upload-browse btn btn-gradient-info" type="button">Upload</button>
 		                          </span>
 		                        </div>
-		                      </div> -->
+		                      </div> -->  
 		                     <div class="form-group">
 		                       <label for="exampleTextarea1">내용</label>
 		                       <textarea class="form-control" name="content" rows="10"></textarea>
@@ -124,7 +124,7 @@ function checkValidate(f){
 				<div class="row text-right" style="float: right;">
 					 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
 					    </form>
-	                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
+	                 <button type="reset" class="btn btn-gradient-success btn-rounded">Reset</button>
 	
 	                 <button class="btn btn-dark btn-rounded"
 	                 	onclick="location.href='./eventManagement.do';">List</button>

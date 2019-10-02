@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>편히점 - QnA</title>
+<title>편히점 - 레시피</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -125,6 +125,7 @@ body {
 			</table>
 			<!-- </div> -->
 			<br /> <br />
+<<<<<<< HEAD
 			<%-- <button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
 			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>--%>
 			  <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
@@ -144,8 +145,28 @@ body {
 						<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
 			</div>
 		</div>
+=======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		
-		</div>
+			</div>
+			
+			<input type="hidden" name="email" value="${viewRow.email}" />
+			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
+			<c:choose>
+				<c:when test="${EMAIL eq viewRow.email}">
+			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>
+			<button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> 
+				</c:when>
+				<c:otherwise>
+					
+				</c:otherwise>
+			</c:choose>
+			
+				<button type="button" class="btn btn-dark btn-sm"
+					onclick="location.href='./recipe.do';">리스트</button> 
+			
+		
+			</div>
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>
 		<!-- Scripts -->
