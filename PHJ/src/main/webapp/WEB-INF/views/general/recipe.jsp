@@ -67,6 +67,44 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
+<<<<<<< HEAD
+=======
+}
+
+/* 뱃지2 */
+.effect2 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* 불필요한 부분 가리기 */
+  padding: 1px;
+}
+.effect2:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+  height: auto;
+  background: red;
+  content: "New";  /* 보여주는 텍스트 */
+  text-align: center;
+  color: #fff;
+  font-family: 'Arial';
+  font-weight: bold;
+  padding: 5px 10px;
+  left: -30px;
+  top: 3px;
+  transform: rotate(-30deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+</style>
+<style>
+.pattern {
+   background-color: #ffffff;
+   background-image: linear-gradient(90deg, rgba(0, 0, 0, .5) 50%,
+      transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
+      50%);
+   background-size: 50px 50px;
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 }
 </style>
 
@@ -262,6 +300,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           RECIPE <br />
       </p>
    </div> 
+<<<<<<< HEAD
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
@@ -314,6 +353,115 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            </figure>
                         </div>   
                         <!-- 베스트게시물 e-->                     
+=======
+   
+   
+   
+      <!-- Page Content --> 
+      <div class="container">
+         <div class="container">
+            <hr class="mt-2 mb-2">
+               <form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
+                  <select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
+                     <option value="title">제목</option>
+                     <option value="content">내용</option>
+                  </select>
+                  <input type="text" name="searchWord" class="form-control"
+                     style="width:230px; margin-left:5px;" />
+                  <div style="margin-left:10px;">
+                     <button type="submit" class="btn">
+                     검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
+                  </button>
+                  </div>
+               </form>
+               <hr class="mt-2 mb-2">  
+               <br />
+               <div class="row text-right">
+               <%if(session.getAttribute("EMAIL") != null) { %> 
+                   <form action="recipe_edit.do" method="post">
+          	  <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+                     </form>
+                  <%} %>
+               </div>
+         
+         		 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
+         	<!-- 	 <p style=" color:#4389cc; font-family:Arial ; font-weight: bold; font-size: 2em; ">BEST RECIPE</p> -->
+         		 <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;">
+				BEST RECIPE  
+				</div>  
+				<div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;">
+				BEST RECIPE  
+				</div>    
+			   	 <!-- <img src="" alt="베스트1" />
+			   	 <img src="" alt="베스트2" />
+			   	 <img src="" alt="베스트3" /> -->
+			   	  <div class=" text-center"  style="text-align: center; "> 
+                  <c:forEach items="${listRows }" var="row" varStatus="loop">
+                  <c:choose>  
+                     <c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+                        <!-- 베스트게시물 s-->
+                        <div class="  " style=" display:inline-block;">
+                        	<!-- <span class="badge badge-primary">BEST</span> -->
+                        	<div style="postion:relative;  color:#4389cc; font-weight: bold; font-size: 1.3em;  ">
+                        	  ${loop.index+1 }  
+                        	</div>
+                        	<div style="position: relative; display:inline-block;">
+	                           <input  type="hidden" value="${row.thumbnail }"/>
+	                           
+	                           <figure class="recipePhoto " style="width:100px; height:200px; border: 1px solid white; border-radius: 0px;">
+	                              <img class="img-fluid img-thumbnail " style=" height:100%; width:100%;  border-radius: 0px;"
+	                                 src="./resources/imageUpload/${row.thumbnail }"
+	                                 alt="">
+	                                 <img src="images/best.png" alt="" style="width: 50px; margin-top: 60px; z-index: 50px;"/>  
+	                              <figcaption>  
+	                                 <h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
+	                                 <p>${row.content }</p>
+	                                 <i class="ion-ios-arrow-right"></i>
+	                              </figcaption>
+	                              <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
+	                           </figure>
+	                           
+		                     	<div style="position: relative; left:80px; top: -230px;" >
+		                     		<img src="images/best.png" alt="" style="width: 80px; " />  
+		                     	</div>
+		                     </div>
+                     	</div>
+                     	
+                     	</c:when>
+                     	</c:choose>  
+                     	</c:forEach> 
+                     	</div>
+                     	  
+			   	 </div>
+         
+         
+         
+            <c:choose>
+               <c:when test="${empty listRows }">
+                  <br /><div class="row text-center" style="margin-left:auto; margin-right:auto;"><p>등록된 게시물이 없습니다.</p></div>
+               </c:when>
+               <c:otherwise>
+               <div class="row text-center text-lg-left">   
+                  <c:forEach items="${listRows }" var="row" varStatus="loop">
+                  <c:choose>
+                     <c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
+                       <%--  <!-- 베스트게시물 s-->
+                        <div class="col-lg-3 col-md-4 col-6 effect ">
+                           <input type="hidden" value="${row.thumbnail }"/>
+                           <figure class="recipePhoto" style="width:100px; height:200px;">
+                              <img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+                                 src="./resources/imageUpload/${row.thumbnail }"
+                                 alt="">
+                              <figcaption>
+                                 <h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
+                                 <p>${row.content }</p>
+                                 <i class="ion-ios-arrow-right"></i>
+                              </figcaption>
+                              <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
+                           </figure>
+                        </div>   
+                        <!-- 베스트게시물 e-->        --%>              
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->

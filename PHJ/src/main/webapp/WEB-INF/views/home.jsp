@@ -377,9 +377,9 @@ function textLengthOverCut(txt, len, lastTxt) {
                      <a href="recipe.do"  style="margin-top: -50px;"> 
                      <img src="images/moreView.png" alt="" style="width: 120px"/> 
                      </a> 
-                 	 </div> 
-                  		<!-- <div class="container">  -->
-                  		<div class="row " style=" margin-left: -60px;"> 
+                     </div> 
+                        <!-- <div class="container">  -->
+                        <div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 
                            <c:when test="${empty recipeRows }"> 
                               <div> 
@@ -392,7 +392,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                                     <c:when 
                                        test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }"> 
 
-                        				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
 
                                           <figure class="recipePhoto" style="width:100px; height:200px;"> 
                                              <img class="img-fluid img-thumbnail effect" 

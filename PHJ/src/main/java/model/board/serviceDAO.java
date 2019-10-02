@@ -50,6 +50,7 @@ public class serviceDAO {
 				new BeanPropertyRowMapper<serviceDTO>(serviceDTO.class));
 	}
 	
+	//답글 안달린 게시물만 가져오기 
 	public ArrayList<serviceDTO> list_noreply(Map<String, Object> map) {
 		
 		int start =Integer.parseInt(map.get("start").toString());
@@ -64,6 +65,7 @@ public class serviceDAO {
 		return (ArrayList<serviceDTO>) template.query(query,
 				new BeanPropertyRowMapper<serviceDTO>(serviceDTO.class));
 	}
+	
 	public serviceDTO view(String idx) {
 		// 조회수 증가
 		updateHit(idx);
