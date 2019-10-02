@@ -118,17 +118,16 @@ to {
    <%@ include file="MainHeader.jsp"%>
 
 
-   <div
-      style="width: 100%; height: 200px; text-align: center; display: table;">
-
-         <!-- <img src="./images/memo_w.png" alt="메모"
-            style="width: 50px; height: 50px;" /> -->
-
-         <i class="fas fa-store" style="width: 45px; height: 45px;"></i>
-         &nbsp; 편의점 정보가 여기에!
-
-      
-   </div>
+ <div
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <div style="width: 100%; text-align: center;">
    <div style="width: 100%; text-align: center;">
       <br /> <br />
 
@@ -178,6 +177,7 @@ to {
 
 <div class="album py-5 bg-light">
       <div class="container" style="color: black;">
+      <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
             <c:choose>

@@ -295,13 +295,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 							<c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
 								<!-- 베스트게시물 s-->
 								<div class="col-lg-3 col-md-4 col-6 effect ">
-									<figure class="recipePhoto">
-										<img class="img-fluid img-thumbnail effect"
-											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+									<input type="hidden" value="${row.thumbnail }"/>
+									<figure class="recipePhoto" style="width:100px; height:200px;">
+										<img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+											src="./resources/imageUpload/${row.thumbnail }"
 											alt="">
 										<figcaption>
-											<h3>${row.title }</h3>
-											<%-- <p>${row.content }</p> --%>
+											<h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
+											<p>${row.content }</p>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
 										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
@@ -312,13 +313,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 							<c:otherwise>
 								<!-- 일반게시물 s-->
 								<div class="col-lg-3 col-md-4 col-6 ">
-									<figure class="recipePhoto">
-										<img class="img-fluid img-thumbnail effect"
-											src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg"
+									<input type="hidden" value="${row.thumbnail }"/>
+									<figure class="recipePhoto" style="width:100px; height:200px;">
+										<img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+											src="./resources/imageUpload/${row.thumbnail }"
 											alt="">
 										<figcaption>
-											<h3>${row.title }</h3>
-											<%-- <p>${row.content }</p> --%>
+											<h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
+											<p>${row.content }</p>
 											<i class="ion-ios-arrow-right"></i>
 										</figcaption>
 										<a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>

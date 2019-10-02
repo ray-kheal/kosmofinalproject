@@ -92,14 +92,14 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #ffd74d; display: table;">
-			<br /> <br /> <br />
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/fork_round.png" alt="포크"
-					style="width: 50px; height: 50px;" /> RECIPE <br />
-			</p>
-		</div>
+		style="width: 100%; height: 200px; text-align: center;  display: table;">
+		<br /> <br /> <br />
+		<p
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+			<img src="images/fork_round.png" alt="포크"
+				style="width: 50px; height: 50px;" /> RECIPE <br />
+		</p>
+	</div>
 		<div class="container">
 			<br />
 			<br />
@@ -107,7 +107,7 @@ body {
 			<!-- <div class="row text-right" style="float: right;">
 				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px;"><i class="far fa-question-circle"></i>&nbsp;궁금한 점이 있으신가요</h5>
 			</div> -->
-			<form action="./ReditAction.do" name="writeFrm" method="post"
+			<form action="./ReditAction.do" enctype="multipart/form-data" name="writeFrm" method="post"
 				onsubmit="return checkValidate(this);">
 			<%-- 	<input type="hidden" name="idx" value="${viewRow.idx}" /> 
 				<input type="hidden" name="nowPage" value="${param.nowPage}" />
@@ -130,15 +130,15 @@ body {
 								style="border: none;" />
 							</td>
 						</tr>
-						<tr>
-							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-							<td bgcolor="white"><input type="text" class="form-control"
-								name="name" style="border: none;" /></td>
-						</tr>
 						<!-- <tr>
+							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
+							<td bgcolor="white"> -->
+						<input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td>
+						<!-- </tr> -->
+						<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
-						<td><input type="file" name="IMAGE_NAME" /></td>
-					</tr> -->
+						<td><input type="file" name="fileUpload" /></td>
+					</tr> 
 						<tr>
 							<th bgcolor="#f2efef"
 								style="text-align: center; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #ffd74d;">내용</th>
