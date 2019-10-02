@@ -186,17 +186,15 @@ $(function(){
 
 
 	<div
-		style="width: 100%; height: 200px; text-align: center; display: table;">
-
-			<!-- <img src="./images/memo_w.png" alt="메모"
-				style="width: 50px; height: 50px;" /> -->
-
-			<i class="fas fa-store" style="width: 45px; height: 45px;"></i>
-			&nbsp; 편의점 정보가 여기에!
-
-		</p>
-	</div>
-	<div style="width: 100%; text-align: center;">
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <div style="width: 100%; text-align: center;">
 		<br /> <br />
 
 	</div>

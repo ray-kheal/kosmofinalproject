@@ -38,10 +38,12 @@ nav {
 </style> 
 <style>
 @media screen and (min-width: 420px) { 
-	#cutboard { display: none; }
+
+   #cutboard { display: none; }
 }
 @media screen and (max-width: 420px) { 
-	#wideboard { display: none; }
+   #wideboard { display: none; }
+
 }
 
 </style>
@@ -366,9 +368,8 @@ function textLengthOverCut(txt, len, lastTxt) {
        
       <div id="main-wrapper" >  
          <div class="container"> 
-           <div class="row " id="reci">  
-           
-            
+
+           <div class="row container" id="reci">  
                <!-- preview board  시작  --> 
                   <section class="widget thumbnails"> 
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
@@ -377,8 +378,8 @@ function textLengthOverCut(txt, len, lastTxt) {
                      <img src="images/moreView.png" alt="" style="width: 120px"/> 
                      </a> 
                  	 </div> 
-                  		<div class="container"> 
-                           <div class="row " style=" margin-left: -60px;"> 
+                  		<!-- <div class="container">  -->
+                  		<div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 
                            <c:when test="${empty recipeRows }"> 
                               <div> 
@@ -391,7 +392,8 @@ function textLengthOverCut(txt, len, lastTxt) {
                                     <c:when 
                                        test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }"> 
 
-                                       <div class="col-lg-3 col-md-4 col-sm-6  effect "> 
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
+
                                           <figure class="recipePhoto"> 
                                              <img class="img-thumbnail effect" 
                                                 src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" 
@@ -407,7 +409,9 @@ function textLengthOverCut(txt, len, lastTxt) {
    
                                     </c:when> 
                                     <c:otherwise> 
-                                       <div class="col-lg-3 col-md-4 col-sm-6 " > 
+
+                                       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 " > 
+
                                           <figure class="recipePhoto"> 
                                              <img class="img-fluid img-thumbnail effect" 
                                                 src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" 
@@ -426,11 +430,16 @@ function textLengthOverCut(txt, len, lastTxt) {
                            </c:otherwise>
                         </c:choose>
                      </div>
-                     </div>
+
                   </section>  
                </div>
             </div>
-           <%--  <div class="container">
+   
+            
+
+<%-- <<<<<<< HEAD
+            </div>
+            <div class="container">
             <div class="row" >
                <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> -->
                <div class="" style=" width: 100%;"> 
@@ -482,7 +491,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                                                          <td class="text-left">
                                                             <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
                                                          </td>
-                                                         <td class="text-center">${row.content }</td>
+                                                         <td class="text-center">관리자</td>
                                                          <td class="text-center">${row.view_count }</td>
                                                       </tr>
                                                    </c:forEach>
@@ -536,7 +545,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                                                       <td class="text-left"><a
                                                          href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
                                                       </td>
-                                                      <td class="text-center">${row.content }</td>
+                                                      <td class="text-center">관리자</td>
                                                       <td class="text-center">${row.view_count }</td>
                                                    </tr>
                                                 </c:forEach>
@@ -550,100 +559,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                            </tr>
                         </table>   
                      </section>
-                  </div>
-               </div>
-            </div>
-            </div>
-             --%>
-             
-            
-          <%--   <div class="container">	
-            
-            <div class="row" style="border: 1px solid grey; ">
-            	<div class="col-6">
-             
-           			<div class="table-responsive">
-	            	<table class="table" style="text-align: center;  " >
-	                  <colgroup>
-	                     <col width="80px" />
-	                     <col width="*" />
-	                     <col width="120px" />
-	                  </colgroup>
-	                   
-	                  <tbody>
-	                     <c:choose>
-	                        <c:when test="${empty listRows }">
-	                           <tr>
-	                              <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
-	                           </tr>
-	                        </c:when>
-	                        <c:otherwise>
-	                           <c:forEach items="${listRows }" var="row"
-	                              varStatus="loop">
-	                              <!-- 리스트반복시작 -->
-	                              <tr>
-	                                 <td class="text-center"> <label class="badge badge-danger">공지</label></td>
-	                                 <td class="text-left" style="color: black;">
-	                                    <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
-	                                 </td>
-	                                 <td class="text-center">${row.content }</td>
-	                                <td class="text-center">${row.postdate }</td> 
-	                              </tr>
-	                           </c:forEach>
-	                        </c:otherwise>
-	                     </c:choose>
-	                  </tbody>
-	               </table>
-	               </div>
-    
-            	</div>
-            	<div class="col-6">
-            
-           			<div class="table-responsive">
-	            	<table class="table" style="text-align: center;  " >
-	                  <colgroup>
-	                     <col width="80px" />
-	                     <col width="*" />
-	                     <col width="120px" />
-	                     
-	                  </colgroup>
-	                   
-	                  <tbody>
-	                      <c:choose>
-                             <c:when test="${empty eventRows }">
-                                <tr>
-                                   <td colspan="6" class="text-center">등록된 게시물이 없습니다
-                                      ^^*</td>
-                                </tr>
-                             </c:when>
-                             <c:otherwise>
-                                <c:forEach items="${eventRows }" var="row"
-                                   varStatus="loop">
-                                   <!-- 리스트반복시작 -->
-                                   <tr>
-                                      <td class="text-center">${row.virtualNum }</td>
-                                      <td class="text-center"><label class="badge badge-info">이벤트</label></td>
-                                      <td class="text-left"><a
-                                         href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
-                                      </td>
-                                      <td class="text-center">${row.postdate }</td>
-                                      <td class="text-center">${row.view_count }</td>
-                                   </tr>
-                                </c:forEach>
-                             </c:otherwise>
-                          </c:choose>
-	                  </tbody>
-	               </table>
-    				</div><!-- table-responsive -->
-            	</div><!-- col-6 -->
-            
-            
-             
-            
-            </div><!-- row -->
-            </div><!-- container -->
-             --%>
-            
+======= --%>
             
         
             
@@ -661,39 +577,39 @@ function textLengthOverCut(txt, len, lastTxt) {
                       <h4 class="card-title float-left">공지</h4>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
-                      	<table class="table" style="text-align: center;  " >
-		                  <colgroup>
-		                     <col width="80px" />
-		                     <col width="*" />
-		                     <col width="120px" />
-		                  </colgroup>
-		                   
-		                  <tbody>
-		                     <c:choose>
-		                        <c:when test="${empty listRows }">
-		                           <tr>
-		                              <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
-		                           </tr>
-		                        </c:when>
-		                        <c:otherwise>
-		                           <c:forEach items="${listRows }" var="row"
-		                              varStatus="loop">
-		                              <!-- 리스트반복시작 -->
-		                              <tr>  
-		                                 <td class="text-center"> <label class="badge badge-danger">공지</label></td>
-		                                 <td class="text-left" style="color: black;">
-		                                    <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
-		                                    ${row.title}
-		                                    </a> 
-		                                 </td>
-		                                 <%-- <td class="text-center">${row.content }</td> --%>
-		                                <td class="text-center">${row.postdate }</td> 
-		                              </tr>
-		                           </c:forEach>
-		                        </c:otherwise>
-		                     </c:choose>
-		                  </tbody>
-		               </table>
+                         <table class="table" style="text-align: center;  " >
+                        <colgroup>
+                           <col width="80px" />
+                           <col width="*" />
+                           <col width="120px" />
+                        </colgroup>
+                         
+                        <tbody>
+                           <c:choose>
+                              <c:when test="${empty listRows }">
+                                 <tr>
+                                    <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
+                                 </tr>
+                              </c:when>
+                              <c:otherwise>
+                                 <c:forEach items="${listRows }" var="row"
+                                    varStatus="loop">
+                                    <!-- 리스트반복시작 -->
+                                    <tr>  
+                                       <td class="text-center"> <label class="badge badge-danger">공지</label></td>
+                                       <td class="text-left" style="color: black;">
+                                          <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
+                                          ${row.title}
+                                          </a> 
+                                       </td>
+                                       <%-- <td class="text-center">${row.content }</td> --%>
+                                      <td class="text-center">${row.postdate }</td> 
+                                    </tr>
+                                 </c:forEach>
+                              </c:otherwise>
+                           </c:choose>
+                        </tbody>
+                     </table>
                       
                       
                       
@@ -713,46 +629,46 @@ function textLengthOverCut(txt, len, lastTxt) {
                     <h4 class="card-title float-left" >이벤트</h4>
                     <a class="float-right" href="event.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                       <div class="table-responsive">  
-                  		<table class="table" style="text-align: center;  " >
-		                  <colgroup>
-		                     <col width="80px" />
-		                     <col width="*" />
-		                     <col width="120px" />
-		                     
-		                  </colgroup>
-		                   
-		                  <tbody>
-		                      <c:choose>
-	                             <c:when test="${empty eventRows }">
-	                                <tr>
-	                                   <td colspan="6" class="text-center">등록된 게시물이 없습니다
-	                                      ^^*</td>
-	                                </tr>
-	                             </c:when>
-	                             <c:otherwise>
-	                                <c:forEach items="${eventRows }" var="row"
-	                                   varStatus="loop">
-	                                   <!-- 리스트반복시작 -->
-	                                   <tr>
-	                                      <%-- <td class="text-center">${row.virtualNum }</td> --%>
-	                                      <td class="text-center"><label class="badge badge-info">이벤트</label></td>
-	                                      <td class="text-left">
-	                                      
-	                                      <a href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
-		                                    ${row.title}
-		                                    </a> 
-	                                      </td>
-	                                      <td class="text-center">${row.postdate }</td>
-	                                      <%-- <td class="text-center">${row.view_count }</td> --%>
-	                                   </tr>
-	                                </c:forEach>
-	                             </c:otherwise>
-	                          </c:choose>
-		                  </tbody>
-		               </table>
+                        <table class="table" style="text-align: center;  " >
+                        <colgroup>
+                           <col width="80px" />
+                           <col width="*" />
+                           <col width="120px" />
+                           
+                        </colgroup>
+                         
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${empty eventRows }">
+                                   <tr>
+                                      <td colspan="6" class="text-center">등록된 게시물이 없습니다
+                                         ^^*</td>
+                                   </tr>
+                                </c:when>
+                                <c:otherwise>
+                                   <c:forEach items="${eventRows }" var="row"
+                                      varStatus="loop">
+                                      <!-- 리스트반복시작 -->
+                                      <tr>
+                                         <%-- <td class="text-center">${row.virtualNum }</td> --%>
+                                         <td class="text-center"><label class="badge badge-info">이벤트</label></td>
+                                         <td class="text-left">
+                                         
+                                         <a href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
+                                          ${row.title}
+                                          </a> 
+                                         </td>
+                                         <td class="text-center">${row.postdate }</td>
+                                         <%-- <td class="text-center">${row.view_count }</td> --%>
+                                      </tr>
+                                   </c:forEach>
+                                </c:otherwise>
+                             </c:choose>
+                        </tbody>
+                     </table>
 
 
-                	</div>   
+                   </div>   
                   </div>
                 </div>
               </div> 
@@ -777,47 +693,47 @@ function textLengthOverCut(txt, len, lastTxt) {
                       <h4 class="card-title float-left">공지</h4>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
-                      	<table class="table" style="text-align: center;  " >
-		                  <colgroup>
-		                     <col width="80px" />
-		                     <col width="*" />
-		                     <col width="120px" />
-		                  </colgroup>
-		                   
-		                  <tbody>
-		                     <c:choose>
-		                        <c:when test="${empty listRows }">
-		                           <tr>
-		                              <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
-		                           </tr>
-		                        </c:when>
-		                        <c:otherwise>
-		                           <c:forEach items="${listRows }" var="row"
-		                              varStatus="loop">
-		                              <!-- 리스트반복시작 -->
-		                              <tr>
-		                                 <td class="text-center"> <label class="badge badge-danger">공지</label></td>
-		                                 <td class="text-left" style="color: black;">
-		                                    <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
-		                                    <c:choose>
-										        <c:when test="${fn:length(row.title) gt 3}">
-										        <c:out value="${fn:substring(row.title, 0, 2)}"/>...
-										        </c:when>
-										        <c:otherwise>
-										        <c:out value="${row.title}"/>
-										        </c:otherwise>
-											</c:choose>
+                         <table class="table" style="text-align: center;  " >
+                        <colgroup>
+                           <col width="80px" />
+                           <col width="*" />
+                           <col width="120px" />
+                        </colgroup>
+                         
+                        <tbody>
+                           <c:choose>
+                              <c:when test="${empty listRows }">
+                                 <tr>
+                                    <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
+                                 </tr>
+                              </c:when>
+                              <c:otherwise>
+                                 <c:forEach items="${listRows }" var="row"
+                                    varStatus="loop">
+                                    <!-- 리스트반복시작 -->
+                                    <tr>
+                                       <td class="text-center"> <label class="badge badge-danger">공지</label></td>
+                                       <td class="text-left" style="color: black;">
+                                          <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
+                                          <c:choose>
+                                      <c:when test="${fn:length(row.title) gt 3}">
+                                      <c:out value="${fn:substring(row.title, 0, 2)}"/>...
+                                      </c:when>
+                                      <c:otherwise>
+                                      <c:out value="${row.title}"/>
+                                      </c:otherwise>
+                                 </c:choose>
 
-		                                    </a>
-		                                 </td>
-		                                 <%-- <td class="text-center">${row.content }</td> --%>
-		                                <td class="text-center">${row.postdate }</td> 
-		                              </tr>
-		                           </c:forEach>
-		                        </c:otherwise>
-		                     </c:choose>
-		                  </tbody>
-		               </table>
+                                          </a>
+                                       </td>
+                                       <%-- <td class="text-center">${row.content }</td> --%>
+                                      <td class="text-center">${row.postdate }</td> 
+                                    </tr>
+                                 </c:forEach>
+                              </c:otherwise>
+                           </c:choose>
+                        </tbody>
+                     </table>
                       
                       
                       
@@ -837,53 +753,54 @@ function textLengthOverCut(txt, len, lastTxt) {
                     <h4 class="card-title float-left" >이벤트</h4>
                     <a class="float-right" href="event.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                       <div class="table-responsive">  
-                  		<table class="table" style="text-align: center;  " >
-		                  <colgroup>
-		                     <col width="80px" />
-		                     <col width="*" />
-		                     <col width="120px" />
-		                     
-		                  </colgroup>
-		                   
-		                  <tbody>
-		                      <c:choose>
-	                             <c:when test="${empty eventRows }">
-	                                <tr>
-	                                   <td colspan="6" class="text-center">등록된 게시물이 없습니다
-	                                      ^^*</td>
-	                                </tr>
-	                             </c:when>
-	                             <c:otherwise>
-	                                <c:forEach items="${eventRows }" var="row"
-	                                   varStatus="loop">
-	                                   <!-- 리스트반복시작 -->
-	                                   <tr>
-	                                      <%-- <td class="text-center">${row.virtualNum }</td> --%>
-	                                      <td class="text-center"><label class="badge badge-info">이벤트</label></td>
-	                                      <td class="text-left">
-	                                      
-	                                      <a href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
-		                                    <c:choose>
-										        <c:when test="${fn:length(row.title) gt 3}">
-										        <c:out value="${fn:substring(row.title, 0, 2)}"/>...
-										        </c:when>
-										        <c:otherwise>
-										        <c:out value="${row.title}"/>
-										        </c:otherwise>
-											</c:choose>
-		                                    </a> 
-	                                      </td>
-	                                      <td class="text-center">${row.postdate }</td>
-	                                      <%-- <td class="text-center">${row.view_count }</td> --%>
-	                                   </tr>
-	                                </c:forEach>
-	                             </c:otherwise>
-	                          </c:choose>
-		                  </tbody>
-		               </table>
+                        <table class="table" style="text-align: center;  " >
+                        <colgroup>
+                           <col width="80px" />
+                           <col width="*" />
+                           <col width="120px" />
+                           
+                        </colgroup>
+                         
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${empty eventRows }">
+                                   <tr>
+                                      <td colspan="6" class="text-center">등록된 게시물이 없습니다
+                                         ^^*</td>
+                                   </tr>
+                                </c:when>
+                                <c:otherwise>
+                                   <c:forEach items="${eventRows }" var="row"
+                                      varStatus="loop">
+                                      <!-- 리스트반복시작 -->
+                                      <tr>
+                                         <%-- <td class="text-center">${row.virtualNum }</td> --%>
+                                         <td class="text-center"><label class="badge badge-info">이벤트</label></td>
+                                         <td class="text-left">
+                                         
+                                         <a href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}" style="color: black;">
+                                          <c:choose>
+                                      <c:when test="${fn:length(row.title) gt 3}">
+                                      <c:out value="${fn:substring(row.title, 0, 2)}"/>...
+                                      </c:when>
+                                      <c:otherwise>
+                                      <c:out value="${row.title}"/>
+                                      </c:otherwise>
+                                 </c:choose>
+                                          </a> 
+                                         </td>
+                                         <td class="text-center">${row.postdate }</td>
+                                         <%-- <td class="text-center">${row.view_count }</td> --%>
+                                      </tr>
+                                   </c:forEach>
+                                </c:otherwise>
+                             </c:choose>
+                        </tbody>
+                     </table>
 
 
-                	</div>   
+                   </div>   
+
                   </div>
                 </div>
               </div> 
@@ -892,28 +809,6 @@ function textLengthOverCut(txt, len, lastTxt) {
             
             
             </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <!--             <div class="col-7 col-16-medium imp-medium"> -->
-            <!--                Content -->
-            <!--                <div id="info"> -->
-            <!--                   <section class="last"> -->
-            <!--                      <h2>고객센터</h2> -->
-            <!--                      <h3>이부분에 고객센터 페이지 소개</h3> -->
-            <!--                      <a href="qna.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
-            <!--                   </section> -->
-            <!--                </div> -->
-            <!--             </div> -->
          </div>
       </div>
 <!--       <div class="container"> -->

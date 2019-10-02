@@ -1,6 +1,7 @@
 package command.board;
 
 import java.util.ArrayList;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,7 +67,16 @@ public class recipeListCommand implements PHJCommandImpl {
 		ArrayList<recipeDTO> listRows = dao.list(paramMap);
 		
 		System.out.println("listRows : " + listRows);
-	
+		
+		//가상번호 계산하여 부여하기
+		int virtualNum = 0;
+		int countNum = 0;
+		
+		for(recipeDTO row : listRows) {
+			virtualNum = totalRecordCount-(((nowPage-1)*pageSize)+countNum++);
+			row.setVirtualNum(virtualNum);
+		}
+		
 		//페이지 처리를 위한 처리부분
 		String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount, pageSize,
 		blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);

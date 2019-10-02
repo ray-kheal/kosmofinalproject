@@ -74,9 +74,8 @@ public class AdProductListCommand implements PHJCommandImpl {
 			//가상번호 연산 후 setter를 통해 값을 저장함
 			virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 			row.setVirtualNum(virtualNum);
-			
-			
 		}
+		
 		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/admin/pages/tables/productManagement.do?"+addQueryString);
 		model.addAttribute("pagingImg",pagingImg);
