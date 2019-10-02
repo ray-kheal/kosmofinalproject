@@ -39,7 +39,9 @@
 		margin: 0 auto;
 	}
 </style>
+
 <script type="text/javascript">
+
 function find_check(num){
 	if(num=='1'){
 		document.getElementById("findPop PWfind").style.display="none";
@@ -147,7 +149,7 @@ function find_PWcheck(){
 									</tbody>
 								</table>
 								<div class="btnWrap">
-									<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
+									<button type="submit" class="btn btn-success" onclick="result();" style="width:70px;">확인</button>
 									<button type="button" onclick="location.href='login.do';" class="btn btn-danger" style="width:70px;">취소</button>
 								</div>
 							</form>

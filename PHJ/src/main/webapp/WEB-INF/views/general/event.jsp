@@ -31,6 +31,11 @@ body {
 nav {
    font-family: 'Goyang', cursive;
 }
+#nore{
+	
+	background-position: 50%;
+	background-repeat:no-repeat;
+}
 </style>
 <script>
 	$(function() {
@@ -52,14 +57,16 @@ nav {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
+		<div id="nore"
 		
-			style="width: 100%; height: 200px; text-align: center; display: table;">
+			style="width: 100%; height: 200px; text-align: center; display: table; background-image:url(images/event.png);">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
+
 					style="width: 50px; height: 50px;" /> -->
 					
+
 					&nbsp;
 					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2019/png/iconmonstr-party-16.png&r=0&g=0&b=0" width="80px" height="80px" /> 
 						이벤트게시판
