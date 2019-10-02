@@ -11,15 +11,18 @@ public class recipeDTO {
 	private String name;
 	private int view_count;
 	private Date postdate;
+	private String email;
 	private String recommend;
 	private int virtualNum;
-	private String email;
+
 	private String thumbnail;
 	
 	public recipeDTO() {}
 
+
 	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
 			Date postdate, String recommend,int virtualNum, String email, String thumbnail) {
+
 		this.idx = idx;
 		this.image_name = image_name;
 		this.title = title;
@@ -27,11 +30,14 @@ public class recipeDTO {
 		this.name = name;
 		this.view_count = view_count;
 		this.postdate = postdate;
+		this.email = email;
 		this.recommend = recommend;
 		this.virtualNum = virtualNum;
 		this.email = email;
 		this.thumbnail = thumbnail;
 	}
+
+
 
 	public int getIdx() {
 		return idx;

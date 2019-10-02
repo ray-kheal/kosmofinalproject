@@ -119,17 +119,15 @@ to {
 
 
 	<div
-		style="width: 100%; height: 200px; text-align: center; display: table;">
-
-			<!-- <img src="./images/memo_w.png" alt="메모"
-				style="width: 50px; height: 50px;" /> -->
-
-			<i class="fas fa-store" style="width: 45px; height: 45px;"></i>
-			&nbsp; 편의점 정보가 여기에!
-
-		</p>
-	</div>
-	<div style="width: 100%; text-align: center;">
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <div style="width: 100%; text-align: center;">
 		<br /> <br />
 
 	</div>
@@ -140,33 +138,32 @@ to {
 		<form class="form-inline">
 
 			<div class="form-group" style="text-align: center; display: block;">
-				<select name="keyField" class="form-control">
+			<!-- 	<select name="keyField" class="form-control">
 					<option value="">메뚜기가족</option>
 					<option value="">지예쓰</option>
 					<option value="">씨유~</option>
 					<option value="">77777777777</option>
-					<option value="">작은멈춤</option>
-				</select> <select name="keyField" class="form-control">
-					<option value="">분류</option>
-					<option value="">먹거리</option>
-					<option value="">씻을거리</option>
-					<option value="">기타디리링~</option>
+					<option value="">작은멈춤</option> -->
+				</select> <select name="searchColumn" class="form-control">
+					<option value="product_value">종류</option>
+					 <option value="product_price">가격</option>
+					 <!-- 					<option value="">씻을거리</option>
+					<option value="">기타디리링~</option> -->
 
 				</select> <select name="keyField" class="form-control">
 					<option value="">하우머치?</option>
 					<option value="">가격이 낮아요</option>
 					<option value="">오 가격이 높네</option>
-				</select> <input type="text" id="product" />
+				</select> <input type="text" id="product" name="searchWord"  />
 
-				<button type="submit" class="btn">
-
-					검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg"
+				<button type="submit" class="btn">검색 
+				<img src="https://image.flaticon.com/icons/svg/148/148928.svg"
 						width="25px" height="25px" /><i
 						class="glyphicon glyphicon-search"></i>
 				</button>
 			</div>
-
 		</form>
+
 		<!-- 검색기능 끝 -->
 		<br />
 		<button type="submit" onclick="" class="btn btn-info">EVENT</button>

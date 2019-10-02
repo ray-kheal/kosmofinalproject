@@ -29,7 +29,7 @@ import command.PHJCommandImpl;
 import command.board.EditActionCommand;
 import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
-import command.board.RecipeEditActionCommand;
+
 import command.board.RecipeEditFileActionCommand;
 import command.board.RecipeListViewCommand;
 import command.board.RecommendCommand;
@@ -197,6 +197,13 @@ public class boardController {
 	}
 	
 	
+	// 레시피 글쓰기
+		@RequestMapping("recipe_edit.do")
+	public String Recipewrite(Model model) {
+			System.out.println("write() 메소드 호출됨");
+		return "general/recipe_edit";
+		}
+		
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
 	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto) {

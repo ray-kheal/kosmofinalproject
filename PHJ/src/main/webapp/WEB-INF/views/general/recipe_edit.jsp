@@ -92,14 +92,14 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #ffd74d; display: table;">
-			<br /> <br /> <br />
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/fork_round.png" alt="포크"
-					style="width: 50px; height: 50px;" /> RECIPE <br />
-			</p>
-		</div>
+		style="width: 100%; height: 200px; text-align: center;  display: table;">
+		<br /> <br /> <br />
+		<p
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+			<img src="images/fork_round.png" alt="포크"
+				style="width: 50px; height: 50px;" /> RECIPE <br />
+		</p>
+	</div>
 		<div class="container">
 			<br />
 			<br />

@@ -1,5 +1,6 @@
 package command.board;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,8 @@ import org.springframework.ui.Model;
 import command.PHJCommandImpl;
 import model.place.PlaceDAO;
 import model.place.PlaceDTO;
+import model.stock.StockDAO;
+import model.stock.StockDTO;
 
 public class findPlaceCommand implements PHJCommandImpl{
 	
@@ -22,10 +25,8 @@ public class findPlaceCommand implements PHJCommandImpl{
 		PlaceDAO dao = new PlaceDAO();
 		
 		PlaceDTO dto = dao.searchPlace(place_code);
-		
-		model.addAttribute("dto",dto);
-		
-		
+				
+		model.addAttribute("dto",dto);		
 		
 	}
 

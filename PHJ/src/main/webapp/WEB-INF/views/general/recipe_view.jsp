@@ -59,14 +59,16 @@ body {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Jua; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 레시피
-			</p>
-		</div>
+	
+	<div
+		style="width: 100%; height: 200px; text-align: center;  display: table;">
+		<br /> <br /> <br />
+		<p
+			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+			<img src="images/fork_round.png" alt="포크"
+				style="width: 50px; height: 50px;" /> RECIPE <br />
+		</p>
+	</div>
 
 		<div class="container">
 			<br />
@@ -127,24 +129,24 @@ body {
 			<!-- </div> -->
 			<br /> <br />
 		
-			</div>
+			
 			
 			<input type="hidden" name="email" value="${viewRow.email}" />
 			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
-			<c:choose>
+	 		<c:choose>
 				<c:when test="${EMAIL eq viewRow.email}">
-			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>
-			<button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> 
+			<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">수정하기</button>
+			<button type="button"class="btn" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">삭제하기</button> 
 				</c:when>
 				<c:otherwise>
 					
 				</c:otherwise>
-			</c:choose>
+			</c:choose> 
 			
 				<button type="button" class="btn btn-dark btn-sm"
 					onclick="location.href='./recipe.do';">리스트</button> 
 			
-		
+		</div>
 			</div>
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>
