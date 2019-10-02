@@ -1,7 +1,13 @@
 package com.kosmo.phj;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,7 +29,8 @@ import command.PHJCommandImpl;
 import command.board.EditActionCommand;
 import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
-import command.board.RecipeEditActionCommand;
+
+import command.board.RecipeEditFileActionCommand;
 import command.board.RecipeListViewCommand;
 import command.board.RecommendCommand;
 import command.board.StockListCommand;
@@ -31,6 +38,7 @@ import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import command.board.findPlaceCommand;
 import command.board.recipeListCommand;
+import model.board.recipeDAO;
 import model.board.recipeDTO;
 import model.board.serviceDTO;
 
@@ -198,23 +206,87 @@ public class boardController {
 		
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
-	public String RecipeEditAction(HttpServletRequest req, Model model,HttpSession session, recipeDTO recipeDTO) {
+	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto) {
 
-		System.out.println("들어옵니까?");
-		// 커맨드객체로 받은 폼값 확인하기
-		String email = session.getAttribute("EMAIL").toString();
-		model.addAttribute("req", req);
-		model.addAttribute("session",session);
-		model.addAttribute("email",email);
-		model.addAttribute("recipeDTO", recipeDTO);
-		command = new RecipeEditActionCommand();
-		command.execute(model);
+		String path = req.getSession().getServletContext().getRealPath("/resources/imageUpload");
+				
+//		System.out.println("들어옵니까?");
+//		// 커맨드객체로 받은 폼값 확인하기
+//		model.addAttribute("req", req);
+//		command = new RecipeEditActionCommand();
+//		command.execute(model);
+		
+		try {
+			
+			MultipartHttpServletRequest mhsr = (MultipartHttpServletRequest)req;
+			
+			
+			//업로드폼의 file 속성 필드의 이름을 모두 읽음
+			Iterator itr = mhsr.getFileNames();
+			
+			MultipartFile mfile = null;
+			String fileName = "";
 
-		model.addAttribute("idx", req.getParameter("idx"));
-		model.addAttribute("nowPage", req.getParameter("nowPage"));
-
+			//File객체를 통해 물리적 경로로 지정된 디렉토리가 존재하는지 확인 후 없으면 생성한다.
+			File directory = new File(path);
+			
+			if(!directory.isDirectory()) {
+				directory.mkdirs();
+			}
+			
+			//업로드폼의 file속성의 필드 갯수만큼 반복
+			while(itr.hasNext()) {
+				fileName = (String)itr.next();
+				
+				//서버로 업로드된 임시 파일명 가져오기
+				mfile = mhsr.getFile(fileName);
+				System.out.println("mfile="+mfile);
+				
+				//한글깨짐방지 처리 후 업로드된 파일명을 가져옴
+				String originalName = new String(mfile.getOriginalFilename().getBytes(), "UTF-8");
+				
+				if("".equals(originalName)) {
+					continue;
+				}
+				
+				//파일의 확장자 가져오기
+				String ext = originalName.substring(originalName.lastIndexOf('.'));
+				
+				//UUID를 통해 생성된 문자열과 확장자 조립
+				String saveFileName = getUuid()+ext;
+				
+				//설정한 경로에 파일저장
+				File serverFullName = new File(path + File.separator + saveFileName);
+				mfile.transferTo(serverFullName);
+				
+				dto.setThumbnail(saveFileName);
+				
+				command = new RecipeEditFileActionCommand();
+				command.execute(model);
+				
+			}
+			
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+				
+		
+		
+		
 		// 뷰 호출이 아니고 페이지 이동
 		return "redirect:recipe.do";
+	}
+	
+	public static String getUuid() {
+		String uuid = UUID.randomUUID().toString();
+		uuid = uuid.replace("-", "");
+		System.out.println("생성된 UUID: "+uuid);
+		
+		return uuid;
 	}
 	
 	

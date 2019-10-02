@@ -169,15 +169,49 @@ to {
       <br />
       <button type="submit" onclick="" class="btn btn-info">EVENT</button>
       &nbsp;
-      <button type="submit" onclick="" class="btn btn-danger">품절임박</button>
+     <!--  <button type="submit" onclick="" class="btn btn-danger">품절임박</button> -->
       &nbsp;
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
       &nbsp; <br /> <br />
-
-
+ 
+  
 <div class="album py-5 bg-light">
       <div class="container" style="color: black;">
-      <p style="font-family: Goyang;">※ "상품명"을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
+      
+      
+      <!-- 가격검색기능 -->
+      <form class="form-inline" style="border-top: 3px solid #448ad6;  border-bottom: 1px solid #c1c1c1; font-family: Goyang;">    
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
+         <ul style=" list-style:none; float: left; "> 
+            <!-- <li style="float: left;"> 
+               <label for="prs_01">가격대 검색</label>
+            </li> -->
+            <li style="float: left;" >
+               <input style="float: left; margin-top: 8px;" type="radio" name="priceRange" value="&lt;1500" >
+               <label style="float: left;"for="prs_01">&nbsp;1500원 미만</label>
+            </li> 
+            <li style="float: left; " >
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="1500to5000" >
+               <label style="float: left;"for="prs_02">&nbsp;1500원~5000원</label>
+            </li>
+            <li style="float: left;" >  
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="&gt;5000" >
+               <label style="float: left;"for="prs_03">&nbsp;5000원 이상</label>
+            </li>
+            <li style="float: left;">
+               <button class="btn btn-dark" style="font-size: 0.7em;"><i class="fas fa-search"></i></button>
+            </li>  
+         </ul>  
+      </div>
+      </form> 
+          
+         
+      <br />    
+      
+    
+      
+      <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
             <c:choose>
@@ -239,4 +273,4 @@ to {
 
       </div>
 </body>
-</html>
+</html>  

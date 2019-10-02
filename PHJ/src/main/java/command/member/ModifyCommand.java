@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import command.PHJCommandImpl;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
+import model.place.PlaceDAO;
+import model.place.PlaceDTO;
 
 public class ModifyCommand implements PHJCommandImpl{
 	
@@ -27,10 +29,14 @@ public class ModifyCommand implements PHJCommandImpl{
 		System.out.println("수정될 회원 이름 : " + dto.getName());
 		System.out.println("수정될 회원정보 비밀번호 : " + dto.getPass());
 		System.out.println("수정될 회원정보 전화번호 : " + dto.getMobile());
+		System.out.println("수정될 관심점포 코드 : " + dto.getPlace_bookmark());
+		
 		
 		MemberDAO dao = new MemberDAO();
+
 		
 		dao.modify(dto);
+		
 		
 	}
 

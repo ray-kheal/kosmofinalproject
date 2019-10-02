@@ -34,6 +34,11 @@ body {
 nav {
    font-family: 'Goyang', cursive;
 }
+#nore{
+	
+	background-position: 50%;
+	background-repeat:no-repeat;
+}
 </style>
 <script>
 	$(function() {
@@ -55,8 +60,8 @@ nav {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
-			style="width: 100%; height: 200px; text-align: center;  display: table;">
+		<div id ="nore"
+			style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/event.png);">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				

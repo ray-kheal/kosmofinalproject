@@ -33,6 +33,11 @@ body {
 nav {
    font-family: 'Goyang', cursive;
 }
+#nore{
+	background-position:50%; 
+	background-repeat:no-repeat;
+	
+}
 </style>
 <script>
 	$(function() {
@@ -50,25 +55,27 @@ nav {
 	<br /><br />
 		<img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
 	</div> -->
-	<div id="page-wrapper">
+	<div id="page-wrapper" >
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
-			style="width: 100%; height: 200px; text-align: center;  display: table;">
+		<div id="nore"
+			style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/gomin.jpeg);">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
 					style="width: 50px; height: 50px;" /> -->
+
 					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-marketing-23.png&r=0&g=0&b=0" width="80px" height="80px" /> 
 						궁금하면 500원
 					<img src="https://image.flaticon.com/icons/svg/76/76818.svg" width="80px" height="80px" /> 
+
 			</p>
 		</div>
 		
 
 		<div class="container">
-			<br /> <br />
+			<br /> <br /> 
 			<!-- 검색기능 -->
 			<form class="form-inline">
 				<div class="form-group">
