@@ -76,42 +76,109 @@ to {
  
 	
    
-   <!-- 헤더파일 인클루드 -->
-	<%@ include file="MainHeader.jsp" %>
+  <!-- 헤더파일 인클루드 -->
+<%@ include file="MainHeader.jsp" %>
 
 
 
-	<!-- 텍스트 색상 강조  -->
-	<script>
-		$(function() {
-			$('#foo').rainbow(
-					{
-						animate : true,
-						animateInterval : 100,
-						colors : [ '#FF0000', '#f26522', '#fff200', '#00a651',
-								'#28abe2', '#2e3192', '#6868ff' ]
-					});
-			$('#bar').rainbow(
-					{
-						animate : true,
-						animateInterval : 50,
-						pauseLength : 500,
-						pad : true,
-						colors : [ 'rgb(153, 204, 255);',
-								'rgb(173, 224, 255);', 'rgb(193, 244, 255);',
-								'rgb(213, 264, 255);', 'rgb(193, 244, 255);',
-								'rgb(173, 224, 255);', 'rgb(153, 204, 255);' ]
-					});
-			$('#baz').rainbow(
-					{
-						animate : true,
-						animateInterval : 10,
-						colors : [ '#FF0000', '#f26522', '#fff200', '#00a651',
-								'#28abe2', '#2e3192', '#6868ff' ]
-					});
-		});
-	</script>
+<!-- 텍스트 색상 강조  -->
+<script>
 
+	$(function() {
+		$('#foo').rainbow(
+				{
+					animate : true,
+					animateInterval : 100,
+					colors : [ '#FF0000', '#f26522', '#fff200', '#00a651',
+							'#28abe2', '#2e3192', '#6868ff' ]
+				});
+		$('#bar').rainbow(
+				{
+					animate : true,
+					animateInterval : 50,
+					pauseLength : 500,
+					pad : true,
+					colors : [ 'rgb(153, 204, 255);',
+							'rgb(173, 224, 255);', 'rgb(193, 244, 255);',
+							'rgb(213, 264, 255);', 'rgb(193, 244, 255);',
+							'rgb(173, 224, 255);', 'rgb(153, 204, 255);' ]
+				});
+		$('#baz').rainbow(
+				{
+					animate : true,
+					animateInterval : 10,
+					colors : [ '#FF0000', '#f26522', '#fff200', '#00a651',
+							'#28abe2', '#2e3192', '#6868ff' ]
+				});
+		
+		
+		
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	function itemChange(){
+
+		var nameSort = ["오름차순","내림차순"];
+		var priceSort = ["낮은가격순","높은가격순"];
+		
+		 
+		var selectItem = $("#select1").val();
+		 
+		
+		var changeItem;
+		  
+		if(selectItem == "제품명순"){
+		  changeItem = nameSort;
+		  
+		}
+		else if(selectItem == "제품가격순"){
+		  changeItem = priceSort;
+		  
+		}
+		
+		
+		$('#select2').empty();
+		 
+		
+		
+		for(var count = 0; count < changeItem.size(); count++){                
+		                var option = $("<option>"+changeItem[count]+"</option>");
+		                $('#select2').append(option);
+		}
+		 
+	} 
+		
+</script>
+<script>
+$(function(){
+	$('#select2').hide();
+	$('#select1').change(function(){
+		
+		
+		if($('#select1').val()=='a'){
+			$('#select2').show();
+			$('#select2').html('<option>이름순</option><option>가격순</option>');
+		}
+		 else if($('#select1').val()=='b'){
+			 $('#select2').show();
+			$('#select2').html('<option>오름순</option><option>내림순</option>');			
+		}
+		 else if($('#select1').val()==''){
+			 $('#select2').hide();		 
+		 }
+		
+	});
+});
+</script>
+ 
+	
 
 
 	<!-- 헤더파일 인클루드 -->
@@ -146,18 +213,16 @@ to {
 					<option value="">씨유~</option>
 					<option value="">77777777777</option>
 					<option value="">작은멈춤</option> -->
-				</select> <select name="searchColumn" class="form-control">
-					<option value="product_value">종류</option>
-					 <option value="product_price">가격</option>
-					 <!-- 					<option value="">씻을거리</option>
-					<option value="">기타디리링~</option> -->
-
-				</select> <select name="keyField" class="form-control">
-					<option value="">하우머치?</option>
-					<option value="">가격이 낮아요</option>
-					<option value="">오 가격이 높네</option>
-				</select> <input type="text" id="product" name="searchWord"  />
-
+				<select id="select1" name="searchColumn" class="form-control" >
+					<option value="">-선택-</option>
+					<option value="a">제품명순</option>
+					<option value="b">제품가격순</option>
+					
+				</select>
+				<select id="select2" name="keyField" class="form-control">
+						
+				</select> 
+				<input type="text" id="product" name="searchWord"  />
 				<button type="submit" class="btn">검색 
 				<img src="https://image.flaticon.com/icons/svg/148/148928.svg"
 						width="25px" height="25px" /><i
