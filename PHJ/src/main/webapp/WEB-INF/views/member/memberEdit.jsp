@@ -124,14 +124,19 @@
 			}
 		}
 	}
+
+	$(document).ready( function(){
+	    $("#deleteBox").click( function() {
+	        if(confirm("관심점포를 제거하시겠습니까?")) {
+	        	$("#phj_place").empty();
+	        	$("#place_bookmark").val('');
+	        	
+	        }
+	    });
+	});
+
 	
-	function placeDelete() {
-		if (confirm('관심점포를 초기화하시겠어요?')) {
-            // Yes click
-       } else {
-           // no click
-}
-	}
+		
 	
 </script>
 
@@ -373,7 +378,8 @@ div label input {
 					</tr>
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center; border-bottom: 6px solid #343a40;">관심점포</td>
-						<td bgcolor="white"  style="border-bottom: 6px solid #343a40;">${place_bookmark} &nbsp; <img type="button" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;" onclick="placeDelete();" /></td>
+						<input type="hidden" name="place_bookmark" id ="place_bookmark" value="${dto.place_bookmark }"/>
+						<td bgcolor="white" id="phj_place"  style="border-bottom: 6px solid #343a40;">${place_bookmark} &nbsp; <img type="button" id="deleteBox" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;"  /></td>
 					</tr>																			
 			</table>
 			<br /><br />

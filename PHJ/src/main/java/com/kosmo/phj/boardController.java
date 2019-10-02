@@ -41,6 +41,7 @@ import model.board.recipeDAO;
 
 import model.board.recipeDTO;
 import model.board.serviceDTO;
+import model.member.MemberDTO;
 
 
 @Controller
@@ -306,53 +307,6 @@ public class boardController {
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:recipe.do";
 	}
-	
-	//레시피 댓글 달기
-/*	 @RequestMapping(value="/board/addComment.do")
-	    @ResponseBody
-	    public String ajax_addComment(@ModelAttribute("recipeDTO") recipeDTO recipeDTO, HttpServletRequest request) throws Exception{
-	        
-	        HttpSession session = request.getSession();
-	        MemberDTO memberDTO = (MemberDTO)session.getAttribute("MemberDTO");
-	        
-	        try{
-	        
-	        	recipeDTO.setName(memberDTO.getName());        
-	            PHJCommandImpl.addComment(recipeDTO);
-	            
-	        } catch (Exception e){
-	            e.printStackTrace();
-	        }
-	        
-	        return "success";
-	    }
-	
-	@RequestMapping(value="/board/commentList.do", produces="application/json; charset=utf8")
-    @ResponseBody
-    public ResponseEntity ajax_commentList(@ModelAttribute("boardVO") recipeDTO recipeDTO, HttpServletRequest request) throws Exception{
-        
-        HttpHeaders responseHeaders = new HttpHeaders();
-        ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
-        
-        // 해당 게시물 댓글
-        List<recipeDTO> recipeDTO = boardServiceImpl.selectBoardCommentByCode(recipeDTO);
-        
-        if(recipeDTO.size() > 0){
-            for(int i=0; i<recipeDTO.size(); i++){
-                HashMap hm = new HashMap();
-                hm.put("c_code", recipeDTO.get(i).getC_code());
-                hm.put("comment", recipeDTO.get(i).getnt());
-                hm.put("writer", recipeDTO.get(i).getName());
-                
-                hmlist.add(hm);
-            }
-            
-        }
-        
-        JSONArray json = new JSONArray(hmlist);        
-        return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
-        
-    }
-    */
+
 }
 

@@ -143,7 +143,7 @@ public class AdminController {
 			command = new LoginActionCommand();
 			command.execute(model);
 			
-			page="admin/index";
+			page="redirect:../admin/index.do";
 		}
 		
 		return page;
