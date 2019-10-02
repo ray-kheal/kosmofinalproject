@@ -128,13 +128,10 @@ body {
 			</table>
 			<!-- </div> -->
 			<br /> <br />
-		
-			
-			
 			<input type="hidden" name="email" value="${viewRow.email}" />
-			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
+		<%-- 	<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button> --%>
 	 		<c:choose>
-				<c:when test="${EMAIL eq viewRow.email}">
+				<c:when test="${not empty EMAIL and EMAIL eq viewRow.email}">
 			<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">수정하기</button>
 			<button type="button"class="btn" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">삭제하기</button> 
 				</c:when>
@@ -142,7 +139,7 @@ body {
 					
 				</c:otherwise>
 			</c:choose> 
-			
+			<%-- <%@ include file="../general/comment.jsp" %> --%>
 				<button type="button" class="btn btn-dark btn-sm"
 					onclick="location.href='./recipe.do';">리스트</button> 
 			

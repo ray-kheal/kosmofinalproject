@@ -791,12 +791,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   </div>
                 </div>
               </div>
-            
-            
-            
-            
-            
-            
                     </div>
                   </div>
                 </div> 
@@ -804,21 +798,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.do -->
           <footer class="footer">

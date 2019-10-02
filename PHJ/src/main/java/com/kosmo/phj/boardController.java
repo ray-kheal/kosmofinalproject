@@ -1,27 +1,26 @@
 package com.kosmo.phj;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.multi.MultiFileChooserUI;
 
+import org.json.simple.JSONArray;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import command.PHJCommandImpl;
 import command.board.EditActionCommand;
-import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeEditActionCommand;
 import command.board.RecipeListViewCommand;
@@ -30,7 +29,6 @@ import command.board.StockListCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import command.board.findPlaceCommand;
-import command.board.recipeListCommand;
 import model.board.recipeDTO;
 import model.board.serviceDTO;
 
@@ -239,6 +237,52 @@ public class boardController {
 		return "redirect:recipe.do";
 	}
 	
+	//레시피 댓글 달기
+/*	 @RequestMapping(value="/board/addComment.do")
+	    @ResponseBody
+	    public String ajax_addComment(@ModelAttribute("recipeDTO") recipeDTO recipeDTO, HttpServletRequest request) throws Exception{
+	        
+	        HttpSession session = request.getSession();
+	        MemberDTO memberDTO = (MemberDTO)session.getAttribute("MemberDTO");
+	        
+	        try{
+	        
+	        	recipeDTO.setName(memberDTO.getName());        
+	            PHJCommandImpl.addComment(recipeDTO);
+	            
+	        } catch (Exception e){
+	            e.printStackTrace();
+	        }
+	        
+	        return "success";
+	    }
 	
+	@RequestMapping(value="/board/commentList.do", produces="application/json; charset=utf8")
+    @ResponseBody
+    public ResponseEntity ajax_commentList(@ModelAttribute("boardVO") recipeDTO recipeDTO, HttpServletRequest request) throws Exception{
+        
+        HttpHeaders responseHeaders = new HttpHeaders();
+        ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
+        
+        // 해당 게시물 댓글
+        List<recipeDTO> recipeDTO = boardServiceImpl.selectBoardCommentByCode(recipeDTO);
+        
+        if(recipeDTO.size() > 0){
+            for(int i=0; i<recipeDTO.size(); i++){
+                HashMap hm = new HashMap();
+                hm.put("c_code", recipeDTO.get(i).getC_code());
+                hm.put("comment", recipeDTO.get(i).getnt());
+                hm.put("writer", recipeDTO.get(i).getName());
+                
+                hmlist.add(hm);
+            }
+            
+        }
+        
+        JSONArray json = new JSONArray(hmlist);        
+        return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
+        
+    }
+    */
 }
-;
+

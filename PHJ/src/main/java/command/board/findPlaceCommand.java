@@ -25,6 +25,7 @@ public class findPlaceCommand implements PHJCommandImpl{
 		PlaceDAO dao = new PlaceDAO();
 		
 		PlaceDTO dto = dao.searchPlace(place_code);
+		
 				
 		model.addAttribute("dto",dto);		
 		
