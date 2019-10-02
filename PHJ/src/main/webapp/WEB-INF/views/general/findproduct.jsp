@@ -127,7 +127,7 @@ to {
             <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
          </p>
       </div>
-   <div style="width: 100%; text-align: center;">
+   
    <div style="width: 100%; text-align: center;">
       <br /> <br />
 
@@ -144,8 +144,9 @@ to {
                <option value="">지예쓰</option>
                <option value="">씨유~</option>
                <option value="">77777777777</option>
-               <option value="">작은멈춤</option> -->
-            </select> <select name="searchColumn" class="form-control">
+               <option value="">작은멈춤</option> 
+            </select>-->
+             <select name="searchColumn" class="form-control">
                <option value="product_value">종류</option>
                 <option value="product_price">가격</option>
                 <!--                <option value="">씻을거리</option>
@@ -189,7 +190,7 @@ to {
                      <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 10px; height: auto;">
                         <!-- 리스트반복시작 -->  
                         <img style="text-align: center;"  
-                           src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg"
+                           src="./resources/CSProduct/${row.product_imagename }"
                            width="80%" height="80%" ; /> 
                            <!-- <rect width="100%" height="100%" ></rect>
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
