@@ -16,6 +16,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
+import model.place.PlaceDTO;
+
 
 public class MemberDAO {
 	
@@ -242,6 +244,9 @@ public class MemberDAO {
 		});
 		System.out.println("query : " + sql);
 	}
+	
+	
+	
 	
 	//관심점포 등록
 	public int placeBookmark(final String email, final String placeCode) {

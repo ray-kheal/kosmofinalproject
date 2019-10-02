@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype HTML>
 <html>
@@ -7,7 +7,7 @@
 <title>편의점 찾기 페이지(임시)</title>
 <meta charset="utf-8" />
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
+   content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -21,36 +21,37 @@
 }
 
 #map{
-	max-width: 100%; height: auto;
-	}
-	
+   max-width: 100%; height: auto;
+   }
+   
 body {
-	font-family: Goyang;
-	
+   font-family: Goyang;
+   
 }
 </style>
-	
+   
 </head>
 <c:choose>
-	<c:when test="${param.distance eq 2 }">
-		<c:set var="zoomLevel" value="15" />
-	</c:when>
-	<c:when test="${param.distance eq 5 }">
-		<c:set var="zoomLevel" value="15" />
-	</c:when>
-	<c:when test="${param.distance eq 10 }">
-		<c:set var="zoomLevel" value="14" />
-	</c:when>
-	<c:when test="${param.distance eq 15 }">
-		<c:set var="zoomLevel" value="14" />
-	</c:when>
-	<c:otherwise>
-		<c:set var="zoomLevel" value="13" />
-	</c:otherwise>
+   <c:when test="${param.distance eq 2 }">
+      <c:set var="zoomLevel" value="15" />
+   </c:when>
+   <c:when test="${param.distance eq 5 }">
+      <c:set var="zoomLevel" value="15" />
+   </c:when>
+   <c:when test="${param.distance eq 10 }">
+      <c:set var="zoomLevel" value="14" />
+   </c:when>
+   <c:when test="${param.distance eq 15 }">
+      <c:set var="zoomLevel" value="14" />
+   </c:when>
+   <c:otherwise>
+      <c:set var="zoomLevel" value="13" />
+   </c:otherwise>
 </c:choose>
  
 
 <script type="text/javascript">
+
 
 
 	$(function() {
@@ -170,155 +171,156 @@ body {
 	}
 	
 	
+
 } 
 </script>
 
 <body class="is-preload no-sidebar">
-	<div id="page-wrapper">
-	
-	
+   <div id="page-wrapper">
+   
+   
 
-		<!-- 헤더파일 인클루드 -->
-		<%@ include file="MainHeader.jsp"%>
+      <!-- 헤더파일 인클루드 -->
+      <%@ include file="MainHeader.jsp"%>
 
-		<	<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
-		
-		<p
-			style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
-			font-size: 60px; color: black; font-weight: bold;">
-			<!-- <img src="./images/memo_w.png" alt="메모"
-				style="width: 50px; height: 50px;" /> -->
-<!-- 			<i class="fas fa-store" style="width: 45px; height: 45px;" ></i> -->
-			&nbsp;	
-			
-				<img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
-				편의점을 찾아보아요
-				<img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
-		</p>
-	</div>
-		</div>
-		<!-- Main -->
-		<div id="main-wrapper">
-			<div class="container">
-		
-<!-- 			<button type="button" style="float: right" class="btn btn-outline-info">검색하기</button> -->
-			
-<!-- 			<input type="submit" style="float: right;" value="검색하기" />  -->
-			
-		
-				<!-- <td rowspan="3">구글지도 위치</td>
-				<td ><in    put type="text" placeholder="입력하세요"></td>
-				
-			<tr>
-				<td ><input type="text" placeholder="입력하세요"></td>
-			</tr>	
-			
-			<tr>
-				<td ><input type="text" placeholder="입력하세요"></td>
-			</tr> -->	
+      <   <div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+      
+      <p
+         style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+         font-size: 60px; color: black; font-weight: bold;">
+         <!-- <img src="./images/memo_w.png" alt="메모"
+            style="width: 50px; height: 50px;" /> -->
+<!--          <i class="fas fa-store" style="width: 45px; height: 45px;" ></i> -->
+         &nbsp;   
+         
+            <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
+            편의점을 찾아보아요
+            <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
+      </p>
+   </div>
+      </div>
+      <!-- Main -->
+      <div id="main-wrapper">
+         <div class="container">
+      
+<!--          <button type="button" style="float: right" class="btn btn-outline-info">검색하기</button> -->
+         
+<!--          <input type="submit" style="float: right;" value="검색하기" />  -->
+         
+      
+            <!-- <td rowspan="3">구글지도 위치</td>
+            <td ><in    put type="text" placeholder="입력하세요"></td>
+            
+         <tr>
+            <td ><input type="text" placeholder="입력하세요"></td>
+         </tr>   
+         
+         <tr>
+            <td ><input type="text" placeholder="입력하세요"></td>
+         </tr> -->   
 
-			<!-- <button type="button" style="float: right" class="btn btn-outline-info">Info</button> -->
-			<br/><br/><br/>
-			<table style="border:1px solid gray; height: 600px;">
-				<colgroup>
-					<col width="55%" />
-					<col width="45%" />
-				</colgroup>
-				
-			
-				<tr > 
-					<td rowspan="3"  id=map>			
-						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
+         <!-- <button type="button" style="float: right" class="btn btn-outline-info">Info</button> -->
+         <br/><br/><br/>
+         <table style="border:1px solid gray; height: 600px;">
+            <colgroup>
+               <col width="55%" />
+               <col width="45%" />
+            </colgroup>
+            
+         
+            <tr > 
+               <td rowspan="3"  id=map>         
+                  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
 
-					</td> 
-					<td style=" float: center;">
-						
-						<span id="result"></span>
-					</td>
-				</tr>			
-				<tr>
-					<!-- <td></td> -->
-					<td style="text-align: center;">
-						<form name="searchFrm">
-							<input type="hidden" id="latTxt" name="latTxt" />
-							<input type="hidden" id="lngTxt" name="lngTxt" />
-							<h5>근처 편의점 찾기</h5> <br />
-							<select name="distance" id="distance">
-								<option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
-								<option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
-								<option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
-								<option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
+               </td> 
+               <td style=" float: center;">
+                  
+                  <span id="result"></span>
+               </td>
+            </tr>         
+            <tr>
+               <!-- <td></td> -->
+               <td style="text-align: center;">
+                  <form name="searchFrm">
+                     <input type="hidden" id="latTxt" name="latTxt" />
+                     <input type="hidden" id="lngTxt" name="lngTxt" />
+                     <h5>근처 편의점 찾기</h5> <br />
+                     <select name="distance" id="distance">
+                        <option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
+                        <option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
+                        <option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
+                        <option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
 
-							</select>
-<!-- 							<input type="submit" value="검색하기" style ="text-align:center"/> -->
-<!-- 								<input type="submit" style="float: right;" value="검색하기" />  -->
-							<br/><br/>
+                     </select>
+<!--                      <input type="submit" value="검색하기" style ="text-align:center"/> -->
+<!--                         <input type="submit" style="float: right;" value="검색하기" />  -->
+                     <br/><br/>
 
-							 <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
-						 <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
-						
-						
-
-
-						</form>
-					
-					</td>
-				</tr>			
-				<tr>
-					<!-- <td></td> -->
-					<td style="text-align: center;">
+                      <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
+                   <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
+                  
+                  
 
 
+                  </form>
+               
+               </td>
+            </tr>         
+            <tr>
+               <!-- <td></td> -->
+               <td style="text-align: center;">
 
-						<h5>근처 편의점 목록</h5> <br />
-						<table class="table table-bordered">
-					<c:choose>
-							<c:when test="${empty searchLists }">
-								<tr>
-									<td colspan="2" class="text-center">
-										등록된 점포가 없습니다.
-									</td>
-								</tr>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="${searchLists }" var="row" 
-									varStatus="loop">
-									<!-- 리스트반복시작 -->
-									<tr>
-										 <td class="text-center">${row.place_name }</td>
-										<td class="text-left">${row.place_address}</td>
-									</tr>
-									
-									<!-- 리스트반복끝 -->
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-						<tr>
-							<td colspan="2" align="center" style="font-weight: bold; font-size: 1.5em; ">
-								${pagingImg }
-							</td>
-						</tr>
-						</table>
 
-					</td>
-				</tr>			
-			</table>
-			</div><!-- container -->
-		</div>
 
-		<!-- Footer -->
-		<%@ include file="MainFooter.jsp"%>
+                  <h5>근처 편의점 목록</h5> <br />
+                  <table class="table table-bordered">
+               <c:choose>
+                     <c:when test="${empty searchLists }">
+                        <tr>
+                           <td colspan="2" class="text-center">
+                              등록된 점포가 없습니다.
+                           </td>
+                        </tr>
+                     </c:when>
+                     <c:otherwise>
+                        <c:forEach items="${searchLists }" var="row" 
+                           varStatus="loop">
+                           <!-- 리스트반복시작 -->
+                           <tr>
+                               <td class="text-center">${row.place_name }</td>
+                              <td class="text-left">${row.place_address}</td>
+                           </tr>
+                           
+                           <!-- 리스트반복끝 -->
+                        </c:forEach>
+                     </c:otherwise>
+                  </c:choose>
+                  <tr>
+                     <td colspan="2" align="center" style="font-weight: bold; font-size: 1.5em; ">
+                        ${pagingImg }
+                     </td>
+                  </tr>
+                  </table>
 
-	</div>
+               </td>
+            </tr>         
+         </table>
+         </div><!-- container -->
+      </div>
 
-	<!-- Scripts -->
+      <!-- Footer -->
+      <%@ include file="MainFooter.jsp"%>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+   </div>
+
+   <!-- Scripts -->
+
+   <script src="assets/js/jquery.min.js"></script>
+   <script src="assets/js/jquery.dropotron.min.js"></script>
+   <script src="assets/js/browser.min.js"></script>
+   <script src="assets/js/breakpoints.min.js"></script>
+   <script src="assets/js/util.js"></script>
+   <script src="assets/js/main.js"></script>
 
 </body>
 </html>

@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import command.PHJCommandImpl;
 import model.member.MemberDAO;
 import model.member.MemberDTO;
+import model.place.PlaceDAO;
+import model.place.PlaceDTO;
 
 public class MemberEditCommand implements PHJCommandImpl {
 	
@@ -50,6 +52,24 @@ public class MemberEditCommand implements PHJCommandImpl {
 		} else {
 			model.addAttribute("mobileN","checked");
 		}
+		
+		PlaceDAO pDao = new PlaceDAO();
+		PlaceDTO pDto = pDao.searchPlace(Integer.parseInt(dto.getPlace_bookmark()));
+		//점포명 재조립.
+		String place_bookmark = "";
+        if(pDto.getPlace_name2() != null) {
+           
+           if(pDto.getPlace_name().contains(pDto.getPlace_name2())==true) {
+              model.addAttribute("place_bookmark",pDto.getPlace_name());
+           } else {
+              place_bookmark = pDto.getPlace_name()+pDto.getPlace_name2();
+              model.addAttribute("place_bookmark",place_bookmark);
+           }
+        } else {
+        	 model.addAttribute("place_bookmark",pDto.getPlace_name());
+        }
+        
+		
 		
 	}
 
