@@ -70,7 +70,7 @@ public class QnAListCommand implements PHJCommandImpl{
       }
       
       //페이지 처리를 위한 처리부분
-      String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+      String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/qna.do?"+addQueryString);
       
       model.addAttribute("pagingImg", pagingImg);

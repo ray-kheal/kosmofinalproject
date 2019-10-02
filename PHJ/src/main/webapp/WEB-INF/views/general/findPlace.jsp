@@ -164,8 +164,6 @@ body {
 					<col width="55%" />
 					<col width="45%" />
 				</colgroup>
-				
-			
 				<tr > 
 					<td rowspan="3"  id=map>			
 						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
@@ -181,11 +179,10 @@ body {
 								<td>점포주소 : </td>
 								<td>${dto.place_address } <br /> (${dto.place_road_addr })</td>
 							</tr>
-						
-							
 						</table>
 					</td>
-				</tr>			
+				</tr>	
+				
 			
 			</table>
 			</div><!-- container -->

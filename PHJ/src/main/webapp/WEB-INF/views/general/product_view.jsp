@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>편히점 - 공지사항</title>
+<title>편히점 - 상품찾기</title>
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no">
@@ -34,7 +34,6 @@ body {
 	});
 </script>
 <body>
-
 	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #82b9e4; display:table;"> 
 		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
 		 BOARD
@@ -48,14 +47,16 @@ body {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div
-			style="width: 100%; height: 200px; text-align: center; background-color: #82b9e4; display: table;">
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: white; font-weight: bold;">
-				<img src="images/memo_w.png" alt="메모"
-					style="width: 50px; height: 50px;" /> 상품찾기
-			</p>
-		</div>
+<div
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <div style="width: 100%; text-align: center;">
 
 		<input type="hidden" name="product_code" value="${product_code }" />
 		
@@ -77,17 +78,17 @@ body {
 								
 								<tr>
 									<th bgcolor="#f2efef"
-										style="text-align: center; border-top: 5px solid #82b9e4;">편의점</th>
-									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${row.place_name}</td>
+										style="text-align: center; border-top: 1px solid #82b9e4;">편의점</th>
+									<td bgcolor="white" style="border-top: 1px solid #82b9e4;">${row.place_name}</td>
 									
-									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">
+									<td bgcolor="white" style="border-top: 1px solid #82b9e4;">
 									<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}"
 									class="btn btn-sm btn-outline-secondary" style="text-align: center"> 편의점 찾기</a></td>  
 								</tr>
 								<tr>
 									<th bgcolor="#f2efef"
-										style="text-align: center; border-top: 5px solid #82b9e4;">재고</th>
-									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${row.stock}</td>
+										style="text-align: center; border-top: 1px solid #82b9e4;">재고</th>
+									<td bgcolor="white" style="border-top: 1px solid #82b9e4;">${row.stock}</td>
 								</tr>
 
 								<!-- 리스트반복끝 -->
