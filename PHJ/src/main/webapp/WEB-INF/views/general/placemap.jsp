@@ -53,114 +53,125 @@ body {
 <script type="text/javascript">
 
 
-   $(function() {
-      $("#place_web").attr("class", "current");
-   });
-   
-   var span;
-   window.onload = function(){
-      span = document.getElementById("result");
-      
-      if(navigator.geolocation){
-         span.innerHTML = "Geolocation API를 지원합니다.";
-         
-         var options = {   
-            enableHighAccurcy:true, 
-            timeout:5000,
-            maximumAge:3000
-         };
-         navigator.geolocation.getCurrentPosition(showPosition,showError,options);
-      }
-      else{
-         span.innerHTML = "이 브라우저는 Geolocation API를 지원하지 않습니다.";
-      }   
-   }
-   
-   var showPosition = function(position){
-      //위도를 가져오는 부분
-      var latitude = position.coords.latitude;
-      //경도를 가져오는 부분
-      var longitude = position.coords.longitude;
-      span.innerHTML = "위도:"+latitude+"<br/>경도:"+longitude;   
-      
-      
-      //위경도를 text input에 입력
-      document.getElementById("latTxt").value = latitude;
-      document.getElementById("lngTxt").value = longitude;
-      
-      
-         
-      //위경도를 가져온후 지도 표시
-      initMap(latitude, longitude) ;
-   }
-   
-   function initMap(latVar, lngVar) {            
-      var uluru = {lat: latVar, lng: lngVar};
-      var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: ${zoomLevel},
-         center: uluru
-      });
-      
-      var marker = new google.maps.Marker({
-         position: uluru,
-         map: map,
-         
-         
-         icon: './images/icon_me.png'
-         
-      });      
-      
-      var infowindow = new google.maps.InfoWindow();
-      
-       
-      var locations = [      
-         <c:forEach items="${searchLists }" var="row">
-            ['${row.place_name}' ,  ${row.latitude },${row.longitude }], 
-         </c:forEach> 
-      ];
-      
-       var marker, i;
 
-      for (i=0; i<locations.length; i++) {  
-         marker = new google.maps.Marker({
-            id:i,
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map,
-            icon: './images/icon_facil.png'
-         });
-      
-         google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
-               
-               infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>");
-               infowindow.open(map, marker);
-            }
-         })(marker, i));
-      
-         if(marker)
-         {
-            marker.addListener('click', function() {
-               map.setZoom(16);
-               map.setCenter(this.getPosition());
-            });
-         }
-      }   
-   }
-   var showError = function(error){
-   switch(error.code){
-      case error.UNKNOWN_ERROR:
-         span.innerHTML = "알수없는오류발생";break;
-      case error.PERMISSION_DENIED:
-         span.innerHTML = "권한이 없습니다";
-         alert('모바일웹에선 지원하지 않습니다. PC웹이나 어플리케이션을 통하여 실행해주세요');
-         break;
-      case error.POSITION_UNAVAILABLE:                                                    
-         span.innerHTML = "위치 확인불가";break;
-      case error.TIMEOUT:
-         span.innerHTML = "시간초과";break;
-   }
-   
-   
+	$(function() {
+		$("#place_web").attr("class", "current");
+	});
+	
+	var span;
+	window.onload = function(){
+		span = document.getElementById("result");
+		
+		if(navigator.geolocation){
+			span.innerHTML = "Geolocation API를 지원합니다.";
+			
+			var options = {	
+				enableHighAccurcy:true, 
+				timeout:5000,
+				maximumAge:3000
+			};
+			navigator.geolocation.getCurrentPosition(showPosition,showError,options);
+		}
+		else{
+			span.innerHTML = "이 브라우저는 Geolocation API를 지원하지 않습니다.";
+		}	
+	}
+	
+	var showPosition = function(position){
+		//위도를 가져오는 부분
+		var latitude = position.coords.latitude;
+		//경도를 가져오는 부분
+		var longitude = position.coords.longitude;
+		span.innerHTML = "위도:"+latitude+"<br/>경도:"+longitude;	
+		
+		
+		//위경도를 text input에 입력
+		document.getElementById("latTxt").value = latitude;
+		document.getElementById("lngTxt").value = longitude;
+		
+		
+			
+		//위경도를 가져온후 지도 표시
+		initMap(latitude, longitude) ;
+	}
+	
+	function initMap(latVar, lngVar) {				
+		var uluru = {lat: latVar, lng: lngVar};
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: ${zoomLevel},
+			center: uluru
+		});
+		
+		var marker = new google.maps.Marker({
+			position: uluru,
+			map: map,
+			
+			
+			icon: './images/icon_me.png'
+			
+		});		
+		
+		var infowindow = new google.maps.InfoWindow();
+		
+	 	
+		var locations = [		
+			<c:forEach items="${searchLists }" var="row">
+				['${row.place_name}' ,  ${row.latitude },${row.longitude }, ${row.place_code}], 
+			</c:forEach> 
+		];
+		
+	 	var marker, i;
+		var place_bookmark = '<%=session.getAttribute("PLACE_BOOKMARK")%>';
+		for (i=0; i<locations.length; i++) {
+			var bookmark = '';
+			
+			
+			marker = new google.maps.Marker({
+				id:i,
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map,
+				icon: './images/icon_facil.png'
+			});
+		
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+					
+					if (place_bookmark == locations[i][3]){
+						bookmark = "<br/><a href='./deleteBookmarkPlace.do'>관심점포에서 해제하기 </a>";
+					} else {
+						bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"'>관심점포로 등록하기 </a>";
+					}
+					
+					infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>" + bookmark);
+					infowindow.open(map, marker);
+				}
+			})(marker, i));
+		
+			if(marker)
+			{
+				marker.addListener('click', function() {
+					map.setZoom(16);
+					map.setCenter(this.getPosition());
+				});
+			}
+		}	
+	}
+	var showError = function(error){
+	switch(error.code){
+		case error.UNKNOWN_ERROR:
+			span.innerHTML = "알수없는오류발생";break;
+		case error.PERMISSION_DENIED:
+			span.innerHTML = "권한이 없습니다";
+			alert('모바일웹에선 지원하지 않습니다. PC웹이나 어플리케이션을 통하여 실행해주세요');
+			break;
+		case error.POSITION_UNAVAILABLE:                                                    
+			span.innerHTML = "위치 확인불가";break;
+		case error.TIMEOUT:
+			span.innerHTML = "시간초과";break;
+	}
+	
+	
+
 } 
 </script>
 

@@ -1,10 +1,13 @@
 package model.place;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.phj.JdbcTemplateConst;
@@ -81,7 +84,7 @@ public class PlaceDAO {
 				" SELECT * FROM ( " +
 					" SELECT tb.*, rownum rNum from (" + 
 						" SELECT " + 
-							" place_name, place_name2, place_address, latitude, longitude, " + 
+							" place_code, place_name, place_name2, place_address, latitude, longitude, " + 
 							" trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5) AS disKM, ROWNUM AS virtualNum " + 
 						" FROM phj_place " + 
 						" WHERE trunc(to_number(DISTNACE_WGS84("+latTxt+","+lngTxt+",latitude, longitude))*10,5)<= " + distance + 
@@ -100,4 +103,6 @@ public class PlaceDAO {
 		return(PlaceDTO)template.queryForObject(query, new BeanPropertyRowMapper<PlaceDTO>(PlaceDTO.class));
 		
 	}
+	
+
 }
