@@ -138,7 +138,7 @@ public class GeneralController {
 				
 	    final String fromEmail = "pwyank10321@naver.com";
 	    final String toEmail = "pwyank10321@naver.com";
-		final String subject = req.getParameter("subject");
+		final String subject = req.getParameter("email")+"("+req.getParameter("name")+")" + "님의 문의내역: " + req.getParameter("subject");
 		final String contents = req.getParameter("contents").replace("\r\n", "<br/>");
 		
 		final MimeMessagePreparator preparator = new MimeMessagePreparator() {			

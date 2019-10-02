@@ -392,11 +392,11 @@ function textLengthOverCut(txt, len, lastTxt) {
                                     <c:when 
                                        test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }"> 
 
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
+                        				<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 effect "> 
 
-                                          <figure class="recipePhoto"> 
-                                             <img class="img-thumbnail effect" 
-                                                src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" 
+                                          <figure class="recipePhoto" style="width:100px; height:200px;"> 
+                                             <img class="img-fluid img-thumbnail effect" 
+                                                src="./resources/imageUpload/${row.thumbnail }" style="height:100%; width:100%;"
                                                 alt=""> 
                                              <figcaption> 
                                                 <h3>${row.title }</h3> 
@@ -412,9 +412,9 @@ function textLengthOverCut(txt, len, lastTxt) {
 
                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 " > 
 
-                                          <figure class="recipePhoto"> 
+                                          <figure class="recipePhoto" style="width:100px; height:200px;"> 
                                              <img class="img-fluid img-thumbnail effect" 
-                                                src="https://www.paris.co.kr/data/product/[2]ham%20egg.jpg" 
+                                                src="./resources/imageUpload/${row.thumbnail }" style="height:100%; width:100%;"
                                                 alt=""> 
                                              <figcaption> 
                                                 <h3>${row.title }</h3> 
