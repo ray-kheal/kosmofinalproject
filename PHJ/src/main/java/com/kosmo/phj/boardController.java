@@ -96,11 +96,13 @@ public class boardController {
 	@RequestMapping("findPlace.do")
 	public String findPlace(Model model, HttpServletRequest req) {
 		model.addAttribute("req",req);
+		int product_code = Integer.parseInt(req.getParameter("product_code"));
 		int place_code = Integer.parseInt(req.getParameter("place_code"));
-		System.out.println("컨트롤러 내부의 place_code : " + place_code);
 		model.addAttribute("place_code",place_code);
+		model.addAttribute("product_code",product_code);
 		command = new findPlaceCommand();		
-		command.execute(model);
+		command.execute(model);		
+	
 		System.out.println("findPlace 익스큐트 실행완료");
 		
 		return "general/findPlace";

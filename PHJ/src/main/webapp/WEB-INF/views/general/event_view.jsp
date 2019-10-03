@@ -116,8 +116,9 @@ body {
 		<br /> <br />
 						
 		<div class="row text-right" style="float: right;">
-           	<button type="button" class="btn btn-dark btn-sm" 
-					 onclick="location.href='./event.do';">리스트</button>
+           	<button type="button" class="btn" 
+					 onclick="location.href='./event.do';" style="font-family: 'Goyang'; font-size: 30px;">
+					 	<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트
 									
 		</div>
 	</div>

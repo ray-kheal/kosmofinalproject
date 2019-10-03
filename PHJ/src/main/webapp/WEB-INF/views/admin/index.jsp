@@ -267,7 +267,9 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
       
 
 
+
 	<div class="main-panel">
+
 
           <div class="content-wrapper">
             <div class="row" id="proBanner">
@@ -277,6 +279,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
               </div>
+
             </div>
             <div class="page-header">
               <!-- <h3 class="page-title">
@@ -387,14 +390,17 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   	 	</td>
                   	 </tr>
                   	</table>
+
                   </div>
                 </div>
               </div>
               
             </div>
+
           <!-- -------------------------------------------------------------------최근가입회원 -->
             <div class="row">
-            
+
+            <div class="row">
               <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -402,7 +408,9 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                       <h4 class="card-title float-left">Recent Updates</h4>
                     <br />
                        <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i><a href="pages/tables/memberManagement.do" style="color:black;">최근가입회원</a></h5>
+
                      <div class="table-responsive">
+
                        <table class="table " style="text-align: center;">
                            <tbody style="color:black;"> 
                        
@@ -430,6 +438,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                                  <%--<td class="text-center">${row.email }</td>
                                  <td class="text-center">${row.mobile }</td>
                                  <td class="text-center">${row.regidate }</td> --%>
+
                               </tr>
                               <!-- 리스트반복끝 -->
                            </c:forEach>
@@ -437,25 +446,13 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                      </c:choose>
           
                   </tbody>
+
                         </table>
-                      
-                      
-                      
-                      
                      </div> 
                     </div>
                   </div>
                 </div>
               </div>
-              
-              
-          
-              
-              
-              
-              
-              
-              
               
             <!-- -------------------------------------------------------------------최근문의사항 -->
               
@@ -520,6 +517,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                        </table>
 
 
+
                 </div>   
                   </div>
                 </div>
@@ -527,8 +525,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
               
             </div>    
             
-            
-            
+  
               <!-- -------------------------------------------------------------------최근레시피 -->
             
             <div class="row">
@@ -762,7 +759,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                                     <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
                                     </p>
                                  </td >    
-                                 <td class="text-left" style="vertical-align: center;">   
+                                 <td class="text-left" style="vertical-align: center; border-radius: 0px;">   
                                     ${row.content }
                                  </td >  
                                   <td class="text-left">
@@ -782,6 +779,63 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
           
                   </tbody>
                </table>
+               
+               
+               
+               
+               
+<%--                <h6>recipe</h6>
+                   <table class="table " style="text-align: center;">
+                  <col width="20%" /> 
+                         <col width="*" /> 
+                         <col width="20%" /> 
+                         <col width="20%" /> 
+                  <tbody style="color:black;"> 
+                       
+                           <!-- 레시피 리스트 출력  -->
+                           <c:choose>
+                        <c:when test="${empty pop_recipeviewRow }">
+                           <tr>
+                              <td colspan="6" class="text-center">
+                                 등록된 회원이 없습니다. 
+                              </td>
+                           </tr>
+                        </c:when>   
+                        <c:otherwise>
+                           <c:forEach items="${pop_recipeviewRow }" var="row" 
+                              varStatus="loop"> 
+                              <!-- 리스트반복시작 --> 
+                              <tr>
+                                 
+                                  <td class="text-left">
+                                    <p style="font-weight: bold;">
+                                    <label class="badge badge-gradient-success">HOT</label>&nbsp;  
+                                    <a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black;  ">
+                                           ${row.title} 
+                                    </a> 
+                                    <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
+                                    </p>
+                                 </td >    
+                                 <td class="text-left" style="vertical-align: center; border-radius: 0px;">   
+                                    ${row.content }
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;">${row.postdate }</p>
+                                 </td >  
+                                  <td class="text-left">
+                                    <p style="color:gray; text-align: center;"> ${row.view_count } hits</p>
+                                 </td >  
+                                 <td class="text-center">${row.email }</td>
+                                 <td class="text-center">${row.mobile }</td>
+                                 <td class="text-center">${row.regidate }</td>
+                              </tr>
+                              <!-- 리스트반복끝 -->
+                           </c:forEach>
+                        </c:otherwise>
+                     </c:choose>
+          
+                  </tbody>
+               </table> --%>
                       
                       
                       
@@ -791,6 +845,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   </div>
                 </div>
               </div>
+
                     </div>
                   </div>
                 </div> 
@@ -811,7 +866,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
-    </div>
+    </div> 
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
