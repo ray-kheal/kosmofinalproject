@@ -59,7 +59,7 @@ nav {
 
 		<div id="nore"
 		
-			style="width: 100%; height: 200px; text-align: center; display: table; background-image:url(images/event.png);">
+			style="width: 100%; height: 200px; text-align: center; display: table;">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"

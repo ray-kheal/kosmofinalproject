@@ -266,13 +266,11 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
 
       
 
-<<<<<<< HEAD
-   <div class="main-panel">
-=======
+
 
 	<div class="main-panel">
 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
           <div class="content-wrapper">
             <div class="row" id="proBanner">
               <div class="col-9">
@@ -281,13 +279,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
               </div>
-<<<<<<< HEAD
-            <!--  <div class="container col-3" style=" margin-left:20px; border:1px solid #dedede; height:auto; line-height:auto; color:#666;font-size:1em; font-family:verdana; text-align:center;" id="clock">
-         </div>
- -->
 
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             </div>
             <div class="page-header">
               <!-- <h3 class="page-title">
@@ -344,65 +336,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card">
                   <div class="card-body container">
-<<<<<<< HEAD
-                     <table>
-                     <col width="50%" /> 
-                <col width="50%" /> 
-                      <tr>
-                         <td id="clock" style="text-align: center; font-size: 1.4em; font-family: Corbel;"><!-- 왼졲 칸에 나올 시계 -->
-                         
-                  
-                         </td>
-                         <td><!-- 오른쪽 칸에 나올 달력 -->
-                                <table id="calendar" border="0" align="center"  style="text-align: center; font-size: 1.2em; font-family: Corbel;">
-                           <colgroup>
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                               </colgroup>
-                                  
-                            <tr><!-- label은 마우스로 클릭을 편하게 해줌 -->
-                                
-                                <td>
-                                   <label onclick="prevCalendar()"><i class="mdi mdi-arrow-left"></i></label>
-                                </td>
-                                
-                                <td align="center" id="tbCalendarYM" colspan="5">
-                                   yyyy년 m월
-                                </td>
-                                <td>
-                                   <label onclick="nextCalendar()"><i class="mdi mdi-arrow-right"></i></label>
-                                </td>
-                            </tr>
-                            <tr style="font-size: 0.9em;">
-                                <td align="center" style="color: #FE8996" >Sun</td>
-                                <td align="center">Mon</td>
-                                <td align="center">Tue</td>
-                                <td align="center">Wed</td>
-                                <td align="center">Thu</td>
-                                <td align="center">Fri</td>
-                                <td align="center" style="color: #3D93E6">Sat</td>
-                            </tr> 
-                        </table>
-                        <script language="javascript" type="text/javascript">
-                            buildCalendar();//
-                        </script>
-                         
-                         
-                         
-                         </td>
-                      </tr>
-                     
-                     
-                     </table>
-                  
-                   
-=======
 
                   	<table>
                   	<col width="50%" /> 
@@ -457,31 +390,16 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   	 	</td>
                   	 </tr>
                   	</table>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
                   </div>
                 </div>
               </div>
               
             </div>
-<<<<<<< HEAD
-            
-            
-<<<<<<< HEAD
-=======
-            
-            
-            
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
           <!-- -------------------------------------------------------------------최근가입회원 -->
             <div class="row">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-            
-            
-            
-          <!-- -------------------------------------------------------------------최근가입회원 -->
-            
-            
+
             <div class="row">
               <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
@@ -490,11 +408,9 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                       <h4 class="card-title float-left">Recent Updates</h4>
                     <br />
                        <h5 class="card-title float-right"><i class="mdi mdi-account-multiple"></i><a href="pages/tables/memberManagement.do" style="color:black;">최근가입회원</a></h5>
-<<<<<<< HEAD
-                     
-=======
+
                      <div class="table-responsive">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
                        <table class="table " style="text-align: center;">
                            <tbody style="color:black;"> 
                        
@@ -522,7 +438,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                                  <%--<td class="text-center">${row.email }</td>
                                  <td class="text-center">${row.mobile }</td>
                                  <td class="text-center">${row.regidate }</td> --%>
-<<<<<<< HEAD
+
                               </tr>
                               <!-- 리스트반복끝 -->
                            </c:forEach>
@@ -530,247 +446,13 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                      </c:choose>
           
                   </tbody>
+
                         </table>
-                      
-                      
-                      
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              
-          
-              
-              
-              
-              
-              
-              
-              
-            <!-- -------------------------------------------------------------------최근문의사항 -->
-              
-              
-              
-              <div class="col-md-8 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title float-left">Recent Updates</h4>
-                         <br />  
-                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/qnaManagement.do" style="color:black;">최근문의사항</a></h5>
-                      
-                   <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
-                        <colgroup>
-                          <col width="20%" /> 
-                         <col width="20%" /> 
-                         <col width="20%" /> 
-                         <col width="20%" /> 
-                         <col width="20%" /> 
-                         <col width="20%" /> 
-                        </colgroup>
-                           <tbody style="color: black;">
-                             <!-- 게시판 리스트 출력  -->
-                           <c:choose> 
-                        <c:when test="${empty qnaviewRow }">
-                           <tr>
-                              <td colspan="5" class="text-center">
-                                 등록된 게시물이 없습니다.
-                              </td> 
-                           </tr> 
-                        </c:when> 
-                        <c:otherwise>   
-                           <c:forEach items="${qnaviewRow }" var="row" 
-                              varStatus="loop">
-                              
-
-
-                              <!-- 리스트반복시작 --> 
-                                 <%--  <td class="text-center">${row.virtualNum }</td> --%>
-                              <c:if test="${row.bstep eq '0'}"> <!-- 댓글이 안달린 게시물만 보이게 -->
-                                 <td >
-                                    <br /><br />
-                                    <!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
-                                     <p style="color:#6ea2d3;"><i class="mdi mdi-human-greeting icon-lg" ></i> </p>
-                                    <br />
-                                    <label class="badge badge-danger">new</label><br /><br />
-                                    <a href="pages/tables/qnaManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
-                                          " ${row.title} "
-                                    </a> 
-                                    <br /><br /><br /><br /><br />
-                                    <p style="color:gray; text-align: center;">${row.name}</p>
-                                    <p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
-                                    <button type="button" class="btn btn-outline-info btn-fw" onclick="location.href='pages/tables/qnaReply.do?idx=${row.idx}&nowPage=${nowPage}';">
-                                       <i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기
-                                    </button>
-                                    <!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
-                                 </td>
-                              </c:if>
-                           </c:forEach> 
-                        </c:otherwise>
-                     </c:choose>
-                           
-                         </tbody>
-                  
-                  
-                  
-                       </table>
-
-
-
-                  </div>
-                </div>
-              </div> 
-            </div>    
-            
-            
-            
-              <!-- -------------------------------------------------------------------최근레시피 -->
-            
-            <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="clearfix">
-                       <h4 class="card-title float-left">Recent Recipe</h4>
-                       <br />  
-                       <h5 class="card-title float-right"><i class="mdi mdi-login-variant"></i><a href="pages/tables/recipeManagement.do" style="color:black;">레시피게시판</a></h5>
-                  
-                      <table class="table table-bordered" style="text-align: center; font-size: 1.5em; border-radius: 20px;">
-                            <col width="20%" /> 
-                            <col width="20%" /> 
-                            <col width="20%" /> 
-                            <col width="20%" /> 
-                            <col width="20%" /> 
-                            <col width="20%" /> 
-                         <tbody style="color: black;">
-                     <!-- 게시판 리스트 출력  -->
-                           <c:choose> 
-                        <c:when test="${empty recipeviewRow }">
-                           <tr>
-                              <td colspan="5" class="text-center">
-                                 등록된 게시물이 없습니다.
-                              </td> 
-                           </tr> 
-                        </c:when> 
-                        <c:otherwise>   
-                           <c:forEach items="${recipeviewRow }" var="row" 
-                              varStatus="loop">
-                              
-
-
-                              <!-- 리스트반복시작 --> 
-                                 <%--  <td class="text-center">${row.virtualNum }</td> --%>
-                                 <td >
-                                    <br /><br />
-                                    <!-- <img src="assets/images/faces-clipart/pic-2.png" alt="image"> -->
-                                     <p style="color:#EC9A00;"><i class="mdi mdi-food icon-lg" ></i> </p>
-                                    <br /><br />
-                                    <!-- <mark class="bg-warning text-white" > -->
-                                    <a href="pages/tables/recipeManagementView.do?idx=${row.idx}&nowPage=${nowPage}" style="color:black; font-weight: bold; font-size: 1.2em;">
-                                           ${row.title} 
-                                    </a> 
-                                    <!--  </mark> -->
-                                    <br /><br /><br /><br /><br />
-                                    <p style="color:gray; text-align: center;">${row.name}</p>
-                                    
-                                    <p style="color:gray; text-align: center; font-size: 0.7em;" >${row.postdate}</p>
-                                    <!-- <button type="button" class="btn btn-outline-info btn-fw"><i class="mdi mdi-arrow-right-bold-hexagon-outline"></i>&nbsp;답글달기</button> -->
-                                    <!-- <button type="button" class="btn btn-gradient-info btn-sm"><i class="mdi mdi-lead-pencil"></i>답글달기</button> -->
-                                 </td>
-                           </c:forEach> 
-                        </c:otherwise>
-                     </c:choose>
-                           
-                         </tbody>
-                        </table>
-                      
-                      
-                      
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-               <!-- -------------------------------------------------------------------최근공지-->
-              
-            
-              
-              
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title float-left">Recent Notice</h4>
-                        <br />  
-                       <h5 class="card-title float-right"><i class="mdi mdi-comment-question-outline"></i><a href="pages/tables/boardManagement.do" style="color:black;">최근공지사항</a></h5>
-                   
-                   <table class="table " style="text-align: center;">
-                  <tbody style="color:black;"> 
-                       
-                           <!-- 회원 리스트 출력  -->
-                           <c:choose>
-                        <c:when test="${empty noticeviewRow }">
-                           <tr>
-                              <td colspan="6" class="text-center">
-                                 등록된 회원이 없습니다. 
-                              </td>
-                           </tr>
-                        </c:when>   
-                        <c:otherwise>
-                           <c:forEach items="${noticeviewRow }" var="row" 
-                              varStatus="loop"> 
-                              <!-- 리스트반복시작 --> 
-                              <tr>
-                                 
-                                  <td class="text-left">
-                                    <p style="font-weight: bold;">
-                                    <label class="badge badge-gradient-success">공지</label>&nbsp;  ${row.title}
-                                    <!-- <i class="mdi mdi-checkbox-marked-circle-outline"></i>  -->
-                                    </p>
-                                 </td >    
-                                 <td class="text-left" style="vertical-align: center;">   
-                                    ${row.content }
-                                 </td >  
-                                  <td class="text-left">
-                                    <p style="color:gray; text-align: center;">${row.postdate }</p>
-                                 </td >  
-                                 <%--<td class="text-center">${row.email }</td>
-                                 <td class="text-center">${row.mobile }</td>
-                                 <td class="text-center">${row.regidate }</td> --%>
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-                              </tr>
-                              <!-- 리스트반복끝 -->
-                           </c:forEach>
-                        </c:otherwise>
-                     </c:choose>
-          
-                  </tbody>
-<<<<<<< HEAD
-               </table>
-=======
-                        </table>
-                      
-                      
-                      
-                      
                      </div> 
                     </div>
                   </div>
                 </div>
               </div>
-              
-              
-          
-              
-              
-              
-              
-              
-              
               
             <!-- -------------------------------------------------------------------최근문의사항 -->
               
@@ -833,7 +515,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   
                   
                        </table>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 
 
                 </div>   
@@ -843,10 +525,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
               
             </div>    
             
-            
-<<<<<<< HEAD
-=======
-            
+  
               <!-- -------------------------------------------------------------------최근레시피 -->
             
             <div class="row">
@@ -1166,16 +845,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   </div>
                 </div>
               </div>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-            
-            
-            
-            
-            
-<<<<<<< HEAD
-=======
-            
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
                     </div>
                   </div>
                 </div> 
@@ -1183,21 +853,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.do -->
           <footer class="footer">

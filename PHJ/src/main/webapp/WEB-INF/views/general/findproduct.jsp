@@ -183,7 +183,7 @@ to {
    <%@ include file="MainHeader.jsp"%>
 
 
- <div
+ <!-- <div
          style="width: 100%; height: 200px; text-align: center;  display: table;">
          <p
             style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
@@ -199,18 +199,16 @@ to {
 
    <div class="container">
       <br /> <br />
-      <!-- 검색기능 -->
-      <form class="form-inline" >
+      검색기능
+      <form class="form-inline">
 
-         <div class="form-group" style="text-align: center; display: block;">
+         <div class="form-group" style="text-align: center; display: block;"> -->
          <!--    <select name="keyField" class="form-control">
                <option value="">메뚜기가족</option>
                <option value="">지예쓰</option>
                <option value="">씨유~</option>
                <option value="">77777777777</option>
 
-               <option value="">작은멈춤</option> </select>-->
-             <!-- <select name="searchColumn" class="form-control">
                <option value="product_value">종류</option>
                 <option value="product_price">가격</option>
                                <option value="">씻을거리</option>
@@ -223,24 +221,52 @@ to {
             </select> <input type="text" id="product" name="searchWord"  />
 
             <button type="submit" class="btn">검색 
-
             <img src="https://image.flaticon.com/icons/svg/148/148928.svg"
                   width="25px" height="25px" /><i
                   class="glyphicon glyphicon-search"></i>
             </button> -->
-         </div>
+<!--          </div>
       </form>
 
-      <!-- 검색기능 끝 -->
+      검색기능 끝
       <br />
       <button type="submit" onclick="" class="btn btn-info">EVENT</button>
       &nbsp;
-     <!--  <button type="submit" onclick="" class="btn btn-danger">품절임박</button> -->
+      <button type="submit" onclick="" class="btn btn-danger">품절임박</button>
       &nbsp;
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
-      &nbsp; <br /> <br />
+      &nbsp; <br /> <br /> -->
    
 <div class="album py-5 ">
+ 
+  
+<div class="album py-5 bg-light">
+ <div
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <div style="width: 100%; text-align: center;">
+   <div style="width: 100%; text-align: center;">
+      <br /> <br />
+
+   </div>
+
+   <div class="container">
+      <br /> <br />
+      <!-- 검색기능 -->
+      <form class="form-inline" >
+
+         <div class="form-group" style="text-align: center; display: block;">
+
+         </div>
+      </form>
+
+
       <div class="container" style="color: black;">
          
       <!-- 가격검색기능 -->
@@ -278,6 +304,7 @@ to {
         </div>
       </form> 
        <br />    
+
       
       <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
@@ -288,19 +315,25 @@ to {
                </c:when>             
                <c:otherwise>      
                   <c:forEach items="${viewRow }" var="row" varStatus="loop">
-                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 10px; height: auto;">
+                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 20px; height: auto;">
                         <!-- 리스트반복시작 -->  
                         <img style="text-align: center;"  
-                           src="./resources/CSProduct/${row.product_imagename }"
+
+                           src="./resources/imageUpload/${row.product_imagename }"
+
                            width="80%" height="80%" ; /> 
                            <!-- <rect width="100%" height="100%" ></rect>
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
                            <div>
+
                            <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}">${row.product_name}</a>                           
+
                            
+
                            <p style="text-align: center; color: grey; font-size: 0.7em;  ">${row.product_value}</p>
                            
                            <p  style="margin-top: -15px; font-size: 0.9em;"><img src="images/coin2.png" width="20px" height="20px " />  ${row.product_price}</p>     
+
                            </div>
                            <%-- <small   class="text-muted">
                             <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small> --%>

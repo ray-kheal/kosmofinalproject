@@ -132,6 +132,13 @@ body {
 								style="border: none;" />
 							</td>
 						</tr>
+
+						<tr>
+							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
+							<td bgcolor="white"><input type="text" class="form-control"
+								name="name" style="border: none;" value="<%=session.getAttribute("NAME") %>" readonly/></td>
+						</tr>
+
 						<!-- <tr>
 							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
 							<td bgcolor="white"> -->

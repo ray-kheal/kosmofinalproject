@@ -61,12 +61,8 @@ public class AdProductListCommand implements PHJCommandImpl {
 		
 		paramMap.put("start", start);
 		paramMap.put("end", end);		
-		
 		//출력할 리스트 가져오기
 		ArrayList<ProductDTO> viewRow = dao.list(paramMap);
-		
-		
-		//가상번호 계산하여 부여하기
 		//가상번호 계산하여 부여하기
 		int virtualNum =0;
 		int countNum =0;
@@ -75,7 +71,6 @@ public class AdProductListCommand implements PHJCommandImpl {
 			virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 			row.setVirtualNum(virtualNum);
 		}
-		
 		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/admin/pages/tables/productManagement.do?"+addQueryString);
 		model.addAttribute("pagingImg",pagingImg);

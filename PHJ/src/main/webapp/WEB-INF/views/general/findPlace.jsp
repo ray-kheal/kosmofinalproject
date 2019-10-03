@@ -164,14 +164,12 @@ body {
                <col width="55%" />
                <col width="45%" />
             </colgroup>
-            
-         
             <tr > 
                <td rowspan="3"  id=map>         
                   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
 
                </td> 
-               <td style=" float: center;">
+               <td style="float: center;">
                   <table>
                      <tr>
                         <td>점포명 : </td>
@@ -181,12 +179,46 @@ body {
                         <td>점포주소 : </td>
                         <td>${dto.place_address } <br /> (${dto.place_road_addr })</td>
                      </tr>
-                  
-                     
                   </table>
+                    <c:choose>
+               <c:when test="${empty sdto }">
+                  <p class="text-center">등록된 상품이 없습니다.</p>
+               </c:when>             
+               <c:otherwise>      
+                  <c:forEach items="${sdto }" var="row" varStatus="loop">
+                      <div>
+                      <table >
+                       <colgroup>
+			               <col width="40%" />
+			               <col width="*" />
+			           </colgroup>
+                      	<tr >
+                      		<td style="text-align: center">재고 상품명 :</td>
+                      		<td>${row.product_name}</td>
+                      	</tr>
+                      	<tr>
+                      		<td style="text-align: center">재고 양 : </td>
+                      		<td>${row.stock}</td>
+                      	</tr>
+                      </table>
+                    
+                     </div>
+                  </c:forEach> 
+                   <div class="container">
+                     <table>
+                        <tr>
+                           <td align="center" style="font-weight: bold; font-size: 1.5em; ">
+                              ${pagingImg }
+                           </td>
+                        </tr>
+                     </table>    
+                    </div> 
+               </c:otherwise> 
+            </c:choose>
                </td>
-            </tr>         
-         
+              
+             </tr>  
+          
          </table>
          </div><!-- container -->
       </div>
