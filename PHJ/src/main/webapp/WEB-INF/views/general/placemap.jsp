@@ -122,6 +122,7 @@ body {
 		
 	 	var marker, i;
 		var place_bookmark = '<%=session.getAttribute("PLACE_BOOKMARK")%>';
+		var email = '<%=session.getAttribute("EMAIL")%>';
 		for (i=0; i<locations.length; i++) {
 			var bookmark = '';
 			
@@ -135,15 +136,16 @@ body {
 		
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
+					if(email != 'null'){
+						if (place_bookmark == locations[i][3]){
+							bookmark = "<br/><a href='./deleteBookmarkPlace.do'>관심점포에서 해제하기 </a>";
+						} else {
+							bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"'>관심점포로 등록하기 </a>";
+						}
+					}	
+						infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>" + bookmark);
+						infowindow.open(map, marker);
 					
-					if (place_bookmark == locations[i][3]){
-						bookmark = "<br/><a href='./deleteBookmarkPlace.do'>관심점포에서 해제하기 </a>";
-					} else {
-						bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"'>관심점포로 등록하기 </a>";
-					}
-					
-					infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>" + bookmark);
-					infowindow.open(map, marker);
 				}
 			})(marker, i));
 		

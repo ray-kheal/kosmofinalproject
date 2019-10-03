@@ -13381,16 +13381,16 @@ dl {
 	}
 	@-webkit-keyframes blink{
     	0% {opacity:0;}
-    :;00% {opacity:1;}
+    ;00% {opacity:1;}
 	}
 	@-moz-keyframes blink{
     	0% {opacity:0;}
-    :;00% {opacity:1;}
+    ;00% {opacity:1;}
 	}
 	@keyframes blink{
     	0% {opacity:0;}
-    :;00% {opacity:1;}
-}
+    ;00% {opacity:1;}
+  }
   
 
 /*# sourceMappingURL=style.css.map */

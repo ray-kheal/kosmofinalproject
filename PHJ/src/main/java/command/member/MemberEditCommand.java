@@ -54,20 +54,22 @@ public class MemberEditCommand implements PHJCommandImpl {
 		}
 		
 		PlaceDAO pDao = new PlaceDAO();
-		PlaceDTO pDto = pDao.searchPlace(Integer.parseInt(dto.getPlace_bookmark()));
+		PlaceDTO pDto;
 		//점포명 재조립.
 		String place_bookmark = "";
-        if(pDto.getPlace_name2() != null) {
-           
-           if(pDto.getPlace_name().contains(pDto.getPlace_name2())==true) {
-              model.addAttribute("place_bookmark",pDto.getPlace_name());
-           } else {
-              place_bookmark = pDto.getPlace_name()+pDto.getPlace_name2();
-              model.addAttribute("place_bookmark",place_bookmark);
-           }
-        } else {
-        	 model.addAttribute("place_bookmark",pDto.getPlace_name());
-        }
+		if(dto.getPlace_bookmark() != null) {
+			pDto = pDao.searchPlace(Integer.parseInt(dto.getPlace_bookmark()));
+	        if(pDto.getPlace_name2() != null) {	           
+	           if(pDto.getPlace_name().contains(pDto.getPlace_name2())==true) {
+	              model.addAttribute("place_bookmark",pDto.getPlace_name());
+	           } else {
+	              place_bookmark = pDto.getPlace_name()+pDto.getPlace_name2();
+	              model.addAttribute("place_bookmark",place_bookmark);
+	           }
+	        } else {
+	        	 model.addAttribute("place_bookmark",pDto.getPlace_name());
+	        }
+		}
         
 		
 		

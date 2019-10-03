@@ -264,7 +264,6 @@ public class MemberController {
 	public String modify(Model model, HttpServletRequest req, MemberDTO dto,PlaceDTO placeDTO) {
 		model.addAttribute("req",req);
 		model.addAttribute("memberDTO", dto);
-		model.addAttribute("PlaceDTO", placeDTO);
 		
 		command = new ModifyCommand();
 		command.execute(model);
@@ -460,20 +459,20 @@ public class MemberController {
 		out.flush();
     }
     
-  //관심점포 북마크
-    @RequestMapping("deleteBookmarkPlace.do")
-    public void deleteBookmarkPlace(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException{
-    	model.addAttribute("req",req);
-    	model.addAttribute("session",session);
-    	command = new DeletePlaceBookmarkCommand();
-    	command.execute(model);
-    	
-    	PrintWriter out = resp.getWriter();	
-    	resp.setContentType("text/html; charset=utf-8");
-    	out.print("<script>alert('관심점포가 해제되었습니다!.');</script>");
-    	out.print("<script>history.back;</script>");
+    //관심점포 해제
+	@RequestMapping("deleteBookmarkPlace.do")
+	public void deleteBookmarkPlace(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException{
+		model.addAttribute("req",req);
+		model.addAttribute("session",session);
+		command = new DeletePlaceBookmarkCommand();
+		command.execute(model);
+		
+		PrintWriter out = resp.getWriter();	
+		resp.setContentType("text/html; charset=utf-8");
+		out.print("<script>alert('관심점포가 해제되었습니다!.');</script>");
+		out.print("<script>history.back;</script>");
 		out.print("<script>location.href=document.referrer;</script>");
 		out.flush();
-    }
+	}
 
 }
