@@ -110,10 +110,6 @@ to {
                         '#28abe2', '#2e3192', '#6868ff' ]
                });
       });
-      
-      $(function() {
-  		$("#recipe").attr("class", "current");
-	  });
 	  	
 	  function InputSearch(f){
 	  	if(f.searchWord.value==""){
@@ -197,7 +193,6 @@ to {
          </p>
       </div>
    <div style="width: 100%; text-align: center;">
-   <div style="width: 100%; text-align: center;">
       <br /> <br />
 
    </div>
@@ -213,22 +208,26 @@ to {
                <option value="">지예쓰</option>
                <option value="">씨유~</option>
                <option value="">77777777777</option>
-               <option value="">작은멈춤</option> -->
-            <select id="select1" name="searchColumn" class="form-control" >
-               <option value="">-선택-</option>
-               <option value="a">제품명순</option>
-               <option value="b">제품가격순</option>
-               
-            </select>
-            <select id="select2" name="keyField" class="form-control">
-                  
-            </select> 
-            <input type="text" id="product" name="searchWord" style="border: solid gray 2px;" />
-            <button type="submit" class="btn">검색  
+
+               <option value="">작은멈춤</option> </select>-->
+             <!-- <select name="searchColumn" class="form-control">
+               <option value="product_value">종류</option>
+                <option value="product_price">가격</option>
+                               <option value="">씻을거리</option>
+               <option value="">기타디리링~</option>
+
+            </select> <select name="keyField" class="form-control">
+               <option value="">하우머치?</option>
+               <option value="">가격이 낮아요</option>
+               <option value="">오 가격이 높네</option>
+            </select> <input type="text" id="product" name="searchWord"  />
+
+            <button type="submit" class="btn">검색 
+
             <img src="https://image.flaticon.com/icons/svg/148/148928.svg"
                   width="25px" height="25px" /><i
                   class="glyphicon glyphicon-search"></i>
-            </button>
+            </button> -->
          </div>
       </form>
 
@@ -236,14 +235,50 @@ to {
       <br />
       <button type="submit" onclick="" class="btn btn-info">EVENT</button>
       &nbsp;
-      <button type="submit" onclick="" class="btn btn-danger">품절임박</button>
+     <!--  <button type="submit" onclick="" class="btn btn-danger">품절임박</button> -->
       &nbsp;
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
       &nbsp; <br /> <br />
-
-
-<div class="album py-5 bg-light">
+   
+<div class="album py-5 ">
       <div class="container" style="color: black;">
+         
+      <!-- 가격검색기능 -->
+      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
+         <ul style=" list-style:none; float: left; "> 
+            <li style="float: left;" >
+               <input style="float: left; margin-top: 8px;" type="radio" name="priceRange" value="&lt;1500" >
+               <label style="float: left;"for="prs_01">&nbsp;1500원 미만</label>
+            </li> 
+            <li style="float: left; " >
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="1500to5000" >
+               <label style="float: left;"for="prs_02">&nbsp;1500원~5000원</label>
+            </li>
+            <li style="float: left;" >  
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="&gt;5000" >
+               <label style="float: left;"for="prs_03">&nbsp;5000원 이상</label>
+            </li>
+         <!--    <li style="float: left;">
+               <button class="btn btn-dark" style="font-size: 0.7em;"><i class="fas fa-search"></i></button>
+            </li>   -->
+         </ul>  
+      </div>
+       <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">상품명 검색</div>
+       <div class="container" style=" display:inline-block;width:35%; " >  
+             
+          <input type="hidden" class="form-control" name="searchColumn" value="product_name" />
+          <input type="text" name="searchWord"  style="width: 100%" />
+      </div> 
+      
+        <div style=" display:inline-block; width:25%; text-align: left;">
+        
+        <button class="btn btn-dark" style=" font-size: 0.7em;"><i class="fas fa-search"></i></button>
+        </div>
+      </form> 
+       <br />    
+      
       <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
@@ -256,7 +291,7 @@ to {
                      <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 10px; height: auto;">
                         <!-- 리스트반복시작 -->  
                         <img style="text-align: center;"  
-                           src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4OhC/image/lNNoSaDd8uIQ6xTe_7txil9OR5E.jpg"
+                           src="./resources/CSProduct/${row.product_imagename }"
                            width="80%" height="80%" ; /> 
                            <!-- <rect width="100%" height="100%" ></rect>
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
@@ -306,4 +341,4 @@ to {
 
       </div>
 </body>
-</html>
+</html>  

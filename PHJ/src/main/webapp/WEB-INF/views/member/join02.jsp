@@ -195,14 +195,19 @@
 					email : $("#email1").val()+'@'+$("#email2").val()
 				},
 				success : function(d){
+					if($("#email1").val() == ""){
+						$("#overlap_result").html("<span style='color:red'>아이디를 입력해주세요..</span>");	
+					}
+					else{
 					if(d.isMember == 1){
 						$("#overlap_result").html("<span style='color:red'>사용 불가능한 아이디입니다.</span>");	
-					} else{
+					} else {
 						$("#overlap_result").html("<span style='color:blue'>사용 가능한 아이디입니다.</span>");
 						$("#chkEmail").val("1");
 						$("#email1").attr("readOnly",true);
 						$("#email2").attr("readOnly",true);
 						
+					}
 					}
 				},
 				error : function(errData){
@@ -259,7 +264,7 @@ label {
 	<div class="container">
 		<!-- <div class="container" id="wrap"  style="width:100%; height:1000px;"> -->
 		 
-		<form method="post" onsubmit="return sendIt();" class="" name="f">
+		<form method="post" onsubmit="return sendIt(this);" class="" name="f">
 		<input type="hidden" name="kakao_id" value="${dto.kakao_id }"/>
 		<input type="hidden" name="google_id" value="${dto.google_id }"/>
 		<input type="hidden" id="chkEmail" value="0"/>

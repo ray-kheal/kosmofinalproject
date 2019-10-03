@@ -38,6 +38,17 @@ nav {
 	background-repeat:no-repeat;
 	
 }
+
+/* 	.container { */
+/*  		background-image: url("images/backimg1.png");  */
+/* 		margin: 0 auto; */
+/* 		text-align: center; */
+/* 		background-repeat: no-repeat; */
+/* 		background-position: 50% 50%; */
+/* 		background-attachment: fixed; */
+/* 		background-size: cover; */
+/* 		height: 700px; */
+/* 	} */
 </style>
 <script>
 	$(function() {
@@ -96,6 +107,18 @@ nav {
 						</button>
 					</div>
 				</div>
+		
+		<div class="row text-right" style="float: right;">
+		 
+		<%if(session.getAttribute("EMAIL") != null) { %> 
+		 <form action="write.do" method="post">
+				<button type="submit"src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
+				 class="btn" style="margin:0 auto; font-family: Goyang ">
+					글쓰기</button>
+		</form>
+		<%} %>
+		
+			</div>
 			</form>
 			<!-- 검색기능 끝 -->
 
@@ -115,7 +138,7 @@ nav {
 						<col width="80px" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: white;">
+						<tr class="table-primary" style="color: black;">
 							<th style="text-align: center; font-family: Goyang">번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>
@@ -155,15 +178,20 @@ nav {
 					</tbody>
 				</table>
 			</div>
+<<<<<<< HEAD
+			<br /><br />
+<!-- 		 <div class="row text-right" style="float: right;"> -->
+=======
 			 <div class="row text-right" style="float: right;">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 		 
-		<%if(session.getAttribute("EMAIL") != null) { %> 
-		 <form action="write.do" method="post">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-		</form>
-		<%} %>
+<%-- 		<%if(session.getAttribute("EMAIL") != null) { %>  --%>
+<!-- 		 <form action="write.do" method="post"> -->
+<!-- 				<button type="submit" class="btn" style="font-family: Goyang "><img src="https://image.flaticon.com/icons/svg/1159/1159633.svg" width="25px" height="25px"/> &nbsp;글쓰기</button> -->
+<!-- 		</form> -->
+<%-- 		<%} %> --%>
 		
-			</div>
+<!-- 			</div> -->
 			<br /> <br />
 				<ul class="pagination justify-content-center">
 				<table width="100%">

@@ -116,7 +116,7 @@ nav {
 						<col width="120px" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: white;">
+						<tr class="table-primary" style="color: black;">
 							<th style="text-align: center; font-family: Goyang">번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>

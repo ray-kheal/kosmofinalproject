@@ -62,7 +62,7 @@ body {
 			<br /><br />
 			
 			<div class="row text-right" style="float: right;">
-				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px;"><i class="far fa-bell"></i>&nbsp;알려드립니다</h5>
+				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' "><i class="far fa-bell"></i>&nbsp;알려드립니다</h5>
 			</div>
 			
 			<table class="table table-bordered" style="margin-bottom: -1px;">
@@ -116,8 +116,9 @@ body {
 		<br /> <br />
 						
 		<div class="row text-right" style="float: right;">
-           	<button type="button" class="btn btn-dark btn-sm" 
-					onclick="location.href='./notice.do';">리스트</button>
+           	<button type="button" class="btn" 
+					onclick="location.href='./notice.do';" style="font-family: 'Goyang'; font-size: 30px;">
+						<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
 									
 		</div>
 	</div>

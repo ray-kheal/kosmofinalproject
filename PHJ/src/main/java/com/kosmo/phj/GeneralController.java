@@ -51,7 +51,7 @@ public class GeneralController {
 		return "general/no-sidebar";
 	}
 	
-	//상품관리 게시판
+	//상품재고 게시판 진입
 	@RequestMapping("findproduct.do")
 	public String findProduct(Model model, HttpServletRequest req){
 		model.addAttribute("req",req);
@@ -102,6 +102,7 @@ public class GeneralController {
 		return "general/placemap";
 	}
 	
+	//1대1문의
 	@RequestMapping("mail.do")
 	public String mailing() {
 		return "general/mail";
@@ -126,7 +127,7 @@ public class GeneralController {
    //페이스북
    @RequestMapping("facebook.do")
    public String facebook(Model model) {   
-	   return "general/facebook";
+	   return "sns_page/facebook";
    }
    
    //1:1 문의하기 메일 메소드

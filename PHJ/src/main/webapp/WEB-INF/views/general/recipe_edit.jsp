@@ -92,6 +92,7 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
+
 		style="width: 100%; height: 200px; text-align: center;  display: table;">
 		<br /> <br /> <br />
 		<p
@@ -100,6 +101,7 @@ body {
 				style="width: 50px; height: 50px;" /> RECIPE <br />
 		</p>
 	</div>
+
 		<div class="container">
 			<br />
 			<br />
