@@ -67,10 +67,7 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 }
 
 /* 뱃지2 */
@@ -106,10 +103,7 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 }
 </style>
 
@@ -305,14 +299,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           RECIPE <br />
       </p>
    </div> 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-   
-   
-   
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
@@ -341,16 +327,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                </div>
          
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-            <!--     <p style=" color:#4389cc; font-family:Arial ; font-weight: bold; font-size: 2em; ">BEST RECIPE</p> -->
-<!--                 <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;"> -->
-<!--             BEST RECIPE   -->
-<!--             </div>   -->
-<!--             <div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;"> -->
-<!--             BEST RECIPE   -->
-<!--             </div>     -->
-                <!-- <img src="" alt="베스트1" />
-                <img src="" alt="베스트2" />
-                <img src="" alt="베스트3" /> -->
                 <div style="border: 2px solid gold; width: " >
                  <div class=" text-center"  style="text-align: center; "> 
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
@@ -425,10 +401,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            </figure>
                         </div>   
                         <!-- 베스트게시물 e-->        --%>              
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->
