@@ -116,7 +116,7 @@ nav {
 						<col width="120px" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: white;">
+						<tr class="table-primary" style="color: black;">
 							<th style="text-align: center; font-family: Goyang">번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>
@@ -138,7 +138,7 @@ nav {
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left"><a
 											href="./view.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
+												&nowPage=${nowPage}">${row.title}</a>
 										</td>
 										<td class="text-center">관리자</td>
 										<td class="text-center">${row.view_count }</td>

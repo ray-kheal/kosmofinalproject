@@ -75,13 +75,13 @@ body {
 			<br />
 
 			<div class="row text-right" style="float: right;">
-				<h5 style="color: #82b9e4; font-weight: bold; padding-right: 20px;">
-					<i class="far fa-bell"></i>&nbsp; 레시피
+				<h5 style="color: #4c4c4c; font-weight: bold; padding-right: 20px;">
+					<i class="fas fa-utensils"></i>&nbsp; 레시피자랑 
 				</h5>
 			</div>
 			<input type="hidden" name="idx" value="${viewRow.idx }" />
 			<input type="hidden" name="nowPage" value="${nowPage }" />
-			
+		<%-- 	
 			<table class="table table-bordered" style="margin-bottom: -1px;">
 				<colgroup>
 					<col width="80px" />
@@ -125,7 +125,78 @@ body {
 						style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
 					</td>
 				</tr>
+			</table> --%>
+			
+			
+				
+			<table class="table " style="margin-bottom: -1px;">
+				<colgroup>
+					<col width="80px" />
+					<col width="*" />
+					<col width="120px" />
+					<col width="120px" />
+					<col width="80px" />
+					<col width="50px" />
+				</colgroup>
+							
+				<tr>  
+					<td style="background-color:white;  text-align: center; padding-top:15px;  border-top: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">
+					<p style="font-size: 1.6em; font-weight: bold; font-style: italic;"> <mark>"${viewRow.title}"</mark> </p>
+					
+					<p>by.${viewRow.name}</p>
+					
+					<p>${viewRow.content}</p>
+					
+					<p>| 조회수  ${viewRow.view_count }</p>
+					<p>| 게시일  ${viewRow.postdate}</p>
+					</td>
+					
+				</tr>
+			  
+			
 			</table>
+			<p style="margin-left: 100px;">댓글 ?개</p>  
+			<%-- <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
+				<col width="20%" />
+				<col width="*" />
+				<col width="20%" />
+				<tr>     
+					<td style="text-align:right;">
+						<img src="images/pic-2.png" alt="" />
+					</td>
+					<td>
+						<input type="text" style=" width: 100%; height: 200%; " />
+					</td>
+					<td>
+						<button class="btn btn-sm" style="background-color: #7f7b9e; color:white;">답글달기</button>
+					</td>
+				</tr>
+			</table>   --%>
+			<%-- <%@ include file ="./recipe_comment.jsp" %> --%>
+			<div>
+	<form id="commentForm" name="commentForm" method="post" action="recipe_commentAction.do">
+		<table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
+			<col width="20%" />
+			<col width="*" />
+			<col width="20%" />
+			<tr>     
+				<td style="text-align:right;">
+				<%String b_code =request.getParameter("idx"); %>
+					<input type="hid-den" id="b_code" name="b_code" value="<%=b_code %>"/>
+					<input type="hid-den" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
+					<img src="images/pic-2.png" alt="" />
+				</td>
+				<td>
+					<input type="text" style=" width: 100%; height: 200%; "id="content" name="content" value="" />
+				</td>
+				<td>
+					<button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
+				</td>
+			</tr>
+		</table> 
+	</form> 
+</div>
+			
 			<!-- </div> -->
 			<br /> <br />
 		

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,10 +63,10 @@ body {
 			<br /><br />
 			
 			<div class="row text-right" style="float: right;">
-				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' "><i class="far fa-smile-wink"></i>&nbsp;이벤트를 확인하세요</h5>
+				<h5 style= "font-weight: bold; padding-right: 20px; font-family: 'Goyang'; color: black;"><i class="far fa-smile-wink"></i>&nbsp;이벤트를 확인하세요</h5>
 			</div>
 			
-			<table class="table table-bordered" style="margin-bottom: -1px;">
+		<%-- 	<table class="table table-bordered" style="margin-bottom: -1px;">
 				<colgroup>
 					<col width="80px" />
 					<col width="*" />
@@ -80,8 +81,8 @@ body {
 				
 				<!-- <div style="border: 1px solid #82b9e4 ; height:2px;"></div> -->
 				<tr >
-					<th bgcolor="#f2efef" style="text-align: center; border-top: 5px solid #82b9e4 ;">제목</th>
-					<td bgcolor="white" style="border-top: 5px solid #82b9e4 ;">${viewRow.title}</td>
+					<th bgcolor="#f2efef" style="text-align: center; border-top: 5px solid #4c4c4c ;">제목</th>
+					<td bgcolor="white" style="border-top: 5px solid #4c4c4c ;">${viewRow.title}</td>
 				</tr>
 				<tr>
 					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
@@ -108,11 +109,45 @@ body {
 					<td style="border-right:1px solid #EDEAEA;">${viewRow.view_count }</td>
 				</tr>
 				<tr>
-					<td colspan="4" style="height:500px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:5px solid #82b9e4;">${viewRow.content}
+					<td colspan="4" style="height:500px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:5px solid #4c4c4c;">${viewRow.content}
 					</td>
 				</tr>
+			</table>	 --%>
+			  
+			<table class="table table-bordered" style="background-color: #f4f4f4; border-top: 5px solid #4c4c4c ; ">
+			<tr>
+				<td style="text-align: center;">
+				<br />
+					<p style="font-weight: bold;  font-size: 2em;"><mark class="bg-dark text-white">"${viewRow.title}"</mark></p>
+					<div style="text-align: center; border:1px solid #eaeaea;  background-color: white; width: 50%; height: 300px; margin:0 auto;">
+						<br />${viewRow.content}
+					</div>
+					<br />
+					<p>| 조회수  ${viewRow.view_count }</p>
+					<p>| 게시일  ${viewRow.postdate}</p>
+				</td>
+			</tr>   
 			</table>	
-			<!-- </div> -->
+				<p style="margin-left: 30px;">댓글 ?개</p>  
+			<%-- <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
+				<col width="20%" />
+				<col width="*" />
+				<col width="20%" />
+				<tr>     
+					<td style="text-align:right;">
+						<img src="images/pic-2.png" alt="" />
+					</td>
+					<td>
+						<input type="text" style=" width: 100%; height: 200%; " />
+					</td>
+					<td>
+						<button class="btn btn-sm" style="background-color: #7f7b9e; color:white;">답글달기</button>
+					</td>
+				</tr>
+			</table>   --%><!-- include처리 -->
+			    
+			<!-- </div> --> 
+			<%@ include file ="./recipe_comment.jsp" %>
 		<br /> <br />
 						
 		<div class="row text-right" style="float: right;">
@@ -122,9 +157,7 @@ body {
 		</div>
 	</div>
 		       
-	
-	
-
+  
 	<!-- Footer -->
 	<%@ include file="../general/simpleFooter.jsp"%>
 
