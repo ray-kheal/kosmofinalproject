@@ -102,6 +102,7 @@ body {
    background-image: linear-gradient(90deg, rgba(0, 0, 0, .5) 50%,
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
+
    background-size: 50px 50px;
 
 }
@@ -299,7 +300,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           RECIPE <br />
       </p>
    </div> 
-
       <!-- Page Content --> 
       <div class="container">
          <div class="container">

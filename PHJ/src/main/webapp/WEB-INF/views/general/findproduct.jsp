@@ -244,6 +244,7 @@ to {
                   <c:forEach items="${viewRow }" var="row" varStatus="loop">
                      <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 20px; height: auto;">
                         <!-- 리스트반복시작 -->  
+
                         <img style="text-align: center;"  
 
                            src="./resources/CSProduct/${row.product_imagename }"
