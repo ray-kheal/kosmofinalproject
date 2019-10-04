@@ -300,60 +300,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           RECIPE <br />
       </p>
    </div> 
-<<<<<<< HEAD
-      <!-- Page Content --> 
-      <div class="container">
-         <div class="container">
-            <hr class="mt-2 mb-2">
-               <form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
-                  <select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
-                     <option value="title">제목</option>
-                     <option value="content">내용</option>
-                  </select>
-                  <input type="text" name="searchWord" class="form-control"
-                     style="width:230px; margin-left:5px;" />
-                  <div style="margin-left:10px;">
-                     <button type="submit" class="btn">
-                     검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
-                  </button>
-                  </div>
-               </form>
-               <hr class="mt-2 mb-2">  
-               <br />
-               <div class="row text-right">
-               <%if(session.getAttribute("EMAIL") != null) { %> 
-                   <form action="recipe_edit.do" method="post">
-            <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-                     </form>
-                  <%} %>
-               </div>
-         
-            <c:choose>
-               <c:when test="${empty listRows }">
-                  <br /><div class="row text-center" style="margin-left:auto; margin-right:auto;"><p>등록된 게시물이 없습니다.</p></div>
-               </c:when>
-               <c:otherwise>
-               <div class="row text-center text-lg-left">   
-                  <c:forEach items="${listRows }" var="row" varStatus="loop">
-                  <c:choose>
-                     <c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
-                        <!-- 베스트게시물 s-->
-                        <div class="col-lg-3 col-md-4 col-6 effect ">
-                           <input type="hidden" value="${row.thumbnail }"/>
-                           <figure class="recipePhoto" style="width:100px; height:200px;">
-                              <img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
-                                 src="./resources/imageUpload/${row.thumbnail }"
-                                 alt="">
-                              <figcaption>
-                                 <h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
-                                 <p>${row.content }</p>
-                                 <i class="ion-ios-arrow-right"></i>
-                              </figcaption>
-                              <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
-                           </figure>
-                        </div>   
-                        <!-- 베스트게시물 e-->                     
-=======
+
    
    
    
@@ -461,7 +408,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            </figure>
                         </div>   
                         <!-- 베스트게시물 e-->        --%>              
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->
