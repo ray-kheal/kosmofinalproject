@@ -27,8 +27,9 @@ public class AndroidController {
 		System.out.println("android 컨트롤러 호출");
 		System.out.println("latitude : "+ req.getParameter("latitude"));
 		System.out.println("longitude : "+ req.getParameter("longitude"));
+		System.out.println("distance : " +req.getParameter("distance"));
 		
-		double distance = 5;
+		double distance = Double.parseDouble(req.getParameter("distance"));
 		double latTxt = Double.parseDouble(req.getParameter("latitude"));
 		double lngTxt = Double.parseDouble(req.getParameter("longitude"));
 		
@@ -42,7 +43,7 @@ public class AndroidController {
 		
 		PlaceDAO dao = new PlaceDAO();
 		
-		placeArray = dao.searchRadius(distance, latTxt, lngTxt, 1, 10);
+		placeArray = dao.searchRadius(distance, latTxt, lngTxt, 1, 50);
 		
 		for(int i = 0; i<placeArray.size();i++) {
 			place_code += placeArray.get(i).getPlace_code() + ",";

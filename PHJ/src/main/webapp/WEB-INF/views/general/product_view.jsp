@@ -60,6 +60,8 @@ body {
 		</div>
 
 		<input type="hidden" name="product_code" value="${product_code }" />
+		<input type="hidden" name="place_code" value="${place_code }" />
+
 		
 		<div class="container">
 			<table class="table table-hover" style="text-align: center;">

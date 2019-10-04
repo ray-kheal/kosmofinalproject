@@ -13,16 +13,15 @@ public class recipeDTO {
 	private Date postdate;
 	private String email;
 	private String recommend;
+	private String BTNRECOMMEND;
 	private int virtualNum;
 
 	private String thumbnail;
 	
 	public recipeDTO() {}
-
-
 	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
-			Date postdate, String recommend,int virtualNum, String email, String thumbnail) {
-
+			Date postdate, String email, String recommend, String bTNRECOMMEND, int virtualNum, String thumbnail) {
+		super();
 		this.idx = idx;
 		this.image_name = image_name;
 		this.title = title;
@@ -32,13 +31,22 @@ public class recipeDTO {
 		this.postdate = postdate;
 		this.email = email;
 		this.recommend = recommend;
+		BTNRECOMMEND = bTNRECOMMEND;
 		this.virtualNum = virtualNum;
-		this.email = email;
 		this.thumbnail = thumbnail;
 	}
 
 
 
+
+
+
+	public String getBTNRECOMMEND() {
+		return BTNRECOMMEND;
+	}
+	public void setBTNRECOMMEND(String bTNRECOMMEND) {
+		BTNRECOMMEND = bTNRECOMMEND;
+	}
 	public int getIdx() {
 		return idx;
 	}

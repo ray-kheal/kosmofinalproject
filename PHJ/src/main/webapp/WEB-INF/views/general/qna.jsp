@@ -71,7 +71,7 @@ nav {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div id="nore"
-			style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/gomin.jpeg);">
+			style="width: 100%; height: 200px; text-align: center;  display: table; ">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
@@ -135,7 +135,7 @@ nav {
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
-						<col width="80px" />
+						<col width="120px" />
 					</colgroup>
 					<thead>
 						<tr class="table-primary" style="color: black;">
@@ -178,33 +178,7 @@ nav {
 					</tbody>
 				</table>
 			</div>
-<<<<<<< HEAD
-			<br /><br />
-<!-- 		 <div class="row text-right" style="float: right;"> -->
-=======
-			 <div class="row text-right" style="float: right;">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-		 
-<%-- 		<%if(session.getAttribute("EMAIL") != null) { %>  --%>
-<!-- 		 <form action="write.do" method="post"> -->
-<!-- 				<button type="submit" class="btn" style="font-family: Goyang "><img src="https://image.flaticon.com/icons/svg/1159/1159633.svg" width="25px" height="25px"/> &nbsp;글쓰기</button> -->
-<!-- 		</form> -->
-<%-- 		<%} %> --%>
-		
-<!-- 			</div> -->
-			<br /> <br />
-				<ul class="pagination justify-content-center">
-				<table width="100%">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-			</table>  
-			</ul>
-		</div>
-	</div>
-	
+
 	<!-- Footer -->
 	<%@ include file="../general/simpleFooter.jsp"%>
 	
