@@ -299,6 +299,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           RECIPE <br />
       </p>
    </div> 
+
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
@@ -401,6 +402,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            </figure>
                         </div>   
                         <!-- 베스트게시물 e-->        --%>              
+
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->

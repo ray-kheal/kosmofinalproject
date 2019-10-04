@@ -39,8 +39,9 @@ public class StockDAO {
 		String query = " SELECT COUNT(*) FROM phj_board_stock  where place_code= " + place_code;
 
 		return template.queryForObject(query, Integer.class);
-		
 	}
+	
+	
 	
 	//레코드 페이지별로 가져오기
 	public ArrayList<StockDTO> list(Map<String, Object> map, int product_code) {

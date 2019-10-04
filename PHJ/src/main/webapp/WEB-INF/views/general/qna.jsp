@@ -109,13 +109,12 @@ nav {
 				</div>
 		
 		<div class="row text-right" style="float: right;">
-		 
-		<%if(session.getAttribute("EMAIL") != null) { %> 
-		 <form action="write.do" method="post">
-				<button type="submit"src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
-				 class="btn" style="margin:0 auto; font-family: Goyang ">
+		 <%if(session.getAttribute("EMAIL") != null) { %> 
+		
+				<button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
+				 class="btn" style="margin:0 auto; font-family: Goyang " onclick="location.href='write.do';">
 					글쓰기</button>
-		</form>
+
 		<%} %>
 		
 			</div>
