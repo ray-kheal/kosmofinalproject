@@ -42,34 +42,34 @@ public class ProductListCommand implements PHJCommandImpl {
 			paramMap.put("searchWord", searchWord);
 		}
 				
-	   //가격검색기능 구현
-      String priceQueryString ="";
-      
-      String priceRange = req.getParameter("priceRange");
-      
-      if(priceRange !=null ) {
-         priceQueryString = String.format("priceRange=%s&",priceRange );
-         paramMap.put("priceRange", priceRange);
-      }
-				
-		int totalRecordCount = dao.getTotalCount(paramMap);
+		//가격검색기능 구현
+		String priceQueryString ="";
 		
+		String priceRange = req.getParameter("priceRange");
+		
+		if(priceRange !=null ) {
+			priceQueryString = String.format("priceRange=%s&", priceRange );
+			paramMap.put("priceRange", priceRange);
+		}
 		int pageSize = 9;
 		int blockPage = 5;
+		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
+		int start = (nowPage -1 )* pageSize +1;
+		int end = nowPage * pageSize;
+		paramMap.put("start", start);
+		paramMap.put("end", end);		
+		int totalRecordCount = dao.getTotalCount(paramMap);
+		
 		
 		//전체 페이지수 계산하기
 		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
 				
 		//시작 및 끝 rownum 구하기
-		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
-				
+		
 		//게시물 select 시 구간으로 사용할 변수를 계산
-		int start = (nowPage -1 )* pageSize +1;
-		int end = nowPage * pageSize;
 		
-		paramMap.put("start", start);
-		paramMap.put("end", end);		
 		
+
 		//출력할 리스트 가져오기
 		ArrayList<ProductDTO> viewRow = dao.list(paramMap);
 		

@@ -28,7 +28,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import command.PHJCommandImpl;
 import command.board.EditActionCommand;
 import command.board.QnAViewCommand;
-
+import command.board.RecipeCommentActionCommand;
+import command.board.RecipeCommentCommand;
 import command.board.RecipeEditFileActionCommand;
 import command.board.RecipeListViewCommand;
 import command.board.RecommendCommand;
@@ -209,7 +210,7 @@ public class boardController {
 		
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
-	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto) {
+	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto, HttpSession session) {
 
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageUpload");
 				
@@ -263,7 +264,9 @@ public class boardController {
 				mfile.transferTo(serverFullName);
 				
 				dto.setThumbnail(saveFileName);
-				
+				model.addAttribute("session",session);
+				String email = session.getAttribute("EMAIL").toString();
+				model.addAttribute("email",email);
 				command = new RecipeEditFileActionCommand();
 				command.execute(model);
 				
@@ -309,6 +312,31 @@ public class boardController {
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:recipe.do";
 	}
+
+	
+	//레시피 댓글 리스트
+	@RequestMapping("recipe_comment.do")
+	public String recipe_comment(Model model, HttpServletRequest req) {
+		System.out.println("들어왔니?");
+		model.addAttribute("req", req);
+		command = new RecipeCommentCommand();
+		command.execute(model);
+		
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		return "redirect:recipe.do";
+	}
+	//레시피 댓글 작성 
+	@RequestMapping("recipe_commentAction.do")
+	public String recipe_commentAction(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		command = new RecipeCommentActionCommand();
+		command.execute(model);
+		
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		return "general/recipe_view";
+	}
+	
+	
 
 }
 

@@ -134,7 +134,7 @@ nav {
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left"><a
 											href="./view.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
+												&nowPage=${nowPage}">${row.title}</a>
 										</td>
 										<td class="text-center">관리자</td>
 										<td class="text-center">${row.view_count }</td>

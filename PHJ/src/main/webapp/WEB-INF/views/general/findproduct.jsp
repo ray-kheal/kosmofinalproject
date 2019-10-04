@@ -182,10 +182,9 @@ to {
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
       &nbsp; <br /> <br /> -->
    
-<div class="album py-5 ">
  
   
-<div class="album py-5 bg-light">
+<div class="album py-5 ">
  <div
          style="width: 100%; height: 200px; text-align: center;  display: table;">
          <p
@@ -195,7 +194,6 @@ to {
             <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
          </p>
       </div>
-   <div style="width: 100%; text-align: center;">
    <div style="width: 100%; text-align: center;">
       <br /> <br />
 
@@ -243,9 +241,11 @@ to {
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
       &nbsp; <br /> <br />
    
+<<<<<<< HEAD
 <div class="album py-5 ">
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
+<div class="album py-5 ">
       <div class="container" style="color: black;">
          
       <!-- 가격검색기능 -->
@@ -282,6 +282,7 @@ to {
         <button class="btn btn-dark" style=" font-size: 0.7em;"><i class="fas fa-search"></i></button>
         </div>
       </form> 
+
        <br />    
 <!-- =======
 <<<<<<< HEAD
@@ -357,6 +358,44 @@ to {
        <br />    
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
+       <br />  
+       
+         
+<!-- 
+
+      
+      가격검색기능
+      <form class="form-inline" style="border-top: 3px solid #448ad6;  border-bottom: 1px solid #c1c1c1; font-family: Goyang;">    
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
+         <ul style=" list-style:none; float: left; "> 
+            <li style="float: left;"> 
+               <label for="prs_01">가격대 검색</label>
+            </li>
+            <li style="float: left;" >
+               <input style="float: left; margin-top: 8px;" type="radio" name="priceRange" value="&lt;1500" >
+               <label style="float: left;"for="prs_01">&nbsp;1500원 미만</label>
+            </li> 
+            <li style="float: left; " >
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="1500to5000" >
+               <label style="float: left;"for="prs_02">&nbsp;1500원~5000원</label>
+            </li>
+            <li style="float: left;" >  
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="&gt;5000" >
+               <label style="float: left;"for="prs_03">&nbsp;5000원 이상</label>
+            </li>
+            <li style="float: left;">
+               <button class="btn btn-dark" style="font-size: 0.7em;"><i class="fas fa-search"></i></button>
+            </li>  
+         </ul>  
+      </div>
+      </form> 
+          
+         
+      <br />    
+      
+
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       
       <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
@@ -376,7 +415,7 @@ to {
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
                            <div>
                            <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-                                 href="./product_view.do?product_code=${row.product_code}&product_name=${row.product_name}&product_imagename=${row.product_imagename }&nowPage=${nowPage}">${row.product_name}</a>
+                                 href="./product_view.do?product_code=${row.product_code}&name=${row.product_name}&price=${row.product_price }&nowPage=${nowPage}">${row.product_name}</a>
                                                            
                             
                            <p style="text-align: center; color: grey; font-size: 0.9em;  ">${row.product_value}</p>
