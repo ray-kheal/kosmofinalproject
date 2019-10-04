@@ -265,8 +265,17 @@ function textLengthOverCut(txt, len, lastTxt) {
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> --> 
       <div id="scroll"   
          style=" position: fixed; right: 50%; top: 230px; margin-right: -800px; text-align: center; width: 180px;"> 
-  
-
+  		<img src="images/scollMenuLogin.png" style="width: 90%" usemap="#Map"  />
+  		<map name="Map" id="Map">
+  			<area shape="rect" coords="1604,243,1707,288" href="#" alt="" />
+  			<area shape="rect" coords="1608,307,1717,355" href="#search" alt="" />
+  			<area shape="rect" coords="1607,373,1717,429" href="#reci" alt="" />
+  			<area shape="rect" coords="1607,440,1717,495" href="#notify" alt="" />
+  			<area shape="rect" coords="1607,563,1717,563" href="login.do" alt="" />
+  		</map>
+  		
+		<!-- <img id="Image-Maps-Com-image-maps-2019-10-04-012619" src="images/scollMenuLogin.png" style="width: 90%;" border="0" width="844" height="1824" orgWidth="844" orgHeight="1824" usemap="#image-maps-2019-10-04-012619" alt="" /> -->
+		
          <!-- 이미지로 스크롤 메뉴 변경함 --> 
          <a href="#"> <img src="images/welcome_scoll.png" alt="welcome"  
             style="right: 30; top: 30;" /> 
@@ -375,7 +384,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
                      <div style="text-align: right;"> 
                      <a href="recipe.do"  style="margin-top: -50px;"> 
-                     <img src="images/moreView.png" alt="" style="width: 120px"/> 
+                     <img src="images/moreView.png" alt="" style="width: 90px"/> 
                      </a> 
                      </div> 
                         <!-- <div class="container">  -->

@@ -102,10 +102,8 @@ body {
    background-image: linear-gradient(90deg, rgba(0, 0, 0, .5) 50%,
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
-
    background-size: 50px 50px;
 
-}
 </style>
 
 
@@ -293,13 +291,18 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <%@ include file="MainHeader.jsp"%>
 
    <div id= "nore"
-      style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/fork2.png);">
+      style="width: 100%; height: 200px; text-align: center;  display: table;">
       <br /> <br /> <br />
       <p
-         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-          RECIPE <br />
+         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold; color: black;">
+         <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
+          RECIPE
+          <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
       </p>
    </div> 
+
+   
+   
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
@@ -319,19 +322,24 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                 
 
                </form>
-            <!--    <hr class="mt-2 mb-2">   -->
-               <div class="row text-right" style="float: right;">
+               <hr class="mt-2 mb-2">  
+               <br />
+               <div class="row text-right">
                <%if(session.getAttribute("EMAIL") != null) { %> 
+
                   
                <button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
 				 class="btn" style="font-family: Goyang " onclick="location.href='recipe_edit.do';">글쓰기</button>
                    
+
                   <%} %>
                </div>
-             
+
          <br />
+
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-                <div style="border: 2px solid gold; width: " >
+       
+                <div style="border: 2px solid gold;" >
                  <div class=" text-center"  style="text-align: center; "> 
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
                   <c:choose>  
@@ -347,7 +355,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               
                               <figure class="recipePhoto " style="width:100px; height:200px; border: 1px solid white; border-radius: 0px;">
                                  <img class="img-fluid img-thumbnail " style=" height:100%; width:100%;  border-radius: 0px;"
-                                    src="./resources/imageUpload/${row.thumbnail }"
+                                    src="./resources/CSProduct/${row.thumbnail }"
                                     alt="">
                                     <img src="images/best.png" alt="" style="width: 50px; margin-top: 60px; z-index: 50px;"/>  
                                  <figcaption>  
@@ -389,23 +397,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
                   <c:choose>
                      <c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
-                       <%--  <!-- 베스트게시물 s-->
-                        <div class="col-lg-3 col-md-4 col-6 effect ">
-                           <input type="hidden" value="${row.thumbnail }"/>
-                           <figure class="recipePhoto" style="width:100px; height:200px;">
-                              <img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
-                                 src="./resources/imageUpload/${row.thumbnail }"
-                                 alt="">
-                              <figcaption>
-                                 <h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
-                                 <p>${row.content }</p>
-                                 <i class="ion-ios-arrow-right"></i>
-                              </figcaption>
-                              <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
-                           </figure>
-                        </div>   
-                        <!-- 베스트게시물 e-->        --%>              
-
+                    
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->
@@ -422,7 +414,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               </figcaption>
                               <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
                            </figure>
-                        </div>  
+                        </div>
                         <!-- 일반게시물 e-->
                      </c:otherwise>
                   </c:choose>
