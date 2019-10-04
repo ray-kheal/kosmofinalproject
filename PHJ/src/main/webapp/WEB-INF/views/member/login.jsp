@@ -201,23 +201,21 @@ if(cookies!=null){
          <div class="" style="margin-top:30px; display:inline-block;" >
          
          <div id="" style="display:inline-block; width: 50%; float:left; " >
-<<<<<<< HEAD
-         	<img src="images/mainpic_login.jpg" alt="" style="width: 100%; height:636px;"/>
-=======
-            <img src="images/mainpic_login.jpg" alt="" style="width: 100%; height:636px;"/>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
+         	
+
          </div>
          
            <div id="" style="display:inline-block;  width: 50%;  float:left; font-family: Goyang;" >
                 
-               <div class="" style="display:inline-block; background:#f1f1f1;   padding : 35px 35px 35px 35px; " >
+               <div class="" style="display:inline-block; background:#f1f1f1; border-radius:10px;   padding : 35px 35px 35px 35px; " >
                   <form class="loginForm" action="loginAction.do">
                      <div class="form-group"> 
-                        <input type="text" class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
+                        <input type="text" style="font-family: Verdana; class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
                            required autofocus />
                      </div>
                      <div class="form-group">
-                        <input style="font-family: verdana; "type="password" class="form-control" name="pass" placeholder="암호"
+                        <input style="font-family: Verdana; "type="password" class="form-control" name="pass" placeholder="암호"
                            required />
                      </div>
                      <div class="idCheck custom-control custom-checkbox" style="color: white;">

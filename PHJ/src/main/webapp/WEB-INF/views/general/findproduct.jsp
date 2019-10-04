@@ -246,7 +246,7 @@ to {
          
       <!-- 가격검색기능 -->
       <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
-      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; text-align: center; ">가격대별 검색</div>
       <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
          <ul style=" list-style:none; float: left; "> 
             <li style="float: left;" >
@@ -266,7 +266,7 @@ to {
             </li>   -->
          </ul>  
       </div>
-       <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">상품명 검색</div>
+       <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey;text-align: center;  ">상품명 검색</div>
        <div class="container" style=" display:inline-block;width:35%; " >  
              
           <input type="hidden" class="form-control" name="searchColumn" value="product_name" />
