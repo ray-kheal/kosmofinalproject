@@ -194,7 +194,7 @@ body {
                   <c:forEach items="${sdto }" var="row" varStatus="loop">
                       <div>
                       <table >
-                       <colgroup>
+                       <colgroup> 
                         <col width="40%" />
                         <col width="*" />
                     </colgroup>
