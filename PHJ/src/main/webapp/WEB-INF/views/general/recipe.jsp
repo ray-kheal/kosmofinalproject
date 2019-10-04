@@ -102,10 +102,8 @@ body {
    background-image: linear-gradient(90deg, rgba(0, 0, 0, .5) 50%,
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
-
    background-size: 50px 50px;
 
-}
 </style>
 
 
@@ -293,13 +291,18 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <%@ include file="MainHeader.jsp"%>
 
    <div id= "nore"
-      style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/fork2.png);">
+      style="width: 100%; height: 200px; text-align: center;  display: table;">
       <br /> <br /> <br />
       <p
-         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-          RECIPE <br />
+         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold; color: black;">
+         <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
+          RECIPE
+          <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
       </p>
    </div> 
+
+   
+   
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
@@ -317,18 +320,28 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                   </button>
                   </div>
                </form>
-            <!--    <hr class="mt-2 mb-2">   -->
-               <div class="row text-right" style="float: right;">
+               <hr class="mt-2 mb-2">  
+               <br />
+               <div class="row text-right">
                <%if(session.getAttribute("EMAIL") != null) { %> 
-                  
-               <button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
-				 class="btn" style="margin:0 auto; font-family: Goyang " onclick="location.href='recipe_edit.do';">글쓰기</button>
-                   
+                   <form action="recipe_edit.do" method="post">
+               <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+                     </form>
                   <%} %>
                </div>
-         <br />
+         
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-                <div style="border: 2px solid gold; width: " >
+            <!--     <p style=" color:#4389cc; font-family:Arial ; font-weight: bold; font-size: 2em; ">BEST RECIPE</p> -->
+<!--                 <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;"> -->
+<!--             BEST RECIPE   -->
+<!--             </div>   -->
+<!--             <div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;"> -->
+<!--             BEST RECIPE   -->
+<!--             </div>     -->
+                <!-- <img src="" alt="베스트1" />
+                <img src="" alt="베스트2" />
+                <img src="" alt="베스트3" /> -->
+                <div style="border: 2px solid gold;" >
                  <div class=" text-center"  style="text-align: center; "> 
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
                   <c:choose>  
@@ -402,7 +415,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            </figure>
                         </div>   
                         <!-- 베스트게시물 e-->        --%>              
-
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->
@@ -419,7 +431,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               </figcaption>
                               <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
                            </figure>
-                        </div>  
+                        </div>
                         <!-- 일반게시물 e-->
                      </c:otherwise>
                   </c:choose>

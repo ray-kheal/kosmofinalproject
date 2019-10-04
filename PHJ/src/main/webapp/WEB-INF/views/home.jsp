@@ -258,16 +258,6 @@ function textLengthOverCut(txt, len, lastTxt) {
 }
 
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script>
-<script src="assets/js/jquery.min.js"></script> 
-<script>/* 반응형 imagemap */
-$(document).ready(function(e) {
-     $('img[usemap]').rwdImageMaps(); 
-});
-
-
-</script>
 <body class="is-preload homepage"> 
    <div id="page-wrapper" > 
   

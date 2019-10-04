@@ -147,7 +147,7 @@ body {
 			</table>   --%><!-- include처리 -->
 			    
 			<!-- </div> --> 
-			<%@ include file ="./recipe_comment.jsp" %>
+			<%-- <%@ include file ="./recipe_comment.jsp" %> --%>
 		<br /> <br />
 						
 		<div class="row text-right" style="float: right;">

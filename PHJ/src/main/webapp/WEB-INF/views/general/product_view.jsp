@@ -47,7 +47,7 @@ body {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-<<<<<<< HEAD
+
 <div
          style="width: 100%; height: 200px; text-align: center;  display: table;">
          <p
@@ -58,19 +58,6 @@ body {
          </p>
       </div>
    <%-- <div style="width: 100%; text-align: center;">
-=======
-
-		<div
-			style="width: 100%; height: 200px; text-align: center;  display: table;">
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-				
-						편의점 정보가 여기에!
-						
-				<img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
-			</p>
-		</div>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 
 		<input type="hidden" name="product_code" value="${product_code }" />
 		<input type="hidden" name="place_code" value="${place_code }" />
@@ -132,7 +119,6 @@ body {
 	</div> --%>   
    <%
    String  product_name = request.getParameter("name");
-   String  product_imagename = request.getParameter("imagename");
    String  product_price = request.getParameter("price");
    %> 
 		<div class="container">
