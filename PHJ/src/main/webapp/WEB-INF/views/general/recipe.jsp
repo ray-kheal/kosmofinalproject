@@ -417,7 +417,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               </figcaption>
                               <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
                            </figure>
-                        </div>
+                        </div>  
                         <!-- 일반게시물 e-->
                      </c:otherwise>
                   </c:choose>
