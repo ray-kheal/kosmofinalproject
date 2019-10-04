@@ -26,7 +26,7 @@
 <style type="text/css">
 	
 	#content {
-		background-image: url("images/bgimg.jpg");
+		background-color:#b3fcf1;
 		margin: 0 auto;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -104,7 +104,7 @@
 				<div class="findPop find" id="findPop find form" >
 					<div class="findPop find" id="findPop find form" >
 							
-						<h3 id="Maintitle">비밀번호를 변경합니다.</h3>
+						<h3 id="Maintitle" style="color:black;">비밀번호를 변경합니다.</h3>
 	 				
 						<div class="findPop" id="findPop IDfind">
 				
@@ -117,7 +117,7 @@
 										</colgroup>
 										<tbody>
 											<tr>
-												<th scope="row"><label for="name">변경할<br /> 비밀번호</label></th>
+												<th scope="row"><label for="name" style="color:black;">변경할<br /> 비밀번호</label></th>
 												<td>
 													<div class="formbox">
 														<%
@@ -133,7 +133,7 @@
 												</td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="name">비밀번호<br /> 확인</label></th>
+												<th scope="row"><label for="name" style="color:black;">비밀번호<br /> 확인</label></th>
 												<td>
 													<div class="formbox">
 														<input type="password" id="pass2" class="text" name="pass2" value="">

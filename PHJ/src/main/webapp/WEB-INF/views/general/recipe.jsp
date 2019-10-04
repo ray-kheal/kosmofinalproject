@@ -451,7 +451,11 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <div class="col-lg-3 col-md-4 col-6 ">
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
+<<<<<<< HEAD
                               <img class="img-fluid img-thumbnail"  style="height:100%; width:100%;"
+=======
+                              <img class="img-fluid img-thumbnail" style="height:100%; width:100%;"
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">
                               <figcaption>

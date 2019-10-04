@@ -137,7 +137,7 @@ body {
 						<!-- </tr> -->
 						<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
-						<td><input type="file" name="fileUpload" /></td>
+						<td><input type="file" name="fileUpload" accept="images/*" /></td>
 					</tr> 
 						<tr>
 							<th bgcolor="#f2efef"

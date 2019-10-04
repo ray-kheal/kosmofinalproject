@@ -12559,10 +12559,15 @@ dl {
     line-height: 1;
     white-space: nowrap; }
     .table th img,
+<<<<<<< HEAD
+    .table td img {
+      max-width:150px; }
+=======
      .table td img {
       max-width: 150px;
       
        } 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
     .table th .badge,
     .table td .badge {
       margin-bottom: 0; }
@@ -13383,16 +13388,16 @@ dl {
 	}
 	@-webkit-keyframes blink{
     	0% {opacity:0;}
-    :;00% {opacity:1;}
+    ;00% {opacity:1;}
 	}
 	@-moz-keyframes blink{
     	0% {opacity:0;}
-    :;00% {opacity:1;}
+    ;00% {opacity:1;}
 	}
 	@keyframes blink{
     	0% {opacity:0;}
-    :;00% {opacity:1;}
-}
+    ;00% {opacity:1;}
+  }
   
 
 /*# sourceMappingURL=style.css.map */
