@@ -286,16 +286,16 @@ public class MemberDAO {
 	
 	//관심상품 등록
 	public int productBookmark(final String email, final String productCode) {
-		String query = " UPDATE phj_member SET products_bookmark= products_bookmark + ? WHERE email = ?";
+		String query = " UPDATE phj_member SET products_bookmark= ? WHERE email = ?";
 		int result = 0;
-		
+		System.out.println("들어옴");
 		result = template.update(query,new PreparedStatementSetter() {
 			
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
 				ps.setString(1, productCode);
 				ps.setString(2, email);
-				
+				System.out.println("productCode : "+productCode);
 			}
 		});
 		return result;

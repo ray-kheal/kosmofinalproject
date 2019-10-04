@@ -161,9 +161,9 @@ public class recipeDAO {
 	}
 	public void updateRecommend(final String idx) {
 		String sql = "update PHJ_BOARD_RECIPE set BTNRECOMMEND = BTNRECOMMEND+1 where idx=?";
-		System.out.println("들어왔니2");
-		template.update(sql, new PreparedStatementSetter() {
-			
+		System.out.println("들어왔니2 : " + idx);
+		
+		template.update(sql, new PreparedStatementSetter() {			
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, Integer.parseInt(idx));

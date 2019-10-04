@@ -367,7 +367,7 @@ to {
                </c:when>             
                <c:otherwise>      
                   <c:forEach items="${viewRow }" var="row" varStatus="loop">
-                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 20px; height: auto;">
+                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 30px; height: auto;">
                         <!-- 리스트반복시작 -->  
                         <img style="text-align: center;"  
                            src="./resources/CSProduct/${row.product_imagename }"
@@ -376,58 +376,50 @@ to {
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
                            <div>
                            <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-                           		href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}">${row.product_name}</a>
-                           		                          
+                                 href="./product_view.do?product_code=${row.product_code}&product_name=${row.product_name}&product_imagename=${row.product_imagename }&nowPage=${nowPage}">${row.product_name}</a>
+                                                           
                             
                            <p style="text-align: center; color: grey; font-size: 0.9em;  ">${row.product_value}</p>
                            
                            <p  style="margin-top: -15px; font-size: 0.9em;"><img src="images/coin2.png" width="20px" height="20px " />  ${row.product_price} 
                            </p>
-                           	
-                           		 <input type="hidden" name="productCode" value="${row.product_code }" />
-<!--                            		<a><img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-256.png" width="20px" height="20px"> -->
-<!--                            		<button type="submit" class="btn" style="font-family: Goyang">관심상품!</button></a> -->
-                              <%-- <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}" style="color:black;"><i class="fas fa-heart" ></i></a> --%>
-                              <%
                               
-                              String email = (String)session.getAttribute("EMAIL");
-                              %>
-                              <c:if test="${not empty sessionScope.EMAIL  }">
-                              	<c:choose>  
-                              	<c:when test="${not empty sessionScope.PLACE_BOOKMARK }">
-                              	<%
-                              	String[] product_bookmark;
-                              	product_bookmark = session.getAttribute("PRODUCTS_BOOKMARK").toString().split(",");
-                              	%>
-                              	
-                              <c:set var="productBookmark" value="<%=product_bookmark %>" />
-                              	<c:forEach items="${productBookmark }" var="pb"> 
-                              	   <c:choose>      
-                              		<c:when test="${row.product_code eq pb}">
-	                           	 	 <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-		                             	href="deleteBookmarkProduct.do">
-		                             	<img src="./images/price_star_in.png" width="18px" />이 관심상품을 해제하기
-		                           	 </a>
-	                           	 	</c:when>
-	                           	 	 <c:otherwise>
-		                             <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-		                             	href="bookmarkProduct.do?product_code=${row.product_code}">
-		                             	<img src="./images/price_star_out.png" width="18px" />관심상품으로 등록하기
-	                           	 	 </a>
-                        	  </c:otherwise>
-                        	  </c:choose>  
-                           	 	
-                           	 </c:forEach> 
+                                  
+<!--                                  <a><img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-256.png" width="20px" height="20px"> -->
+<!--                                  <button type="submit" class="btn" style="font-family: Goyang">관심상품!</button></a> -->
+                              <%-- <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}" style="color:black;"><i class="fas fa-heart" ></i></a> --%>
+                              
+                   	<c:if test="${not empty sessionScope.EMAIL }">
+                      	<%
+                      	String product_bookmark = (String)session.getAttribute("PRODUCTS_BOOKMARK");              	
+                      	%>
+                           	<c:set var="productBookmark" value="<%=product_bookmark %>" />
+	                  		<c:choose>  
+               					<c:when test="${not empty productBookmark }">
+                         	   		<c:choose>      
+	                              		<c:when test="${row.product_code eq productBookmark}">
+			                           	 	 <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+				                             	href="deleteBookmarkProduct.do?product_bookmark=${productBookmark }">
+				                             	<img src="./images/price_star_in.png" width="18px" />관심상품 해제
+				                           	 </a>
+		                           	 	</c:when>
+		                           	 	 <c:otherwise>
+				                             <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+				                             	href="bookmarkProduct.do?product_code=${row.product_code}">
+				                             	<img src="./images/price_star_out.png" width="18px" />관심상품 등록
+			                           	 	 </a>
+	                        	  		</c:otherwise>
+                       	  			</c:choose>   
                            	 </c:when>
-                           	 <c:otherwise>
-		                             <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-		                             	href="bookmarkProduct.do?product_code=${row.product_code}">
-		                             	<img src="./images/price_star_out.png" width="18px" />관심상품으로 등록하기
-	                           	 	 </a>
-                        	  </c:otherwise>
-                        	 </c:choose>
-                           	 	
-                          	</c:if>
+                           	 
+                      		 <c:otherwise>
+	                           <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+	                           	href="bookmarkProduct.do?product_code=${row.product_code}">
+	                           		<img src="./images/price_star_out.png" width="18px" />관심상품 등록
+                       	 	 	</a>
+                       	  	</c:otherwise>
+                     	 </c:choose>    	
+                   	</c:if>
                            </div>
                            <%-- <small   class="text-muted">
                             <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small> --%>
@@ -468,4 +460,4 @@ to {
 
       </div>
 </body>
-</html>  
+</html>   

@@ -67,6 +67,7 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
+
 }
 
 /* 뱃지2 */
@@ -102,7 +103,7 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
-}
+
 </style>
 
 
@@ -290,14 +291,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    <%@ include file="MainHeader.jsp"%>
 
    <div id= "nore"
-      style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/fork2.png);">
+      style="width: 100%; height: 200px; text-align: center;  display: table;">
       <br /> <br /> <br />
       <p
-         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold;">
-          RECIPE <br />
+         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold; color: black;">
+         <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
+          RECIPE
+          <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
       </p>
    </div> 
-   
+
    
    
       <!-- Page Content --> 
@@ -329,15 +332,16 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
             <!--     <p style=" color:#4389cc; font-family:Arial ; font-weight: bold; font-size: 2em; ">BEST RECIPE</p> -->
-                <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;">
-            BEST RECIPE  
-            </div>  
-            <div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;">
-            BEST RECIPE  
-            </div>    
+<!--                 <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;"> -->
+<!--             BEST RECIPE   -->
+<!--             </div>   -->
+<!--             <div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;"> -->
+<!--             BEST RECIPE   -->
+<!--             </div>     -->
                 <!-- <img src="" alt="베스트1" />
                 <img src="" alt="베스트2" />
                 <img src="" alt="베스트3" /> -->
+                <div style="border: 2px solid gold;" >
                  <div class=" text-center"  style="text-align: center; "> 
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
                   <c:choose>  
@@ -373,6 +377,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:when>
                         </c:choose>  
                         </c:forEach> 
+                        </div>
+                           <div style="  color: #444444 ; font-size: 4em; font-weight: 650; height: 100px; position: relative; z-index: 2;">
+            BEST RECIPE 
+            </div>  
+            <div style=" color: #4398D1; font-size: 4em; font-weight: 650; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;">
+            BEST RECIPE  
+            </div>  
                         </div>
                           
                 </div>
@@ -410,7 +421,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <div class="col-lg-3 col-md-4 col-6 ">
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
-                              <img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+                              <img class="img-fluid img-thumbnail" style="height:100%; width:100%;"
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">
                               <figcaption>

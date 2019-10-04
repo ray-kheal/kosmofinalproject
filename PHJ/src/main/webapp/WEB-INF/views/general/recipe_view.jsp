@@ -110,7 +110,9 @@ body {
 					<col width="80px" />
 					<col width="120px" />
 					<col width="80px" />
-					<col width="*" />
+					<col width="80px" />
+					<col width="80px" />
+					<col width="80px" />
 				</colgroup>
 				<tr>
 					<th
@@ -118,9 +120,11 @@ body {
 					<td>${viewRow.postdate}</td>
 					<th style="text-align: center;">조회수</th>
 					<td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
+					<th style="text-align: center;">추천수</th>
+					<td style="border: 1px solid #EDEAEA;">${viewRow.BTNRECOMMEND}</td>
 				</tr>
 				<tr>
-					<td colspan="4"
+					<td colspan="6"
 						style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
 					</td>
 				</tr>
@@ -145,6 +149,7 @@ body {
 				<button type="button" class="btn"
 					onclick="location.href='./recipe.do';" style="font-family: 'Goyang'; font-size: 30px;">
 						<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
+
 			</div>
 		</div>
 

@@ -488,7 +488,7 @@ public class MemberController {
 		
 		PrintWriter out = resp.getWriter();	
 		resp.setContentType("text/html; charset=utf-8");
-		out.print("<script>alert('관심상품을 등록하였습니다!.');</script>");
+		out.print("<script>alert('관심상품을 등록하였습니다!(한개만 선택 가능합니다.)');</script>");
 		out.print("<script>history.back;</script>");
 		out.print("<script>location.href=document.referrer;</script>");
 		out.flush();

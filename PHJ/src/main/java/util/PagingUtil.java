@@ -42,6 +42,7 @@ public class PagingUtil
 		4.페이지를 뿌려주는 로직 : blockPage의 수만큼 또는
 			마지막페이지가 될때까지 페이지를 출력한다.
 		*/
+		
 		while(blockCount<=blockPage && intTemp<=totalPage)
 		{
 			if(intTemp==nowPage) {
@@ -55,9 +56,7 @@ public class PagingUtil
 			intTemp++;
 			blockCount++;
 		}
-//		/PHJ/src/main/webapp/resources/images
-//		
-//		/PHJ/src/main/java/util
+		
 		//5.다음페이지블럭 & 마지막페이지 바로가기
 		if(intTemp <= totalPage) {
 			pagingStr += "<a href='"+page+"nowPage="+

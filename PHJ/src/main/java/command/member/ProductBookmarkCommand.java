@@ -20,16 +20,13 @@ public class ProductBookmarkCommand implements PHJCommandImpl{
 		HttpSession session = (HttpSession)map.get("session");
 		
 		String email = session.getAttribute("EMAIL").toString();
-		String productCode = "";
-		String[] productCode_arr = req.getParameterValues("product_code");
-		for(String s : productCode_arr){
-			productCode += "," + s;
-		}
+		String productCode = req.getParameter("product_code");
+		System.out.println("productCode값 : "+productCode);
 		
 		MemberDAO dao = new MemberDAO();
 		int result = dao.productBookmark(email, productCode);
 		session.setAttribute("PRODUCTS_BOOKMARK", productCode);
-		
+		model.addAttribute("productCode", productCode);
 		model.addAttribute("result",result);
 		
 	}

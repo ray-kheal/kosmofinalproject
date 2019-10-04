@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.kosmo.phj.JdbcTemplateConst;
 
 import model.board.serviceDTO;
+import model.member.MemberDTO;
 
 
 public class ProductDAO {
@@ -96,20 +97,37 @@ public class ProductDAO {
 	}
 		
 		
-		//상품 삭제하기
-		public void delete(final String product_code) {
+	//상품 삭제하기
+	public void delete(final String product_code) {
 
-			System.out.println("delete할 product_code:"+product_code);
-			String sql = "DELETE FROM PHJ_PRODUCT WHERE product_code=? ";
-			 template.update(sql, new PreparedStatementSetter() {
-				
-				@Override
-				public void setValues(PreparedStatement ps) throws SQLException {
-				
-					ps.setString(1, product_code);
-				}
-			});
+		System.out.println("delete할 product_code:"+product_code);
+		String sql = "DELETE FROM PHJ_PRODUCT WHERE product_code=? ";
+		 template.update(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+			
+				ps.setString(1, product_code);
+			}
+		});
 		
+	}
+	
+	//상품이름 불러오기
+	public ProductDTO searchProduct(String productCode) {
+		ProductDTO dto;
+		
+		String sql = "SELECT product_name FROM phj_product WHERE product_code ="+productCode;
+		
+		try {
+			dto = template.queryForObject(sql, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("상품명 가져오기 실행시 예외발생.");
+			dto = new ProductDTO();
+		}
+		return dto;
 	}
 		
 }
