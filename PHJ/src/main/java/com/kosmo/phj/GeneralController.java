@@ -127,7 +127,7 @@ public class GeneralController {
    //페이스북
    @RequestMapping("facebook.do")
    public String facebook(Model model) {   
-	   return "general/facebook";
+	   return "sns_page/facebook";
    }
    
    //1:1 문의하기 메일 메소드

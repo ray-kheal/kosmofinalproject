@@ -60,18 +60,14 @@ nav {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-		<div id ="nore"
-			style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/event.png);">
+	<div
+			style="width: 100%; height: 200px; text-align: center; 	 display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-				
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: black; font-weight: bold;">
+				 
 						공지사항
 				<img src="https://image.flaticon.com/icons/svg/1189/1189734.svg" width="80px" height="80px" /> 
 			</p>
-		</div>
-		<div style="width: 100%; text-align: center;">
-			<br /> <br />
-
 		</div>
 
 		<div class="container">

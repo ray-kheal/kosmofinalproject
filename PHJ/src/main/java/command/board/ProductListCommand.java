@@ -48,30 +48,31 @@ public class ProductListCommand implements PHJCommandImpl {
 		String priceRange = req.getParameter("priceRange");
 		
 		if(priceRange !=null ) {
-			priceQueryString = String.format("priceRange=%s&",priceRange );
+			priceQueryString = String.format("priceRange=%s&", priceRange );
 			paramMap.put("priceRange", priceRange);
 		}
-		
+		int pageSize = 12;
+		int blockPage = 5;
+		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
+		int start = (nowPage -1 )* pageSize +1;
+		int end = nowPage * pageSize;
+		paramMap.put("start", start);
+		paramMap.put("end", end);		
 		
 		
 		int totalRecordCount = dao.getTotalCount(paramMap);
 		
-		int pageSize = 10;
-		int blockPage = 5;
+		
 		
 		//전체 페이지수 계산하기
 		int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
 				
 		//시작 및 끝 rownum 구하기
-		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
-				
+		
 		//게시물 select 시 구간으로 사용할 변수를 계산
-		int start = (nowPage -1 )* pageSize +1;
-		int end = nowPage * pageSize;
 		
-		paramMap.put("start", start);
-		paramMap.put("end", end);		
 		
+
 		//출력할 리스트 가져오기
 		ArrayList<ProductDTO> viewRow = dao.list(paramMap);
 		
@@ -88,7 +89,7 @@ public class ProductListCommand implements PHJCommandImpl {
 			
 		}
 
-		String pagingImg = util.PagingUtil.pagingImg(totalRecordCount,pageSize,blockPage, nowPage,
+		String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString+priceQueryString);
 
 		model.addAttribute("pagingImg",pagingImg);

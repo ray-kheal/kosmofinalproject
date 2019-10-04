@@ -38,6 +38,17 @@ nav {
 	background-repeat:no-repeat;
 	
 }
+
+/* 	.container { */
+/*  		background-image: url("images/backimg1.png");  */
+/* 		margin: 0 auto; */
+/* 		text-align: center; */
+/* 		background-repeat: no-repeat; */
+/* 		background-position: 50% 50%; */
+/* 		background-attachment: fixed; */
+/* 		background-size: cover; */
+/* 		height: 700px; */
+/* 	} */
 </style>
 <script>
 	$(function() {
@@ -60,7 +71,7 @@ nav {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div id="nore"
-			style="width: 100%; height: 200px; text-align: center;  display: table; background-image:url(images/gomin.jpeg);">
+			style="width: 100%; height: 200px; text-align: center;  display: table; ">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
@@ -89,13 +100,24 @@ nav {
 
 					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
-
+&nbsp;&nbsp;
 					<div class="input-group-btn">
 						<button type="submit" class="btn">
 							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
+		 &nbsp; &nbsp;&nbsp;
+		<div class="row text-right" style="float: right;">
+		 <%if(session.getAttribute("EMAIL") != null) { %> 
+		
+				<button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
+				 class="btn" style="margin:0 auto; font-family: Goyang " onclick="location.href='write.do';">
+					글쓰기</button>
+
+		<%} %>
+		
+			</div>
 			</form>
 			<!-- 검색기능 끝 -->
 
@@ -112,10 +134,10 @@ nav {
 						<col width="*" />
 						<col width="120px" />
 						<col width="120px" />
-						<col width="80px" />
+						<col width="120px" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: white;">
+						<tr class="table-primary" style="color: black;">
 							<th style="text-align: center; font-family: Goyang">번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>
@@ -155,28 +177,7 @@ nav {
 					</tbody>
 				</table>
 			</div>
-			 <div class="row text-right" style="float: right;">
-		 
-		<%if(session.getAttribute("EMAIL") != null) { %> 
-		 <form action="write.do" method="post">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-		</form>
-		<%} %>
-		
-			</div>
-			<br /> <br />
-				<ul class="pagination justify-content-center">
-				<table width="100%">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-			</table>  
-			</ul>
-		</div>
-	</div>
-	
+
 	<!-- Footer -->
 	<%@ include file="../general/simpleFooter.jsp"%>
 	

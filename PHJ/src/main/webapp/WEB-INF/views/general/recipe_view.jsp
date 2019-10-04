@@ -27,7 +27,7 @@ body {
 }
 </style>
 <script>
-	$(function() {
+	$(function() { 
 		$("#recipe").attr("class", "current");
 	});
 	
@@ -59,25 +59,30 @@ body {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-	
-	<div
-		style="width: 100%; height: 200px; text-align: center;  display: table;">
-		<br /> <br /> <br />
-		<p
+
+		<div
+			style="width: 100%; height: 200px; text-align: center;display: table;">
+			<p
 			style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-			<img src="images/fork_round.png" alt="포크"
-				style="width: 50px; height: 50px;" /> RECIPE <br />
+					RECIPE
+				<img src="https://image.flaticon.com/icons/svg/1411/1411258.svg" width="80px" height="80px" /> 
 		</p>
-	</div>
+		</div>
+
 
 		<div class="container">
 			<br />
 			<br />
 
 			<div class="row text-right" style="float: right;">
+<<<<<<< HEAD
 				<h5 style="color: #4c4c4c; font-weight: bold; padding-right: 20px;">
 					<i class="fas fa-utensils"></i>&nbsp; 레시피자랑 
 				</h5>
+=======
+				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' ">
+					<i class="far fa-smile-wink"></i>&nbsp;레시피</h5>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 			</div>
 			<input type="hidden" name="idx" value="${viewRow.idx }" />
 			<input type="hidden" name="nowPage" value="${nowPage }" />
@@ -111,7 +116,9 @@ body {
 					<col width="80px" />
 					<col width="120px" />
 					<col width="80px" />
-					<col width="*" />
+					<col width="80px" />
+					<col width="80px" />
+					<col width="80px" />
 				</colgroup>
 				<tr>
 					<th
@@ -119,9 +126,11 @@ body {
 					<td>${viewRow.postdate}</td>
 					<th style="text-align: center;">조회수</th>
 					<td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
+					<th style="text-align: center;">추천수</th>
+					<td style="border: 1px solid #EDEAEA;">${viewRow.BTNRECOMMEND}</td>
 				</tr>
 				<tr>
-					<td colspan="4"
+					<td colspan="6"
 						style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
 					</td>
 				</tr>
@@ -199,26 +208,28 @@ body {
 			
 			<!-- </div> -->
 			<br /> <br />
-		
-			
-			
-			<input type="hidden" name="email" value="${viewRow.email}" />
-			<button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
-	 		<c:choose>
-				<c:when test="${EMAIL eq viewRow.email}">
-			<button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">수정하기</button>
-			<button type="button"class="btn" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';"  style="font-family: Goyang">삭제하기</button> 
-				</c:when>
-				<c:otherwise>
-					
-				</c:otherwise>
-			</c:choose> 
-			
-				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./recipe.do';">리스트</button> 
-			
-		</div>
+
+		 <input type="hidden" name="email" value="${viewRow.email}" />
+       
+         <c:choose>
+            <c:when test="${EMAIL eq viewRow.email}">
+            <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
+       		<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+            </c:when>
+            <c:otherwise>
+               
+            </c:otherwise>
+         </c:choose>
+			<button type = "button" class="btn" id ="recommendBtn" onclick = "isRecommend();" style="font-family: 'Goyang';" >
+			<img src="https://image.flaticon.com/icons/svg/470/470289.svg" width="40px" height="40px"/>	 추천하기</button>
+			<div class="row text-right" style="float: right;">
+				<button type="button" class="btn"
+					onclick="location.href='./recipe.do';" style="font-family: 'Goyang'; font-size: 30px;">
+						<img src="https://image.flaticon.com/icons/svg/1086/1086563.svg" width="30px" height="30px"/>리스트</button>
+
 			</div>
+		</div>
+
 		<!-- Footer -->
 		<%@ include file="../general/simpleFooter.jsp"%>
 		<!-- Scripts -->

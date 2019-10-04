@@ -201,7 +201,11 @@ if(cookies!=null){
          <div class="" style="margin-top:30px; display:inline-block;" >
          
          <div id="" style="display:inline-block; width: 50%; float:left; " >
+<<<<<<< HEAD
          	<img src="images/mainpic_login.jpg" alt="" style="width: 100%; height:636px;"/>
+=======
+            <img src="images/mainpic_login.jpg" alt="" style="width: 100%; height:636px;"/>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
          </div>
          
            <div id="" style="display:inline-block;  width: 50%;  float:left; font-family: Goyang;" >

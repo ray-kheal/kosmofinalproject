@@ -42,12 +42,7 @@
 			f.title.focus();
 			return false;
 		}
-		if (f.name.value == "") {
-			alert("이름을 입력하세요.");
-			f.name.focus();
-			return false;
-		}
-
+		
 		if (f.contents.value == "") {
 			alert("내용을 입력하세요");
 			f.content.focus();
@@ -92,6 +87,7 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 		<div
+
 		style="width: 100%; height: 200px; text-align: center;  display: table;">
 		<br /> <br /> <br />
 		<p
@@ -100,6 +96,7 @@ body {
 				style="width: 50px; height: 50px;" /> RECIPE <br />
 		</p>
 	</div>
+
 		<div class="container">
 			<br />
 			<br />
@@ -130,10 +127,13 @@ body {
 								style="border: none;" />
 							</td>
 						</tr>
-						<!-- <tr>
+
+						<tr>
 							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-							<td bgcolor="white"> -->
-						<input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td>
+							<td bgcolor="white"><input type="text" class="form-control"
+								name="name" style="border: none;" value="<%=session.getAttribute("NAME") %>" readonly/></td>
+						</tr>
+						<%-- <input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td> --%>
 						<!-- </tr> -->
 						<tr>
 						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>

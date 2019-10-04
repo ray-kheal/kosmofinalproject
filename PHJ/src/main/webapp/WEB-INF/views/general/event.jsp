@@ -59,7 +59,7 @@ nav {
 
 		<div id="nore"
 		
-			style="width: 100%; height: 200px; text-align: center; display: table; background-image:url(images/event.png);">
+			style="width: 100%; height: 200px; text-align: center; display: table;">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
 				<!-- <img src="images/memo_w.png" alt="메모"
@@ -84,7 +84,7 @@ nav {
 			<form class="form-inline">
 				<div class="form-group">
 					<select name="searchColumn" class="form-control" style="width: 100px;">
-						<option value="title">제목</option>
+						<option value="title" >제목</option>
 						<option value="content">내용</option>
 						<option value="postdate">게시일</option>
 					</select>
@@ -120,8 +120,8 @@ nav {
 						<col width="120px" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: white;">
-							<th style="text-align: center; font-family: Goyang">번호</th>
+						<tr class="table-primary" style="color: black;">
+							<th style="text-align: center; font-family: Goyang;" >번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>
 							<th style="text-align: center; font-family: Goyang">조회수</th>

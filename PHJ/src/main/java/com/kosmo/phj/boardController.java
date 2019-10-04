@@ -11,23 +11,22 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.multi.MultiFileChooserUI;
 
+import org.json.simple.JSONArray;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import command.PHJCommandImpl;
 import command.board.EditActionCommand;
-import command.board.ProductListCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeCommentActionCommand;
 import command.board.RecipeCommentCommand;
@@ -40,8 +39,10 @@ import command.board.WriteActionCommand;
 import command.board.findPlaceCommand;
 import command.board.recipeListCommand;
 import model.board.recipeDAO;
+
 import model.board.recipeDTO;
 import model.board.serviceDTO;
+import model.member.MemberDTO;
 
 
 @Controller
@@ -96,11 +97,13 @@ public class boardController {
 	@RequestMapping("findPlace.do")
 	public String findPlace(Model model, HttpServletRequest req) {
 		model.addAttribute("req",req);
+		int product_code = Integer.parseInt(req.getParameter("product_code"));
 		int place_code = Integer.parseInt(req.getParameter("place_code"));
-		System.out.println("컨트롤러 내부의 place_code : " + place_code);
 		model.addAttribute("place_code",place_code);
+		model.addAttribute("product_code",product_code);
 		command = new findPlaceCommand();		
-		command.execute(model);
+		command.execute(model);		
+	
 		System.out.println("findPlace 익스큐트 실행완료");
 		
 		return "general/findPlace";
@@ -207,7 +210,7 @@ public class boardController {
 		
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
-	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto) {
+	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto, HttpSession session) {
 
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageUpload");
 				
@@ -261,7 +264,9 @@ public class boardController {
 				mfile.transferTo(serverFullName);
 				
 				dto.setThumbnail(saveFileName);
-				
+				model.addAttribute("session",session);
+				String email = session.getAttribute("EMAIL").toString();
+				model.addAttribute("email",email);
 				command = new RecipeEditFileActionCommand();
 				command.execute(model);
 				
@@ -274,10 +279,6 @@ public class boardController {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-				
-		
-		
-		
 		// 뷰 호출이 아니고 페이지 이동
 		return "redirect:recipe.do";
 	}
@@ -311,6 +312,7 @@ public class boardController {
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:recipe.do";
 	}
+
 	
 	//레시피 댓글 리스트
 	@RequestMapping("recipe_comment.do")
@@ -335,5 +337,6 @@ public class boardController {
 	}
 	
 	
+
 }
-;
+

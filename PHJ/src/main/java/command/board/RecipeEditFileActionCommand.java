@@ -13,6 +13,7 @@ import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,11 +35,12 @@ public class RecipeEditFileActionCommand implements PHJCommandImpl{
 		System.out.println("요기는요?");
 		
 		Map<String, Object> map = model.asMap();
-				
+		HttpSession session = (HttpSession)map.get("session");	
 					
 		recipeDAO dao = new recipeDAO();
 		recipeDTO dto = (recipeDTO)map.get("recipeDTO");
-		
+		String email = session.getAttribute("EMAIL").toString();
+		dto.setEmail(email);
 		dao.write(dto);	
 	}
 }

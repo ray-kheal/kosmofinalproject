@@ -60,23 +60,6 @@ to {
 </script>
 <body>
 
-   <!-- <div style="width:100%; height:200px; text-align: center; background-color: #82b9e4; display:table;"> 
-       <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
-       BOARD
-       </p> 
-   </div> 
-   <div style="width:100%; text-align: center;">
-   <br /><br />
-      <img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
-   </div> -->
-
-   
-     <!-- 텍스트 색상 강조  -->
-   
- 
-   
-   
-   <!-- 헤더파일 인클루드 -->
    <%@ include file="MainHeader.jsp" %>
 
 
@@ -110,13 +93,79 @@ to {
                         '#28abe2', '#2e3192', '#6868ff' ]
                });
       });
-   </script>
+	  	
+	  function InputSearch(f){
+	  	if(f.searchWord.value==""){
+	  		alert("검색어를 입력하세요");
+	  		f.searchWord.focus();
+	  		return false;
+	  	}
+	  }
+      
+      function itemChange(){
 
+          var nameSort = ["오름차순","내림차순"];
+          var priceSort = ["낮은가격순","높은가격순"];
+          
+           
+          var selectItem = $("#select1").val();
+           
+          
+          var changeItem;
+            
+          if(selectItem == "제품명순"){
+            changeItem = nameSort;
+            
+          }
+          else if(selectItem == "제품가격순"){
+            changeItem = priceSort;
+            
+          }
+          
+          
+          $('#select2').empty();
+           
+          
+          
+          for(var count = 0; count < changeItem.size(); count++){                
+                          var option = $("<option>"+changeItem[count]+"</option>");
+                          $('#select2').append(option);
+          }
+           
+       } 
+
+      
+   </script>
+   <script>
+   
+	$(function(){
+	   $('#select2').hide();
+	   $('#select1').change(function(){
+	      
+	      
+	      if($('#select1').val()=='a'){
+	         $('#select2').show();
+	         $('#select2').html('<option>이름순</option><option>가격순</option>');
+	      }
+	       else if($('#select1').val()=='b'){
+	          $('#select2').show();
+	         $('#select2').html('<option>오름순</option><option>내림순</option>');         
+	      }
+	       else if($('#select1').val()==''){
+	          $('#select2').hide();       
+	       }
+	      
+	   });
+	});
+	
+</script>
+   
 
 
    <!-- 헤더파일 인클루드 -->
    <%@ include file="MainHeader.jsp"%>
 
+<<<<<<< HEAD
 
  <!-- <div
          style="width: 100%; height: 200px; text-align: center;  display: table;">
@@ -242,10 +291,43 @@ to {
       &nbsp;
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
       &nbsp; <br /> <br />
+=======
+
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
    
 <div class="album py-5 ">
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
+=======
+ 
+  
+<div class="album py-5 bg-light">
+ <div
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <div style="width: 100%; text-align: center;">
+   <div style="width: 100%; text-align: center;">
+      <br /> <br />
+
+   </div>
+
+   <div class="container">
+      <br /> <br />
+      <!-- 검색기능 -->
+      <form class="form-inline" >
+
+         <div class="form-group" style="text-align: center; display: block;">
+
+         </div>
+      </form>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       <div class="container" style="color: black;">
          
       <!-- 가격검색기능 -->
@@ -283,6 +365,7 @@ to {
         </div>
       </form> 
        <br />    
+<<<<<<< HEAD
 <!-- =======
 <<<<<<< HEAD
       
@@ -358,6 +441,9 @@ to {
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 >>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
       
+=======
+
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
@@ -369,12 +455,16 @@ to {
                   <c:forEach items="${viewRow }" var="row" varStatus="loop">
                      <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 20px; height: auto;">
                         <!-- 리스트반복시작 -->  
+
                         <img style="text-align: center;"  
+
                            src="./resources/CSProduct/${row.product_imagename }"
+
                            width="80%" height="80%" ; /> 
                            <!-- <rect width="100%" height="100%" ></rect>
                            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text> -->
                            <div>
+<<<<<<< HEAD
                            <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
                                  href="./product_view.do?product_code=${row.product_code}&name=${row.product_name}&price=${row.product_price}&nowPage=${nowPage}">${row.product_name}</a>
                                                            
@@ -404,13 +494,14 @@ to {
                                    <img src="./images/price_star_in.png" width="18px" />이 관심상품을 해제하기
                                   </a>
                                <% } %>
+=======
+
+
+                           <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}">${row.product_name}</a>                           
+                           <p style="text-align: center; color: grey; font-size: 0.7em;  ">${row.product_value}</p>
+                           <p  style="margin-top: -15px; font-size: 0.9em;"><img src="images/coin2.png" width="20px" height="20px " />  ${row.product_price}</p>     
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                            </div>
-                           <%-- <small   class="text-muted">
-                            <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small> --%>
-                           
-                        <%-- <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}"
-                           class="btn btn-sm btn-outline-secondary">${row.product_name }</a>  --%>
-                           <!-- 리스트반복끝 -->
                      </div>
                   </c:forEach>  
                </c:otherwise> 
