@@ -132,17 +132,17 @@ body {
 			<!-- </div> -->
 			<br /> <br />
 
-			<%-- <button type="button" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}';">답변글달기</button>
-			<button type="button" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';">수정하기</button>--%>
-			  <%-- <button type="button" id="deleteBtn" onclick="location.href='./delete.do?idx=${viewRow.idx}&nowPage=${nowPage}';">삭제하기</button> --%>
-			<%
-			String email = (String)session.getAttribute("EMAIL");
-			MemberDAO dao = new MemberDAO();
-			MemberDTO dto = dao.memberView(email);
-		  
-			if(session.getAttribute("EMAIL") != null &&session.getAttribute("EMAIL").toString().equals(dto.getEmail()))  { %> 
-			<button type="button" id="deleteBtn" onclick="isDelete();">삭제하기</button>
-			<%} %>
+		 <input type="hidden" name="email" value="${viewRow.email}" />
+       
+         <c:choose>
+            <c:when test="${EMAIL eq viewRow.email}">
+            <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
+       		<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+            </c:when>
+            <c:otherwise>
+               
+            </c:otherwise>
+         </c:choose>
 			<button type = "button" class="btn" id ="recommendBtn" onclick = "isRecommend();" style="font-family: 'Goyang';" >
 			<img src="https://image.flaticon.com/icons/svg/470/470289.svg" width="40px" height="40px"/>	 추천하기</button>
 			<div class="row text-right" style="float: right;">

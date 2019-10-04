@@ -100,14 +100,14 @@ nav {
 
 					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
-
+&nbsp;&nbsp;
 					<div class="input-group-btn">
 						<button type="submit" class="btn">
 							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
-		
+		 &nbsp; &nbsp;&nbsp;
 		<div class="row text-right" style="float: right;">
 		 <%if(session.getAttribute("EMAIL") != null) { %> 
 		

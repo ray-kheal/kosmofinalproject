@@ -209,7 +209,7 @@ public class boardController {
 		
 	//레시피 게시판 글쓰기 
 	@RequestMapping(value="ReditAction.do", method = RequestMethod.POST)
-	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto) {
+	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto, HttpSession session) {
 
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageUpload");
 				
@@ -263,7 +263,9 @@ public class boardController {
 				mfile.transferTo(serverFullName);
 				
 				dto.setThumbnail(saveFileName);
-				
+				model.addAttribute("session",session);
+				String email = session.getAttribute("EMAIL").toString();
+				model.addAttribute("email",email);
 				command = new RecipeEditFileActionCommand();
 				command.execute(model);
 				
