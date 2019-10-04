@@ -75,14 +75,10 @@ body {
 			<br />
 
 			<div class="row text-right" style="float: right;">
-<<<<<<< HEAD
 				<h5 style="color: #4c4c4c; font-weight: bold; padding-right: 20px;">
 					<i class="fas fa-utensils"></i>&nbsp; 레시피자랑 
 				</h5>
-=======
-				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' ">
-					<i class="far fa-smile-wink"></i>&nbsp;레시피</h5>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+				
 			</div>
 			<input type="hidden" name="idx" value="${viewRow.idx }" />
 			<input type="hidden" name="nowPage" value="${nowPage }" />
@@ -149,15 +145,23 @@ body {
 				</colgroup>
 							
 				<tr>  
-					<td style="background-color:white;  text-align: center; padding-top:15px;  border-top: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">
-					<p style="font-size: 1.6em; font-weight: bold; font-style: italic;"> <mark>"${viewRow.title}"</mark> </p>
+					<td style="text-align:center;  background-color:white;  text-align: center; padding-top:15px;  border-top: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">
 					
-					<p>by.${viewRow.name}</p>
+					
+					<p style="font-size: 1.6em; font-weight: bold; font-style: italic; "> <mark>"${viewRow.title}"</mark> </p>
+					
+					 
+					<p style="font-size: 1.2em; font-style: italic; font-family:Goyang; ">  <mark>by.${viewRow.name}  </mark></p> 
+					<p style=" text-align:right; ">조회수: ${viewRow.view_count }</p>
+					<p style=" text-align:right; ">게시일: ${viewRow.postdate} </p>
+					<p style=" text-align:right; ">조회수: ${viewRow.view_count }</p>
+					
+					
+	
 					
 					<p>${viewRow.content}</p>
 					
-					<p>| 조회수  ${viewRow.view_count }</p>
-					<p>| 게시일  ${viewRow.postdate}</p>
+					<p> </p> 
 					</td>
 					
 				</tr>
