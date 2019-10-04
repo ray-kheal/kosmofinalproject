@@ -40,7 +40,6 @@ public class ProductDAO {
 	}
 	
 	
-
    //레코드 페이지별로 가져오기
    public ArrayList<ProductDTO> list(Map<String, Object> map) {
       
@@ -75,7 +74,6 @@ public class ProductDAO {
       
       return (ArrayList<ProductDTO>)template.query(query, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
    }
-	      
 	//레코드 가격별로 가져오기
 	public ArrayList<ProductDTO> listSort(Map<String, Object> map) {
 		

@@ -37,10 +37,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import command.PHJCommandImpl;
 import command.member.DeletePlaceBookmarkCommand;
+import command.member.DeleteProductBookmarkCommand;
 import command.member.LoginActionCommand;
 import command.member.MemberEditCommand;
 import command.member.ModifyCommand;
 import command.member.PlaceBookmarkCommand;
+import command.member.ProductBookmarkCommand;
 import command.member.RegistCommand;
 import command.member.emailFindActionCommand;
 import command.member.emailOverlapCommand;
@@ -470,6 +472,39 @@ public class MemberController {
 		PrintWriter out = resp.getWriter();	
 		resp.setContentType("text/html; charset=utf-8");
 		out.print("<script>alert('관심점포가 해제되었습니다!.');</script>");
+		out.print("<script>history.back;</script>");
+		out.print("<script>location.href=document.referrer;</script>");
+		out.flush();
+	}
+	
+	//관심상품 북마크
+	@RequestMapping("bookmarkProduct.do")
+	public void bookmarkProduct(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException{
+		model.addAttribute("req",req);
+		model.addAttribute("session",session);
+		System.out.println("상품등록 : " + req.getParameter("product_code"));
+		command = new ProductBookmarkCommand();
+		command.execute(model);
+		
+		PrintWriter out = resp.getWriter();	
+		resp.setContentType("text/html; charset=utf-8");
+		out.print("<script>alert('관심상품을 등록하였습니다!.');</script>");
+		out.print("<script>history.back;</script>");
+		out.print("<script>location.href=document.referrer;</script>");
+		out.flush();
+	}
+	
+	//관심상품 해제
+	@RequestMapping("deleteBookmarkProduct.do")
+	public void deleteBookmarkProduct(Model model, HttpServletRequest req, HttpServletResponse resp, HttpSession session) throws IOException{
+		model.addAttribute("req",req);
+		model.addAttribute("session",session);
+		command = new DeleteProductBookmarkCommand();
+		command.execute(model);
+		
+		PrintWriter out = resp.getWriter();	
+		resp.setContentType("text/html; charset=utf-8");
+		out.print("<script>alert('관심상품을 해제합니다!.');</script>");
 		out.print("<script>history.back;</script>");
 		out.print("<script>location.href=document.referrer;</script>");
 		out.flush();

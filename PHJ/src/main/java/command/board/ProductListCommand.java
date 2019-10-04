@@ -53,9 +53,8 @@ public class ProductListCommand implements PHJCommandImpl {
       }
 				
 		int totalRecordCount = dao.getTotalCount(paramMap);
-
 		
-		int pageSize = 10;
+		int pageSize = 9;
 		int blockPage = 5;
 		
 		//전체 페이지수 계산하기

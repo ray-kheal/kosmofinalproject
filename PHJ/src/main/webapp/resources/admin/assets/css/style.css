@@ -12545,7 +12545,7 @@ dl {
 /* Tables */
 .table {
   margin-bottom: 0; }
-  .table thead th {
+  .table thead th { 
     border-top: 0;
     border-bottom-width: 1px;
     font-family: "ubuntu-medium", sans-serif;
@@ -12559,8 +12559,15 @@ dl {
     line-height: 1;
     white-space: nowrap; }
     .table th img,
+<<<<<<< HEAD
     .table td img {
       max-width:150px; }
+=======
+     .table td img {
+      max-width: 150px;
+      
+       } 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
     .table th .badge,
     .table td .badge {
       margin-bottom: 0; }

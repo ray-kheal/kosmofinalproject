@@ -47,16 +47,17 @@ body {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-<div
-         style="width: 100%; height: 200px; text-align: center;  display: table;">
-         <p
-            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-            
-                  편의점 정보가 여기에!
-            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
-         </p>
-      </div>
-   <div style="width: 100%; text-align: center;">
+
+		<div
+			style="width: 100%; height: 200px; text-align: center;  display: table;">
+			<p
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+				
+						편의점 정보가 여기에!
+						
+				<img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+			</p>
+		</div>
 
 		<input type="hidden" name="product_code" value="${product_code }" />
 		
@@ -78,12 +79,14 @@ body {
 								
 								<tr>
 									<th bgcolor="#f2efef"
-										style="text-align: center; border-top: 1px solid #82b9e4;">편의점</th>
-									<td bgcolor="white" style="border-top: 1px solid #82b9e4;">${row.place_name}</td>
+
+										style="text-align: center; border-top: 5px solid #82b9e4; ">편의점</th>
+									<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${row.place_name}</td>
+
 									
 									<td bgcolor="white" style="border-top: 1px solid #82b9e4;">
 									<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}"
-									class="btn btn-sm btn-outline-secondary" style="text-align: center"> 편의점 찾기</a></td>  
+									class="btn" style="text-align: center; font-family: Goyang;" > 편의점 찾기</a></td>  
 								</tr>
 								<tr>
 									<th bgcolor="#f2efef"
@@ -105,8 +108,8 @@ body {
 			<br /> <br />
 
 			<div class="row text-right" style="float: right;">
-				<button type="button" class="btn btn-dark btn-sm"
-					onclick="location.href='./findproduct.do';">리스트</button>
+				<button type="button" class="btn"
+					onclick="location.href='./findproduct.do';" style="font-family: Goyang;">리스트</button>
 
 			</div>
 		</div>
