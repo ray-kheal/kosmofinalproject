@@ -316,16 +316,19 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
                   </button>
                   </div>
+                
+
                </form>
             <!--    <hr class="mt-2 mb-2">   -->
                <div class="row text-right" style="float: right;">
                <%if(session.getAttribute("EMAIL") != null) { %> 
                   
                <button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
-				 class="btn" style="margin:0 auto; font-family: Goyang " onclick="location.href='recipe_edit.do';">글쓰기</button>
+				 class="btn" style="font-family: Goyang " onclick="location.href='recipe_edit.do';">글쓰기</button>
                    
                   <%} %>
                </div>
+             
          <br />
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
                 <div style="border: 2px solid gold; width: " >
