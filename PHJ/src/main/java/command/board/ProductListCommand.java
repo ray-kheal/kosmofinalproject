@@ -51,17 +51,14 @@ public class ProductListCommand implements PHJCommandImpl {
 			priceQueryString = String.format("priceRange=%s&", priceRange );
 			paramMap.put("priceRange", priceRange);
 		}
-		int pageSize = 12;
+		int pageSize = 9;
 		int blockPage = 5;
 		int nowPage = req.getParameter("nowPage")==null? 1: Integer.parseInt(req.getParameter("nowPage"));
 		int start = (nowPage -1 )* pageSize +1;
 		int end = nowPage * pageSize;
 		paramMap.put("start", start);
 		paramMap.put("end", end);		
-		
-		
 		int totalRecordCount = dao.getTotalCount(paramMap);
-		
 		
 		
 		//전체 페이지수 계산하기
@@ -85,13 +82,9 @@ public class ProductListCommand implements PHJCommandImpl {
 			//가상번호 연산 후 setter를 통해 값을 저장함
 			virtualNum = totalRecordCount - (((nowPage-1)*pageSize) + countNum++);
 			row.setVirtualNum(virtualNum);
-			
-			
 		}
-
 		String pagingImg = util.PagingUtil.pagingImg_phj(totalRecordCount,pageSize,blockPage, nowPage,
 				req.getContextPath()+"/findproduct.do?"+addQueryString+priceQueryString);
-
 		model.addAttribute("pagingImg",pagingImg);
 		model.addAttribute("totalPage",totalPage);
 		model.addAttribute("nowPage",nowPage);

@@ -34,7 +34,7 @@ body {
 </script>
 <body>
 
-	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #82b9e4; display:table;"> 
+	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #4c4c4c; display:table;"> 
 		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
 		 BOARD
 		 </p> 
@@ -62,7 +62,7 @@ body {
 			<br /><br />
 			
 			<div class="row text-right" style="float: right;">
-				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' "><i class="far fa-bell"></i>&nbsp;알려드립니다</h5>
+				<h5 style="color:#4c4c4c; font-weight: bold; padding-right: 20px; font-family: 'Goyang' "><i class="far fa-bell"></i>&nbsp;알려드립니다</h5>
 			</div>
 			
 			<table class="table table-bordered" style="margin-bottom: -1px;">
@@ -75,17 +75,17 @@ body {
 					<col width="50px" />
 				</colgroup>
 				<input type="hidden" name="idx" value="${viewRow.idx }" />
-				   
+				     
 				<br /><br />
 				
-				<!-- <div style="border: 1px solid #82b9e4 ; height:2px;"></div> -->
+				<!-- <div style="border: 1px solid #4c4c4c ; height:2px;"></div> -->
 				<tr >
-					<th bgcolor="#f2efef" style="text-align: center; border-top: 5px solid #82b9e4 ;">제목</th>
-					<td bgcolor="white" style="border-top: 5px solid #82b9e4 ;">${viewRow.title}</td>
+					<th bgcolor="#f2efef" style="text-align: center; border-top: 5px solid #4c4c4c ; border-left:5px solid #4c4c4c;">제목</th>
+					<td bgcolor="white" style="border-top: 5px solid #4c4c4c ; border-right:5px solid #4c4c4c;">${viewRow.title}</td>
 				</tr>
 				<tr>
-					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-					<td bgcolor="white">관리자</td>
+					<th bgcolor="#f2efef" style="text-align: center; border-left:5px solid #4c4c4c;">작성자</th>
+					<td bgcolor="white" style="border-right:5px solid #4c4c4c;">관리자</td>
 				</tr>
 				<!-- 	<th>작성자</th>
 						<th>날짜</th>
@@ -93,25 +93,25 @@ body {
 				<!-- <tbody>
 				</tbody> -->
 			</table>
-			<!--  <div style="border: 1px solid #EDEAEA; padding-top: 10px;"> -->
+			<!--  <div style="border: 1px solid #4c4c4c; padding-top: 10px;"> -->
 			<table class="table" bgcolor="white">
 				<colgroup> 
 					<col width="80px" />
 					<col width="120px" />
-					<col width="80px" />
+					<col width="80px" /> 
 					<col width="*" />
 				</colgroup>
 				<tr>
-					<th style="text-align: center; border-left:1px solid #EDEAEA; font-weight: normal; ">DATE</th>
+					<th style="text-align: center; border-left:1px solid #4c4c4c; font-weight: normal; border-left:5px solid #4c4c4c; ">DATE</th>
 					<td>${viewRow.postdate}</td>
-					<th style="text-align: center;">조회수</th>
-					<td style="border-right:1px solid #EDEAEA;">${viewRow.view_count }</td>
+					<th style="text-align: center; ">조회수</th>
+					<td style="border-right:5px solid #4c4c4c;">${viewRow.view_count }</td>
 				</tr>
 				<tr>
-					<td colspan="4" style="height:500px; border-left:1px solid #EDEAEA; border-right:1px solid #EDEAEA; border-bottom:5px solid #82b9e4;">${viewRow.content}
+					<td colspan="4" style="height:500px; border-left:5px solid #4c4c4c; border-right:5px solid #4c4c4c; border-bottom:5px solid #4c4c4c;">${viewRow.content}
 					</td>
 				</tr>
-			</table>	
+			</table>	  
 			<!-- </div> -->
 		<br /> <br />
 						

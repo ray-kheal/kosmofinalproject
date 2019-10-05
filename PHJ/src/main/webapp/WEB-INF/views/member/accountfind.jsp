@@ -25,15 +25,15 @@
 </head>
 <style type="text/css">
 	
-/* 	#content { */
-/* 		background-image: url("images/bgimg.jpg"); */
-/* 		margin: 0 auto; */
-/* 		background-repeat: no-repeat; */
-/* 		background-position: 50% 50%; */
-/* 		background-attachment: fixed; */
-/* 		background-size: cover; */
-/* 		height: 700px; */
-/* 	} */
+ 	#content { 
+ 		background-color:#b3fcf1;
+ 		margin: 0 auto; 
+ 		background-repeat: no-repeat; 
+ 		background-position: 50% 50%; 
+ 		background-attachment: fixed; 
+ 		background-size: cover; 
+ 		height: 700px; 
+ 	} 
 
 	
 	#findMenu {
@@ -111,8 +111,8 @@ function find_PWcheck(){
 
 		<!-- Main -->
 
-		<div id="content ">
-			<div class="row" style="background-color:#f9f7f7;   margin-top:10px;">
+		<div id="content">
+			<div class="row"><!--  style="background-color:#f9f7f7;   margin-top:10px;" -->
 				<div id="findMenu" style="margin-top:100px;">
 						<div class="findPop find" id="findPop find form" >
 						

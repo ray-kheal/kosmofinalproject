@@ -26,7 +26,7 @@
 <style type="text/css">
 	
 	#content {
-		background-image: url("images/bgimg.jpg");
+		background-color:#b3fcf1;
 		margin: 0 auto;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -58,7 +58,7 @@
 				<div class="findPop find" id="findPop find form" >
 					<div class="findPop find" id="findPop find form" >
 							
-						<h3 id="Maintitle">4자리의 인증번호를 입력하세요.</h3>
+						<h3 id="Maintitle" style="color:black;">4자리의 인증번호를 입력하세요.</h3>
 	 				
 						<div class="findPop" id="findPop IDfind">
 				
@@ -71,7 +71,7 @@
 										</colgroup>
 										<tbody>
 											<tr>
-												<th scope="row"><label for="name">인증번호</label></th>
+												<th scope="row"><label for="name" style="color:black;">인증번호</label></th>
 												<td>
 													<div class="formbox">
 														<% 
@@ -86,7 +86,7 @@
 														<input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
 														<input type="hidden" id="pass" name="pass" value="<%=pass %>" />
 														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass" />
-														<p style="color:white;">※ 인증번호는 이메일로 보내드렸습니다.</p>
+														<p style="color:black;">※ 인증번호는 이메일로 보내드렸습니다.</p>
 													</div>
 												</td>
 											</tr>

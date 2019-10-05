@@ -306,46 +306,26 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
-            <hr class="mt-2 mb-2">
-               <form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
-                  <select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
-                     <option value="title">제목</option>
-                     <option value="content">내용</option>
-                  </select>
-                  <input type="text" name="searchWord" class="form-control"
-                     style="width:230px; margin-left:5px;" />
-                  <div style="margin-left:10px;">
-                     <button type="submit" class="btn">
-                     검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
-                  </button>
-                  </div>
-                  &nbsp;&nbsp;
-                     <div class="row text-right">
-               <%if(session.getAttribute("EMAIL") != null) { %> 
+               <br />
 
-                  
-               <button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
-				 class="btn" style="font-family: Goyang " onclick="location.href='recipe_edit.do';">글쓰기</button>
-                   
-
-                  <%} %>
-               </div>
-
-               </form>
-              
-
-         <br />
 
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
+
        
                 <div style="border: 2px solid gold;" >
+
                  <div class=" text-center"  style="text-align: center; "> 
+                 <div style="">
+                 <img src="images/cup.png" style="width: 10%; padding-top:20px; "alt="" />
+                 <br /><br />
+                 <p style="font-family:verdana; font-size: 1.8em; font-weight: bold;"><mark>Best Recipe</mark></p>
+                 </div>
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
                   <c:choose>  
                      <c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
                         <!-- 베스트게시물 s-->
-                        <div class="  " style=" display:inline-block;">
-                           <!-- <span class="badge badge-primary">BEST</span> -->
+                        <div class="  " style="display:inline-block;">
+                         
                            <div style="postion:relative;  color:#4389cc; font-weight: bold; font-size: 1.3em;  ">
                              ${loop.index+1 }  
                            </div>
@@ -375,16 +355,18 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>  
                         </c:forEach> 
                         </div>
-                           <div style="  color: #444444 ; font-size: 4em; font-weight: 650; height: 100px; position: relative; z-index: 2;">
-            BEST RECIPE 
-            </div>  
-            <div style=" color: #4398D1; font-size: 4em; font-weight: 650; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;">
-            BEST RECIPE  
-            </div>  
-                        </div>
+    
                           
                 </div>
-         
+                <br /><br />
+        	  <div style="text-align: right; font-family: Goyang;">
+               <%if(session.getAttribute("EMAIL") != null) { %> 
+                  <form action="recipe_edit.do" method="post">
+               		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+                  </form>
+                  <%} %>
+                  <br />
+               </div>
          
          
             <c:choose>
@@ -403,7 +385,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <div class="col-lg-3 col-md-4 col-6 ">
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
-                              <img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
+
+                              <img class="img-fluid img-thumbnail"  style="height:100%; width:100%;"
+
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">
                               <figcaption>

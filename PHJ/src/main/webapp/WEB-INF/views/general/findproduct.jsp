@@ -241,12 +241,16 @@ to {
       <button type="submit" onclick="" class="btn btn-warning">BEST</button>
       &nbsp; <br /> <br />
    
-<div class="album py-5 ">-->
+<<<<<<< HEAD
+<div class="album py-5 ">
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
+<div class="album py-5 ">
       <div class="container" style="color: black;">
          
       <!-- 가격검색기능 -->
       <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
-      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; text-align: center; ">가격대별 검색</div>
       <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
          <ul style=" list-style:none; float: left; "> 
             <li style="float: left;" >
@@ -266,6 +270,79 @@ to {
             </li>   -->
          </ul>  
       </div>
+       <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey;text-align: center;  ">상품명 검색</div>
+       <div class="container" style=" display:inline-block;width:35%; " >  
+             
+          <input type="hidden" class="form-control" name="searchColumn" value="product_name" />
+          <input type="text" name="searchWord"  style="width: 100%" />
+      </div> 
+      
+        <div style=" display:inline-block; width:25%; text-align: left;">
+        
+        <button class="btn btn-dark" style=" font-size: 0.7em;"><i class="fas fa-search"></i></button>
+        </div>
+      </form> 
+
+       <br />    
+<!-- =======
+<<<<<<< HEAD
+      
+      
+      가격검색기능
+      <form class="form-inline" style="border-top: 3px solid #448ad6;  border-bottom: 1px solid #c1c1c1; font-family: Goyang;">    
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
+         <ul style=" list-style:none; float: left; "> 
+            <li style="float: left;"> 
+               <label for="prs_01">가격대 검색</label>
+            </li>
+            <li style="float: left;" >
+               <input style="float: left; margin-top: 8px;" type="radio" name="priceRange" value="&lt;1500" >
+               <label style="float: left;"for="prs_01">&nbsp;1500원 미만</label>
+            </li> 
+            <li style="float: left; " >
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="1500to5000" >
+               <label style="float: left;"for="prs_02">&nbsp;1500원~5000원</label>
+            </li>
+            <li style="float: left;" >  
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="&gt;5000" >
+               <label style="float: left;"for="prs_03">&nbsp;5000원 이상</label>
+            </li>
+            <li style="float: left;">
+               <button class="btn btn-dark" style="font-size: 0.7em;"><i class="fas fa-search"></i></button>
+            </li>  
+         </ul>  
+      </div>
+      </form> 
+          
+         
+      <br />    
+      
+    
+=======
+         
+      가격검색기능
+      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+      <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">가격대별 검색</div>
+      <div class="container" style="display:inline-block;width:60%; padding-top: 14px;" >   
+         <ul style=" list-style:none; float: left; "> 
+            <li style="float: left;" >
+               <input style="float: left; margin-top: 8px;" type="radio" name="priceRange" value="&lt;1500" >
+               <label style="float: left;"for="prs_01">&nbsp;1500원 미만</label>
+            </li> 
+            <li style="float: left; " >
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="1500to5000" >
+               <label style="float: left;"for="prs_02">&nbsp;1500원~5000원</label>
+            </li>
+            <li style="float: left;" >  
+               <input style="float: left; margin-top: 8px;"type="radio" name="priceRange" value="&gt;5000" >
+               <label style="float: left;"for="prs_03">&nbsp;5000원 이상</label>
+            </li>
+            <li style="float: left;">
+               <button class="btn btn-dark" style="font-size: 0.7em;"><i class="fas fa-search"></i></button>
+            </li>  
+         </ul>  
+      </div>
        <div class="container" style="display:inline-block;width: 40%; font-weight: bold; border-right: 1px solid grey; ">상품명 검색</div>
        <div class="container" style=" display:inline-block;width:35%; " >  
              
@@ -278,6 +355,9 @@ to {
         <button class="btn btn-dark" style=" font-size: 0.7em;"><i class="fas fa-search"></i></button>
         </div>
       </form> 
+       <br />    
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git -->
        <br />  
        
          
@@ -315,6 +395,7 @@ to {
       <br />    
       
 
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
       
       <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
          <!-- 상품 리스트 출력  -->  
@@ -325,7 +406,7 @@ to {
                </c:when>             
                <c:otherwise>      
                   <c:forEach items="${viewRow }" var="row" varStatus="loop">
-                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 20px; height: auto;">
+                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 30px; height: auto;">
                         <!-- 리스트반복시작 -->  
                         <img style="text-align: center;"  
                            src="./resources/CSProduct/${row.product_imagename }"
@@ -346,22 +427,38 @@ to {
 <!--                                  <a><img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-256.png" width="20px" height="20px"> -->
 <!--                                  <button type="submit" class="btn" style="font-family: Goyang">관심상품!</button></a> -->
                               <%-- <a href="./product_view.do?product_code=${row.product_code}&nowPage=${nowPage}" style="color:black;"><i class="fas fa-heart" ></i></a> --%>
-                              <%
-                              String place_bookmark = (String)session.getAttribute("PRODUCT_BOOKMARK");
-                              String email = (String)session.getAttribute("EMAIL");
                               
-                              if(place_bookmark == email) {
-                              %>
-                                <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-                                   href="./bookmarkProduct">
-                                   <img src="./images/price_star_out.png" width="18px" />관심상품으로 등록하기
-                                   </a>
-                               <% } else { %>
-                                <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
-                                   href="./deleteBookmarkProduct">
-                                   <img src="./images/price_star_in.png" width="18px" />이 관심상품을 해제하기
-                                  </a>
-                               <% } %>
+                   	<c:if test="${not empty sessionScope.EMAIL }">
+                      	<%
+                      	String product_bookmark = (String)session.getAttribute("PRODUCTS_BOOKMARK");              	
+                      	%>
+                           	<c:set var="productBookmark" value="<%=product_bookmark %>" />
+	                  		<c:choose>  
+               					<c:when test="${not empty productBookmark }">
+                         	   		<c:choose>      
+	                              		<c:when test="${row.product_code eq productBookmark}">
+			                           	 	 <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+				                             	href="deleteBookmarkProduct.do?product_bookmark=${productBookmark }">
+				                             	<img src="./images/price_star_in.png" width="18px" />관심상품 해제
+				                           	 </a>
+		                           	 	</c:when>
+		                           	 	 <c:otherwise>
+				                             <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+				                             	href="bookmarkProduct.do?product_code=${row.product_code}">
+				                             	<img src="./images/price_star_out.png" width="18px" />관심상품 등록
+			                           	 	 </a>
+	                        	  		</c:otherwise>
+                       	  			</c:choose>   
+                           	 </c:when>
+                           	 
+                      		 <c:otherwise>
+	                           <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+	                           	href="bookmarkProduct.do?product_code=${row.product_code}">
+	                           		<img src="./images/price_star_out.png" width="18px" />관심상품 등록
+                       	 	 	</a>
+                       	  	</c:otherwise>
+                     	 </c:choose>    	
+                   	</c:if>
                            </div>
                            <%-- <small   class="text-muted">
                             <img src="images/coin2.png" width="20px" height="20px" />${row.product_price}</small> --%>

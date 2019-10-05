@@ -194,18 +194,28 @@ body {
                   <c:forEach items="${sdto }" var="row" varStatus="loop">
                       <div>
                       <table >
-                       <colgroup>
+
+                       <colgroup> 
                         <col width="40%" />
                         <col width="*" />
                     </colgroup>
-                         <tr>
+                    	<tr>
+                    		<td style="text-align: center; border-bottom: 2px solid #306DAA;"><img src="./resources/CSProduct/${row.product_name }.jpg" style="width: 60%;" alt="" /></td>
+                    		<td style="border-bottom: 2px solid #306DAA;"> 
+                    			<p>상품명 : ${row.product_name}</p>
+                    			<p>수량 : ${row.stock}</p>
+                    		</td>
+                    	</tr>
+                         <%-- <tr>
+                            
                             <td style="text-align: center;">상품명 :</td>
                             <td style="text-align: center;">${row.product_name}</td>
                          </tr>
                          <tr>
-                            <td style="text-align: center;  border-bottom: 2px solid pink;">수량 : </td>
-                            <td style="text-align: center;  border-bottom: 2px solid pink;">${row.stock}</td>
-                         </tr>
+                            <td style="text-align: center;  border-bottom: 2px solid #306DAA;">수량 : </td>
+                            <td style="text-align: center;  border-bottom: 2px solid #306DAA;">${row.stock}</td>
+                         </tr> --%>
+
                       </table>
                     
                      </div>
