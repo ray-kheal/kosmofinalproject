@@ -304,7 +304,7 @@ body {
          
          </table>
         		<div id="replyList">
-        		<div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
+       			<div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
         			<span>댓글 ${b_code }개</span>
 				</div>
 				<c:choose>
