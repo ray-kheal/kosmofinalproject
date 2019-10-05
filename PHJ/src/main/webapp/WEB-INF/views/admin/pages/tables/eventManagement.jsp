@@ -53,7 +53,7 @@ function DeleteAll(){
 		  $('input[name=checkDel]:checked').each(function(){
 			  idx = $(this).val();
 			  //alert("idx:"+idx);
-	 		location.href = "boardDelete.do?idx="+idx+"&nowPage=${nowPage}&board_type=1";
+	 		location.href = "boardDelete.do?idx="+idx+"&nowPage=${nowPage}&board_type=2";
 		  });
 	  
 	  
@@ -206,7 +206,7 @@ function DeleteAll(){
 						onclick="location.href='./eventManagementWrite.do?&board_type=2';">글쓰기</button> -->
 				<button type="button" class="btn btn-dark btn-sm" 
 						onclick="location.href='./eventManagementWrite.do';">글쓰기</button>
-				<button class = "btn btn-danger btn-sm">삭제</button>
+				<button class = "btn btn-danger btn-sm" onclick="DeleteAll();">삭제</button>
 			</div>
 			
             </div>

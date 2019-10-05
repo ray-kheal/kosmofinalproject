@@ -87,10 +87,10 @@ function checkValidate(f){
 		 <form action="eventManagementWriteAction.do" name="writeFrm" method="post" 
 							onsubmit="return checkValidate(this);">
 			             
-							<input type="hid-den" name="board_type" value="2" /> 
+							<input type="hidden" name="board_type" value="2" /> 
 		                      <div class="form-group">
 		                        <label for="exampleInputName1">이름</label>
-		                        <input type="text" class="form-control" name="name" value="관리자">
+		                        <input type="text" class="form-control" name="name" value="관리자" readonly>
 		                      </div>
 		                      <!-- <div class="form-group">
 		                        <label for="exampleInputPassword4">비밀번호</label>
