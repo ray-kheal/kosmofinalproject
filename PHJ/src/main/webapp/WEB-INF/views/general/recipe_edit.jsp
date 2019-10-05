@@ -42,12 +42,7 @@
 			f.title.focus();
 			return false;
 		}
-		if (f.name.value == "") {
-			alert("이름을 입력하세요.");
-			f.name.focus();
-			return false;
-		}
-
+		
 		if (f.contents.value == "") {
 			alert("내용을 입력하세요");
 			f.content.focus();
@@ -138,16 +133,8 @@ body {
 							<td bgcolor="white"><input type="text" class="form-control"
 								name="name" style="border: none;" value="<%=session.getAttribute("NAME") %>" readonly/></td>
 						</tr>
-
-						<!-- <tr>
-							<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-							<td bgcolor="white"> -->
-						<input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td>
+						<%-- <input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td> --%>
 						<!-- </tr> -->
-						<tr>
-						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
-						<td><input type="file" name="fileUpload" /></td>
-					</tr> 
 						<tr>
 							<th bgcolor="#f2efef"
 								style="text-align: center; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #ffd74d;">내용</th>

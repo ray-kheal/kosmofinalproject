@@ -27,6 +27,10 @@ public class ProductDAO {
 	
 	//게시물 수 카운트
 	public int getTotalCount(Map<String, Object> map) {
+		/*
+		  int start = Integer.parseInt(map.get("start").toString()); int end =
+		  Integer.parseInt(map.get("end").toString());
+		 */
 		System.out.println("getTotalCount() 메소드 실행.");
 		
 		String query = " SELECT COUNT(*) FROM PHJ_PRODUCT ";
@@ -34,7 +38,20 @@ public class ProductDAO {
 		if (map.get("searchWord") != null) {
 			query += "WHERE " + map.get("searchColumn") + " " + " LIKE '%" + map.get("searchWord") + "%'";
 		}
+		if (map.get("priceRange") != null) {
+			
+			if(map.get("priceRange").equals("1500to5000")||map.get("priceRange")=="1500to5000") {//1500-5000사이 추리기
+				query += " AND product_price between 1500 and 5000 ";
+			}
+			
+			else{
+				query += " AND product_price " + map.get("priceRange") ;
+			}
+			
+		}
 		
+		System.out.println("query : " + query);
+	
 		return template.queryForObject(query, Integer.class);
 		
 	}

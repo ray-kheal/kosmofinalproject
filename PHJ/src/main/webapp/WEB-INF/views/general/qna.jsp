@@ -100,22 +100,21 @@ nav {
 
 					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
-
+&nbsp;&nbsp;
 					<div class="input-group-btn">
 						<button type="submit" class="btn">
 							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
-		
+		 &nbsp; &nbsp;&nbsp;
 		<div class="row text-right" style="float: right;">
-		 
-		<%if(session.getAttribute("EMAIL") != null) { %> 
-		 <form action="write.do" method="post">
-				<button type="submit"src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
-				 class="btn" style="margin:0 auto; font-family: Goyang ">
+		 <%if(session.getAttribute("EMAIL") != null) { %> 
+		
+				<button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
+				 class="btn" style="margin:0 auto; font-family: Goyang " onclick="location.href='write.do';">
 					글쓰기</button>
-		</form>
+
 		<%} %>
 		
 			</div>

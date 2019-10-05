@@ -67,10 +67,7 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 }
 
 /* 뱃지2 */
@@ -106,10 +103,7 @@ body {
       transparent 50%), linear-gradient(rgba(0, 0, 0, .5) 50%, transparent
       50%);
    background-size: 50px 50px;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
 }
 </style>
 
@@ -306,10 +300,6 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       </p>
    </div> 
 
-
-   
-   
-   
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
@@ -327,27 +317,17 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                   </button>
                   </div>
                </form>
-               <hr class="mt-2 mb-2">  
-               <br />
-               <div class="row text-right">
+            <!--    <hr class="mt-2 mb-2">   -->
+               <div class="row text-right" style="float: right;">
                <%if(session.getAttribute("EMAIL") != null) { %> 
-                   <form action="recipe_edit.do" method="post">
-               <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-                     </form>
+                  
+               <button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
+				 class="btn" style="margin:0 auto; font-family: Goyang " onclick="location.href='recipe_edit.do';">글쓰기</button>
+                   
                   <%} %>
                </div>
-         
+         <br />
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-            <!--     <p style=" color:#4389cc; font-family:Arial ; font-weight: bold; font-size: 2em; ">BEST RECIPE</p> -->
-<!--                 <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;"> -->
-<!--             BEST RECIPE   -->
-<!--             </div>   -->
-<!--             <div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;"> -->
-<!--             BEST RECIPE   -->
-<!--             </div>     -->
-                <!-- <img src="" alt="베스트1" />
-                <img src="" alt="베스트2" />
-                <img src="" alt="베스트3" /> -->
                 <div style="border: 2px solid gold; width: " >
                  <div class=" text-center"  style="text-align: center; "> 
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
@@ -439,7 +419,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               </figcaption>
                               <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
                            </figure>
-                        </div>
+                        </div>  
                         <!-- 일반게시물 e-->
                      </c:otherwise>
                   </c:choose>
