@@ -263,18 +263,8 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
           </ul>   
         </nav> 
         <!-- partial --> <!-- 사이드바 끝 -->
-
-      
-
-<<<<<<< HEAD
-   <div class="main-panel">
-=======
-
-
 	<div class="main-panel">
 
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
           <div class="content-wrapper">
             <div class="row" id="proBanner">
               <div class="col-9">
@@ -283,14 +273,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
               </div>
-<<<<<<< HEAD
-            <!--  <div class="container col-3" style=" margin-left:20px; border:1px solid #dedede; height:auto; line-height:auto; color:#666;font-size:1em; font-family:verdana; text-align:center;" id="clock">
-         </div>
- -->
 
-=======
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             </div>
             <div class="page-header">
               <!-- <h3 class="page-title">
@@ -347,65 +330,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card">
                   <div class="card-body container">
-<<<<<<< HEAD
-                     <table>
-                     <col width="50%" /> 
-                <col width="50%" /> 
-                      <tr>
-                         <td id="clock" style="text-align: center; font-size: 1.4em; font-family: Corbel;"><!-- 왼졲 칸에 나올 시계 -->
-                         
-                  
-                         </td>
-                         <td><!-- 오른쪽 칸에 나올 달력 -->
-                                <table id="calendar" border="0" align="center"  style="text-align: center; font-size: 1.2em; font-family: Corbel;">
-                           <colgroup>
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                                      <col width="14%" /> 
-                               </colgroup>
-                                  
-                            <tr><!-- label은 마우스로 클릭을 편하게 해줌 -->
-                                
-                                <td>
-                                   <label onclick="prevCalendar()"><i class="mdi mdi-arrow-left"></i></label>
-                                </td>
-                                
-                                <td align="center" id="tbCalendarYM" colspan="5">
-                                   yyyy년 m월
-                                </td>
-                                <td>
-                                   <label onclick="nextCalendar()"><i class="mdi mdi-arrow-right"></i></label>
-                                </td>
-                            </tr>
-                            <tr style="font-size: 0.9em;">
-                                <td align="center" style="color: #FE8996" >Sun</td>
-                                <td align="center">Mon</td>
-                                <td align="center">Tue</td>
-                                <td align="center">Wed</td>
-                                <td align="center">Thu</td>
-                                <td align="center">Fri</td>
-                                <td align="center" style="color: #3D93E6">Sat</td>
-                            </tr> 
-                        </table>
-                        <script language="javascript" type="text/javascript">
-                            buildCalendar();//
-                        </script>
-                         
-                         
-                         
-                         </td>
-                      </tr>
-                     
-                     
-                     </table>
-                  
-                   
-=======
 
                   	<table>
                   	<col width="50%" /> 
@@ -460,22 +384,11 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   	 	</td>
                   	 </tr>
                   	</table>
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                   </div>
                 </div>
               </div>
               
             </div>
-<<<<<<< HEAD
-            
-            
-            
-            
-            
-=======
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
           <!-- -------------------------------------------------------------------최근가입회원 -->
             
             
@@ -536,9 +449,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
               </div>
               
             <!-- -------------------------------------------------------------------최근문의사항 -->
-              
-              
-              
               <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body"> 

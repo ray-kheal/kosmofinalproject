@@ -334,7 +334,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               
                               <figure class="recipePhoto " style="width:100px; height:200px; border: 1px solid white; border-radius: 0px;">
                                  <img class="img-fluid img-thumbnail " style=" height:100%; width:100%;  border-radius: 0px;"
-                                    src="./resources/CSProduct/${row.thumbnail }"
+                                    src="./resources/imageUpload/${row.thumbnail }"
                                     alt="">
                                     <img src="images/best.png" alt="" style="width: 50px; margin-top: 60px; z-index: 50px;"/>  
                                  <figcaption>  
