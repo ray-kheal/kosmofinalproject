@@ -24,7 +24,12 @@ public class commentDAO {
 		System.out.println("commentDAO() 생성자 호출");
 	}
 	
-	public void close() {}
+	public int getTotalCount(Map<String, Object> map, int idx) {
+		System.out.println("getTotalCount() 메소드 실행.");
+		String query = " SELECT COUNT(*) FROM phj_recipe_comment  where b_code=" + idx;
+		
+		return template.queryForObject(query, Integer.class);
+	}
 	
 	public ArrayList<commentDTO> list(Map<String, Object> map) {
 		System.out.println("list() 메서드 진입");
@@ -59,12 +64,12 @@ public class commentDAO {
 	
 	//댓글리스트
 	public ArrayList<commentDTO> commentList(String b_code) {
-		System.out.println("b_code : " + b_code);
+		//System.out.println("b_code : " + b_code);
 		commentDTO dto;
 		
 		String sql = " SELECT * FROM PHJ_RECIPE_COMMENT WHERE b_code = " + b_code;
-		 sql += " order by c_code";
-		System.out.println(sql);
+		 sql += " order by c_code desc";
+		//System.out.println(sql);
 		
 		return (ArrayList<commentDTO>)template.query(sql, new BeanPropertyRowMapper<commentDTO>(commentDTO.class));
 		

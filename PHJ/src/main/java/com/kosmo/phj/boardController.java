@@ -29,7 +29,7 @@ import command.PHJCommandImpl;
 import command.board.EditActionCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeCommentActionCommand;
-import command.board.RecipeCommentCommand;
+//import command.board.RecipeCommentCommand;
 import command.board.RecipeEditFileActionCommand;
 import command.board.RecipeListViewCommand;
 import command.board.RecommendCommand;
@@ -302,21 +302,6 @@ public class boardController {
 		command = new RecommendCommand();
 		command.execute(model);
 
-		model.addAttribute("nowPage", req.getParameter("nowPage"));
-		return "redirect:recipe.do";
-	}
-
-	
-	//레시피 댓글 리스트
-	@RequestMapping("recipe_comment.do")
-	public String recipe_comment(Model model, HttpServletRequest req) {
-		System.out.println("들어왔니?");
-		model.addAttribute("req", req);
-		String idx = req.getParameter("idx");
-		System.out.println("댓글리스트의 idx:"+idx);
-		command = new RecipeCommentCommand();
-		command.execute(model);
-		
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:recipe.do";
 	}
