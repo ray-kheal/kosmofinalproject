@@ -319,12 +319,8 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
                   </button>
                   </div>
-                
-
-               </form>
-               <hr class="mt-2 mb-2">  
-               <br />
-               <div class="row text-right">
+                  &nbsp;&nbsp;
+                     <div class="row text-right">
                <%if(session.getAttribute("EMAIL") != null) { %> 
 
                   
@@ -334,6 +330,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
 
                   <%} %>
                </div>
+
+               </form>
+              
 
          <br />
 

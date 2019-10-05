@@ -31,6 +31,9 @@ body {
 		$("#recipe").attr("class", "current");
 	});
 	
+ 
+	
+	
 	//삭제여부 확인
 	function isDelete(){
 	 	result = confirm('삭제하시겠습니까?');
@@ -75,69 +78,14 @@ body {
 			<br />
 
 			<div class="row text-right" style="float: right;">
-<<<<<<< HEAD
-				<h5 style="color: #4c4c4c; font-weight: bold; padding-right: 20px;">
-					<i class="fas fa-utensils"></i>&nbsp; 레시피자랑 
-				</h5>
-=======
+
 				<h5 style="color:#82b9e4; font-weight: bold; padding-right: 20px; font-family: 'Goyang' ">
 					<i class="far fa-smile-wink"></i>&nbsp;레시피</h5>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
-			</div>
+
 			<input type="hidden" name="idx" value="${viewRow.idx }" />
 			<input type="hidden" name="nowPage" value="${nowPage }" />
-		<%-- 	
-			<table class="table table-bordered" style="margin-bottom: -1px;">
-				<colgroup>
-					<col width="80px" />
-					<col width="*" />
-					<col width="120px" />
-					<col width="120px" />
-					<col width="80px" />
-					<col width="50px" />
-				</colgroup>
-							
-				<tr>
-					<th bgcolor="#f2efef"
-						style="text-align: center; border-top: 5px solid #82b9e4;">제목</th>
-					<td bgcolor="white" style="border-top: 5px solid #82b9e4;">${viewRow.title}</td>
-				</tr>
-				<tr>
-					<th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-					<td bgcolor="white">${viewRow.name}
-
-					</td>
-				</tr>
-			
-			</table>
-		
-			<table class="table" bgcolor="white">
-				<colgroup>
-					<col width="80px" />
-					<col width="120px" />
-					<col width="80px" />
-					<col width="80px" />
-					<col width="80px" />
-					<col width="80px" />
-				</colgroup>
-				<tr>
-					<th
-						style="text-align: center; border-left: 1px solid #EDEAEA; font-weight: normal;">작성일</th>
-					<td>${viewRow.postdate}</td>
-					<th style="text-align: center;">조회수</th>
-					<td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
-					<th style="text-align: center;">추천수</th>
-					<td style="border: 1px solid #EDEAEA;">${viewRow.BTNRECOMMEND}</td>
-				</tr>
-				<tr>
-					<td colspan="6"
-						style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
-					</td>
-				</tr>
-			</table> --%>
-			
-			
-				
+			</div>
+	
 			<table class="table " style="margin-bottom: -1px;">
 				<colgroup>
 					<col width="80px" />
@@ -161,28 +109,39 @@ body {
 					</td>
 					
 				</tr>
-			  
-			
 			</table>
-			<p style="margin-left: 100px;">댓글 ?개</p>  
-			<%-- <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
-				<col width="20%" />
-				<col width="*" />
-				<col width="20%" />
-				<tr>     
-					<td style="text-align:right;">
-						<img src="images/pic-2.png" alt="" />
-					</td>
-					<td>
-						<input type="text" style=" width: 100%; height: 200%; " />
-					</td>
-					<td>
-						<button class="btn btn-sm" style="background-color: #7f7b9e; color:white;">답글달기</button>
-					</td>
-				</tr>
-			</table>   --%>
-			<%-- <%@ include file ="./recipe_comment.jsp" %> --%>
+			
+			<div id="replyList">
+				<c:choose>
+               <c:when test="${empty cDto }">
+                  <p class="text-center">등록된 댓글이 없습니다.</p>
+               </c:when>             
+               <c:otherwise>      
+                  <c:forEach items="${cDto }" var="commentdto" varStatus="loop">
+                     <div class="col-lg-4 col-md-3 col-4 " style="text-align: center; margin-top: 20px; height: auto;">
+                        <!-- 리스트반복시작 -->  
+                           <div>
+                          
+                        
+                           <table style="text-align: center; color: grey; font-size: 0.9em;  ">
+                           	<tr>
+                           		<td> ${commentdto.writer} :  </td>
+                           		<td> ${commentdto.content} </td>
+                           		<td>            ${commentdto.comment_date}</td>
+                           	</tr>
+                           </table>
+                           
+                           
+                           </div>
+                           
+                     </div>
+                  </c:forEach>  
+               </c:otherwise> 
+            </c:choose>
+			
+			</div>
 			<div>
+			
 	<form id="commentForm" name="commentForm" method="post" action="recipe_commentAction.do">
 		<table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
 			<col width="20%" />
@@ -190,20 +149,23 @@ body {
 			<col width="20%" />
 			<tr>     
 				<td style="text-align:right;">
-				<%String b_code =request.getParameter("idx"); %>
-					<input type="hid-den" id="b_code" name="b_code" value="<%=b_code %>"/>
-					<input type="hid-den" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
+				<%String idx =request.getParameter("idx"); %>
+					
+					<input type="hidden" id="idx" name="idx" value="<%=idx %>"/>
+					<input type="hidden" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
 					<img src="images/pic-2.png" alt="" />
 				</td>
+				<% if(session.getAttribute("EMAIL")!=null) {%>
 				<td>
-					<input type="text" style=" width: 100%; height: 200%; "id="content" name="content" value="" />
+					<input type="text" style=" width: 100%; height: 200%;" id="content" name="content" value="" />
 				</td>
 				<td>
-					<button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
+					<button class="btn btn-sm" id="reply_btn" style="background-color: #7f7b9e; color:white;">답글달기</button>
 				</td>
 			</tr>
 		</table> 
 	</form> 
+	<%} %>
 </div>
 			
 			<!-- </div> -->
@@ -214,12 +176,13 @@ body {
          <c:choose>
             <c:when test="${EMAIL eq viewRow.email}">
             <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
-       		<button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+         <button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
             </c:when>
             <c:otherwise>
                
             </c:otherwise>
          </c:choose>
+         
 			<button type = "button" class="btn" id ="recommendBtn" onclick = "isRecommend();" style="font-family: 'Goyang';" >
 			<img src="https://image.flaticon.com/icons/svg/470/470289.svg" width="40px" height="40px"/>	 추천하기</button>
 			<div class="row text-right" style="float: right;">

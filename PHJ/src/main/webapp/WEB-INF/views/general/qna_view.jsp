@@ -128,7 +128,9 @@ body {
          <!-- </div> -->
          <br /> <br />
          <input type="hidden" name="email" value="${viewRow.email}" />
+         <% if(session.getAttribute("EMAIL")!=null){ %>
          <button type="button" class="btn" onclick="location.href='./reply.do?idx=${viewRow.idx}&nowPage=${nowPage}'; " style="font-family: Goyang">답변글달기</button>
+         <% } %>
          <c:choose>
             <c:when test="${EMAIL eq viewRow.email}">
             <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>

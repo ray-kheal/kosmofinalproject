@@ -140,6 +140,7 @@ public class recipeDAO {
 		recipeDTO dto = null;
 
 		String sql = "select * from PHJ_BOARD_RECIPE where idx= " + idx;
+		System.out.println("view의 sql:"+sql);
 		try {
 
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
