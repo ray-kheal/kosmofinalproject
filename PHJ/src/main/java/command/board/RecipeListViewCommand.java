@@ -22,6 +22,7 @@ public class RecipeListViewCommand implements PHJCommandImpl{
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
 		
 		String idx = req.getParameter("idx");
+		int commentNum = Integer.parseInt(idx);
 		System.out.println("listview의 idx:"+idx);
 		String nowPage = req.getParameter("nowPage");
 		
@@ -38,11 +39,14 @@ public class RecipeListViewCommand implements PHJCommandImpl{
 		
 		
 		commentDAO cDao = new commentDAO();
+		int totalCommentCount = cDao.getTotalCount(paramMap,commentNum);
 		ArrayList<commentDTO> cDto = cDao.commentList(idx); 
 		
-		
+		System.out.println("갯수 : "+ totalCommentCount);
 		model.addAttribute("cDto", cDto);
 		model.addAttribute("viewRow",dto);
+		model.addAttribute("TotalCount",totalCommentCount);
+		//model.addAttribute("page",page);
 		model.addAttribute("nowPage",nowPage);
 		
 	}
