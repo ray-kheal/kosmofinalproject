@@ -147,37 +147,43 @@ body {
       <!-- 헤더파일 인클루드 -->
       <%@ include file="MainHeader.jsp"%>
 
-      <div
-         style="width: 100%; height: 200px; text-align: center;  display: table;"  >
-         
-            
-         <!-- 컨텐츠 -->
+       <div id= "nore"
+      style="width: 100%; height: 200px; text-align: center;  display: table;">
+      <br /> <br /> <br />
+      <p
+         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold; color: black;">
+         <img src="https://image.flaticon.com/icons/svg/10/10624.svg" width="55px" height="55px"/>
+           어디로 가야 할까?
+          
+      </p>
+   </div> 
    
-      </div>
+   
       <!-- Main -->
       <div id="main-wrapper">
          <div class="container">
 
-         <br/><br/><br/>
-         <table style="border:1px solid gray; height: 600px;">
+         
+         <table style="border:2px solid gray; height: 600px; font-family:Goyang;">
             <colgroup>
+            
                <col width="55%" />
                <col width="45%" />
             </colgroup>
             <tr > 
-               <td rowspan="3"  id=map>         
+               <td id=map>         
                   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
 
                </td> 
-               <td style="float: center;">
+               <td style="float: center; border-bottom: 2px solid gray; height: 600px;">
                   <table>
                      <tr>
-                        <td>점포명 : </td>
-                        <td>${dto.place_name } ${dto.place_name2 }</td>
+                        <td style="text-align: center; border-bottom: 2px solid pink;">점포명 : </td>
+                        <td style="text-align: center; border-bottom: 2px solid pink;">${dto.place_name } ${dto.place_name2 }</td>
                      </tr>
                      <tr>
-                        <td>점포주소 : </td>
-                        <td>${dto.place_address } <br /> (${dto.place_road_addr })</td>
+                        <td style="text-align: center; border-bottom: 2px solid pink;">점포주소 : </td>
+                        <td style="text-align: center; border-bottom: 2px solid pink;">${dto.place_address } <br /> (${dto.place_road_addr })</td>
                      </tr>
                   </table>
                     <c:choose>
@@ -189,23 +195,23 @@ body {
                       <div>
                       <table >
                        <colgroup>
-			               <col width="40%" />
-			               <col width="*" />
-			           </colgroup>
-                      	<tr >
-                      		<td style="text-align: center">재고 상품명 :</td>
-                      		<td>${row.product_name}</td>
-                      	</tr>
-                      	<tr>
-                      		<td style="text-align: center">재고 양 : </td>
-                      		<td>${row.stock}</td>
-                      	</tr>
+                        <col width="40%" />
+                        <col width="*" />
+                    </colgroup>
+                         <tr>
+                            <td style="text-align: center;">상품명 :</td>
+                            <td style="text-align: center;">${row.product_name}</td>
+                         </tr>
+                         <tr>
+                            <td style="text-align: center;  border-bottom: 2px solid pink;">수량 : </td>
+                            <td style="text-align: center;  border-bottom: 2px solid pink;">${row.stock}</td>
+                         </tr>
                       </table>
                     
                      </div>
                   </c:forEach> 
-                   <div class="container">
-                     <table>
+                   <div class="container" >
+                     <table >
                         <tr>
                            <td align="center" style="font-weight: bold; font-size: 1.5em; ">
                               ${pagingImg }

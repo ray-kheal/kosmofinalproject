@@ -73,15 +73,11 @@ nav {
 					<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2019/96/iconmonstr-party-20.png" width="80px" height="80px" /> 
 			</p>
 		</div>
-		<div style="width: 100%; text-align: center;">
-			<br /> <br />
-
-		</div>
-
+		
 		<div class="container">
 			<br /> <br />
 			<!-- 검색기능 -->
-			<form class="form-inline">
+			<!-- <form class="form-inline">
 				<div class="form-group">
 					<select name="searchColumn" class="form-control" style="width: 100px;">
 						<option value="title" >제목</option>
@@ -100,7 +96,31 @@ nav {
 						</button>
 					</div>
 				</div>
-			</form>
+			</form> -->
+			
+			
+                <!-- 검색기능 -->
+		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+		      
+		       <div class="container" style="display:inline-block; text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
+					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:50%;">
+		                <option value="title">제목</option>
+		                <option value="content">내용</option>
+		                <option value="postdate">게시일</option>
+		             </select>
+				</div>
+		       <div class="container" style=" display:inline-block;width:35%; " >  
+		             
+		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
+		      </div> 
+		      
+		        <div style=" display:inline-block; width:25%; text-align: left;">
+		        
+		        <button class="btn btn-dark " style=" font-size: 0.7em;  margin-top: 10px;""><i class="fas fa-search"></i></button>
+		        </div>
+		      </form> 
+		      
+		      <br />
 			<!-- 검색기능 끝 -->
 
 			<br />
@@ -113,15 +133,15 @@ nav {
 				<table class="table table-hover" style="text-align: center;">
 
 					<colgroup>
-						<col width="80px" />
+						<col width="10%" />
 						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="120px" />
+						<col width="15%" />
+						<col width="15%" />
+						<col width="18%" />
 					</colgroup>
 					<thead>
-						<tr class="table-primary" style="color: black;">
-							<th style="text-align: center; font-family: Goyang;" >번호</th>
+						<tr class="" style="color: black; background-color:#fc8a32;">
+							<th style="text-align: center; font-family: Goyang;">번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>
 							<th style="text-align: center; font-family: Goyang">조회수</th>
@@ -134,7 +154,7 @@ nav {
 								<tr>
 									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
 								</tr>
-							</c:when>
+							</c:when>  
 							<c:otherwise>
 								<c:forEach items="${listRows }" var="row" varStatus="loop">
 									<!-- 리스트반복시작 -->
@@ -142,7 +162,7 @@ nav {
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left"><a
 											href="./Eview.do?idx=${row.idx}
-								&nowPage=${nowPage}">${row.title}</a>
+								&nowPage=${nowPage}" style="color:black;"><label class="badge " style="background-color:#ff7b00; color:white;">이벤트</label>&nbsp;${row.title}</a>
 										</td>
 										<td class="text-center">관리자</td>
 										<td class="text-center">${row.view_count }</td>
