@@ -346,7 +346,7 @@ body {
 		            </td>
 		           
 		            <td>
-		               <input type="text" class="" style=" width: 100%; height: 200%; "id="content" name="content" />
+		               <input type="text" class="form-control" style="height:300%; border:1px solid gray;"id="content" name="content" />
 		            </td>
 		            <td>
 		               <button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
