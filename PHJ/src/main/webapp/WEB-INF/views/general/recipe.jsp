@@ -306,59 +306,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
       <!-- Page Content --> 
       <div class="container">
          <div class="container">
-           
-              <!--  <form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
-                  <select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
-                     <option value="title">제목</option>
-                     <option value="content">내용</option>
-                  </select>
-                  <input type="text" name="searchWord" class="form-control"
-                     style="width:230px; margin-left:5px;" />
-                  <div style="margin-left:10px;">
-                     <button type="submit" class="btn">
-                     검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
-                  </button>
-                  </div>
-               </form>
-                -->
-                
-                
-                <!-- 검색기능 -->
-		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
-		      
-		       <div class="container" style="display:inline-block; text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
-					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:50%;">
-		                <option value="title">제목</option>
-		                <option value="content">내용</option>
-		             </select>
-				</div>
-		       <div class="container" style=" display:inline-block;width:35%; " >  
-		             
-		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
-		      </div> 
-		      
-		        <div style=" display:inline-block; width:25%; text-align: left;">
-		        
-		        <button class="btn btn-dark " style=" font-size: 0.7em;  margin-top: 10px;""><i class="fas fa-search"></i></button>
-		        </div>
-		      </form> 
-		      
-		      <br />
                <br />
-              
-         
+
+
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-            <!--     <p style=" color:#4389cc; font-family:Arial ; font-weight: bold; font-size: 2em; ">BEST RECIPE</p> -->
-<!--                 <div style="  color: #444444 ; font-size: 4em; font-weight: 900; height: 100px; position: relative; z-index: 2;"> -->
-<!--             BEST RECIPE   -->
-<!--             </div>   -->
-<!--             <div style=" color: #4398D1; font-size: 4em; font-weight: 900; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;"> -->
-<!--             BEST RECIPE   -->
-<!--             </div>     -->
-                <!-- <img src="" alt="베스트1" />
-                <img src="" alt="베스트2" />
-                <img src="" alt="베스트3" /> -->
-                <div style="border-top: 5px solid gold; border-bottom: 5px solid gold;" >
+
+       
+                <div style="border: 2px solid gold;" >
+
                  <div class=" text-center"  style="text-align: center; "> 
                  <div style="">
                  <img src="images/cup.png" style="width: 10%; padding-top:20px; "alt="" />
@@ -379,7 +334,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                               
                               <figure class="recipePhoto " style="width:100px; height:200px; border: 1px solid white; border-radius: 0px;">
                                  <img class="img-fluid img-thumbnail " style=" height:100%; width:100%;  border-radius: 0px;"
-                                    src="./resources/imageUpload/${row.thumbnail }"
+                                    src="./resources/CSProduct/${row.thumbnail }"
                                     alt="">
                                     <img src="images/best.png" alt="" style="width: 50px; margin-top: 60px; z-index: 50px;"/>  
                                  <figcaption>  
@@ -400,13 +355,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>  
                         </c:forEach> 
                         </div>
-                          <!--  <div style="  color: #444444 ; font-size: 4em; font-weight: 650; height: 100px; position: relative; z-index: 2;">
-            BEST RECIPE 
-            </div>  
-            <div style=" color: #4398D1; font-size: 4em; font-weight: 650; height: 100px; position: relative; left: 5px;  top: -95px; z-index: 1;">
-            BEST RECIPE  
-            </div>  
-                        </div> -->
+    
                           
                 </div>
                 <br /><br />
@@ -429,22 +378,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                   <c:forEach items="${listRows }" var="row" varStatus="loop">
                   <c:choose>
                      <c:when test="${row.recommend eq 3 || row.recommend eq 2 || row.recommend eq 1 }">
-                       <%--  <!-- 베스트게시물 s-->
-                        <div class="col-lg-3 col-md-4 col-6 effect ">
-                           <input type="hidden" value="${row.thumbnail }"/>
-                           <figure class="recipePhoto" style="width:100px; height:200px;">
-                              <img class="img-fluid img-thumbnail effect" style="height:100%; width:100%;"
-                                 src="./resources/imageUpload/${row.thumbnail }"
-                                 alt="">
-                              <figcaption>
-                                 <h3 style="color:white; text-align:center; vertical-align:middle;">${row.title }</h3>
-                                 <p>${row.content }</p>
-                                 <i class="ion-ios-arrow-right"></i>
-                              </figcaption>
-                              <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class="d-block mb-4 h-100"></a>
-                           </figure>
-                        </div>   
-                        <!-- 베스트게시물 e-->        --%>              
+                    
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->

@@ -1,5 +1,6 @@
 package command.board;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 
 import command.PHJCommandImpl;
+import model.board.commentDAO;
+import model.board.commentDTO;
 import model.board.recipeDAO;
 import model.board.recipeDTO;
 
@@ -19,6 +22,7 @@ public class RecipeListViewCommand implements PHJCommandImpl{
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
 		
 		String idx = req.getParameter("idx");
+		System.out.println("listview의 idx:"+idx);
 		String nowPage = req.getParameter("nowPage");
 		
 		
@@ -32,6 +36,12 @@ public class RecipeListViewCommand implements PHJCommandImpl{
 		//줄바꿈처리
 		dto.setContent(dto.getContent().replace("\r\n", "<br/>"));
 		
+		
+		commentDAO cDao = new commentDAO();
+		ArrayList<commentDTO> cDto = cDao.commentList(idx); 
+		
+		
+		model.addAttribute("cDto", cDto);
 		model.addAttribute("viewRow",dto);
 		model.addAttribute("nowPage",nowPage);
 		

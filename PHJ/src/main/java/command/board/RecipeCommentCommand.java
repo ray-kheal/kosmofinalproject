@@ -31,7 +31,7 @@ public class RecipeCommentCommand  implements PHJCommandImpl{
 		System.out.println("command 안 listrow : "+listRows);
 		
 		//줄바꿈처리
-		dto.setCONTENT(dto.getCONTENT().replace("\r\n", "<br/>"));
+		dto.setContent(dto.getContent().replace("\r\n", "<br/>"));
 		
 		model.addAttribute("listRows",listRows);
 		

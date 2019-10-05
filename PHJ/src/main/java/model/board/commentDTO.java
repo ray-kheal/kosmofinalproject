@@ -1,63 +1,86 @@
 package model.board;
 
+import java.sql.Date;
+
 import oracle.sql.DATE;
 
 public class commentDTO {
-	private int C_CODE;
-	private int B_CODE;
-	private String WRITER;
-	private String CONTENT;
-	private DATE POSTDATE;
+	private int c_code;
+	private int b_code;
+	private String writer;
+	private String content;
+	private java.sql.Date comment_date;
 	
-	public commentDTO() {}
-	public commentDTO(int c_CODE, int b_CODE, String wRITER, String cONTENT, DATE pOSTDATE) {
+	
+	
+	
+	public commentDTO() {
 		super();
-		C_CODE = c_CODE;
-		B_CODE = b_CODE;
-		WRITER = wRITER;
-		CONTENT = cONTENT;
-		POSTDATE = pOSTDATE;
 	}
 
-	public int getC_CODE() {
-		return C_CODE;
+
+	public commentDTO(int c_code, int b_code, String writer, String content, Date comment_date) {
+		super();
+		this.c_code = c_code;
+		this.b_code = b_code;
+		this.writer = writer;
+		this.content = content;
+		this.comment_date = comment_date;
 	}
 
-	public void setC_CODE(int c_CODE) {
-		C_CODE = c_CODE;
+
+	public int getC_code() {
+		return c_code;
 	}
 
-	public int getB_CODE() {
-		return B_CODE;
+
+	public void setC_code(int c_code) {
+		this.c_code = c_code;
 	}
 
-	public void setB_CODE(int b_CODE) {
-		B_CODE = b_CODE;
+
+	public int getB_code() {
+		return b_code;
 	}
 
-	public String getWRITER() {
-		return WRITER;
+
+	public void setB_code(int b_code) {
+		this.b_code = b_code;
 	}
 
-	public void setWRITER(String wRITER) {
-		WRITER = wRITER;
+
+	public String getWriter() {
+		return writer;
 	}
 
-	public String getCONTENT() {
-		return CONTENT;
+
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
-	public void setCONTENT(String cONTENT) {
-		CONTENT = cONTENT;
+
+	public String getContent() {
+		return content;
 	}
 
-	public DATE getPOSTDATE() {
-		return POSTDATE;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public void setPOSTDATE(DATE pOSTDATE) {
-		POSTDATE = pOSTDATE;
+
+	public java.sql.Date getComment_date() {
+		return comment_date;
 	}
+
+
+	public void setComment_date(java.sql.Date comment_date) {
+		this.comment_date = comment_date;
+	}
+	
+	
+	
+	
 	
 	
 }
