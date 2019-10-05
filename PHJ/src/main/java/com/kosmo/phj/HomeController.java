@@ -19,8 +19,6 @@ import command.PHJCommandImpl;
 import command.home_eventCommand;
 import command.home_notiCommand;
 import command.home_recipeCommand;
-import command.board.ListCommand;
-import command.board.recipeListCommand;
 
 /**
  * Handles requests for the application home page.
@@ -69,5 +67,31 @@ public class HomeController {
 		this.template = template;
 		System.out.println("@Autowired->JDBCTemplate 연결성공");
 		JdbcTemplateConst.template = this.template;
+		
+		/*
+		 종속쓰레드 실행
+		 */
+		DaemonThread dt = new DaemonThread();
+		dt.setName("난 데몬쓰레드");
+		dt.setDaemon(true);
+		dt.start();
 	}
+	
+	class DaemonThread extends Thread{
+		
+		@Override
+		public void run() {
+			while(true) {
+				System.out.println(String.format("쓰레드명 : %s] Jazz가 흘러요", getName()));
+				try {
+					sleep(3000);
+					System.out.println("3초마다 자동저장!!");
+				} catch(InterruptedException e) {
+					System.out.println("자동저장시 오류발생");
+				}
+			}
+		}
+	}
+	
+	
 }
