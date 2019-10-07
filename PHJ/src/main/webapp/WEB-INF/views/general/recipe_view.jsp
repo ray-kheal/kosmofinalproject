@@ -177,15 +177,27 @@ body {
          <br /> <br />
 
        <input type="hidden" name="email" value="${viewRow.email}" />
-       
+       <div class="container">
+                     <table width="100%">
+                        <tr>
+                           <td align="center" style="font-weight: bold; font-size: 1.5em; ">
+                              ${pagingImg }
+                           </td>
+                        </tr>
+                     </table>    
+                    </div>
          <c:choose>
             <c:when test="${EMAIL eq viewRow.email}">
             <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
              <button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+              
+                    
             </c:when>
             <c:otherwise>
                
             </c:otherwise>
+                  
+            
          </c:choose>
          <button type = "button" class="btn" id ="recommendBtn" onclick = "isRecommend();" style="font-family: 'Goyang';" >
          <img src="https://image.flaticon.com/icons/svg/470/470289.svg" width="40px" height="40px"/>    추천하기</button>

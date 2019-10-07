@@ -10,24 +10,46 @@ public class commentDTO {
 	private String writer;
 	private String content;
 	private java.sql.Date comment_date;
+	private int virtualNum;
 	
 	
 	
 	
-	public commentDTO() {
-		super();
-	}
-
-
-	public commentDTO(int c_code, int b_code, String writer, String content, Date comment_date) {
+	
+	
+	public commentDTO(int c_code, int b_code, String writer, String content, Date comment_date, int virtualNum) {
 		super();
 		this.c_code = c_code;
 		this.b_code = b_code;
 		this.writer = writer;
 		this.content = content;
 		this.comment_date = comment_date;
+		this.virtualNum = virtualNum;
 	}
 
+
+
+
+	public int getVirtualNum() {
+		return virtualNum;
+	}
+
+
+
+
+	public void setVirtualNum(int virtualNum) {
+		this.virtualNum = virtualNum;
+	}
+
+
+
+
+	public commentDTO() {
+		super();
+	}
+
+
+	
 
 	public int getC_code() {
 		return c_code;

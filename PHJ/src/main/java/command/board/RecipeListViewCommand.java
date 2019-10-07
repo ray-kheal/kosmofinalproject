@@ -12,6 +12,8 @@ import model.board.commentDAO;
 import model.board.commentDTO;
 import model.board.recipeDAO;
 import model.board.recipeDTO;
+import util.FileReader;
+import util.PagingUtil;
 
 public class RecipeListViewCommand implements PHJCommandImpl{
 
@@ -39,15 +41,40 @@ public class RecipeListViewCommand implements PHJCommandImpl{
 		
 		
 		commentDAO cDao = new commentDAO();
+		String addQueryString = "";
 		int totalCommentCount = cDao.getTotalCount(paramMap,commentNum);
-		ArrayList<commentDTO> cDto = cDao.commentList(idx); 
+		int pageSize = 5;
+	    int blockPage = 5;
+
+	      int totalPage = (int)Math.ceil((double)totalCommentCount / pageSize);
+	      int nowCommentPage = req.getParameter("nowPage")==null || req.getParameter("nowPage")=="" ? 1 : Integer.parseInt(req.getParameter("nowPage"));
+	      
+	      int start = (nowCommentPage-1) * pageSize+1;
+	      int end = nowCommentPage * pageSize;
+
+	      paramMap.put("start", start);
+	      paramMap.put("end", end);
+	    
+	      
+		
+		ArrayList<commentDTO> cDto = cDao.commentList(paramMap, idx); 
+		 int virtualNum = 0;
+	      int countNum = 0;
+	      
+	      for(commentDTO row : cDto) {
+	         virtualNum = totalCommentCount-(((nowCommentPage-1)*pageSize)+countNum++);
+	         row.setVirtualNum(virtualNum);
+	      }
+	      String pagingImg = PagingUtil.pagingImg_phj(totalCommentCount, pageSize,
+	    	      blockPage, nowCommentPage, req.getContextPath()+"/Rview.do?idx="+idx+"&"+addQueryString);
+
 		
 		System.out.println("갯수 : "+ totalCommentCount);
 		model.addAttribute("cDto", cDto);
 		model.addAttribute("viewRow",dto);
 		model.addAttribute("TotalCount",totalCommentCount);
-		//model.addAttribute("page",page);
 		model.addAttribute("nowPage",nowPage);
+		model.addAttribute("pagingImg",pagingImg);
 		
 	}
 }
