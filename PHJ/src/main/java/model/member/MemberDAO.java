@@ -227,7 +227,7 @@ public class MemberDAO {
 	public void modify(final MemberDTO dto) {
 		System.out.println("modify() 호출 : " + dto.getEmail());
 		
-		String sql = "UPDATE phj_member SET name=?, email_alert=?, pass=?, mobile=?, mobile_alert=? place_bookmark = ? WHERE email=?";
+		String sql = "UPDATE phj_member SET name=?, email_alert=?, pass=?, mobile=?, mobile_alert=?, place_bookmark = ?, products_bookmark = ? WHERE email=?";
 		
 		template.update(sql,new PreparedStatementSetter() {
 			
@@ -239,7 +239,8 @@ public class MemberDAO {
 				ps.setString(4, dto.getMobile());
 				ps.setString(5, dto.getMobile_alert());
 				ps.setString(6, dto.getPlace_bookmark());
-				ps.setString(7, dto.getEmail());	
+				ps.setString(7, dto.getProducts_bookmark());
+				ps.setString(8, dto.getEmail());	
 			}
 			
 		});

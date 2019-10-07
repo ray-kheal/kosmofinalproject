@@ -382,7 +382,9 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
 
+
                               <img class="img-fluid img-thumbnail"  style="height:100%; width:100%;"
+
 
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">

@@ -380,10 +380,10 @@ function textLengthOverCut(txt, len, lastTxt) {
                   <section class="widget thumbnails"> 
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
                      <div style="text-align: right;"> 
-                     <a href="recipe.do"  style="margin-top: -50px;"> 
-                     <img src="images/moreView.png" alt="" style="width: 90px"/> 
+                     <a class="float-right" href="recipe.do"  style="margin-top: -50px;"> 
+                     <img src="images/moreView.png" alt="" style="width: 90px"/>
                      </a> 
-                     </div> 
+                     </div>  
                         <!-- <div class="container">  -->
                         <div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 

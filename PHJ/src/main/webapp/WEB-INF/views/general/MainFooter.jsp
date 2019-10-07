@@ -5,19 +5,20 @@
 <style type="text/css">
 #footer { 
    font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
-   font-weight: normal; font-style: normal;
+   font-weight: normal; font-style: normal; 
+   
 }
 #footer {
    font-family: 'Goyang', cursive;
 }
 </style>
 <!-- Footer -->
-<div>
-	<footer id="footer" class="container">
+<div> 
+	<footer id="footer" class="container" >
 		
 			<br />
 			
-			<div style="font-size:14px;">
+			<div style="font-size:14px; ">
 				&nbsp;<a href="http://localhost:8080/phj/#"> 메인페이지</a> ㅣ <a href="http://localhost:8080/phj/qna.do"> Q&A </a> ㅣ <a href="http://localhost:8080/phj/mail.do">1:1 문의</a>
 				ㅣ <a href="http://localhost:8080/phj/join1.do">개인정보취급방침</a>
 			</div>
