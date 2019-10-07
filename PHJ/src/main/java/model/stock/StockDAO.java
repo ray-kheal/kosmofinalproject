@@ -62,19 +62,22 @@ public class StockDAO {
 		return (ArrayList<StockDTO>) template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 	}
 
-	public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code) {
-
+	public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code){
+		
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 
-		String query = "SELECT * FROM ( " + " SELECT tb.*, rownum rNum from ("
-				+ " SELECT * FROM phj_board_stock where place_code = " + place_code + " ) tb "
-				+ " ) where rNum BETWEEN " + start + " AND " + end;
-
-		return (ArrayList<StockDTO>) template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
-
+			String query = "SELECT * FROM ( "+
+					" SELECT tb.*, rownum rNum from ("
+					+ " SELECT * FROM phj_board_stock "
+					+ "    inner join phj_product " + 
+					"        on phj_board_stock.product_code = phj_product.product_code " 
+					+ "	where place_code = " + place_code+
+				" ) tb " +
+					" ) where rNum BETWEEN "+start+" AND "+end;	
+			
+			return (ArrayList<StockDTO>)template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 	}
-
 	public StockDTO isPlusStock(String product_bookmark, String place_bookmark) {
 		StockDTO dto = null;
 		String sql = "SELECT stock, stock_backup FROM phj_stock_log where place_code = '" + place_bookmark
@@ -93,6 +96,7 @@ public class StockDAO {
 		return dto;
 	}
 	
+
 	public void backup() {
 		template.update(new PreparedStatementCreator() {
 			
@@ -103,5 +107,6 @@ public class StockDAO {
 				return psmt;
 			}
 		});
+		System.out.println("재고 백업 완료");
 	}
 }

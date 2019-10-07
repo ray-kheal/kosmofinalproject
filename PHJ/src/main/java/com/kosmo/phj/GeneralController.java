@@ -1,11 +1,13 @@
 package com.kosmo.phj;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -166,6 +168,8 @@ public class GeneralController {
 		
 		return "redirect:../phj";
 	}
+   
+   
   
 }
 

@@ -185,10 +185,7 @@ to {
             <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
          </p>
       </div>
-   <div style="width: 100%; text-align: center;">
-      <br /> <br />
-
-   </div>
+   
 
    <div class="container">
       <br /> <br />
@@ -427,7 +424,7 @@ to {
                					<c:when test="${not empty productBookmark }">
                          	   		<c:choose>      
 	                              		<c:when test="${row.product_code eq productBookmark}">
-			                           	 	 <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: black;" 
+			                           	 	 <a style="text-align: center; font-size: 0.8em; font-weight: bold; color: red;" 
 				                             	href="deleteBookmarkProduct.do?product_bookmark=${productBookmark }">
 				                             	<img src="./images/price_star_in.png" width="18px" />관심상품 해제
 				                           	 </a>

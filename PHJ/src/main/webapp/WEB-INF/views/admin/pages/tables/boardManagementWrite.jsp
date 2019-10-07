@@ -87,10 +87,10 @@ function checkValidate(f){
 		 <form action="boardManagementWriteAction.do" name="writeFrm" method="post" 
 							onsubmit="return checkValidate(this);">
 			             
-							<input type="hid-den" name="board_type" value="1" /> 
+							<input type="hidden" name="board_type" value="1" /> 
 		                      <div class="form-group">
 		                        <label for="exampleInputName1">이름</label>
-		                        <input type="text" class="form-control" name="name" value="관리자">
+		                        <input type="text" class="form-control" name="name" value="관리자" readonly>
 		                      </div>
 		                      <!-- <div class="form-group">
 		                        <label for="exampleInputPassword4">비밀번호</label>
@@ -123,12 +123,12 @@ function checkValidate(f){
 			
 				<div class="row text-right" style="float: right;">
 					 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
-					    </form>
-	                 <button type="reset" class="btn btn-light btn-rounded">Reset</button>
+					
+	                 <button type="reset" class="btn btn-red btn-rounded">Reset</button>
 	
 	                 <button class="btn btn-dark btn-rounded"
 	                 	onclick="location.href='./boardManagement.do';">List</button>
-	
+	    </form>
 				</div>	
 	 
             </div>

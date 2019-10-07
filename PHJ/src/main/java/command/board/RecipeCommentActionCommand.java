@@ -17,20 +17,31 @@ public class RecipeCommentActionCommand implements PHJCommandImpl{
 		//파라미터 한번에 전달받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
-		commentDTO commentDTO = (commentDTO)paramMap.get("commentDTO");
+		commentDTO dto = (commentDTO)paramMap.get("commentDTO");
+		
+		
 		
 		//폼값받기
-		String b_code = req.getParameter("b_code");
-		String writer = req.getParameter("writer");
-		String content = req.getParameter("content");
-			
+		
+		//int b_code = dto.getB_CODE();
+		//String writer = dto.getWRITER();
+		//String content = dto.getCONTENT();
+		
+		//System.out.println("b_code : "+b_code+ "name: " + writer+" content : " +content );
+		
+		dto.setB_code(Integer.parseInt(req.getParameter("idx")));
+		System.out.println("idx : "+req.getParameter("idx"));
+		dto.setWriter(req.getParameter("writer"));
+		dto.setContent(req.getParameter("content"));
+		
 		//커맨드객체 받아서 확인하기
 		
 		commentDAO dao = new commentDAO();
 		
-		dao.write(commentDTO);
+		dao.write(dto);
 		
 		System.out.println("RecipeCommenAction 익스큐드실행");
+		
 	
 	}
 	

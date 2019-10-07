@@ -1,10 +1,13 @@
 package com.kosmo.phj;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletWebRequest;
 
 import command.PHJCommandImpl;
 import command.home_eventCommand;
@@ -22,6 +27,7 @@ import command.home_notiCommand;
 import command.home_recipeCommand;
 import model.stock.StockDAO;
 import model.stock.StockDTO;
+import util.ContextUtil;
 
 /**
  * Handles requests for the application home page.
@@ -75,8 +81,8 @@ public class HomeController {
 						);
 				if (session.getAttribute("ALERT").equals("Y")) {
 					
-					dt.setName("스레드테스트");
-					dt.start();
+//					dt.setName("스레드테스트");
+//					dt.start();
 					
 				} else {
 					System.out.println("알림설정 off로 되어있음.");
@@ -96,7 +102,7 @@ public class HomeController {
 	private JdbcTemplate template;
 
 	@Autowired
-	public void setTemplate(JdbcTemplate template) {
+	public void setTemplate(JdbcTemplate template, HttpServletResponse resp) {
 		this.template = template;
 		System.out.println("@Autowired->JDBCTemplate 연결성공");
 		JdbcTemplateConst.template = this.template;
@@ -105,13 +111,17 @@ public class HomeController {
 		BackupThread bt = new BackupThread();
 		bt.setDaemon(true);
 		bt.start();
+		
+		
 	}
+	
 
 }
 
 class AlertThread extends Thread {
 	String email, product_bookmark, place_bookmark, alert;
 	int stock, stock_backup;
+	
 	public AlertThread() {}
 	
 	public AlertThread(String email, String product_bookmark, String place_bookmark, String alert) {
@@ -120,6 +130,9 @@ class AlertThread extends Thread {
 		this.place_bookmark = place_bookmark;
 		this.alert = alert;
 	}
+	
+
+
 
 	@Override
 	public void run() {
@@ -132,18 +145,25 @@ class AlertThread extends Thread {
 				System.out.println(product_bookmark +" " + place_bookmark);
 				System.out.println("실행주기테스트");
 				sleep(3000);
-				while(stock>stock_backup) {
+				if(stock>stock_backup) {
 					System.out.println(String.format("[쓰레드명 : %s] ", getName()));
 					try{
-						System.out.println("재고알림 메시지 스레드 추가 예정.");
-						sleep(100000);
+						HttpServletResponse resp = ContextUtil.getResponse();
+						resp.setContentType("text/html; charset=utf-8");
+						PrintWriter out = resp.getWriter();
+						out.print("<script>calculate()</script>");
+					    out.flush();
+
+						sleep(1000000);
 						
 					} catch(InterruptedException e) {
 						System.out.println("스레드 잘못됨 뭐 그렇다구..");
 					}
+				} else {
 				}
 				
 			} catch(Exception e){
+				e.printStackTrace();
 				System.out.println("스레드 처음부터 잘못됨 뭐 그렇다구..");	
 			}
 		}		
@@ -157,7 +177,7 @@ class BackupThread extends Thread {
 		while(true) {
 			try {
 				System.out.println("재고 백업은 10분마다 갱신합니다.");
-				sleep(1000);
+				sleep(1000000);
 				StockDAO dao = new StockDAO();
 				dao.backup();
 			} catch(InterruptedException e) {

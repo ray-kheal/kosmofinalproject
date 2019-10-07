@@ -265,50 +265,47 @@ function textLengthOverCut(txt, len, lastTxt) {
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> --> 
       <div id="scroll"   
          style=" position: fixed; right: 50%; top: 230px; margin-right: -800px; text-align: center; width: 180px;"> 
-  		<img src="images/scollMenuLogin.png" style="width: 90%" usemap="#Map"  />
+  		<!-- <img src="images/scollMenuLogin.png" style="width: 90%" usemap="#Map"  />
   		<map name="Map" id="Map">
   			<area shape="rect" coords="1604,243,1707,288" href="#" alt="" />
   			<area shape="rect" coords="1608,307,1717,355" href="#search" alt="" />
   			<area shape="rect" coords="1607,373,1717,429" href="#reci" alt="" />
   			<area shape="rect" coords="1607,440,1717,495" href="#notify" alt="" />
   			<area shape="rect" coords="1607,563,1717,563" href="login.do" alt="" />
-  		</map>
+  		</map> -->
   		
 		<!-- <img id="Image-Maps-Com-image-maps-2019-10-04-012619" src="images/scollMenuLogin.png" style="width: 90%;" border="0" width="844" height="1824" orgWidth="844" orgHeight="1824" usemap="#image-maps-2019-10-04-012619" alt="" /> -->
 		
          <!-- 이미지로 스크롤 메뉴 변경함 --> 
-         <a href="#"> <img src="images/welcome_scoll.png" alt="welcome"  
+         <a href="#"> <img  style="width:90%" src="images/welcome.png" alt="welcome"  
             style="right: 30; top: 30;" /> 
          </a> <br />  
-         <a href="#search"> <img 
-            src="images/product_scoll.png" alt="편의점 상품조회" /> 
+         <a href="#search"> <img  style="width:90%"
+            src="images/findproduct.png" alt="편의점 상품조회" /> 
          </a><br />  
-         <a href="#reci"> <img 
-            src="images/recipe_scoll.png" alt="편의점 레시피" /> 
+         <a href="#reci"> <img  style="width:90%"
+            src="images/recipe.png" alt="편의점 레시피" /> 
          </a><br />  
-         <a href="#notify"> <img src="images/notice_scoll.png" 
+         <a href="#notify"> <img   style="width:90%" src="images/notice.png" 
             alt="공지사항" /> 
          </a><br /> 
-         <!--          <a href="#info"> --> 
-         <!--             <img src="images/scoll_cs.png" alt="고객센터" /> --> 
-         <!--          </a><br /> --> 
-
          <% 
             if (session.getAttribute("EMAIL") == null) { 
          %> 
-         <a href="login.do"><img src="images/login_scoll.png" alt="로그인" /></a> 
+         <a href="login.do"><img  style="width:90%" src="images/login.png" alt="로그인" /></a> 
          <% 
             } else { 
          %> 
-      <a href="memberEdit.do"> <img src="images/modify_scoll.png" 
+      <a href="memberEdit.do"> <img  style="width:90%" src="images/modify.png" 
             alt="정보수정" /> 
-         </a> <a href="logout.do"> <img src="images/logout_scoll.png" 
+         </a> <a href="logout.do"> <img  style="width:90%" src="images/logout.png" 
             alt="로그아웃" /> 
          </a>   
          <% 
             } 
          %> 
-  
+         
+         
 
       </div> 
 
@@ -443,135 +440,6 @@ function textLengthOverCut(txt, len, lastTxt) {
                   </section>  
                </div>
             </div>
-   
-            
-
-<%-- <<<<<<< HEAD
-            </div>
-            <div class="container">
-            <div class="row" >
-               <!-- <div class="col-6 col-12-medium" style="border :1px solid grey; width: 100%;"> -->
-               <div class="" style=" width: 100%;"> 
-                  <!-- Content -->
-                  
-                  <div id="notify">
-                     <section class="last">
-                        <table>
-                           <tr >
-                              <td style=" width: 50%;">
-                                 <h2 style="font-family: Goyang;">공지사항</h2>
-                                    <div style="text-align: right; margin-right: 50px; margin-bottom: 20px;">
-                                    <a href="notice.do" >
-                                       <img src="images/moreView.png" alt="" style="width: 120px"/>
-                                    </a>
-                                 </div>
-                                 <ul class="main_board_list">
-                                    <!-- <div> -->
-                                       <table class="table table-hover" style="text-align: center;  margin-left: -50px; " >
-                                          <colgroup>
-                                             <col width="80px" />
-                                             <col width="*" />
-                                             <col width="120px" />
-                                             <col width="120px" />
-                                             
-                                          </colgroup>
-                                          <thead>
-                                             <tr class="table-primary" style="color: white; width: 120%; ">
-                                                <th style="text-align: center;"></th>
-                                                <th style="text-align: center;">제목</th>
-                                                <th style="text-align: center;">작성자</th>
-                                               
-                                               
-                                             </tr>
-                                          </thead>
-                                          <tbody>
-                                             <c:choose>
-                                                <c:when test="${empty listRows }">
-                                                   <tr>
-                                                      <td colspan="6" class="text-center">등록된 게시물이 없습니다^^*</td>
-                                                   </tr>
-                                                </c:when>
-                                                <c:otherwise>
-                                                   <c:forEach items="${listRows }" var="row"
-                                                      varStatus="loop">
-                                                      <!-- 리스트반복시작 -->
-                                                      <tr>
-                                                         <td class="text-center"><i class="fas fa-clipboard-check"  style="color: #608ac9;"></i></td>
-                                                         <td class="text-left">
-                                                            <a href="./view.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
-                                                         </td>
-                                                         <td class="text-center">관리자</td>
-                                                         <td class="text-center">${row.view_count }</td>
-                                                      </tr>
-                                                   </c:forEach>
-                                                </c:otherwise>
-                                             </c:choose>
-                                          </tbody>
-                                       </table>
-                                    </div>
-                                 </ul>
-                                 <!-- <a href="notice.do" class="button icon solid fa-arrow-circle-right">더보기</a> -->
-                              </td>
-                              <td >
-                              
-                                 <h2 style="padding-left: 20px; font-family: 'Goyang';">이벤트</h2>
-                                    <div style="text-align: right; margin-bottom: 20px;">
-                                    <a href="event.do"  >
-                                       <img src="images/moreView.png" alt="" style="width: 120px"/>
-                                    </a>
-                                 </div>
-                                 <div>
-                                    <table class="table table-hover" style="text-align: center; margin-left: -10px;">
-                                       <colgroup>
-                                          <col width="80px" />
-                                          <col width="*" />
-                                          <col width="120px" />
-                                          <col width="120px" />
-                                       </colgroup>
-                                       <thead>
-                                          <tr class="table-primary" style="color: white;">
-                                             <th style="text-align: center;"></th>
-                                             <th style="text-align: center;">제목</th>
-                                             <th style="text-align: center;">작성자</th>
-                                            <!--  <th style="text-align: center;">조회수</th> -->
-                                          </tr>
-                                       </thead>
-                                       <tbody>
-                                          <c:choose>
-                                             <c:when test="${empty eventRows }">
-                                                <tr>
-                                                   <td colspan="6" class="text-center">등록된 게시물이 없습니다
-                                                      ^^*</td>
-                                                </tr>
-                                             </c:when>
-                                             <c:otherwise>
-                                                <c:forEach items="${eventRows }" var="row"
-                                                   varStatus="loop">
-                                                   <!-- 리스트반복시작 -->
-                                                   <tr>
-                                                      <td class="text-center">${row.virtualNum }</td>
-                                                      <td class="text-center"><i class="fas fa-gift" style="color: #608ac9;"></i></td>
-                                                      <td class="text-left"><a
-                                                         href="./Eview.do?idx=${row.idx}&nowPage=${nowPage}">${row.title}</a>
-                                                      </td>
-                                                      <td class="text-center">관리자</td>
-                                                      <td class="text-center">${row.view_count }</td>
-                                                   </tr>
-                                                </c:forEach>
-                                             </c:otherwise>
-                                          </c:choose>
-                                       </tbody>
-                                    </table>
-                                 </div> 
-                                 <!-- <a href="event.do" class="button icon solid fa-arrow-circle-right" width="40px" height="40px">더보기</a> -->
-                              </td>
-                           </tr>
-                        </table>   
-                     </section>
-======= --%>
-            
-        
-            
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
             
             <div class="container" id="wideboard">
@@ -627,11 +495,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                   </div>
                 </div>
               </div>
-              
-              
-          
-                
-              
+  
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body"> 
