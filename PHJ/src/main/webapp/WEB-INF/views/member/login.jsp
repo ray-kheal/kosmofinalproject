@@ -202,7 +202,7 @@ if(cookies!=null){
          
          <div id="" style="display:inline-block; width: 50%; float:left; " >
 
-         	
+
 
          </div>
          
@@ -211,7 +211,7 @@ if(cookies!=null){
                <div class="" style="display:inline-block; background:#f1f1f1; border-radius:10px;   padding : 35px 35px 35px 35px; " >
                   <form class="loginForm" action="loginAction.do">
                      <div class="form-group"> 
-                        <input type="text" style="font-family: Verdana; class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
+                        <input type="text" style="font-family: Verdana;" class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
                            required autofocus />
                      </div>
                      <div class="form-group">

@@ -13,11 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type = "text/javascript">
 function checkValidate(f){
-	if(f.name.value==""){
-		alert("이름을 입력하세요.");
-		f.name.focus();
-		return false;
-	}
+
 	if(f.title.value==""){
 		alert("제목을 입력하세요.");
 		f.title.focus();

@@ -69,7 +69,10 @@ public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code){
 
 		String query = "SELECT * FROM ( "+
 				" SELECT tb.*, rownum rNum from ("
-				+ " SELECT * FROM phj_board_stock where place_code = " + place_code+
+				+ " SELECT * FROM phj_board_stock "
+				+ "    inner join phj_product " + 
+				"        on phj_board_stock.product_code = phj_product.product_code " 
+				+ "	where place_code = " + place_code+
 			" ) tb " +
 				" ) where rNum BETWEEN "+start+" AND "+end;	
 		

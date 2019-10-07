@@ -69,8 +69,8 @@ function commmentList(comlist){
 		<tr>     
 			<td style="text-align:right;">
 			<%= String b_code =request.getParameter("idx") %>
-				<input type="hid-den" id="b_code" name="b_code" value="<%=b_code %>"/>
-				<input type="hid-den" id="b_code" name="writer" value="<%=session.getAttribute("NAME") %>" />
+				<input type="hidden" id="b_code" name="b_code" value="<%=b_code %>"/>
+				<input type="hidden" id="b_code" name="writer" value="<%=session.getAttribute("NAME") %>" />
 				<img src="images/pic-2.png" alt="" />
 			</td>
 			<td>

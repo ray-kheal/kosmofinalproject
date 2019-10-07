@@ -264,13 +264,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
         </nav> 
         <!-- partial --> <!-- 사이드바 끝 -->
 
-      
-
-
-
-
 	<div class="main-panel">
-
 
 
           <div class="content-wrapper">
@@ -281,7 +275,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard </h3>
               </div>
-
 
 
             </div>
@@ -396,14 +389,11 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   	 </tr>
                   	</table>
 
-
                   </div>
                 </div>
               </div>
               
             </div>
-
-
 
           <!-- -------------------------------------------------------------------최근가입회원 -->
             
@@ -465,9 +455,6 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
               </div>
               
             <!-- -------------------------------------------------------------------최근문의사항 -->
-              
-              
-              
               <div class="col-md-8 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body"> 

@@ -29,7 +29,7 @@ import command.PHJCommandImpl;
 import command.board.EditActionCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeCommentActionCommand;
-import command.board.RecipeCommentCommand;
+//import command.board.RecipeCommentCommand;
 import command.board.RecipeEditFileActionCommand;
 import command.board.RecipeListViewCommand;
 import command.board.RecommendCommand;
@@ -38,6 +38,7 @@ import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import command.board.findPlaceCommand;
 import command.board.recipeListCommand;
+import model.board.commentDTO;
 import model.board.recipeDAO;
 
 import model.board.recipeDTO;
@@ -213,18 +214,9 @@ public class boardController {
 	public String RecipeEditAction(HttpServletRequest req, Model model, recipeDTO dto, HttpSession session) {
 
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageUpload");
-				
-//		System.out.println("들어옵니까?");
-//		// 커맨드객체로 받은 폼값 확인하기
-//		model.addAttribute("req", req);
-//		command = new RecipeEditActionCommand();
-//		command.execute(model);
-		
 		try {
 			
 			MultipartHttpServletRequest mhsr = (MultipartHttpServletRequest)req;
-			
-			
 			//업로드폼의 file 속성 필드의 이름을 모두 읽음
 			Iterator itr = mhsr.getFileNames();
 			
@@ -306,37 +298,25 @@ public class boardController {
 	public String recommend(Model model, HttpServletRequest req) {
 		System.out.println("들어왔니?");
 		model.addAttribute("req", req);
+		
 		command = new RecommendCommand();
 		command.execute(model);
 
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:recipe.do";
 	}
-
 	
-	//레시피 댓글 리스트
-	@RequestMapping("recipe_comment.do")
-	public String recipe_comment(Model model, HttpServletRequest req) {
-		System.out.println("들어왔니?");
-		model.addAttribute("req", req);
-		command = new RecipeCommentCommand();
-		command.execute(model);
-		
-		model.addAttribute("nowPage", req.getParameter("nowPage"));
-		return "redirect:recipe.do";
-	}
 	//레시피 댓글 작성 
 	@RequestMapping("recipe_commentAction.do")
-	public String recipe_commentAction(Model model, HttpServletRequest req) {
+	public String recipe_commentAction(Model model, HttpServletRequest req, commentDTO commentDTO) {
 		model.addAttribute("req", req);
+		model.addAttribute("commentDTO",commentDTO);
+		String b_code = req.getParameter("idx");
 		command = new RecipeCommentActionCommand();
 		command.execute(model);
-		
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
-		return "general/recipe_view";
+		return "redirect:Rview.do?idx="+b_code;
 	}
-	
-	
 
 }
 

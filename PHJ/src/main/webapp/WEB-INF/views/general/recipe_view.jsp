@@ -70,6 +70,7 @@ body {
       </div>
 
 
+
       <div class="container">
          <br />
          <br />
@@ -82,55 +83,7 @@ body {
          </div>
          <input type="hidden" name="idx" value="${viewRow.idx }" />
          <input type="hidden" name="nowPage" value="${nowPage }" />
-      <%--    
-         <table class="table table-bordered" style="margin-bottom: -1px;">
-            <colgroup>
-               <col width="80px" />
-               <col width="*" />
-               <col width="120px" />
-               <col width="120px" />
-               <col width="80px" />
-               <col width="50px" />
-            </colgroup>
-                     
-            <tr>
-               <th bgcolor="#f2efef"
-                  style="text-align: center; border-top: 5px solid #82b9e4;">제목</th>
-               <td bgcolor="white" style="border-top: 5px solid #82b9e4;">${viewRow.title}</td>
-            </tr>
-            <tr>
-               <th bgcolor="#f2efef" style="text-align: center;">작성자</th>
-               <td bgcolor="white">${viewRow.name}
-
-               </td>
-            </tr>
-         
-         </table>
-      
-         <table class="table" bgcolor="white">
-            <colgroup>
-               <col width="80px" />
-               <col width="120px" />
-               <col width="80px" />
-               <col width="80px" />
-               <col width="80px" />
-               <col width="80px" />
-            </colgroup>
-            <tr>
-               <th
-                  style="text-align: center; border-left: 1px solid #EDEAEA; font-weight: normal;">작성일</th>
-               <td>${viewRow.postdate}</td>
-               <th style="text-align: center;">조회수</th>
-               <td style="border-right: 1px solid #EDEAEA;">${viewRow.view_count }</td>
-               <th style="text-align: center;">추천수</th>
-               <td style="border: 1px solid #EDEAEA;">${viewRow.BTNRECOMMEND}</td>
-            </tr>
-            <tr>
-               <td colspan="6"
-                  style="height: 500px; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #82b9e4;">${viewRow.content}
-               </td>
-            </tr>
-         </table> --%>
+   
          
          
             
@@ -159,57 +112,67 @@ body {
                
    
                
-               <p>${viewRow.content}</p>
-               
-               <p> </p> 
+               <p>${viewRow.content}</p> 
+          	 
                </td>
                
             </tr>
-           
          
          </table>
-         <p style="margin-left: 100px;">댓글 ?개</p>  
-         <%-- <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
-            <col width="20%" />
-            <col width="*" />
-            <col width="20%" />
-            <tr>     
-               <td style="text-align:right;">
-                  <img src="images/pic-2.png" alt="" />
-               </td>
-               <td>
-                  <input type="text" style=" width: 100%; height: 200%; " />
-               </td>
-               <td>
-                  <button class="btn btn-sm" style="background-color: #7f7b9e; color:white;">답글달기</button>
-               </td>
-            </tr>
-         </table>   --%>
-         <%-- <%@ include file ="./recipe_comment.jsp" %> --%>
+        		<div id="replyList">
+       			<div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
+        			<span>댓글  ${TotalCount }개</span>
+				</div>
+				<c:choose>
+               <c:when test="${empty cDto }">
+                  <p class="text-center">등록된 댓글이 없습니다.</p>
+               </c:when>             
+               <c:otherwise>      
+                  <c:forEach items="${cDto }" var="commentdto" varStatus="loop">
+                     <div>
+                        <!-- 리스트반복시작 -->  
+                          <table style="margin-bottom:1px; height: auto; border-bottom: 1px solid #999999;">
+                          	<tr>
+                          		<td> 
+	                          		<span style="font-weight:bold;">${commentdto.writer}</span> <br />
+	                          		${commentdto.content} <br />
+	                          		<span style="font-size:14px; color:gray;">${commentdto.comment_date}</span> 
+                          		</td>
+                          	</tr>
+                          </table>   
+                      </div> 
+                  </c:forEach>  
+               </c:otherwise> 
+            </c:choose>
+			
+			</div>
+         <%if(session.getAttribute("EMAIL")!=null){ %>
          <div>
-   <form id="commentForm" name="commentForm" method="post" action="recipe_commentAction.do">
-      <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
-         <col width="20%" />
-         <col width="*" />
-         <col width="20%" />
-         <tr>     
-            <td style="text-align:right;">
-            <%String b_code =request.getParameter("idx"); %>
-               <input type="hid-den" id="b_code" name="b_code" value="<%=b_code %>"/>
-               <input type="hid-den" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
-               <img src="images/pic-2.png" alt="" />
-            </td>
-            <td>
-               <input type="text" style=" width: 100%; height: 200%; "id="content" name="content" value="" />
-            </td>
-            <td>
-               <button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
-            </td>
-         </tr>
-      </table> 
-   </form> 
-</div>
-         
+		   <form id="commentForm" name="commentForm" method="post" action="recipe_commentAction.do">
+		      <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
+		         <col width="20%" />
+		         <col width="*" />
+		         <col width="20%" />
+		         <tr>     
+		            <td style="text-align:right;">
+		            <%String b_code =request.getParameter("idx"); %>
+		               <input type="hidden" id="b_code" name="idx" value="<%=b_code %>"/>
+		               <input type="hidden" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
+		               <img src="images/pic-2.png" alt="" />
+		            </td>
+		           
+		            <td>
+		               <input type="text" class="" style=" width: 100%; height: 200%; "id="content" name="content" />
+		            </td>
+		            <td>
+		               <button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
+		            </td>
+		      
+		         </tr>
+		      </table> 
+		   </form> 
+		</div>
+              <% } %> 
          <!-- </div> -->
          <br /> <br />
 
