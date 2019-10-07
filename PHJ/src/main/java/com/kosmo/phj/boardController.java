@@ -298,12 +298,12 @@ public class boardController {
 	public String recommend(Model model, HttpServletRequest req) {
 		System.out.println("들어왔니?");
 		model.addAttribute("req", req);
-		
+		String b_code = req.getParameter("idx");
 		command = new RecommendCommand();
 		command.execute(model);
 
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
-		return "redirect:recipe.do";
+		return "redirect:Rview.do?idx="+b_code;
 	}
 	
 	//레시피 댓글 작성 
