@@ -238,8 +238,18 @@ nav {
 										<!-- <td class="text-center">--</td> -->
 									</tr>
 								</c:forEach>
+								<div class="container">
+                     <table width="100%">
+                        <tr>
+                           <td align="center" style="font-weight: bold; font-size: 1.5em; ">
+                              ${pagingImg }
+                           </td>
+                        </tr>
+                     </table>    
+                    </div>
 							</c:otherwise>
 						</c:choose>
+						
 					</tbody>
 				</table>
 			</div>

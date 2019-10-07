@@ -415,9 +415,7 @@ function textLengthOverCut(txt, len, lastTxt) {
    
                                     </c:when> 
                                     <c:otherwise> 
-
                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 " > 
-
                                           <figure class="recipePhoto" style="width:100px; height:200px;"> 
                                              <img class="img-fluid img-thumbnail effect" 
                                                 src="./resources/imageUpload/${row.thumbnail }" style="height:100%; width:100%;"
