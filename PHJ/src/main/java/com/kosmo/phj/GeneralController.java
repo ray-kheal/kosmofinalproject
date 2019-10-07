@@ -24,6 +24,7 @@ import command.board.ListCommand;
 import command.board.ProductListCommand;
 import command.board.QnAListCommand;
 import command.board.QnAViewCommand;
+import command.board.StockCommand;
 import command.board.ViewCommand;
 import command.board.WriteActionCommand;
 import command.board.recipeListCommand;
@@ -166,7 +167,17 @@ public class GeneralController {
 		
 		return "redirect:../phj";
 	}
-  
+   	
+   	//재고 페이지 진입
+   	@RequestMapping("stock.do")
+   	public String stock(Model model, HttpServletRequest req) {
+   		
+   		model.addAttribute("req", req);
+   		command = new StockCommand();
+   		command.execute(model);
+   		
+   		return "general/stock";
+   	}
 }
 
 

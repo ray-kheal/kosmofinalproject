@@ -382,11 +382,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         <div class="col-lg-3  col-md-3 col-sm-1 col-xs-1">
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
-
-
                               <img class="img-fluid img-thumbnail"  style="height:100%; width:100%;"
-
-
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">
                               <figcaption>
@@ -413,9 +409,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                </div>
             </c:otherwise>
          </c:choose>
-   
          <!-- /.container -->
-
       </div>
    </div>
    

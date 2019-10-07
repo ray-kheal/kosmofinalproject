@@ -62,8 +62,6 @@ public class recipeDAO {
 		String query = "  SELECT * FROM ( " 
 					+ " SELECT * FROM PHJ_BOARD_RECIPE order by view_count desc "  
 					+" ) WHERE ROWNUM <= 3 ";
-					
-		
 		return (ArrayList<recipeDTO>) template.query(query, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));
 		
 	}

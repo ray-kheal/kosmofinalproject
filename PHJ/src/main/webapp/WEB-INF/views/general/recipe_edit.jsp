@@ -113,7 +113,7 @@ body {
 							<col width="80px" />
 							<col width="*" />
 							<col width="120px" />
-							<col width="120px" />
+							
 							<col width="80px" />
 							<col width="50px" />
 						</colgroup>
@@ -133,12 +133,9 @@ body {
 							<td bgcolor="white"><input type="text" class="form-control"
 								name="name" style="border: none;" value="<%=session.getAttribute("NAME") %>" readonly/></td>
 						</tr>
-						<%-- <input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td> --%>
-						<!-- </tr> -->
 						<tr>
 
-						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
-						<td><input type="file" name="fileUpload" accept="images/*" /></td>
+						
 					</tr> 
 						<tr>
 

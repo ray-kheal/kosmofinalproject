@@ -79,4 +79,11 @@ public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code){
 		return (ArrayList<StockDTO>)template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 		
 	}
+
+	//재고량
+	public int getStockCount(Map<String, Object> map) {
+		String query = "SELECT * FROM phj_stock_log";
+		
+		return template.queryForObject(query, Integer.class);
+	}
 }

@@ -72,7 +72,7 @@ body {
       span = document.getElementById("result");
       
       if(navigator.geolocation){
-         span.innerHTML = "Geolocation API를 지원합니다.";
+        // span.innerHTML = "Geolocation API를 지원합니다.";
          
          var options = {   
             enableHighAccurcy:true, 
@@ -88,12 +88,12 @@ body {
    
    var showPosition = function(position){
       //위도를 가져오는 부분
-      var latitude = position.coords.latitude;
+      var latitude = 37.478966;
       //경도를 가져오는 부분
-      var longitude = position.coords.longitude;
-      span.innerHTML = "위도:"+latitude+"<br/>경도:"+longitude;   
+      var longitude =126.878675;
+      //span.innerHTML = "위도:"+latitude+"<br/>경도:"+longitude;   
       
-      
+    
       //위경도를 text input에 입력
       document.getElementById("latTxt").value = latitude;
       document.getElementById("lngTxt").value = longitude;
@@ -152,7 +152,7 @@ body {
                      bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"'>관심점포로 등록하기 </a>";
                   }
                }   
-                  infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'>바로가기</a>" + bookmark);
+                  infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'></a>" + bookmark);
                   infowindow.open(map, marker);
                
             }
@@ -229,24 +229,7 @@ body {
       <!-- Main -->
       <div id="main-wrapper">
          <div class="container">
-      
-<!--          <button type="button" style="float: right" class="btn btn-outline-info">검색하기</button> -->
-         
-<!--          <input type="submit" style="float: right;" value="검색하기" />  -->
-         
-      
-            <!-- <td rowspan="3">구글지도 위치</td>
-            <td ><in    put type="text" placeholder="입력하세요"></td>
-            
-         <tr>
-            <td ><input type="text" placeholder="입력하세요"></td>
-         </tr>   
-         
-         <tr>
-            <td ><input type="text" placeholder="입력하세요"></td>
-         </tr> -->   
-
-         <!-- <button type="button" style="float: right" class="btn btn-outline-info">Info</button> -->
+   
          <br/><br/><br/>
          <table style="border:1px solid gray; height: 600px;">
             <colgroup>
