@@ -126,10 +126,20 @@
 	}
 
 	$(document).ready( function(){
-	    $("#deleteBox").click( function() {
+	    $("#deleteBox1").click( function() {
 	        if(confirm("관심점포를 제거하시겠습니까?")) {
 	        	$("#phj_place").empty();
 	        	$("#place_bookmark").val('');
+	        	
+	        }
+	    });
+	});
+	
+	$(document).ready( function(){
+	    $("#deleteBox2").click( function() {
+	        if(confirm("관심상품를 제거하시겠습니까?")) {
+	        	$("#phj_products").empty();
+	        	$("#products_bookmark").val('');
 	        	
 	        }
 	    });
@@ -379,12 +389,12 @@ div label input {
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center;">관심점포</td>
 						<input type="hidden" name="place_bookmark" id ="place_bookmark" value="${dto.place_bookmark }"/>
-						<td bgcolor="white" id="phj_place">${place_bookmark} &nbsp; <img type="button" id="deleteBox" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;"  /></td>
+						<td bgcolor="white" id="phj_place">${place_bookmark} &nbsp; <img type="button" id="deleteBox1" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;"  /></td>
 					</tr>
 					<tr>
 						<td bgcolor="#f7f4f4"  style="text-align: center; border-bottom: 6px solid #343a40;">관심상품</td>
-						<input type="hidden" name="place_bookmark" id ="place_bookmark" value="${dto.products_bookmark }"/>
-						<td bgcolor="white" id="phj_place"  style="text-align:left; border-bottom: 6px solid #343a40;">${products_bookmark} &nbsp; <img type="button" id="deleteBox" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;"  /></td>
+						<input type="hidden" name="products_bookmark" id ="products_bookmark" value="${dto.products_bookmark }"/>
+						<td bgcolor="white" id="phj_products"  style="text-align:left; border-bottom: 6px solid #343a40;">${products_bookmark} &nbsp; <img type="button" id="deleteBox2" src="images/Eraser.jpg" style="text-align:center; width:20px; height:20px;"  /></td>
 					</tr>																			
 			</table>
 			<br /><br />

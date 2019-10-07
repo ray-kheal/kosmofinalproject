@@ -151,9 +151,12 @@ to {
 
        <br />    
 
+<<<<<<< HEAD
 
       
       <p style="font-family: Goyang;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
+=======
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
             <c:choose>

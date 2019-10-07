@@ -300,20 +300,17 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
       </p>
    </div> 
-
+ <%--     <input type="hidden" name="nowPage" value="${nowPage }" /> --%>
    
    
       <!-- Page Content --> 
-      <div class="container">
+     
          <div class="container">
                <br />
-
-
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-
-       
+                      
                 <div style="border: 2px solid gold;" >
-
+<c:if test="${nowPage ne 2}">
                  <div class=" text-center"  style="text-align: center; "> 
                  <div style="">
                  <img src="images/cup.png" style="width: 10%; padding-top:20px; "alt="" />
@@ -355,8 +352,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>  
                         </c:forEach> 
                         </div>
-    
-                          
+</c:if>
                 </div>
                 <br /><br />
         	  <div style="text-align: right; font-family: Goyang;">
@@ -382,11 +378,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->
-                        <div class="col-lg-3 col-md-4 col-6 ">
+                        <div class="col-lg-3 col-md-3 col-4 ">
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
 
+
                               <img class="img-fluid img-thumbnail"  style="height:100%; width:100%;"
+
 
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">

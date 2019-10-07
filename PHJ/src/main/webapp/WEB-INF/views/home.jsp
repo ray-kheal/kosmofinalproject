@@ -278,7 +278,7 @@ function textLengthOverCut(txt, len, lastTxt) {
 		
          <!-- 이미지로 스크롤 메뉴 변경함 --> 
          <a href="#"> <img  style="width:90%" src="images/welcome.png" alt="welcome"  
-            style="right: 30; top: 30;" /> 
+            style="right: 30;" /> 
          </a> <br />  
          <a href="#search"> <img  style="width:90%"
             src="images/findproduct.png" alt="편의점 상품조회" /> 
@@ -383,10 +383,10 @@ function textLengthOverCut(txt, len, lastTxt) {
                   <section class="widget thumbnails"> 
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
                      <div style="text-align: right;"> 
-                     <a href="recipe.do"  style="margin-top: -50px;"> 
-                     <img src="images/moreView.png" alt="" style="width: 90px"/> 
+                     <a class="float-right" href="recipe.do"  style="margin-top: -50px;"> 
+                     <img src="images/moreView.png" alt="" style="width: 90px"/>
                      </a> 
-                     </div> 
+                     </div>  
                         <!-- <div class="container">  -->
                         <div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 
@@ -444,18 +444,20 @@ function textLengthOverCut(txt, len, lastTxt) {
                </div>
             </div>
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
+<<<<<<< HEAD
             
             <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
+=======
+            <br /><br />
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             <div class="container" id="wideboard">
-            
-            
-            <div class="row">
+            <div class="row"  id="notify">
             
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">공지</h4>
+                      <h4 class="card-title float-left" >공지</h4>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
                          <table class="table" style="text-align: center;  " >

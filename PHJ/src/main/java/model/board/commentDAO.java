@@ -63,12 +63,17 @@ public class commentDAO {
 	}
 	
 	//댓글리스트
-	public ArrayList<commentDTO> commentList(String b_code) {
-		//System.out.println("b_code : " + b_code);
+	public ArrayList<commentDTO> commentList(Map<String, Object> map, String b_code) {
+		int start = Integer.parseInt(map.get("start").toString());
+		int end = Integer.parseInt(map.get("end").toString());
+	
 		commentDTO dto;
 		
-		String sql = " SELECT * FROM PHJ_RECIPE_COMMENT WHERE b_code = " + b_code;
-		 sql += " order by c_code desc";
+		String sql = " SELECT * FROM (SELECT tb.*, rownum rNum FROM (SELECT * FROM PHJ_RECIPE_COMMENT WHERE b_code = "+ b_code;
+				//+ " SELECT * FROM PHJ_RECIPE_COMMENT WHERE b_code = " + b_code;
+		sql += " ORDER BY c_code DESC ) tb) WHERE rNum BETWEEN "+start+" AND "+end;
+		
+//		sql += " order by c_code desc";
 		//System.out.println(sql);
 		
 		return (ArrayList<commentDTO>)template.query(sql, new BeanPropertyRowMapper<commentDTO>(commentDTO.class));
