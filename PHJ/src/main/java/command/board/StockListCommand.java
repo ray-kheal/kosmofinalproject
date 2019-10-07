@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 
 import command.PHJCommandImpl;
+import model.product.ProductDAO;
+import model.product.ProductDTO;
 import model.stock.StockDAO;
 import model.stock.StockDTO;
 import util.PagingUtil;
@@ -37,6 +39,8 @@ public class StockListCommand implements PHJCommandImpl {
 		paramMap.put("end", end);
 
 		ArrayList<StockDTO> listRows = dao.list(paramMap, product_code);
+		
+		
 		int virtualNum = 0;
 		int countNum = 0;
 		for (StockDTO row : listRows) {

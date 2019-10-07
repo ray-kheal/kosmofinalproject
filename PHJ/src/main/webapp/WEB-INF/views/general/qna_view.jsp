@@ -72,7 +72,7 @@ body {
          <br />
 
          <div class="row text-right" style="float: right;">
-            <h5 style="color: #82b9e4; font-weight: bold; padding-right: 20px; font-family: Goyang">
+            <h5 style="color: #4c4c4c; font-weight: bold; padding-right: 20px; font-family: Goyang">
                <i class="far fa-bell"></i>&nbsp;무엇이든 물어보세요~
             </h5>
          </div>
@@ -93,12 +93,12 @@ body {
             <br />
             <tr>
                <th bgcolor="#f2efef"
-                  style="text-align: center; border-top: 5px solid #82b9e4;border-left: 5px solid #82b9e4; ">제목</th>
-               <td bgcolor="white" style="border-top: 5px solid #82b9e4; border-right: 5px solid #82b9e4">${viewRow.title}</td>
+                  style="text-align: center; border-top: 5px solid #4c4c4c;border-left: 5px solid #4c4c4c; ">제목</th>
+               <td bgcolor="white" style="border-top: 5px solid #4c4c4c; border-right: 5px solid #4c4c4c">${viewRow.title}</td>
             </tr>
             <tr>
-               <th bgcolor="#f2efef" style="text-align: center;border-left: 5px solid #82b9e4; " >작성자</th>
-               <td bgcolor="white" style="border-right: 5px solid #82b9e4">${viewRow.name}
+               <th bgcolor="#f2efef" style="text-align: center;border-left: 5px solid #4c4c4c; " >작성자</th>
+               <td bgcolor="white" style="border-right: 5px solid #4c4c4c">${viewRow.name}
                
                </td>
             </tr>
@@ -114,14 +114,14 @@ body {
             </colgroup>
             <tr>
                <th
-                  style="text-align: center; border-left: 5px solid #82b9e4; font-weight: normal;">작성일</th>
+                  style="text-align: center; border-left: 5px solid #4c4c4c; font-weight: normal;">작성일</th>
                <td>${viewRow.postdate}</td>
                <th style="text-align: center;">조회수</th>
-               <td style="border-right: 1px solid #EDEAEA; border-right: 5px solid #82b9e4">${viewRow.view_count }</td>
+               <td style="border-right: 1px solid #EDEAEA; border-right: 5px solid #4c4c4c">${viewRow.view_count }</td>
             </tr>
             <tr>
                <td colspan="4"
-                  style="height: 500px; border-left: 1px solid #EDEAEA;border-left: 5px solid #82b9e4; border-right: 5px solid #82b9e4; border-bottom: 5px solid #82b9e4;">${viewRow.content}
+                  style="height: 500px; border-left: 1px solid #EDEAEA;border-left: 5px solid #4c4c4c; border-right: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">${viewRow.content}
                </td>
             </tr>
          </table>
