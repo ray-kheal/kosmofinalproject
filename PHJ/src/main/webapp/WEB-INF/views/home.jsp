@@ -317,22 +317,24 @@ function textLengthOverCut(txt, len, lastTxt) {
                 alt="메인이미지" style="width: 100%;"> 
            
       <!-- 배너 --> 
-      <div id="banner-wrapper "> 
+     <!--  <div id="banner-wrapper "> 
          <div  class=" container  "> 
             <div class="row"> 
                <div class="col-7 col-12-medium"> 
                    
-                  
+                   
                </div> 
              
             </div> 
          </div> 
-      </div> 
+      </div>   -->
       
-      <!-- Features --> 
-      <div id="features-wrapper  "> 
-         <div class="container"> 
-            <div class="row" id="search"> 
+      <div id="search"  style="height: 40px;"><br /></div>
+      <!-- Features -->   
+      <div id="features-wrapper">
+     	<div class="container" > </div>    
+         <div class="container" > 
+            <div class="row" > 
                    <div class="col-6 col-12-medium"> 
                   <!-- Box --> 
              
@@ -372,10 +374,11 @@ function textLengthOverCut(txt, len, lastTxt) {
 
       <!-- Main --> 
        
-      <div id="main-wrapper" >  
-         <div class="container"> 
-
-           <div class="row container" id="reci">  
+      <div id="reci" style="height: 40px;"><br /></div>  
+      <div id="main-wrapper" >
+         <div class="container" > 
+			
+           <div class="row container" >  
                <!-- preview board  시작  --> 
                   <section class="widget thumbnails"> 
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
@@ -442,6 +445,7 @@ function textLengthOverCut(txt, len, lastTxt) {
             </div>
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
             
+            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
             <div class="container" id="wideboard">
             
             
