@@ -26,6 +26,16 @@ body {
 	font-size: 12px;
 }
 </style>
+<style>
+@media (min-width: 420px) { 
+
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
+}
+</style>
 <style type="text/css">
 @font-face { 
    font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
@@ -60,7 +70,12 @@ nav {
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-	<div
+	
+
+
+		<!-- ------------------------------------------------------------------------pc용-->       
+         <div id="wideboard" >
+         <div
 			style="width: 100%; height: 200px; text-align: center; 	 display: table;">
 			<p
 				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: black; font-weight: bold;">
@@ -69,34 +84,10 @@ nav {
 				<img src="https://image.flaticon.com/icons/svg/1189/1189734.svg" width="80px" height="80px" /> 
 			</p>
 		</div>
-
-		<div class="container">
+         <div class="container">
+			<div class="container">
 			<br /> <br />
-			<!-- 검색기능 -->
-			<!-- <form class="form-inline" method= "post">
-				<div class="form-group">
-					<select name="searchColumn" class="form-control" style="width: 100px;">
-						<option value="title">제목</option>
-						<option value="content">내용</option>
-						<option value="postdate">게시일</option>
-					</select>
-				</div>
-				<div class="input-group">
-
-					<input type="text" name="searchWord" class="form-control"
-						style="width: 120px;" />
-
-					<div class="input-group-btn">
-						<button type="submit" class="btn">
-							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
-			</form> -->
 			
-			
-			
-			  
                 <!-- 검색기능 -->
 		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
 		      
@@ -107,10 +98,10 @@ nav {
 		                <option value="postdate">게시일</option>
 		             </select>
 				</div>
-		       <div class="container" style=" display:inline-block;width:35%; " >  
+		       	<div class="container" style=" display:inline-block;width:35%; " >  
 		             
 		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
-		      </div> 
+		      	</div> 
 		      
 		        <div style=" display:inline-block; width:25%; text-align: left;">
 		        
@@ -119,17 +110,12 @@ nav {
 		      </form> 
 		      
 		      <br />
-			
+			</div>
 	
 			<!-- 검색기능 끝 -->
 
-			<br />
-			<!-- 	<div class="row text-right"
-				style="float: right; padding-bottom: 20px;">
-				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-			</div> -->
 			<br /> <br />
-			<div>
+		
 				<table class="table table-hover" style="text-align: center;">
 
 					<colgroup>
@@ -175,18 +161,113 @@ nav {
 					</tbody>
 				</table>
 			</div>
-	</div>
+		</div>
 
+	<!-- ------------------------------------------------------------------------mobile용-->      	
+	
+	<div id="cutboard" >
+		<div
+			style="width: 100%; text-align: center; 	 display: table;">
+			<p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 40px; color: black; font-weight: bold;">
+				 
+						공지사항
+				<img src="https://image.flaticon.com/icons/svg/1189/1189734.svg" width="40px" /> 
+			</p>
+		</div> 
+         <div class="container">
+			<div class="container">
+			<br /> <br />
+			
+                <!-- 검색기능 -->
+		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+		      
+		       <div class="container" style="display:inline-block; font-size:0.8em;   text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
+					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:90%;">
+		                <option value="title">제목</option>
+		                <option value="content">내용</option>
+		                <option value="postdate">게시일</option>
+		             </select>
+				</div>
+		       	<div class="container" style=" display:inline-block;width:40%; " >  
+		             
+		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
+		      	</div> 
+		      
+		        <div style=" display:inline-block; width:20%; font-size:0.8em; text-align: left;">
+		        
+		        <button class="btn btn-dark " style="width:50%; font-size: 0.7em;  margin-top: 10px;"><i class="fas fa-search"></i></button>
+		        </div>
+		      </form> 
+		      
+		      <br />
+			</div>
+	
+			<!-- 검색기능 끝 -->
 
+			<br /> <br />
+		
+				<table class="table table-hover" style="text-align: center; font-size: 0.7em;">
+
+					<colgroup>
+						<col width="15%" />
+						<col width="*" />
+						<col width="15%" />
+						<col width="15%" />
+						<col width="18%" />
+					</colgroup>
+					<thead>
+						<tr class="" style="color: black; background-color:#57bbed;">
+							<th style="text-align: center; font-family: Goyang">번호</th>
+							<th style="text-align: center; font-family: Goyang">제목</th>
+							<th style="text-align: center; font-family: Goyang">작성자</th>
+							<th style="text-align: center; font-family: Goyang">조회수</th>
+							<th style="text-align: center; font-family: Goyang">등록날짜</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:choose>
+							<c:when test="${empty listRows }">
+								<tr>
+									<td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${listRows }" var="row" varStatus="loop">
+									<!-- 리스트반복시작 -->
+									<tr>
+										<td class="text-center">${row.virtualNum }</td>
+										<td class="text-left"><a
+											href="./view.do?idx=${row.idx}
+												&nowPage=${nowPage}" style="color:black;"><label class="badge "style="background-color:#57bbed; color:white;">공지</label>&nbsp;${row.title}</a>
+										</td>
+										<td class="text-center"style="font-size: 0.5em;">관리자</td> 
+										<td class="text-center">${row.view_count }</td>
+										<td class="text-center">${row.postdate }</td>
+										
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
+	
+	
+	
+	
+	
+	
 		<br /> <br />
 		<ul class="pagination justify-content-center">
-		<table width="100%">
-					<tr>
-						<td align="center" style="font-weight: bold; font-size: 1.5em; ">
-							${pagingImg }
-						</td>
-					</tr>
-				</table>
+		<table style="width:100%;">
+			<tr>
+				<td align="center" style="font-weight: bold; font-size: 1.5em; ">
+					${pagingImg }
+				</td>
+			</tr>
+		</table>
 		</ul>
 	</div>
 

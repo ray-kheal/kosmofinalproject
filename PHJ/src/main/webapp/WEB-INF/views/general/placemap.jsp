@@ -13,7 +13,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<style>
+@media (min-width: 420px) { 
 
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
+}
+</style>
 <style>
 @font-face { 
    font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); 
@@ -185,22 +194,38 @@ body {
       <!-- 헤더파일 인클루드 -->
       <%@ include file="MainHeader.jsp"%>
 
-      <   <div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+		<div id="wideboard">
+			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
       
-      <p
-         style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
-         font-size: 60px; color: black; font-weight: bold;">
-         <!-- <img src="./images/memo_w.png" alt="메모"
-            style="width: 50px; height: 50px;" /> -->
-<!--          <i class="fas fa-store" style="width: 45px; height: 45px;" ></i> -->
-         &nbsp;   
-         
-            <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
-            편의점을 찾아보아요
-            <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
-      </p>
-   </div>
+		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+		         font-size: 60px; color: black; font-weight: bold;">
+		         &nbsp;   
+		      
+		         <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
+		         편의점을 찾아보아요
+		         <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
+		      </p>
+	      
+	   		</div>
+		
+		</div>
+		<div id="cutboard">
+			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+      
+		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+		         font-size: 40px; color: black; font-weight: bold;">
+		         &nbsp;   
+		      
+		         편의점을 찾아보아요
+		         <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="40px"   /> 
+		      </p>
+	      
+	   		</div>
+		</div>
+        
+   		
       </div>
+      
       <!-- Main -->
       <div id="main-wrapper">
          <div class="container">

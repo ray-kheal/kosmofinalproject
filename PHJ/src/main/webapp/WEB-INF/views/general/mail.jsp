@@ -18,6 +18,16 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+@media screen and (min-width: 420px) and (width:420px) { 
+
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
+}
+</style>
 <%
 if(session.getAttribute("EMAIL")==null){
 %>
@@ -73,8 +83,8 @@ nav {
 	<!-- Main -->
 	<div id="main-wrapper">
 		<div class="container">
-			<div class="row gtr-200">
-				<div class="col-4 col-12-medium">
+			<div class="row">
+				<div class="col-md-4">
 					<div id="sidebar">
 
 						<!-- Sidebar -->
@@ -99,7 +109,11 @@ nav {
 						</section>
 					</div>
 				</div>
-				<div class="col-8 col-12-medium imp-medium">
+				
+				
+				
+				
+				<div class="col-md-8">
 					<div id="content">
 
 						<!-- Content -->
@@ -113,22 +127,21 @@ nav {
 
 								<div class="pw_box">
 
-									<table border="5px solid">
-
 									<table style="border:1px solid gray;" >
-
+										<col width="15%" />
+										<col width="*" />
 
 										<!-- <tr>
 											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">답장 받으실 메일</td> -->
 											<input type="hidden" name="email" value="<%=session.getAttribute("EMAIL") %>" />
-											<input type="hidden" name="name" value="<%=session.getAttribute("NAME") %>" />
+											<input type="hidden" name="name" value="<%=session.getAttribute("NAME") %>"  />
 										<!-- </tr> -->
 										<tr>
-											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">문의할 제목</td>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang; font-size: 0.8em;">문의할 제목</td>
 											<td><input type="text" name="subject" value="" /></td>
 										</tr>
 										<tr>
-											<td style="text-align: center; vertical-align:middle; font-family: Goyang;">문의할 내용</td>
+											<td style="text-align: center; vertical-align:middle; font-family: Goyang; font-size:0.8em;">문의할 내용</td>
 											<td><textarea name="contents" id="" cols="30" rows="10"
 													value=""></textarea></td>
 										</tr>
