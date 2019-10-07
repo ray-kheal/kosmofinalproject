@@ -136,10 +136,12 @@ body {
 						<%-- <input type="hidden" class="form-control" name="name" style="border: none;" value="<%=session.getAttribute("NAME")%>" readonly /></td> --%>
 						<!-- </tr> -->
 						<tr>
+
 						<th bgcolor="#f2efef" style="text-align: center;">제목 &nbsp; 이미지</th>
 						<td><input type="file" name="fileUpload" accept="images/*" /></td>
 					</tr> 
 						<tr>
+
 							<th bgcolor="#f2efef"
 								style="text-align: center; border-left: 1px solid #EDEAEA; border-right: 1px solid #EDEAEA; border-bottom: 5px solid #ffd74d;">내용</th>
 							<td

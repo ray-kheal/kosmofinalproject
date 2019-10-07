@@ -265,50 +265,47 @@ function textLengthOverCut(txt, len, lastTxt) {
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> --> 
       <div id="scroll"   
          style=" position: fixed; right: 50%; top: 230px; margin-right: -800px; text-align: center; width: 180px;"> 
-  		<img src="images/scollMenuLogin.png" style="width: 90%" usemap="#Map"  />
+  		<!-- <img src="images/scollMenuLogin.png" style="width: 90%" usemap="#Map"  />
   		<map name="Map" id="Map">
   			<area shape="rect" coords="1604,243,1707,288" href="#" alt="" />
   			<area shape="rect" coords="1608,307,1717,355" href="#search" alt="" />
   			<area shape="rect" coords="1607,373,1717,429" href="#reci" alt="" />
   			<area shape="rect" coords="1607,440,1717,495" href="#notify" alt="" />
   			<area shape="rect" coords="1607,563,1717,563" href="login.do" alt="" />
-  		</map>
+  		</map> -->
   		
 		<!-- <img id="Image-Maps-Com-image-maps-2019-10-04-012619" src="images/scollMenuLogin.png" style="width: 90%;" border="0" width="844" height="1824" orgWidth="844" orgHeight="1824" usemap="#image-maps-2019-10-04-012619" alt="" /> -->
 		
          <!-- 이미지로 스크롤 메뉴 변경함 --> 
-         <a href="#"> <img src="images/welcome_scoll.png" alt="welcome"  
-            style="right: 30; top: 30;" /> 
+         <a href="#"> <img  style="width:90%" src="images/welcome.png" alt="welcome"  
+            style="right: 30;" /> 
          </a> <br />  
-         <a href="#search"> <img 
-            src="images/product_scoll.png" alt="편의점 상품조회" /> 
+         <a href="#search"> <img  style="width:90%"
+            src="images/findproduct.png" alt="편의점 상품조회" /> 
          </a><br />  
-         <a href="#reci"> <img 
-            src="images/recipe_scoll.png" alt="편의점 레시피" /> 
+         <a href="#reci"> <img  style="width:90%"
+            src="images/recipe.png" alt="편의점 레시피" /> 
          </a><br />  
-         <a href="#notify"> <img src="images/notice_scoll.png" 
+         <a href="#notify"> <img   style="width:90%" src="images/notice.png" 
             alt="공지사항" /> 
          </a><br /> 
-         <!--          <a href="#info"> --> 
-         <!--             <img src="images/scoll_cs.png" alt="고객센터" /> --> 
-         <!--          </a><br /> --> 
-
          <% 
             if (session.getAttribute("EMAIL") == null) { 
          %> 
-         <a href="login.do"><img src="images/login_scoll.png" alt="로그인" /></a> 
+         <a href="login.do"><img  style="width:90%" src="images/login.png" alt="로그인" /></a> 
          <% 
             } else { 
          %> 
-      <a href="memberEdit.do"> <img src="images/modify_scoll.png" 
+      <a href="memberEdit.do"> <img  style="width:90%" src="images/modify.png" 
             alt="정보수정" /> 
-         </a> <a href="logout.do"> <img src="images/logout_scoll.png" 
+         </a> <a href="logout.do"> <img  style="width:90%" src="images/logout.png" 
             alt="로그아웃" /> 
          </a>   
          <% 
             } 
          %> 
-  
+         
+         
 
       </div> 
 
@@ -320,22 +317,24 @@ function textLengthOverCut(txt, len, lastTxt) {
                 alt="메인이미지" style="width: 100%;"> 
            
       <!-- 배너 --> 
-      <div id="banner-wrapper "> 
+     <!--  <div id="banner-wrapper "> 
          <div  class=" container  "> 
             <div class="row"> 
                <div class="col-7 col-12-medium"> 
                    
-                  
+                   
                </div> 
              
             </div> 
          </div> 
-      </div> 
+      </div>   -->
       
-      <!-- Features --> 
-      <div id="features-wrapper  "> 
-         <div class="container"> 
-            <div class="row" id="search"> 
+      <div id="search"  style="height: 40px;"><br /></div>
+      <!-- Features -->   
+      <div id="features-wrapper">
+     	<div class="container" > </div>    
+         <div class="container" > 
+            <div class="row" > 
                    <div class="col-6 col-12-medium"> 
                   <!-- Box --> 
              
@@ -375,18 +374,19 @@ function textLengthOverCut(txt, len, lastTxt) {
 
       <!-- Main --> 
        
-      <div id="main-wrapper" >  
-         <div class="container"> 
-
-           <div class="row container" id="reci">  
+      <div id="reci" style="height: 40px;"><br /></div>  
+      <div id="main-wrapper" >
+         <div class="container" > 
+			
+           <div class="row container" >  
                <!-- preview board  시작  --> 
                   <section class="widget thumbnails"> 
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
                      <div style="text-align: right;"> 
-                     <a href="recipe.do"  style="margin-top: -50px;"> 
-                     <img src="images/moreView.png" alt="" style="width: 90px"/> 
+                     <a class="float-right" href="recipe.do"  style="margin-top: -50px;"> 
+                     <img src="images/moreView.png" alt="" style="width: 90px"/>
                      </a> 
-                     </div> 
+                     </div>  
                         <!-- <div class="container">  -->
                         <div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 
@@ -444,17 +444,20 @@ function textLengthOverCut(txt, len, lastTxt) {
                </div>
             </div>
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
+<<<<<<< HEAD
             
+            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
+=======
+            <br /><br />
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             <div class="container" id="wideboard">
-            
-            
-            <div class="row">
+            <div class="row"  id="notify">
             
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">공지</h4>
+                      <h4 class="card-title float-left" >공지</h4>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
                          <table class="table" style="text-align: center;  " >
