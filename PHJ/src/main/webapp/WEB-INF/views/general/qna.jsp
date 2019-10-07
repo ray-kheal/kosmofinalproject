@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,17 +80,16 @@ nav {
 					style="width: 50px; height: 50px;" /> -->
 
 					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-marketing-23.png&r=0&g=0&b=0" width="80px" height="80px" /> 
-						궁금하면 500원
+						QnA 
 					<img src="https://image.flaticon.com/icons/svg/76/76818.svg" width="80px" height="80px" /> 
 
 			</p>
 		</div>
-		
 
 		<div class="container">
 			<br /> <br /> 
 			<!-- 검색기능 -->
-			<form class="form-inline">
+			<!-- <form class="form-inline">
 				<div class="form-group">
 					<select name="searchColumn" class="form-control" style="width: 100px;">
 						<option value="title">제목</option>
@@ -100,15 +101,43 @@ nav {
 
 					<input type="text" name="searchWord" class="form-control"
 						style="width: 120px;" />
-&nbsp;&nbsp;
+				&nbsp;&nbsp;
 					<div class="input-group-btn">
 						<button type="submit" class="btn">
 							검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/><i class="glyphicon glyphicon-search"></i>
 						</button>
 					</div>
 				</div>
-		 &nbsp; &nbsp;&nbsp;
-		<div class="row text-right" style="float: right;">
+				</form> -->
+			
+			
+                <!-- 검색기능 -->
+		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+		      
+		       <div class="container" style="display:inline-block; text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
+					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:50%;">
+		                <option value="title">제목</option>
+		                <option value="content">내용</option>
+		                <option value="postdate">게시일</option>
+		             </select>
+				</div>
+		       <div class="container" style=" display:inline-block;width:35%; " >  
+		             
+		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
+		      </div> 
+		      
+		        <div style=" display:inline-block; width:25%; text-align: left;">
+		        
+		        <button class="btn btn-dark " style=" font-size: 0.7em;  margin-top: 10px;""><i class="fas fa-search"></i></button>
+		        </div>
+		      </form> 
+		      
+		      <br />
+			<!-- 검색기능 끝 -->
+
+			<br />
+	
+		<%-- <div class="row text-right" style="float: right;">
 		 <%if(session.getAttribute("EMAIL") != null) { %> 
 		
 				<button type="button" src="https://image.flaticon.com/icons/svg/1159/1159633.svg"
@@ -117,27 +146,31 @@ nav {
 
 		<%} %>
 		
-			</div>
-			</form>
-			<!-- 검색기능 끝 -->
-
-			<br />
+			</div> --%>
+			<div style="text-align: right; font-family: Goyang;">
+               <%if(session.getAttribute("EMAIL") != null) { %> 
+                  <form action="recipe_edit.do" method="post">
+               		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+                  </form>
+                  <%} %>
+                  <br />
+             </div>
 		<!-- 	<div class="row text-right"
 				style="float: right; padding-bottom: 20px;">
 				<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
 			</div>
-		 -->	<br /> <br />
+		 -->
 			<div>
 				<table class="table table-hover" style="text-align: center;">
 					<colgroup>
-						<col width="80px" />
+						<col width="10%" />
 						<col width="*" />
-						<col width="120px" />
-						<col width="120px" />
-						<col width="120px" />
-					</colgroup>
+						<col width="15%" />
+						<col width="15%" />
+						<col width="18%" />
+					</colgroup>  
 					<thead>
-						<tr class="table-primary" style="color: black;">
+						<tr class="" style="color: black; background-color:#81d1d1;">
 							<th style="text-align: center; font-family: Goyang">번호</th>
 							<th style="text-align: center; font-family: Goyang">제목</th>
 							<th style="text-align: center; font-family: Goyang">작성자</th>
@@ -159,15 +192,48 @@ nav {
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left">
 										
+										<c:set var="now" value="<%=new java.util.Date()%>" />
+										<c:set var="today"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set> 
+											
+											
+											<!-- 화면에 뿌릴때 -->
+											
+											
+											
+											<fmt:parseDate value="${str_plan_date }" var="strPlanDate" pattern="yyyy-MM-dd"/>
+											<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}" integerOnly="true" var="strDate"></fmt:parseNumber>
+											
+											<fmt:parseDate value="${end_plan_date }" var="endPlanDate" pattern="yyyy-MM-dd"/>
+											<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}" integerOnly="true" var="endDate"></fmt:parseNumber>
+											
+
+											<fmt:parseDate value="${row.postdate }" var="postDate" pattern="yyyy-MM-dd"/>
+											<fmt:parseNumber value="${postDate.time / (1000*60*60*24)}" integerOnly="true" var="post_date"></fmt:parseNumber>
+											
+											<fmt:parseDate value="${today }" var="toDay" pattern="yyyy-MM-dd"/>
+											<fmt:parseNumber value="${toDay.time / (1000*60*60*24)}" integerOnly="true" var="to_day"></fmt:parseNumber>
 										
-												<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}">
-													${row.title}
+											 
+										 <c:choose>
+										   
+											<c:when test="${(to_day-post_date) eq 000 }">
+												<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}"  style="color:black;">
+														${row.title} &nbsp; <label class="badge "style="background-color:red; color:white;">new</label>
 												</a>
+											</c:when>
+										
+											<c:otherwise> 
+													<a href="./qna_view.do?idx=${row.idx}&nowPage=${nowPage}"  style="color:black;">
+														${row.title}
+													</a>
+											 </c:otherwise>
+										</c:choose> 
+										
 										
 										</td>
 										<td class="text-center">${row.name}</td>
 										<td class="text-center">${row.view_count }</td>
-										<td class="text-center">${row.postdate }</td>
+										<td class="text-center">${row.postdate  }</td>
 										
 										<!-- <td class="text-center">--</td> -->
 									</tr>

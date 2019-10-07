@@ -12,6 +12,8 @@ import model.member.MemberDAO;
 import model.member.MemberDTO;
 import model.place.PlaceDAO;
 import model.place.PlaceDTO;
+import model.product.ProductDAO;
+import model.product.ProductDTO;
 
 public class MemberEditCommand implements PHJCommandImpl {
 	
@@ -47,7 +49,7 @@ public class MemberEditCommand implements PHJCommandImpl {
 			model.addAttribute("emailN","checked");
 		}
 		
-		if(dto.getMobile_alert()=="Y") {
+		if(dto.getMobile_alert().equals("Y")) {
 			model.addAttribute("mobileY","checked");
 		} else {
 			model.addAttribute("mobileN","checked");
@@ -69,6 +71,14 @@ public class MemberEditCommand implements PHJCommandImpl {
 	        } else {
 	        	 model.addAttribute("place_bookmark",pDto.getPlace_name());
 	        }
+		}
+		
+		//상품명
+		ProductDAO prDao = new ProductDAO();
+		ProductDTO prDto;
+		if(dto.getProducts_bookmark() != null) {
+			prDto = prDao.searchProduct(dto.getProducts_bookmark());
+			model.addAttribute("products_bookmark", prDto.getProduct_name());
 		}
         
 		

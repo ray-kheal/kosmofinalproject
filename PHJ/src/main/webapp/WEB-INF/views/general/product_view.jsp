@@ -48,16 +48,16 @@ body {
 		<%@ include file="MainHeader.jsp"%>
 
 
-		<div
-			style="width: 100%; height: 200px; text-align: center;  display: table;">
-			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-				
-						편의점 정보가 여기에!
-						
-				<img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
-			</p>
-		</div>
+<div
+         style="width: 100%; height: 200px; text-align: center;  display: table;">
+         <p
+            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+            
+                  편의점 정보가 여기에!
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
+         </p>
+      </div>
+   <%-- <div style="width: 100%; text-align: center;">
 
 		<input type="hidden" name="product_code" value="${product_code }" />
 		<input type="hidden" name="place_code" value="${place_code }" />
@@ -115,6 +115,109 @@ body {
 
 			</div>
 		</div>
+
+	</div> --%>   
+   <%
+   String  product_name = request.getParameter("name");
+   String  product_price = request.getParameter("price");
+   %> 
+		<div class="container">
+		<input type="hidden" name="product_code" value="${product_code }" />
+		  
+		<%-- <div>
+			코드 :${product_code } 이름:<%=productName %> 사진 : <img src="./resources/CSProduct/<%=product_imagename %>" alt="" />
+		</div> --%>
+		<%-- <div style="text-align: center;">
+			<div style="display: inline-block; width: 50%;">   
+				 <p style="font-family: Goyang; font-size: 1.5em;"> 내가 선택한 상품</p>
+			</div> 
+			<div style="display: inline-block; width: 50%;">
+				<img style="width: 50%; "src="./resources/CSProduct/<%=product_imagename %>" alt="" />
+			</div>
+		 --%>
+		<div class="container" style="text-align: center; border: 2px solid #f4f4f4; margin-bottom: 15px; padding-top: 20px;">
+		<table >
+		<col width="50%" />
+		<col width="50%" />
+		<tr> 
+			<td style="font-family: Goyang; border-right: 3px solid #f3f3f3;" > 
+				<p style=" font-size: 1.2em; color: grey;"> 내가 선택한 상품</p>
+				<p style=" font-size: 1.6em;">"<%=product_name %>"</p>
+				<p style=" font-size: 1.3em;"><%=product_price %>원</p>  
+
+			</td>
+			<td> <img style="width: 45%; "src="./resources/CSProduct/<%=product_name %>.jpg" alt="" /></td>
+		</tr>
+		</table>    
+		
+		</div>  
+		<table class="table " style="text-align: center;">
+				<tbody style="color: black;">
+					<!-- 상품 리스트 출력  -->
+						
+					<c:choose>
+						<c:when test="${empty listRows }">
+							<tr>
+								<td colspan="5" class="text-center">해당 상품이 등록된 편의점이 없습니다.</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							        
+							<c:forEach items="${listRows }" var="row" varStatus="loop">
+								<!-- 리스트반복시작 -->
+								<tr>
+									<td style="position: relative;"> 
+										
+										<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}" style="color:black;">
+											<img src="images/online-store.png" style="width: 20%;" alt="" />
+										</a>
+										<c:choose>
+										   
+											<c:when test="${row.stock lt 3 }">
+												<p style="font-family: Goyang; font-size: 1.5em; color: red; ">
+												 <label class="badge badge-danger">HOT</label>
+												'${row.stock}개' 남아있습니다!
+												</p>
+											</c:when>
+											
+											<c:otherwise>
+												<p style="font-family: Goyang; font-size: 1.5em; ">'${row.stock}개' 남아있습니다. </p>
+											</c:otherwise>
+										
+										</c:choose>
+										<p style="font-family: Goyang; ">
+										<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}" style="color:black;">
+										${row.place_name}
+										</a>
+										
+										</p>
+									</td> 
+									      
+									<!-- <td></td> -->
+									<%-- <td bgcolor="white" >
+										<a href="./findPlace.do?product_code=${product_code}&place_code=${row.place_code}"
+										class="btn btn-sm btn-outline-secondary" style="text-align: center"> 편의점 찾기</a>
+									</td>   --%>
+								</tr>
+								
+								<tr>
+									<%-- <td bgcolor="#f2efef"
+										style="text-align: center; border-top: 1px solid #82b9e4;">재고</td>
+										
+									<td bgcolor="white" style="border-top: 1px solid #82b9e4;">${row.stock}</td> --%>
+								</tr>
+
+								<!-- 리스트반복끝 -->
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+
+
+				</tbody>
+			</table>
+		
+		</div>
+
 
 
 

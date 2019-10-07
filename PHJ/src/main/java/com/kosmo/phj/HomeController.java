@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,79 +20,150 @@ import command.PHJCommandImpl;
 import command.home_eventCommand;
 import command.home_notiCommand;
 import command.home_recipeCommand;
+import model.stock.StockDAO;
+import model.stock.StockDTO;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
+
 	PHJCommandImpl command = null;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, HttpServletRequest req) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
-		
-		model.addAttribute("req",req);
-		model.addAttribute("board_type",1);
+		model.addAttribute("serverTime", formattedDate);
+
+		model.addAttribute("req", req);
+		model.addAttribute("board_type", 1);
 		command = new home_notiCommand();
 		command.execute(model);
-		
-		model.addAttribute("req",req);
-		model.addAttribute("board_type",2);
+
+		model.addAttribute("req", req);
+		model.addAttribute("board_type", 2);
 		command = new home_eventCommand();
 		command.execute(model);
-	
-	  command = new home_recipeCommand(); 
-	  command.execute(model);
-	 
+
+		command = new home_recipeCommand();
+		command.execute(model);
+
 		
+		
+		AlertThread dt = new AlertThread();
+		
+		
+		HttpSession session = req.getSession();
+		if (session.getAttribute("EMAIL") != null) {
+			System.out.println("현재로그인된이메일 : " + session.getAttribute("EMAIL"));
+			if (session.getAttribute("PRODUCTS_BOOKMARK") != null && session.getAttribute("PLACE_BOOKMARK") != null) {
+				dt = new AlertThread(
+						session.getAttribute("EMAIL").toString(),
+						session.getAttribute("PRODUCTS_BOOKMARK").toString(),
+						session.getAttribute("PLACE_BOOKMARK").toString(),
+						session.getAttribute("ALERT").toString()
+						);
+				if (session.getAttribute("ALERT").equals("Y")) {
+					
+					dt.setName("스레드테스트");
+					dt.start();
+					
+				} else {
+					System.out.println("알림설정 off로 되어있음.");
+				}
+
+			} else {
+				System.out.println("관심점포/상품 등록안됨");
+			}
+
+		} else {
+			System.out.println("현재 로그인된 이메일 없음.");
+		}
+
 		return "home";
 	}
+
 	private JdbcTemplate template;
-	
+
 	@Autowired
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;
 		System.out.println("@Autowired->JDBCTemplate 연결성공");
 		JdbcTemplateConst.template = this.template;
 		
-		/*
-		 종속쓰레드 실행
-		 */
-		DaemonThread dt = new DaemonThread();
-		dt.setName("난 데몬쓰레드");
-		dt.setDaemon(true);
-		dt.start();
+		//쓰레드 실행
+		BackupThread bt = new BackupThread();
+		bt.setDaemon(true);
+		bt.start();
 	}
+
+}
+
+class AlertThread extends Thread {
+	String email, product_bookmark, place_bookmark, alert;
+	int stock, stock_backup;
+	public AlertThread() {}
 	
-	class DaemonThread extends Thread{
-		
-		@Override
-		public void run() {
-			while(true) {
-				System.out.println(String.format("쓰레드명 : %s] Jazz가 흘러요", getName()));
-				try {
-					sleep(3000);
-					System.out.println("3초마다 자동저장!!");
-				} catch(InterruptedException e) {
-					System.out.println("자동저장시 오류발생");
+	public AlertThread(String email, String product_bookmark, String place_bookmark, String alert) {
+		this.email = email;
+		this.product_bookmark = product_bookmark;
+		this.place_bookmark = place_bookmark;
+		this.alert = alert;
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				StockDAO dao = new StockDAO();
+				StockDTO dto = dao.isPlusStock(product_bookmark, place_bookmark);
+				stock = Integer.parseInt(dto.getStock());
+				stock_backup = Integer.parseInt(dto.getStock_backup());
+				System.out.println(product_bookmark +" " + place_bookmark);
+				System.out.println("실행주기테스트");
+				sleep(3000);
+				while(stock>stock_backup) {
+					System.out.println(String.format("[쓰레드명 : %s] ", getName()));
+					try{
+						System.out.println("재고알림 메시지 스레드 추가 예정.");
+						sleep(100000);
+						
+					} catch(InterruptedException e) {
+						System.out.println("스레드 잘못됨 뭐 그렇다구..");
+					}
 				}
+				
+			} catch(Exception e){
+				System.out.println("스레드 처음부터 잘못됨 뭐 그렇다구..");	
+			}
+		}		
+	}
+}
+
+class BackupThread extends Thread {
+	
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				System.out.println("재고 백업은 10분마다 갱신합니다.");
+				sleep(1000);
+				StockDAO dao = new StockDAO();
+				dao.backup();
+			} catch(InterruptedException e) {
+				System.out.println("백업스레드 잘못됨.");
 			}
 		}
 	}
-	
 	
 }

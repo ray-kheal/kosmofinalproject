@@ -9,6 +9,7 @@ public class StockDTO {
 	private String product_price;
 	private String product_value;
 	private String stock;
+	private String stock_backup;
 	private int virtualNum; // 가상번호
 	
 	public StockDTO() {
@@ -16,7 +17,7 @@ public class StockDTO {
 	}
 	
 	public StockDTO(String place_code, String place_name, String place_name2, String product_name, String product_price,
-			String product_value, String stock, int virtualNum) {
+			String product_value, String stock, String stock_backup, int virtualNum) {
 		super();
 		this.place_code = place_code;
 		this.place_name = place_name;
@@ -25,6 +26,7 @@ public class StockDTO {
 		this.product_price = product_price;
 		this.product_value = product_value;
 		this.stock = stock;
+		this.stock_backup = stock_backup;
 		this.virtualNum = virtualNum;
 	}
 
@@ -78,6 +80,17 @@ public class StockDTO {
 	public void setStock(String stock) {
 		this.stock = stock;
 	}
+	
+	
+	
+
+	public String getStock_backup() {
+		return stock_backup;
+	}
+
+	public void setStock_backup(String stock_backup) {
+		this.stock_backup = stock_backup;
+	}
 
 	public int getVirtualNum() {
 		return virtualNum;
@@ -86,6 +99,7 @@ public class StockDTO {
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
 	}
+	
 	
 
 }
