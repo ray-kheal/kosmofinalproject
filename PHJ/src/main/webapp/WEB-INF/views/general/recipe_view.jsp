@@ -107,7 +107,7 @@ body {
                <p style="font-size: 1.2em; font-style: italic; font-family:Goyang; ">  <mark>by.${viewRow.name}  </mark></p> 
                <p style=" text-align:right; ">조회수: ${viewRow.view_count }</p>
                <p style=" text-align:right; ">게시일: ${viewRow.postdate} </p>
-               <p style=" text-align:right; ">조회수: ${viewRow.view_count }</p>
+               <p style=" text-align:right; ">추천수: ${viewRow.BTNRECOMMEND }</p>
                
                
    
