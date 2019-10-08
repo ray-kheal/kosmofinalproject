@@ -135,7 +135,7 @@ public class ProductDAO {
 	public ProductDTO searchProduct(String productCode) {
 		ProductDTO dto;
 		
-		String sql = "SELECT product_name FROM phj_product WHERE product_code ="+productCode;
+		String sql = "SELECT product_name, product_price FROM phj_product WHERE product_code ="+productCode;
 		
 		try {
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
@@ -143,6 +143,23 @@ public class ProductDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("상품명 가져오기 실행시 예외발생.");
+			dto = new ProductDTO();
+		}
+		return dto;
+	}
+	
+	//상품이름으로 상품코드,가격 불러오기
+	public ProductDTO searchProductForName(String productName) {
+		ProductDTO dto;
+		
+		String sql = "SELECT product_code, product_price FROM phj_product WHERE product_name = '"+productName+"'";
+		
+		try {
+			dto = template.queryForObject(sql, new BeanPropertyRowMapper<ProductDTO>(ProductDTO.class));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("상품코드,가격 가져오기 실행시 예외발생.");
 			dto = new ProductDTO();
 		}
 		return dto;
