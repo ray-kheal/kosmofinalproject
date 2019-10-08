@@ -203,7 +203,7 @@ body {
 		</div>
               <% } %> 
          <!-- </div> -->
-         <br /> <br />
+
 
        <input type="hidden" name="email" value="${viewRow.email}" />
        <div class="container">
