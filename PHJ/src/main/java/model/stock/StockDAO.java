@@ -1,10 +1,15 @@
 package model.stock;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -81,9 +86,19 @@ public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code){
 	}
 
 	//재고량
-	public int getStockCount(Map<String, Object> map) {
-		String query = "SELECT * FROM phj_stock_log";
+	public void plusStock(final String place_code, final String product_code,final String stock) {
+		System.out.println("dao 내부의 place_code" + place_code);
+		template.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "UPDATE phj_board_stock SET stock=stock+"+stock+" WHERE place_code="+place_code+" AND product_code="+product_code;
+				System.out.println(sql);
+				PreparedStatement psmt = con.prepareStatement(sql);
+				return psmt;
+			}
+		});
 		
-		return template.queryForObject(query, Integer.class);
+		System.out.println("재고 입력 완료");
 	}
 }

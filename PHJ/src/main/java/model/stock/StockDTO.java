@@ -5,6 +5,7 @@ public class StockDTO {
 	private String place_code;
 	private String place_name;
 	private String place_name2;
+	private String product_code;
 	private String product_name;
 	private String product_price;
 	private String product_value;
@@ -16,12 +17,13 @@ public class StockDTO {
 		super();
 	}
 	
-	public StockDTO(String place_code, String place_name, String place_name2, String product_name, String product_price,
+	public StockDTO(String place_code, String place_name, String place_name2, String product_code, String product_name, String product_price,
 			String product_value, String stock, int virtualNum, String stock_backup) {
 		super();
 		this.place_code = place_code;
 		this.place_name = place_name;
 		this.place_name2 = place_name2;
+		this.product_code = product_code;
 		this.product_name = product_name;
 		this.product_price = product_price;
 		this.product_value = product_value;
@@ -56,6 +58,15 @@ public class StockDTO {
 	public void setPlace_name2(String place_name2) {
 		this.place_name2 = place_name2;
 	}
+	
+	public String getProduct_code() {
+		return product_code;
+	}
+
+	public void setProduct_code(String product_code) {
+		this.product_code = product_code;
+	}
+
 	public String getProduct_name() {
 		return product_name;
 	}

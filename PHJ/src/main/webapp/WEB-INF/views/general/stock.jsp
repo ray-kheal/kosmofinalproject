@@ -15,16 +15,24 @@
 <body>
 	<div class="container">
 		<h2>재고량</h2>
-		<table>
-			<tr>
-			<c:forEach items="${listRows }" var="row" varStatus="loop">
-				<td>점포명: ${row.getPlace_code }</td>
-				<td>상품명: ${row.getProduct_code }</td>
-				<td>재고량: ${row.getStock }</td>
-				<td>재고백업량: ${row.getStock_backup }</td>
-			</c:forEach>
-			</tr>
-		</table>
+		<form action="stockPlus.do">
+			<table>
+				<tr>
+					<td>점포코드: <input type="text" name="place_code" /></td>
+					<td>상품코드: <input type="text" name="product_code" /></td>
+					<td>재고량: <input type="text" name="stock" /></td>
+					<td><button type="submit" class="btn btn-info">보내기</button></td>
+				</tr>
+			</table>
+		</form>
+		
+		<div id="result">
+		<c:if test="${not empty success and success eq 1 }">
+		성공함.
+		</c:if>
+
+
+		</div>
 	</div>
 </body>
 </html>

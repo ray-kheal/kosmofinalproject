@@ -172,11 +172,18 @@ public class GeneralController {
    	@RequestMapping("stock.do")
    	public String stock(Model model, HttpServletRequest req) {
    		
+   		return "general/stock";
+   	}
+   	
+   	//재고 백업 커맨드
+   	@RequestMapping("stockPlus.do")
+   	public String stockPlus(Model model, HttpServletRequest req) {
+   		
    		model.addAttribute("req", req);
    		command = new StockCommand();
    		command.execute(model);
    		
-   		return "general/stock";
+   		return "redirect:stock.do";
    	}
 }
 
