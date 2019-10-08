@@ -443,8 +443,11 @@ function textLengthOverCut(txt, len, lastTxt) {
             </div>
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
 
-            <br /><br />
 
+            
+            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
+
+            <br /><br />
             <div class="container" id="wideboard">
             <div class="row"  id="notify">
             

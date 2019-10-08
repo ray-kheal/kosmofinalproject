@@ -12,6 +12,8 @@ import model.board.commentDAO;
 import model.board.commentDTO;
 import model.board.recipeDAO;
 import model.board.recipeDTO;
+import model.product.ProductDAO;
+import model.product.ProductDTO;
 import util.FileReader;
 import util.PagingUtil;
 
@@ -55,7 +57,6 @@ public class RecipeListViewCommand implements PHJCommandImpl{
 	      paramMap.put("start", start);
 	      paramMap.put("end", end);
 	    
-	      
 		
 		ArrayList<commentDTO> cDto = cDao.commentList(paramMap, idx); 
 		 int virtualNum = 0;

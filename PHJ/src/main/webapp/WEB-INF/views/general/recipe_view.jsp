@@ -100,7 +100,7 @@ body {
             </colgroup>
                      
             <tr>  
-               <td style="text-align:center;  background-color:white;  text-align: center; padding-top:15px;  border-top: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">
+               <td style="text-align:center; width: 70%; background-color:white;  text-align: center; padding-top:15px;  border-top: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">
                
                
                <p style="font-size: 1.6em; font-weight: bold; font-style: italic; "> <mark>"${viewRow.title}"</mark> </p>
@@ -112,42 +112,47 @@ body {
                <p style=" text-align:right; ">추천수: ${viewRow.BTNRECOMMEND }</p>
                
    
-               
-               <p>${viewRow.content}</p> 
-                 
+
+               <p style="font-size: 0.8em; ">${viewRow.content}</p> 
+
                </td>
                
             </tr> 
-            
          </table>
          <br />
          
          
          <c:forEach items="${fn:split(viewRow.content, '#') }" var="item" varStatus="status">
-          <c:if test="${status.index eq 1}"><!-- 1번째(#뒤에꺼)-->
-          
-              <c:forEach items="${fn:split(item, '</p>') }" var="item2" varStatus="status">
-                <c:if test="${status.index eq 0}"><!-- 0번째(앞꺼)-->
-                       <div>
-                          <p>이 상품을 사용했어요!</p>
-                          <a href="./reci_product_view.do?product_name=${item2 }"> 
-                         <img style="text-align: center; width: 25%"  src="./resources/CSProduct/${item2 }.jpg" ></a>
-                        </div>
-               </c:if>   
-            </c:forEach>
-         </c:if>   
-      </c:forEach>
-      
-      
-   <%--    <c:set var="spliContent" value="${fn:split(spliContent, '</p>') }"></c:set> --%>
+		    <c:if test="${status.index eq 1}"><!-- 1번째(#뒤에꺼)-->
+		    
+		    	 <c:forEach items="${fn:split(item, '</p>') }" var="item2" varStatus="status">
+				    <c:if test="${status.index eq 0}"><!-- 0번째(앞꺼)-->
+				    		 <div>
+				    		 	<p style="font-size: 1.2em; font-weight: bold;">이 상품을 사용했어요! </p>  
+				    		 	<p>&nbsp;&nbsp;<mark style="background-color: #f2f2f2; color: #3b72e2; border-radius: 7px;">#${item2 }</mark></p>
+			         			<input type="hidden" name="item2" value="${item2 }" />
+			         			<input type="hidden" name="nowPage" value="${nowPage }" />
+								<a href="./reci_product_view.do?name=${item2 }">
+								
+								<img style="text-align: center; width: 25%"  src="./resources/CSProduct/${item2 }.jpg"   />
+								</a>
+			         		</div>
+					</c:if>	
+				</c:forEach>
+			</c:if>	
+		</c:forEach>
+		
+		
+	<%-- 	<c:set var="spliContent" value="${fn:split(spliContent, '</p>') }"></c:set> --%>
          
-             
-         
-              <div id="replyList">
-                <div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
-                 <span>댓글  ${TotalCount }개</span>
-            </div>
-            <c:choose>
+		    	
+			
+        		<div id="replyList">
+       			<div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
+        			<span>댓글  ${TotalCount }개</span>
+				</div>
+				<c:choose>
+
                <c:when test="${empty cDto }">
                   <p class="text-center">등록된 댓글이 없습니다.</p>
                </c:when>             

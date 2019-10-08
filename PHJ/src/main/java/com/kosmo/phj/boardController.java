@@ -44,6 +44,8 @@ import model.board.recipeDAO;
 import model.board.recipeDTO;
 import model.board.serviceDTO;
 import model.member.MemberDTO;
+import model.product.ProductDAO;
+import model.product.ProductDTO;
 
 
 @Controller
@@ -88,6 +90,14 @@ public class boardController {
 		int product_code = Integer.parseInt(req.getParameter("product_code"));
 		System.out.println("컨트롤러 내부의 product_code : " + product_code);
 		model.addAttribute("product_code",product_code);
+		
+		
+		ProductDAO dao = new ProductDAO();
+		ProductDTO dto = dao.searchProduct(req.getParameter("product_code"));
+		
+		int product_price = dto.getProduct_price();
+		model.addAttribute("product_price",product_price);
+		
 		command = new StockListCommand();
 		command.execute(model);
 		System.out.println("product 익스큐트 실행완료");
@@ -291,6 +301,29 @@ public class boardController {
 		command = new RecipeListViewCommand();
 		command.execute(model);
 		return "general/recipe_view";
+	}
+	
+	//레시피 개별상품 정보페이지 이동
+	@RequestMapping("reci_product_view.do")
+	public String recipeProductView(Model model, HttpServletRequest req) {
+		ProductDAO dao = new ProductDAO();
+		ProductDTO dto = dao.searchProductForName(req.getParameter("name"));
+		
+		model.addAttribute("req",req);
+		
+		int product_code = dto.getProduct_code();
+		int product_price = dto.getProduct_price();
+		
+		System.out.println("recipeProductView 내부의 product_code : " + product_code);
+		model.addAttribute("product_code",product_code);
+		model.addAttribute("product_price",product_price);
+		
+		command = new StockListCommand();
+		System.out.println("StockListCommand완료");
+		command.execute(model);
+		System.out.println("recipeProductView 익스큐트 실행완료");
+		
+		return "general/product_view";
 	}
 	
 	//레시피 추천수 증가 

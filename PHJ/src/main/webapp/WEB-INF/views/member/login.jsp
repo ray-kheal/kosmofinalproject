@@ -109,7 +109,7 @@
 <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('fbc37d1de83e19f124176d0578a0cf59');
+    Kakao.init('af96505087477ff5de4f7f8267448d3e');
     function loginWithKakao() {
       // 로그인 창을 띄웁니다.
       Kakao.Auth.login({
@@ -207,70 +207,6 @@ if(cookies!=null){
       <%@ include file="../general/MainHeader.jsp"%>
        <br />
       <!-- Main -->   
-         <!-- -----------------------------------------------------------------mobile -->   
-     <div id="cutboard" >
-     
-         <div class="" style="margin-top:30px; " >
-          
-        
-           <div id="" style=" width: 95%;  font-family: Goyang;" >
-                
-               <div class="" style=" background:#f1f1f1; border-radius:10px;   padding : 35px 35px 35px 35px; " >
-                  <form class="loginForm" action="loginAction.do">
-                     <div class="form-group"> 
-                        <input type="text" style="width:75%; font-family: Verdana;" class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
-                           required autofocus />
-                     </div>
-                     <div class="form-group">
-                        <input style="width:75%; font-family: Verdana;" type="password" class="form-control" name="pass" placeholder="암호"
-                           required />
-                     </div>
-                     <div class="idCheck custom-control custom-checkbox" style="color: white;">
-                        <input type="checkbox" name="saveCheck" id="defaultUnchecked" value="1" <% if(user.length()!=0){ %> checked = "checked" <% } %>
-                           class="custom-control-input" /> 
-                        <label class="custom-control-label" for="defaultUnchecked" style="color: black">이메일 계정을 저장합니다.</label>
-                     </div>
-                     <span style="color:red;font-size:1em;"> 
-                        ${loginError }
-                     </span>
-                     <br />
-                     <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        로그인</button>
-                  </form>
-                  <div class="or-box">      
-                     
-                     <div id="OtherLogin">
-                        <div class="kakao" style="margin-left:20px;  margin-bottom:15px;">
-                           <a href="javascript:loginWithKakao();">
-                              <button type="button" class="btn btn-kakao btn-warning"></button> 
-                           </a>
-                        </div>
-                        <div class="google" style=" margin-left:20px; margin-top:10px;" id="loginButton"> 
-                           <script type="text/javascript">loginWithGoogle();</script>
-                           <button type="button" class="btn btn-google btn-light"></button>
-                        </div>
-                     </div>  
-                  </div>
-                  <div class="or-box row-block">
-                     <a class="forgotLnk" href="accountfind.do"
-                        style="color: navy; padding-left: 30px;"><i class="fas fa-exclamation-triangle"></i>로그인이 되지 않으시나요?</a><br />
-                    <span style="color: black; font-weight: bold; padding-left: 50px;">아직 계정이 없으신가요?</span> 
-                      <a href="join1.do"
-                        class="btn btn-dark btn-block" style="color: white;">회원가입
-                        하기
-                      </a>
-                  </div>
-               </div> 
-               
-            </div>
-         </div>  
-      </div> 
-      
-      
-      
-      
-      
-      
        <!--------------------------------------------pc  -->   
      <div id="wideboard" >
     

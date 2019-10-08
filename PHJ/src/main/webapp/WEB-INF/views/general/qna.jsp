@@ -132,8 +132,10 @@ nav {
        		  <div style="text-align: right; font-family: Goyang;">
                <%if(session.getAttribute("EMAIL") != null) { %> 
 
+
                   <form action="write.do" method="post">
                		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+
 
                   </form>
                   <%} %>

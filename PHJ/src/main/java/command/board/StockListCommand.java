@@ -31,13 +31,19 @@ public class StockListCommand implements PHJCommandImpl {
 		System.out.println("확인 :" + totalRecordCount);
 
 		int totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
+		System.out.println("totalPage"+totalPage);
+		
 		int nowPage = (req.getParameter("nowPage") == null || req.getParameter("nowPage").equals("")) ? 1
 				: Integer.parseInt(req.getParameter("nowPage"));
+		
+		System.out.println("nowPage"+nowPage);
+		
 		int start = (nowPage - 1) * pageSize + 1;
 		int end = nowPage * pageSize;
 		paramMap.put("start", start);
 		paramMap.put("end", end);
-
+		System.out.println("start:"+ start+",end:"+ end);
+		System.out.println("paramMap"+paramMap+"product_code"+product_code);
 		ArrayList<StockDTO> listRows = dao.list(paramMap, product_code);
 		
 		
@@ -67,5 +73,6 @@ public class StockListCommand implements PHJCommandImpl {
 		model.addAttribute("nowPage", nowPage);
 		model.addAttribute("listRows", listRows);
 		model.addAttribute("product_code", product_code);
+		
 	}
 }
