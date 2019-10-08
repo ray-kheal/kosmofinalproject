@@ -53,7 +53,7 @@ function DeleteAll(){
 		  $('input[name=checkDel]:checked').each(function(){
 			  idx = $(this).val();
 			  //alert("idx:"+idx);
-	 		location.href = "boardDelete.do?idx="+idx+"&nowPage=${nowPage}&board_type=1";
+	 		location.href = "QnADelete.do?idx="+idx+"&nowPage=${nowPage}";
 		  });
 	  
 	  

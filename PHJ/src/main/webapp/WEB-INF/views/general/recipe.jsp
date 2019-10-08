@@ -310,7 +310,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
                       
                 <div style="border: 2px solid gold;" >
-<c:if test="${nowPage ne 2}">
+				<c:if test="${nowPage ne 2}">
                  <div class=" text-center"  style="text-align: center; "> 
                  <div style="">
                  <img src="images/cup.png" style="width: 10%; padding-top:20px; "alt="" />

@@ -170,6 +170,31 @@ public class recipeDAO {
 				ps.setInt(1, Integer.parseInt(idx));
 			}
 		});
+	}
+	
 
+	public void AdminRecommend(final String idx) {
+	String sql = "update PHJ_BOARD_RECIPE set RECOMMEND = RECOMMEND+1 where idx=?";
+	System.out.println("들어왔니2 : " + idx);
+	
+	template.update(sql, new PreparedStatementSetter() {			
+		@Override
+		public void setValues(PreparedStatement ps) throws SQLException {
+			ps.setInt(1, Integer.parseInt(idx));
+		}
+	});
+	}
+	
+	public void AdminRecommendDown(final String idx) {
+		String sql = "update PHJ_BOARD_RECIPE set RECOMMEND = RECOMMEND-1 where idx=?";
+		System.out.println("들어왔니2 : " + idx);
+		
+		template.update(sql, new PreparedStatementSetter() {			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				ps.setInt(1, Integer.parseInt(idx));
+			}
+		});
+		
 	}
 }

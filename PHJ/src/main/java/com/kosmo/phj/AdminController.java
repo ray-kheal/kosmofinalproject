@@ -22,16 +22,20 @@ import command.admin.AdEventListWriteActionCommand;
 import command.admin.AdPlaceListCommand;
 import command.admin.AdProductDeleteActionCommand;
 import command.admin.AdProductListCommand;
+import command.admin.AdQnaDeleteActionCommand;
 import command.admin.AdQnaListCommand;
 import command.admin.AdQnaListViewCommand;
 import command.admin.AdRecipeListCommand;
 import command.admin.AdRecipeListViewCommand;
+import command.admin.AdRecipeRecommendCommand;
+import command.admin.AdRecipeRecommendDownCommand;
 import command.admin.AdRegistCommand;
 import command.admin.AdReplyCommand;
 import command.admin.Index_memberListCommand;
 import command.admin.Index_noticeListCommand;
 import command.admin.Index_qnaListCommand;
 import command.admin.Index_recipeListCommand;
+import command.board.RecommendCommand;
 import command.admin.AdReplyActionCommand;
 import command.admin.AdMemberListCommand;
 import command.member.LoginActionCommand;
@@ -450,6 +454,30 @@ public class AdminController {
 			System.out.println("qnaManagementView 익스큐트 실행");
 			return "admin/pages/tables/recipeManagementView";
 		}
+	//레시피 베스트 게시물 올리기 	
+		@RequestMapping("/admin/pages/tables/Adrecommend.do")
+		public String recommendUp(Model model, HttpServletRequest req) {
+			System.out.println("들어왔니?");
+			model.addAttribute("req", req);
+			String idx = req.getParameter("idx");
+			command = new AdRecipeRecommendCommand();
+			command.execute(model);
+			model.addAttribute("nowPage", req.getParameter("nowPage"));
+			return "redirect:recipeManagement.do?idx="+idx;
+		}
+		//레시피 베스트 게시물 내리기 	
+				@RequestMapping("/admin/pages/tables/AdrecommendDown.do")
+				public String recommendDown(Model model, HttpServletRequest req) {
+					System.out.println("들어왔니?");
+					model.addAttribute("req", req);
+					String idx = req.getParameter("idx");
+					command = new AdRecipeRecommendDownCommand();
+					command.execute(model);
+					model.addAttribute("nowPage", req.getParameter("nowPage"));
+					return "redirect:recipeManagement.do?idx="+idx;
+				}
+		
+		
 	//////////////////////////////////////////////////////////////////////////////////////// QnA 관리
 	//QnA 게시판 관리 페이지
 	@RequestMapping("/admin/pages/tables/qnaManagement.do")
@@ -503,6 +531,19 @@ public class AdminController {
 
 		return "redirect:./qnaManagement.do";
 	}
-
 	
+	//QnA 삭제하기 액션
+	@RequestMapping("/admin/pages/tables/QnADelete.do")
+	public String deleteQnA(Model model, HttpServletRequest req) {
+		
+		System.out.println("delete 호출됨");
+		
+		model.addAttribute("req", req);
+		command = new AdQnaDeleteActionCommand();
+		command.execute(model);
+
+		String nowPage = req.getParameter("nowPage");
+		model.addAttribute("nowPage", nowPage);
+		return "redirect:./qnaManagement.do?nowPage="+nowPage;
+		}	
 }
