@@ -300,61 +300,17 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
           <img src="https://image.flaticon.com/icons/svg/2035/2035184.svg" width="55px" height="55px"/>
       </p>
    </div> 
-
+ <%--     <input type="hidden" name="nowPage" value="${nowPage }" /> --%>
    
    
       <!-- Page Content --> 
-      <div class="container">
-<<<<<<< HEAD
-
-              <!--  <form id="buttonBox" class="form-inline" onsubmit="return InputSearch(this);">
-                  <select name="searchColumn" class="form-control" style="margin-left:10px; width:100px;">
-                     <option value="title">제목</option>
-                     <option value="content">내용</option>
-                  </select>
-                  <input type="text" name="searchWord" class="form-control"
-                     style="width:230px; margin-left:5px;" />
-                  <div style="margin-left:10px;">
-                     <button type="submit" class="btn">
-                     검색 <img src="https://image.flaticon.com/icons/svg/148/148928.svg" width="25px" height="25px"/>
-                  </button>
-                  </div>
-               </form>
-                -->
-                
-                
-                <!-- 검색기능 -->
-		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
-		      
-		       <div class="container" style="display:inline-block; text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
-					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:50%;">
-		                <option value="title">제목</option>
-		                <option value="content">내용</option>
-		             </select>
-				</div>
-		       <div class="container" style=" display:inline-block;width:35%; " >  
-		             
-		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
-		      </div> 
-		      
-		        <div style=" display:inline-block; width:25%; text-align: left;">
-		        
-		        <button class="btn btn-dark " style=" font-size: 0.7em;  margin-top: 10px;""><i class="fas fa-search"></i></button>
-		        </div>
-		      </form> 
-		      
-		      <br />
-=======
+     
          <div class="container">
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                <br />
-
-
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-
-       
+                      
                 <div style="border: 2px solid gold;" >
-
+            <c:if test="${nowPage ne 2}">
                  <div class=" text-center"  style="text-align: center; "> 
                  <div style="">
                  <img src="images/cup.png" style="width: 10%; padding-top:20px; "alt="" />
@@ -396,14 +352,13 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>  
                         </c:forEach> 
                         </div>
-    
-                          
+</c:if>
                 </div>
                 <br /><br />
-        	  <div style="text-align: right; font-family: Goyang;">
+             <div style="text-align: right; font-family: Goyang;">
                <%if(session.getAttribute("EMAIL") != null) { %> 
                   <form action="recipe_edit.do" method="post">
-               		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+                     <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
                   </form>
                   <%} %>
                   <br />
@@ -423,12 +378,10 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                      </c:when>
                      <c:otherwise>
                         <!-- 일반게시물 s-->
-                        <div class="col-lg-3 col-md-4 col-6 ">
+                        <div class="col-lg-3 col-md-3 col-4 ">
                            <input type="hidden" value="${row.thumbnail }"/>
                            <figure class="recipePhoto" style="width:100px; height:200px;">
-
                               <img class="img-fluid img-thumbnail"  style="height:100%; width:100%;"
-
                                  src="./resources/imageUpload/${row.thumbnail }"
                                  alt="">
                               <figcaption>
@@ -455,9 +408,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                </div>
             </c:otherwise>
          </c:choose>
-   
          <!-- /.container -->
-
       </div>
    </div>
    

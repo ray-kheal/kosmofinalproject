@@ -45,7 +45,7 @@ public class home_recipeCommand implements PHJCommandImpl {
 		외부파일로 만든 파일에 저장된 게시판 페이징 설정값을 얻어온다.
 		초기상태는 String 형태이므로 int형으로 변환한 후 저장한다.
 		 */
-		int pageSize = 4;
+		int pageSize = 8;
 		int blockPage = 4;
 		
 		//전체 페이지 수 카운트하기

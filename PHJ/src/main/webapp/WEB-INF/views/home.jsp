@@ -278,7 +278,7 @@ function textLengthOverCut(txt, len, lastTxt) {
 		
          <!-- 이미지로 스크롤 메뉴 변경함 --> 
          <a href="#"> <img  style="width:90%" src="images/welcome.png" alt="welcome"  
-            style="right: 30; top: 30;" /> 
+            style="right: 30;" /> 
          </a> <br />  
          <a href="#search"> <img  style="width:90%"
             src="images/findproduct.png" alt="편의점 상품조회" /> 
@@ -317,22 +317,24 @@ function textLengthOverCut(txt, len, lastTxt) {
                 alt="메인이미지" style="width: 100%;"> 
            
       <!-- 배너 --> 
-      <div id="banner-wrapper "> 
+     <!--  <div id="banner-wrapper "> 
          <div  class=" container  "> 
             <div class="row"> 
                <div class="col-7 col-12-medium"> 
                    
-                  
+                   
                </div> 
              
             </div> 
          </div> 
-      </div> 
+      </div>   -->
       
-      <!-- Features --> 
-      <div id="features-wrapper  "> 
-         <div class="container"> 
-            <div class="row" id="search"> 
+      <div id="search"  style="height: 40px;"><br /></div>
+      <!-- Features -->   
+      <div id="features-wrapper">
+     	<div class="container" > </div>    
+         <div class="container" > 
+            <div class="row" > 
                    <div class="col-6 col-12-medium"> 
                   <!-- Box --> 
              
@@ -372,18 +374,19 @@ function textLengthOverCut(txt, len, lastTxt) {
 
       <!-- Main --> 
        
-      <div id="main-wrapper" >  
-         <div class="container"> 
-
-           <div class="row container" id="reci">  
+      <div id="reci" style="height: 40px;"><br /></div>  
+      <div id="main-wrapper" >
+         <div class="container" > 
+			
+           <div class="row container" >  
                <!-- preview board  시작  --> 
                   <section class="widget thumbnails"> 
                      <h2 style="font-family: Goyang; font-size: 40px;" >레시피</h2> 
                      <div style="text-align: right;"> 
-                     <a href="recipe.do"  style="margin-top: -50px;"> 
-                     <img src="images/moreView.png" alt="" style="width: 90px"/> 
+                     <a class="float-right" href="recipe.do"  style="margin-top: -50px;"> 
+                     <img src="images/moreView.png" alt="" style="width: 90px"/>
                      </a> 
-                     </div> 
+                     </div>  
                         <!-- <div class="container">  -->
                         <div class="row " style=" margin-left: -60px;"> 
                         <c:choose> 
@@ -415,9 +418,7 @@ function textLengthOverCut(txt, len, lastTxt) {
    
                                     </c:when> 
                                     <c:otherwise> 
-
                                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 " > 
-
                                           <figure class="recipePhoto" style="width:100px; height:200px;"> 
                                              <img class="img-fluid img-thumbnail effect" 
                                                 src="./resources/imageUpload/${row.thumbnail }" style="height:100%; width:100%;"
@@ -441,17 +442,17 @@ function textLengthOverCut(txt, len, lastTxt) {
                </div>
             </div>
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
-            
+
+            <br /><br />
+
             <div class="container" id="wideboard">
-            
-            
-            <div class="row">
+            <div class="row"  id="notify">
             
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">공지</h4>
+                      <h4 class="card-title float-left" >공지</h4>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
                          <table class="table" style="text-align: center;  " >
