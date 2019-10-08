@@ -60,6 +60,7 @@ function catchAlert(){
          %>
          <i class="fas fa-user-check"></i> 
         <%=session.getAttribute("NAME") %>님&nbsp;&nbsp;
+         <a href="memberEdit.do" style=" color: #565454;" >내 정보&nbsp;</a>
          <a href="logout.do" style=" color: #565454;" >LOGOUT</a>
        <%
             }

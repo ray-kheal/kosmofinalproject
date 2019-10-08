@@ -31,12 +31,35 @@ if (mst == 'normal') {
 function isDelete(){
 	result = confirm('삭제하시겠습니까?');
   if(result){
-      location.href = "boardDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=1";
+      location.href = "boardDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
       //location.href = "boardDelete.do";
   }else{
   	return false;
   }
 }
+  
+  //추천글 올리기 
+  function isRecommend(){
+		result = confirm('베스트로 올리시겠습니까?');
+	  if(result){
+	      location.href = "Adrecommend.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+	   
+	  }else{
+	  	return false;
+	  }  
+  }
+  
+  //추천글 내리기
+  function isRecommendDown(){
+		result = confirm('베스트에서  내리시겠습니까?');
+	  if(result){
+	      location.href = "AdrecommendDown.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+	   
+	  }else{
+	  	return false;
+	  }  
+  }
+
 </script>
   <body>
     <div class="container-scroller">
@@ -81,9 +104,14 @@ function isDelete(){
 					</colgroup> 
 					<tr >     
 						<td rowspan="5" style="border-top: 2px solid white;">
-						     
-						<!-- <img src="https://i1.wp.com/pizzaschool.net/wp-content/uploads/2015/11/%EC%BD%A4%EB%B9%84%EB%84%A4%EC%9D%B4%EC%85%98%ED%94%BC%EC%9E%90.jpg?resize=800%2C800" 
-						style="width: 90%; border-radius: 0; height: auto;" /> -->
+					<c:choose>
+						<c:when test="${viewRow.recommend ne 0 }" >
+					<button class = "btn btn-danger btn-sm" onclick="isRecommendDown();"style="margin-left:30%; margin-right:30%;">베스트에서 내리기</button>
+					</c:when> 
+					<c:otherwise>
+					<button class = "btn btn-danger btn-sm" onclick="isRecommend();"style="margin-left:30%; margin-right:30%;">베스트로 올리기</button> 
+					</c:otherwise>
+					</c:choose>
 						</td>
 						 
 						<td style="border-top: 2px solid white; font-weight: bold; text-align: center;">레시피명</td>
@@ -106,6 +134,10 @@ function isDelete(){
 						<td style="font-weight: bold; text-align: center;">조회수</td>
 						<td>${viewRow.view_count }</td>
 					</tr>
+					<tr>
+						<td style="font-weight: bold; text-align: center;">추천수</td>
+						<td> ${viewRow.BTNRECOMMEND }</td>
+					</tr>
 				
 					
 				</table>
@@ -120,62 +152,7 @@ function isDelete(){
 						</div>
                 </div>
                 
-                
-                
-			<%-- <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">&nbsp;
-                    	<i class="mdi mdi-food"></i>&nbsp;레시피 보기
-                    </h4>
-                 
-				<input type="hidden" name="idx" value="${viewRow.idx }" />
-				<input type="hidden" name="nowPage" value="${nowPage }" />
-				
-				<div class="table-responsive">
-				<table class="table" style="color:black; font-size: 0.7em; heigth:1000px; ">
-					<colgroup>  
-						<col width="50%" />
-						<col width="5%" />
-						<col width="45%" />
-					</colgroup> 
-					<tr >     
-						<td rowspan="5" style="border-top: 2px solid white;">
-						     
-						<!-- <img src="https://i1.wp.com/pizzaschool.net/wp-content/uploads/2015/11/%EC%BD%A4%EB%B9%84%EB%84%A4%EC%9D%B4%EC%85%98%ED%94%BC%EC%9E%90.jpg?resize=800%2C800" 
-						style="width: 90%; border-radius: 0; height: auto;" /> -->
-						</td>
-						 
-						<td style="border-top: 2px solid white; font-weight: bold; text-align: center;">레시피명</td>
-						<td style="border-top: 2px solid white;">
-						${viewRow.title}
-						</td>
-					</tr> 
-					<tr>
-						<!-- <td></td> -->
-						<td style="font-weight: bold; text-align: center;">작성자</td>
-						<td> ${viewRow.name}</td>
-					</tr>
-					<tr>
-						<!-- <td></td> -->
-						<td style="font-weight: bold; text-align: center;">작성일</td>
-						<td>${viewRow.postdate}</td>
-					</tr>
-					<tr>
-						<!-- <td></td> -->
-						<td style="font-weight: bold; text-align: center;">조회수</td>
-						<td>${viewRow.view_count }</td>
-					</tr>
-					<tr>
-						<!-- <td></td> -->
-						<td colspan="2" style=";">${viewRow.content}</td>
-						<!-- <td></td>  -->
-					</tr>
-					
-				</table>
-				</div>
-				
-                  </div>
-                </div> --%>
+      
               <!-- 내용끝 -->
 			<br /><br />
 			<div class="row text-right" style="float: right;">
@@ -184,13 +161,7 @@ function isDelete(){
 				<button class = "btn btn-danger btn-sm" onclick="isDelete();">삭제</button>
 				<button type="button" class="btn btn-dark btn-sm" 
 							onclick="location.href='./recipeManagement.do';">리스트</button>
-				<%-- <% if(board_type.equals("1")) { %>
-                    	<button type="button" class="btn btn-dark btn-sm" 
-							onclick="location.href='./boardManagement.do';">리스트</button>
-                    <%}else if (board_type.equals("2")){ %>
-                    	<button type="button" class="btn btn-dark btn-sm" 
-							onclick="location.href='./eventManagement.do';">리스트</button>
-                    <%} %> --%>
+			
 				
 			</div>
 			  

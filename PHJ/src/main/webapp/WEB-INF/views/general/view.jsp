@@ -20,6 +20,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+<style>
+@media (min-width: 420px) { 
+
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
+}
+</style>
 <style type="text/css">
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
@@ -33,16 +43,6 @@ body {
 	});
 </script>
 <body>
-
-	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #4c4c4c; display:table;"> 
-		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
-		 BOARD
-		 </p> 
-	</div> 
-	<div style="width:100%; text-align: center;">
-	<br /><br />
-		<img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
-	</div> -->
 	<div id="page-wrapper">
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>

@@ -20,7 +20,7 @@
 				<tr>
 					<td>점포코드: <input type="text" name="place_code" /></td>
 					<td>상품코드: <input type="text" name="product_code" /></td>
-					<td>재고량: <input type="text" name="stock" /></td>
+					<td>추가할 재고량: <input type="text" name="stock" /></td>
 					<td><button type="submit" class="btn btn-info">보내기</button></td>
 				</tr>
 			</table>
