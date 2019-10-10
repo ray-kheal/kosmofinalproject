@@ -24,9 +24,9 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <style type="text/css">
-	
+	  
 	#content {
-		background-color:#b3fcf1;
+		background-color:#f2f2f2;
 		margin: 0 auto;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -36,7 +36,7 @@
 	}
 	
 	#findMenu {
-		margin: 0 auto;
+		margin: 0 auto; 
 	}
 </style>
 <script type="text/javascript">
@@ -101,7 +101,7 @@
 		<div id="content">
 			<div class="row" style="margin-top:10px;">
 			<div id="findMenu" style="margin-top:100px;">
-				<div class="findPop find" id="findPop find form" >
+				<div class="findPop find" id="findPop find form"  style=" padding-left: 20px;">
 					<div class="findPop find" id="findPop find form" >
 							
 						<h3 id="Maintitle" style="color:black;">비밀번호를 변경합니다.</h3>
@@ -117,7 +117,8 @@
 										</colgroup>
 										<tbody>
 											<tr>
-												<th scope="row"><label for="name" style="color:black;">변경할<br /> 비밀번호</label></th>
+												<!-- <th scope="row"><label for="name" style="color:black;">변경할비밀번호</label></th> -->
+												<td width="80px" nowrap style="color:black; font-family: Goyang; "> 비밀번호</td>
 												<td>
 													<div class="formbox">
 														<%
@@ -127,26 +128,29 @@
 														%>
 														<input type="hidden" id="email" name="email" value="<%=email %>" style="visibility:hidden;" />
 														<input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
-														<input type="password" id="pass1" class="text" name="pass" value="<%=pass %>" onblur="if(value=='') value = '<%=pass %>'" 
+														<input type="password" id="pass1" class="form-control" name="pass" value="<%=pass %>"  style= "width: 60%"  onblur="if(value=='') value = '<%=pass %>'" 
 														    onfocus="if(value=='<%=pass %>') value = ''" required autofocus>
 													</div>
-												</td>
+												</td>  
 											</tr>
 											<tr>
-												<th scope="row"><label for="name" style="color:black;">비밀번호<br /> 확인</label></th>
+												<!-- <th scope="row"><label for="name" style="color:black;">비밀번호<br /> 확인</label></th> -->
+													<td width="80px" nowrap style="color:black; font-family: Goyang;">비밀번호<br /> 확인</td>
 												<td>
 													<div class="formbox">
-														<input type="password" id="pass2" class="text" name="pass2" value="">
-														<font name="checkPass" size="2" color="red"></font>
+														<input type="password" id="pass2" class="form-control" name="pass2" value="" style= "width: 60%"><font name="checkPass" size="2" color="red"></font>
 													</div>
 												</td>
-											</tr>
+											</tr> 
 										</tbody>
 									</table>
-									<div class="btnWrap">
-										<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
-										<button type="button" onclick="location.href='accountfind.do';" class="btn btn-danger" style="width:70px;">취소</button>
+									
+									<div class="container" style="margin-left: 85px;">
+										<br /><br />
+									<button type="submit" class="btn btn-primary"  style="width:20%; ">확인</button>
+									<button type="button" onclick="location.href='accountfind.do';" class="btn btn-dark" style="width:20%;">취소</button>
 									</div>
+									
 								</form>
 	
 							</div>
