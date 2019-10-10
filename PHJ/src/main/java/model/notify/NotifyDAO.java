@@ -19,7 +19,7 @@ public class NotifyDAO {
 	}
 	
 	public ArrayList<NotifyDTO> notiInfo(String place_code){
-		String sql = "SELECT mobile_alert, place_bookmark, products_bookmark, stock, stock_backup, fcm_token " + 
+		String sql = "SELECT mobile_alert, place_bookmark, products_bookmark, stock, stock_backup, fcm_token, place_name, place_name2, product_name " + 
 				" FROM phj_member " + 
 				" INNER JOIN phj_product on phj_member.products_bookmark=phj_product.product_code " + 
 				" INNER JOIN phj_place on phj_member.place_bookmark=phj_place.place_code " + 
