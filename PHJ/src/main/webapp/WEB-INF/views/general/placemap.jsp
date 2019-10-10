@@ -194,36 +194,36 @@ body {
       <!-- 헤더파일 인클루드 -->
       <%@ include file="MainHeader.jsp"%>
 
-		<div id="wideboard">
-			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+      <div id="wideboard">
+         <div style="width: 100%; height: 200px; text-align: center;  display: table;" >
       
-		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
-		         font-size: 60px; color: black; font-weight: bold;">
-		         &nbsp;   
-		      
-		         <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
-		         편의점을 찾아보아요
-		         <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
-		      </p>
-	      
-	   		</div>
-		
-		</div>
-	<!-- 	<div id="cutboard">
-			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+            <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+               font-size: 60px; color: black; font-weight: bold;">
+               &nbsp;   
+            
+               <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
+               편의점을 찾아보아요
+               <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
+            </p>
+         
+            </div>
       
-		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
-		         font-size: 40px; color: black; font-weight: bold;">
-		         &nbsp;   
-		      
-		         편의점을 찾아보아요
-		         <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="40px"   /> 
-		      </p>
-	      
-	   		</div>
-		</div> -->
+      </div>
+   <!--    <div id="cutboard">
+         <div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+      
+            <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+               font-size: 40px; color: black; font-weight: bold;">
+               &nbsp;   
+            
+               편의점을 찾아보아요
+               <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="40px"   /> 
+            </p>
+         
+            </div>
+      </div> -->
         
-   		
+         
       </div>
       
       <!-- Main -->

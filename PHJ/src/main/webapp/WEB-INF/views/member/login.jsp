@@ -82,7 +82,7 @@
    var loginWithGoogle = function() {
       gapi.load('auth2', function(){
          auth2 = gapi.auth2.init({
-            client_id: '708132528526-dseogiod9l6sutittpbtp0oq4bu3c1em.apps.googleusercontent.com',
+            client_id: '708132528526-r8i4p0tg7rj7jc91vp4qsc4896e8mr13.apps.googleusercontent.com',
             cookiepolicy: 'single_host_origin',
          });
          attachSignin(document.getElementById('loginButton')); 
@@ -91,6 +91,7 @@
    
    //사용자 정보 얻기
    function attachSignin(element) {
+	  console.log(element.id);
       auth2.attachClickHandler(element, {}, function(googleUser) {
          alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
          console.log(googleUser.getBasicProfile().getId());
@@ -208,7 +209,7 @@ if(cookies!=null){
        <br />
       <!-- Main -->   
        <!--------------------------------------------pc  -->   
-     <div id="wideboard" >
+     <div id="" >
     
          <div class="" style="margin-top:50px; " >
          

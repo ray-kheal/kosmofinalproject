@@ -21,7 +21,6 @@ public class LoginActionCommand implements PHJCommandImpl {
 		
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
-		HttpServletResponse resp = (HttpServletResponse)paramMap.get("resp");
 		
 		MemberDTO dto = (MemberDTO)paramMap.get("dto");
 		
@@ -43,6 +42,13 @@ public class LoginActionCommand implements PHJCommandImpl {
 			session.setAttribute("MEMBERTYPE", dto.getMembertype());
 			session.setAttribute("PLACE_BOOKMARK", dto.getPlace_bookmark());
 			session.setAttribute("PRODUCTS_BOOKMARK", dto.getProducts_bookmark());
+			System.out.println("로그인액션에 들어온 FCM_TOKEN 값 : " + session.getAttribute("FCM_TOKEN"));
+			
+			if(session.getAttribute("FCM_TOKEN") != null) {
+				dao.fcmTokenPlus(dto.getEmail().toString(), session.getAttribute("FCM_TOKEN").toString());
+			}
+			
+			
 		}
 		
 	}

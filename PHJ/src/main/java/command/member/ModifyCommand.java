@@ -3,6 +3,7 @@ package command.member;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -20,6 +21,7 @@ public class ModifyCommand implements PHJCommandImpl{
 		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)map.get("req");
+		HttpSession session = (HttpSession)map.get("session");
 		
 		//커맨드객체 가져오기.
 		MemberDTO dto = (MemberDTO)map.get("memberDTO");
@@ -36,6 +38,11 @@ public class ModifyCommand implements PHJCommandImpl{
 
 		
 		dao.modify(dto);
+		session.setAttribute("PASS", dto.getPass());
+		session.setAttribute("NAME", dto.getName());
+		session.setAttribute("ALERT", dto.getMobile_alert());
+		session.setAttribute("PLACE_BOOKMARK", dto.getPlace_bookmark());
+		session.setAttribute("PRODUCTS_BOOKMARK", dto.getProducts_bookmark());
 		
 		
 	}

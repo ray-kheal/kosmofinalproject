@@ -10,11 +10,13 @@ public class PlaceDTO {
 	private String longitude;
 	private String latitude;
 	private int virtualNum; // 가상번호 부여를 위한 멤버변수 추가
-	private String disKM;//지도에서 반경거리 계산할때 쓸것.
-	
-	public PlaceDTO() {}
-	public PlaceDTO(int place_code, String place_name, String place_name2, String place_address, String place_road_addr, String longitude,
-			String latitude,int virtualNum, String disKM) {
+	private String disKM;// 지도에서 반경거리 계산할때 쓸것.
+
+	public PlaceDTO() {
+	}
+
+	public PlaceDTO(int place_code, String place_name, String place_name2, String place_address, String place_road_addr,
+			String longitude, String latitude, int virtualNum, String disKM) {
 		super();
 		this.place_code = place_code;
 		this.place_name = place_name;
@@ -74,25 +76,29 @@ public class PlaceDTO {
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
+
 	public int getVirtualNum() {
 		return virtualNum;
 	}
+
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
 	}
+
 	public String getDisKM() {
 		return disKM;
 	}
+
 	public void setDisKM(String disKM) {
 		this.disKM = disKM;
 	}
+
 	public String getPlace_name2() {
 		return place_name2;
 	}
+
 	public void setPlace_name2(String place_name2) {
 		this.place_name2 = place_name2;
 	}
-	
-	
-	
+
 }

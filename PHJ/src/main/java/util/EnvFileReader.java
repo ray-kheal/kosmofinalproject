@@ -8,26 +8,26 @@ import org.springframework.core.io.support.ResourcePropertySource;
 
 public class EnvFileReader {
 
-   public static String getValue(String envFile, String keyName) {
-      
-      ConfigurableApplicationContext ctx = new GenericApplicationContext();
+	public static String getValue(String envFile, String keyName) {
 
-      ConfigurableEnvironment env = ctx.getEnvironment();
+		ConfigurableApplicationContext ctx = new GenericApplicationContext();
 
-      MutablePropertySources propertySources = env.getPropertySources();
-      
-      String envStr = "";
+		ConfigurableEnvironment env = ctx.getEnvironment();
 
-      try {
-         String envPath = "classpath:"+envFile;
-         propertySources.addLast(new ResourcePropertySource(envPath));
+		MutablePropertySources propertySources = env.getPropertySources();
 
-         envStr = env.getProperty(keyName);
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-      
-      return envStr;
-   }
-   
+		String envStr = "";
+
+		try {
+			String envPath = "classpath:" + envFile;
+			propertySources.addLast(new ResourcePropertySource(envPath));
+
+			envStr = env.getProperty(keyName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return envStr;
+	}
+
 }

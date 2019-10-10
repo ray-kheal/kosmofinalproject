@@ -49,7 +49,7 @@ public class MemberEditCommand implements PHJCommandImpl {
 			model.addAttribute("emailN","checked");
 		}
 		
-		if(dto.getMobile_alert()=="Y") {
+		if(dto.getMobile_alert().equals("Y")) {
 			model.addAttribute("mobileY","checked");
 		} else {
 			model.addAttribute("mobileN","checked");

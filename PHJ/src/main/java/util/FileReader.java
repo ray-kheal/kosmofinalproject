@@ -8,25 +8,24 @@ import org.springframework.core.io.support.ResourcePropertySource;
 
 public class FileReader {
 
-   public static String getValue(String envFile, String keyName) {
-      
-      ConfigurableApplicationContext ctx = new GenericApplicationContext();
-      ConfigurableEnvironment env = ctx.getEnvironment();
-      MutablePropertySources propertySources = env.getPropertySources();
-      
-      String envStr = "";
+	public static String getValue(String envFile, String keyName) {
 
-      try {
-         String envPath = "classpath:"+envFile;
-         propertySources.addLast(new ResourcePropertySource(envPath));
+		ConfigurableApplicationContext ctx = new GenericApplicationContext();
+		ConfigurableEnvironment env = ctx.getEnvironment();
+		MutablePropertySources propertySources = env.getPropertySources();
 
-         envStr = env.getProperty(keyName);
-      } 
-      catch(Exception e) {
-         e.printStackTrace();
-      }
-      
-      return envStr;
-   }
-   
+		String envStr = "";
+
+		try {
+			String envPath = "classpath:" + envFile;
+			propertySources.addLast(new ResourcePropertySource(envPath));
+
+			envStr = env.getProperty(keyName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return envStr;
+	}
+
 }

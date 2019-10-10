@@ -22,7 +22,7 @@ public class home_eventCommand implements PHJCommandImpl {
 	public void execute(Model model) {
 		noticeDAO dao = new noticeDAO();
 		String queryStr = "";
-		 Map<String, Object> param = model.asMap();
+		Map<String, Object> param = model.asMap();
 		HttpServletRequest req = (HttpServletRequest) param.get("req");
 		param.get("board_type");
 		int totalRecordCount = dao.pregetTotalCount(param);
@@ -48,5 +48,5 @@ public class home_eventCommand implements PHJCommandImpl {
 		model.addAttribute("eventRows", listRows);
 
 	}
-	
+
 }

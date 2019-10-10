@@ -17,8 +17,10 @@ public class recipeDTO {
 	private int virtualNum;
 
 	private String thumbnail;
-	
-	public recipeDTO() {}
+
+	public recipeDTO() {
+	}
+
 	public recipeDTO(int idx, String image_name, String title, String content, String name, int view_count,
 			Date postdate, String email, String recommend, String bTNRECOMMEND, int virtualNum, String thumbnail) {
 		super();
@@ -36,17 +38,14 @@ public class recipeDTO {
 		this.thumbnail = thumbnail;
 	}
 
-
-
-
-
-
 	public String getBTNRECOMMEND() {
 		return BTNRECOMMEND;
 	}
+
 	public void setBTNRECOMMEND(String bTNRECOMMEND) {
 		BTNRECOMMEND = bTNRECOMMEND;
 	}
+
 	public int getIdx() {
 		return idx;
 	}
@@ -110,6 +109,7 @@ public class recipeDTO {
 	public void setRecommend(String recommend) {
 		this.recommend = recommend;
 	}
+
 	public int getVirtualNum() {
 		return virtualNum;
 	}

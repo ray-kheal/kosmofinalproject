@@ -41,9 +41,8 @@ function catchAlert(){
 	alert("모바일웹에선 지원하지 않습니다. PC웹이나 어플리케이션을 통하여 실행해주세요");
 	
 }
-
-
 </script>
+
  
 <!-- Header -->
 <div id="header-wrapper" 
@@ -60,6 +59,7 @@ function catchAlert(){
          %>
          <i class="fas fa-user-check"></i> 
         <%=session.getAttribute("NAME") %>님&nbsp;&nbsp;
+         <a href="memberEdit.do" style=" color: #565454;" >내 정보&nbsp;</a>
          <a href="logout.do" style=" color: #565454;" >LOGOUT</a>
        <%
             }
