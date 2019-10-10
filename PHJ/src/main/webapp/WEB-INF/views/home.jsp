@@ -443,17 +443,10 @@ function textLengthOverCut(txt, len, lastTxt) {
             </div>
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
 
-<<<<<<< HEAD
-            
             <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
 
-=======
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             <br /><br />
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
             <div class="container" id="wideboard">
             <div class="row"  id="notify">
             

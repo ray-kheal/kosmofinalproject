@@ -128,17 +128,14 @@ nav {
 	         <!-- 검색기능 끝 -->
 	
 	         <br />
-	  	 </div>
+	  	 </div> 
        		  <div style="text-align: right; font-family: Goyang;">
                <%if(session.getAttribute("EMAIL") != null) { %> 
 
-<<<<<<< HEAD
-                  <form action="recipe_edit.do" method="post">
-                     <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
-=======
+
                   <form action="write.do" method="post">
                		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
+
 
                   </form>
                   <%} %>
