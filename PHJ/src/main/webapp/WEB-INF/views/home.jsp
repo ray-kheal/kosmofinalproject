@@ -506,11 +506,15 @@ function textLengthOverCut(txt, len, lastTxt) {
 
                   </section>  
                </div>
-           
-            
-            
-            
-            <div class="row" >
+            </div>
+            <!--------------------------------------------------- 공지,이벤트(pc용) -->
+
+
+            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
+
+            <br /><br />
+            <div class="container" id="wideboard">
+            <div class="row"  id="notify">
             
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
@@ -554,7 +558,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                      </table>
                       
                       
-                      
+                        
                      </div> 
                     </div>
                   </div>

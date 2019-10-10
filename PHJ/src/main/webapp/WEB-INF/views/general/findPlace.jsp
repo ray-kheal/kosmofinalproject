@@ -4,7 +4,7 @@
 <!doctype HTML>
 <html>
 <head>
-<title>편의점 찾기 페이지(임시)</title>
+<title>편의점 찾기 페이지</title>
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />

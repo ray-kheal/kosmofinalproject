@@ -138,7 +138,7 @@ nav {
 									<tr>
 										<td class="text-center">${row.virtualNum }</td>
 										<td class="text-left"><a
-											href="./view.do?idx=${row.idx}
+											href="./Eview.do?idx=${row.idx}
 												&nowPage=${nowPage}" style="color:black;"><label class="badge "style="background-color:#fc8a32; color:white;">이벤트</label>&nbsp;${row.title}</a>
 										</td>
 										<td class="text-center">관리자</td> 

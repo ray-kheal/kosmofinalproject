@@ -112,14 +112,11 @@ body {
                <p style=" text-align:right; ">추천수: ${viewRow.BTNRECOMMEND }</p>
                
    
-               
+
                <p style="font-size: 0.8em; ">${viewRow.content}</p> 
-          	 	
-          	 	
                </td>
                
             </tr> 
-         	
          </table>
          <br />
          
@@ -154,6 +151,7 @@ body {
         			<span>댓글  ${TotalCount }개</span>
 				</div>
 				<c:choose>
+
                <c:when test="${empty cDto }">
                   <p class="text-center">등록된 댓글이 없습니다.</p>
                </c:when>             
@@ -162,49 +160,49 @@ body {
                      <div>
                         <!-- 리스트반복시작 -->  
                           <table style="margin-bottom:1px; height: auto; border-bottom: 1px solid #999999;">
-                          	<tr>
-                          		<td> 
-	                          		<span style="font-weight:bold;">${commentdto.writer}</span> <br />
-	                          		${commentdto.content} <br />
-	                          		<span style="font-size:14px; color:gray;">${commentdto.comment_date}</span> 
-                          		</td>
-                          	</tr>
+                             <tr>
+                                <td> 
+                                   <span style="font-weight:bold;">${commentdto.writer}</span> <br />
+                                   ${commentdto.content} <br />
+                                   <span style="font-size:14px; color:gray;">${commentdto.comment_date}</span> 
+                                </td>
+                             </tr>
                           </table>   
                       </div> 
                   </c:forEach>  
                </c:otherwise> 
             </c:choose>
-			
-			</div>
+         
+         </div>
          <%if(session.getAttribute("EMAIL")!=null){ %>
          <div>
-		   <form id="commentForm" name="commentForm" method="post" action="recipe_commentAction.do">
-		      <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
-		         <col width="20%" />
-		         <col width="*" />
-		         <col width="20%" />
-		         <tr>     
-		            <td style="text-align:right;">
-		            <%String b_code =request.getParameter("idx"); %>
-		               <input type="hidden" id="b_code" name="idx" value="<%=b_code %>"/>
-		               <input type="hidden" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
-		               <img src="images/pic-2.png" alt="" />
-		            </td>
-		           
-		            <td>
-		               <input type="text" class="" style=" width: 100%; height: 200%; "id="content" name="content" />
-		            </td>
-		            <td>
-		               <button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
-		            </td>
-		      
-		         </tr>
-		      </table> 
-		   </form> 
-		</div>
+         <form id="commentForm" name="commentForm" method="post" action="recipe_commentAction.do">
+            <table class="table table-borderless" style=" border-top: 1px solid #f6f6f6; " >
+               <col width="20%" />
+               <col width="*" />
+               <col width="20%" />
+               <tr>     
+                  <td style="text-align:right;">
+                  <%String b_code =request.getParameter("idx"); %>
+                     <input type="hidden" id="b_code" name="idx" value="<%=b_code %>"/>
+                     <input type="hidden" id="writer" name="writer" value="<%=session.getAttribute("NAME") %>" />
+                     <img src="images/pic-2.png" alt="" />
+                  </td>
+                 
+                  <td>
+                     <input type="text" class="" style=" width: 100%; height: 200%; "id="content" name="content" />
+                  </td>
+                  <td>
+                     <button class="btn btn-sm"  style="background-color: #7f7b9e; color:white;">답글달기</button>
+                  </td>
+            
+               </tr>
+            </table> 
+         </form> 
+      </div>
               <% } %> 
          <!-- </div> -->
-
+         <br /> <br />
 
        <input type="hidden" name="email" value="${viewRow.email}" />
        <div class="container">

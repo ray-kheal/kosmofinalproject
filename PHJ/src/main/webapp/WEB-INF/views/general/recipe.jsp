@@ -310,32 +310,33 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
                       
                 <!-- 검색기능 -->
-		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
-		      
-		       <div class="container" style="display:inline-block; text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
-					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:50%;">
-		                <option value="title">제목</option>
-		                <option value="content">내용</option>
-		                <option value="postdate">게시일</option>
-		             </select>
-				</div>
-		       	<div class="container" style=" display:inline-block;width:35%; " >  
-		             
-		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
-		      	</div> 
-		      
-		        <div style=" display:inline-block; width:25%; text-align: left;">
-		        
-		        <button class="btn btn-dark " style=" font-size: 0.7em;  margin-top: 10px;""><i class="fas fa-search"></i></button>
-		        </div>
-		      </form> 
-		      
-		      <br />
-			</div>
-	
-			<!-- 검색기능 끝 -->
+            <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+            
+             <div class="container" style="display:inline-block; text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
+                <select name="searchColumn" class="form-control" style="margin-left:10px; width:50%;">
+                      <option value="title">제목</option>
+                      <option value="content">내용</option>
+                      <option value="postdate">게시일</option>
+                   </select>
+            </div>
+                <div class="container" style=" display:inline-block;width:35%; " >  
+                   
+                <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
+               </div> 
+            
+              <div style=" display:inline-block; width:25%; text-align: left;">
+              
+              <button class="btn btn-dark " style=" font-size: 0.7em;  margin-top: 10px;""><i class="fas fa-search"></i></button>
+              </div>
+            </form> 
+            
+            <br />
+         </div>
+   
+         <!-- 검색기능 끝 -->
                 <div style="border: 2px solid gold;" >
-			<c:if test="${nowPage ne 2}">
+         <c:if test="${nowPage ne 2}">
+
                  <div class=" text-center"  style="text-align: center; "> 
                  <div style="">
                  <img src="images/cup.png" style="width: 10%; padding-top:20px; "alt="" />
@@ -377,13 +378,14 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
                         </c:choose>  
                         </c:forEach> 
                         </div>
-			</c:if>
+         </c:if>
+
                 </div>
                 <br /><br />
-        	  <div style="text-align: right; font-family: Goyang;">
+             <div style="text-align: right; font-family: Goyang;">
                <%if(session.getAttribute("EMAIL") != null) { %> 
                   <form action="recipe_edit.do" method="post">
-               		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+                     <button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
                   </form>
                   <%} %>
                   <br />

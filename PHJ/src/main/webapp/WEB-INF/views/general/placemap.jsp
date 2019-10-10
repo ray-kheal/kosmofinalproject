@@ -194,36 +194,36 @@ body {
       <!-- 헤더파일 인클루드 -->
       <%@ include file="MainHeader.jsp"%>
 
-		<div id="wideboard">
-			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+      <div id="wideboard">
+         <div style="width: 100%; height: 200px; text-align: center;  display: table;" >
       
-		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
-		         font-size: 60px; color: black; font-weight: bold;">
-		         &nbsp;   
-		      
-		         <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
-		         편의점을 찾아보아요
-		         <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
-		      </p>
-	      
-	   		</div>
-		
-		</div>
-		<div id="cutboard">
-			<div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+            <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+               font-size: 60px; color: black; font-weight: bold;">
+               &nbsp;   
+            
+               <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="80px" height="80px" /> 
+               편의점을 찾아보아요
+               <img src="https://image.flaticon.com/icons/svg/263/263072.svg" width="80px" height="80px" /> 
+            </p>
+         
+            </div>
       
-		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
-		         font-size: 40px; color: black; font-weight: bold;">
-		         &nbsp;   
-		      
-		         편의점을 찾아보아요
-		         <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="40px"   /> 
-		      </p>
-	      
-	   		</div>
-		</div>
+      </div>
+   <!--    <div id="cutboard">
+         <div style="width: 100%; height: 200px; text-align: center;  display: table;" >
+      
+            <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+               font-size: 40px; color: black; font-weight: bold;">
+               &nbsp;   
+            
+               편의점을 찾아보아요
+               <img src="https://image.flaticon.com/icons/svg/485/485394.svg" width="40px"   /> 
+            </p>
+         
+            </div>
+      </div> -->
         
-   		
+         
       </div>
       
       <!-- Main -->
@@ -254,7 +254,7 @@ body {
                   <form name="searchFrm">
                      <input type="hidden" id="latTxt" name="latTxt" />
                      <input type="hidden" id="lngTxt" name="lngTxt" />
-                     <h5>근처 편의점 찾기</h5> <br />
+                      <h5 style="font-family:Goyang;">근처 편의점 찾기</h5> <br />
                      <select name="distance" id="distance">
                         <option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
                         <option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
@@ -262,28 +262,19 @@ body {
                         <option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
 
                      </select>
-<!--                      <input type="submit" value="검색하기" style ="text-align:center"/> -->
-<!--                         <input type="submit" style="float: right;" value="검색하기" />  -->
-                     <br/><br/>
+                     <br />
 
                       <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
                    <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
-                  
-                  
-
-
-                  </form>
+                    </form>
                
                </td>
             </tr>         
             <tr>
                <!-- <td></td> -->
                <td style="text-align: center;">
-
-
-
-                  <h5>근처 편의점 목록</h5> <br />
-                  <table class="table table-bordered">
+                  <h5 style="font-family:Goyang;">근처 편의점 목록</h5> <br />
+                  <table class="table table-bordered" style="border:2px solid gray; height: 200px; font-family:Goyang;">
                <c:choose>
                      <c:when test="${empty searchLists }">
                         <tr>
@@ -297,7 +288,7 @@ body {
                            varStatus="loop">
                            <!-- 리스트반복시작 -->
                            <tr>
-                               <td class="text-center">${row.place_name }</td>
+                               <td class="text-center" >${row.place_name }</td>
                               <td class="text-left">${row.place_address}</td>
                            </tr>
                            
