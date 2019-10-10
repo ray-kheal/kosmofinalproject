@@ -74,6 +74,16 @@ body {
    z-index: 10; 
 } 
 </style> 
+<!-- 슬라이드 쇼  -->
+ <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+
+
 
 <style type="text/css"> 
 @font-face { 
@@ -376,8 +386,64 @@ function textLengthOverCut(txt, len, lastTxt) {
        
       <div id="reci" style="height: 40px;"><br /></div>  
       <div id="main-wrapper" >
-         <div class="container" > 
+      
+      <!-- -------------------------------------------------------------------레시피 -->
+         
+            
+            
+            <!----------------------------------------------------------------------------- 슬라이드  -->
+            
+            <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+
+			  Indicators
+			  <ul class="carousel-indicators">
+			    <li data-target="#demo" data-slide-to="0" class="active"></li>
+			    <li data-target="#demo" data-slide-to="1"></li>
+			    <li data-target="#demo" data-slide-to="2"></li>
+			    <li data-target="#demo" data-slide-to="3"></li>
+			  </ul>
+			  
+			  The slideshow
+			 <div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img src="https://blog.hmgjournal.com/images_n/contents/180404_food01.jpg" alt="Los Angeles" width="100%">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="https://blog.hmgjournal.com/images_n/contents/180305_ramen01.jpg" alt="Chicago" width="100%">
+			    </div>
+			    <div class="carousel-item">
+			      <img src="https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg" alt="New York" width="100%">
+			    </div>
+			  </div> 
+			  
+			  
+			  
+			  Left and right controls
+			  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+			    <span class="carousel-control-prev-icon"></span>
+			  </a>
+			  <a class="carousel-control-next" href="#demo" data-slide="next">
+			    <span class="carousel-control-next-icon"></span>
+			  </a>
+			</div> -->
 			
+			
+			  <!---------------------------------------------------------------------------------- 적용할 슬라이드  -->
+           
+            
+			
+			
+            <!--------------------------------------------------- 공지,이벤트(pc용) -->
+
+            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
+
+          
+            <div class="container" id="wideboard">
+            
+           
+            
+            
+			 <!------------------------------------------------------------- 레시피 레시피 -->
            <div class="row container" >  
                <!-- preview board  시작  --> 
                   <section class="widget thumbnails"> 
@@ -440,15 +506,11 @@ function textLengthOverCut(txt, len, lastTxt) {
 
                   </section>  
                </div>
-            </div>
-            <!--------------------------------------------------- 공지,이벤트(pc용) -->
-
-            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
-
-            <br /><br />
-
-            <div class="container" id="wideboard">
-            <div class="row"  id="notify">
+           
+            
+            
+            
+            <div class="row" >
             
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
@@ -503,7 +565,9 @@ function textLengthOverCut(txt, len, lastTxt) {
                 <div class="card">
                   <div class="card-body"> 
                     <h4 class="card-title float-left" >이벤트</h4>
-                    <a class="float-right" href="event.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
+                    <a class="float-right" href="event.do">
+                   		 <img src="images/moreView.png" alt="" style="width: 90px"/> 
+                    </a>
                       <div class="table-responsive">  
                         <table class="table" style="text-align: center;  " >
                         <colgroup>
@@ -559,6 +623,80 @@ function textLengthOverCut(txt, len, lastTxt) {
             
             <div class="container" id="cutboard">
             
+             <h4 style="font-family: Goyang; font-size: 40px;" >레시피</h4> 
+             <div style="text-align: right;"> 
+             <a class="float-right" href="recipe.do"  style="margin-top: -50px;"> 
+             <img src="images/moreView.png" alt="" style="width: 90px"/>
+             </a> 
+             </div>
+            <!------------------------------------------------------------- 슬라이드 레시피 -->
+	            <div id="demo" class="carousel slide" data-ride="carousel">
+	
+				  <!-- Indicators -->
+				  <ul class="carousel-indicators">
+				    <li data-target="#demo" data-slide-to="0" class="active"></li>
+				    <li data-target="#demo" data-slide-to="1"></li>
+				    <li data-target="#demo" data-slide-to="2"></li>
+				    <li data-target="#demo" data-slide-to="3"></li>
+				    <li data-target="#demo" data-slide-to="4"></li>
+				    <li data-target="#demo" data-slide-to="5"></li>
+				    <li data-target="#demo" data-slide-to="6"></li>
+				    <li data-target="#demo" data-slide-to="7"></li>
+				  </ul>
+				  
+				  <!-- The slideshow -->
+				 <div class="carousel-inner">
+				 <!-- 슬라이드 첫번째 -->
+				    <div class="carousel-item active">
+				      <img src="images/mainpic2.jpg" alt="" style="width:100%; height: auto;" >
+				    </div>
+				  <!--   <div class="carousel-item"> -->
+				    <!--  슬라이드 이후 --> 
+				       <c:choose> 
+	                           <c:when test="${empty recipeRows }"> 
+	                              <div> 
+	                                 <span>결과가 없습니다.</span> 
+	                              </div> 
+	                           </c:when>  
+	                           <c:otherwise> 
+	                              <c:forEach items="${recipeRows }" var="row" varStatus="loop"> 
+	                                  <div class="carousel-item">
+	                                     <figure class="recipePhoto" style="width:100%; height: auto;"> 
+	                                        <img class="img-fluid img-thumbnail effect" 
+	                                           src="./resources/imageUpload/${row.thumbnail }" style="width:100%; height: auto;"
+	                                           alt=""> 
+	                                        <figcaption> 
+	                                           <h3>${row.title }</h3> 
+	                                           <p>${row.content }</p> 
+	                                           <i class="ion-ios-arrow-right"></i> 
+	                                        </figcaption> 
+	                                     <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class=""></a> 
+	                                     </figure> 
+	                               	 </div>
+	                                   
+	                                
+	                              </c:forEach>
+	                           </c:otherwise>
+	                       </c:choose>
+	
+				   <!--  </div> -->
+				    
+				  </div> 
+			  
+			  <!-- Left and right controls -->
+			  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+			    <span class="carousel-control-prev-icon"></span>
+			  </a>
+			  <a class="carousel-control-next" href="#demo" data-slide="next">
+			    <span class="carousel-control-next-icon"></span>
+			  </a>
+			</div>
+			
+			
+			
+            <br /><br />
+             
+            
             
             <div class="row">
             
@@ -566,7 +704,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
-                      <h4 class="card-title float-left">공지</h4>
+                      <h5 class="card-title float-left">공지</h5>
                       <a class="float-right" href="notice.do"><img src="images/moreView.png" alt="" style="width: 90px"/> </a>
                      <div class="table-responsive">
                          <table class="table" style="text-align: center;  " >

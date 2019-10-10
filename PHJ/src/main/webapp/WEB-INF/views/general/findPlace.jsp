@@ -30,6 +30,16 @@ body {
 }
 </style>
    
+<style>
+@media (min-width: 420px)  { 
+
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
+}
+</style>
 </head>
 <script type="text/javascript">
    $(function() {
@@ -146,17 +156,30 @@ body {
 
       <!-- 헤더파일 인클루드 -->
       <%@ include file="MainHeader.jsp"%>
-
-       <div id= "nore"
-      style="width: 100%; height: 200px; text-align: center;  display: table;">
-      <br /> <br /> <br />
-      <p
-         style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: white; font-weight: bold; color: black;">
-         <img src="https://image.flaticon.com/icons/svg/10/10624.svg" width="55px" height="55px"/>
-           어디로 가야 할까?
-          
-      </p>
-   </div> 
+ 
+   
+   		<div id="cutboard">
+			<div style="width: 100%;  text-align: center;  display: table;" >
+      
+		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+		         font-size: 40px; color: black; font-weight: bold;">
+            	<img src="https://image.flaticon.com/icons/svg/10/10624.svg" width="30px" />
+		        어디로 가야 할까?
+		      </p>
+	   		</div>
+		</div>
+		<div id="wideboard">
+			<div style="width: 100%; height:200px; text-align: center;  display: table;" >
+      
+		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+		         font-size: 60px; color: black; font-weight: bold;">
+           		 <img src="https://image.flaticon.com/icons/svg/10/10624.svg" width="55px" />
+                  어디로 가야 할까?
+		      </p>
+	   		</div>
+		    
+		</div>
+      	<br />
    
    
       <!-- Main -->
@@ -167,25 +190,24 @@ body {
          <table style="border:2px solid gray; height: 600px; font-family:Goyang;">
             <colgroup>
             
-               <col width="55%" />
-               <col width="45%" />
+               <%-- <col width="55%" />
+               <col width="45%" /> --%>
             </colgroup>
-            <tr > 
-               <td id=map>         
+            <tr height="400px"> 
+               <td id=map>          
                   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlhPQMCg8LPtFXgfQGPu87K7m6OsFn9Wg"></script>
-
                </td> 
+            </tr>
+            <tr>   
                <td style="float: center; border-bottom: 2px solid gray; height: 600px;">
                   <table>
                      <tr>
-                        <td style="text-align: center; border-bottom: 2px solid pink;">점포명 : </td>
-                        <td style="text-align: center; border-bottom: 2px solid pink;">${dto.place_name } ${dto.place_name2 }</td>
+                        <td style="text-align: center; font-size:1.3em; font-weight: bold; border-bottom: 1px white solid;">${dto.place_name } ${dto.place_name2 }</td>
                      </tr>
-                     <tr>
-                        <td style="text-align: center; border-bottom: 2px solid pink;">점포주소 : </td>
-                        <td style="text-align: center; border-bottom: 2px solid pink;">${dto.place_address } <br /> (${dto.place_road_addr })</td>
+                     <tr>  
+                        <td style="text-align: center; border-bottom: 2px solid #bfbfbf; padding-bottom: 20px;">${dto.place_address } <br /> (${dto.place_road_addr })</td>
                      </tr>
-                  </table>
+                  </table> 
                     <c:choose>
                <c:when test="${empty sdto }">
                   <p class="text-center">등록된 상품이 없습니다.</p>
@@ -197,25 +219,16 @@ body {
                        <colgroup> 
                         <col width="40%" />
                         <col width="*" />
-                    </colgroup>
-                    	<tr>
+                    </colgroup>  
+                    	<tr>    
                     		<td style="text-align: center; border-bottom: 2px solid #306DAA;"><img src="./resources/CSProduct/${row.product_name }.jpg" style="width: 60%;" alt="" /></td>
-                    		<td style="border-bottom: 2px solid #306DAA;"> 
-                    			<p>상품명 : ${row.product_name}</p>
-                    			<p>수량 : ${row.stock}</p>
+                    		<td style="border-bottom: 2px solid #306DAA; font-size: 1.2em;"> 
+                    			<p> <${row.product_name}> </p> 
+                    			<p style="color: grey;">가격 : ${row.product_price }원</p>
+                    			<p>수량 : ${row.stock}개</p>
                     		</td>
                     	</tr>
-                         <%-- <tr>
-                            
-                            <td style="text-align: center;">상품명 :</td>
-                            <td style="text-align: center;">${row.product_name}</td>
-                         </tr>
-                         <tr>
-                            <td style="text-align: center;  border-bottom: 2px solid #306DAA;">수량 : </td>
-                            <td style="text-align: center;  border-bottom: 2px solid #306DAA;">${row.stock}</td>
-                         </tr> --%>
                       </table>
-                    
                      </div>
                   </c:forEach> 
                    <div class="container" >
@@ -226,13 +239,12 @@ body {
                            </td>
                         </tr>
                      </table>    
-                    </div> 
+                    </div>    
                </c:otherwise> 
             </c:choose>
                </td>
               
              </tr>  
-          
          </table>
          </div><!-- container -->
       </div>
