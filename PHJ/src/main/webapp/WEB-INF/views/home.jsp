@@ -449,7 +449,7 @@ function textLengthOverCut(txt, len, lastTxt) {
 
             <br /><br />
             <div class="container" id="wideboard">
-            <div class="row"  id="notify">
+            <div class="row" >
             
               <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">

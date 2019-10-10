@@ -43,6 +43,7 @@ body {
           return false;
        }
    }
+   
    //추천하기    
    function isRecommend(){
        result = confirm('추천하시겠습니까?');
@@ -53,6 +54,16 @@ body {
           return false;
        }
    }
+   //코멘트 삭제여부 확인
+	   function isCommentDelete(){
+	       result = confirm('삭제하시겠습니까?');
+	       
+	       if(result){
+	           location.href = "commentDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+	       }else{
+	          return false;
+	       }
+	   }
    
    
 </script>
@@ -163,11 +174,21 @@ body {
                           <table style="margin-bottom:1px; height: auto; border-bottom: 1px solid #999999;">
                              <tr>
                                 <td> 
-                                   <span style="font-weight:bold;">${commentdto.writer}</span> <br />
+                                   <span style="font-weight:bold;">${commentdto.writer} : </span>  &nbsp;&nbsp;&nbsp;&nbsp;
                                    ${commentdto.content} <br />
-                                   <span style="font-size:14px; color:gray;">${commentdto.comment_date}</span> 
                                 </td>
+                                <td> <span style="font-size:14px; color:gray; float: right">${commentdto.comment_date}</span> </td>
+                                	<td>  <c:choose>
+           							<c:when test="${EMAIL eq commentdto.email}">
+                                   	<button type="button"  class="btn" onclick="isCommentDelete();" style="font-family: Goyang; float: right">삭제하기 </button>
+                                   	 </c:when>
+							            <c:otherwise>
+							               
+							            </c:otherwise>
+							         </c:choose></td>
                              </tr>
+                             
+                           
                           </table>   
                       </div> 
                   </c:forEach>  
@@ -218,7 +239,7 @@ body {
          <c:choose>
             <c:when test="${EMAIL eq viewRow.email}">
             <button type="button" class="btn" onclick="location.href='./edit.do?idx=${viewRow.idx}&nowPage=${nowPage}';" style="font-family: Goyang">수정하기</button>
-             <button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang"">삭제하기</button>
+             <button type="button" class="btn" id="deleteBtn" onclick="isDelete();" style="font-family: Goyang">삭제하기</button>
               
                     
             </c:when>

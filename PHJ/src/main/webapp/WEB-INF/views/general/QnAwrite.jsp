@@ -61,16 +61,6 @@ function checkValidate(f){
    }
 </script>
 <body>
-
-	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #82b9e4; display:table;"> 
-		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
-		 BOARD
-		 </p> 
-	</div> 
-	<div style="width:100%; text-align: center;">
-	<br /><br />
-		<img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
-	</div> -->
 	<div id="page-wrapper">
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
@@ -105,11 +95,6 @@ function checkValidate(f){
 						<col width="80px" />
 						<col width="50px" />
 					</colgroup>
-					<%-- <input type="hidden" name="idx" value="${viewRow.idx }" /> --%>
-					   
-					<br /><br />
-					
-					<!-- <div style="border: 1px solid #82b9e4 ; height:2px;"></div> -->
 					<tr >
 						<th bgcolor="#f2efef" style="text-align: center; border-top: 5px solid #82b9e4 ;">제목</th>
 						<td bgcolor="white" style="border-top: 5px solid #82b9e4 ;">

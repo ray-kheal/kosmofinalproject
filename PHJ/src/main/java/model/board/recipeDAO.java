@@ -26,7 +26,6 @@ public class recipeDAO {
 
 	public void close() {
 	}
-
 	public ArrayList<recipeDTO> list(Map<String, Object> map) {
 		System.out.println("list() 메서드 진입");
 
