@@ -95,7 +95,7 @@ to {
             </div>
       </div>
    <div id="wideboard">
-         <div style="width: 100%;  text-align: center;  display: table;" >
+         <div style="width: 100%; height:200px; text-align: center;  display: table;" >
       
             <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
                font-size: 60px; color: black; font-weight: bold;">
@@ -106,9 +106,9 @@ to {
             </p>
          
             </div>
-      
+        
       </div>
-      
+       
    
    <div class="album py-5 ">
 
@@ -147,13 +147,13 @@ to {
         
         <button class="btn btn-dark" style=" font-size: 0.7em;"><i class="fas fa-search"></i></button>
         </div>
-
       </form> 
 
-       <br />    <br />
-  
-      <p style="font-family: Goyang; text-align: center;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
+       <br />    
 
+      
+      <p style="font-family: Goyang; text-align: center;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
+      
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
             <c:choose>

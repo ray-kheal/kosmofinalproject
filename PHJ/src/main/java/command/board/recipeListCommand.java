@@ -36,13 +36,9 @@ public class recipeListCommand implements PHJCommandImpl {
          paramMap.put("Word", searchWord);
       }
       
-      int totalRecordCount = dao.getTotalCount(paramMap);
-      System.out.println("totalRecordCount = " + totalRecordCount);
-
       int pageSize = Integer.parseInt(FileReader.getValue("recipeBoard.properties", "recipeBoard.pageSize"));
       int blockPage = Integer.parseInt(FileReader.getValue("recipeBoard.properties", "recipeBoard.blockPage"));
-
-      int totalPage = (int)Math.ceil((double)totalRecordCount / pageSize);
+      
       int nowPage = req.getParameter("nowPage")==null || req.getParameter("nowPage")=="" ? 1 : Integer.parseInt(req.getParameter("nowPage"));
       
       int start = (nowPage-1) * pageSize+1;
@@ -50,6 +46,10 @@ public class recipeListCommand implements PHJCommandImpl {
       
       paramMap.put("start", start);
       paramMap.put("end", end);
+      int totalRecordCount = dao.getTotalCount(paramMap);
+      System.out.println("totalRecordCount = " + totalRecordCount);
+      
+      int totalPage = (int)Math.ceil((double)totalRecordCount / pageSize);
       
       ArrayList<recipeDTO> listRows = dao.list(paramMap);
       

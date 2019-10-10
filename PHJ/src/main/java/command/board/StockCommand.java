@@ -35,7 +35,12 @@ public class StockCommand implements PHJCommandImpl {
 		dto.setStock(stock);
 		
 		StockDAO dao = new StockDAO();
-		dao.plusStock(place_code, product_code, stock);
+		try {
+			dao.plusStock(place_code, product_code, stock);
+		} catch(Exception e){
+			System.out.println("입고안됨 ㅅㄱ.");
+		}
+		
 		
 		model.addAttribute("success",1);
 	}

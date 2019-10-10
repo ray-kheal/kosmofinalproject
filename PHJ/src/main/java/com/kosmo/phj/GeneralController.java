@@ -181,9 +181,19 @@ public class GeneralController {
 			if (dto.get(i).getMobile_alert().equals("Y")) {
 				if (dto.get(i).getStock() > dto.get(i).getStock_backup()) {
 					if (dto.get(i).getFcm_token() != null) {
+						// 점포명 재조립.
+						if (dto.get(i).getPlace_name2() != null) {
+							if (dto.get(i).getPlace_name().contains(dto.get(i).getPlace_name2()) == true) {
+
+							} else {
+								dto.get(i).setPlace_name(dto.get(i).getPlace_name() + dto.get(i).getPlace_name2());
+							}
+
+						}
+						
 						String tokenId = dto.get(i).getFcm_token();
-						String title = "편히점";
-						String content = "상품들어옴 ㅅㄱ";
+						String title = "편히점 알림메시지!";
+						String content = dto.get(i).getPlace_name() + "에 " + dto.get(i).getProduct_name()+" 상품이 들어왔습니다! \n 빨리 ㄱㄱ하셈";
 
 						FCMUtil FcmUtil = new FCMUtil();
 						FcmUtil.send_FCM(tokenId, title, content);
@@ -198,7 +208,7 @@ public class GeneralController {
 			}
 		}
 
-		return "/general/stock";
+		return "정상적으로 상품입고 되었음.";
 	}
 
 	
