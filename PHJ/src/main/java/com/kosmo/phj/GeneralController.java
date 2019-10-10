@@ -1,5 +1,7 @@
 package com.kosmo.phj;
 
+import java.util.ArrayList;
+
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,8 @@ import command.board.ProductListCommand;
 import command.board.QnAListCommand;
 import command.board.StockCommand;
 import command.board.recipeListCommand;
+import model.notify.NotifyDAO;
+import model.notify.NotifyDTO;
 
 @Controller
 public class GeneralController {
@@ -158,41 +162,36 @@ public class GeneralController {
 		model.addAttribute("req", req);
 		command = new StockCommand();
 		command.execute(model);
+		
+		String place_code = req.getParameter("place_code");
 
-		return "redirect:notification.do";
+		return "redirect:notification.do?place_code="+place_code;
 	}
 
 	// 재고백업시 알림 실행 매핑
 	@RequestMapping("notification.do")
-	public String notification(Model model, HttpServletRequest req, HttpSession session, HttpServletResponse resp) {
-		String page = "/general/stock";
-
-		model.addAttribute("session", session);
-		model.addAttribute("resp", resp);
-
-		if (session.getAttribute("EMAIL") != null) {
-			System.out.println("현재로그인된이메일 : " + session.getAttribute("EMAIL"));
-			if (session.getAttribute("PRODUCTS_BOOKMARK") != null && session.getAttribute("PLACE_BOOKMARK") != null) {
-
-				if (session.getAttribute("ALERT").equals("Y")) {
-					command = new NotificationCommand();
-					command.execute(model);
-
-					page = "/general/stock";
-
+	public String notification(Model model, HttpServletRequest req) {
+		String place_code = req.getParameter("place_code");
+		NotifyDAO dao = new NotifyDAO();
+		ArrayList<NotifyDTO> dto = dao.notiInfo(place_code);
+		for(int i=0;i<dto.size();i++) {
+			if(dto.get(i).getMobile_alert().equals("Y")) {
+				if(dto.get(i).getStock() > dto.get(i).getStock_backup()) {
+					if(dto.get(i).getFcm_token() != null) {
+						
+					} else {
+						System.out.println("DB에 저장된 FCM토큰이 없음.");
+					}
 				} else {
-					System.out.println("알림설정 off로 되어있음.");
+					System.out.println("재고와 재고백업이 일치함.");
 				}
-
 			} else {
-				System.out.println("관심점포/상품 등록안됨");
+				System.out.println("알람설정을 off해놓음.");
 			}
-
-		} else {
-			System.out.println("현재 로그인된 이메일 없음.");
 		}
+		
 
-		return page;
+		return "/general/stock";
 	}
 
 }
