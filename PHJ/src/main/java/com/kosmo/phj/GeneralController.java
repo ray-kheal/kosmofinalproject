@@ -1,5 +1,7 @@
 package com.kosmo.phj;
 
+import java.util.ArrayList;
+
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import command.NotificationCommand;
 import command.PHJCommandImpl;
 import command.placeMapCommand;
@@ -20,6 +24,9 @@ import command.board.ProductListCommand;
 import command.board.QnAListCommand;
 import command.board.StockCommand;
 import command.board.recipeListCommand;
+import model.notify.NotifyDAO;
+import model.notify.NotifyDTO;
+import util.FCMUtil;
 
 @Controller
 public class GeneralController {
@@ -159,40 +166,41 @@ public class GeneralController {
 		command = new StockCommand();
 		command.execute(model);
 
-		return "redirect:notification.do";
+		String place_code = req.getParameter("place_code");
+
+		return "redirect:notification.do?place_code=" + place_code;
 	}
 
 	// 재고백업시 알림 실행 매핑
 	@RequestMapping("notification.do")
-	public String notification(Model model, HttpServletRequest req, HttpSession session, HttpServletResponse resp) {
-		String page = "/general/stock";
+	public @ResponseBody String notification(Model model, HttpServletRequest req) throws Exception {
+		String place_code = req.getParameter("place_code");
+		NotifyDAO dao = new NotifyDAO();
+		ArrayList<NotifyDTO> dto = dao.notiInfo(place_code);
+		for (int i = 0; i < dto.size(); i++) {
+			if (dto.get(i).getMobile_alert().equals("Y")) {
+				if (dto.get(i).getStock() > dto.get(i).getStock_backup()) {
+					if (dto.get(i).getFcm_token() != null) {
+						String tokenId = dto.get(i).getFcm_token();
+						String title = "편히점";
+						String content = "상품들어옴 ㅅㄱ";
 
-		model.addAttribute("session", session);
-		model.addAttribute("resp", resp);
-
-		if (session.getAttribute("EMAIL") != null) {
-			System.out.println("현재로그인된이메일 : " + session.getAttribute("EMAIL"));
-			if (session.getAttribute("PRODUCTS_BOOKMARK") != null && session.getAttribute("PLACE_BOOKMARK") != null) {
-
-				if (session.getAttribute("ALERT").equals("Y")) {
-					command = new NotificationCommand();
-					command.execute(model);
-
-					page = "/general/stock";
-
+						FCMUtil FcmUtil = new FCMUtil();
+						FcmUtil.send_FCM(tokenId, title, content);
+					} else {
+						System.out.println("DB에 저장된 FCM토큰이 없음.");
+					}
 				} else {
-					System.out.println("알림설정 off로 되어있음.");
+					System.out.println("재고와 재고백업이 일치함.");
 				}
-
 			} else {
-				System.out.println("관심점포/상품 등록안됨");
+				System.out.println("알람설정을 off해놓음.");
 			}
-
-		} else {
-			System.out.println("현재 로그인된 이메일 없음.");
 		}
 
-		return page;
+		return "/general/stock";
 	}
+
+	
 
 }

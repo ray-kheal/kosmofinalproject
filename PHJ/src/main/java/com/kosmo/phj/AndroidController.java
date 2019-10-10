@@ -83,18 +83,5 @@ public class AndroidController {
 
 		return result;
 	}
-
-	@RequestMapping(value = "/fcmsend.do")
-    public  @ResponseBody String fcmsend(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-      
-        String tokenId="AAAApN_84Y4:APA91bFylPeVqprKMB6WG9h3kteJup3ppC8gFSweJrMcISt5q77MpeSrK2fQuJlpph0T4gnqMUYHrqU4SfLudmxsPC_c5zBWfymD2P3bhnj4Qzn6Ua4g8Q48PE13XsFw9znrtadUbMdf";
-        String title="제목입니다";
-        String content="내용입니다";
-      
-        FCMUtil FcmUtil = new FCMUtil();
-        FcmUtil.send_FCM(tokenId, title, content);
-      
-        return "general/stock";
-	}
 	
 }

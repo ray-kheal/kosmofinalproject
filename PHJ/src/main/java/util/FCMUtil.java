@@ -18,7 +18,7 @@ public class FCMUtil {
     public void send_FCM(String tokenId, String title, String content) {
         try {    
             //본인의 json 파일 경로 입력
-            FileInputStream refreshToken = new FileInputStream("/resources/FCM/my-project-1563871421512-firebase-adminsdk-qhmrn-88f8a5e900.json");
+            FileInputStream refreshToken = new FileInputStream("C:\\03FinalProject\\kosmofinalproject\\PHJ\\src\\main\\webapp\\resources\\FCM\\my-project-1563871421512-firebase-adminsdk-qhmrn-88f8a5e900.json");
             
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(refreshToken))
