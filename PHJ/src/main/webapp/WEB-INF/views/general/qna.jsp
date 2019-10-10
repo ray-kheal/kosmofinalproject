@@ -101,6 +101,7 @@ nav {
             </p>
          </div>
          <div class="container">
+
             <div class="container" >
             <br /> <br /> 
            <!-- 검색기능 -->
@@ -134,6 +135,7 @@ nav {
 
                   <form action="write.do" method="post">
                		<button type="submit" class="btn btn-dark btn-sm">글쓰기</button>
+
 
                   </form>
                   <%} %>
@@ -184,7 +186,7 @@ nav {
                                  
                                  <fmt:parseDate value="${end_plan_date }" var="endPlanDate" pattern="yyyy-MM-dd"/>
                                  <fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}" integerOnly="true" var="endDate"></fmt:parseNumber>
-                                 
+
 
                                  <fmt:parseDate value="${row.postdate }" var="postDate" pattern="yyyy-MM-dd"/>
                                  <fmt:parseNumber value="${postDate.time / (1000*60*60*24)}" integerOnly="true" var="post_date"></fmt:parseNumber>
@@ -237,7 +239,7 @@ nav {
    
             </p>
          </div>
-         <div class="container">
+        
          <div class="container" >
          <br /> <br /> 
          <!-- 검색기능 -->
@@ -294,6 +296,7 @@ nav {
                <tbody>
                <c:choose>
                      <c:when test="${empty listRows }">
+
                         <tr>
                            <td colspan="6" class="text-center">등록된 게시물이 없습니다 ^^*</td>
                         </tr>
@@ -354,7 +357,7 @@ nav {
                </tbody>
             </table>
          </div>
-      </div>
+
    <!-- Footer -->
    <%@ include file="../general/simpleFooter.jsp"%>
    

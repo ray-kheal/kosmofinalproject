@@ -63,10 +63,10 @@ body {
          <p
             style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
             <img src="https://image.flaticon.com/icons/svg/263/263062.svg" width="80px" height="80px" /> 
-                  여기에 남겨주세요~
+                  QnA
          </p>
       </div>
-
+   
       <div class="container">
          <br />
          <br />
