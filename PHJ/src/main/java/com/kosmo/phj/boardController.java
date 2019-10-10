@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import command.PHJCommandImpl;
+import command.board.CommentDeleteActionCommand;
 import command.board.EditActionCommand;
 import command.board.QnAViewCommand;
 import command.board.RecipeCommentActionCommand;
@@ -193,7 +194,7 @@ public class boardController {
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:qna.do";
 	}
-
+	
 	// 레시피 글쓰기 페이지 진입
 	@RequestMapping("recipe_edit.do")
 	public String Recipewrite(Model model) {
@@ -209,41 +210,25 @@ public class boardController {
 		try {
 
 			MultipartHttpServletRequest mhsr = (MultipartHttpServletRequest) req;
-			// 업로드폼의 file 속성 필드의 이름을 모두 읽음
 			Iterator itr = mhsr.getFileNames();
-
 			MultipartFile mfile = null;
 			String fileName = "";
-
-			// File객체를 통해 물리적 경로로 지정된 디렉토리가 존재하는지 확인 후 없으면 생성한다.
 			File directory = new File(path);
 
 			if (!directory.isDirectory()) {
 				directory.mkdirs();
 			}
-
-			// 업로드폼의 file속성의 필드 갯수만큼 반복
 			while (itr.hasNext()) {
 				fileName = (String) itr.next();
-
-				// 서버로 업로드된 임시 파일명 가져오기
 				mfile = mhsr.getFile(fileName);
 				System.out.println("mfile=" + mfile);
-
-				// 한글깨짐방지 처리 후 업로드된 파일명을 가져옴
 				String originalName = new String(mfile.getOriginalFilename().getBytes(), "UTF-8");
 
 				if ("".equals(originalName)) {
 					continue;
 				}
-
-				// 파일의 확장자 가져오기
 				String ext = originalName.substring(originalName.lastIndexOf('.'));
-
-				// UUID를 통해 생성된 문자열과 확장자 조립
 				String saveFileName = getUuid() + ext;
-
-				// 설정한 경로에 파일저장
 				File serverFullName = new File(path + File.separator + saveFileName);
 				mfile.transferTo(serverFullName);
 
@@ -320,14 +305,28 @@ public class boardController {
 
 	// 레시피 댓글 작성
 	@RequestMapping("recipe_commentAction.do")
-	public String recipe_commentAction(Model model, HttpServletRequest req, commentDTO commentDTO) {
+	public String recipe_commentAction(Model model, HttpServletRequest req, HttpSession session, commentDTO commentDTO) {
 		model.addAttribute("req", req);
 		model.addAttribute("commentDTO", commentDTO);
+		String email = session.getAttribute("EMAIL").toString();
 		String b_code = req.getParameter("idx");
+		model.addAttribute("req", req);
+		model.addAttribute("session", session);
+		model.addAttribute("email", email);
 		command = new RecipeCommentActionCommand();
 		command.execute(model);
 		model.addAttribute("nowPage", req.getParameter("nowPage"));
 		return "redirect:Rview.do?idx=" + b_code;
 	}
+	//댓글 삭제 
+	@RequestMapping("commentDelete.do")
+	public String commentDelete(Model model, HttpServletRequest req) {
+		model.addAttribute("req", req);
+		String b_code = req.getParameter("idx");
+		command = new CommentDeleteActionCommand();
+		command.execute(model);
 
+		model.addAttribute("nowPage", req.getParameter("nowPage"));
+		return "redirect:Rview.do?idx=" + b_code;
+	}
 }
