@@ -26,7 +26,7 @@
 <style type="text/css">
 	
 	#content {
-		background-color:#b3fcf1;
+		background-color:#f2f2f2;
 		margin: 0 auto;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -56,22 +56,19 @@
 			<div class="row" style="margin-top:10px;">
 			<div id="findMenu" style="margin-top:100px;">
 				<div class="findPop find" id="findPop find form" >
-					<div class="findPop find" id="findPop find form" >
+					<div class="findPop find" id="findPop find form" style=" padding-left: 20px;">
 							
-						<h3 id="Maintitle" style="color:black;">4자리의 인증번호를 입력하세요.</h3>
+						<h4 id="Maintitle" style="color:black; font-family: Goyang;">4자리의 인증번호를 입력하세요.</h4>
 	 				
 						<div class="findPop" id="findPop IDfind">
-				
+				  
 								<form method="post"  class="" name="f" action="certification.do" onsubmit="sendIt(f);">
-									<table summary="인증번호를 입력할 수 있습니다.">
+									<table summary="인증번호를 입력할 수 있습니다." style="font-family: Goyang;">
 										<caption>인증번호 입력폼</caption>
-										<colgroup>
-											<col width="100px">
-											<col width="*">
-										</colgroup>
 										<tbody>
 											<tr>
-												<th scope="row"><label for="name" style="color:black;">인증번호</label></th>
+												<!-- <th scope="row"><label for="name" style="color:black;">인증번호</label></th> -->
+												<td width="80px" nowrap style="color:black; padding-top: 25px;">인증번호</td>
 												<td>
 													<div class="formbox">
 														<% 
@@ -85,16 +82,20 @@
 														<input type="hidden" id="email" name="email" value="<%=email %>" style="visibility:hidden;" />
 														<input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
 														<input type="hidden" id="pass" name="pass" value="<%=pass %>" />
-														<input maxlength="4" type="text" id="rndPass" class="text" name="rndPass" />
-														<p style="color:black;">※ 인증번호는 이메일로 보내드렸습니다.</p>
 													</div>
+													<input maxlength="4" type="text" id="rndPass" class="form-control" name="rndPass" style= "width: 70%" />
 												</td>
+											</tr>   
+											<tr>
+												<td colspan="2" style="color:black;">※ 인증번호는 이메일로 보내드렸습니다.</td>
 											</tr>
 										</tbody>
 									</table>
-									<div class="btnWrap">
-										<button type="submit" class="btn btn-success" style="width:70px;">확인</button>
-										<button type="button" onclick="location.href='accountfind.do';" class="btn btn-danger" style="width:70px;">취소</button>
+									
+									<div class="container" style="margin-left: 70px;">
+										<br />
+									<button type="submit" class="btn btn-primary" onclick="result();" style="width:20%; height: 10%">확인</button>
+									<button type="button" onclick="location.href='accountfind.do';" class="btn btn-dark" style="width:20%; height: 10%">취소</button>
 									</div>
 								</form>
 	
