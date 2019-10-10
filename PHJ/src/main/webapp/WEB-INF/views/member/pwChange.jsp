@@ -40,38 +40,33 @@
    }
 </style>
 <script type="text/javascript">
-   function sendIt(f) {
+   function sendIt() {
       //비밀번호 입력여부 체크
       if (f.pass.value == "") {
          alert("비밀번호를 입력하지 않았습니다.")
          document.f.pass.focus();
-         document.f.pass.select();
-         history.go();
-         return;
+         return false;
       }
       //비밀번호 길이 체크(4~12자 까지 허용)
       if (f.pass.value.length<4 || f.pass.value.length>12) {
          alert("비밀번호를 4~12자까지 입력해주세요.")
          document.f.pass.focus();
          document.f.pass.select();
-         history.go();
-         return;
+         return false;
       }
       //비밀번호확인 공백체크
       if (f.pass2.value == "") {
          alert("비밀번호를 입력해주세요.")
          document.f.pass2.focus();
          document.f.pass2.select();
-         history.go();
-         return;
+         return false;
       }
       //비밀번호와 비밀번호 확인 일치여부 체크
       if (f.pass.value != f.pass2.value) {
          alert("비밀번호가 일치하지 않습니다")
-         document.f.pass2.value = "";
+         document.f.pass2.value = ""
          document.f.pass2.focus();
-         history.go();
-         return;
+         return false;
       }
       else {
          alert("비밀번호가 변경되었습니다.");
@@ -113,7 +108,7 @@
                 
                   <div class="findPop" id="findPop IDfind">
             
-                        <form method="post"  class="" name="" action="changePass.do" onsubmit="return sendIt(this);">
+                        <form method="post"  class="" name="f" action="changePass.do" onsubmit="return sendIt(this);">
                            <table summary="인증번호를 입력할 수 있습니다.">
                               <caption>비밀번호 변경 입력폼</caption>
                               <colgroup>
@@ -123,7 +118,7 @@
                               <tbody>
                                  <tr>
                                     <!-- <th scope="row"><label for="name" style="color:black;">변경할비밀번호</label></th> -->
-                                    <td scope="row" width="80px" style="color:black; font-family: Goyang; "> 비밀번호</td>
+                                    <td width="80px" nowrap style="color:black; font-family: Goyang; "> 비밀번호</td>
                                     <td>
                                        <div class="formbox">
                                           <%
@@ -134,15 +129,15 @@
                                           <input type="hidden" id="email" name="email" value="<%=email %>" style="visibility:hidden;" />
                                           <input type="hidden" id="mobile" name="mobile" value="<%=mobile %>" style="visibility:hidden;" />
                                        </div>
-                                       <input type="password" id="pass" class="form-control" name="pass" value="<%=pass %>"  style= "width: 60%"  onblur="if(value=='<%=pass %>') value = ''" 
+                                       <input type="password" id="pass" class="form-control" name="pass" value="<%=pass %>"  style= "width: 60%"   
                                            onfocus="if(value=='<%=pass %>') value = ''" required autofocus>
                                     </td>  
                                  </tr>
                                  <tr>
                                     <!-- <th scope="row"><label for="name" style="color:black;">비밀번호<br /> 확인</label></th> -->
-                                    <td scope="row" width="80px" style="color:black; font-family: Goyang;">비밀번호<br /> 확인</td>
+                                       <td width="80px" nowrap style="color:black; font-family: Goyang;">비밀번호<br /> 확인</td>
                                     <td>
-                                       <input type="password" id="pass2" class="form-control" name="pass2" value="" style= "width: 60%"><font name="checkPass" size="2" color=""></font>
+                                       <input type="password" id="pass2" class="form-control" name="pass2" value="" style= "width: 60%"><font name="checkPass" size="2" color="red"></font>
                                     </td>
                                  </tr> 
                               </tbody>
@@ -150,7 +145,7 @@
                          
                            
                            <div class="container" style="margin-left: 88px;">
-                              <br />
+                              <br /><br />
                            <button type="submit" class="btn btn-primary" style="width:20%;">확인</button>
                            <button type="button" onclick="location.href='accountfind.do';" class="btn btn-dark" style="width:20%;">취소</button>
                            </div>
