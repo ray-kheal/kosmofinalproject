@@ -26,14 +26,13 @@ public class recipeDAO {
 
 	public void close() {
 	}
-
 	public ArrayList<recipeDTO> list(Map<String, Object> map) {
 		System.out.println("list() 메서드 진입");
 
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 
-		String sql = "SELECT * FROM (SELECT tb.*, rownum rNum FROM (SELECT * FROM phj_board_recipe ";
+		String sql = "SELECT * FROM (SELECT tb.*, rownum rNum FROM (SELECT * FROM phj_board_recipe";
 
 		if (map.get("Word") != null) {
 			sql += "WHERE " + map.get("Column") + " LIKE '%" + map.get("Word") + "%' ";
@@ -48,7 +47,7 @@ public class recipeDAO {
 	// 인기게시물
 	public ArrayList<recipeDTO> popular_recipe(Map<String, Object> map) {
 
-		// 공지사항 게시판에서 조회높은 순으로 정렬 후 상위 3개만 가져오기
+		// 레시피 게시판에서 조회높은 순으로 정렬 후 상위 3개만 가져오기
 		String query = "  SELECT * FROM ( " + " SELECT * FROM PHJ_BOARD_RECIPE order by view_count desc "
 				+ " ) WHERE ROWNUM <= 3 ";
 		return (ArrayList<recipeDTO>) template.query(query, new BeanPropertyRowMapper<recipeDTO>(recipeDTO.class));

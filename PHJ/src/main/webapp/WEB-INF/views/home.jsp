@@ -275,18 +275,7 @@ function textLengthOverCut(txt, len, lastTxt) {
       <!-- <div id="scroll" style="position: absolute; right: 30; top: 200px;"> --> 
       <div id="scroll"   
          style=" position: fixed; right: 50%; top: 230px; margin-right: -800px; text-align: center; width: 180px;"> 
-  		<!-- <img src="images/scollMenuLogin.png" style="width: 90%" usemap="#Map"  />
-  		<map name="Map" id="Map">
-  			<area shape="rect" coords="1604,243,1707,288" href="#" alt="" />
-  			<area shape="rect" coords="1608,307,1717,355" href="#search" alt="" />
-  			<area shape="rect" coords="1607,373,1717,429" href="#reci" alt="" />
-  			<area shape="rect" coords="1607,440,1717,495" href="#notify" alt="" />
-  			<area shape="rect" coords="1607,563,1717,563" href="login.do" alt="" />
-  		</map> -->
-  		
-		<!-- <img id="Image-Maps-Com-image-maps-2019-10-04-012619" src="images/scollMenuLogin.png" style="width: 90%;" border="0" width="844" height="1824" orgWidth="844" orgHeight="1824" usemap="#image-maps-2019-10-04-012619" alt="" /> -->
-		
-         <!-- 이미지로 스크롤 메뉴 변경함 --> 
+  	     <!-- 이미지로 스크롤 메뉴 변경함 --> 
          <a href="#"> <img  style="width:90%" src="images/welcome.png" alt="welcome"  
             style="right: 30;" /> 
          </a> <br />  
@@ -388,62 +377,11 @@ function textLengthOverCut(txt, len, lastTxt) {
       <div id="main-wrapper" >
       
       <!-- -------------------------------------------------------------------레시피 -->
-         
-            
-            
-            <!----------------------------------------------------------------------------- 슬라이드  -->
-            
-            <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+           <!--------------------------------------------------- 공지,이벤트(pc용) -->
 
-			  Indicators
-			  <ul class="carousel-indicators">
-			    <li data-target="#demo" data-slide-to="0" class="active"></li>
-			    <li data-target="#demo" data-slide-to="1"></li>
-			    <li data-target="#demo" data-slide-to="2"></li>
-			    <li data-target="#demo" data-slide-to="3"></li>
-			  </ul>
-			  
-			  The slideshow
-			 <div class="carousel-inner">
-			    <div class="carousel-item active">
-			      <img src="https://blog.hmgjournal.com/images_n/contents/180404_food01.jpg" alt="Los Angeles" width="100%">
-			    </div>
-			    <div class="carousel-item">
-			      <img src="https://blog.hmgjournal.com/images_n/contents/180305_ramen01.jpg" alt="Chicago" width="100%">
-			    </div>
-			    <div class="carousel-item">
-			      <img src="https://blog.hmgjournal.com/images_n/contents/180515_egg01.jpg" alt="New York" width="100%">
-			    </div>
-			  </div> 
-			  
-			  
-			  
-			  Left and right controls
-			  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-			    <span class="carousel-control-prev-icon"></span>
-			  </a>
-			  <a class="carousel-control-next" href="#demo" data-slide="next">
-			    <span class="carousel-control-next-icon"></span>
-			  </a>
-			</div> -->
-			
-			
-			  <!---------------------------------------------------------------------------------- 적용할 슬라이드  -->
-           
-            
-			
-			
-            <!--------------------------------------------------- 공지,이벤트(pc용) -->
-
-            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
-
-          
+            <div id="recipe" style="height: 20px;">&nbsp;<br /></div> 
             <div class="container" id="wideboard">
-            
-           
-            
-            
-			 <!------------------------------------------------------------- 레시피 레시피 -->
+      	 <!------------------------------------------------------------- 레시피 레시피 -->
            <div class="row container" >  
                <!-- preview board  시작  --> 
                   <section class="widget thumbnails"> 
@@ -507,16 +445,19 @@ function textLengthOverCut(txt, len, lastTxt) {
                   </section>  
                </div>
             </div>
+            
             <!--------------------------------------------------- 공지,이벤트(pc용) -->
 
 
-            <div id="notify" style="height: 60px;">&nbsp;<br /></div> 
+           
+           
+           <p id="notify" style="width:200px;" /> 
 
             <br /><br />
             <div class="container" id="wideboard">
-            <div class="row"  id="notify">
+            <div class="row" >
             
-              <div class="col-md-6 grid-margin stretch-card">
+              <div class="col-md-6 grid-margin stretch-card" >
                 <div class="card">
                   <div class="card-body">
                     <div class="clearfix">
@@ -577,8 +518,7 @@ function textLengthOverCut(txt, len, lastTxt) {
                         <colgroup>
                            <col width="80px" />
                            <col width="*" />
-                           <col width="120px" />
-                           
+                           <col width="120px" />                           
                         </colgroup>
                          
                         <tbody>
@@ -619,7 +559,7 @@ function textLengthOverCut(txt, len, lastTxt) {
               
             </div>   <!-- row --> 
             
-            
+                     </div>
             </div>
             
             
@@ -827,7 +767,7 @@ function textLengthOverCut(txt, len, lastTxt) {
             
             
             </div>
-         </div>
+
       </div>
 <!--       <div class="container"> -->
 <!--          <h2>개발중이니 관리자 페이지 링크 활성화.</h2> -->

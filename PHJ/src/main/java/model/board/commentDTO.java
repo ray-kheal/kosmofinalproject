@@ -9,8 +9,10 @@ public class commentDTO {
 	private String content;
 	private java.sql.Date comment_date;
 	private int virtualNum;
-
-	public commentDTO(int c_code, int b_code, String writer, String content, Date comment_date, int virtualNum) {
+	private String email;
+	
+	public commentDTO(int c_code, int b_code, String writer, String content, Date comment_date, int virtualNum,
+			String email) {
 		super();
 		this.c_code = c_code;
 		this.b_code = b_code;
@@ -18,6 +20,15 @@ public class commentDTO {
 		this.content = content;
 		this.comment_date = comment_date;
 		this.virtualNum = virtualNum;
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getVirtualNum() {

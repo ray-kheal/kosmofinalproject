@@ -3,6 +3,7 @@ package command.board;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -17,25 +18,15 @@ public class RecipeCommentActionCommand implements PHJCommandImpl{
 		//파라미터 한번에 전달받기
 		Map<String, Object> paramMap = model.asMap();
 		HttpServletRequest req = (HttpServletRequest)paramMap.get("req");
+		HttpSession session = (HttpSession)paramMap.get("session");
 		commentDTO dto = (commentDTO)paramMap.get("commentDTO");
 		
-		
-		
-		//폼값받기
-		
-		//int b_code = dto.getB_CODE();
-		//String writer = dto.getWRITER();
-		//String content = dto.getCONTENT();
-		
-		//System.out.println("b_code : "+b_code+ "name: " + writer+" content : " +content );
-		
+		String email = session.getAttribute("EMAIL").toString();	
 		dto.setB_code(Integer.parseInt(req.getParameter("idx")));
-		System.out.println("idx : "+req.getParameter("idx"));
 		dto.setWriter(req.getParameter("writer"));
 		dto.setContent(req.getParameter("content"));
-		
-		//커맨드객체 받아서 확인하기
-		
+	
+		dto.setEmail(email);
 		commentDAO dao = new commentDAO();
 		
 		dao.write(dto);

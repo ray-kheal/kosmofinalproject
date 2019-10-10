@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.kosmo.phj.JdbcTemplateConst;
 
@@ -46,13 +47,14 @@ public class commentDAO {
 
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				String sql = "INSERT INTO phj_recipe_comment(c_code, b_code, writer, content, comment_date)"
-						+ "VALUES(seq_comment.NEXTVAL, ?, ?, ?,sysdate )";
+				String sql = "INSERT INTO phj_recipe_comment(c_code, b_code, writer, content, comment_date,email)"
+						+ "VALUES(seq_comment.NEXTVAL, ?, ?, ?,sysdate,? )";
 
 				PreparedStatement psmt = con.prepareStatement(sql);
 				psmt.setInt(1, commentDTO.getB_code());
 				psmt.setString(2, commentDTO.getWriter());
 				psmt.setString(3, commentDTO.getContent());
+				psmt.setString(4, commentDTO.getEmail());
 				return psmt;
 			}
 		});
@@ -75,5 +77,16 @@ public class commentDAO {
 
 		return (ArrayList<commentDTO>) template.query(sql, new BeanPropertyRowMapper<commentDTO>(commentDTO.class));
 
+	}
+	public void delete(final String idx) {
+		String sql = "delete from PHJ_RECIPE_COMMENT where b_code=? ";
+		template.update(sql, new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+
+				ps.setString(1, idx);
+			}
+		});
 	}
 }
