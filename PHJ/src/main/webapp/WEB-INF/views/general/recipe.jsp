@@ -27,6 +27,16 @@ nav {
 }
 </style>
 <style>
+@media (min-width: 420px) { 
+
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
+}
+</style>
+<style>
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
    font-family: verdana;
@@ -302,13 +312,19 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
    </div> 
  <%--     <input type="hidden" name="nowPage" value="${nowPage }" /> --%>
    
-   
+	
+			
+   		
+   		
       <!-- Page Content --> 
      
+     	
          <div class="container">
                <br />
                 <div class="container" style="text-align: center;  margin-bottom: 20px;"> 
-                      
+           
+           <div id="wideboard">
+                    
                 <!-- 검색기능 -->
             <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
             
@@ -332,10 +348,37 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
             
             <br />
          </div>
+         
+         <div id="cutboard">
+           <!-- 검색기능 -->
+		      <form class="form-inline" style=" background-color:#fbfbfb;  border-top: 2px solid #c1c1c1;  border-bottom: 2px solid #c1c1c1; padding-bottom:10px; font-family: Goyang;">    
+		      
+		       <div class="container" style="display:inline-block; font-size:0.8em;   text-align: right;  width: 40%; font-weight: bold; border-right: 1px solid grey; margin-top: 10px;" ">
+					 <select name="searchColumn" class="form-control" style="margin-left:10px; width:90%;">
+		                <option value="title">제목</option>
+		                <option value="content">내용</option>
+		                <option value="postdate">게시일</option>
+		             </select>
+				</div>
+		       	<div class="container" style=" display:inline-block;width:40%; " >  
+		             
+		          <input type="text" name="searchWord"  style="width: 100%;  margin-top: 10px;" />
+		      	</div> 
+		      
+		        <div style=" display:inline-block; width:20%; font-size:0.8em; text-align: left;">
+		        
+		        <button class="btn btn-dark " style="width:50%; font-size: 0.7em;  margin-top: 10px;"><i class="fas fa-search"></i></button>
+		        </div>
+		      </form> 
+		      
+		      <br />
+         
+         
+         </div>
    
          <!-- 검색기능 끝 -->
                 <div style="border: 2px solid gold;" >
-         <c:if test="${nowPage ne 2}">
+       		  <c:if test="${nowPage ne 2}">
 
                  <div class=" text-center"  style="text-align: center; "> 
                  <div style="">
@@ -439,7 +482,7 @@ figure.recipePhoto:hover h3, figure.recipePhoto.hover h3, figure.recipePhoto:hov
          <!-- /.container -->
       </div>
    </div>
-   
+   </div>
    <!-- Footer -->
    <%@ include file="../general/simpleFooter.jsp"%>
    
