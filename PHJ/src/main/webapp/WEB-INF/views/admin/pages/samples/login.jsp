@@ -32,8 +32,8 @@
           <div class="row flex-grow">
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
-                <div class="brand-logo">
-                  <img src="../../../images/logo.png">   
+                <div class="brand-logo" style="text-align: center;">
+                  <img src="../../../images/logo.png" style="width: 80%;">   
                 </div>  
                 <div style="text-align: center;">    
                 	<p style="font-weight: bold; color: grey; "><i class="mdi mdi-account-key icon-lg"></i><br /> 관리자용 LOGIN</p>

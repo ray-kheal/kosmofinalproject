@@ -21,11 +21,23 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 <style type="text/css">
 /* 해당 HTML문서의 기본 폰트 지정하기 */
 body {
 	font-family: verdana;
 	font-size: 12px;
+}
+</style>
+
+<style>
+@media (min-width: 420px)  { 
+
+   #cutboard { display: none; }
+}
+@media screen and (max-width: 420px) { 
+   #wideboard { display: none; }
+
 }
 </style>
 <script>
@@ -43,20 +55,38 @@ body {
 	<br /><br />
 		<img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
 	</div> -->
-	<div id="page-wrapper">
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
 
-
-<div
-         style="width: 100%; height: 200px; text-align: center;  display: table;">
-         <p
-            style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
-            
-                  편의점 정보가 여기에!
-            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px" height="80px" /> 
-         </p>
-      </div>
+      	
+      	<div id="cutboard">
+			<div style="width: 100%;  text-align: center;  display: table;" >
+      
+		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+		         font-size: 40px; color: black; font-weight: bold;">
+		         &nbsp;   
+		      
+		         상품 찾아보기
+            	<img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="40px"   /> 
+		      </p>
+	      
+	   		</div>
+		</div>
+		<div id="wideboard">
+			<div style="width: 100%; height:200px; text-align: center;  display: table;" >
+      
+		      <p style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive;
+		         font-size: 60px; color: black; font-weight: bold;">
+		         &nbsp;   
+		      
+                  상품 찾아보기
+            <img src="https://image.flaticon.com/icons/svg/2/2215.svg" width="80px"   /> 
+		      </p>
+	      
+	   		</div>
+		    
+		</div>
+      	<br /><br />
    <%-- <div style="width: 100%; text-align: center;">
 
 		<input type="hidden" name="product_code" value="${product_code }" />

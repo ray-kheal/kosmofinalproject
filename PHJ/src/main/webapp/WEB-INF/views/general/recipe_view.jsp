@@ -103,7 +103,7 @@ body {
                <td style="text-align:center; width: 70%; background-color:white;  text-align: center; padding-top:15px;  border-top: 5px solid #4c4c4c; border-bottom: 5px solid #4c4c4c;">
                
                
-               <p style="font-size: 1.6em; font-weight: bold; font-style: italic; "> <mark>"${viewRow.title}"</mark> </p>
+               <div style="font-size: 1.6em; font-weight: bold; font-style: italic; "> <mark>"${viewRow.title}"</mark> </div>
                
                 
                <p style="font-size: 1.2em; font-style: italic; font-family:Goyang; ">  <mark>by.${viewRow.name}  </mark></p> 
@@ -114,7 +114,6 @@ body {
    
 
                <p style="font-size: 0.8em; ">${viewRow.content}</p> 
-
                </td>
                
             </tr> 
