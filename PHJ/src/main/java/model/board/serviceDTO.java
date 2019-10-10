@@ -3,7 +3,7 @@ package model.board;
 import java.sql.Date;
 
 public class serviceDTO {
-	private int idx;	
+	private int idx;
 	private String title;
 	private String content;
 	private String name;
@@ -14,10 +14,11 @@ public class serviceDTO {
 	private int bstep;
 	private int bindent;
 	private String email;
-	
-	public serviceDTO() {}
-	
-		public serviceDTO(int idx, String title, String content, String name, int view_count, Date postdate, int virtualNum,
+
+	public serviceDTO() {
+	}
+
+	public serviceDTO(int idx, String title, String content, String name, int view_count, Date postdate, int virtualNum,
 			int bgroup, int bstep, int bindent, String email) {
 		super();
 		this.idx = idx;
@@ -33,58 +34,37 @@ public class serviceDTO {
 		this.email = email;
 	}
 
-
-
-
-
-
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public int getBgroup() {
 		return bgroup;
 	}
-
-
-
 
 	public void setBgroup(int bgroup) {
 		this.bgroup = bgroup;
 	}
 
-
-
-
 	public int getBstep() {
 		return bstep;
 	}
-
-
-
 
 	public void setBstep(int bstep) {
 		this.bstep = bstep;
 	}
 
-
-
-
 	public int getBindent() {
 		return bindent;
 	}
 
-
-
-
 	public void setBindent(int bindent) {
 		this.bindent = bindent;
 	}
-
-
-
 
 	public int getVirtualNum() {
 		return virtualNum;
@@ -93,7 +73,6 @@ public class serviceDTO {
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
 	}
-
 
 	public int getIdx() {
 		return idx;
@@ -135,23 +114,12 @@ public class serviceDTO {
 		this.postdate = postdate;
 	}
 
-
-
-
-
 	public String getName() {
 		return name;
 	}
 
-
-
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
+
 }

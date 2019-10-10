@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 
+import org.springframework.jdbc.core.PreparedStatementSetter;
+
 import com.kosmo.phj.JdbcTemplateConst;
 
 import model.board.serviceDTO;
@@ -62,26 +64,27 @@ public class StockDAO {
 		return (ArrayList<StockDTO>) template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 	}
 
-	public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code){
-		
+	// 점포별 재고량
+	public ArrayList<StockDTO> stockPlace(Map<String, Object> map, int place_code) {
+
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 
-			String query = "SELECT * FROM ( "+
-					" SELECT tb.*, rownum rNum from ("
-					+ " SELECT * FROM phj_board_stock "
-					+ "    inner join phj_product " + 
-					"        on phj_board_stock.product_code = phj_product.product_code " 
-					+ "	where place_code = " + place_code+
-				" ) tb " +
-					" ) where rNum BETWEEN "+start+" AND "+end;	
-			
-			return (ArrayList<StockDTO>)template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
+		String query = "SELECT * FROM ( " + " SELECT tb.*, rownum rNum from (" + " SELECT * FROM phj_board_stock "
+				+ "    inner join phj_product " + "        on phj_board_stock.product_code = phj_product.product_code "
+				+ "	where place_code = " + place_code + " ) tb " + " ) where rNum BETWEEN " + start + " AND " + end;
+
+		return (ArrayList<StockDTO>) template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 	}
-	public StockDTO isPlusStock(String product_bookmark, String place_bookmark) {
+
+	// 알림을 위해 기존재고백업과 신규재고백업을 비교하기위해 가져옴.
+	public StockDTO isPlusStock(String products_bookmark, String place_bookmark) {
 		StockDTO dto = null;
-		String sql = "SELECT stock, stock_backup FROM phj_stock_log where place_code = '" + place_bookmark
-				+ "' AND product_code = '" + product_bookmark + "'";
+		String sql = " SELECT * FROM phj_stock_log " + " inner join phj_place "
+				+ "        on phj_stock_log.place_code = phj_place.place_code " + "    inner join phj_product "
+				+ "        on phj_stock_log.product_code = phj_product.product_code "
+				+ " where phj_stock_log.place_code = '" + place_bookmark + "' AND phj_stock_log.product_code = '"
+				+ products_bookmark + "'";
 		try {
 			dto = template.queryForObject(sql, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
 
@@ -95,11 +98,10 @@ public class StockDAO {
 
 		return dto;
 	}
-	
 
 	public void backup() {
 		template.update(new PreparedStatementCreator() {
-			
+
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				String sql = "UPDATE phj_stock_log set stock_backup = stock ";
@@ -108,5 +110,23 @@ public class StockDAO {
 			}
 		});
 		System.out.println("재고 백업 완료");
+	}
+
+	// 재고량
+	public void plusStock(final String place_code, final String product_code, final String stock) {
+		System.out.println("dao 내부의 place_code" + place_code);
+		template.update(new PreparedStatementCreator() {
+
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String sql = "UPDATE phj_board_stock SET stock=stock+" + stock + " WHERE place_code=" + place_code
+						+ " AND product_code=" + product_code;
+				System.out.println(sql);
+				PreparedStatement psmt = con.prepareStatement(sql);
+				return psmt;
+			}
+		});
+
+		System.out.println("재고 입력 완료");
 	}
 }

@@ -119,7 +119,7 @@ body {
 	</div> --%>   
    <%
    String  product_name = request.getParameter("name");
-   String  product_price = request.getParameter("price");
+   //String  product_price = request.getParameter("price");
    %> 
 		<div class="container">
 		<input type="hidden" name="product_code" value="${product_code }" />
@@ -143,9 +143,10 @@ body {
 			<td style="font-family: Goyang; border-right: 3px solid #f3f3f3;" > 
 				<p style=" font-size: 1.2em; color: grey;"> 내가 선택한 상품</p>
 				<p style=" font-size: 1.6em;">"<%=product_name %>"</p>
-				<p style=" font-size: 1.3em;"><%=product_price %>원</p>  
+				<p style=" font-size: 1.3em;">${product_price }원</p>  
 
 			</td>
+			
 			<td> <img style="width: 45%; "src="./resources/CSProduct/<%=product_name %>.jpg" alt="" /></td>
 		</tr>
 		</table>    

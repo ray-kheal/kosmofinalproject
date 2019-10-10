@@ -31,9 +31,8 @@ if (mst == 'normal') {
 function isDelete(){
 	result = confirm('삭제하시겠습니까?');
   if(result){
-      location.href = "boardDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}&board_type=1";
-      //location.href = "boardDelete.do";
-  }else{
+      location.href = "/admin/pages/tables/QnADelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+     }else{
   	return false;
   }
 }

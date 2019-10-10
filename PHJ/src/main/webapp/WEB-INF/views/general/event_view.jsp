@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>편히점 - 공지사항</title>
+<title>편히점 - 이벤트</title>
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no">
@@ -35,30 +35,22 @@ body {
 </script>
 <body>
 
-	<!-- <div style="width:100%; height:200px; text-align: center; background-color: #82b9e4; display:table;"> 
-		 <p style="display:table-cell; text-align:center; vertical-align:middle; font-family:Arial; font-size: 60px; color: white; font-weight: bold;">
-		 BOARD
-		 </p> 
-	</div> 
-	<div style="width:100%; text-align: center;">
-	<br /><br />
-		<img src="./images/memo.png" alt="메모" style=" width:100px; height: 100px;"/>
-	</div> -->
 	<div id="page-wrapper">
 		<!-- 메인헤더 인클루드 -->
 		<%@ include file="MainHeader.jsp"%>
-
-		<div
+     <div id="nore"
+		
 			style="width: 100%; height: 200px; text-align: center; display: table;">
 			<p
-				style="display: table-cell; text-align: center; vertical-align: middle; font-family: 'Goyang', cursive; font-size: 60px; color: black; font-weight: bold;">
-				<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2019/png/iconmonstr-party-16.png&r=0&g=0&b=0" width="80px" height="80px" /> 
+				style="display: table-cell; text-align: center; vertical-align: middle; font-family: Goyang; font-size: 60px; color: black; font-weight: bold;">
+					
+
+					&nbsp;
+					<img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2019/png/iconmonstr-party-16.png&r=0&g=0&b=0" width="80px" height="80px" /> 
 						이벤트게시판
-				<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2019/96/iconmonstr-party-20.png" width="80px" height="80px" /> 
+					<img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2019/96/iconmonstr-party-20.png" width="80px" height="80px" /> 
 			</p>
 		</div>
-		  
-   
 		<div class="container">
 			<br /><br />
 			

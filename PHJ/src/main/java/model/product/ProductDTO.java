@@ -9,11 +9,11 @@ public class ProductDTO {
 	private int virtualNum; // 가상번호
 	private String product_imagename;
 
+	public ProductDTO() {
+	}
 
-	
-	public ProductDTO() {}
-	public ProductDTO(int product_code, String product_name, int product_price, String product_value,
-			int virtualNum, String product_imagename) {
+	public ProductDTO(int product_code, String product_name, int product_price, String product_value, int virtualNum,
+			String product_imagename) {
 		super();
 		this.product_code = product_code;
 		this.product_name = product_name;
@@ -46,6 +46,7 @@ public class ProductDTO {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
+
 	public String getProduct_value() {
 		return product_value;
 	}
@@ -61,12 +62,13 @@ public class ProductDTO {
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
 	}
+
 	public String getProduct_imagename() {
 		return product_imagename;
 	}
+
 	public void setProduct_imagename(String product_imagename) {
 		this.product_imagename = product_imagename;
 	}
-	
-	
+
 }

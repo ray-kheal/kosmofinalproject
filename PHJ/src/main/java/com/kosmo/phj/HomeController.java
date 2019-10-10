@@ -1,7 +1,5 @@
 package com.kosmo.phj;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -39,7 +37,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, HttpServletRequest req) {
+	public String home(Locale locale, Model model, HttpServletRequest req, HttpSession session) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
 		Date date = new Date();
@@ -60,26 +58,9 @@ public class HomeController {
 		command = new home_recipeCommand();
 		command.execute(model);
 
-		
-		
-		
-		HttpSession session = req.getSession();
-		if (session.getAttribute("EMAIL") != null) {
-			System.out.println("현재로그인된이메일 : " + session.getAttribute("EMAIL"));
-			if (session.getAttribute("PRODUCTS_BOOKMARK") != null && session.getAttribute("PLACE_BOOKMARK") != null) {
-				
-				if (session.getAttribute("ALERT").equals("Y")) {
-
-				} else {
-					System.out.println("알림설정 off로 되어있음.");
-				}
-
-			} else {
-				System.out.println("관심점포/상품 등록안됨");
-			}
-
-		} else {
-			System.out.println("현재 로그인된 이메일 없음.");
+		if (req.getParameter("fcm_token") != null) {
+			String fcm_token = req.getParameter("fcm_token");
+			session.setAttribute("FCM_TOKEN", fcm_token);
 		}
 
 		return "home";
@@ -92,32 +73,30 @@ public class HomeController {
 		this.template = template;
 		System.out.println("@Autowired->JDBCTemplate 연결성공");
 		JdbcTemplateConst.template = this.template;
-		
-		//쓰레드 실행
+
+		// 쓰레드 실행
 		BackupThread bt = new BackupThread();
 		bt.setDaemon(true);
 		bt.start();
-		
-		
+
 	}
-	
+
 }
 
-
 class BackupThread extends Thread {
-	
+
 	@Override
 	public void run() {
-		while(true) {
+		while (true) {
 			try {
 				System.out.println("재고 백업은 10분마다 갱신합니다.");
-				sleep(1000000);
+				sleep(600000);
 				StockDAO dao = new StockDAO();
 				dao.backup();
-			} catch(InterruptedException e) {
+			} catch (InterruptedException e) {
 				System.out.println("백업스레드 잘못됨.");
 			}
 		}
 	}
-	
+
 }

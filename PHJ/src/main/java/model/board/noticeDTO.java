@@ -3,15 +3,16 @@ package model.board;
 import java.sql.Date;
 
 public class noticeDTO {
-	private int idx;	
+	private int idx;
 	private String title;
 	private String content;
 	private int view_count;
 	private Date postdate;
 	private int board_type;
 	private int virtualNum;
-	
-	public noticeDTO() {}
+
+	public noticeDTO() {
+	}
 
 	public noticeDTO(int idx, String title, String content, int view_count, Date postdate, int board_type,
 			int virtualNum) {
@@ -25,8 +26,6 @@ public class noticeDTO {
 		this.virtualNum = virtualNum;
 	}
 
-
-
 	public int getVirtualNum() {
 		return virtualNum;
 	}
@@ -34,7 +33,6 @@ public class noticeDTO {
 	public void setVirtualNum(int virtualNum) {
 		this.virtualNum = virtualNum;
 	}
-
 
 	public int getIdx() {
 		return idx;
@@ -84,8 +82,4 @@ public class noticeDTO {
 		this.board_type = board_type;
 	}
 
-	
-	
-	
-	
 }
