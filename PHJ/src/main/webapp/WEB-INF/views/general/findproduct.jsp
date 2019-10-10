@@ -147,22 +147,11 @@ to {
         
         <button class="btn btn-dark" style=" font-size: 0.7em;"><i class="fas fa-search"></i></button>
         </div>
-<<<<<<< HEAD
       </form> 
 
        <br />    <br />
   
       <p style="font-family: Goyang; text-align: center;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
-
-=======
-      </form> 
-
-       <br />    <br />
-  
-      <p style="font-family: Goyang; text-align: center;">※ 상품을 클릭하시면 제품이 있는 편의점의 재고를 알 수 있습니다.</p>
-
-
->>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
          <!-- 상품 리스트 출력  -->  
          <div class="row ">   
             <c:choose>

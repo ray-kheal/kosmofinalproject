@@ -47,7 +47,7 @@ public class recipeListCommand implements PHJCommandImpl {
       
       int start = (nowPage-1) * pageSize+1;
       int end = nowPage * pageSize;
-
+      
       paramMap.put("start", start);
       paramMap.put("end", end);
       
@@ -65,7 +65,7 @@ public class recipeListCommand implements PHJCommandImpl {
       
       //페이지 처리를 위한 처리부분
       String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount, pageSize,
-      blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);
+    		  blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);
 
       model.addAttribute("pagingImg", pagingImg); 
       model.addAttribute("totalPage", totalPage); 
