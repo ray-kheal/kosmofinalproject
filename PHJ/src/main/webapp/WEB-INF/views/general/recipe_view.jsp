@@ -55,15 +55,15 @@ body {
        }
    }
    //코멘트 삭제여부 확인
-	   function isCommentDelete(){
-	       result = confirm('삭제하시겠습니까?');
-	       
-	       if(result){
-	           location.href = "commentDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
-	       }else{
-	          return false;
-	       }
-	   }
+      function isCommentDelete(){
+          result = confirm('삭제하시겠습니까?');
+          
+          if(result){
+              location.href = "commentDelete.do?idx=${viewRow.idx}&nowPage=${nowPage}";
+          }else{
+             return false;
+          }
+      }
    
    
 </script>
@@ -133,35 +133,35 @@ body {
          
          
          <c:forEach items="${fn:split(viewRow.content, '#') }" var="item" varStatus="status">
-		    <c:if test="${status.index eq 1}"><!-- 1번째(#뒤에꺼)-->
-		    
-		    	 <c:forEach items="${fn:split(item, '</p>') }" var="item2" varStatus="status">
-				    <c:if test="${status.index eq 0}"><!-- 0번째(앞꺼)-->
-				    		 <div>
-				    		 	<p style="font-size: 1.2em; font-weight: bold;">이 상품을 사용했어요! </p>  
-				    		 	<p>&nbsp;&nbsp;<mark style="background-color: #f2f2f2; color: #3b72e2; border-radius: 7px;">#${item2 }</mark></p>
-			         			<input type="hidden" name="item2" value="${item2 }" />
-			         			<input type="hidden" name="nowPage" value="${nowPage }" />
-								<a href="./reci_product_view.do?name=${item2 }">
-								
-								<img style="text-align: center; width: 25%"  src="./resources/CSProduct/${item2 }.jpg"   />
-								</a>
-			         		</div>
-					</c:if>	
-				</c:forEach>
-			</c:if>	
-		</c:forEach>
-		
-		
-	<%-- 	<c:set var="spliContent" value="${fn:split(spliContent, '</p>') }"></c:set> --%>
+          <c:if test="${status.index eq 1}"><!-- 1번째(#뒤에꺼)-->
+          
+              <c:forEach items="${fn:split(item, '</p>') }" var="item2" varStatus="status">
+                <c:if test="${status.index eq 0}"><!-- 0번째(앞꺼)-->
+                       <div>
+                          <p style="font-size: 1.2em; font-weight: bold;">이 상품을 사용했어요! </p>  
+                          <p>&nbsp;&nbsp;<mark style="background-color: #f2f2f2; color: #3b72e2; border-radius: 7px;">#${item2 }</mark></p>
+                           <input type="hidden" name="item2" value="${item2 }" />
+                           <input type="hidden" name="nowPage" value="${nowPage }" />
+                        <a href="./reci_product_view.do?name=${item2 }">
+                        
+                        <img style="text-align: center; width: 25%"  src="./resources/CSProduct/${item2 }.jpg"   />
+                        </a>
+                        </div>
+               </c:if>   
+            </c:forEach>
+         </c:if>   
+      </c:forEach>
+      
+      
+   <%--    <c:set var="spliContent" value="${fn:split(spliContent, '</p>') }"></c:set> --%>
          
-		    	
-			
-        		<div id="replyList">
-       			<div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
-        			<span>댓글  ${TotalCount }개</span>
-				</div>
-				<c:choose>
+             
+         
+              <div id="replyList">
+                <div style="font-family:Goyang; font-weight:bolder; padding:10px; border-bottom: 1px solid #999999;">
+                 <span>댓글  ${TotalCount }개</span>
+            </div>
+            <c:choose>
 
                <c:when test="${empty cDto }">
                   <p class="text-center">등록된 댓글이 없습니다.</p>
@@ -172,8 +172,13 @@ body {
                         <!-- 리스트반복시작 -->  
                           <table style="margin-bottom:1px; height: auto; border-bottom: 1px solid #999999; font-family: Goyang;">
                           <col width="15%" />
+<<<<<<< HEAD
              			  <col width="*" />
              			  <col width="30%" />
+=======
+                        <col width="*" />
+                        <col width="30%" />
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                              <tr >
                                 <td rowspan="2" style="margin-left: 20px;text-align: center;"> 
                                     <img src="images/pic-2.png" style="text-align: center; width: 35px;" alt="" />
@@ -183,6 +188,7 @@ body {
                                 </td>
                                   
                                 <td style="border-bottom: 1px solid white;"> 
+<<<<<<< HEAD
                                 	<span style="font-size:14px; color:gray; float: right">${commentdto.comment_date}</span>
                                 </td>
                              </tr>
@@ -201,6 +207,26 @@ body {
 							            </c:otherwise>
 							         </c:choose>
 							    </td>
+=======
+                                   <span style="font-size:14px; color:gray; float: right">${commentdto.comment_date}</span>
+                                </td>
+                             </tr>
+                             <tr>
+                               <td >  
+                               ${commentdto.content}
+                               </td>
+                                   
+                                <td>  
+                                   <c:choose>
+                                <c:when test="${EMAIL eq commentdto.email}">
+                                         <button type="button"  class="btn" onclick="isCommentDelete();" style="font-family: Goyang; float: right">삭제하기 </button>
+                                       </c:when>
+                                 <c:otherwise>
+                                    
+                                 </c:otherwise>
+                              </c:choose>
+                         </td>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                              </tr>
                              
                            

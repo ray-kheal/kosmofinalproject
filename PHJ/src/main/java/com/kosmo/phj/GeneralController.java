@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import command.NotificationCommand;
 import command.PHJCommandImpl;
 import command.placeMapCommand;
@@ -24,6 +26,7 @@ import command.board.StockCommand;
 import command.board.recipeListCommand;
 import model.notify.NotifyDAO;
 import model.notify.NotifyDTO;
+import util.FCMUtil;
 
 @Controller
 public class GeneralController {
@@ -162,23 +165,38 @@ public class GeneralController {
 		model.addAttribute("req", req);
 		command = new StockCommand();
 		command.execute(model);
-		
+
 		String place_code = req.getParameter("place_code");
 
-		return "redirect:notification.do?place_code="+place_code;
+		return "redirect:notification.do?place_code=" + place_code;
 	}
 
 	// 재고백업시 알림 실행 매핑
 	@RequestMapping("notification.do")
-	public String notification(Model model, HttpServletRequest req) {
+	public @ResponseBody String notification(Model model, HttpServletRequest req) throws Exception {
 		String place_code = req.getParameter("place_code");
 		NotifyDAO dao = new NotifyDAO();
 		ArrayList<NotifyDTO> dto = dao.notiInfo(place_code);
-		for(int i=0;i<dto.size();i++) {
-			if(dto.get(i).getMobile_alert().equals("Y")) {
-				if(dto.get(i).getStock() > dto.get(i).getStock_backup()) {
-					if(dto.get(i).getFcm_token() != null) {
+		for (int i = 0; i < dto.size(); i++) {
+			if (dto.get(i).getMobile_alert().equals("Y")) {
+				if (dto.get(i).getStock() > dto.get(i).getStock_backup()) {
+					if (dto.get(i).getFcm_token() != null) {
+						// 점포명 재조립.
+						if (dto.get(i).getPlace_name2() != null) {
+							if (dto.get(i).getPlace_name().contains(dto.get(i).getPlace_name2()) == true) {
+
+							} else {
+								dto.get(i).setPlace_name(dto.get(i).getPlace_name() + dto.get(i).getPlace_name2());
+							}
+
+						}
 						
+						String tokenId = dto.get(i).getFcm_token();
+						String title = "편히점 알림메시지!";
+						String content = dto.get(i).getPlace_name() + "에 " + dto.get(i).getProduct_name()+" 상품이 들어왔습니다!";
+
+						FCMUtil FcmUtil = new FCMUtil();
+						FcmUtil.send_FCM(tokenId, title, content);
 					} else {
 						System.out.println("DB에 저장된 FCM토큰이 없음.");
 					}
@@ -189,9 +207,10 @@ public class GeneralController {
 				System.out.println("알람설정을 off해놓음.");
 			}
 		}
-		
 
-		return "/general/stock";
+		return "정상적으로 상품입고 되었음.";
 	}
+
+	
 
 }

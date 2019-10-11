@@ -67,14 +67,10 @@ public class ProductListCommand implements PHJCommandImpl {
 		//시작 및 끝 rownum 구하기
 		
 		//게시물 select 시 구간으로 사용할 변수를 계산
-		
-		
 
 		//출력할 리스트 가져오기
-		ArrayList<ProductDTO> viewRow = dao.list(paramMap);
+		ArrayList<ProductDTO> viewRow = dao.list(paramMap);	
 		
-		
-		//가상번호 계산하여 부여하기
 		//가상번호 계산하여 부여하기
 		int virtualNum =0;
 		int countNum =0;

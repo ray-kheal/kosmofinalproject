@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import command.PHJCommandImpl;
 import model.place.PlaceDAO;
 import model.place.PlaceDTO;
+import util.FCMUtil;
 
 @Controller
 public class AndroidController {
@@ -28,7 +30,7 @@ public class AndroidController {
 		System.out.println(req.getParameter("FCM_TOKEN"));
 		session.setAttribute("FCM_TOKEN", req.getParameter("FCM_TOKEN"));
 		System.out.println("세션검증 " + session.getAttribute("FCM_TOKEN"));
-
+		
 		return result;
 	}
 
@@ -81,5 +83,5 @@ public class AndroidController {
 
 		return result;
 	}
-
+	
 }

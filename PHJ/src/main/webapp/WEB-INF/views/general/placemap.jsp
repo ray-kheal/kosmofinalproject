@@ -244,13 +244,13 @@ $(function () {
          
          <table style="border:1px solid gray; height: 600px;">
          <tr height="400px" >
-         	<td id=map>
-         		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
-         	</td>
+            <td id=map>
+               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
+            </td>
          </tr>
          <tr>
-         	<td style="text-align: center;">
-         		<span id="result"></span> 
+            <td style="text-align: center;">
+               <span id="result"></span> 
                   <form name="searchFrm">
                      <input type="hidden" id="latTxt" name="latTxt" />
                      <input type="hidden" id="lngTxt" name="lngTxt" />
@@ -260,30 +260,28 @@ $(function () {
                       
                           <table>
                            <col width="60%" />
-              			   <col width="40%" />
+                          <col width="40%" />
                           <tr>
-	                          <td style="text-align: right;">
-	                          	<select name="distance" id="distance" style="width: 60%; height:50px; display: inline; ">
-			                        <option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
-			                        <option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
-			                        <option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
-			                        <option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
-			                     </select>
-	                          </td>
-	                          <td style="text-align: left;">
-	                      			<input type="image" id="searchbutton" src="images/searchbutton.png"   style="width:100px;  display: inline; text-align: center;  border-radius: 15px;"/>  
-	                          </td>
+                             <td style="text-align: right;">
+                                <select name="distance" id="distance" style="width: 60%; height:50px; display: inline; ">
+                                 <option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
+                                 <option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
+                                 <option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
+                                 <option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
+                              </select>
+                             </td>
+                             <td style="text-align: left;">
+                                  <input type="image" id="searchbutton"  src="images/searchbutton.png"   style="width:100px;  display: inline; text-align: center;  border-radius: 15px;"/>  
+                             </td>
                           </tr>
                           </table>
                       </div>
                      <br />     
                     </form> 
-         	  
-         	
-         		<h5 style="font-family:Goyang; font-weight: bold;">근처 편의점 목록</h5> <br />
-                 
-                 <div id="placeResult" >
-                 </div>  
+              
+            
+               <h5 style="font-family:Goyang; font-weight: bold;">근처 편의점 목록</h5> <br />
+               <div id="placeResult" ></div>
                   <table class="table table-bordered" style="border:2px solid gray; height: 200px; font-family:Goyang;">
               	 <c:choose>
                      <c:when test="${empty searchLists }">
@@ -312,10 +310,9 @@ $(function () {
                      </td>
                   </tr>
                   </table>
-                  
-         		
-         	
-         	</td>
+            
+            
+            </td>
          
          
          

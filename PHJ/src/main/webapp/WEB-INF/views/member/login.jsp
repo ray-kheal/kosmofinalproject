@@ -62,7 +62,6 @@
       background-position: 50% 50%;
       background-attachment: fixed;
       background-size: cover;
-      height: 700px;
    }
    
    #account-box {
@@ -72,7 +71,7 @@
    }
    
    .form-group {
-      width:350px;
+      width:310px;
    }
 </style>
 <script type="text/javascript">
@@ -91,9 +90,8 @@
    
    //사용자 정보 얻기
    function attachSignin(element) {
-	  console.log(element.id);
       auth2.attachClickHandler(element, {}, function(googleUser) {
-         alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
+         //alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
          console.log(googleUser.getBasicProfile().getId());
          console.log(googleUser.getBasicProfile().getName());
          console.log(googleUser.getBasicProfile().getEmail());
@@ -211,12 +209,12 @@ if(cookies!=null){
        <!--------------------------------------------pc  -->   
      <div id="" >
     
-         <div class="" style="margin-top:50px; " >
+         <div class=""  >
          
          
            <div id="" style="text-align:center;  font-family: Goyang;" >
                 
-               <div class="" style="display:inline-block; background:#f1f1f1; border-radius:10px;   padding : 35px 35px 35px 35px; " >
+               <div class="" style="display:inline-block; background:#f1f1f1; border-radius:10px;   padding : 28px 28px 28px 28px; " >
                   <form class="loginForm" action="loginAction.do">
                      <div class="form-group"> 
                         <input type="text" style="font-family: Verdana;" class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
