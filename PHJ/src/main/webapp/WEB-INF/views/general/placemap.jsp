@@ -222,35 +222,119 @@ body {
          
             </div>
       </div> -->
-        
-         
+          
+            
       </div>
       
       <!-- Main -->
       <div id="main-wrapper">
          <div class="container">
    
-         <br/><br/><br/>
+         <br/><br/><br/> 
+         
          <table style="border:1px solid gray; height: 600px;">
+         <tr height="400px" >
+            <td id=map>
+               <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
+            </td>
+         </tr>
+         <tr>
+            <td style="text-align: center;">
+               <span id="result"></span> 
+                  <form name="searchFrm">
+                     <input type="hidden" id="latTxt" name="latTxt" />
+                     <input type="hidden" id="lngTxt" name="lngTxt" />
+                     <br />
+                      <h5 style="font-family:Goyang; font-weight: bold; ">근처 편의점 검색</h5> 
+                      <div>
+                      
+                          <table>
+                           <col width="60%" />
+                          <col width="40%" />
+                          <tr>
+                             <td style="text-align: right;">
+                                <select name="distance" id="distance" style="width: 60%; height:50px; display: inline; ">
+                                 <option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
+                                 <option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
+                                 <option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
+                                 <option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
+                              </select>
+                             </td>
+                             <td style="text-align: left;">
+                                  <input type="image"  src="images/searchbutton.png"   style="width:100px;  display: inline; text-align: center;  border-radius: 15px;"/>  
+                             </td>
+                          </tr>
+                          </table>
+                      </div>
+                     <br />     
+                    </form> 
+              
+            
+               <h5 style="font-family:Goyang; font-weight: bold;">근처 편의점 목록</h5> <br />
+                  <table class="table table-bordered" style="border:2px solid gray; height: 200px; font-family:Goyang;">
+               <c:choose>
+                     <c:when test="${empty searchLists }">
+                        <tr>
+                           <td colspan="2" class="text-center">
+                              등록된 점포가 없습니다.
+                           </td>
+                        </tr>
+                     </c:when>
+                     <c:otherwise>
+                        <c:forEach items="${searchLists }" var="row" 
+                           varStatus="loop">
+                           <!-- 리스트반복시작 -->
+                           <tr>
+                               <td class="text-center" >${row.place_name }</td>
+                              <td class="text-left">${row.place_address}</td>
+                           </tr>
+                           
+                           <!-- 리스트반복끝 -->
+                        </c:forEach>
+                     </c:otherwise>
+                  </c:choose>
+                  <tr>
+                     <td colspan="2" align="center" style="font-weight: bold; font-size: 1.5em; ">
+                        ${pagingImg }
+                     </td>
+                  </tr>
+                  </table>
+            
+            
+            </td>
+         
+         
+         
+         
+         </tr>
+         
+         </table>
+         
+         
+         
+        <%--  <table style="border:1px solid gray; height: 600px;">
             <colgroup>
                <col width="55%" />
                <col width="45%" />
             </colgroup>
             
+            
+            
+            
+            
          
-            <tr > 
+            <tr style="border:1px solid red"> 
                <td rowspan="3"  id=map>         
                   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
-
                </td> 
-               <td style=" float: center;">
-                  
-                  <span id="result"></span>
-               </td>
+               <!-- <td style=" float: center;">
+                   <span id="result"></span> 
+               </td> -->
             </tr>         
             <tr>
                <!-- <td></td> -->
                <td style="text-align: center;">
+                <span id="result"></span>
                   <form name="searchFrm">
                      <input type="hidden" id="latTxt" name="latTxt" />
                      <input type="hidden" id="lngTxt" name="lngTxt" />
@@ -305,7 +389,7 @@ body {
 
                </td>
             </tr>         
-         </table>
+         </table> --%>
          </div><!-- container -->
       </div>
 
