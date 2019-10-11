@@ -36,20 +36,20 @@ public class recipeListCommand implements PHJCommandImpl {
          paramMap.put("Word", searchWord);
       }
       
-      int totalRecordCount = dao.getTotalCount(paramMap);
-      System.out.println("totalRecordCount = " + totalRecordCount);
-
       int pageSize = Integer.parseInt(FileReader.getValue("recipeBoard.properties", "recipeBoard.pageSize"));
       int blockPage = Integer.parseInt(FileReader.getValue("recipeBoard.properties", "recipeBoard.blockPage"));
-
-      int totalPage = (int)Math.ceil((double)totalRecordCount / pageSize);
+      
       int nowPage = req.getParameter("nowPage")==null || req.getParameter("nowPage")=="" ? 1 : Integer.parseInt(req.getParameter("nowPage"));
       
       int start = (nowPage-1) * pageSize+1;
       int end = nowPage * pageSize;
-
+      
       paramMap.put("start", start);
       paramMap.put("end", end);
+      int totalRecordCount = dao.getTotalCount(paramMap);
+      System.out.println("totalRecordCount = " + totalRecordCount);
+      
+      int totalPage = (int)Math.ceil((double)totalRecordCount / pageSize);
       
       ArrayList<recipeDTO> listRows = dao.list(paramMap);
       
@@ -65,7 +65,7 @@ public class recipeListCommand implements PHJCommandImpl {
       
       //페이지 처리를 위한 처리부분
       String pagingImg = PagingUtil.pagingImg_phj(totalRecordCount, pageSize,
-      blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);
+    		  blockPage, nowPage, req.getContextPath()+"/recipe.do?"+addQueryString);
 
       model.addAttribute("pagingImg", pagingImg); 
       model.addAttribute("totalPage", totalPage); 

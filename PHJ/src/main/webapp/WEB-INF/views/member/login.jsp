@@ -62,7 +62,6 @@
       background-position: 50% 50%;
       background-attachment: fixed;
       background-size: cover;
-      height: 700px;
    }
    
    #account-box {
@@ -72,7 +71,7 @@
    }
    
    .form-group {
-      width:350px;
+      width:310px;
    }
 </style>
 <script type="text/javascript">
@@ -118,8 +117,8 @@
          Kakao.API.request({
             url: '/v1/user/me',
             success:function(res){
-               alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
-               alert(JSON.stringify(authObj)); //<----Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
+              // alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
+              // alert(JSON.stringify(authObj)); //<----Kakao.Auth.createLoginButton에서 불러온 결과값 json형태로 출력
                console.log(res.id);//<---- 콘솔 로그에 id 정보 출력(id는 res안에 있기 때문에  res.id 로 불러온다)
                console.log(res.kaccount_email);//<---- 콘솔 로그에 email 정보 출력 (어딨는지 알겠죠?)
                console.log(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근. res.properties.nickname으로도 접근 가능 )
@@ -211,12 +210,12 @@ if(cookies!=null){
        <!--------------------------------------------pc  -->   
      <div id="" >
     
-         <div class="" style="margin-top:50px; " >
+         <div class=""  >
          
          
            <div id="" style="text-align:center;  font-family: Goyang;" >
                 
-               <div class="" style="display:inline-block; background:#f1f1f1; border-radius:10px;   padding : 35px 35px 35px 35px; " >
+               <div class="" style="display:inline-block; background:#f1f1f1; border-radius:10px;   padding : 28px 28px 28px 28px; " >
                   <form class="loginForm" action="loginAction.do">
                      <div class="form-group"> 
                         <input type="text" style="font-family: Verdana;" class="form-control" name="email" placeholder="이메일(계정명)" value="<%=user==null ? "" : user %>"
