@@ -433,6 +433,9 @@ public class MemberController {
 		resp.setContentType("text/html; charset=utf-8");
 		out.print("<script>alert('관심점포가 등록되었습니다!.');</script>");
 		out.print("<script>history.back;</script>");
+		out.print("<div style='width:100%; text-align:center;'>");
+		out.print("<img src='images/loadingCircle.gif' alt='로딩중' style='width:100px;'/>");
+		out.print("</div>");
 		out.print("<script>location.href=document.referrer;</script>");
 		out.flush();
 	}
@@ -450,6 +453,9 @@ public class MemberController {
 		resp.setContentType("text/html; charset=utf-8");
 		out.print("<script>alert('관심점포가 해제되었습니다!.');</script>");
 		out.print("<script>history.back;</script>");
+		out.print("<div style='width:100%;text-align:center;'>");
+		out.print("<img src='images/loadingCircle.gif' alt='로딩중' style='width:100px;'/>");
+		out.print("</div>");
 		out.print("<script>location.href=document.referrer;</script>");
 		out.flush();
 	}
