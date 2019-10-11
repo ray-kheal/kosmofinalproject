@@ -193,7 +193,7 @@ public class GeneralController {
 						
 						String tokenId = dto.get(i).getFcm_token();
 						String title = "편히점 알림메시지!";
-						String content = dto.get(i).getPlace_name() + "에 " + dto.get(i).getProduct_name()+" 상품이 들어왔습니다! \n 빨리 ㄱㄱ하셈";
+						String content = dto.get(i).getPlace_name() + "에 " + dto.get(i).getProduct_name()+" 상품이 들어왔습니다!";
 
 						FCMUtil FcmUtil = new FCMUtil();
 						FcmUtil.send_FCM(tokenId, title, content);
