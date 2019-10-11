@@ -57,8 +57,17 @@ body {
       <c:set var="zoomLevel" value="13" />
    </c:otherwise>
 </c:choose>
- 
-
+ <script>
+$(function () {
+	
+	$('#searchbutton').click(function() {
+		var loadingImg = "<img src='./images/loading.gif' alt='로딩중' /><br />";
+		$('#placeResult').append(loadingImg);
+	});
+	
+	
+});
+</script>
 <script type="text/javascript">
 
 
@@ -149,7 +158,8 @@ body {
                   if (place_bookmark == locations[i][3]){
                      bookmark = "<br/><a href='./deleteBookmarkPlace.do'>관심점포에서 해제하기 </a>";
                   } else {
-                     bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"'>관심점포로 등록하기 </a>";
+                     bookmark = "<br/><a href='./bookmarkPlace.do?place_code="+locations[i][3]+"' id='bookmarkPlace'>관심점포로 등록하기 </a>";
+                     
                   }
                }   
                   infowindow.setContent(locations[i][0]+"<br/><a href='javascript:alert(\"편의점명:"+locations[i][0]+"\");'></a>" + bookmark);
@@ -261,7 +271,7 @@ body {
                               </select>
                              </td>
                              <td style="text-align: left;">
-                                  <input type="image"  src="images/searchbutton.png"   style="width:100px;  display: inline; text-align: center;  border-radius: 15px;"/>  
+                                  <input type="image" id="searchbutton"  src="images/searchbutton.png"   style="width:100px;  display: inline; text-align: center;  border-radius: 15px;"/>  
                              </td>
                           </tr>
                           </table>
@@ -271,8 +281,9 @@ body {
               
             
                <h5 style="font-family:Goyang; font-weight: bold;">근처 편의점 목록</h5> <br />
+               <div id="placeResult" ></div>
                   <table class="table table-bordered" style="border:2px solid gray; height: 200px; font-family:Goyang;">
-               <c:choose>
+              	 <c:choose>
                      <c:when test="${empty searchLists }">
                         <tr>
                            <td colspan="2" class="text-center">

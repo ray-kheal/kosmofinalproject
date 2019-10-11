@@ -172,8 +172,13 @@ body {
                         <!-- 리스트반복시작 -->  
                           <table style="margin-bottom:1px; height: auto; border-bottom: 1px solid #999999; font-family: Goyang;">
                           <col width="15%" />
+<<<<<<< HEAD
+             			  <col width="*" />
+             			  <col width="30%" />
+=======
                         <col width="*" />
                         <col width="30%" />
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                              <tr >
                                 <td rowspan="2" style="margin-left: 20px;text-align: center;"> 
                                     <img src="images/pic-2.png" style="text-align: center; width: 35px;" alt="" />
@@ -183,6 +188,26 @@ body {
                                 </td>
                                   
                                 <td style="border-bottom: 1px solid white;"> 
+<<<<<<< HEAD
+                                	<span style="font-size:14px; color:gray; float: right">${commentdto.comment_date}</span>
+                                </td>
+                             </tr>
+                             <tr>
+                               <td >  
+                               ${commentdto.content}
+                               </td>
+                                   
+                                <td>  
+                                	<c:choose>
+           							<c:when test="${EMAIL eq commentdto.email}">
+                                   		<button type="button"  class="btn" onclick="isCommentDelete();" style="font-family: Goyang; float: right">삭제하기 </button>
+                                   	 </c:when>
+							            <c:otherwise>
+							               
+							            </c:otherwise>
+							         </c:choose>
+							    </td>
+=======
                                    <span style="font-size:14px; color:gray; float: right">${commentdto.comment_date}</span>
                                 </td>
                              </tr>
@@ -201,6 +226,7 @@ body {
                                  </c:otherwise>
                               </c:choose>
                          </td>
+>>>>>>> branch 'master' of https://github.com/ray-kheal/kosmofinalproject.git
                              </tr>
                              
                            
