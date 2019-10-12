@@ -91,7 +91,7 @@ function checkValidate(f){
 						<input type="hidden" name="bgroup" value = "${replyRow.bgroup }" />
 						<input type="hidden" name="bstep" value = "${replyRow.bstep }" />
 						<input type="hidden" name="bindent" value = "${replyRow.bindent }" />
-							<input type="hid-den" name="board_type" value="1" /> 
+							<input type="hidden" name="board_type" value="1" /> 
 		                      <div class="form-group">
 		                        <label for="exampleInputName1">이름</label>
 		                        <input type="text" class="form-control" name="name" value="관리자">
@@ -127,13 +127,11 @@ function checkValidate(f){
 			
 				<div class="row text-right" style="float: right;">
 					 <button type="submit" class="btn btn-gradient-info btn-rounded">Ok</button>
+					     </form>
 	                 <button type="reset" class="btn btn-gradient-success btn-rounded">Reset</button>
 	                 <button class="btn btn-dark btn-rounded"
-	                 	onclick="location.href='./boardManagement.do';">List</button>
-	
-				    </form>
+	                 	onclick="location.href='./qnaManagement.do';">List</button>
 				</div>	
-	 
             </div>
       </div>
       
