@@ -90,9 +90,8 @@
    
    //사용자 정보 얻기
    function attachSignin(element) {
-	  console.log(element.id);
       auth2.attachClickHandler(element, {}, function(googleUser) {
-         alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
+         //alert(JSON.stringify(googleUser));//google api에 저장된 사용자 정보를 json으로 출력
          console.log(googleUser.getBasicProfile().getId());
          console.log(googleUser.getBasicProfile().getName());
          console.log(googleUser.getBasicProfile().getEmail());
