@@ -315,40 +315,85 @@ function textLengthOverCut(txt, len, lastTxt) {
                 src="images/mainpic2.jpg" 
                 alt="메인이미지" style="width: 100%;"> -->
                 
+         <!-------------------------------- 메인 이미지 시작 -->
+         <!----------------------------- pc용  -->
+         <div id="wideboard">
          
-<div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-     <img class="effect" 
-                src="images/main333.png" 
-                alt="메인이미지" style=" min-height: 200px;">
-    </div>
-    <div class="carousel-item">
-      <img src="images/main111.png" style="  min-height: 200px; " >
-    </div>
-    <div class="carousel-item">
-      <img src="images/main222.png" style=" min-height: 200px;">     
-    </div>
-  </div>
-  
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-          
+         
+		<div id="demo" class="carousel slide" data-ride="carousel" style="height:400px;">
+		
+		  <!-- Indicators -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		     <img class="effect" 
+		                src="images/main333.png" 
+		                alt="메인이미지" style="width: 100%; height: 100%">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main111.png" style="width: 100%; height: 100% " >
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main222.png" style="width: 100%; height: 100%">     
+		    </div>
+		  </div>
+		  
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
+		
+		</div>
+		
+		<!----------------------------- mobile용  -->
+         <div id="cutboard">
+         
+           
+		<div id="demo" class="carousel slide" data-ride="carousel" style="height:400px;">
+		
+		  <!-- Indicators -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		     <img class="effect" 
+		                src="images/main3333.png" 
+		                alt="메인이미지" style="width: 100%; height: 100%">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main1111.png" style="width: 100%; height: 100% " >
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main2222.png" style="width: 100%; height: 100%">     
+		    </div>
+		  </div>
+		  
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
+		
+		</div>
+       <!-------------------------------- 메인 이미지 끝 -->
            
       <!-- 배너 --> 
      <!--  <div id="banner-wrapper "> 
