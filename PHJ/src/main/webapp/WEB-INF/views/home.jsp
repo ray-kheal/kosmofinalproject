@@ -613,23 +613,26 @@ function textLengthOverCut(txt, len, lastTxt) {
 	
 				  <!-- Indicators -->
 				  <ul class="carousel-indicators">
-				    <li data-target="#demo" data-slide-to="0" class="active"></li>
-				    <li data-target="#demo" data-slide-to="1"></li>
+				    <!-- <li data-target="#demo" data-slide-to="0"></li> -->
+				    <li data-target="#demo" data-slide-to="1" class="active"></li>
 				    <li data-target="#demo" data-slide-to="2"></li>
 				    <li data-target="#demo" data-slide-to="3"></li>
 				    <li data-target="#demo" data-slide-to="4"></li>
 				    <li data-target="#demo" data-slide-to="5"></li>
 				    <li data-target="#demo" data-slide-to="6"></li>
 				    <li data-target="#demo" data-slide-to="7"></li>
+				    <li data-target="#demo" data-slide-to="8"></li>
 				  </ul>
 				  
 				  <!-- The slideshow -->
-				 <div class="carousel-inner">
+				 
 				 <!-- 슬라이드 첫번째 -->
-				    <div class="carousel-item active">
-				      <img src="images/mainpic2.jpg" alt="" style="width:100%; height: auto;" >
-				    </div>
-				  <!--   <div class="carousel-item"> -->
+ 			 <div class="carousel-inner">
+			   	 <div class="carousel-item active" id="item">
+			      	<img src="images/reciBanner.png" alt="" style="width:100%; height: 50%;" />
+			     </div>
+			 <div class="carousel-inner active">
+				  <!--   <div class="carousel-item">
 				    <!--  슬라이드 이후 --> 
 				       <c:choose> 
 	                           <c:when test="${empty recipeRows }"> 
@@ -640,9 +643,9 @@ function textLengthOverCut(txt, len, lastTxt) {
 	                           <c:otherwise> 
 	                              <c:forEach items="${recipeRows }" var="row" varStatus="loop"> 
 	                                  <div class="carousel-item">
-	                                     <figure class="recipePhoto" style="width:100%; height: auto;"> 
+	                                     <figure class="recipePhoto" style="width:100%; height: 50%;"> 
 	                                        <img class="img-fluid img-thumbnail effect" 
-	                                           src="./resources/imageUpload/${row.thumbnail }" style="width:100%; height: auto;"
+	                                           src="./resources/imageUpload/${row.thumbnail }" style="width:100%; height: 100%;"
 	                                           alt=""> 
 	                                        <figcaption> 
 	                                           <h3>${row.title }</h3> 
@@ -652,8 +655,6 @@ function textLengthOverCut(txt, len, lastTxt) {
 	                                     <a href="./Rview.do?idx=${row.idx}&nowPage=${nowPage}" class=""></a> 
 	                                     </figure> 
 	                               	 </div>
-	                                   
-	                                
 	                              </c:forEach>
 	                           </c:otherwise>
 	                       </c:choose>
@@ -670,7 +671,7 @@ function textLengthOverCut(txt, len, lastTxt) {
 			    <span class="carousel-control-next-icon"></span>
 			  </a>
 			</div>
-			
+			</div>
 			
 			
             <br /><br />
