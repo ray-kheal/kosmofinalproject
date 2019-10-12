@@ -244,7 +244,16 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
             
             <li class="nav-item"> 
               <a class="nav-link" data-toggle="collapse" href="#board-pages" aria-expanded="false" aria-controls="board-pages">
-                <span class="menu-title">게시판관리</span>
+              
+                <c:choose>
+                        <c:when test="${empty qnaviewRow_noreply }">
+                             <span class="menu-title">게시판관리</span>
+                        </c:when>   
+                        <c:otherwise>
+                             <span class="menu-title">게시판관리 <label class="badge badge-danger">new</label></span>
+                        </c:otherwise>
+                </c:choose>
+               
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
@@ -253,7 +262,18 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
                   <li class="nav-item"> <a class="nav-link" href="pages/tables/boardManagement.do">공지사항</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/tables/recipeManagement.do">레시피 게시판</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/tables/eventManagement.do">이벤트 게시판</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/tables/qnaManagement.do">QnA 게시판</a></li>
+                  <li class="nav-item"> 
+                  
+                  		
+	                  <c:choose>
+	                        <c:when test="${empty qnaviewRow_noreply }">
+	                            <a class="nav-link" href="pages/tables/qnaManagement.do">QnA 게시판</a>
+	                        </c:when>   
+	                        <c:otherwise>
+	                            <a class="nav-link" href="pages/tables/qnaManagement.do">QnA 게시판 <label class="badge badge-danger">new</label></a>
+	                        </c:otherwise>
+	                </c:choose>
+                  </li>
                 </ul>
               </div>
             </li> 

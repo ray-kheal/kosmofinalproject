@@ -91,7 +91,7 @@ function checkValidate(f){
 						<input type="hidden" name="bgroup" value = "${replyRow.bgroup }" />
 						<input type="hidden" name="bstep" value = "${replyRow.bstep }" />
 						<input type="hidden" name="bindent" value = "${replyRow.bindent }" />
-							<input type="hid-den" name="board_type" value="1" /> 
+							<input type="hidden" name="board_type" value="1" /> 
 		                      <div class="form-group">
 		                        <label for="exampleInputName1">이름</label>
 		                        <input type="text" class="form-control" name="name" value="관리자">
