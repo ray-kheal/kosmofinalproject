@@ -329,14 +329,14 @@ function textLengthOverCut(txt, len, lastTxt) {
   <div class="carousel-inner">
     <div class="carousel-item active">
      <img class="effect" 
-                src="images/main33.png" 
-                alt="메인이미지" style="width: 100%;" height="40%">
+                src="images/main333.png" 
+                alt="메인이미지" style=" min-height: 200px;">
     </div>
     <div class="carousel-item">
-      <img src="images/main1.png" alt="Chicago" style="width: 100%;" height="40%">
+      <img src="images/main111.png" style="  min-height: 200px; " >
     </div>
     <div class="carousel-item">
-      <img src="images/main22.png"alt="New York" style="width: 100%;" height="40%">
+      <img src="images/main222.png" style=" min-height: 200px;">     
     </div>
   </div>
   
