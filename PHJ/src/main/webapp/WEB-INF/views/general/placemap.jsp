@@ -4,7 +4,7 @@
 <!doctype HTML>
 <html>
 <head>
-<title>편의점 찾기 페이지(임시)</title>
+<title>편의점 찾기 페이지</title>
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -97,11 +97,9 @@ $(function () {
    
    var showPosition = function(position){
       //위도를 가져오는 부분
-      var latitude = 37.478966;
+      var latitude = position.coords.latitude;
       //경도를 가져오는 부분
-      var longitude =126.878675;
-      //span.innerHTML = "위도:"+latitude+"<br/>경도:"+longitude;   
-      
+      var longitude = position.coords.longitude;
     
       //위경도를 text input에 입력
       document.getElementById("latTxt").value = latitude;
@@ -313,94 +311,14 @@ $(function () {
             
             
             </td>
-         
-         
-         
+            
          
          </tr>
          
          </table>
          
          
-         
-        <%--  <table style="border:1px solid gray; height: 600px;">
-            <colgroup>
-               <col width="55%" />
-               <col width="45%" />
-            </colgroup>
-            
-            
-            
-            
-            
-         
-            <tr style="border:1px solid red"> 
-               <td rowspan="3"  id=map>         
-                  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB72L9djU32QhHnDTm9QLNmO9385Drfbpg"></script>
-               </td> 
-               <!-- <td style=" float: center;">
-                   <span id="result"></span> 
-               </td> -->
-            </tr>         
-            <tr>
-               <!-- <td></td> -->
-               <td style="text-align: center;">
-                <span id="result"></span>
-                  <form name="searchFrm">
-                     <input type="hidden" id="latTxt" name="latTxt" />
-                     <input type="hidden" id="lngTxt" name="lngTxt" />
-                      <h5 style="font-family:Goyang;">근처 편의점 찾기</h5> <br />
-                     <select name="distance" id="distance">
-                        <option value="2" <c:if test="${param.distance==2 }">selected</c:if>>200m</option>
-                        <option value="5" <c:if test="${param.distance==5 }">selected</c:if>>500m</option>
-                        <option value="10" <c:if test="${param.distance==10 }">selected</c:if>>1Km</option>
-                        <option value="15" <c:if test="${param.distance==15 }">selected</c:if>>1.5Km</option>
-
-                     </select>
-                     <br />
-
-                      <input type="image"  src="images/searchbutton.png" width="150px" height="75px" style="text-align: center; border-radius: 15px;"/> 
-                   <!-- <input type="submit" value="" style=" background-image: url('images/searchbutton.png'); width:150px; height:75px; border-radius: 15px;"  />  -->
-                    </form>
-               
-               </td>
-            </tr>         
-            <tr>
-               <!-- <td></td> -->
-               <td style="text-align: center;">
-                  <h5 style="font-family:Goyang;">근처 편의점 목록</h5> <br />
-                  <table class="table table-bordered" style="border:2px solid gray; height: 200px; font-family:Goyang;">
-               <c:choose>
-                     <c:when test="${empty searchLists }">
-                        <tr>
-                           <td colspan="2" class="text-center">
-                              등록된 점포가 없습니다.
-                           </td>
-                        </tr>
-                     </c:when>
-                     <c:otherwise>
-                        <c:forEach items="${searchLists }" var="row" 
-                           varStatus="loop">
-                           <!-- 리스트반복시작 -->
-                           <tr>
-                               <td class="text-center" >${row.place_name }</td>
-                              <td class="text-left">${row.place_address}</td>
-                           </tr>
-                           
-                           <!-- 리스트반복끝 -->
-                        </c:forEach>
-                     </c:otherwise>
-                  </c:choose>
-                  <tr>
-                     <td colspan="2" align="center" style="font-weight: bold; font-size: 1.5em; ">
-                        ${pagingImg }
-                     </td>
-                  </tr>
-                  </table>
-
-               </td>
-            </tr>         
-         </table> --%>
+        
          </div><!-- container -->
       </div>
 

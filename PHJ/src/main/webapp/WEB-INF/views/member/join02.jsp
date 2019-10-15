@@ -350,11 +350,11 @@ label {
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">	
 									<input type="radio" name="mobile_alert" class="custom-control-input" value="Y" id="SMSY" />
-									<label class="custom-control-label" for="SMSY">SMS 수신동의</label>
+									<label class="custom-control-label" for="SMSY">모바일 알림 ON</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">	
 									<input type="radio" name="mobile_alert" class="custom-control-input" value="N" id="SMSN" />
-									<label class="custom-control-label" for="SMSN">SMS 수신거부</label>
+									<label class="custom-control-label" for="SMSN">모바일 알림 OFF</label>
 								</div>
 								
 								<br />※ SMS 수신동의를 체크하시면 행사 및 공지사항을 SMS로 보내드립니다.

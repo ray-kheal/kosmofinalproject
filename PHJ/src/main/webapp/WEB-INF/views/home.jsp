@@ -11,7 +11,7 @@
 <%@ page session="true"%> 
 <html> 
 <head> 
-<title>편히점 작업 중</title> 
+<title>편히점</title> 
 <meta charset="utf-8" /> 
 <meta name="viewport" 
    content="width=device-width, initial-scale=1, user-scalable=no" /> 
@@ -315,53 +315,87 @@ function textLengthOverCut(txt, len, lastTxt) {
                 src="images/mainpic2.jpg" 
                 alt="메인이미지" style="width: 100%;"> -->
                 
+         <!-------------------------------- 메인 이미지 시작 -->
+         <!----------------------------- pc용  -->
+         <div id="wideboard">
          
-<div id="demo" class="carousel slide" data-ride="carousel" style="height: 60%">
 
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  
-  <!-- The slideshow -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-     <img class="effect" 
-                src="images/main333.png" 
-                alt="메인이미지" style=" min-height: 200px;">
-    </div>
-    <div class="carousel-item">
-      <img src="images/main111.png" style="  min-height: 200px; " >
-    </div>
-    <div class="carousel-item">
-      <img src="images/main222.png" style=" min-height: 200px;">     
-    </div>
-  </div>
-  
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-          
+         
+		<div id="demo" class="carousel slide" data-ride="carousel" style="height:60%;">
+		
+		  <!-- Indicators -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		     <img class="effect" 
+		                src="images/main333.png" 
+		                alt="메인이미지" style="width: 100%; height: 100%">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main111.png" style="width: 100%; height: 100% " >
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main222.png" style="width: 100%; height: 100%">     
+		    </div>
+		  </div>
+		  
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
+		
+		</div>
+		
+		<!----------------------------- mobile용  -->
+         <div id="cutboard">
+         
            
-      <!-- 배너 --> 
-     <!--  <div id="banner-wrapper "> 
-         <div  class=" container  "> 
-            <div class="row"> 
-               <div class="col-7 col-12-medium"> 
-                   
-                   
-               </div> 
-             
-            </div> 
-         </div> 
-      </div>   -->
+		<div id="demo" class="carousel slide" data-ride="carousel" style="height:400px;">
+		
+		  <!-- Indicators -->
+		  <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+		  </ul>
+		  
+		  <!-- The slideshow -->
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		     <img class="effect" 
+		                src="images/main3333.png" 
+		                alt="메인이미지" style="width: 100%; height: 100%">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main1111.png" style="width: 100%; height: 100% " >
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/main2222.png" style="width: 100%; height: 100%">     
+		    </div>
+		  </div>
+		  
+		  <!-- Left and right controls -->
+		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
+		
+		</div>
+       <!-------------------------------- 메인 이미지 끝 -->
+
       
       <div id="search"  style="height: 40px;"><br /></div>
       <!-- Features -->   
@@ -805,18 +839,7 @@ function textLengthOverCut(txt, len, lastTxt) {
             </div>
 
       </div>
-<!--       <div class="container"> -->
-<!--          <h2>개발중이니 관리자 페이지 링크 활성화.</h2> -->
-<!--          <a href="./admin/index.do">관리자 페이지 인덱스로 ㄱㄱ</a> -->
-<!--          <br /><br /> -->
-   
-<!--          <h4> -->
-<!--             로그인 한 이메일 : -->
-<%--             <%=session.getAttribute("EMAIL")%></h4> --%>
-<!--          <h4> -->
-<!--             로그인 한 회원 이름 : -->
-<%--             <%=session.getAttribute("NAME")%></h4> --%>
-<!--       </div> -->
+
       <!-- Footer 인클루드. -->
       <%@ include file="general/MainFooter.jsp"%>
 

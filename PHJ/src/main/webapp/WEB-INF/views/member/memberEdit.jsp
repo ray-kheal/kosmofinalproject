@@ -369,7 +369,7 @@ div label input {
 							  	 <div id="ck-button" style=" height: 31px; width: 70px;">
 									<label> 
 									<input type="radio" name="mobile_alert" id="mobileY" value="Y" ${mobileY }>
-										<span style="font-size: 0.6em; width:80px; border: 1px solid #D0D0D0;">SMS 수신동의</span>
+										<span style="font-size: 0.6em; width:80px; border: 1px solid #D0D0D0;">모바일 알림 ON</span>
 									</label>
 								
 								</div>
@@ -377,7 +377,7 @@ div label input {
 								<div id="ck-button"  style=" height: 31px; width: 70px;">
 									<label> 
 									<input type="radio" name="mobile_alert" id="mobileN" value="N"  ${mobileN } >
-										<span  style="font-size: 0.6em; width:80px; border: 1px solid #D0D0D0;">SMS 수신거부</span>
+										<span  style="font-size: 0.6em; width:80px; border: 1px solid #D0D0D0;">모바일 알림 OFF</span>
 									</label>
 							
 								</div>

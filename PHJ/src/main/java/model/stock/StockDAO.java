@@ -33,7 +33,7 @@ public class StockDAO {
 	public int getTotalCount(Map<String, Object> map) {
 		System.out.println("getTotalCount() 메소드 실행.");
 
-		String query = " SELECT COUNT(*) FROM phj_board_stock  ";
+		String query = " SELECT COUNT(*) FROM phj_stock_log  ";
 
 		return template.queryForObject(query, Integer.class);
 
@@ -43,7 +43,7 @@ public class StockDAO {
 	public int getTotalCount(Map<String, Object> map, int place_code) {
 		System.out.println("getTotalCount() 메소드 실행.");
 
-		String query = " SELECT COUNT(*) FROM phj_board_stock  where place_code= " + place_code;
+		String query = " SELECT COUNT(*) FROM phj_stock_log  where place_code= " + place_code;
 
 		return template.queryForObject(query, Integer.class);
 	}
@@ -54,10 +54,10 @@ public class StockDAO {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 		System.out.println("DAO 내부의 product_code : " + product_code);
-		String query = "  SELECT * FROM PHJ_board_stock ";
-		query += " inner join phj_place " + "        on phj_board_stock.place_code = phj_place.place_code "
-				+ "    inner join phj_product " + "        on phj_board_stock.product_code = phj_product.product_code "
-				+ "  where phj_board_stock.product_code  =" + product_code;
+		String query = "  SELECT * FROM PHJ_stock_log ";
+		query += " inner join phj_place " + "        on phj_stock_log.place_code = phj_place.place_code "
+				+ "    inner join phj_product " + "        on phj_stock_log.product_code = phj_product.product_code "
+				+ "  where phj_stock_log.product_code  =" + product_code;
 
 		System.out.println("query : " + query);
 
@@ -70,8 +70,8 @@ public class StockDAO {
 		int start = Integer.parseInt(map.get("start").toString());
 		int end = Integer.parseInt(map.get("end").toString());
 
-		String query = "SELECT * FROM ( " + " SELECT tb.*, rownum rNum from (" + " SELECT * FROM phj_board_stock "
-				+ "    inner join phj_product " + "        on phj_board_stock.product_code = phj_product.product_code "
+		String query = "SELECT * FROM ( " + " SELECT tb.*, rownum rNum from (" + " SELECT * FROM phj_stock_log "
+				+ "    inner join phj_product " + "        on phj_stock_log.product_code = phj_product.product_code "
 				+ "	where place_code = " + place_code + " ) tb " + " ) where rNum BETWEEN " + start + " AND " + end;
 
 		return (ArrayList<StockDTO>) template.query(query, new BeanPropertyRowMapper<StockDTO>(StockDTO.class));
